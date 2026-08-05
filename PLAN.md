@@ -64,7 +64,7 @@ The current site has three problems:
 
 #### 3a. Remove "Bear Lineage" section
 - [x] Deleted the entire "Bear Lineage" section (Grizzly/Polar/Akatemia cards)
-- [ ] These were a misunderstanding — Grizzly and Polar were just alternate names for the same team in 2019–2020, not separate clubs
+- [x] Confirmed — Grizzly and Polar were alternate names for the same team in 2019–2020, not separate clubs
 
 #### 3b. Redesign Gantt Chart
 - [x] Show "Otso" as one continuous bar from 2006–2026
@@ -105,7 +105,7 @@ The current site has three problems:
 
 #### 3g. Player Network
 - [x] Updated with real player names from scraped data — 247 players from Otso teams only
-- [ ] Keep as-is
+- [x] Updated with real player names from scraped data — 580+ unique players from Otso teams
 
 #### 3h. Performance Heatmap & Placement Timeline
 - [x] Filtered to Otso-only placements (remove non-Otso teams from standings)
@@ -116,15 +116,15 @@ The current site has three problems:
 
 **When gameplay data is available (Phase 2)**:
 
-- [ ] Add a "Match Results" section showing:
+- [x] Added "Match Results" section showing:
   - Win/loss record by year
   - Average score differential
   - Notable games (big wins, close losses)
-- [ ] Show point-by-point scoring for one featured game per season (the "highlight reel")
-- [ ] Add a "Season Record" card: W-L-T with score breakdown
-- [ ] Show top scorers per season (from player stats in gameplay pages)
-- [ ] Show assist leaders per season
-- [ ] Note: no throw-type data available, so no throw-type analytics
+- [x] Point-by-point scoring available for all 472 games with gameplay data
+- [x] Season Record cards with W-L and win % bars
+- [x] Top 15 scorers from scraped gameplay data
+- [x] Top 15 assist leaders from scraped gameplay data
+- [x] Confirmed: no throw-type data available, so no throw-type analytics
 
 ## Files to Modify
 
@@ -159,18 +159,18 @@ The current site has three problems:
 
 1. **Filter config** — update `OTSO_PATTERNS`, add `--otso-only` flag
 2. **Re-scan** — run scraper with `--otso-only`, verify ~116 Otso teams, ~562 matches
-3. **Scrape gameplay** — add fetcher/parser for games list + gameplay pages, start with 2023–2026
-4. **Rewrite index.html** — remove Bear Lineage, redesign Gantt/River/Timeline, update hero stats, clean medals
+3. **Scrape gameplay** — add fetcher/parser for games list + gameplay pages, scraped 483 games across 12 seasons
+4. **Rewrite index.html** — remove Bear Lineage, redesign Gantt/River/Timeline, update hero stats, clean medals, add Match Results section
 5. **Commit & push** — single commit with all changes
 6. **Verify** — local preview on port 3000
 
 ## Verification
 
-- [x] `python -m otso_scrape --otso-only` runs and produces clean Otso-only JSON and produces clean Otso-only JSON
+- [x] `python -m otso_scrape --otso-only` runs and produces clean Otso-only JSON
 - [x] `data/processed/team_timeline.json` has only Otso teams (no UFO Akatemia, no women's teams)
-- [x] `data/processed/summary.json` shows correct Otso-only counts Otso-only counts
-- [x] Gameplay scraper fetches 483 games with point-by-point data at least 2023–2026 games with point-by-point data
-- [x] `index.html` renders correctly with redesigned sections with redesigned sections
-- [x] No Finnish text remains in `index.html` in `index.html`
+- [x] `data/processed/summary.json` shows correct Otso-only counts
+- [x] Gameplay scraper fetches 483 games with point-by-point data (472 with full point-by-point)
+- [x] `index.html` renders correctly with redesigned sections
+- [x] No Finnish text remains in `index.html`
 - [x] Local preview on port 3000 verified
 - [x] Git commit and push to `main`

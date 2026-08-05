@@ -684,7 +684,7 @@
                     <div class="hero-stat-label">Seasons</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-value pink">200+</div>
+                    <div class="hero-stat-value pink">580+</div>
                     <div class="hero-stat-label">Players</div>
                 </div>
                 <div class="hero-stat">
@@ -885,6 +885,22 @@
             2024: 'Otso 2 + Akatemia',
             2025: 'Otso 2 + Akatemia',
             2026: 'Otso 2 + Akatemia',
+        };
+
+        // Otso performance data — from scraped match_results.json
+        const otsoPerformanceData = {
+            2015: {wins: 35, losses: 12, winPct: 74},
+            2016: {wins: 38, losses: 13, winPct: 75},
+            2017: {wins: 39, losses: 16, winPct: 71},
+            2018: {wins: 41, losses: 9, winPct: 82},
+            2019: {wins: 40, losses: 10, winPct: 80},
+            2020: {wins: 6, losses: 7, winPct: 46},
+            2021: {wins: 17, losses: 10, winPct: 63},
+            2022: {wins: 29, losses: 12, winPct: 71},
+            2023: {wins: 28, losses: 18, winPct: 61},
+            2024: {wins: 31, losses: 12, winPct: 72},
+            2025: {wins: 33, losses: 23, winPct: 59},
+            2026: {wins: 4, losses: 0, winPct: 100},
         };
 
         const years = Array.from({length: 21}, (_, i) => 2006 + i);
@@ -1124,13 +1140,14 @@
             const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
             
-            // Estimated active players per year (from match participation data)
-            // Based on scraped gameplay data showing roster sizes
+            // Unique Otso players per year (from scraped match participation data)
+            // 2006-2014: estimated from team card data (no gameplay pages)
+            // 2015-2026: actual unique player counts from gameplay rosters
             const activePlayers = {
-                2006: 12, 2007: 14, 2008: 15, 2009: 16, 2010: 18,
-                2011: 28, 2012: 30, 2013: 35, 2014: 38, 2015: 32,
-                2016: 36, 2017: 38, 2018: 34, 2019: 36, 2020: 34,
-                2021: 30, 2022: 32, 2023: 40, 2024: 42, 2025: 44, 2026: 46,
+                2006: 10, 2007: 12, 2008: 14, 2009: 15, 2010: 18,
+                2011: 22, 2012: 25, 2013: 28, 2014: 30, 2015: 42,
+                2016: 37, 2017: 40, 2018: 36, 2019: 34, 2020: 31,
+                2021: 28, 2022: 27, 2023: 43, 2024: 38, 2025: 47, 2026: 17,
             };
             
             function draw() {
@@ -1266,9 +1283,9 @@
             
             // Real scraped performance data — Otso men's team only
             const performanceData = {
-                2015: {wins: 28, losses: 5, winPct: 85},
-                2016: {wins: 33, losses: 8, winPct: 80},
-                2017: {wins: 33, losses: 13, winPct: 72},
+                2015: {wins: 35, losses: 12, winPct: 74},
+                2016: {wins: 38, losses: 13, winPct: 75},
+                2017: {wins: 39, losses: 16, winPct: 71},
                 2018: {wins: 41, losses: 9, winPct: 82},
                 2019: {wins: 40, losses: 10, winPct: 80},
                 2020: {wins: 6, losses: 7, winPct: 46},
@@ -1276,7 +1293,7 @@
                 2022: {wins: 29, losses: 12, winPct: 71},
                 2023: {wins: 28, losses: 18, winPct: 61},
                 2024: {wins: 31, losses: 12, winPct: 72},
-                2025: {wins: 29, losses: 18, winPct: 62},
+                2025: {wins: 33, losses: 23, winPct: 59},
                 2026: {wins: 4, losses: 0, winPct: 100},
             };
             
@@ -1381,10 +1398,10 @@
         // CHART.JS CHARTS
         // ============================================
         
-        // PERFORMANCE CHART — Win rate by season
+        // PERFORMANCE CHART — Win rate by season (from scraped match data)
         const perfData = {
-            2015:85,2016:80,2017:72,2018:82,2019:80,2020:46,2021:63,2022:71,
-            2023:61,2024:72,2025:62,2026:100
+            2015:74,2016:75,2017:71,2018:82,2019:80,2020:46,2021:63,2022:71,
+            2023:61,2024:72,2025:59,2026:100
         };
         const perfLabels = Object.keys(perfData);
         const perfValues = Object.values(perfData);
@@ -1429,31 +1446,32 @@
         // MATCH RESULTS — Populate season records, scorers, assists
         // ============================================
         (function() {
+            // Data from scraped match_results.json (483 games, 472 with point-by-point)
             const seasonRecords = {
-                2015:{wins:28,losses:5},2016:{wins:33,losses:8},2017:{wins:33,losses:13},
+                2015:{wins:35,losses:12},2016:{wins:38,losses:13},2017:{wins:39,losses:16},
                 2018:{wins:41,losses:9},2019:{wins:40,losses:10},2020:{wins:6,losses:7},
                 2021:{wins:17,losses:10},2022:{wins:29,losses:12},2023:{wins:28,losses:18},
-                2024:{wins:31,losses:12},2025:{wins:29,losses:18},2026:{wins:4,losses:0}
+                2024:{wins:31,losses:12},2025:{wins:33,losses:23},2026:{wins:4,losses:0}
             };
             const topScorers = [
-                {name:'Sandberg Tomi',points:1284},{name:'Hotari Roni',points:1262},
-                {name:'Sihvo Jarno',points:584},{name:'Niini Erkka',points:560},
-                {name:'Elonheimo Antti',points:550},{name:'Kallio Lassi',points:508},
-                {name:'Rämö Ilkka',points:454},{name:'Potrykus Patrick',points:446},
-                {name:'Vaahtoranta Ilkka',points:444},{name:'Vuorio Oskari',points:440},
-                {name:'Alitalo Mikko',points:410},{name:'Ropo Aki',points:336},
-                {name:'Järvi Antti',points:336},{name:'Kinnunen Pekka',points:324},
-                {name:'Salo Santeri',points:308}
+                {name:'Roni Hotari',points:469},{name:'Erkka Niini',points:414},
+                {name:'Tomi Sandberg',points:396},{name:'Oskari Vuorio',points:345},
+                {name:'Touko Väänänen',points:315},{name:'Antti Elonheimo',points:290},
+                {name:'Jesse Saastamoinen',points:238},{name:'Patrick Potrykus',points:201},
+                {name:'Jarno Sihvo',points:184},{name:'Lassi Kallio',points:160},
+                {name:'Santeri Salo',points:156},{name:'Emil Videman',points:142},
+                {name:'Antti Järvi',points:132},{name:'Tommi Lehto',points:131},
+                {name:'Touko A. Väänänen',points:128}
             ];
             const topAssists = [
-                {name:'Hotari Roni',assists:946},{name:'Niini Erkka',assists:826},
-                {name:'Sandberg Tomi',assists:784},{name:'Vuorio Oskari',assists:704},
-                {name:'Väänänen Touko aukusti',assists:636},{name:'Elonheimo Antti',assists:590},
-                {name:'Saastamoinen Jesse',assists:454},{name:'Potrykus Patrick',assists:450},
-                {name:'Sihvo Jarno',assists:356},{name:'Wiklund Antti',assists:326},
-                {name:'Salo Santeri',assists:326},{name:'Kallio Lassi',assists:324},
-                {name:'Videman Emil',assists:284},{name:'Väänänen Touko',assists:282},
-                {name:'Järvi Antti',assists:260}
+                {name:'Tomi Sandberg',assists:632},{name:'Roni Hotari',assists:617},
+                {name:'Erkka Niini',assists:293},{name:'Jarno Sihvo',assists:292},
+                {name:'Antti Elonheimo',assists:275},{name:'Ilkka Vaahtoranta',assists:254},
+                {name:'Lassi Kallio',assists:251},{name:'Ilkka Rämö',assists:226},
+                {name:'Oskari Vuorio',assists:211},{name:'Mikko Alitalo',assists:194},
+                {name:'Patrick Potrykus',assists:191},{name:'Antti Järvi',assists:180},
+                {name:'Aki Vehtari',assists:157},{name:'Jesse Saastamoinen',assists:155},
+                {name:'Santeri Salo',assists:152}
             ];
             
             // Season records

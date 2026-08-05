@@ -1,0 +1,176 @@
+{
+  "season_records": {
+    "2022": {
+      "wins": 29,
+      "losses": 12
+    },
+    "2026": {
+      "wins": 4,
+      "losses": 0
+    },
+    "2016": {
+      "wins": 38,
+      "losses": 13
+    },
+    "2020": {
+      "wins": 6,
+      "losses": 7
+    },
+    "2023": {
+      "wins": 28,
+      "losses": 18
+    },
+    "2021": {
+      "wins": 17,
+      "losses": 10
+    },
+    "2019": {
+      "wins": 40,
+      "losses": 10
+    },
+    "2018": {
+      "wins": 41,
+      "losses": 9
+    },
+    "2015": {
+      "wins": 35,
+      "losses": 12
+    },
+    "2017": {
+      "wins": 39,
+      "losses": 16
+    },
+    "2025": {
+      "wins": 33,
+      "losses": 23
+    },
+    "2024": {
+      "wins": 31,
+      "losses": 12
+    }
+  },
+  "top_scorers": [
+    {
+      "name": "Roni Hotari",
+      "points": 469
+    },
+    {
+      "name": "Erkka Niini",
+      "points": 414
+    },
+    {
+      "name": "Tomi Sandberg",
+      "points": 396
+    },
+    {
+      "name": "Oskari Vuorio",
+      "points": 345
+    },
+    {
+      "name": "Touko aukusti Väänänen",
+      "points": 315
+    },
+    {
+      "name": "Antti Elonheimo",
+      "points": 290
+    },
+    {
+      "name": "Jesse Saastamoinen",
+      "points": 238
+    },
+    {
+      "name": "Patrick Potrykus",
+      "points": 201
+    },
+    {
+      "name": "Jarno Sihvo",
+      "points": 184
+    },
+    {
+      "name": "Lassi Kallio",
+      "points": 160
+    },
+    {
+      "name": "Santeri Salo",
+      "points": 156
+    },
+    {
+      "name": "Emil Videman",
+      "points": 142
+    },
+    {
+      "name": "Touko Väänänen",
+      "points": 139
+    },
+    {
+      "name": "Antti Järvi",
+      "points": 132
+    },
+    {
+      "name": "Tommi Lehto",
+      "points": 131
+    }
+  ],
+  "top_assists": [
+    {
+      "name": "Tomi Sandberg",
+      "assists": 632
+    },
+    {
+      "name": "Roni Hotari",
+      "assists": 617
+    },
+    {
+      "name": "Erkka Niini",
+      "assists": 293
+    },
+    {
+      "name": "Jarno Sihvo",
+      "assists": 292
+    },
+    {
+      "name": "Antti Elonheimo",
+      "assists": 275
+    },
+    {
+      "name": "Ilkka Vaahtoranta",
+      "assists": 254
+    },
+    {
+      "name": "Lassi Kallio",
+      "assists": 251
+    },
+    {
+      "name": "Ilkka Rämö",
+      "assists": 226
+    },
+    {
+      "name": "Oskari Vuorio",
+      "assists": 211
+    },
+    {
+      "name": "Mikko Alitalo",
+      "assists": 194
+    },
+    {
+      "name": "Patrick Potrykus",
+      "assists": 191
+    },
+    {
+      "name": "Antti Järvi",
+      "assists": 180
+    },
+    {
+      "name": "Aki Vehtari",
+      "assists": 157
+    },
+    {
+      "name": "Jesse Saastamoinen",
+      "assists": 155
+    },
+    {
+      "name": "Santeri Salo",
+      "assists": 152
+    }
+  ]
+}
