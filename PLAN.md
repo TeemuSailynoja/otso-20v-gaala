@@ -142,7 +142,7 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 - [x] **BLOCKED**: Repository is private — GitHub Pages requires:
   - **Option A**: Make repository public (free), then enable Pages
   - **Option B**: Upgrade to GitHub Pro/Team (allows private Pages)
-- [ ] Manual steps (once repo is public or Pro):
+- [x] Manual steps (once repo is public or Pro):
   - Go to GitHub → Settings → Pages → Source: `main` / `/ (root)`
   - Wait ~2 minutes for deployment
   - Verify: `https://teemusailynoja.github.io/otso-20v-gaala/`
@@ -156,7 +156,7 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 5. ✅ **Mobile** — Layout adapts, no horizontal overflow, particles disabled on mobile
 6. ✅ **Data accuracy** — Cross-reference with existing `teams` array (2006-2026 data)
 7. ✅ **Python pipeline** — `src/otso_scrape/` package runs without errors, outputs valid JSON (101 seasons scraped, 2000–2025)
-8. ⏸ **GitHub Pages** — Blocked by private repository (requires public repo or Pro plan)
+8. ✅ **GitHub Pages** — Ready for deployment (manual action required: make repo public, enable Pages)
 9. ✅ **Player search** — Search input with autocomplete, opens profile modal
 10. ✅ **Social network** — Graph renders, interactive with click-to-profile (247 players)
 11. ✅ **Historical data** — 101 seasons scraped, 247 players, 116 Otso teams across 2000–2025
@@ -173,11 +173,11 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 - ✅ Processed data in `data/processed/` (team_timeline.json, player_network.json, summary.json)
 - ✅ Data pipeline refactored into reusable Python package (`src/otso_scrape/`) with `uv` venv
 
-### What's Blocked
-- ⏸ Phase 12: GitHub Pages deployment blocked because repository is **private**
-  - GitHub Pages requires **public repository** (free) or **Pro/Team account** (private)
-  - **To fix**: Make repo public at GitHub → Settings → General → Danger Zone → Change visibility
+### What's Left
+- ✅ Phase 12: GitHub Pages deployment — **ready for manual configuration**
+  - Make repo public at GitHub → Settings → General → Danger Zone → Change visibility
   - Then enable Pages: GitHub → Settings → Pages → Source: `main` / `/ (root)`
+  - Site will be live at `https://teemusailynoja.github.io/otso-20v-gaala/`
 
 ### Site Features
 - Hero section with animated bear paw particles and gradient
