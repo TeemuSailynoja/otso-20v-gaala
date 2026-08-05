@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otso 20 vuotta — Espoo Ultimate Club</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #060a14;
+            --card: #0d1321;
+            --card-hover: #131b2e;
+            --text: #e8ecf4;
+            --muted: #6b7a99;
+            --orange: #ff6b35;
+            --pink: #ff006e;
+            --blue: #00b4d8;
+            --green: #06d6a0;
+            --purple: #7b2ff7;
+            --gold: #ffd60a;
+            --border: #1a2332;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(255, 107, 53, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 90%, rgba(0, 180, 216, 0.08) 0%, transparent 50%);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid rgba(255, 214, 10, 0.25);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 214, 10, 0.04);
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--orange) 25%, var(--pink) 50%, var(--blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 550px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+        }
+        .hero-stats { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; }
+        .hero-stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .hero-stat-value.orange { color: var(--orange); }
+        .hero-stat-value.blue { color: var(--blue); }
+        .hero-stat-value.pink { color: var(--pink); }
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.4rem;
+        }
+
+        /* SECTIONS */
+        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+        .section-header p { color: var(--muted); font-size: 1rem; }
+
+        /* CHART CARDS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .chart-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .chart-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(255, 107, 53, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .chart-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .chart-wrapper { position: relative; height: 320px; }
+        .full-width { grid-column: 1 / -1; }
+
+        /* BEAR LINEAGE */
+        .bear-lineage {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .bear-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            min-width: 200px;
+            flex: 1;
+            max-width: 280px;
+            transition: all 0.3s ease;
+        }
+        .bear-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .bear-icon { font-size: 3rem; margin-bottom: 0.75rem; }
+        .bear-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .bear-desc { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+        .bear-years {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* TIMELINE */
+        .timeline { position: relative; padding: 2rem 0; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--orange), var(--pink), var(--blue));
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .timeline-item.visible { opacity: 1; transform: translateY(0); }
+        .timeline-item:nth-child(odd) { flex-direction: row; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+        .timeline-content {
+            width: 45%;
+            padding: 1.25rem;
+            background: var(--card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            background: var(--card-hover);
+            border-color: rgba(255, 107, 53, 0.2);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--orange);
+            border: 3px solid var(--bg);
+            z-index: 2;
+        }
+        .timeline-year {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+        .timeline-detail { color: var(--muted); font-size: 0.85rem; margin-top: 0.25rem; }
+
+        /* BADGES */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 0.5rem;
+        }
+        .badge-otso { background: rgba(255, 107, 53, 0.15); color: var(--orange); }
+        .badge-grizzly { background: rgba(255, 0, 110, 0.15); color: var(--pink); }
+        .badge-polar { background: rgba(0, 180, 216, 0.15); color: var(--blue); }
+        .badge-akatemia { background: rgba(6, 214, 160, 0.15); color: var(--green); }
+        .badge-2 { background: rgba(123, 47, 247, 0.15); color: var(--purple); }
+        .badge-3 { background: rgba(255, 214, 10, 0.15); color: var(--gold); }
+
+        /* MEDALS */
+        .medals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .medal {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .medal-icon { font-size: 2.5rem; }
+        .medal-count {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 0.5rem;
+        }
+        .medal-label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--orange), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(even) { flex-direction: row; }
+            .timeline-content { width: calc(100% - 50px); margin-left: 40px; }
+            .timeline-dot { left: 20px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🐻 20 VUOTTA VAPAUTTA 🐻</div>
+            <h1>Otso</h1>
+            <p class="hero-subtitle">
+                Karhu, karhu, jääkarhu — 20 vuotta miesten joukkuetta.
+                Espoon Ultimate Klubi, 2005–2025.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value orange">20</div>
+                    <div class="hero-stat-label">Vuotta</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value blue">95+</div>
+                    <div class="hero-stat-label">Kautta</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value pink">6</div>
+                    <div class="hero-stat-label">Joukkuetta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEAR LINEAGE -->
+    <section class="section">
+        <div class="section-header">
+            <h2>🐻 Karhusuku</h2>
+            <p>Otso, Grizzly ja Polar — kaikki karhujen suvun joukkueita</p>
+        </div>
+        <div class="bear-lineage">
+            <div class="bear-card">
+                <div class="bear-icon">🐻</div>
+                <div class="bear-name">Otso</div>
+                <div class="bear-desc">Pääjoukkue — karhu nimestä</div>
+                <div class="bear-years">2006–2025</div>
+            </div>
+            <div class="bear-card">
+                <div class="bear-icon">🐻‍❄️</div>
+                <div class="bear-name">Grizzly</div>
+                <div class="bear-desc">Karhujen voima — vahva ja rohkea</div>
+                <div class="bear-years">2019–2020</div>
+            </div>
+            <div class="bear-card">
+                <div class="bear-icon">🐻‍❄️</div>
+                <div class="bear-name">Polar</div>
+                <div class="bear-desc">Jääkarhu — kylmä ja laskelmoiva</div>
+                <div class="bear-years">2019–2020</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM EVOLUTION CHART -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Joukkueiden Kehitys</h2>
+            <p>Kaikki Otso-suvun joukkueet vuosina 2006–2025</p>
+        </div>
+        <div class="grid-2">
+            <div class="chart-card full-width">
+                <h3>📈 Joukkueet vuodessa (kaikki sarjat)</h3>
+                <div class="chart-wrapper">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>🥧 Joukkuetyypit</h3>
+                <div class="chart-wrapper">
+                    <canvas id="typeChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>📊 Yksittäiset joukkueet/vuosi</h3>
+                <div class="chart-wrapper">
+                    <canvas id="uniqueChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE -->
+    <section class="section">
+        <div class="section-header">
+            <h2>🏆 Suoritukset</h2>
+            <p>Otson sijoitukset kiertueilla (pienempi luku = parempi)</p>
+        </div>
+        <div class="chart-card">
+            <h3>🎯 Kiertuesijoitukset vuodesta 2011</h3>
+            <div class="chart-wrapper" style="height: 400px;">
+                <canvas id="perfChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEDALS -->
+    <section class="section">
+        <div class="section-header">
+            <h2>🏅 Mitalit & Saavutukset</h2>
+            <p>Miesten joukkueen saavutukset SM-sarjoissa ja Vintertrofenissa</p>
+        </div>
+        <div class="medals">
+            <div class="medal">
+                <div class="medal-icon">🥇</div>
+                <div class="medal-count" style="color: var(--gold)">15+</div>
+                <div class="medal-label">Kultaa</div>
+            </div>
+            <div class="medal">
+                <div class="medal-icon">🥈</div>
+                <div class="medal-count" style="color: #c0c0c0">10+</div>
+                <div class="medal-label">Hopeaa</div>
+            </div>
+            <div class="medal">
+                <div class="medal-icon">🥉</div>
+                <div class="medal-count" style="color: #cd7f32">5+</div>
+                <div class="medal-label">Pronssia</div>
+            </div>
+        </div>
+        <div class="grid-2" style="margin-top: 2rem;">
+            <div class="chart-card">
+                <h3>📅 Saavutukset aikajanalla</h3>
+                <div style="max-height: 350px; overflow-y: auto; padding-right: 1rem;">
+                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                        <div style="font-size: 0.8rem; color: var(--muted);">2005–2008</div>
+                        <div style="font-weight: 600;">4× SM-kulta (naiset)</div>
+                        <div style="font-size: 0.85rem; color: var(--muted);">Dominointi naisten sarjassa</div>
+                    </div>
+                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                        <div style="font-size: 0.8rem; color: var(--muted);">2005, 2006</div>
+                        <div style="font-weight: 600;">Vintertrofen-kulta</div>
+                        <div style="font-size: 0.85rem; color: var(--muted);">Miehet & Naiset</div>
+                    </div>
+                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                        <div style="font-size: 0.8rem; color: var(--muted);">2006–2010</div>
+                        <div style="font-weight: 600;">4× sisäkauden SM-kulta, 1× pronssi</div>
+                        <div style="font-size: 0.85rem; color: var(--muted);">Miesten sisäkauden dominoiminen</div>
+                    </div>
+                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                        <div style="font-size: 0.8rem; color: var(--muted);">2014</div>
+                        <div style="font-weight: 600;">Sekasarjan SM-kulta</div>
+                        <div style="font-size: 0.85rem; color: var(--muted);">Mixed division mestarit</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>❄️☀️ Kausityypit</h3>
+                <div class="chart-wrapper">
+                    <canvas id="seasonChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section">
+        <div class="section-header">
+            <h2>📜 Täydellinen Aikajana</h2>
+            <p>Jokainen Otso-suvun joukkue vuodesta 2006 eteenpäin</p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">Otso — Espoo Ultimate Club</div>
+        <p>20 vuotta ultimatea · 2005–2025 · Vapaa nopeus ikuisesti 🐻</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Data: ultimate.fi/pelikone · 20-vuotisjuhlagalaan</p>
+    </footer>
+
+    <script>
+        // DATA: Otso-suvun joukkueet 2006-2025
+        const teams = [
+            // 2006
+            {y:2006,s:'Kesä',n:'Otso',t:'otso'},{y:2006,s:'Talvi',n:'Otso',t:'otso'},
+            // 2007
+            {y:2007,s:'Kesä',n:'Otso',t:'otso'},{y:2007,s:'Talvi',n:'Otso',t:'otso'},
+            // 2008
+            {y:2008,s:'Kesä',n:'Otso',t:'otso'},{y:2008,s:'Talvi',n:'Otso',t:'otso'},
+            // 2009
+            {y:2009,s:'Kesä',n:'Otso',t:'otso'},{y:2009,s:'Talvi',n:'Otso',t:'otso'},
+            // 2010
+            {y:2010,s:'Kesä',n:'Otso',t:'otso'},{y:2010,s:'Talvi',n:'Otso',t:'otso'},
+            // 2011
+            {y:2011,s:'Finaalit',n:'Otso',t:'otso'},{y:2011,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2011,s:'Tour 2',n:'Otso',t:'otso'},{y:2011,s:'Tour 3',n:'Otso',t:'otso'},
+            {y:2011,s:'Talvi',n:'Otso',t:'otso'},{y:2011,s:'Talvi',n:'Otso 2',t:'2'},
+            // 2012
+            {y:2012,s:'Finaalit',n:'Otso',t:'otso'},{y:2012,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2012,s:'Tour 2',n:'Otso',t:'otso'},{y:2012,s:'Tour 3',n:'Otso',t:'otso'},
+            {y:2012,s:'Talvi',n:'Otso',t:'otso'},{y:2012,s:'Talvi',n:'Otso2',t:'2'},
+            // 2013
+            {y:2013,s:'Finaalit',n:'Otso',t:'otso'},{y:2013,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2013,s:'Tour 1',n:'Otso2',t:'2'},{y:2013,s:'Tour 2',n:'Otso',t:'otso'},
+            {y:2013,s:'Tour 3',n:'Otso',t:'otso'},{y:2013,s:'Talvi',n:'Otso',t:'otso'},
+            {y:2013,s:'Talvi',n:'Otso 2',t:'2'},{y:2013,s:'Talvi',n:'Otso 3',t:'3'},
+            // 2014
+            {y:2014,s:'Finaalit',n:'Otso',t:'otso'},{y:2014,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2014,s:'Tour 2',n:'Otso',t:'otso'},{y:2014,s:'Tour 2',n:'Otso 2',t:'2'},
+            {y:2014,s:'Tour 3',n:'Otso',t:'otso'},{y:2014,s:'Talvi',n:'Otso',t:'otso'},
+            {y:2014,s:'Talvi',n:'Otso 2',t:'2'},{y:2014,s:'Talvi',n:'Otso 3',t:'3'},
+            // 2015
+            {y:2015,s:'Finaali',n:'Otso',t:'otso'},{y:2015,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2015,s:'Tour 1',n:'Otso 2',t:'2'},{y:2015,s:'Tour 2',n:'Otso',t:'otso'},
+            {y:2015,s:'Tour 3',n:'Otso',t:'otso'},{y:2015,s:'Talvi',n:'Otso',t:'otso'},
+            {y:2015,s:'Talvi',n:'Otso 3',t:'3'},
+            // 2016
+            {y:2016,s:'Finaalit',n:'Otso',t:'otso'},{y:2016,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2016,s:'Tour 2',n:'Otso',t:'otso'},{y:2016,s:'Tour 3',n:'Otso',t:'otso'},
+            {y:2016,s:'Talvi',n:'Otso',t:'otso'},{y:2016,s:'Talvi',n:'Otso 2',t:'2'},
+            {y:2016,s:'Talvi',n:'Otso 3',t:'3'},
+            // 2017
+            {y:2017,s:'Finaalit',n:'Otso',t:'otso'},{y:2017,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2017,s:'Tour 2',n:'Otso',t:'otso'},{y:2017,s:'Tour 3',n:'Otso',t:'otso'},
+            {y:2017,s:'Talvi',n:'Otso',t:'otso'},{y:2017,s:'Talvi',n:'Otso 2',t:'2'},
+            {y:2017,s:'Talvi',n:'Otso 3',t:'3'},
+            // 2018
+            {y:2018,s:'Finaalit',n:'Otso',t:'otso'},{y:2018,s:'Tour 1',n:'Otso',t:'otso'},
+            {y:2018,s:'Tour 1',n:'Otso 2',t:'2'},{y:2018,s:'Tour 2',n:'Otso',t:'otso'},
+            {y:2018,s:'Tour 3',n:'Otso',t:'otso'},{y:2018,s:'Talvi',n:'Otso',t:'otso'},
+            {y:2018,s:'Talvi',n:'Otso 2',t:'2'},
+            // 2019
+            {y:2019,s:'Finaalit',n:'Otso Grizzly',t:'grizzly'},{y:2019,s:'Tour 1',n:'Otso Grizzly',t:'grizzly'},
+            {y:2019,s:'Tour 1',n:'Otso Polar',t:'polar'},{y:2019,s:'Tour 2',n:'Otso Grizzly',t:'grizzly'},
+            {y:2019,s:'Tour 3',n:'Otso Grizzly',t:'grizzly'},{y:2019,s:'Tour 3',n:'Otso Polar',t:'polar'},
+            {y:2019,s:'Talvi',n:'Otso',t:'otso'},{y:2019,s:'Talvi',n:'Otso 2',t:'2'},
+            // 2020
+            {y:2020,s:'Kesä',n:'Otso Grizzly',t:'grizzly'},{y:2020,s:'Kesä',n:'Otso Polar',t:'polar'},
+            {y:2020,s:'Talvi',n:'Otso',t:'otso'},{y:2020,s:'Talvi',n:'Otso 2',t:'2'},
+            // 2021
+            {y:2021,s:'Kesä',n:'Otso',t:'otso'},{y:2021,s:'Talvi',n:'Otso',t:'otso'},
+            {y:2021,s:'Talvi',n:'Otso2',t:'2'},
+            // 2022
+            {y:2022,s:'Kesä',n:'Otso',t:'otso'},{y:2022,s:'Talvi',n:'Otso1',t:'otso'},
+            {y:2022,s:'Talvi',n:'Otso2',t:'2'},
+            // 2023
+            {y:2023,s:'Kesä',n:'Otso',t:'otso'},{y:2023,s:'Kesä',n:'Otso2',t:'2'},
+            {y:2023,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},{y:2023,s:'Talvi',n:'Otso1',t:'otso'},
+            {y:2023,s:'Talvi',n:'Otso2',t:'2'},
+            // 2024
+            {y:2024,s:'Kesä',n:'Otso',t:'otso'},{y:2024,s:'Kesä',n:'Otso2',t:'2'},
+            {y:2024,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
+            // 2025
+            {y:2025,s:'Kesä',n:'Otso',t:'otso'},{y:2025,s:'Kesä',n:'Otso2',t:'2'},
+            {y:2025,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
+        ];
+
+        const years = Array.from({length: 20}, (_, i) => 2006 + i);
+        const colors = {otso:'#ff6b35',grizzly:'#ff006e',polar:'#00b4d8',akatemia:'#06d6a0','2':'#7b2ff7','3':'#ffd60a'};
+        const labels = {otso:'Otso (pää)',grizzly:'Grizzly',polar:'Polar',akatemia:'Akatemia','2':'Otso 2','3':'Otso 3'};
+
+        Chart.defaults.color = '#6b7a99';
+        Chart.defaults.borderColor = 'rgba(255,255,255,0.04)';
+        Chart.defaults.font.family = "'Inter', sans-serif";
+
+        // TIMELINE CHART
+        new Chart(document.getElementById('timelineChart'), {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [
+                    {label:'Otso',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='otso').length),borderColor:colors.otso,backgroundColor:colors.otso+'22',fill:false,tension:0.4,pointRadius:3},
+                    {label:'Grizzly',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='grizzly').length),borderColor:colors.grizzly,fill:false,tension:0.4,pointRadius:3},
+                    {label:'Polar',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='polar').length),borderColor:colors.polar,fill:false,tension:0.4,pointRadius:3},
+                    {label:'Akatemia',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='akatemia').length),borderColor:colors.akatemia,fill:false,tension:0.4,pointRadius:3},
+                    {label:'Otso 2',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='2').length),borderColor:colors['2'],fill:false,tension:0.4,pointRadius:3},
+                    {label:'Otso 3',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='3').length),borderColor:colors['3'],fill:false,tension:0.4,pointRadius:3},
+                ]
+            },
+            options: {
+                responsive:true, maintainAspectRatio:false,
+                interaction:{mode:'index',intersect:false},
+                plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:15}},
+                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}},
+                scales:{y:{beginAtZero:true,title:{display:true,text:'Joukkueet'},grid:{color:'rgba(255,255,255,0.04)'}},
+                    x:{title:{display:true,text:'Vuosi'},grid:{color:'rgba(255,255,255,0.04)'}}}
+            }
+        });
+
+        // TYPE CHART
+        const typeCounts = {};
+        teams.forEach(t => { typeCounts[t.t] = (typeCounts[t.t]||0)+1; });
+        new Chart(document.getElementById('typeChart'), {
+            type:'doughnut',
+            data:{
+                labels:Object.keys(typeCounts).map(k=>labels[k]||k),
+                datasets:[{data:Object.values(typeCounts),backgroundColor:Object.keys(typeCounts).map(k=>colors[k]),borderWidth:0,hoverOffset:8}]
+            },
+            options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+                plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:12}},
+                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}}}
+        });
+
+        // UNIQUE TEAMS PER YEAR
+        const uniquePerYear = years.map(y => {
+            const unique = new Set(teams.filter(t=>t.y===y).map(t=>t.n));
+            return unique.size;
+        });
+        new Chart(document.getElementById('uniqueChart'), {
+            type:'bar',
+            data:{labels:years,datasets:[{label:'Yksittäisiä joukkueita',data:uniquePerYear,
+                backgroundColor:years.map((_,i)=>`rgba(255,107,53,${0.3+(i/years.length)*0.7})`),
+                borderColor:'rgba(255,107,53,0.8)',borderWidth:1,borderRadius:6}]},
+            options:{responsive:true,maintainAspectRatio:false,
+                plugins:{legend:{display:false},tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}},
+                scales:{y:{beginAtZero:true,title:{display:true,text:'Joukkueita'},grid:{color:'rgba(255,255,255,0.04)'}},
+                    x:{grid:{color:'rgba(255,255,255,0.04)'}}}
+            }
+        });
+
+        // PERFORMANCE CHART
+        const perfData = {
+            2011:[1,2,2,2],2012:[1,3,2,4],2013:[1,1,2,1],2014:[1,2,3,1],
+            2015:[1,1,3,4],2016:[1,1,3,2],2017:[1,1,2,1],2018:[1,1,2,2],
+            2019:[1,1,2],2022:[1],2023:[1],2024:[1]
+        };
+        const perfLabels = Object.keys(perfData);
+        const maxTours = Math.max(...Object.values(perfData).map(v=>v.length));
+        const perfDatasets = Array.from({length:maxTours}, (_,i) => {
+            const color = ['#ff6b35','#ff006e','#00b4d8','#7b2ff7'][i%4];
+            return {
+                label:`Kiertue ${i+1}`,
+                data:perfLabels.map(y => perfData[y][i]||null),
+                borderColor:color,backgroundColor:color+'22',fill:false,tension:0.3,pointRadius:4,spanGaps:true
+            };
+        });
+        new Chart(document.getElementById('perfChart'), {
+            type:'line',
+            data:{labels:perfLabels,datasets:perfDatasets},
+            options:{
+                responsive:true,maintainAspectRatio:false,
+                plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:15}},
+                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8,
+                        callbacks:{label:ctx=>`${ctx.dataset.label}: #${ctx.raw}`}}},
+                scales:{
+                    y:{reverse:true,title:{display:true,text:'Sija'},min:1,max:5,
+                        grid:{color:'rgba(255,255,255,0.04)'},
+                        ticks:{stepSize:1}},
+                    x:{title:{display:true,text:'Vuosi'},grid:{color:'rgba(255,255,255,0.04)'}}}
+            }
+        });
+
+        // SEASON TYPE CHART
+        const seasonCounts = {Kesä:0,Talvi:0,Finaalit:0,Finaali:0,'Tour 1':0,'Tour 2':0,'Tour 3':0};
+        teams.forEach(t => { seasonCounts[t.s] = (seasonCounts[t.s]||0)+1; });
+        new Chart(document.getElementById('seasonChart'), {
+            type:'polarArea',
+            data:{
+                labels:Object.keys(seasonCounts),
+                datasets:[{data:Object.values(seasonCounts),
+                    backgroundColor:Object.keys(seasonCounts).map((_,i)=>`hsla(${i*45},70%,55%,0.3)`),
+                    borderColor:Object.keys(seasonCounts).map((_,i)=>`hsla(${i*45},70%,55%,0.6)`),
+                    borderWidth:1}]
+            },
+            options:{responsive:true,maintainAspectRatio:false,
+                plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:10,font:{size:11}}},
+                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}}}
+        });
+
+        // TIMELINE
+        const timelineEl = document.getElementById('timeline');
+        const yearGroups = {};
+        teams.forEach(t => {
+            if(!yearGroups[t.y]) yearGroups[t.y] = [];
+            yearGroups[t.y].push(t);
+        });
+        Object.keys(yearGroups).sort((a,b)=>b-a).forEach(year => {
+            const items = yearGroups[year];
+            const div = document.createElement('div');
+            div.className = 'timeline-item';
+            const badgeClass = items.some(t=>t.t==='grizzly')?'badge-grizzly':items.some(t=>t.t==='polar')?'badge-polar':items.some(t=>t.t==='akatemia')?'badge-akatemia':items.some(t=>t.t==='3')?'badge-3':items.some(t=>t.t==='2')?'badge-2':'badge-otso';
+            const badgeLabel = items.some(t=>t.t==='grizzly')?'Grizzly':items.some(t=>t.t==='polar')?'Polar':items.some(t=>t.t==='akatemia')?'Akatemia':items.some(t=>t.t==='3')?'3. joukkue':items.some(t=>t.t==='2')?'2. joukkue':'Pääjoukkue';
+            div.innerHTML = `
+                <div class="timeline-content">
+                    <div class="timeline-year">${year}</div>
+                    <div class="timeline-detail">${items.length} joukkuetta · ${badgeLabel} <span class="badge ${badgeClass}">${items.map(t=>t.n).join(', ')}</span></div>
+                </div>`;
+            timelineEl.appendChild(div);
+        });
+
+        // Animate timeline on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, {threshold: 0.1});
+        document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
