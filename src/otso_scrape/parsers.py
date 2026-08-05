@@ -658,3 +658,227 @@ def is_otso_team(team_name: str) -> bool:
         if pattern in name_lower:
             return True
     return False
+
+
+def parse_games_list(html: str, season_id: str) -> List[Dict]:
+    """Parse the games list page.
+    
+    Row structure (verified from KESA2026):
+    [0] Time, [1] Field, [2] Home team, [3] "-", [4] Away team,
+    [5] Home score, [6] "-", [7] Away score, [8+] division/series, [10] Pelin kulku link
+    
+    Args:
+        html: HTML content of the games list page.
+        season_id: Season identifier.
+        
+    Returns:
+        List of game dictionaries with game_id, time, venue, home_team, away_team,
+        home_score, away_score, division.
+    """
+    games = []
+    soup = BeautifulSoup(html, "html.parser")
+    
+    # Find all game rows by looking for "Pelin kulku" links
+    for tr in soup.find_all("tr"):
+        # Look for Pelin kulku link anywhere in the row
+        gameplay_link = tr.find("a", string="Pelin kulku")
+        if not gameplay_link:
+            continue
+        
+        # Get the td cells
+        tds = tr.find_all("td")
+        if len(tds) < 8:
+            continue
+        
+        # Extract game_id from href
+        href = gameplay_link["href"]
+        game_id = None
+        if "game=" in href:
+            for part in href.split("&"):
+                if part.startswith("game="):
+                    game_id = part.split("=")[1]
+        
+        if not game_id:
+            continue
+        
+        # Extract time and venue
+        time_str = tds[0].get_text(strip=True) if len(tds) > 0 else ""
+        venue = tds[1].get_text(strip=True) if len(tds) > 1 else ""
+        
+        # Extract teams and scores
+        home_team = tds[2].get_text(strip=True) if len(tds) > 2 else ""
+        # tds[3] is "-" separator
+        away_team = tds[4].get_text(strip=True) if len(tds) > 4 else ""
+        
+        # Try to extract scores
+        home_score = None
+        away_score = None
+        try:
+            home_score = int(tds[5].get_text(strip=True)) if len(tds) > 5 else None
+            away_score = int(tds[7].get_text(strip=True)) if len(tds) > 7 else None
+        except (ValueError, IndexError):
+            pass
+        
+        # Extract division from remaining cells
+        division = ""
+        for td in tds[8:]:
+            text = td.get_text(strip=True)
+            if text and text not in ["-", ""] and "Pelin kulku" not in text:
+                division = text
+                break
+        
+        # Only include games where at least one team is Otso
+        if is_otso_team(home_team) or is_otso_team(away_team):
+            games.append({
+                "game_id": game_id,
+                "time": time_str,
+                "venue": venue,
+                "home_team": home_team,
+                "away_team": away_team,
+                "home_score": home_score,
+                "away_score": away_score,
+                "division": division,
+                "season_id": season_id,
+            })
+    
+    return games
+
+
+def parse_gameplay(html: str) -> Dict:
+    """Parse a gameplay (point-by-point) page.
+    
+    Data structure (verified from actual gameplay pages):
+    - <h1> title: "Team A - Team B    SCORE - SCORE"
+    - Two <div class="gameplay-scoreboard"> tables with player rosters
+    - Point-by-point table: single <tr> with <td> cells
+      - class="home" / class="guest" per point
+      - class="halftime" for halftime marker
+      - title = "TIME SCORE SCORER -> ASSISTANT"
+    
+    Args:
+        html: HTML content of the gameplay page.
+        
+    Returns:
+        Dictionary with home_team, away_team, home_score, away_score,
+        points (list), home_players, away_players.
+    """
+    result = {
+        "home_team": "",
+        "away_team": "",
+        "home_score": None,
+        "away_score": None,
+        "points": [],
+        "home_players": [],
+        "away_players": [],
+    }
+    
+    soup = BeautifulSoup(html, "html.parser")
+    
+    # Parse h1 title: "Team A - Team B    SCORE - SCORE"
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+        # Split by "-" to get teams and scores
+        # Format: "Saints - Otso Akatemia    9 - 12"
+        # or: "Otso - Team B    10 - 8"
+        parts = re.split(r'\s*-\s*', title, maxsplit=1)
+        if len(parts) >= 2:
+            # Find the score part (contains numbers)
+            score_match = re.search(r'(\d+)\s*-\s*(\d+)', parts[1])
+            if score_match:
+                # Home team is everything before the score
+                home_part = parts[0].strip()
+                # Away team is between the first dash and the score
+                away_part = parts[1][:score_match.start()].strip()
+                # The score
+                result["home_score"] = int(score_match.group(1))
+                result["away_score"] = int(score_match.group(2))
+                
+                # Handle cases where home team contains "-"
+                if " - " in home_part:
+                    # First part is home team, rest is away team
+                    home_team_parts = home_part.split(" - ", 1)
+                    result["home_team"] = home_team_parts[0].strip()
+                    result["away_team"] = away_part
+                else:
+                    result["home_team"] = home_part
+                    result["away_team"] = away_part
+    
+    # Parse point-by-point table
+    # The table has a single <tr> with <td> cells
+    for tr in soup.find_all("tr"):
+        tds = tr.find_all("td")
+        if len(tds) < 2:
+            continue
+        
+        for td in tds:
+            td_class = td.get("class", [])
+            if "halftime" in td_class:
+                # Halftime marker
+                result["points"].append({
+                    "type": "halftime",
+                    "text": td.get_text(strip=True),
+                })
+            elif "home" in td_class or "guest" in td_class:
+                # Point cell
+                title = td.get("title", "")
+                if title:
+                    # Parse "TIME SCORE SCORER -> ASSISTANT"
+                    point = {
+                        "type": "point",
+                        "side": "home" if "home" in td_class else "guest",
+                        "title": title,
+                    }
+                    # Parse title: "2.35 1-0 Kantonen Miikka -> Wiklund Antti"
+                    # Time uses dots (2.35), not colons
+                    title_match = re.match(
+                        r'(\d+\.\d+)\s+(\d+-\d+)\s+(.+?)\s*->\s*(.+)',
+                        title.strip()
+                    )
+                    if title_match:
+                        point["time"] = title_match.group(1)
+                        point["score"] = title_match.group(2)
+                        point["scorer"] = title_match.group(3).strip()
+                        point["assist"] = title_match.group(4).strip() if title_match.group(4).strip() != "-" else None
+                    else:
+                        point["raw_title"] = title
+                    result["points"].append(point)
+    
+    # Parse player rosters from gameplay-scoreboard tables
+    for scoreboard in soup.find_all("div", class_="gameplay-scoreboard"):
+        caption = scoreboard.find("caption")
+        team_name = caption.get_text(strip=True) if caption else ""
+        
+        players = []
+        for row in scoreboard.find_all("tr")[1:]:  # Skip header
+            tds = row.find_all("td")
+            if len(tds) >= 5:
+                # #, Nimi (with link), Syötöt, Maalit, Yht.
+                name_cell = tds[1]
+                name_link = name_cell.find("a")
+                player_name = name_link.get_text(strip=True) if name_link else name_cell.get_text(strip=True)
+                
+                # Remove (C) captain marker
+                player_name = re.sub(r'\s*\(C\)', '', player_name).strip()
+                
+                try:
+                    assists = int(tds[2].get_text(strip=True)) if tds[2].get_text(strip=True) else 0
+                    goals = int(tds[3].get_text(strip=True)) if tds[3].get_text(strip=True) else 0
+                    total = int(tds[4].get_text(strip=True)) if tds[4].get_text(strip=True) else 0
+                except (ValueError, IndexError):
+                    assists = goals = total = 0
+                
+                players.append({
+                    "name": player_name,
+                    "assists": assists,
+                    "goals": goals,
+                    "total": total,
+                })
+        
+        if team_name:
+            if team_name == result["home_team"] or (result["home_team"] and team_name in result["home_team"]):
+                result["home_players"] = players
+            else:
+                result["away_players"] = players
+    
+    return result

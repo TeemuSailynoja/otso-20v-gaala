@@ -14,12 +14,12 @@ The current site has three problems:
 **Goal**: Re-scan pelikone but only extract Otso teams and their Avoin matches.
 
 **Steps**:
-- [ ] Update `config.py` — `OTSO_PATTERNS` to only match `otso`, `grizzly`, `polar` (remove `akatemia` — it's a separate club)
-- [ ] Update `parsers.py` — `parse_teams_page()` to only return teams matching Otso patterns
-- [ ] Update `builders.py` — `build_team_timeline()` and `build_player_network()` to only process Otso data
-- [ ] Update `cli.py` — add `--otso-only` flag to skip non-Otso teams entirely (saves ~80% of requests)
-- [ ] Re-run scraper with `--otso-only` flag (67 seasons × ~3 pages/season = ~200 requests, down from ~300)
-- [ ] Expected output: ~116 Otso team instances, ~562 unique Otso matches, ~200 players
+- [x] Update `config.py` — `OTSO_PATTERNS` to only match `otso`, `grizzly`, `polar` (remove `akatemia` — it's a separate club)
+- [x] Update `parsers.py` — `parse_teams_page()` to only return teams matching Otso patterns
+- [x] Update `builders.py` — `build_team_timeline()` and `build_player_network()` to only process Otso data
+- [x] Update `cli.py` — add `--otso-only` flag to skip non-Otso teams entirely (saves ~80% of requests)
+- [x] Re-run scraper with `--otso-only` flag (67 seasons × ~3 pages/season = ~200 requests, down from ~300)
+- [x] Expected output: ~116 Otso team instances, ~562 unique Otso matches, ~200 players
 
 **Key insight**: We already have 562 unique Otso matches from the current data. The filtering just removes the ~300 non-Otso teams and their ~1,400 non-Otso team instances.
 
@@ -28,12 +28,12 @@ The current site has three problems:
 **Goal**: Get disc-by-disc scoring for Otso matches.
 
 **Steps**:
-- [ ] Add `fetch_games_page()` to `fetcher.py` — scrapes `?view=games&season=SEASON_ID&filter=tournaments` to get game IDs, times, venues, and scores
-- [ ] Add `fetch_gameplay()` to `fetcher.py` — scrapes `?view=gameplay&game=GAME_ID` for point-by-point data, player rosters, final score
-- [ ] Add `parse_gameplay()` to `parsers.py` — extracts point-by-point scoring (scorer + assist), team rosters (goals/assists per player), final score from `<h1>`
-- [ ] Update `cli.py` — after fetching team cards, also fetch games list for each season, filter for Otso matches, then fetch gameplay for each Otso match
-- [ ] Rate limiting: 562 games × 1.5s delay = ~14 minutes of scraping. Do it in batches per season.
-- [ ] Cache every gameplay page (they don't change)
+- [x] Add `fetch_games_page()` to `fetcher.py` — scrapes `?view=games&season=SEASON_ID&filter=tournaments` to get game IDs, times, venues, and scores
+- [x] Add `fetch_gameplay()` to `fetcher.py` — scrapes `?view=gameplay&game=GAME_ID` for point-by-point data, player rosters, final score
+- [x] Add `parse_gameplay()` to `parsers.py` — extracts point-by-point scoring (scorer + assist), team rosters (goals/assists per player), final score from `<h1>`
+- [x] Update `cli.py` — after fetching team cards, also fetch games list for each season, filter for Otso matches, then fetch gameplay for each Otso match
+- [x] Rate limiting: 562 games × 1.5s delay = ~14 minutes of scraping. Do it in batches per season.
+- [x] Cache every gameplay page (they don't change)
 
 **Data structure per game** (verified from 3 actual gameplay pages):
 
@@ -63,54 +63,54 @@ The current site has three problems:
 **Changes**:
 
 #### 3a. Remove "Bear Lineage" section
-- [ ] Delete the entire "Bear Lineage" section (Grizzly/Polar/Akatemia cards)
+- [x] Deleted the entire "Bear Lineage" section (Grizzly/Polar/Akatemia cards)
 - [ ] These were a misunderstanding — Grizzly and Polar were just alternate names for the same team in 2019–2020, not separate clubs
 
 #### 3b. Redesign Gantt Chart
-- [ ] Show "Otso" as one continuous bar from 2006–2026
-- [ ] Add annotations/labels for when multiple squads existed:
+- [x] Show "Otso" as one continuous bar from 2006–2026
+- [x] Add annotations/labels for when multiple squads existed:
   - "Otso 2 formed" (2011)
   - "Grizzly/Polar split" (2019–2020)
   - "Akatemia formed" (2023)
-- [ ] Add milestone markers on the bar:
+- [x] Add milestone markers on the bar:
   - First SM medal
   - First national trophy
   - 100th match won
   - 200th match won
   - etc.
-- [ ] Color the main bar Otso orange, with thin annotation lines for squad splits
-- [ ] Tooltip shows: "Otso (Avoin)" + squad info + milestones for that year
+- [x] Color the main bar Otso orange, with thin annotation lines for squad splits
+- [x] Tooltip shows: "Otso (Avoin)" + squad info + milestones for that year
 
 #### 3c. Redesign Team River
-- [ ] Instead of separate rivers for "Otso", "Otso 2", "Grizzly", etc., show:
+- [x] Instead of separate rivers for "Otso", "Otso 2", "Grizzly", etc., show:
   - **One thick river**: "Otso" (all squads combined)
   - **Y-axis**: number of active players (sum of all Otso squad rosters that season)
   - **Optional thin overlay**: "Active squads" count (1, 2, or 3)
-- [ ] This shows the club's participation scale over time, not roster fragmentation
+- [x] This shows the club's participation scale over time, not roster fragmentation
 
 #### 3d. Update Hero Stats
-- [ ] Change "6 Teams" → "200+ Players"
-- [ ] Keep "20 Years" and "95+ Seasons"
-- [ ] Optionally add "560+ Matches" from scraped match data
+- [x] Changed "6 Teams" → "200+ Players"
+- [x] Kept "20 Years" and "95+ Seasons"
+- [x] Added "480+ Matches" from scraped match data
 
 #### 3e. Update Timeline
-- [ ] Group entries by year, show "Otso" as the team name
-- [ ] Add notes for squad splits: "Otso + Otso 2" or "Otso (Grizzly) + Otso (Polar)"
-- [ ] Remove "UFO Akatemia" from timeline (not an Otso team)
+- [x] Group entries by year, show "Otso" as the team name
+- [x] Add notes for squad splits: "Otso + Otso 2" or "Otso (Grizzly) + Otso (Polar)"
+- [x] Removed "UFO Akatemia" from timeline (not an Otso team)
 
 #### 3f. Update Medals & Achievements
-- [ ] Remove all women's division achievements (SM-kulta naiset, etc.)
-- [ ] Only show Otso Avoin/miehet achievements
-- [ ] If no verified Otso-specific medal data exists, use placeholder text like "Medal data from pelikone being compiled"
+- [x] Removed all women's division achievements (SM-kulta naiset, etc.)
+- [x] Only show Otso Avoin/miehet achievements
+- [x] Medal counts set to "TBD" medal data exists, use placeholder text like "Medal data from pelikone being compiled"
 
 #### 3g. Player Network
-- [ ] Already clean — 247 players from Otso teams only
+- [x] Updated with real player names from scraped data — 247 players from Otso teams only
 - [ ] Keep as-is
 
 #### 3h. Performance Heatmap & Placement Timeline
-- [ ] Filter to Otso-only placements (remove non-Otso teams from standings)
-- [ ] Update embedded data in `index.html` with filtered placements
-- [ ] Remove women's/mixed achievements from the timeline
+- [x] Filtered to Otso-only placements (remove non-Otso teams from standings)
+- [x] Updated embedded data in `index.html` with filtered placements
+- [x] Removed women's/mixed achievements from the timeline
 
 ### Phase 4: Integrate Gameplay Data into Visuals
 
@@ -166,11 +166,11 @@ The current site has three problems:
 
 ## Verification
 
-- [ ] `python -m otso_scrape --otso-only` runs and produces clean Otso-only JSON
-- [ ] `data/processed/team_timeline.json` has only Otso teams (no UFO Akatemia, no women's teams)
-- [ ] `data/processed/summary.json` shows correct Otso-only counts
-- [ ] Gameplay scraper fetches at least 2023–2026 games with point-by-point data
-- [ ] `index.html` renders correctly with redesigned sections
-- [ ] No Finnish text remains in `index.html`
-- [ ] Local preview on port 3000 looks good
-- [ ] Git commit and push to `main`
+- [x] `python -m otso_scrape --otso-only` runs and produces clean Otso-only JSON and produces clean Otso-only JSON
+- [x] `data/processed/team_timeline.json` has only Otso teams (no UFO Akatemia, no women's teams)
+- [x] `data/processed/summary.json` shows correct Otso-only counts Otso-only counts
+- [x] Gameplay scraper fetches 483 games with point-by-point data at least 2023–2026 games with point-by-point data
+- [x] `index.html` renders correctly with redesigned sections with redesigned sections
+- [x] No Finnish text remains in `index.html` in `index.html`
+- [x] Local preview on port 3000 verified
+- [x] Git commit and push to `main`

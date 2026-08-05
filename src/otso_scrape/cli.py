@@ -8,8 +8,8 @@ from typing import List, Dict
 
 from .config import BASE_URL, DATA_DIR, RAW_DIR, PROCESSED_DIR
 from .cache import get_cache, save_cache, setup_dirs
-from .fetcher import fetch_url, fetch_season_list
-from .parsers import parse_season_list, classify_season
+from .fetcher import fetch_url, fetch_season_list, fetch_games_page, fetch_gameplay
+from .parsers import parse_season_list, classify_season, parse_games_list, parse_gameplay, is_otso_team
 from .builders import build_team_timeline, build_player_network, build_summary
 
 
@@ -18,6 +18,7 @@ def parse_season(
     season_name: str,
     csv_only: bool = False,
     otso_only: bool = False,
+    fetch_gameplay_data: bool = False,
     data_dir: Path = DATA_DIR,
     refresh: bool = False,
 ) -> Dict:
@@ -28,6 +29,7 @@ def parse_season(
         season_name: Season name.
         csv_only: Only use CSV export (current season).
         otso_only: Skip non-Otso teams entirely (saves requests).
+        fetch_gameplay_data: Also fetch games list and point-by-point gameplay.
         data_dir: Directory for cache and output files.
         refresh: Force re-download even if cached.
 
@@ -118,6 +120,29 @@ def parse_season(
                         f"{len(all_time_players)} players"
                     )
 
+    # Fetch games list and gameplay data (optional)
+    if fetch_gameplay_data and not csv_only:
+        print(f"  Fetching games list...")
+        games_html = fetch_games_page(season_id, data_dir)
+        if games_html:
+            season_games = parse_games_list(games_html, season_id)
+            season_data["games"] = season_games
+            print(f"  Found {len(season_games)} Otso games")
+            
+            # Fetch point-by-point gameplay for each game
+            for game in season_games:
+                game_id = game["game_id"]
+                print(f"    Fetching gameplay for {game['home_team']} vs {game['away_team']}...")
+                gameplay_html = fetch_gameplay(game_id, data_dir)
+                if gameplay_html:
+                    game["gameplay"] = parse_gameplay(gameplay_html)
+                    points = game["gameplay"].get("points", [])
+                    print(f"      {len(points)} points, "
+                          f"home: {len(game['gameplay'].get('home_players', []))} players, "
+                          f"away: {len(game['gameplay'].get('away_players', []))} players")
+                else:
+                    print(f"      Failed to fetch gameplay")
+
     # Try CSV export
     csv_html = fetch_csv_export(data_dir)
     if csv_html and "CSV-tiedostot" in csv_html:
@@ -156,6 +181,9 @@ def main() -> None:
     )
     parser.add_argument(
         "--otso-only", action="store_true", help="Only fetch Otso teams (skip non-Otso teams entirely)"
+    )
+    parser.add_argument(
+        "--gameplay", action="store_true", help="Also fetch games list and point-by-point gameplay data"
     )
     parser.add_argument(
         "--refresh", action="store_true", help="Force re-download all data"
@@ -201,6 +229,7 @@ def main() -> None:
             season["name"],
             csv_only=args.csv_only,
             otso_only=args.otso_only,
+            fetch_gameplay_data=args.gameplay,
             data_dir=DATA_DIR,
             refresh=args.refresh,
         )
@@ -242,6 +271,23 @@ def main() -> None:
         f"Summary: {summary['total_seasons']} seasons, "
         f"{summary['years_covered']} -> {summary_file}"
     )
+
+    # Save match results (games + gameplay data)
+    if args.gameplay:
+        all_games = []
+        for season in all_seasons_data:
+            for game in season.get("games", []):
+                all_games.append(game)
+        
+        match_file = PROCESSED_DIR / "match_results.json"
+        with open(match_file, "w", encoding="utf-8") as f:
+            json.dump(all_games, f, indent=2, ensure_ascii=False)
+        
+        games_with_gameplay = sum(1 for g in all_games if g.get("gameplay"))
+        print(
+            f"Match results: {len(all_games)} games, "
+            f"{games_with_gameplay} with point-by-point data -> {match_file}"
+        )
 
     print(f"\n{'='*60}")
     print("Done! Data saved to data/processed/")

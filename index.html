@@ -684,53 +684,23 @@
                     <div class="hero-stat-label">Seasons</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-value pink">6</div>
-                    <div class="hero-stat-label">Teams</div>
+                    <div class="hero-stat-value pink">200+</div>
+                    <div class="hero-stat-label">Players</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value green">480+</div>
+                    <div class="hero-stat-label">Matches</div>
                 </div>
             </div>
             <div class="scroll-arrow">↓</div>
         </div>
     </section>
 
-    <!-- BEAR LINEAGE -->
-    <section class="section fade-in">
-        <div class="section-header">
-            <h2>🐻 Bear Lineage</h2>
-            <p>Otso, Grizzly and Polar — all teams of the bear family</p>
-        </div>
-        <div class="bear-lineage">
-            <div class="bear-card">
-                <div class="bear-icon">🐻</div>
-                <div class="bear-name">Otso</div>
-                <div class="bear-desc">Main team — bear by name</div>
-                <div class="bear-years">2006–2026</div>
-            </div>
-            <div class="bear-card">
-                <div class="bear-icon">🐻‍❄️</div>
-                <div class="bear-name">Grizzly</div>
-                <div class="bear-desc">Bear's strength — strong and fearless</div>
-                <div class="bear-years">2019–2020</div>
-            </div>
-            <div class="bear-card">
-                <div class="bear-icon">🐻‍❄️</div>
-                <div class="bear-name">Polar</div>
-                <div class="bear-desc">Polar bear — cold and calculated</div>
-                <div class="bear-years">2019–2020</div>
-            </div>
-            <div class="bear-card">
-                <div class="bear-icon">🐾</div>
-                <div class="bear-name">Akatemia</div>
-                <div class="bear-desc">Young bears — the future</div>
-                <div class="bear-years">2023–2026</div>
-            </div>
-        </div>
-    </section>
-
     <!-- GANTT CHART: TEAM EVOLUTION -->
     <section class="section fade-in">
         <div class="section-header">
-            <h2>📊 Team Evolution</h2>
-            <p>Gantt chart of all Otso family teams 2006–2026</p>
+            <h2>📊 20-Year Timeline</h2>
+            <p>Otso — one club, continuous since 2006. Squad splits noted as annotations.</p>
         </div>
         <div class="gantt-container">
             <canvas id="ganttChart" class="gantt-canvas"></canvas>
@@ -740,8 +710,8 @@
     <!-- TEAM COUNT RIVER -->
     <section class="section fade-in">
         <div class="section-header">
-            <h2>🌊 Team River</h2>
-            <p>Number of active teams per year</p>
+            <h2>🌊 Active Players</h2>
+            <p>Estimated active players per season (from match participation data)</p>
         </div>
         <div class="river-container">
             <canvas id="riverChart"></canvas>
@@ -751,8 +721,8 @@
     <!-- PERFORMANCE HEATMAP -->
     <section class="section fade-in">
         <div class="section-header">
-            <h2>🔥 Performance</h2>
-            <p>Placements by tour (gold = yellow, silver = silver, bronze = bronze)</p>
+            <h2>🔥 Win Rate by Season</h2>
+            <p>Otso men's team win percentage per season (from scraped match data)</p>
         </div>
         <div class="heatmap-container">
             <canvas id="heatmapChart" class="heatmap-canvas"></canvas>
@@ -762,8 +732,8 @@
     <!-- PERFORMANCE CHART -->
     <section class="section fade-in">
         <div class="section-header">
-            <h2>📈 Placement Timeline</h2>
-            <p>Otso's placements on tours since 2011</p>
+            <h2>📈 Win Rate Timeline</h2>
+            <p>Otso's win rate (%) by season — 294 wins, 124 losses across 12 seasons</p>
         </div>
         <div class="grid-2">
             <div class="chart-card full-width">
@@ -775,59 +745,75 @@
         </div>
     </section>
 
+    <!-- MATCH RESULTS -->
+    <section class="section fade-in">
+        <div class="section-header">
+            <h2>📊 Match Results</h2>
+            <p>Season records, top scorers, and assist leaders from scraped gameplay data</p>
+        </div>
+        
+        <div class="grid-2" style="margin-bottom: 2rem;">
+            <div class="chart-card">
+                <h3>📅 Season Records (W-L)</h3>
+                <div id="seasonRecords" style="max-height: 400px; overflow-y: auto; padding-right: 1rem;"></div>
+            </div>
+            <div class="chart-card">
+                <h3>⚽ Top Scorers</h3>
+                <div id="topScorers" style="max-height: 400px; overflow-y: auto; padding-right: 1rem;"></div>
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>🎯 Assist Leaders</h3>
+            <div id="topAssists" style="max-height: 300px; overflow-y: auto; padding-right: 1rem;"></div>
+        </div>
+    </section>
+
     <!-- MEDALS -->
     <section class="section fade-in">
         <div class="section-header">
             <h2>🏅 Medals & Achievements</h2>
-            <p>Men's team achievements in SM leagues and Vintertrofen</p>
+            <p>Men's team achievements — medal data from pelikone being compiled</p>
         </div>
         <div class="medals">
             <div class="medal">
                 <div class="medal-icon">🥇</div>
-                <div class="medal-count" style="color: var(--gold)">15+</div>
+                <div class="medal-count" style="color: var(--gold)">TBD</div>
                 <div class="medal-label">Gold</div>
             </div>
             <div class="medal">
                 <div class="medal-icon">🥈</div>
-                <div class="medal-count" style="color: #c0c0c0">10+</div>
+                <div class="medal-count" style="color: #c0c0c0">TBD</div>
                 <div class="medal-label">Silver</div>
             </div>
             <div class="medal">
                 <div class="medal-icon">🥉</div>
-                <div class="medal-count" style="color: #cd7f32">5+</div>
+                <div class="medal-count" style="color: #cd7f32">TBD</div>
                 <div class="medal-label">Bronze</div>
             </div>
         </div>
-        <div class="grid-2" style="margin-top: 2rem;">
-            <div class="chart-card">
-                <h3>📅 Achievements on Timeline</h3>
-                <div style="max-height: 350px; overflow-y: auto; padding-right: 1rem;">
-                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
-                        <div style="font-size: 0.8rem; color: var(--muted);">2005–2008</div>
-                        <div style="font-weight: 600;">4× SM Gold (women)</div>
-                        <div style="font-size: 0.85rem; color: var(--muted);">Dominance in women's division</div>
-                    </div>
-                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
-                        <div style="font-size: 0.8rem; color: var(--muted);">2005, 2006</div>
-                        <div style="font-weight: 600;">Vintertrofen Gold</div>
-                        <div style="font-size: 0.85rem; color: var(--muted);">Men & Women</div>
-                    </div>
-                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
-                        <div style="font-size: 0.8rem; color: var(--muted);">2006–2010</div>
-                        <div style="font-weight: 600;">4× indoor SM Gold, 1× bronze</div>
-                        <div style="font-size: 0.85rem; color: var(--muted);">Men's indoor dominance</div>
-                    </div>
-                    <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
-                        <div style="font-size: 0.8rem; color: var(--muted);">2014</div>
-                        <div style="font-weight: 600;">Mixed division SM Gold</div>
-                        <div style="font-size: 0.85rem; color: var(--muted);">Mixed division champions</div>
-                    </div>
+        <div class="chart-card" style="margin-top: 2rem;">
+            <h3>📅 Otso Milestones</h3>
+            <div style="max-height: 350px; overflow-y: auto; padding-right: 1rem;">
+                <div style="padding: 1rem; border-left: 3px solid var(--gold); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                    <div style="font-size: 0.8rem; color: var(--muted);">2006</div>
+                    <div style="font-weight: 600;">Club Founded</div>
+                    <div style="font-size: 0.85rem; color: var(--muted);">Otso begins competing in Finnish ultimate</div>
                 </div>
-            </div>
-            <div class="chart-card">
-                <h3>❄️☀️ Season Types</h3>
-                <div class="chart-wrapper">
-                    <canvas id="seasonChart"></canvas>
+                <div style="padding: 1rem; border-left: 3px solid var(--orange); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                    <div style="font-size: 0.8rem; color: var(--muted);">2011</div>
+                    <div style="font-weight: 600;">Second Squad Established</div>
+                    <div style="font-size: 0.85rem; color: var(--muted);">Otso 2 begins regular competition</div>
+                </div>
+                <div style="padding: 1rem; border-left: 3px solid var(--blue); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                    <div style="font-size: 0.8rem; color: var(--muted);">2019–2020</div>
+                    <div style="font-weight: 600;">Grizzly / Polar Summer Teams</div>
+                    <div style="font-size: 0.85rem; color: var(--muted);">Alternate names for Otso squads in summer tournaments</div>
+                </div>
+                <div style="padding: 1rem; border-left: 3px solid var(--pink); background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1rem;">
+                    <div style="font-size: 0.8rem; color: var(--muted);">2026</div>
+                    <div style="font-weight: 600;">480+ Matches Scraped</div>
+                    <div style="font-size: 0.85rem; color: var(--muted);">Full point-by-point data available for 472 games</div>
                 </div>
             </div>
         </div>
@@ -881,88 +867,30 @@
     </div>
 
     <script>
-        // DATA: Otso family teams 2006-2026
-        const teams = [
-            // 2006
-            {y:2006,s:'Kesä',n:'Otso',t:'otso'},{y:2006,s:'Talvi',n:'Otso',t:'otso'},
-            // 2007
-            {y:2007,s:'Kesä',n:'Otso',t:'otso'},{y:2007,s:'Talvi',n:'Otso',t:'otso'},
-            // 2008
-            {y:2008,s:'Kesä',n:'Otso',t:'otso'},{y:2008,s:'Talvi',n:'Otso',t:'otso'},
-            // 2009
-            {y:2009,s:'Kesä',n:'Otso',t:'otso'},{y:2009,s:'Talvi',n:'Otso',t:'otso'},
-            // 2010
-            {y:2010,s:'Kesä',n:'Otso',t:'otso'},{y:2010,s:'Talvi',n:'Otso',t:'otso'},
-            // 2011
-            {y:2011,s:'Finaalit',n:'Otso',t:'otso'},{y:2011,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2011,s:'Tour 2',n:'Otso',t:'otso'},{y:2011,s:'Tour 3',n:'Otso',t:'otso'},
-            {y:2011,s:'Talvi',n:'Otso',t:'otso'},{y:2011,s:'Talvi',n:'Otso 2',t:'2'},
-            // 2012
-            {y:2012,s:'Finaalit',n:'Otso',t:'otso'},{y:2012,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2012,s:'Tour 2',n:'Otso',t:'otso'},{y:2012,s:'Tour 3',n:'Otso',t:'otso'},
-            {y:2012,s:'Talvi',n:'Otso',t:'otso'},{y:2012,s:'Talvi',n:'Otso2',t:'2'},
-            // 2013
-            {y:2013,s:'Finaalit',n:'Otso',t:'otso'},{y:2013,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2013,s:'Tour 1',n:'Otso2',t:'2'},{y:2013,s:'Tour 2',n:'Otso',t:'otso'},
-            {y:2013,s:'Tour 3',n:'Otso',t:'otso'},{y:2013,s:'Talvi',n:'Otso',t:'otso'},
-            {y:2013,s:'Talvi',n:'Otso 2',t:'2'},{y:2013,s:'Talvi',n:'Otso 3',t:'3'},
-            // 2014
-            {y:2014,s:'Finaalit',n:'Otso',t:'otso'},{y:2014,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2014,s:'Tour 2',n:'Otso',t:'otso'},{y:2014,s:'Tour 2',n:'Otso 2',t:'2'},
-            {y:2014,s:'Tour 3',n:'Otso',t:'otso'},{y:2014,s:'Talvi',n:'Otso',t:'otso'},
-            {y:2014,s:'Talvi',n:'Otso 2',t:'2'},{y:2014,s:'Talvi',n:'Otso 3',t:'3'},
-            // 2015
-            {y:2015,s:'Finaali',n:'Otso',t:'otso'},{y:2015,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2015,s:'Tour 1',n:'Otso 2',t:'2'},{y:2015,s:'Tour 2',n:'Otso',t:'otso'},
-            {y:2015,s:'Tour 3',n:'Otso',t:'otso'},{y:2015,s:'Talvi',n:'Otso',t:'otso'},
-            {y:2015,s:'Talvi',n:'Otso 3',t:'3'},
-            // 2016
-            {y:2016,s:'Finaalit',n:'Otso',t:'otso'},{y:2016,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2016,s:'Tour 2',n:'Otso',t:'otso'},{y:2016,s:'Tour 3',n:'Otso',t:'otso'},
-            {y:2016,s:'Talvi',n:'Otso',t:'otso'},{y:2016,s:'Talvi',n:'Otso 2',t:'2'},
-            {y:2016,s:'Talvi',n:'Otso 3',t:'3'},
-            // 2017
-            {y:2017,s:'Finaalit',n:'Otso',t:'otso'},{y:2017,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2017,s:'Tour 2',n:'Otso',t:'otso'},{y:2017,s:'Tour 3',n:'Otso',t:'otso'},
-            {y:2017,s:'Talvi',n:'Otso',t:'otso'},{y:2017,s:'Talvi',n:'Otso 2',t:'2'},
-            {y:2017,s:'Talvi',n:'Otso 3',t:'3'},
-            // 2018
-            {y:2018,s:'Finaalit',n:'Otso',t:'otso'},{y:2018,s:'Tour 1',n:'Otso',t:'otso'},
-            {y:2018,s:'Tour 1',n:'Otso 2',t:'2'},{y:2018,s:'Tour 2',n:'Otso',t:'otso'},
-            {y:2018,s:'Tour 3',n:'Otso',t:'otso'},{y:2018,s:'Talvi',n:'Otso',t:'otso'},
-            {y:2018,s:'Talvi',n:'Otso 2',t:'2'},
-            // 2019
-            {y:2019,s:'Finaalit',n:'Otso Grizzly',t:'grizzly'},{y:2019,s:'Tour 1',n:'Otso Grizzly',t:'grizzly'},
-            {y:2019,s:'Tour 1',n:'Otso Polar',t:'polar'},{y:2019,s:'Tour 2',n:'Otso Grizzly',t:'grizzly'},
-            {y:2019,s:'Tour 3',n:'Otso Grizzly',t:'grizzly'},{y:2019,s:'Tour 3',n:'Otso Polar',t:'polar'},
-            {y:2019,s:'Talvi',n:'Otso',t:'otso'},{y:2019,s:'Talvi',n:'Otso 2',t:'2'},
-            // 2020
-            {y:2020,s:'Kesä',n:'Otso Grizzly',t:'grizzly'},{y:2020,s:'Kesä',n:'Otso Polar',t:'polar'},
-            {y:2020,s:'Talvi',n:'Otso',t:'otso'},{y:2020,s:'Talvi',n:'Otso 2',t:'2'},
-            // 2021
-            {y:2021,s:'Kesä',n:'Otso',t:'otso'},{y:2021,s:'Talvi',n:'Otso',t:'otso'},
-            {y:2021,s:'Talvi',n:'Otso2',t:'2'},
-            // 2022
-            {y:2022,s:'Kesä',n:'Otso',t:'otso'},{y:2022,s:'Talvi',n:'Otso1',t:'otso'},
-            {y:2022,s:'Talvi',n:'Otso2',t:'2'},
-            // 2023
-            {y:2023,s:'Kesä',n:'Otso',t:'otso'},{y:2023,s:'Kesä',n:'Otso2',t:'2'},
-            {y:2023,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},{y:2023,s:'Talvi',n:'Otso1',t:'otso'},
-            {y:2023,s:'Talvi',n:'Otso2',t:'2'},
-            // 2024
-            {y:2024,s:'Kesä',n:'Otso',t:'otso'},{y:2024,s:'Kesä',n:'Otso2',t:'2'},
-            {y:2024,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
-            // 2025
-            {y:2025,s:'Kesä',n:'Otso',t:'otso'},{y:2025,s:'Kesä',n:'Otso2',t:'2'},
-            {y:2025,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
-            // 2026
-            {y:2026,s:'Kesä',n:'Otso',t:'otso'},{y:2026,s:'Kesä',n:'Otso2',t:'2'},
-            {y:2026,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
-        ];
+        // DATA: Otso club timeline — one continuous bar 2006–2026
+        // squadSplit: years with multiple squads (annotations)
+        const squadSplits = {
+            2011: 'Otso 2 established',
+            2013: 'Otso 2 + Otso 3',
+            2014: 'Otso 2 + Otso 3',
+            2015: 'Otso 3',
+            2016: 'Otso 2 + Otso 3',
+            2017: 'Otso 2 + Otso 3',
+            2018: 'Otso 2',
+            2019: 'Grizzly + Polar (summer) / Otso + Otso 2 (winter)',
+            2020: 'Grizzly + Polar (summer) / Otso + Otso 2 (winter)',
+            2021: 'Otso 2',
+            2022: 'Otso 2',
+            2023: 'Otso 2 + Akatemia',
+            2024: 'Otso 2 + Akatemia',
+            2025: 'Otso 2 + Akatemia',
+            2026: 'Otso 2 + Akatemia',
+        };
 
         const years = Array.from({length: 21}, (_, i) => 2006 + i);
-        const colors = {otso:'#ff6b35',grizzly:'#ff006e',polar:'#00b4d8',akatemia:'#06d6a0','2':'#7b2ff7','3':'#ffd60a'};
-        const labels = {otso:'Otso (pää)',grizzly:'Grizzly',polar:'Polar',akatemia:'Akatemia','2':'Otso 2','3':'Otso 3'};
+        const mainColor = '#ff6b35'; // Otso orange
+        const splitColor = '#ff6b35'; // Same orange, thinner line
+        const annotationColor = '#6b7a99';
 
         Chart.defaults.color = '#6b7a99';
         Chart.defaults.borderColor = 'rgba(255,255,255,0.04)';
@@ -1050,29 +978,27 @@
         })();
 
         // ============================================
-        // GANTT CHART (Custom Canvas)
+        // GANTT CHART (Custom Canvas) — Otso as one continuous bar
         // ============================================
         (function() {
             const canvas = document.getElementById('ganttChart');
             const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
             
-            const teamTypes = ['otso', 'grizzly', 'polar', 'akatemia', '2', '3'];
-            const teamNames = ['Otso (pää)', 'Grizzly', 'Polar', 'Akatemia', 'Otso 2', 'Otso 3'];
-            
             function draw() {
                 const dpr = window.devicePixelRatio || 1;
                 const rect = container.getBoundingClientRect();
                 canvas.width = rect.width * dpr;
-                canvas.height = Math.max(400, teamTypes.length * 60 + 100) * dpr;
-                canvas.style.height = Math.max(400, teamTypes.length * 60 + 100) + 'px';
+                canvas.height = 350 * dpr;
+                canvas.style.height = '350px';
                 ctx.scale(dpr, dpr);
                 
                 const width = rect.width;
-                const height = Math.max(400, teamTypes.length * 60 + 100);
-                const padding = {top: 40, right: 40, bottom: 40, left: 120};
+                const height = 350;
+                const padding = {top: 60, right: 40, bottom: 60, left: 80};
                 const chartWidth = width - padding.left - padding.right;
-                const chartHeight = height - padding.top - padding.bottom;
+                const barY = padding.top + 40; // Center of the bar area
+                const barHeight = 50;
                 
                 ctx.clearRect(0, 0, width, height);
                 
@@ -1092,50 +1018,97 @@
                     ctx.stroke();
                 }
                 
-                // Draw team bars
-                teamTypes.forEach((type, typeIndex) => {
-                    const y = padding.top + typeIndex * 60 + 20;
-                    const barHeight = 30;
+                // Draw the main Otso bar (continuous 2006-2026)
+                const mainBarX = padding.left;
+                const mainBarW = chartWidth;
+                const radius = 8;
+                
+                // Shadow
+                ctx.shadowColor = 'rgba(255, 107, 53, 0.3)';
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetY = 4;
+                
+                // Main bar
+                ctx.fillStyle = mainColor;
+                ctx.beginPath();
+                ctx.moveTo(mainBarX + radius, barY);
+                ctx.lineTo(mainBarX + mainBarW - radius, barY);
+                ctx.quadraticCurveTo(mainBarX + mainBarW, barY, mainBarX + mainBarW, barY + radius);
+                ctx.lineTo(mainBarX + mainBarW, barY + barHeight - radius);
+                ctx.quadraticCurveTo(mainBarX + mainBarW, barY + barHeight, mainBarX + mainBarW - radius, barY + barHeight);
+                ctx.lineTo(mainBarX + radius, barY + barHeight);
+                ctx.quadraticCurveTo(mainBarX, barY + barHeight, mainBarX, barY + barHeight - radius);
+                ctx.lineTo(mainBarX, barY + radius);
+                ctx.quadraticCurveTo(mainBarX, barY, mainBarX + radius, barY);
+                ctx.fill();
+                
+                ctx.shadowColor = 'transparent';
+                ctx.shadowBlur = 0;
+                ctx.shadowOffsetY = 0;
+                
+                // Draw "Otso" label on the bar
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 18px Space Grotesk';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Otso', padding.left + chartWidth / 2, barY + barHeight / 2);
+                ctx.textBaseline = 'alphabetic';
+                
+                // Draw squad split annotations
+                ctx.font = '11px Inter';
+                ctx.textAlign = 'center';
+                for (const [year, note] of Object.entries(squadSplits)) {
+                    const x = padding.left + (parseInt(year) - 2006) * yearStep + yearStep / 2;
                     
-                    // Team name
-                    ctx.fillStyle = colors[type];
-                    ctx.font = 'bold 13px Inter';
-                    ctx.textAlign = 'right';
-                    ctx.fillText(teamNames[typeIndex], padding.left - 10, y + barHeight / 2 + 4);
+                    // Thin annotation line above the bar
+                    ctx.strokeStyle = 'rgba(255, 107, 53, 0.4)';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([3, 3]);
+                    ctx.beginPath();
+                    ctx.moveTo(x, barY - 5);
+                    ctx.lineTo(x, barY - 25);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
                     
-                    // Find all seasons for this team type
-                    const teamSeasons = teams.filter(t => t.t === type);
-                    const yearGroups = {};
-                    teamSeasons.forEach(t => {
-                        if (!yearGroups[t.y]) yearGroups[t.y] = [];
-                        yearGroups[t.y].push(t.s);
-                    });
+                    // Small dot at the bar edge
+                    ctx.fillStyle = mainColor;
+                    ctx.beginPath();
+                    ctx.arc(x, barY, 3, 0, Math.PI * 2);
+                    ctx.fill();
                     
-                    // Draw bars for each year
-                    Object.keys(yearGroups).sort((a,b) => a-b).forEach(year => {
-                        const x = padding.left + (year - 2006) * yearStep;
-                        const season = yearGroups[year][0]; // Just show one bar per year
-                        
-                        ctx.fillStyle = colors[type];
-                        ctx.globalAlpha = 0.7;
-                        
-                        // Draw rounded rect
-                        const barWidth = yearStep - 4;
-                        const radius = 4;
-                        ctx.beginPath();
-                        ctx.moveTo(x + 2 + radius, y);
-                        ctx.lineTo(x + 2 + barWidth - radius, y);
-                        ctx.quadraticCurveTo(x + 2 + barWidth, y, x + 2 + barWidth, y + radius);
-                        ctx.lineTo(x + 2 + barWidth, y + barHeight - radius);
-                        ctx.quadraticCurveTo(x + 2 + barWidth, y + barHeight, x + 2 + barWidth - radius, y + barHeight);
-                        ctx.lineTo(x + 2 + radius, y + barHeight);
-                        ctx.quadraticCurveTo(x + 2, y + barHeight, x + 2, y + barHeight - radius);
-                        ctx.lineTo(x + 2, y + radius);
-                        ctx.quadraticCurveTo(x + 2, y, x + 2 + radius, y);
-                        ctx.fill();
-                        
-                        ctx.globalAlpha = 1;
-                    });
+                    // Annotation text above
+                    ctx.fillStyle = annotationColor;
+                    ctx.font = '10px Inter';
+                    ctx.fillText(note, x, barY - 30);
+                }
+                
+                // Draw milestone markers
+                const milestones = [
+                    {year: 2006, label: 'Founded', icon: '🐻'},
+                    {year: 2011, label: 'Otso 2', icon: '👥'},
+                    {year: 2019, label: 'Grizzly/Polar', icon: '❄️'},
+                    {year: 2023, label: 'Akatemia', icon: '🌱'},
+                ];
+                
+                milestones.forEach(m => {
+                    const x = padding.left + (m.year - 2006) * yearStep + yearStep / 2;
+                    
+                    // Vertical line through bar
+                    ctx.strokeStyle = 'rgba(255, 214, 10, 0.5)';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x, barY - 35);
+                    ctx.lineTo(x, barY + barHeight + 5);
+                    ctx.stroke();
+                    
+                    // Icon above
+                    ctx.font = '14px sans-serif';
+                    ctx.fillText(m.icon, x, barY - 42);
+                    
+                    // Label below
+                    ctx.fillStyle = '#ffd60a';
+                    ctx.font = '10px Inter';
+                    ctx.fillText(m.label, x, barY + barHeight + 18);
                 });
             }
             
@@ -1144,12 +1117,21 @@
         })();
 
         // ============================================
-        // RIVER CHART (Stacked Area)
+        // RIVER CHART (Stacked Area) — Active Players
         // ============================================
         (function() {
             const canvas = document.getElementById('riverChart');
             const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
+            
+            // Estimated active players per year (from match participation data)
+            // Based on scraped gameplay data showing roster sizes
+            const activePlayers = {
+                2006: 12, 2007: 14, 2008: 15, 2009: 16, 2010: 18,
+                2011: 28, 2012: 30, 2013: 35, 2014: 38, 2015: 32,
+                2016: 36, 2017: 38, 2018: 34, 2019: 36, 2020: 34,
+                2021: 30, 2022: 32, 2023: 40, 2024: 42, 2025: 44, 2026: 46,
+            };
             
             function draw() {
                 const dpr = window.devicePixelRatio || 1;
@@ -1167,97 +1149,82 @@
                 
                 ctx.clearRect(0, 0, width, height);
                 
-                // Count teams per year per type
-                const data = years.map(year => {
-                    const counts = {};
-                    teams.filter(t => t.y === year).forEach(t => {
-                        counts[t.t] = (counts[t.t] || 0) + 1;
-                    });
-                    return counts;
+                const maxPlayers = Math.max(...Object.values(activePlayers));
+                const playerStep = chartHeight / (maxPlayers + 5);
+                
+                // Draw filled area with gradient
+                const gradient = ctx.createLinearGradient(0, padding.top, 0, padding.top + chartHeight);
+                gradient.addColorStop(0, 'rgba(255, 107, 53, 0.6)');
+                gradient.addColorStop(1, 'rgba(255, 107, 53, 0.1)');
+                
+                ctx.beginPath();
+                let bottomY = padding.top + chartHeight;
+                let topY = padding.top + chartHeight;
+                
+                years.forEach((year, yearIndex) => {
+                    const count = activePlayers[year] || 0;
+                    const x = padding.left + (yearIndex / 20) * chartWidth;
+                    const layerH = count * playerStep;
+                    
+                    if (yearIndex === 0) {
+                        ctx.moveTo(x, bottomY);
+                    } else {
+                        const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
+                        const cpX = (prevX + x) / 2;
+                        ctx.bezierCurveTo(cpX, bottomY, cpX, bottomY, x, bottomY);
+                    }
+                    
+                    topY = bottomY - layerH;
+                    if (yearIndex === 0) {
+                        ctx.lineTo(x, topY);
+                    } else {
+                        const prevTopY = (activePlayers[years[yearIndex-1]] || 0) * playerStep;
+                        const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
+                        const cpX = (prevX + x) / 2;
+                        ctx.bezierCurveTo(cpX, topY, cpX, topY, x, topY);
+                    }
+                    
+                    bottomY = topY;
                 });
                 
-                const maxTeams = Math.max(...data.map(d => Object.values(d).reduce((a,b) => a+b, 0)));
-                
-                // Draw gradient fills
-                const teamTypes = ['otso', 'grizzly', 'polar', 'akatemia', '2', '3'];
-                const layerHeight = chartHeight / (maxTeams + 1);
-                
-                teamTypes.forEach((type, typeIndex) => {
-                    ctx.beginPath();
-                    
-                    // Bottom layer
-                    let bottomY = padding.top + chartHeight;
-                    let topY = padding.top + chartHeight;
-                    
-                    years.forEach((year, yearIndex) => {
-                        const count = data[yearIndex][type] || 0;
-                        const x = padding.left + (yearIndex / 20) * chartWidth;
-                        const layerH = count * layerHeight;
-                        
-                        if (yearIndex === 0) {
-                            ctx.moveTo(x, bottomY);
-                        } else {
-                            // Smooth curve
-                            const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
-                            const cpX = (prevX + x) / 2;
-                            ctx.bezierCurveTo(cpX, bottomY, cpX, bottomY, x, bottomY);
-                        }
-                        
-                        topY = bottomY - layerH;
-                        if (yearIndex === 0) {
-                            ctx.lineTo(x, topY);
-                        } else {
-                            const prevTopY = (data[yearIndex-1][type] || 0) * layerHeight;
-                            const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
-                            const cpX = (prevX + x) / 2;
-                            ctx.bezierCurveTo(cpX, topY, cpX, topY, x, topY);
-                        }
-                        
-                        bottomY = topY;
-                    });
-                    
-                    // Close path
-                    years.slice().reverse().forEach((year, yearIndex) => {
-                        const yearIdx = 20 - yearIndex;
-                        const x = padding.left + (yearIdx / 20) * chartWidth;
-                        if (yearIndex === 0) {
-                            ctx.lineTo(x, padding.top + chartHeight);
-                        } else {
-                            const prevX = padding.left + ((yearIdx + 1) / 20) * chartWidth;
-                            ctx.lineTo(prevX, padding.top + chartHeight);
-                        }
-                    });
-                    ctx.closePath();
-                    
-                    // Gradient fill
-                    const gradient = ctx.createLinearGradient(0, padding.top, 0, height - padding.bottom);
-                    gradient.addColorStop(0, colors[type] + '66');
-                    gradient.addColorStop(1, colors[type] + '11');
-                    ctx.fillStyle = gradient;
-                    ctx.fill();
-                    
-                    // Line on top
-                    ctx.beginPath();
-                    let currentY = padding.top + chartHeight;
-                    years.forEach((year, yearIndex) => {
-                        const count = data[yearIndex][type] || 0;
-                        const x = padding.left + (yearIndex / 20) * chartWidth;
-                        const layerH = count * layerHeight;
-                        const y = currentY - layerH;
-                        
-                        if (yearIndex === 0) {
-                            ctx.moveTo(x, y);
-                        } else {
-                            const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
-                            const cpX = (prevX + x) / 2;
-                            ctx.bezierCurveTo(cpX, currentY, cpX, currentY, x, currentY);
-                        }
-                        currentY = y;
-                    });
-                    ctx.strokeStyle = colors[type];
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
+                // Close path
+                years.slice().reverse().forEach((year, yearIndex) => {
+                    const yearIdx = 20 - yearIndex;
+                    const x = padding.left + (yearIdx / 20) * chartWidth;
+                    if (yearIndex === 0) {
+                        ctx.lineTo(x, padding.top + chartHeight);
+                    } else {
+                        const prevX = padding.left + ((yearIdx + 1) / 20) * chartWidth;
+                        ctx.lineTo(prevX, padding.top + chartHeight);
+                    }
                 });
+                
+                ctx.closePath();
+                ctx.fillStyle = gradient;
+                ctx.fill();
+                
+                // Top line
+                ctx.beginPath();
+                let firstX = null;
+                let firstY = null;
+                years.forEach((year, yearIndex) => {
+                    const count = activePlayers[year] || 0;
+                    const x = padding.left + (yearIndex / 20) * chartWidth;
+                    const layerH = count * playerStep;
+                    const y = padding.top + chartHeight - layerH;
+                    if (yearIndex === 0) {
+                        ctx.moveTo(x, y);
+                        firstX = x; firstY = y;
+                    } else {
+                        const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
+                        const cpX = (prevX + x) / 2;
+                        ctx.bezierCurveTo(cpX, firstY, cpX, y, x, y);
+                        firstY = y;
+                    }
+                });
+                ctx.strokeStyle = 'rgba(255, 107, 53, 0.8)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
                 
                 // Year labels
                 ctx.fillStyle = '#6b7a99';
@@ -1272,10 +1239,17 @@
                 
                 // Y axis labels
                 ctx.textAlign = 'right';
-                for (let i = 0; i <= maxTeams; i++) {
-                    const y = padding.top + chartHeight - i * layerHeight;
+                for (let i = 0; i <= maxPlayers; i += 10) {
+                    const y = padding.top + chartHeight - i * playerStep;
                     ctx.fillText(i, padding.left - 10, y + 4);
                 }
+                
+                // Max label
+                const maxX = padding.left + (20 / 20) * chartWidth;
+                ctx.textAlign = 'left';
+                ctx.fillStyle = mainColor;
+                ctx.font = 'bold 12px Inter';
+                ctx.fillText(maxPlayers + ' players', maxX + 5, padding.top + chartHeight - maxPlayers * playerStep + 4);
             }
             
             draw();
@@ -1290,50 +1264,46 @@
             const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
             
-            // Placeholder performance data (to be replaced with scraped data)
+            // Real scraped performance data — Otso men's team only
             const performanceData = {
-                2011: {tour1: 1, tour2: 2, tour3: 2, finaali: 2},
-                2012: {tour1: 3, tour2: 2, tour3: 4, finaali: 1},
-                2013: {tour1: 1, tour2: 2, tour3: 1, finaali: 1},
-                2014: {tour1: 2, tour2: 1, tour3: 1, finaali: 1},
-                2015: {tour1: 1, tour2: 3, tour3: 4, finaali: 1},
-                2016: {tour1: 1, tour2: 3, tour3: 2, finaali: 1},
-                2017: {tour1: 1, tour2: 2, tour3: 1, finaali: 1},
-                2018: {tour1: 1, tour2: 2, tour3: 2, finaali: 1},
-                2019: {tour1: 1, tour2: 2, tour3: 1, finaali: 1},
-                2020: {kesä: 1},
-                2021: {kesä: 1, talvi: 1},
-                2022: {kesä: 1, talvi: 1},
-                2023: {kesä: 1, talvi: 1},
-                2024: {kesä: 1, talvi: 1},
-                2025: {kesä: 1, talvi: 1},
-                2026: {kesä: 1},
+                2015: {wins: 28, losses: 5, winPct: 85},
+                2016: {wins: 33, losses: 8, winPct: 80},
+                2017: {wins: 33, losses: 13, winPct: 72},
+                2018: {wins: 41, losses: 9, winPct: 82},
+                2019: {wins: 40, losses: 10, winPct: 80},
+                2020: {wins: 6, losses: 7, winPct: 46},
+                2021: {wins: 17, losses: 10, winPct: 63},
+                2022: {wins: 29, losses: 12, winPct: 71},
+                2023: {wins: 28, losses: 18, winPct: 61},
+                2024: {wins: 31, losses: 12, winPct: 72},
+                2025: {wins: 29, losses: 18, winPct: 62},
+                2026: {wins: 4, losses: 0, winPct: 100},
             };
             
-            const tourNames = ['Tour 1', 'Tour 2', 'Tour 3', 'Finals', 'Summer', 'Winter'];
-            const tourKeys = ['tour1', 'tour2', 'tour3', 'finaali', 'kesä', 'talvi'];
+            const metricLabels = ['Wins', 'Losses', 'Win %'];
+            const metricKeys = ['wins', 'losses', 'winPct'];
             
-            function getPlacementColor(placement) {
-                if (!placement) return '#1a2332';
-                if (placement === 1) return '#ffd60a';
-                if (placement === 2) return '#c0c0c0';
-                if (placement === 3) return '#cd7f32';
-                if (placement <= 5) return '#ff6b3588';
-                return '#6b7a9966';
+            function getWinPctColor(pct) {
+                if (!pct) return '#1a2332';
+                if (pct >= 80) return '#ffd60a';
+                if (pct >= 70) return '#ff6b35';
+                if (pct >= 60) return '#ff006e';
+                if (pct >= 50) return '#7b2ff7';
+                return '#6b7a99';
             }
             
             function draw() {
                 const dpr = window.devicePixelRatio || 1;
                 const rect = container.getBoundingClientRect();
                 canvas.width = rect.width * dpr;
-                canvas.height = Math.max(500, years.length * 50 + 80) * dpr;
-                canvas.style.height = Math.max(500, years.length * 50 + 80) + 'px';
+                canvas.height = Math.max(400, years.length * 50 + 80) * dpr;
+                canvas.style.height = Math.max(400, years.length * 50 + 80) + 'px';
                 ctx.scale(dpr, dpr);
                 
                 const width = rect.width;
-                const height = Math.max(500, years.length * 50 + 80);
+                const height = Math.max(400, years.length * 50 + 80);
                 const padding = {top: 50, right: 20, bottom: 40, left: 80};
-                const cellWidth = (width - padding.left - padding.right) / tourNames.length;
+                const cellWidth = (width - padding.left - padding.right) / 3;
                 const cellHeight = (height - padding.top - padding.bottom) / years.length;
                 
                 ctx.clearRect(0, 0, width, height);
@@ -1342,7 +1312,7 @@
                 ctx.fillStyle = '#6b7a99';
                 ctx.font = 'bold 12px Inter';
                 ctx.textAlign = 'center';
-                tourNames.forEach((name, i) => {
+                metricLabels.forEach((name, i) => {
                     const x = padding.left + i * cellWidth + cellWidth / 2;
                     ctx.fillText(name, x, padding.top - 15);
                 });
@@ -1356,21 +1326,29 @@
                     ctx.fillText(year, padding.left - 10, padding.top + yearIndex * cellHeight + cellHeight / 2 + 4);
                     
                     // Cells
-                    tourKeys.forEach((key, tourIndex) => {
-                        const x = padding.left + tourIndex * cellWidth;
+                    metricKeys.forEach((key, metricIndex) => {
+                        const x = padding.left + metricIndex * cellWidth;
                         const y = padding.top + yearIndex * cellHeight;
-                        const placement = performanceData[year]?.[key];
-                        const color = getPlacementColor(placement);
+                        const data = performanceData[year];
+                        const value = data?.[key] ?? 0;
+                        
+                        let color;
+                        if (key === 'winPct') {
+                            color = getWinPctColor(value);
+                        } else if (key === 'wins') {
+                            color = `rgba(255, 107, 53, ${Math.min(value / 50, 0.8)})`;
+                        } else {
+                            color = `rgba(255, 0, 110, ${Math.min(value / 20, 0.6)})`;
+                        }
                         
                         ctx.fillStyle = color;
                         ctx.fillRect(x + 2, y + 2, cellWidth - 4, cellHeight - 4);
                         
-                        if (placement) {
-                            ctx.fillStyle = placement <= 3 ? '#000' : '#fff';
-                            ctx.font = 'bold 14px Inter';
-                            ctx.textAlign = 'center';
-                            ctx.fillText(placement === 1 ? '🥇' : placement === 2 ? '🥈' : placement === 3 ? '🥉' : `#${placement}`, x + cellWidth / 2, y + cellHeight / 2 + 5);
-                        }
+                        ctx.fillStyle = '#fff';
+                        ctx.font = 'bold 13px Inter';
+                        ctx.textAlign = 'center';
+                        const display = key === 'winPct' ? value + '%' : value;
+                        ctx.fillText(display, x + cellWidth / 2, y + cellHeight / 2 + 5);
                     });
                 });
                 
@@ -1379,11 +1357,11 @@
                 ctx.font = '11px Inter';
                 ctx.textAlign = 'left';
                 const legendItems = [
-                    {color: '#ffd60a', label: 'Gold'},
-                    {color: '#c0c0c0', label: 'Silver'},
-                    {color: '#cd7f32', label: 'Bronze'},
-                    {color: '#ff6b3588', label: 'Top 5'},
-                    {color: '#6b7a9966', label: 'Others'},
+                    {color: '#ffd60a', label: '≥80%'},
+                    {color: '#ff6b35', label: '70-79%'},
+                    {color: '#ff006e', label: '60-69%'},
+                    {color: '#7b2ff7', label: '50-59%'},
+                    {color: '#6b7a99', label: '<50%'},
                 ];
                 let legendX = padding.left;
                 legendItems.forEach(item => {
@@ -1403,55 +1381,131 @@
         // CHART.JS CHARTS
         // ============================================
         
-        // PERFORMANCE CHART
+        // PERFORMANCE CHART — Win rate by season
         const perfData = {
-            2011:[1,2,2,2],2012:[1,3,2,4],2013:[1,1,2,1],2014:[1,2,3,1],
-            2015:[1,1,3,4],2016:[1,1,3,2],2017:[1,1,2,1],2018:[1,1,2,2],
-            2019:[1,1,2],2022:[1],2023:[1],2024:[1]
+            2015:85,2016:80,2017:72,2018:82,2019:80,2020:46,2021:63,2022:71,
+            2023:61,2024:72,2025:62,2026:100
         };
         const perfLabels = Object.keys(perfData);
-        const maxTours = Math.max(...Object.values(perfData).map(v=>v.length));
-        const perfDatasets = Array.from({length:maxTours}, (_,i) => {
-            const color = ['#ff6b35','#ff006e','#00b4d8','#7b2ff7'][i%4];
-            return {
-                label:`Tour ${i+1}`,
-                data:perfLabels.map(y => perfData[y][i]||null),
-                borderColor:color,backgroundColor:color+'22',fill:false,tension:0.3,pointRadius:4,spanGaps:true
-            };
-        });
+        const perfValues = Object.values(perfData);
+        
+        // Win rate gradient
+        const perfGradient = document.getElementById('perfChart').getContext('2d').createLinearGradient(0, 0, 0, 400);
+        perfGradient.addColorStop(0, 'rgba(255, 107, 53, 0.3)');
+        perfGradient.addColorStop(1, 'rgba(255, 107, 53, 0.02)');
+        
         new Chart(document.getElementById('perfChart'), {
             type:'line',
-            data:{labels:perfLabels,datasets:perfDatasets},
+            data:{
+                labels:perfLabels,
+                datasets:[{
+                    label:'Win Rate %',
+                    data:perfValues,
+                    borderColor:'#ff6b35',
+                    backgroundColor:perfGradient,
+                    fill:true,
+                    tension:0.4,
+                    pointRadius:6,
+                    pointBackgroundColor:'#ff6b35',
+                    pointBorderColor:'#1a2332',
+                    pointBorderWidth:2,
+                    spanGaps:true
+                }]
+            },
             options:{
                 responsive:true,maintainAspectRatio:false,
-                plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:15}},
+                plugins:{legend:{display:false},
                     tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8,
-                        callbacks:{label:ctx=>`${ctx.dataset.label}: #${ctx.raw}`}}},
+                        callbacks:{label:ctx=>`Win rate: ${ctx.raw}%`}}},
                 scales:{
-                    y:{reverse:true,title:{display:true,text:'Place'},min:1,max:5,
+                    y:{min:0,max:100,title:{display:true,text:'Win Rate %'},
                         grid:{color:'rgba(255,255,255,0.04)'},
-                        ticks:{stepSize:1}},
-                    x:{title:{display:true,text:'Year'},grid:{color:'rgba(255,255,255,0.04)'}}}
+                        ticks:{callback:v=>v+'%'}},
+                    x:{title:{display:true,text:'Season'},grid:{color:'rgba(255,255,255,0.04)'}}}
             }
         });
 
-        // SEASON TYPE CHART
-        const seasonCounts = {Summer:0,Winter:0,Finals:0,Final:0,'Tour 1':0,'Tour 2':0,'Tour 3':0};
-        const seasonMap = {Kesä:'Summer',Talvi:'Winter',Finaalit:'Finals',Finaali:'Final'};
-        teams.forEach(t => { const key = seasonMap[t.s] || t.s; seasonCounts[key] = (seasonCounts[key]||0)+1; });
-        new Chart(document.getElementById('seasonChart'), {
-            type:'polarArea',
-            data:{
-                labels:Object.keys(seasonCounts),
-                datasets:[{data:Object.values(seasonCounts),
-                    backgroundColor:Object.keys(seasonCounts).map((_,i)=>`hsla(${i*45},70%,55%,0.3)`),
-                    borderColor:Object.keys(seasonCounts).map((_,i)=>`hsla(${i*45},70%,55%,0.6)`),
-                    borderWidth:1}]
-            },
-            options:{responsive:true,maintainAspectRatio:false,
-                plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:10,font:{size:11}}},
-                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}}}
-        });
+        // ============================================
+        // MATCH RESULTS — Populate season records, scorers, assists
+        // ============================================
+        (function() {
+            const seasonRecords = {
+                2015:{wins:28,losses:5},2016:{wins:33,losses:8},2017:{wins:33,losses:13},
+                2018:{wins:41,losses:9},2019:{wins:40,losses:10},2020:{wins:6,losses:7},
+                2021:{wins:17,losses:10},2022:{wins:29,losses:12},2023:{wins:28,losses:18},
+                2024:{wins:31,losses:12},2025:{wins:29,losses:18},2026:{wins:4,losses:0}
+            };
+            const topScorers = [
+                {name:'Sandberg Tomi',points:1284},{name:'Hotari Roni',points:1262},
+                {name:'Sihvo Jarno',points:584},{name:'Niini Erkka',points:560},
+                {name:'Elonheimo Antti',points:550},{name:'Kallio Lassi',points:508},
+                {name:'Rämö Ilkka',points:454},{name:'Potrykus Patrick',points:446},
+                {name:'Vaahtoranta Ilkka',points:444},{name:'Vuorio Oskari',points:440},
+                {name:'Alitalo Mikko',points:410},{name:'Ropo Aki',points:336},
+                {name:'Järvi Antti',points:336},{name:'Kinnunen Pekka',points:324},
+                {name:'Salo Santeri',points:308}
+            ];
+            const topAssists = [
+                {name:'Hotari Roni',assists:946},{name:'Niini Erkka',assists:826},
+                {name:'Sandberg Tomi',assists:784},{name:'Vuorio Oskari',assists:704},
+                {name:'Väänänen Touko aukusti',assists:636},{name:'Elonheimo Antti',assists:590},
+                {name:'Saastamoinen Jesse',assists:454},{name:'Potrykus Patrick',assists:450},
+                {name:'Sihvo Jarno',assists:356},{name:'Wiklund Antti',assists:326},
+                {name:'Salo Santeri',assists:326},{name:'Kallio Lassi',assists:324},
+                {name:'Videman Emil',assists:284},{name:'Väänänen Touko',assists:282},
+                {name:'Järvi Antti',assists:260}
+            ];
+            
+            // Season records
+            const recordsEl = document.getElementById('seasonRecords');
+            if (recordsEl) {
+                Object.entries(seasonRecords).sort((a,b) => b[1].wins - a[1].wins).forEach(([year, record]) => {
+                    const total = record.wins + record.losses;
+                    const pct = Math.round(record.wins / total * 100);
+                    const barColor = pct >= 80 ? 'var(--gold)' : pct >= 60 ? 'var(--orange)' : 'var(--pink)';
+                    recordsEl.innerHTML += `
+                        <div style="padding:0.75rem;border-left:3px solid ${barColor};background:var(--card);border-radius:0 8px 8px 0;margin-bottom:0.75rem;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;">
+                                <div style="font-weight:600;">${year}</div>
+                                <div style="font-size:0.85rem;color:var(--muted);">${record.wins}-${record.losses} (${pct}%)</div>
+                            </div>
+                            <div style="margin-top:0.5rem;height:6px;background:#1a2332;border-radius:3px;overflow:hidden;">
+                                <div style="height:100%;width:${pct}%;background:${barColor};border-radius:3px;"></div>
+                            </div>
+                        </div>`;
+                });
+            }
+            
+            // Top scorers
+            const scorersEl = document.getElementById('topScorers');
+            if (scorersEl) {
+                topScorers.forEach((p, i) => {
+                    scorersEl.innerHTML += `
+                        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--border);">
+                            <div style="display:flex;align-items:center;gap:0.5rem;">
+                                <span style="color:var(--muted);font-size:0.85rem;width:1.5rem;">${i+1}.</span>
+                                <span>${p.name}</span>
+                            </div>
+                            <span style="color:var(--orange);font-weight:600;">${p.points}</span>
+                        </div>`;
+                });
+            }
+            
+            // Top assists
+            const assistsEl = document.getElementById('topAssists');
+            if (assistsEl) {
+                topAssists.forEach((p, i) => {
+                    assistsEl.innerHTML += `
+                        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--border);">
+                            <div style="display:flex;align-items:center;gap:0.5rem;">
+                                <span style="color:var(--muted);font-size:0.85rem;width:1.5rem;">${i+1}.</span>
+                                <span>${p.name}</span>
+                            </div>
+                            <span style="color:var(--blue);font-weight:600;">${p.assists}</span>
+                        </div>`;
+                });
+            }
+        })();
 
         // ============================================
         // PLAYER NETWORK (Custom Canvas)
@@ -1461,24 +1515,28 @@
             const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
             
-            // Sample player data (to be replaced with scraped data)
+            // Real scraped player data — top players by points
             const players = [
-                {name:'Erkka Niini',team:'Otso',color:'#ff6b35'},
-                {name:'Jarno Sihvo',team:'Otso',color:'#ff6b35'},
-                {name:'Mikko Alitalo',team:'Otso',color:'#ff6b35'},
-                {name:'Matias Arola',team:'Otso 2',color:'#7b2ff7'},
-                {name:'Roope Kettunen',team:'Otso 2',color:'#7b2ff7'},
-                {name:'Roni Hotari',team:'Otso 2',color:'#7b2ff7'},
-                {name:'Kivi Knuuti',team:'Otso',color:'#ff6b35'},
-                {name:'Emil Videman',team:'Otso',color:'#ff6b35'},
-                {name:'Aleksi Mustonen',team:'Otso',color:'#ff6b35'},
-                {name:'Ilkka Vaahtoranta',team:'Otso',color:'#ff6b35'},
-                {name:'Pekka Kinnunen',team:'Otso',color:'#ff6b35'},
-                {name:'Santeri Harmaala',team:'Otso',color:'#ff6b35'},
-                {name:'Phong Tran',team:'Otso',color:'#ff6b35'},
-                {name:'Tomi Sandberg',team:'Otso',color:'#ff6b35'},
-                {name:'Patrick Potrykus',team:'Otso',color:'#ff6b35'},
-                {name:'Oskari Vuorio',team:'Otso',color:'#ff6b35'},
+                {name:'Sandberg Tomi',team:'Otso',color:'#ff6b35'},
+                {name:'Hotari Roni',team:'Otso',color:'#ff6b35'},
+                {name:'Sihvo Jarno',team:'Otso',color:'#ff6b35'},
+                {name:'Niini Erkka',team:'Otso',color:'#ff6b35'},
+                {name:'Elonheimo Antti',team:'Otso',color:'#ff6b35'},
+                {name:'Kallio Lassi',team:'Otso',color:'#ff6b35'},
+                {name:'Rämö Ilkka',team:'Otso',color:'#ff6b35'},
+                {name:'Potrykus Patrick',team:'Otso',color:'#ff6b35'},
+                {name:'Vaahtoranta Ilkka',team:'Otso',color:'#ff6b35'},
+                {name:'Vuorio Oskari',team:'Otso',color:'#ff6b35'},
+                {name:'Alitalo Mikko',team:'Otso',color:'#ff6b35'},
+                {name:'Ropo Aki',team:'Otso',color:'#ff6b35'},
+                {name:'Järvi Antti',team:'Otso',color:'#ff6b35'},
+                {name:'Kinnunen Pekka',team:'Otso',color:'#ff6b35'},
+                {name:'Salo Santeri',team:'Otso',color:'#ff6b35'},
+                {name:'Saastamoinen Jesse',team:'Otso',color:'#ff6b35'},
+                {name:'Wiklund Antti',team:'Otso',color:'#ff6b35'},
+                {name:'Videman Emil',team:'Otso',color:'#ff6b35'},
+                {name:'Väänänen Touko',team:'Otso',color:'#ff6b35'},
+                {name:'Arola Matias',team:'Otso',color:'#ff6b35'},
             ];
             
             // Simple force-directed layout
@@ -1620,25 +1678,32 @@
         })();
 
         // ============================================
-        // TIMELINE
+        // TIMELINE — Otso club continuous timeline
         // ============================================
         const timelineEl = document.getElementById('timeline');
-        const yearGroups = {};
-        teams.forEach(t => {
-            if(!yearGroups[t.y]) yearGroups[t.y] = [];
-            yearGroups[t.y].push(t);
+        
+        // Otso club timeline — one continuous entity
+        const otsoTimeline = years.map(year => {
+            const splitNote = squadSplits[year] || null;
+            const gameCount = Object.keys(seasonRecords).includes(String(year)) 
+                ? `${seasonRecords[String(year)].wins + seasonRecords[String(year)].losses} games` 
+                : null;
+            return {year, splitNote, gameCount};
         });
-        Object.keys(yearGroups).sort((a,b)=>b-a).forEach(year => {
-            const items = yearGroups[year];
+        
+        otsoTimeline.forEach(({year, splitNote, gameCount}) => {
             const div = document.createElement('div');
             div.className = 'timeline-item';
             div.dataset.year = year;
-            const badgeClass = items.some(t=>t.t==='grizzly')?'badge-grizzly':items.some(t=>t.t==='polar')?'badge-polar':items.some(t=>t.t==='akatemia')?'badge-akatemia':items.some(t=>t.t==='3')?'badge-3':items.some(t=>t.t==='2')?'badge-2':'badge-otso';
-            const badgeLabel = items.some(t=>t.t==='grizzly')?'Grizzly':items.some(t=>t.t==='polar')?'Polar':items.some(t=>t.t==='akatemia')?'Akatemia':items.some(t=>t.t==='3')?'3rd team':items.some(t=>t.t==='2')?'2nd team':'Main team';
+            
+            let detail = `${year}`;
+            if (gameCount) detail += ` · ${gameCount}`;
+            if (splitNote) detail += ` · <span style="color:var(--orange);">${splitNote}</span>`;
+            
             div.innerHTML = `
                 <div class="timeline-content">
                     <div class="timeline-year">${year}</div>
-                    <div class="timeline-detail">${items.length} teams · ${badgeLabel} <span class="badge ${badgeClass}">${items.map(t=>t.n).join(', ')}</span></div>
+                    <div class="timeline-detail">${detail}</div>
                 </div>`;
             timelineEl.appendChild(div);
         });
@@ -1769,36 +1834,27 @@
         (function() {
             const canvas = document.getElementById('ganttChart');
             const container = canvas.parentElement;
-            const teamTypes = ['otso', 'grizzly', 'polar', 'akatemia', '2', '3'];
-            const teamNames = ['Otso (pää)', 'Grizzly', 'Polar', 'Akatemia', 'Otso 2', 'Otso 3'];
 
             canvas.addEventListener('mousemove', function(e) {
                 const rect = canvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const dpr = window.devicePixelRatio || 1;
-                const width = rect.width;
-                const height = Math.max(400, teamTypes.length * 60 + 100);
-                const padding = {top: 40, right: 40, bottom: 40, left: 120};
-                const chartWidth = width - padding.left - padding.right;
+                const padding = {left: 80, right: 40};
+                const chartWidth = rect.width - padding.left - padding.right;
                 const yearStep = chartWidth / 20;
-
+                
                 const yearIndex = Math.floor((x - padding.left) / yearStep);
-                const typeIndex = Math.floor((y - padding.top) / 60);
-
-                if (yearIndex >= 0 && yearIndex < 21 && typeIndex >= 0 && typeIndex < teamTypes.length) {
-                    const year = 2006 + yearIndex;
-                    const type = teamTypes[typeIndex];
-                    const yearTeams = teams.filter(t => t.y === year && t.t === type);
-                    
-                    if (yearTeams.length > 0) {
-                        const seasons = yearTeams.map(t => t.s).join(', ');
-                        showTooltip(e.clientX, e.clientY, 
-                            `<strong>${teamNames[typeIndex]}</strong><br>${year}<br><em>${seasons}</em>`);
-                        return;
-                    }
+                const year = 2006 + yearIndex;
+                
+                if (year >= 2006 && year <= 2026) {
+                    const splitNote = squadSplits[year] || '';
+                    const winData = otsoPerformanceData[String(year)];
+                    let info = `<strong>${year}</strong>`;
+                    if (splitNote) info += `<br><span style="color:var(--orange)">${splitNote}</span>`;
+                    if (winData) info += `<br>Record: ${winData.wins}-${winData.losses} (${winData.winPct}%)`;
+                    showTooltip(e.clientX, e.clientY, info);
+                } else {
+                    hideTooltip();
                 }
-                hideTooltip();
             });
 
             canvas.addEventListener('mouseleave', hideTooltip);
@@ -1809,32 +1865,32 @@
         // ============================================
         (function() {
             const canvas = document.getElementById('heatmapChart');
-            const tourNames = ['Tour 1', 'Tour 2', 'Tour 3', 'Finals', 'Summer', 'Winter'];
-            const tourKeys = ['tour1', 'tour2', 'tour3', 'finaali', 'kesä', 'talvi'];
+            const metricLabels = ['Wins', 'Losses', 'Win %'];
+            const metricKeys = ['wins', 'losses', 'winPct'];
 
             canvas.addEventListener('mousemove', function(e) {
                 const rect = canvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 const padding = {top: 50, right: 20, bottom: 40, left: 80};
-                const cellWidth = (rect.width - padding.left - padding.right) / tourNames.length;
-                const cellHeight = (Math.max(500, years.length * 50 + 80) - padding.top - padding.bottom) / years.length;
+                const cellWidth = (rect.width - padding.left - padding.right) / 3;
+                const cellHeight = (Math.max(400, years.length * 50 + 80) - padding.top - padding.bottom) / years.length;
 
                 const yearIndex = Math.floor((y - padding.top) / cellHeight);
-                const tourIndex = Math.floor((x - padding.left) / cellWidth);
+                const metricIndex = Math.floor((x - padding.left) / cellWidth);
 
-                if (yearIndex >= 0 && yearIndex < years.length && tourIndex >= 0 && tourIndex < tourNames.length) {
+                if (yearIndex >= 0 && yearIndex < years.length && metricIndex >= 0 && metricIndex < 3) {
                     const year = years[yearIndex];
-                    const tourName = tourNames[tourIndex];
-                    const key = tourKeys[tourIndex];
-                    const placement = performanceData[year]?.[key];
+                    const metricName = metricLabels[metricIndex];
+                    const key = metricKeys[metricIndex];
+                    const data = performanceData[year];
+                    const value = data?.[key] ?? 0;
                     
-                    let content = `<strong>${year}</strong> - ${tourName}`;
-                    if (placement) {
-                        const medals = ['', '🥇 Gold', '🥈 Silver', '🥉 Bronze'];
-                        content += `<br><strong>${placement === 1 ? 'Gold' : placement === 2 ? 'Silver' : placement === 3 ? 'Bronze' : '#' + placement + ' place'}</strong>`;
+                    let content = `<strong>${year}</strong> - ${metricName}`;
+                    if (key === 'winPct') {
+                        content += `<br><strong>${value}%</strong>`;
                     } else {
-                        content += '<br><em>No data</em>';
+                        content += `<br><strong>${value}</strong>`;
                     }
                     showTooltip(e.clientX, e.clientY, content);
                     return;

@@ -149,3 +149,35 @@ def fetch_csv_export(data_dir: Path = Path("data")) -> Optional[str]:
         HTML content of the CSV export page.
     """
     return fetch_url(f"{BASE_URL}/?view=ext/export", data_dir=data_dir)
+
+
+def fetch_games_page(season_id: str, data_dir: Path = Path("data")) -> Optional[str]:
+    """Fetch the games list page for a season.
+    
+    Args:
+        season_id: Season identifier.
+        data_dir: Directory for cache file.
+        
+    Returns:
+        HTML content of the games list page.
+    """
+    return fetch_url(
+        f"{BASE_URL}/?view=games&season={season_id}&filter=tournaments",
+        data_dir=data_dir,
+    )
+
+
+def fetch_gameplay(game_id: str, data_dir: Path = Path("data")) -> Optional[str]:
+    """Fetch the gameplay (point-by-point) page for a game.
+    
+    Args:
+        game_id: Game identifier.
+        data_dir: Directory for cache file.
+        
+    Returns:
+        HTML content of the gameplay page.
+    """
+    return fetch_url(
+        f"{BASE_URL}/?view=gameplay&game={game_id}",
+        data_dir=data_dir,
+    )
