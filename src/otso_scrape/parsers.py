@@ -121,7 +121,7 @@ def parse_season_list(html: str) -> List[Dict]:
 
 
 def parse_teams_page(html: str, season_id: str) -> List[Dict]:
-    """Parse the teams list page.
+    """Parse the teams list page, filtering to Otso teams only.
     
     Handles two HTML formats:
     1. New format (KESA2026+): tables with class='teams-table'
@@ -132,7 +132,7 @@ def parse_teams_page(html: str, season_id: str) -> List[Dict]:
         season_id: Season identifier.
         
     Returns:
-        List of team dictionaries.
+        List of Otso team dictionaries.
     """
     teams = []
     soup = BeautifulSoup(html, "html.parser")
@@ -159,6 +159,11 @@ def parse_teams_page(html: str, season_id: str) -> List[Dict]:
                 player_link = tds[2].find("a", href=True)
 
                 if team_link:
+                    team_name = team_link.get_text(strip=True)
+                    # Filter: only keep Otso teams
+                    if not is_otso_team(team_name):
+                        continue
+                    
                     team_id = None
                     if "team=" in team_link["href"]:
                         for part in team_link["href"].split("&"):
@@ -166,7 +171,7 @@ def parse_teams_page(html: str, season_id: str) -> List[Dict]:
                                 team_id = part.split("=")[1]
 
                     teams.append({
-                        "name": team_link.get_text(strip=True),
+                        "name": team_name,
                         "id": team_id,
                         "club": club_link.get_text(strip=True) if club_link else "",
                         "division": division,
@@ -182,14 +187,14 @@ def parse_teams_page(html: str, season_id: str) -> List[Dict]:
 
 
 def _parse_teams_old_format(html: str, season_id: str) -> List[Dict]:
-    """Parse teams from old-format HTML (pre-2026 pelikone).
+    """Parse teams from old-format HTML (pre-2026 pelikone), filtered to Otso teams.
     
     Args:
         html: HTML content of the teams page.
         season_id: Season identifier.
         
     Returns:
-        List of team dictionaries.
+        List of Otso team dictionaries.
     """
     teams = []
     soup = BeautifulSoup(html, "html.parser")
@@ -201,6 +206,9 @@ def _parse_teams_old_format(html: str, season_id: str) -> List[Dict]:
     seen_teams = set()
     for link in team_links:
         name = link.get_text(strip=True)
+        # Filter: only keep Otso teams
+        if not is_otso_team(name):
+            continue
         if (len(name) > 2 and len(name) < 40 and 
             name not in ["Pelaajalista", "Pistep\u00f6rssi", "Pelit",
                         "Sijoitukset", "Pelit", "Joukkueet", "Avoin",
@@ -303,6 +311,11 @@ def _parse_standings_new_format(html: str, season_id: str) -> List[Dict]:
                 team_cell = tds[i + 1]
                 team_link = team_cell.find("a")
                 if team_link:
+                    team_name = team_link.get_text(strip=True)
+                    # Filter: only keep Otso teams
+                    if not is_otso_team(team_name):
+                        continue
+                    
                     team_id = None
                     if "team=" in team_link["href"]:
                         for part in team_link["href"].split("&"):
@@ -311,7 +324,7 @@ def _parse_standings_new_format(html: str, season_id: str) -> List[Dict]:
 
                     placements.append({
                         "placement": placement,
-                        "team_name": team_link.get_text(strip=True),
+                        "team_name": team_name,
                         "team_id": team_id,
                         "division": division,
                         "season_id": season_id,
@@ -380,6 +393,9 @@ def _parse_standings_old_format(html: str, season_id: str) -> List[Dict]:
             
             for team_name in team_names:
                 team_name = team_name.strip()
+                # Filter: only keep Otso teams
+                if not is_otso_team(team_name):
+                    continue
                 if team_name and len(team_name) > 1 and team_name not in ["Kulta", "Hopea", "Pronssi"]:
                     placements.append({
                         "placement": placement_num,
@@ -626,6 +642,8 @@ def parse_csv_results(html: str, season_id: str) -> List[Dict]:
 def is_otso_team(team_name: str) -> bool:
     """Check if a team name matches Otso patterns.
     
+    Excludes Akatemia teams (separate club) and "Otso 3" (often youth/mixed).
+    
     Args:
         team_name: Team name to check.
         
@@ -633,6 +651,9 @@ def is_otso_team(team_name: str) -> bool:
         True if the team is an Otso team.
     """
     name_lower = team_name.lower()
+    # Exclude Akatemia teams (separate club)
+    if "akatemia" in name_lower:
+        return False
     for pattern in OTSO_PATTERNS:
         if pattern in name_lower:
             return True

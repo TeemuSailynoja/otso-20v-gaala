@@ -17,6 +17,7 @@ def parse_season(
     season_id: str,
     season_name: str,
     csv_only: bool = False,
+    otso_only: bool = False,
     data_dir: Path = DATA_DIR,
     refresh: bool = False,
 ) -> Dict:
@@ -26,6 +27,7 @@ def parse_season(
         season_id: Season identifier.
         season_name: Season name.
         csv_only: Only use CSV export (current season).
+        otso_only: Skip non-Otso teams entirely (saves requests).
         data_dir: Directory for cache and output files.
         refresh: Force re-download even if cached.
 
@@ -84,7 +86,10 @@ def parse_season(
 
         # Parse team cards for Otso teams
         for team in season_data["teams"]:
-            if is_otso_team(team["name"]) and team["id"]:
+            if not is_otso_team(team["name"]):
+                if otso_only:
+                    continue
+            if team["id"]:
                 team_html = fetch_team_card(team["id"], data_dir)
                 if team_html:
                     team_data = parse_team_card(team_html, team["id"])
@@ -98,7 +103,10 @@ def parse_season(
 
         # Parse player lists for Otso teams
         for team in season_data["teams"]:
-            if is_otso_team(team["name"]) and team.get("player_list_url"):
+            if not is_otso_team(team["name"]):
+                if otso_only:
+                    continue
+            if team.get("player_list_url"):
                 player_html = fetch_url(
                     team["player_list_url"], data_dir=data_dir, refresh=refresh
                 )
@@ -147,6 +155,9 @@ def main() -> None:
         "--csv-only", action="store_true", help="Only use CSV export (current season)"
     )
     parser.add_argument(
+        "--otso-only", action="store_true", help="Only fetch Otso teams (skip non-Otso teams entirely)"
+    )
+    parser.add_argument(
         "--refresh", action="store_true", help="Force re-download all data"
     )
     parser.add_argument(
@@ -189,6 +200,7 @@ def main() -> None:
             season["id"],
             season["name"],
             csv_only=args.csv_only,
+            otso_only=args.otso_only,
             data_dir=DATA_DIR,
             refresh=args.refresh,
         )

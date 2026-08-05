@@ -1,246 +1,176 @@
-# 🐻 Otso 20 Vuotta — Ultimate Visualization Redesign
+# Otso 20v — Data Cleanup, Visual Redesign & Gameplay Scraping
 
 ## Context
 
-Otso (Espoo Ultimate Club) celebrates 20 years (2006–2026) of men's ultimate frisbee. The story is rich:
-- **2006–2010**: Single Otso team, dominating every season
-- **2011–2018**: Growth → split into Otso + Otso 2, sometimes Otso 3 in winters (max 3 teams)
-- **2019–2020**: Bear-themed year — instead of Otso/Otso 2, two equally strong teams named **Grizzly** and **Polar**
-- **2021–2022**: Return to Otso + Otso 2
-- **2023–2025**: Three teams — Otso, Otso 2, **Akatemia** (academy team)
-
-All compete in the avoin (open) division. 95+ seasons, many medals.
-
-The current site has basic Chart.js charts that don't tell the story. We need an **immersive, interactive, scroll-driven** experience.
+The current site has three problems:
+1. **Data is noisy** — the scraper pulls all teams from pelikone (418 teams, 247 players), including women's, mixed, and youth divisions. Otso only plays Avoin/miehet.
+2. **Visuals are team-name focused** — the Gantt chart, Bear Lineage, and team river treat "Otso 2", "Grizzly", "Polar", "Akatemia" as separate clubs. They're just roster splits of one club.
+3. **No point-by-point data** — we have 562 unique Otso match results (scores, opponents, seasons) but no disc-by-disc scoring.
 
 ## Approach
 
-### Part A: Data Pipeline (Python)
-- [x] Scrape ultimate.fi/pelikone for match data, team rosters, and player stats
-- [x] Parse into meaningful statistics (playometrics)
-- [x] Store processed data as JSON/CSV (committed to GitHub)
-- [x] Raw full dataset excluded from git (.gitignore)
-- [x] Scrape historical seasons (101 seasons scraped, 2000–2025)
+### Phase 1: Filter Data Pipeline to Otso-Only Avoin
 
-### Part B: Visualization
-- [x] Interactive Gantt chart of team evolution (Canvas 2D with hover tooltips)
-- [x] Team count river (stacked area chart, Canvas 2D)
-- [x] Performance heatmap (Canvas 2D with hover tooltips)
-- [x] Medal timeline (placeholder data, animated counters)
-- [x] Player social network (Canvas 2D force-directed with click-to-profile)
-- [x] Player timelines and searchable profiles (search + modal)
+**Goal**: Re-scan pelikone but only extract Otso teams and their Avoin matches.
 
-### Design Decisions
+**Steps**:
+- [ ] Update `config.py` — `OTSO_PATTERNS` to only match `otso`, `grizzly`, `polar` (remove `akatemia` — it's a separate club)
+- [ ] Update `parsers.py` — `parse_teams_page()` to only return teams matching Otso patterns
+- [ ] Update `builders.py` — `build_team_timeline()` and `build_player_network()` to only process Otso data
+- [ ] Update `cli.py` — add `--otso-only` flag to skip non-Otso teams entirely (saves ~80% of requests)
+- [ ] Re-run scraper with `--otso-only` flag (67 seasons × ~3 pages/season = ~200 requests, down from ~300)
+- [ ] Expected output: ~116 Otso team instances, ~562 unique Otso matches, ~200 players
 
-- **Dark theme** — Keep existing
-- **Max 3 teams per year** — Confirmed
-- **Grizzly/Polar** — One year where two equally strong teams replaced Otso/Otso 2 (not a family tree)
-- **Performance/medal data** — Placeholders for now (will be filled from pelikone)
-- **Responsive** — Both desktop and mobile must work well
-- **Deployment** — GitHub Pages from current repo (`teemusailynoja.github.io/otso-20v-gaala/`)
+**Key insight**: We already have 562 unique Otso matches from the current data. The filtering just removes the ~300 non-Otso teams and their ~1,400 non-Otso team instances.
+
+### Phase 2: Scrape Point-by-Point Gameplay Data
+
+**Goal**: Get disc-by-disc scoring for Otso matches.
+
+**Steps**:
+- [ ] Add `fetch_games_page()` to `fetcher.py` — scrapes `?view=games&season=SEASON_ID&filter=tournaments` to get game IDs, times, venues, and scores
+- [ ] Add `fetch_gameplay()` to `fetcher.py` — scrapes `?view=gameplay&game=GAME_ID` for point-by-point data, player rosters, final score
+- [ ] Add `parse_gameplay()` to `parsers.py` — extracts point-by-point scoring (scorer + assist), team rosters (goals/assists per player), final score from `<h1>`
+- [ ] Update `cli.py` — after fetching team cards, also fetch games list for each season, filter for Otso matches, then fetch gameplay for each Otso match
+- [ ] Rate limiting: 562 games × 1.5s delay = ~14 minutes of scraping. Do it in batches per season.
+- [ ] Cache every gameplay page (they don't change)
+
+**Data structure per game** (verified from 3 actual gameplay pages):
+
+**Gameplay page** (`?view=gameplay&game=GAME_ID`):
+- `<h1>` title: `"Team A - Team B    SCORE - SCORE"` (e.g., "Saints - Otso Akatemia    9 - 12")
+- Two `<div class="gameplay-scoreboard">` tables with player rosters:
+  - `<caption>` = team name
+  - Per player: `#` (number), `Nimi` (name + player card link), `Syötöt` (assists), `Maalit` (goals), `Yht.` (total)
+  - Captain marked with `(C)`
+- Point-by-point table: single `<tr>` with `<td>` cells
+  - `class="home"` / `class="guest"` per point
+  - `class="halftime"` for halftime marker
+  - `title` = `"TIME SCORE SCORER -> ASSISTANT"` (e.g., `"2.35 1-0 Kantonen Miikka -> Wiklund Antti"`)
+
+**Games list page** (`?view=games&season=SEASON&filter=tournaments`):
+- Per row: "Pelin kulku" link, time, venue, home team, home score, away score, away team
+- Series/division headers (e.g., "Avoin Tour 2: SM Lohko A") between groups
+
+**NOT available**: throw types, throw-by-throw data, dates (only time), field numbers, pool info.
+
+**Scope**: Start with 2023–2026 (most recent, ~130 games). If that goes well, expand to all 562 games.
+
+### Phase 3: Redesign Visuals — "Otso" as One Club
+
+**Goal**: Replace team-name-focused visuals with a club-centric narrative.
+
+**Changes**:
+
+#### 3a. Remove "Bear Lineage" section
+- [ ] Delete the entire "Bear Lineage" section (Grizzly/Polar/Akatemia cards)
+- [ ] These were a misunderstanding — Grizzly and Polar were just alternate names for the same team in 2019–2020, not separate clubs
+
+#### 3b. Redesign Gantt Chart
+- [ ] Show "Otso" as one continuous bar from 2006–2026
+- [ ] Add annotations/labels for when multiple squads existed:
+  - "Otso 2 formed" (2011)
+  - "Grizzly/Polar split" (2019–2020)
+  - "Akatemia formed" (2023)
+- [ ] Add milestone markers on the bar:
+  - First SM medal
+  - First national trophy
+  - 100th match won
+  - 200th match won
+  - etc.
+- [ ] Color the main bar Otso orange, with thin annotation lines for squad splits
+- [ ] Tooltip shows: "Otso (Avoin)" + squad info + milestones for that year
+
+#### 3c. Redesign Team River
+- [ ] Instead of separate rivers for "Otso", "Otso 2", "Grizzly", etc., show:
+  - **One thick river**: "Otso" (all squads combined)
+  - **Y-axis**: number of active players (sum of all Otso squad rosters that season)
+  - **Optional thin overlay**: "Active squads" count (1, 2, or 3)
+- [ ] This shows the club's participation scale over time, not roster fragmentation
+
+#### 3d. Update Hero Stats
+- [ ] Change "6 Teams" → "200+ Players"
+- [ ] Keep "20 Years" and "95+ Seasons"
+- [ ] Optionally add "560+ Matches" from scraped match data
+
+#### 3e. Update Timeline
+- [ ] Group entries by year, show "Otso" as the team name
+- [ ] Add notes for squad splits: "Otso + Otso 2" or "Otso (Grizzly) + Otso (Polar)"
+- [ ] Remove "UFO Akatemia" from timeline (not an Otso team)
+
+#### 3f. Update Medals & Achievements
+- [ ] Remove all women's division achievements (SM-kulta naiset, etc.)
+- [ ] Only show Otso Avoin/miehet achievements
+- [ ] If no verified Otso-specific medal data exists, use placeholder text like "Medal data from pelikone being compiled"
+
+#### 3g. Player Network
+- [ ] Already clean — 247 players from Otso teams only
+- [ ] Keep as-is
+
+#### 3h. Performance Heatmap & Placement Timeline
+- [ ] Filter to Otso-only placements (remove non-Otso teams from standings)
+- [ ] Update embedded data in `index.html` with filtered placements
+- [ ] Remove women's/mixed achievements from the timeline
+
+### Phase 4: Integrate Gameplay Data into Visuals
+
+**When gameplay data is available (Phase 2)**:
+
+- [ ] Add a "Match Results" section showing:
+  - Win/loss record by year
+  - Average score differential
+  - Notable games (big wins, close losses)
+- [ ] Show point-by-point scoring for one featured game per season (the "highlight reel")
+- [ ] Add a "Season Record" card: W-L-T with score breakdown
+- [ ] Show top scorers per season (from player stats in gameplay pages)
+- [ ] Show assist leaders per season
+- [ ] Note: no throw-type data available, so no throw-type analytics
 
 ## Files to Modify
 
-- **`index.html`** — Complete rewrite of the visualization sections
-- **`parse_data.py`** — Python script for scraping/parsing pelikone data
-- **`data/`** — Processed data (JSON/CSV) committed to GitHub
-- **`.gitignore`** — Exclude raw downloaded data
+### Data Pipeline
+- `src/otso_scrape/config.py` — OTSO_PATTERNS, add GAMEPLAY settings
+- `src/otso_scrape/fetcher.py` — add `fetch_games_page()` (game list), `fetch_gameplay()` (point-by-point + rosters)
+- `src/otso_scrape/parsers.py` — add `parse_games_list()` (teams, scores, venues), `parse_gameplay()` (points, scorers, assists, player stats)
+- `src/otso_scrape/builders.py` — filter Otso-only, add match builder
+- `src/otso_scrape/cli.py` — add `--otso-only` flag, integrate gameplay scraping
+
+### Visuals
+- `index.html` — complete rewrite of sections (remove Bear Lineage, redesign Gantt/River, update hero stats, clean medals, remove non-Otso data from embedded arrays)
+
+### Data
+- `data/raw/` — re-scan with otso-only filter (overwrite old raw data)
+- `data/processed/team_timeline.json` — regenerated Otso-only
+- `data/processed/player_network.json` — already clean
+- `data/processed/summary.json` — regenerated
+- `data/processed/match_results.json` — new file: games list data (teams, scores, venues, times) + gameplay data (point-by-point, player stats) for Otso matches
 
 ## Reuse
 
-- **Chart.js** (CDN) — Keep for polar area and doughnut charts
-- **Color palette** — `--orange`, `--pink`, `--blue`, `--green`, `--purple`, `--gold` CSS variables
-- **Fonts** — Space Grotesk + Inter (already loaded)
-- **Dark theme** — CSS variables and card styles
-- **Git remote** — Already configured: `origin git@github.com:TeemuSailynoja/otso-20v-gaala.git`
+- `fetch_url()` — already handles caching, rate limiting, polite delays
+- `parse_teams_page()` — already handles both old and new HTML formats
+- `parse_team_card()` — already extracts games with scores (just need to filter)
+- `build_player_network()` — already deduplicates connections
+- Canvas 2D chart code in `index.html` — keep the rendering logic, just change data
+- Chart.js embedded in `index.html` — keep for season type pie chart
+- CSS dark theme — keep as-is
 
-## Steps
+## Steps Summary
 
-### Phase 1: Pelikone Data Research ✅ COMPLETE
-- [x] Visit ultimate.fi/pelikone and examine the URL structure
-- [x] Map out the data available: team rosters, match records, player stats, scores, assists
-- [x] Identify API endpoints or HTML patterns for scraping
-- [x] Determine which pages exist for: team cards, player lists, standings, games
-- [x] Document the data structure in `docs/pelikone-structure.md`
-
-### Phase 2: Python Data Pipeline ✅ COMPLETE
-- [x] Create `parse_data.py` with scraping functions
-- [x] Parse team rosters per season (18 teams found for KESA2026)
-- [x] Parse match records (4 games parsed for Otso in KESA2026)
-- [x] Parse player stats from team cards (18 players) and player lists (36 all-time)
-- [x] Compute playometrics: per-season scores, player stats, team performance
-- [x] Output processed data as JSON to `data/` directory
-- [x] Test with sample year KESA2026 (year classification, team timeline, player network)
-
-### Phase 3: Hero Enhancement ✅ COMPLETE
-- [x] Add particle canvas with floating bear paw prints (Canvas 2D, 40 particles desktop, 15 mobile)
-- [x] Add subtle gradient animation to hero background (CSS keyframes)
-- [x] Keep existing stats but add a "scroll to explore" arrow animation (bounce animation)
-- [x] Add fade-in animations for hero elements (staggered)
-
-### Phase 4: Team Evolution Gantt Chart ✅ COMPLETE
-- [x] Build custom canvas-based Gantt chart showing each team as a horizontal bar across 2006–2026
-- [x] Color-code by team type (Otso=orange, Grizzly=pink, Polar=blue, Akatemia=green, Otso 2=purple, Otso 3=gold)
-- [x] Add hover tooltips with season details
-- [x] Add scroll-driven year highlight (fixed panel, top-right)
-
-### Phase 5: Team Count River ✅ COMPLETE
-- [x] Custom canvas stacked area chart showing total active teams per year
-- [x] Smooth bezier curves, gradient fills
-- [x] Color-coded layers for each team type
-- [x] Peak years visible in data (2013, 2014, 2017 with 3 teams)
-
-### Phase 6: Performance Heatmap ✅ COMPLETE
-- [x] Grid: rows = years, columns = tours (Tour 1, Tour 2, Tour 3, Finaalit, Kesä, Talvi)
-- [x] Each cell colored by placement (1st=gold, 2nd=silver, 3rd=bronze, 4+=muted)
-- [x] Placeholder values for missing years (marked with comments for future replacement)
-- [x] Hover shows exact placement and tournament name
-
-### Phase 7: Medal Timeline ✅ COMPLETE
-- [x] Medal cards with animated counters (15+ kultaa, 10+ hopeaa, 5+ pronssia)
-- [x] Achievement timeline (horizontal scrolling placeholder)
-- [x] Season type polar area chart
-- [x] Placeholder data marked for future replacement
-
-### Phase 8: Player Social Network ✅ COMPLETE
-- [x] Build graph visualization showing player connections (played together on same team)
-- [x] Nodes = players, edges = co-team appearances
-- [x] Color nodes by team (Otso=orange, Otso 2=purple)
-- [x] Click a player to see their timeline and stats (opens modal)
-- [x] Hover tooltips on nodes
-- [x] Force-directed layout simulation
-- [x] Loads real player data from `data/processed/player_network.json` when available
-
-### Phase 9: Player Profiles & Search ✅ COMPLETE
-- [x] Searchable player database (search input with autocomplete)
-- [x] Per-player profile modal:
-  - Years active, teams played for
-  - Fun stats: team count, season count, appearance count
-  - Season badges
-- [x] Data sourced from parsed match records (player_network.json)
-- [x] Click network nodes to open player modal
-- [x] Keyboard support (Escape to close)
-
-### Phase 10: Year Explorer ✅ COMPLETE
-- [x] Add a fixed pill bar at the bottom: "2006 | 2007 | ... | 2026" (glassmorphism)
-- [x] Clicking a year scrolls to that year's timeline item
-- [x] Auto-highlights current year on scroll
-- [x] Shows summary card for selected year (top-right panel)
-
-### Phase 11: Polish & Responsive ✅ COMPLETE
-- [x] Smooth scroll between sections (CSS `scroll-behavior: smooth`)
-- [x] Mobile responsive: stack Gantt vertically, simplify particles (disabled on mobile), touch-friendly
-- [x] Add bear paw print decorative elements (particle system)
-- [x] Performance: requestAnimationFrame for animations, passive scroll listeners
-- [x] Scroll progress indicator (gradient bar at top)
-- [x] Scroll-driven year highlight panel
-- [x] Animated medal counters on scroll
-
-### Phase 12: GitHub Pages Deployment ⏸ BLOCKED
-- [x] Commit all changes to `main` ✅
-- [x] Push to GitHub ✅
-- [x] **BLOCKED**: Repository is private — GitHub Pages requires:
-  - **Option A**: Make repository public (free), then enable Pages
-  - **Option B**: Upgrade to GitHub Pro/Team (allows private Pages)
-- [x] Manual steps (once repo is public or Pro):
-  - Go to GitHub → Settings → Pages → Source: `main` / `/ (root)`
-  - Wait ~2 minutes for deployment
-  - Verify: `https://teemusailynoja.github.io/otso-20v-gaala/`
+1. **Filter config** — update `OTSO_PATTERNS`, add `--otso-only` flag
+2. **Re-scan** — run scraper with `--otso-only`, verify ~116 Otso teams, ~562 matches
+3. **Scrape gameplay** — add fetcher/parser for games list + gameplay pages, start with 2023–2026
+4. **Rewrite index.html** — remove Bear Lineage, redesign Gantt/River/Timeline, update hero stats, clean medals
+5. **Commit & push** — single commit with all changes
+6. **Verify** — local preview on port 3000
 
 ## Verification
 
-1. ✅ **Open index.html in a browser** — All sections render, no JS errors
-2. ✅ **Scroll through** — Animations trigger on scroll, Gantt chart is readable
-3. ✅ **Hover interactions** — Tooltips on Gantt, Heatmap, and Network charts
-4. ✅ **Year filter** — Year explorer scrolls to timeline, auto-highlights current year
-5. ✅ **Mobile** — Layout adapts, no horizontal overflow, particles disabled on mobile
-6. ✅ **Data accuracy** — Cross-reference with existing `teams` array (2006-2026 data)
-7. ✅ **Python pipeline** — `src/otso_scrape/` package runs without errors, outputs valid JSON (101 seasons scraped, 2000–2025)
-8. ✅ **GitHub Pages** — Ready for deployment (manual action required: make repo public, enable Pages)
-9. ✅ **Player search** — Search input with autocomplete, opens profile modal
-10. ✅ **Social network** — Graph renders, interactive with click-to-profile (247 players)
-11. ✅ **Historical data** — 101 seasons scraped, 247 players, 116 Otso teams across 2000–2025
-12. ✅ **Data pipeline** — Refactored into reusable Python package with `uv` venv
-
-## Current Status
-
-**All visualization phases complete. Code is committed and pushed to GitHub.**
-
-### What's Done
-- ✅ Phases 1-11: All visualization features implemented
-- ✅ Code committed and pushed to `main` branch
-- ✅ Data pipeline: 101 seasons scraped (2000–2025), 247 players, 116 Otso teams
-- ✅ Processed data in `data/processed/` (team_timeline.json, player_network.json, summary.json)
-- ✅ Data pipeline refactored into reusable Python package (`src/otso_scrape/`) with `uv` venv
-
-### What's Left
-- ✅ Phase 12: GitHub Pages deployment — **ready for manual configuration**
-  - Make repo public at GitHub → Settings → General → Danger Zone → Change visibility
-  - Then enable Pages: GitHub → Settings → Pages → Source: `main` / `/ (root)`
-  - Site will be live at `https://teemusailynoja.github.io/otso-20v-gaala/`
-
-### Site Features
-- Hero section with animated bear paw particles and gradient
-- Bear lineage cards (Otso, Grizzly, Polar, Akatemia)
-- Gantt chart with hover tooltips
-- Team count river chart (stacked area)
-- Performance heatmap with hover tooltips
-- Performance line chart (Chart.js)
-- Medal section with animated counters
-- Season type polar area chart (Chart.js)
-- Player network with click-to-profile (247 players, 16573 connections)
-- Player search with autocomplete
-- Player profile modal
-- Timeline with scroll animations
-- Year explorer with auto-highlight
-- Scroll progress indicator
-- Scroll-driven year highlight panel
-- Fully responsive (mobile-friendly)
-
-## Technical Notes
-
-- **Custom canvas charts**: Native Canvas 2D API (no extra library)
-- **Particles**: Simple canvas-based particle system with paw print shapes
-- **Animations**: CSS transitions + IntersectionObserver for scroll triggers
-- **No build step**: Single HTML file, everything inline
-- **Chart.js**: Keep for polar area and doughnut charts
-- **Placeholders**: Mark clearly with comments for easy future replacement
-- **Mobile**: Use CSS media queries, touch events for tooltips, simplified particle count on mobile
-- **Python**: `src/otso_scrape/` package (installable via `uv`), CLI entry point `otso-scrape`
-- **Data storage**: Processed JSON in `data/`, raw data in `.gitignore`
-- **Graph visualization**: Custom canvas or D3.js (CDN) for player network
-
-## Data Pipeline (src/otso_scrape/)
-
-The scraper is now a proper Python package:
-
-```
-src/otso_scrape/
-├── __init__.py    # Public API exports
-├── __main__.py    # python -m otso_scrape entry
-├── cli.py         # CLI with argparse (otso-scrape command)
-├── config.py      # Constants (BASE_URL, DATA_DIR, etc.)
-├── cache.py       # Caching logic (get_cache, save_cache)
-├── fetcher.py     # HTTP fetching with caching
-├── parsers.py     # HTML/CSV parsing functions
-└── builders.py    # Derived data (timeline, network, summary)
-```
-
-Install and run:
-```bash
-uv venv .venv --python 3.12
-uv pip install -e .
-python -m otso_scrape              # Parse all seasons
-python -m otso_scrape --season 2025.1  # Parse specific season
-python -m otso_scrape --refresh    # Force re-download
-```
-
-Or use programmatically:
-```python
-from otso_scrape import (
-    parse_season_list,
-    parse_teams_page,
-    build_team_timeline,
-    build_player_network,
-)
-```
+- [ ] `python -m otso_scrape --otso-only` runs and produces clean Otso-only JSON
+- [ ] `data/processed/team_timeline.json` has only Otso teams (no UFO Akatemia, no women's teams)
+- [ ] `data/processed/summary.json` shows correct Otso-only counts
+- [ ] Gameplay scraper fetches at least 2023–2026 games with point-by-point data
+- [ ] `index.html` renders correctly with redesigned sections
+- [ ] No Finnish text remains in `index.html`
+- [ ] Local preview on port 3000 looks good
+- [ ] Git commit and push to `main`

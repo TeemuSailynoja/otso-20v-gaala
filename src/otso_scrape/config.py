@@ -17,12 +17,17 @@ REQUEST_DELAY = 1.5  # seconds between requests to be respectful
 # User agent for polite scraping
 USER_AGENT = "Otso20v-Gaala-DataBot/1.0 (educational project, please be gentle)"
 
-# Otso-specific team name patterns
+# Otso-specific team name patterns (Akatemia is a separate club, not Otso)
 OTSO_PATTERNS = [
     "otso",
     "grizzly",
     "polar",
-    "akatemia",
+]
+
+# Division filter — only scrape Avoin/miehet division
+OTSO_DIVISIONS = [
+    "avoin",
+    "miehet",
 ]
 
 # Season classification

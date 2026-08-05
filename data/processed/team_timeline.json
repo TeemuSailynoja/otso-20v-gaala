@@ -19,16 +19,6 @@
         "name": "OTSO 3",
         "id": "3229",
         "division": "Avoin"
-      },
-      {
-        "name": "Otso Akatemia",
-        "id": "3212",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "3219",
-        "division": "Avoin"
       }
     ]
   },
@@ -65,16 +55,6 @@
         "name": "OTSO 2",
         "id": "3131",
         "division": "Avoin"
-      },
-      {
-        "name": "Otso Akatemia",
-        "id": "3129",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "3138",
-        "division": "Avoin"
       }
     ]
   },
@@ -103,11 +83,6 @@
     "season_type": "winter",
     "teams": [
       {
-        "name": "Otso Akatemia",
-        "id": "3056",
-        "division": "Avoin"
-      },
-      {
         "name": "Otso1",
         "id": "3030",
         "division": "Avoin"
@@ -115,11 +90,6 @@
       {
         "name": "Otso2",
         "id": "3031",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "3038",
         "division": "Avoin"
       }
     ]
@@ -157,11 +127,6 @@
         "name": "Otso2",
         "id": "2957",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "2967",
-        "division": "Avoin"
       }
     ]
   },
@@ -192,11 +157,6 @@
       {
         "name": "Otso2",
         "id": "2898",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "2911",
         "division": "Avoin"
       }
     ]
@@ -345,11 +305,6 @@
         "name": "Otso 2",
         "id": "2574",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "2587",
-        "division": "Avoin"
       }
     ]
   },
@@ -430,11 +385,6 @@
         "name": "Otso 3",
         "id": "2422",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "2433",
-        "division": "Avoin"
       }
     ]
   },
@@ -510,11 +460,6 @@
         "name": "Otso 3",
         "id": "2281",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "2290",
-        "division": "Avoin"
       }
     ]
   },
@@ -584,11 +529,6 @@
       {
         "name": "Otso 3",
         "id": "2116",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "2127",
         "division": "Avoin"
       }
     ]
@@ -670,11 +610,6 @@
         "name": "Otso 3",
         "id": "1958",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1944",
-        "division": "Avoin"
       }
     ]
   },
@@ -688,11 +623,6 @@
         "name": "Otso",
         "id": "1926",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1930",
-        "division": "Avoin"
       }
     ]
   },
@@ -705,11 +635,6 @@
       {
         "name": "Otso",
         "id": "1906",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1912",
         "division": "Avoin"
       }
     ]
@@ -729,11 +654,6 @@
         "name": "Otso 2",
         "id": "1881",
         "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1877",
-        "division": "Avoin"
       }
     ]
   },
@@ -746,11 +666,6 @@
       {
         "name": "Otso",
         "id": "1840",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1849",
         "division": "Avoin"
       }
     ]
@@ -998,11 +913,6 @@
         "name": "Otso",
         "id": "1394",
         "division": "Avoin SM"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1400",
-        "division": "Avoin SM"
       }
     ]
   },
@@ -1054,11 +964,6 @@
       {
         "name": "Otso",
         "id": "1178",
-        "division": "Avoin"
-      },
-      {
-        "name": "UFO Akatemia",
-        "id": "1181",
         "division": "Avoin"
       }
     ]

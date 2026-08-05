@@ -56,7 +56,7 @@ def build_team_timeline(seasons_data: List[Dict]) -> List[Dict]:
 
 
 def build_player_network(seasons_data: List[Dict]) -> Dict:
-    """Build a network of players who played together.
+    """Build a network of players who played together (Otso teams only).
     
     Args:
         seasons_data: List of season data dictionaries.
@@ -64,10 +64,15 @@ def build_player_network(seasons_data: List[Dict]) -> Dict:
     Returns:
         Dictionary with players and connections.
     """
+    from .parsers import is_otso_team
+    
     player_teams = {}  # player_name -> list of (team_name, season_id)
 
     for season in seasons_data:
         for team in season["teams"]:
+            # Only include Otso teams
+            if not is_otso_team(team["name"]):
+                continue
             for player in team.get("players", []):
                 name = player["name"]
                 if name not in player_teams:
