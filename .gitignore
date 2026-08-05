@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Otso 20v Gaala - Data
+# Raw scraped data (exclude from git)
+data/raw/
+data/cache_manifest.json
+# Processed data is committed (include data/processed/)

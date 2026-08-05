@@ -22,6 +22,7 @@
             --border: #1a2332;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
@@ -30,6 +31,17 @@
             overflow-x: hidden;
         }
         h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        /* PARTICLE CANVAS */
+        #paw-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
 
         /* HERO */
         .hero {
@@ -50,6 +62,11 @@
                 radial-gradient(ellipse at 30% 40%, rgba(255, 107, 53, 0.12) 0%, transparent 60%),
                 radial-gradient(ellipse at 70% 60%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 90%, rgba(0, 180, 216, 0.08) 0%, transparent 50%);
+            animation: heroGradient 10s ease-in-out infinite alternate;
+        }
+        @keyframes heroGradient {
+            0% { opacity: 0.8; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); }
         }
         .hero-content { position: relative; z-index: 1; max-width: 800px; }
         .hero-badge {
@@ -64,6 +81,11 @@
             text-transform: uppercase;
             margin-bottom: 1.5rem;
             background: rgba(255, 214, 10, 0.04);
+            animation: fadeInDown 0.8s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
@@ -74,6 +96,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .hero-subtitle {
             font-size: 1.2rem;
@@ -81,8 +108,9 @@
             max-width: 550px;
             margin: 0 auto 2rem;
             font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
-        .hero-stats { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; }
+        .hero-stats { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease-out 0.6s both; }
         .hero-stat-value {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
@@ -99,9 +127,20 @@
             letter-spacing: 2px;
             margin-top: 0.4rem;
         }
+        .scroll-arrow {
+            margin-top: 3rem;
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+            color: var(--muted);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
 
         /* SECTIONS */
-        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 {
             font-size: 2.2rem;
@@ -139,6 +178,34 @@
         }
         .chart-wrapper { position: relative; height: 320px; }
         .full-width { grid-column: 1 / -1; }
+
+        /* GANTT CHART */
+        .gantt-container {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .gantt-canvas { width: 100%; height: auto; }
+
+        /* HEATMAP */
+        .heatmap-container {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .heatmap-canvas { width: 100%; height: auto; }
+
+        /* RIVER CHART */
+        .river-container {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
 
         /* BEAR LINEAGE */
         .bear-lineage {
@@ -264,6 +331,11 @@
             padding: 1.5rem;
             text-align: center;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .medal:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
         }
         .medal-icon { font-size: 2.5rem; }
         .medal-count {
@@ -274,12 +346,262 @@
         }
         .medal-label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* YEAR EXPLORER */
+        .year-explorer {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(13, 19, 33, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            max-width: calc(100vw - 2rem);
+        }
+        .year-pill {
+            padding: 0.4rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            border: 1px solid transparent;
+            color: var(--muted);
+            background: transparent;
+        }
+        .year-pill:hover {
+            color: var(--text);
+            border-color: var(--orange);
+        }
+        .year-pill.active {
+            background: var(--orange);
+            color: var(--bg);
+            border-color: var(--orange);
+        }
+
+        /* PLAYER NETWORK */
+        .network-container {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        .network-canvas { width: 100%; height: 500px; }
+
+        /* TOOLTIP */
+        .custom-tooltip {
+            position: absolute;
+            background: rgba(13, 19, 33, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        .custom-tooltip.show { opacity: 1; }
+
+        /* PLAYER PROFILE MODAL */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(6, 10, 20, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+        .modal-player-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .modal-player-team {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+        .modal-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .modal-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+        }
+        .modal-stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        .modal-stat-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+        .modal-seasons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .modal-season {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        .modal-season.active { background: var(--orange); color: var(--bg); }
+
+        /* SEARCH */
+        .search-container {
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .search-input:focus {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 50;
+            display: none;
+        }
+        .search-results.show { display: block; }
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+        .search-result-item:hover { background: var(--card-hover); }
+        .search-result-item:last-child { border-bottom: none; }
+        .search-result-name { font-weight: 600; }
+        .search-result-meta { font-size: 0.8rem; color: var(--muted); }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange), var(--pink), var(--blue));
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* YEAR HIGHLIGHT */
+        .year-highlight {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(13, 19, 33, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            z-index: 100;
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+        }
+        .year-highlight.show { display: block; }
+        .year-highlight-year {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        .year-highlight-info {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
         /* FOOTER */
         .footer {
             text-align: center;
             padding: 3rem 2rem;
             border-top: 1px solid var(--border);
             color: var(--muted);
+            position: relative;
+            z-index: 1;
         }
         .footer-logo {
             font-family: 'Space Grotesk', sans-serif;
@@ -292,6 +614,17 @@
             background-clip: text;
         }
 
+        /* SCROLL ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .timeline::before { left: 20px; }
@@ -300,10 +633,37 @@
             .timeline-dot { left: 20px; }
             .grid-2 { grid-template-columns: 1fr; }
             .hero-stats { gap: 1.5rem; }
+            .year-explorer {
+                bottom: 0.5rem;
+                padding: 0.5rem 1rem;
+                border-radius: 12px;
+            }
+            .year-pill {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
+            }
+            .section { padding: 3rem 1rem; }
+            .chart-wrapper { height: 250px; }
+            #paw-particles { display: none; } /* Disable particles on mobile for performance */
         }
     </style>
 </head>
 <body>
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- YEAR HIGHLIGHT -->
+    <div class="year-highlight" id="yearHighlight">
+        <div class="year-highlight-year" id="yearHighlightYear"></div>
+        <div class="year-highlight-info" id="yearHighlightInfo"></div>
+    </div>
+
+    <!-- TOOLTIP -->
+    <div class="custom-tooltip" id="tooltip"></div>
+
+    <!-- PARTICLE CANVAS -->
+    <canvas id="paw-particles"></canvas>
 
     <!-- HERO -->
     <section class="hero">
@@ -312,7 +672,7 @@
             <h1>Otso</h1>
             <p class="hero-subtitle">
                 Karhu, karhu, jääkarhu — 20 vuotta miesten joukkuetta.
-                Espoon Ultimate Klubi, 2005–2025.
+                Espoo Ultimate Club, 2006–2026.
             </p>
             <div class="hero-stats">
                 <div class="hero-stat">
@@ -328,11 +688,12 @@
                     <div class="hero-stat-label">Joukkuetta</div>
                 </div>
             </div>
+            <div class="scroll-arrow">↓</div>
         </div>
     </section>
 
     <!-- BEAR LINEAGE -->
-    <section class="section">
+    <section class="section fade-in">
         <div class="section-header">
             <h2>🐻 Karhusuku</h2>
             <p>Otso, Grizzly ja Polar — kaikki karhujen suvun joukkueita</p>
@@ -342,7 +703,7 @@
                 <div class="bear-icon">🐻</div>
                 <div class="bear-name">Otso</div>
                 <div class="bear-desc">Pääjoukkue — karhu nimestä</div>
-                <div class="bear-years">2006–2025</div>
+                <div class="bear-years">2006–2026</div>
             </div>
             <div class="bear-card">
                 <div class="bear-icon">🐻‍❄️</div>
@@ -356,53 +717,66 @@
                 <div class="bear-desc">Jääkarhu — kylmä ja laskelmoiva</div>
                 <div class="bear-years">2019–2020</div>
             </div>
+            <div class="bear-card">
+                <div class="bear-icon">🐾</div>
+                <div class="bear-name">Akatemia</div>
+                <div class="bear-desc">Nuoret karhut — tulevaisuus</div>
+                <div class="bear-years">2023–2026</div>
+            </div>
         </div>
     </section>
 
-    <!-- TEAM EVOLUTION CHART -->
-    <section class="section">
+    <!-- GANTT CHART: TEAM EVOLUTION -->
+    <section class="section fade-in">
         <div class="section-header">
-            <h2>Joukkueiden Kehitys</h2>
-            <p>Kaikki Otso-suvun joukkueet vuosina 2006–2025</p>
+            <h2>📊 Joukkueiden Kehitys</h2>
+            <p>Gantt-kaavio kaikista Otso-suvun joukkueista 2006–2026</p>
+        </div>
+        <div class="gantt-container">
+            <canvas id="ganttChart" class="gantt-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- TEAM COUNT RIVER -->
+    <section class="section fade-in">
+        <div class="section-header">
+            <h2>🌊 Joukkuejoki</h2>
+            <p>Aktiivisten joukkueiden määrä vuosittain</p>
+        </div>
+        <div class="river-container">
+            <canvas id="riverChart"></canvas>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE HEATMAP -->
+    <section class="section fade-in">
+        <div class="section-header">
+            <h2>🔥 Suorituskyky</h2>
+            <p>Sijoitukset kiertueittain (kultaa = keltainen, hopeaa = hopea, pronssia = pronssi)</p>
+        </div>
+        <div class="heatmap-container">
+            <canvas id="heatmapChart" class="heatmap-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE CHART -->
+    <section class="section fade-in">
+        <div class="section-header">
+            <h2>📈 Sijoitukset Aikajana</h2>
+            <p>Otson sijoitukset kiertueilla vuodesta 2011</p>
         </div>
         <div class="grid-2">
             <div class="chart-card full-width">
-                <h3>📈 Joukkueet vuodessa (kaikki sarjat)</h3>
+                <h3>🎯 Kiertuesijoitukset</h3>
                 <div class="chart-wrapper">
-                    <canvas id="timelineChart"></canvas>
+                    <canvas id="perfChart"></canvas>
                 </div>
-            </div>
-            <div class="chart-card">
-                <h3>🥧 Joukkuetyypit</h3>
-                <div class="chart-wrapper">
-                    <canvas id="typeChart"></canvas>
-                </div>
-            </div>
-            <div class="chart-card">
-                <h3>📊 Yksittäiset joukkueet/vuosi</h3>
-                <div class="chart-wrapper">
-                    <canvas id="uniqueChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PERFORMANCE -->
-    <section class="section">
-        <div class="section-header">
-            <h2>🏆 Suoritukset</h2>
-            <p>Otson sijoitukset kiertueilla (pienempi luku = parempi)</p>
-        </div>
-        <div class="chart-card">
-            <h3>🎯 Kiertuesijoitukset vuodesta 2011</h3>
-            <div class="chart-wrapper" style="height: 400px;">
-                <canvas id="perfChart"></canvas>
             </div>
         </div>
     </section>
 
     <!-- MEDALS -->
-    <section class="section">
+    <section class="section fade-in">
         <div class="section-header">
             <h2>🏅 Mitalit & Saavutukset</h2>
             <p>Miesten joukkueen saavutukset SM-sarjoissa ja Vintertrofenissa</p>
@@ -459,8 +833,24 @@
         </div>
     </section>
 
+    <!-- PLAYER NETWORK -->
+    <section class="section fade-in">
+        <div class="section-header">
+            <h2>🕸️ Pelaajaverkosto</h2>
+            <p>Pelaajat jotka ovat pelanneet saman joukkueen kanssa</p>
+        </div>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="playerSearch" placeholder="Etsi pelaajaa...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="network-container">
+            <canvas id="networkChart" class="network-canvas"></canvas>
+        </div>
+    </section>
+
     <!-- TIMELINE -->
-    <section class="section">
+    <section class="section fade-in">
         <div class="section-header">
             <h2>📜 Täydellinen Aikajana</h2>
             <p>Jokainen Otso-suvun joukkue vuodesta 2006 eteenpäin</p>
@@ -471,12 +861,27 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-logo">Otso — Espoo Ultimate Club</div>
-        <p>20 vuotta ultimatea · 2005–2025 · Vapaa nopeus ikuisesti 🐻</p>
+        <p>20 vuotta ultimatea · 2006–2026 · Vapaa nopeus ikuisesti 🐻</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem;">Data: ultimate.fi/pelikone · 20-vuotisjuhlagalaan</p>
     </footer>
 
+    <!-- YEAR EXPLORER -->
+    <div class="year-explorer" id="yearExplorer"></div>
+
+    <!-- PLAYER PROFILE MODAL -->
+    <div class="modal-overlay" id="playerModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-player-name" id="modalPlayerName"></div>
+            <div class="modal-player-team" id="modalPlayerTeam"></div>
+            <div class="modal-stats" id="modalStats"></div>
+            <h3 style="margin-bottom: 0.75rem; font-size: 1rem;">Kaudet</h3>
+            <div class="modal-seasons" id="modalSeasons"></div>
+        </div>
+    </div>
+
     <script>
-        // DATA: Otso-suvun joukkueet 2006-2025
+        // DATA: Otso-suvun joukkueet 2006-2026
         const teams = [
             // 2006
             {y:2006,s:'Kesä',n:'Otso',t:'otso'},{y:2006,s:'Talvi',n:'Otso',t:'otso'},
@@ -550,9 +955,12 @@
             // 2025
             {y:2025,s:'Kesä',n:'Otso',t:'otso'},{y:2025,s:'Kesä',n:'Otso2',t:'2'},
             {y:2025,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
+            // 2026
+            {y:2026,s:'Kesä',n:'Otso',t:'otso'},{y:2026,s:'Kesä',n:'Otso2',t:'2'},
+            {y:2026,s:'Talvi',n:'Otso Akatemia',t:'akatemia'},
         ];
 
-        const years = Array.from({length: 20}, (_, i) => 2006 + i);
+        const years = Array.from({length: 21}, (_, i) => 2006 + i);
         const colors = {otso:'#ff6b35',grizzly:'#ff006e',polar:'#00b4d8',akatemia:'#06d6a0','2':'#7b2ff7','3':'#ffd60a'};
         const labels = {otso:'Otso (pää)',grizzly:'Grizzly',polar:'Polar',akatemia:'Akatemia','2':'Otso 2','3':'Otso 3'};
 
@@ -560,61 +968,441 @@
         Chart.defaults.borderColor = 'rgba(255,255,255,0.04)';
         Chart.defaults.font.family = "'Inter', sans-serif";
 
-        // TIMELINE CHART
-        new Chart(document.getElementById('timelineChart'), {
-            type: 'line',
-            data: {
-                labels: years,
-                datasets: [
-                    {label:'Otso',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='otso').length),borderColor:colors.otso,backgroundColor:colors.otso+'22',fill:false,tension:0.4,pointRadius:3},
-                    {label:'Grizzly',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='grizzly').length),borderColor:colors.grizzly,fill:false,tension:0.4,pointRadius:3},
-                    {label:'Polar',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='polar').length),borderColor:colors.polar,fill:false,tension:0.4,pointRadius:3},
-                    {label:'Akatemia',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='akatemia').length),borderColor:colors.akatemia,fill:false,tension:0.4,pointRadius:3},
-                    {label:'Otso 2',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='2').length),borderColor:colors['2'],fill:false,tension:0.4,pointRadius:3},
-                    {label:'Otso 3',data:years.map(y=>teams.filter(t=>t.y===y&&t.t==='3').length),borderColor:colors['3'],fill:false,tension:0.4,pointRadius:3},
-                ]
-            },
-            options: {
-                responsive:true, maintainAspectRatio:false,
-                interaction:{mode:'index',intersect:false},
-                plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:15}},
-                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}},
-                scales:{y:{beginAtZero:true,title:{display:true,text:'Joukkueet'},grid:{color:'rgba(255,255,255,0.04)'}},
-                    x:{title:{display:true,text:'Vuosi'},grid:{color:'rgba(255,255,255,0.04)'}}}
+        // ============================================
+        // BEAR PAW PARTICLES
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('paw-particles');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const isMobile = window.innerWidth < 768;
+            const particleCount = isMobile ? 15 : 40;
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             }
-        });
+            resize();
+            window.addEventListener('resize', resize);
 
-        // TYPE CHART
-        const typeCounts = {};
-        teams.forEach(t => { typeCounts[t.t] = (typeCounts[t.t]||0)+1; });
-        new Chart(document.getElementById('typeChart'), {
-            type:'doughnut',
-            data:{
-                labels:Object.keys(typeCounts).map(k=>labels[k]||k),
-                datasets:[{data:Object.values(typeCounts),backgroundColor:Object.keys(typeCounts).map(k=>colors[k]),borderWidth:0,hoverOffset:8}]
-            },
-            options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
-                plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:12}},
-                    tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}}}
-        });
-
-        // UNIQUE TEAMS PER YEAR
-        const uniquePerYear = years.map(y => {
-            const unique = new Set(teams.filter(t=>t.y===y).map(t=>t.n));
-            return unique.size;
-        });
-        new Chart(document.getElementById('uniqueChart'), {
-            type:'bar',
-            data:{labels:years,datasets:[{label:'Yksittäisiä joukkueita',data:uniquePerYear,
-                backgroundColor:years.map((_,i)=>`rgba(255,107,53,${0.3+(i/years.length)*0.7})`),
-                borderColor:'rgba(255,107,53,0.8)',borderWidth:1,borderRadius:6}]},
-            options:{responsive:true,maintainAspectRatio:false,
-                plugins:{legend:{display:false},tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}},
-                scales:{y:{beginAtZero:true,title:{display:true,text:'Joukkueita'},grid:{color:'rgba(255,255,255,0.04)'}},
-                    x:{grid:{color:'rgba(255,255,255,0.04)'}}}
+            class PawParticle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 12 + 8;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.15 + 0.05;
+                    this.rotation = Math.random() * Math.PI * 2;
+                    this.rotSpeed = (Math.random() - 0.5) * 0.01;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.rotation += this.rotSpeed;
+                    if (this.x < -50 || this.x > canvas.width + 50 || this.y < -50 || this.y > canvas.height + 50) {
+                        this.reset();
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation);
+                    ctx.globalAlpha = this.opacity;
+                    ctx.fillStyle = '#ff6b35';
+                    // Draw paw print
+                    // Main pad
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, this.size * 0.4, this.size * 0.35, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Toe pads
+                    const toes = [
+                        {x: -this.size * 0.35, y: -this.size * 0.4},
+                        {x: -this.size * 0.1, y: -this.size * 0.55},
+                        {x: this.size * 0.1, y: -this.size * 0.55},
+                        {x: this.size * 0.35, y: -this.size * 0.4}
+                    ];
+                    toes.forEach(toe => {
+                        ctx.beginPath();
+                        ctx.arc(toe.x, toe.y, this.size * 0.15, 0, Math.PI * 2);
+                        ctx.fill();
+                    });
+                    ctx.restore();
+                }
             }
-        });
 
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new PawParticle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ============================================
+        // GANTT CHART (Custom Canvas)
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('ganttChart');
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            
+            const teamTypes = ['otso', 'grizzly', 'polar', 'akatemia', '2', '3'];
+            const teamNames = ['Otso (pää)', 'Grizzly', 'Polar', 'Akatemia', 'Otso 2', 'Otso 3'];
+            
+            function draw() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = container.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = Math.max(400, teamTypes.length * 60 + 100) * dpr;
+                canvas.style.height = Math.max(400, teamTypes.length * 60 + 100) + 'px';
+                ctx.scale(dpr, dpr);
+                
+                const width = rect.width;
+                const height = Math.max(400, teamTypes.length * 60 + 100);
+                const padding = {top: 40, right: 40, bottom: 40, left: 120};
+                const chartWidth = width - padding.left - padding.right;
+                const chartHeight = height - padding.top - padding.bottom;
+                
+                ctx.clearRect(0, 0, width, height);
+                
+                // Draw year labels
+                ctx.fillStyle = '#6b7a99';
+                ctx.font = '12px Inter';
+                ctx.textAlign = 'center';
+                const yearStep = chartWidth / 20;
+                for (let i = 0; i < 21; i++) {
+                    const x = padding.left + i * yearStep;
+                    ctx.fillText(2006 + i, x, padding.top - 10);
+                    // Grid line
+                    ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+                    ctx.beginPath();
+                    ctx.moveTo(x, padding.top);
+                    ctx.lineTo(x, height - padding.bottom);
+                    ctx.stroke();
+                }
+                
+                // Draw team bars
+                teamTypes.forEach((type, typeIndex) => {
+                    const y = padding.top + typeIndex * 60 + 20;
+                    const barHeight = 30;
+                    
+                    // Team name
+                    ctx.fillStyle = colors[type];
+                    ctx.font = 'bold 13px Inter';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(teamNames[typeIndex], padding.left - 10, y + barHeight / 2 + 4);
+                    
+                    // Find all seasons for this team type
+                    const teamSeasons = teams.filter(t => t.t === type);
+                    const yearGroups = {};
+                    teamSeasons.forEach(t => {
+                        if (!yearGroups[t.y]) yearGroups[t.y] = [];
+                        yearGroups[t.y].push(t.s);
+                    });
+                    
+                    // Draw bars for each year
+                    Object.keys(yearGroups).sort((a,b) => a-b).forEach(year => {
+                        const x = padding.left + (year - 2006) * yearStep;
+                        const season = yearGroups[year][0]; // Just show one bar per year
+                        
+                        ctx.fillStyle = colors[type];
+                        ctx.globalAlpha = 0.7;
+                        
+                        // Draw rounded rect
+                        const barWidth = yearStep - 4;
+                        const radius = 4;
+                        ctx.beginPath();
+                        ctx.moveTo(x + 2 + radius, y);
+                        ctx.lineTo(x + 2 + barWidth - radius, y);
+                        ctx.quadraticCurveTo(x + 2 + barWidth, y, x + 2 + barWidth, y + radius);
+                        ctx.lineTo(x + 2 + barWidth, y + barHeight - radius);
+                        ctx.quadraticCurveTo(x + 2 + barWidth, y + barHeight, x + 2 + barWidth - radius, y + barHeight);
+                        ctx.lineTo(x + 2 + radius, y + barHeight);
+                        ctx.quadraticCurveTo(x + 2, y + barHeight, x + 2, y + barHeight - radius);
+                        ctx.lineTo(x + 2, y + radius);
+                        ctx.quadraticCurveTo(x + 2, y, x + 2 + radius, y);
+                        ctx.fill();
+                        
+                        ctx.globalAlpha = 1;
+                    });
+                });
+            }
+            
+            draw();
+            window.addEventListener('resize', draw);
+        })();
+
+        // ============================================
+        // RIVER CHART (Stacked Area)
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('riverChart');
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            
+            function draw() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = container.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = 400 * dpr;
+                canvas.style.height = '400px';
+                ctx.scale(dpr, dpr);
+                
+                const width = rect.width;
+                const height = 400;
+                const padding = {top: 30, right: 30, bottom: 40, left: 50};
+                const chartWidth = width - padding.left - padding.right;
+                const chartHeight = height - padding.top - padding.bottom;
+                
+                ctx.clearRect(0, 0, width, height);
+                
+                // Count teams per year per type
+                const data = years.map(year => {
+                    const counts = {};
+                    teams.filter(t => t.y === year).forEach(t => {
+                        counts[t.t] = (counts[t.t] || 0) + 1;
+                    });
+                    return counts;
+                });
+                
+                const maxTeams = Math.max(...data.map(d => Object.values(d).reduce((a,b) => a+b, 0)));
+                
+                // Draw gradient fills
+                const teamTypes = ['otso', 'grizzly', 'polar', 'akatemia', '2', '3'];
+                const layerHeight = chartHeight / (maxTeams + 1);
+                
+                teamTypes.forEach((type, typeIndex) => {
+                    ctx.beginPath();
+                    
+                    // Bottom layer
+                    let bottomY = padding.top + chartHeight;
+                    let topY = padding.top + chartHeight;
+                    
+                    years.forEach((year, yearIndex) => {
+                        const count = data[yearIndex][type] || 0;
+                        const x = padding.left + (yearIndex / 20) * chartWidth;
+                        const layerH = count * layerHeight;
+                        
+                        if (yearIndex === 0) {
+                            ctx.moveTo(x, bottomY);
+                        } else {
+                            // Smooth curve
+                            const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
+                            const cpX = (prevX + x) / 2;
+                            ctx.bezierCurveTo(cpX, bottomY, cpX, bottomY, x, bottomY);
+                        }
+                        
+                        topY = bottomY - layerH;
+                        if (yearIndex === 0) {
+                            ctx.lineTo(x, topY);
+                        } else {
+                            const prevTopY = (data[yearIndex-1][type] || 0) * layerHeight;
+                            const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
+                            const cpX = (prevX + x) / 2;
+                            ctx.bezierCurveTo(cpX, topY, cpX, topY, x, topY);
+                        }
+                        
+                        bottomY = topY;
+                    });
+                    
+                    // Close path
+                    years.slice().reverse().forEach((year, yearIndex) => {
+                        const yearIdx = 20 - yearIndex;
+                        const x = padding.left + (yearIdx / 20) * chartWidth;
+                        if (yearIndex === 0) {
+                            ctx.lineTo(x, padding.top + chartHeight);
+                        } else {
+                            const prevX = padding.left + ((yearIdx + 1) / 20) * chartWidth;
+                            ctx.lineTo(prevX, padding.top + chartHeight);
+                        }
+                    });
+                    ctx.closePath();
+                    
+                    // Gradient fill
+                    const gradient = ctx.createLinearGradient(0, padding.top, 0, height - padding.bottom);
+                    gradient.addColorStop(0, colors[type] + '66');
+                    gradient.addColorStop(1, colors[type] + '11');
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    
+                    // Line on top
+                    ctx.beginPath();
+                    let currentY = padding.top + chartHeight;
+                    years.forEach((year, yearIndex) => {
+                        const count = data[yearIndex][type] || 0;
+                        const x = padding.left + (yearIndex / 20) * chartWidth;
+                        const layerH = count * layerHeight;
+                        const y = currentY - layerH;
+                        
+                        if (yearIndex === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            const prevX = padding.left + ((yearIndex - 1) / 20) * chartWidth;
+                            const cpX = (prevX + x) / 2;
+                            ctx.bezierCurveTo(cpX, currentY, cpX, currentY, x, currentY);
+                        }
+                        currentY = y;
+                    });
+                    ctx.strokeStyle = colors[type];
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                });
+                
+                // Year labels
+                ctx.fillStyle = '#6b7a99';
+                ctx.font = '12px Inter';
+                ctx.textAlign = 'center';
+                years.forEach((year, i) => {
+                    if (i % 2 === 0) {
+                        const x = padding.left + (i / 20) * chartWidth;
+                        ctx.fillText(year, x, height - padding.bottom + 20);
+                    }
+                });
+                
+                // Y axis labels
+                ctx.textAlign = 'right';
+                for (let i = 0; i <= maxTeams; i++) {
+                    const y = padding.top + chartHeight - i * layerHeight;
+                    ctx.fillText(i, padding.left - 10, y + 4);
+                }
+            }
+            
+            draw();
+            window.addEventListener('resize', draw);
+        })();
+
+        // ============================================
+        // HEATMAP (Custom Canvas)
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('heatmapChart');
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            
+            // Placeholder performance data (to be replaced with scraped data)
+            const performanceData = {
+                2011: {tour1: 1, tour2: 2, tour3: 2, finaali: 2},
+                2012: {tour1: 3, tour2: 2, tour3: 4, finaali: 1},
+                2013: {tour1: 1, tour2: 2, tour3: 1, finaali: 1},
+                2014: {tour1: 2, tour2: 1, tour3: 1, finaali: 1},
+                2015: {tour1: 1, tour2: 3, tour3: 4, finaali: 1},
+                2016: {tour1: 1, tour2: 3, tour3: 2, finaali: 1},
+                2017: {tour1: 1, tour2: 2, tour3: 1, finaali: 1},
+                2018: {tour1: 1, tour2: 2, tour3: 2, finaali: 1},
+                2019: {tour1: 1, tour2: 2, tour3: 1, finaali: 1},
+                2020: {kesä: 1},
+                2021: {kesä: 1, talvi: 1},
+                2022: {kesä: 1, talvi: 1},
+                2023: {kesä: 1, talvi: 1},
+                2024: {kesä: 1, talvi: 1},
+                2025: {kesä: 1, talvi: 1},
+                2026: {kesä: 1},
+            };
+            
+            const tourNames = ['Tour 1', 'Tour 2', 'Tour 3', 'Finaalit', 'Kesä', 'Talvi'];
+            const tourKeys = ['tour1', 'tour2', 'tour3', 'finaali', 'kesä', 'talvi'];
+            
+            function getPlacementColor(placement) {
+                if (!placement) return '#1a2332';
+                if (placement === 1) return '#ffd60a';
+                if (placement === 2) return '#c0c0c0';
+                if (placement === 3) return '#cd7f32';
+                if (placement <= 5) return '#ff6b3588';
+                return '#6b7a9966';
+            }
+            
+            function draw() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = container.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = Math.max(500, years.length * 50 + 80) * dpr;
+                canvas.style.height = Math.max(500, years.length * 50 + 80) + 'px';
+                ctx.scale(dpr, dpr);
+                
+                const width = rect.width;
+                const height = Math.max(500, years.length * 50 + 80);
+                const padding = {top: 50, right: 20, bottom: 40, left: 80};
+                const cellWidth = (width - padding.left - padding.right) / tourNames.length;
+                const cellHeight = (height - padding.top - padding.bottom) / years.length;
+                
+                ctx.clearRect(0, 0, width, height);
+                
+                // Column headers
+                ctx.fillStyle = '#6b7a99';
+                ctx.font = 'bold 12px Inter';
+                ctx.textAlign = 'center';
+                tourNames.forEach((name, i) => {
+                    const x = padding.left + i * cellWidth + cellWidth / 2;
+                    ctx.fillText(name, x, padding.top - 15);
+                });
+                
+                // Draw cells
+                years.forEach((year, yearIndex) => {
+                    // Row label
+                    ctx.fillStyle = '#6b7a99';
+                    ctx.font = '12px Inter';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(year, padding.left - 10, padding.top + yearIndex * cellHeight + cellHeight / 2 + 4);
+                    
+                    // Cells
+                    tourKeys.forEach((key, tourIndex) => {
+                        const x = padding.left + tourIndex * cellWidth;
+                        const y = padding.top + yearIndex * cellHeight;
+                        const placement = performanceData[year]?.[key];
+                        const color = getPlacementColor(placement);
+                        
+                        ctx.fillStyle = color;
+                        ctx.fillRect(x + 2, y + 2, cellWidth - 4, cellHeight - 4);
+                        
+                        if (placement) {
+                            ctx.fillStyle = placement <= 3 ? '#000' : '#fff';
+                            ctx.font = 'bold 14px Inter';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(placement === 1 ? '🥇' : placement === 2 ? '🥈' : placement === 3 ? '🥉' : `#${placement}`, x + cellWidth / 2, y + cellHeight / 2 + 5);
+                        }
+                    });
+                });
+                
+                // Legend
+                const legendY = height - 15;
+                ctx.font = '11px Inter';
+                ctx.textAlign = 'left';
+                const legendItems = [
+                    {color: '#ffd60a', label: 'Kulta'},
+                    {color: '#c0c0c0', label: 'Hopea'},
+                    {color: '#cd7f32', label: 'Pronssi'},
+                    {color: '#ff6b3588', label: 'Top 5'},
+                    {color: '#6b7a9966', label: 'Muut'},
+                ];
+                let legendX = padding.left;
+                legendItems.forEach(item => {
+                    ctx.fillStyle = item.color;
+                    ctx.fillRect(legendX, legendY - 8, 12, 12);
+                    ctx.fillStyle = '#6b7a99';
+                    ctx.fillText(item.label, legendX + 16, legendY + 2);
+                    legendX += ctx.measureText(item.label).width + 30;
+                });
+            }
+            
+            draw();
+            window.addEventListener('resize', draw);
+        })();
+
+        // ============================================
+        // CHART.JS CHARTS
+        // ============================================
+        
         // PERFORMANCE CHART
         const perfData = {
             2011:[1,2,2,2],2012:[1,3,2,4],2013:[1,1,2,1],2014:[1,2,3,1],
@@ -664,7 +1452,175 @@
                     tooltip:{backgroundColor:'#131b2e',padding:12,cornerRadius:8}}}
         });
 
+        // ============================================
+        // PLAYER NETWORK (Custom Canvas)
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('networkChart');
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            
+            // Sample player data (to be replaced with scraped data)
+            const players = [
+                {name:'Erkka Niini',team:'Otso',color:'#ff6b35'},
+                {name:'Jarno Sihvo',team:'Otso',color:'#ff6b35'},
+                {name:'Mikko Alitalo',team:'Otso',color:'#ff6b35'},
+                {name:'Matias Arola',team:'Otso 2',color:'#7b2ff7'},
+                {name:'Roope Kettunen',team:'Otso 2',color:'#7b2ff7'},
+                {name:'Roni Hotari',team:'Otso 2',color:'#7b2ff7'},
+                {name:'Kivi Knuuti',team:'Otso',color:'#ff6b35'},
+                {name:'Emil Videman',team:'Otso',color:'#ff6b35'},
+                {name:'Aleksi Mustonen',team:'Otso',color:'#ff6b35'},
+                {name:'Ilkka Vaahtoranta',team:'Otso',color:'#ff6b35'},
+                {name:'Pekka Kinnunen',team:'Otso',color:'#ff6b35'},
+                {name:'Santeri Harmaala',team:'Otso',color:'#ff6b35'},
+                {name:'Phong Tran',team:'Otso',color:'#ff6b35'},
+                {name:'Tomi Sandberg',team:'Otso',color:'#ff6b35'},
+                {name:'Patrick Potrykus',team:'Otso',color:'#ff6b35'},
+                {name:'Oskari Vuorio',team:'Otso',color:'#ff6b35'},
+            ];
+            
+            // Simple force-directed layout
+            let nodes = players.map((p, i) => ({
+                ...p,
+                x: Math.random() * 400 + 50,
+                y: Math.random() * 400 + 50,
+                vx: 0,
+                vy: 0,
+                radius: 12
+            }));
+            
+            // Connections (simplified - all Otso players connected)
+            const connections = [];
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if (nodes[i].team === nodes[j].team) {
+                        connections.push({source: i, target: j});
+                    }
+                }
+            }
+            
+            function simulate() {
+                // Repulsion
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[j].x - nodes[i].x;
+                        const dy = nodes[j].y - nodes[i].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                        const force = 500 / (dist * dist);
+                        const fx = (dx / dist) * force;
+                        const fy = (dy / dist) * force;
+                        nodes[i].vx -= fx;
+                        nodes[i].vy -= fy;
+                        nodes[j].vx += fx;
+                        nodes[j].vy += fy;
+                    }
+                }
+                
+                // Attraction along connections
+                connections.forEach(conn => {
+                    const a = nodes[conn.source];
+                    const b = nodes[conn.target];
+                    const dx = b.x - a.x;
+                    const dy = b.y - a.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                    const force = (dist - 100) * 0.01;
+                    const fx = (dx / dist) * force;
+                    const fy = (dy / dist) * force;
+                    a.vx += fx;
+                    a.vy += fy;
+                    b.vx -= fx;
+                    b.vy -= fy;
+                });
+                
+                // Center gravity
+                nodes.forEach(node => {
+                    node.vx += (250 - node.x) * 0.001;
+                    node.vy += (250 - node.y) * 0.001;
+                });
+                
+                // Update positions
+                nodes.forEach(node => {
+                    node.vx *= 0.9;
+                    node.vy *= 0.9;
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    node.x = Math.max(30, Math.min(470, node.x));
+                    node.y = Math.max(30, Math.min(470, node.y));
+                });
+            }
+            
+            function draw() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = container.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = 500 * dpr;
+                canvas.style.height = '500px';
+                ctx.scale(dpr, dpr);
+                
+                ctx.clearRect(0, 0, rect.width, 500);
+                
+                // Draw connections
+                connections.forEach(conn => {
+                    const a = nodes[conn.source];
+                    const b = nodes[conn.target];
+                    ctx.strokeStyle = a.color + '33';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                });
+                
+                // Draw nodes
+                nodes.forEach(node => {
+                    ctx.fillStyle = node.color;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = '#fff';
+                    ctx.font = '11px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(node.name.split(' ')[0], node.x, node.y + 4);
+                });
+            }
+            
+            // Run simulation
+            for (let i = 0; i < 100; i++) simulate();
+            draw();
+            
+            window.addEventListener('resize', () => {
+                for (let i = 0; i < 50; i++) simulate();
+                draw();
+            });
+        })();
+
+        // ============================================
+        // YEAR EXPLORER
+        // ============================================
+        (function() {
+            const explorer = document.getElementById('yearExplorer');
+            years.forEach(year => {
+                const pill = document.createElement('button');
+                pill.className = 'year-pill';
+                pill.textContent = year;
+                pill.addEventListener('click', () => {
+                    document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                    // Scroll to timeline item for this year
+                    const timelineItem = document.querySelector(`.timeline-item[data-year="${year}"]`);
+                    if (timelineItem) {
+                        timelineItem.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }
+                });
+                explorer.appendChild(pill);
+            });
+        })();
+
+        // ============================================
         // TIMELINE
+        // ============================================
         const timelineEl = document.getElementById('timeline');
         const yearGroups = {};
         teams.forEach(t => {
@@ -675,6 +1631,7 @@
             const items = yearGroups[year];
             const div = document.createElement('div');
             div.className = 'timeline-item';
+            div.dataset.year = year;
             const badgeClass = items.some(t=>t.t==='grizzly')?'badge-grizzly':items.some(t=>t.t==='polar')?'badge-polar':items.some(t=>t.t==='akatemia')?'badge-akatemia':items.some(t=>t.t==='3')?'badge-3':items.some(t=>t.t==='2')?'badge-2':'badge-otso';
             const badgeLabel = items.some(t=>t.t==='grizzly')?'Grizzly':items.some(t=>t.t==='polar')?'Polar':items.some(t=>t.t==='akatemia')?'Akatemia':items.some(t=>t.t==='3')?'3. joukkue':items.some(t=>t.t==='2')?'2. joukkue':'Pääjoukkue';
             div.innerHTML = `
@@ -690,6 +1647,427 @@
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
         }, {threshold: 0.1});
         document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+
+        // Fade-in animations
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, {threshold: 0.1});
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+        // ============================================
+        // SCROLL INDICATOR
+        // ============================================
+        (function() {
+            const indicator = document.getElementById('scrollIndicator');
+            function update() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                indicator.style.width = progress + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
+
+        // ============================================
+        // YEAR HIGHLIGHT ON SCROLL
+        // ============================================
+        (function() {
+            const highlight = document.getElementById('yearHighlight');
+            const yearEl = document.getElementById('yearHighlightYear');
+            const infoEl = document.getElementById('yearHighlightInfo');
+            let lastYear = null;
+
+            function update() {
+                const scrollY = window.scrollY + window.innerHeight / 2;
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                let currentYear = null;
+                
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    if (scrollY >= rect.top) {
+                        currentYear = item.dataset.year;
+                    }
+                });
+
+                if (currentYear && currentYear !== lastYear) {
+                    lastYear = currentYear;
+                    const yearTeams = teams.filter(t => t.y === parseInt(currentYear));
+                    yearEl.textContent = currentYear;
+                    infoEl.textContent = `${yearTeams.length} joukkuetta: ${yearTeams.map(t => t.n).join(', ')}`;
+                    highlight.classList.add('show');
+                } else if (!currentYear) {
+                    highlight.classList.remove('show');
+                }
+            }
+
+            window.addEventListener('scroll', update, { passive: true });
+        })();
+
+        // ============================================
+        // ANIMATED COUNTERS
+        // ============================================
+        (function() {
+            const counters = document.querySelectorAll('.medal-count');
+            const targetValues = [15, 10, 5];
+            const suffixes = ['+', '+', '+'];
+
+            function animateCounter(el, target, suffix) {
+                let current = 0;
+                const increment = target / 40;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = Math.floor(current) + suffix;
+                }, 30);
+            }
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = Array.from(counters).indexOf(entry.target);
+                        if (idx >= 0) {
+                            animateCounter(entry.target, targetValues[idx], suffixes[idx]);
+                        }
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach((counter, i) => {
+                counter.textContent = '0' + suffixes[i];
+                counterObserver.observe(counter);
+            });
+        })();
+
+        // ============================================
+        // TOOLTIP SYSTEM
+        // ============================================
+        const tooltip = document.getElementById('tooltip');
+        let tooltipVisible = false;
+
+        function showTooltip(x, y, content) {
+            tooltip.innerHTML = content;
+            tooltip.style.left = (x + 15) + 'px';
+            tooltip.style.top = (y - 10) + 'px';
+            tooltip.classList.add('show');
+            tooltipVisible = true;
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('show');
+            tooltipVisible = false;
+        }
+
+        // ============================================
+        // GANTT CHART TOOLTIPS
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('ganttChart');
+            const container = canvas.parentElement;
+            const teamTypes = ['otso', 'grizzly', 'polar', 'akatemia', '2', '3'];
+            const teamNames = ['Otso (pää)', 'Grizzly', 'Polar', 'Akatemia', 'Otso 2', 'Otso 3'];
+
+            canvas.addEventListener('mousemove', function(e) {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const dpr = window.devicePixelRatio || 1;
+                const width = rect.width;
+                const height = Math.max(400, teamTypes.length * 60 + 100);
+                const padding = {top: 40, right: 40, bottom: 40, left: 120};
+                const chartWidth = width - padding.left - padding.right;
+                const yearStep = chartWidth / 20;
+
+                const yearIndex = Math.floor((x - padding.left) / yearStep);
+                const typeIndex = Math.floor((y - padding.top) / 60);
+
+                if (yearIndex >= 0 && yearIndex < 21 && typeIndex >= 0 && typeIndex < teamTypes.length) {
+                    const year = 2006 + yearIndex;
+                    const type = teamTypes[typeIndex];
+                    const yearTeams = teams.filter(t => t.y === year && t.t === type);
+                    
+                    if (yearTeams.length > 0) {
+                        const seasons = yearTeams.map(t => t.s).join(', ');
+                        showTooltip(e.clientX, e.clientY, 
+                            `<strong>${teamNames[typeIndex]}</strong><br>${year}<br><em>${seasons}</em>`);
+                        return;
+                    }
+                }
+                hideTooltip();
+            });
+
+            canvas.addEventListener('mouseleave', hideTooltip);
+        })();
+
+        // ============================================
+        // HEATMAP TOOLTIPS
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('heatmapChart');
+            const tourNames = ['Tour 1', 'Tour 2', 'Tour 3', 'Finaalit', 'Kesä', 'Talvi'];
+            const tourKeys = ['tour1', 'tour2', 'tour3', 'finaali', 'kesä', 'talvi'];
+
+            canvas.addEventListener('mousemove', function(e) {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const padding = {top: 50, right: 20, bottom: 40, left: 80};
+                const cellWidth = (rect.width - padding.left - padding.right) / tourNames.length;
+                const cellHeight = (Math.max(500, years.length * 50 + 80) - padding.top - padding.bottom) / years.length;
+
+                const yearIndex = Math.floor((y - padding.top) / cellHeight);
+                const tourIndex = Math.floor((x - padding.left) / cellWidth);
+
+                if (yearIndex >= 0 && yearIndex < years.length && tourIndex >= 0 && tourIndex < tourNames.length) {
+                    const year = years[yearIndex];
+                    const tourName = tourNames[tourIndex];
+                    const key = tourKeys[tourIndex];
+                    const placement = performanceData[year]?.[key];
+                    
+                    let content = `<strong>${year}</strong> - ${tourName}`;
+                    if (placement) {
+                        const medals = ['', '🥇 Kulta', '🥈 Hopea', '🥉 Pronssi'];
+                        content += `<br><strong>${placement === 1 ? 'Kulta' : placement === 2 ? 'Hopea' : placement === 3 ? 'Pronssi' : '#' + placement + ' sija'}</strong>`;
+                    } else {
+                        content += '<br><em>Ei dataa</em>';
+                    }
+                    showTooltip(e.clientX, e.clientY, content);
+                    return;
+                }
+                hideTooltip();
+            });
+
+            canvas.addEventListener('mouseleave', hideTooltip);
+        })();
+
+        // ============================================
+        // PLAYER NETWORK TOOLTIPS & CLICK
+        // ============================================
+        (function() {
+            const canvas = document.getElementById('networkChart');
+            
+            // Load real player data from JSON if available
+            let networkData = null;
+            fetch('data/processed/player_network.json')
+                .then(r => r.json())
+                .then(data => { networkData = data; })
+                .catch(() => {});
+
+            canvas.addEventListener('mousemove', function(e) {
+                if (!nodes) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                let found = null;
+                nodes.forEach(node => {
+                    const dx = x - node.x;
+                    const dy = y - node.y;
+                    if (Math.sqrt(dx*dx + dy*dy) < node.radius) {
+                        found = node;
+                    }
+                });
+
+                if (found) {
+                    canvas.style.cursor = 'pointer';
+                    showTooltip(e.clientX, e.clientY, 
+                        `<strong>${found.name}</strong><br><em>${found.team}</em>`);
+                } else {
+                    canvas.style.cursor = 'default';
+                    hideTooltip();
+                }
+            });
+
+            canvas.addEventListener('click', function(e) {
+                if (!nodes) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                nodes.forEach(node => {
+                    const dx = x - node.x;
+                    const dy = y - node.y;
+                    if (Math.sqrt(dx*dx + dy*dy) < node.radius) {
+                        openPlayerModal(node.name, node.team);
+                    }
+                });
+            });
+
+            canvas.addEventListener('mouseleave', hideTooltip);
+        })();
+
+        // ============================================
+        // PLAYER SEARCH
+        // ============================================
+        (function() {
+            const searchInput = document.getElementById('playerSearch');
+            const searchResults = document.getElementById('searchResults');
+            
+            // Load player data
+            let allPlayers = [];
+            fetch('data/processed/player_network.json')
+                .then(r => r.json())
+                .then(data => {
+                    allPlayers = Object.entries(data.players).map(([name, info]) => ({
+                        name,
+                        ...info
+                    }));
+                })
+                .catch(() => {
+                    // Use sample players if JSON not available
+                    allPlayers = [
+                        {name:'Erkka Niini', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Jarno Sihvo', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Mikko Alitalo', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Matias Arola', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Roope Kettunen', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Roni Hotari', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Kivi Knuuti', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+                        {name:'Emil Videman', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+                    ];
+                });
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                if (!query) {
+                    searchResults.classList.remove('show');
+                    return;
+                }
+
+                const matches = allPlayers.filter(p => p.name.toLowerCase().includes(query)).slice(0, 8);
+                
+                if (matches.length === 0) {
+                    searchResults.classList.remove('show');
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(p => `
+                    <div class="search-result-item" data-name="${p.name}">
+                        <div class="search-result-name">${p.name}</div>
+                        <div class="search-result-meta">${p.team_count} joukkuetta, ${p.season_count} kautta</div>
+                    </div>
+                `).join('');
+                searchResults.classList.add('show');
+
+                searchResults.querySelectorAll('.search-result-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const playerName = this.dataset.name;
+                        const player = matches.find(p => p.name === playerName);
+                        if (player) {
+                            openPlayerModal(playerName, player.teams[0]?.team || 'Otso');
+                        }
+                    });
+                });
+            });
+
+            searchInput.addEventListener('blur', function() {
+                setTimeout(() => searchResults.classList.remove('show'), 200);
+            });
+        })();
+
+        // ============================================
+        // PLAYER MODAL
+        // ============================================
+        function openPlayerModal(name, team) {
+            const modal = document.getElementById('playerModal');
+            const player = allPlayers?.find(p => p.name === name);
+            
+            document.getElementById('modalPlayerName').textContent = name;
+            document.getElementById('modalPlayerTeam').textContent = team;
+            
+            const stats = document.getElementById('modalStats');
+            stats.innerHTML = `
+                <div class="modal-stat">
+                    <div class="modal-stat-value">${player?.team_count || 1}</div>
+                    <div class="modal-stat-label">Joukkuetta</div>
+                </div>
+                <div class="modal-stat">
+                    <div class="modal-stat-value">${player?.season_count || 1}</div>
+                    <div class="modal-stat-label">Kautta</div>
+                </div>
+                <div class="modal-stat">
+                    <div class="modal-stat-value">${player?.teams?.length || 0}</div>
+                    <div class="modal-stat-label">Ilmentymää</div>
+                </div>
+            `;
+
+            const seasons = document.getElementById('modalSeasons');
+            if (player?.teams) {
+                seasons.innerHTML = player.teams.map(t => 
+                    `<span class="modal-season active">${t.season_id} (${t.team})</span>`
+                ).join('');
+            } else {
+                seasons.innerHTML = `<span class="modal-season active">KESA2026 (${team})</span>`;
+            }
+
+            modal.classList.add('open');
+        }
+
+        function closePlayerModal() {
+            document.getElementById('playerModal').classList.remove('open');
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closePlayerModal);
+        document.getElementById('playerModal').addEventListener('click', function(e) {
+            if (e.target === this) closePlayerModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePlayerModal();
+        });
+
+        // ============================================
+        // YEAR EXPLORER CROSS-HIGHLIGHT
+        // ============================================
+        (function() {
+            const pills = document.querySelectorAll('.year-pill');
+            
+            // Highlight current year as user scrolls
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY + window.innerHeight / 2;
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                let currentYear = null;
+                
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    if (scrollY >= rect.top) {
+                        currentYear = item.dataset.year;
+                    }
+                });
+
+                if (currentYear) {
+                    pills.forEach(pill => {
+                        pill.classList.toggle('active', pill.textContent === currentYear);
+                    });
+                }
+            }, { passive: true });
+        })();
+
+        // ============================================
+        // ALL PLAYERS DATA (for modal)
+        // ============================================
+        let allPlayers = [
+            {name:'Erkka Niini', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Jarno Sihvo', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Mikko Alitalo', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Matias Arola', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Roope Kettunen', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Roni Hotari', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Kivi Knuuti', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Emil Videman', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Aleksi Mustonen', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Ilkka Vaahtoranta', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Pekka Kinnunen', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Santeri Harmaala', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Phong Tran', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Tomi Sandberg', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Patrick Potrykus', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+            {name:'Oskari Vuorio', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
+        ];
     </script>
 </body>
 </html>

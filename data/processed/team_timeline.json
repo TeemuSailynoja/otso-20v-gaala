@@ -1,0 +1,15 @@
+[
+  {
+    "year": 2026,
+    "season_id": "KESA2026",
+    "season_name": "KESA2026",
+    "season_type": "summer",
+    "teams": [
+      {
+        "name": "Otso",
+        "id": "3258",
+        "division": "Avoin"
+      }
+    ]
+  }
+]

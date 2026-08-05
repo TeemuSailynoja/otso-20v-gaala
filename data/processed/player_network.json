@@ -1,0 +1,1122 @@
+{
+  "players": {
+    "Aleksi Mustonen": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Eelis Junnila": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Emil Videman": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Erkka Niini": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Ilkka Vaahtoranta": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Jarno Sihvo": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Kivi Knuuti": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Matias Arola": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Mikko Alitalo": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Oskari Vuorio": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Patrick Potrykus": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Pekka Kinnunen": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Phong Tran": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Roni Hotari": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Roope Kettunen": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Samuel-visal Roeung": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Santeri Harmaala": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    },
+    "Tomi Sandberg": {
+      "teams": [
+        {
+          "team": "Otso",
+          "season_id": "KESA2026",
+          "season_name": "KESA2026"
+        }
+      ],
+      "team_count": 1,
+      "season_count": 1
+    }
+  },
+  "connections": [
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Eelis Junnila",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Emil Videman",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Erkka Niini",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Ilkka Vaahtoranta",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Jarno Sihvo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Kivi Knuuti",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Aleksi Mustonen",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Emil Videman",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Erkka Niini",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Ilkka Vaahtoranta",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Jarno Sihvo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Kivi Knuuti",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Eelis Junnila",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Erkka Niini",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Ilkka Vaahtoranta",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Jarno Sihvo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Kivi Knuuti",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Emil Videman",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Ilkka Vaahtoranta",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Jarno Sihvo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Kivi Knuuti",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Erkka Niini",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Jarno Sihvo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Kivi Knuuti",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Ilkka Vaahtoranta",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Kivi Knuuti",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Jarno Sihvo",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Matias Arola",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Kivi Knuuti",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Mikko Alitalo",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Matias Arola",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Oskari Vuorio",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Mikko Alitalo",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Patrick Potrykus",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Oskari Vuorio",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Pekka Kinnunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Patrick Potrykus",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Pekka Kinnunen",
+      "player2": "Phong Tran",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Pekka Kinnunen",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Pekka Kinnunen",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Pekka Kinnunen",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Pekka Kinnunen",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Pekka Kinnunen",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Phong Tran",
+      "player2": "Roni Hotari",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Phong Tran",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Phong Tran",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Phong Tran",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Phong Tran",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roni Hotari",
+      "player2": "Roope Kettunen",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roni Hotari",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roni Hotari",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roni Hotari",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roope Kettunen",
+      "player2": "Samuel-visal Roeung",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roope Kettunen",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Roope Kettunen",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Samuel-visal Roeung",
+      "player2": "Santeri Harmaala",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Samuel-visal Roeung",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    },
+    {
+      "player1": "Santeri Harmaala",
+      "player2": "Tomi Sandberg",
+      "team": "Otso",
+      "season_id": "KESA2026"
+    }
+  ]
+}
