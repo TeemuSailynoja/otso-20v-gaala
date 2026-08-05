@@ -1758,9 +1758,13 @@
 
                 if (currentYear && currentYear !== lastYear) {
                     lastYear = currentYear;
-                    const yearTeams = teams.filter(t => t.y === parseInt(currentYear));
+                    const splitNote = squadSplits[parseInt(currentYear)] || '';
+                    const winData = otsoPerformanceData[String(currentYear)];
                     yearEl.textContent = currentYear;
-                    infoEl.textContent = `${yearTeams.length} teams: ${yearTeams.map(t => t.n).join(', ')}`;
+                    let info = 'Otso';
+                    if (splitNote) info += ` · ${splitNote}`;
+                    if (winData) info += ` · ${winData.wins}-${winData.losses}`;
+                    infoEl.textContent = info;
                     highlight.classList.add('show');
                 } else if (!currentYear) {
                     highlight.classList.remove('show');
