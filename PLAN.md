@@ -136,11 +136,16 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 - [x] Scroll-driven year highlight panel
 - [x] Animated medal counters on scroll
 
-### Phase 12: GitHub Pages Deployment ⏸ PENDING
-- [ ] Commit all changes to `main`
-- [ ] Go to GitHub → Settings → Pages → Source: `main` / `/ (root)`
-- [ ] Wait ~2 minutes for deployment
-- [ ] Verify: `https://teemusailynoja.github.io/otso-20v-gaala/`
+### Phase 12: GitHub Pages Deployment ⏸ BLOCKED
+- [x] Commit all changes to `main` ✅
+- [x] Push to GitHub ✅
+- [ ] **BLOCKED**: Repository is private — GitHub Pages requires:
+  - **Option A**: Make repository public (free), then enable Pages
+  - **Option B**: Upgrade to GitHub Pro/Team (allows private Pages)
+- [ ] Manual steps (once repo is public or Pro):
+  - Go to GitHub → Settings → Pages → Source: `main` / `/ (root)`
+  - Wait ~2 minutes for deployment
+  - Verify: `https://teemusailynoja.github.io/otso-20v-gaala/`
 
 ## Verification
 
@@ -157,13 +162,25 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 
 ## Current Status
 
-**All visualization phases complete.** Only remaining task is GitHub Pages deployment (Phase 12).
+**All visualization phases complete. Code is committed and pushed to GitHub.**
 
-The site includes:
-- Hero section with animated particles and gradient
+### What's Done
+- ✅ Phases 1-11: All visualization features implemented
+- ✅ Code committed and pushed to `main` branch
+- ✅ Data pipeline working (KESA2026 scraped)
+- ✅ Processed data in `data/processed/`
+
+### What's Blocked
+- ⏸ Phase 12: GitHub Pages deployment blocked because repository is **private**
+  - GitHub Pages requires **public repository** (free) or **Pro/Team account** (private)
+  - **To fix**: Make repo public at GitHub → Settings → General → Danger Zone → Change visibility
+  - Then enable Pages: GitHub → Settings → Pages → Source: `main` / `/ (root)`
+
+### Site Features
+- Hero section with animated bear paw particles and gradient
 - Bear lineage cards (Otso, Grizzly, Polar, Akatemia)
 - Gantt chart with hover tooltips
-- Team count river chart
+- Team count river chart (stacked area)
 - Performance heatmap with hover tooltips
 - Performance line chart (Chart.js)
 - Medal section with animated counters
@@ -175,6 +192,7 @@ The site includes:
 - Year explorer with auto-highlight
 - Scroll progress indicator
 - Scroll-driven year highlight panel
+- Fully responsive (mobile-friendly)
 
 ## Technical Notes
 
