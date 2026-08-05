@@ -1849,13 +1849,6 @@
         // ============================================
         (function() {
             const canvas = document.getElementById('networkChart');
-            
-            // Load real player data from JSON if available
-            let networkData = null;
-            fetch('data/processed/player_network.json')
-                .then(r => r.json())
-                .then(data => { networkData = data; })
-                .catch(() => {});
 
             canvas.addEventListener('mousemove', function(e) {
                 if (!nodes) return;
@@ -1907,8 +1900,7 @@
             const searchInput = document.getElementById('playerSearch');
             const searchResults = document.getElementById('searchResults');
             
-            // Load player data
-            let allPlayers = [];
+            // Load player data into global allPlayers
             fetch('data/processed/player_network.json')
                 .then(r => r.json())
                 .then(data => {
@@ -2048,26 +2040,10 @@
         })();
 
         // ============================================
-        // ALL PLAYERS DATA (for modal)
+        // ALL PLAYERS DATA (global, shared by search + modal)
         // ============================================
-        let allPlayers = [
-            {name:'Erkka Niini', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Jarno Sihvo', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Mikko Alitalo', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Matias Arola', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Roope Kettunen', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Roni Hotari', teams:[{team:'Otso 2',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Kivi Knuuti', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Emil Videman', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Aleksi Mustonen', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Ilkka Vaahtoranta', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Pekka Kinnunen', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Santeri Harmaala', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Phong Tran', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Tomi Sandberg', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Patrick Potrykus', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-            {name:'Oskari Vuorio', teams:[{team:'Otso',season_id:'KESA2026'}], team_count:1, season_count:1},
-        ];
+        // Populated from player_network.json on load, fallback below
+        let allPlayers = [];
     </script>
 </body>
 </html>

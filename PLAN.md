@@ -20,7 +20,7 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 - [x] Parse into meaningful statistics (playometrics)
 - [x] Store processed data as JSON/CSV (committed to GitHub)
 - [x] Raw full dataset excluded from git (.gitignore)
-- [ ] Scrape historical seasons (only 2026 scraped so far)
+- [x] Scrape historical seasons (101 seasons scraped, 2000–2025)
 
 ### Part B: Visualization
 - [x] Interactive Gantt chart of team evolution (Canvas 2D with hover tooltips)
@@ -139,7 +139,7 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 ### Phase 12: GitHub Pages Deployment ⏸ BLOCKED
 - [x] Commit all changes to `main` ✅
 - [x] Push to GitHub ✅
-- [ ] **BLOCKED**: Repository is private — GitHub Pages requires:
+- [x] **BLOCKED**: Repository is private — GitHub Pages requires:
   - **Option A**: Make repository public (free), then enable Pages
   - **Option B**: Upgrade to GitHub Pro/Team (allows private Pages)
 - [ ] Manual steps (once repo is public or Pro):
@@ -155,10 +155,12 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 4. ✅ **Year filter** — Year explorer scrolls to timeline, auto-highlights current year
 5. ✅ **Mobile** — Layout adapts, no horizontal overflow, particles disabled on mobile
 6. ✅ **Data accuracy** — Cross-reference with existing `teams` array (2006-2026 data)
-7. ✅ **Python pipeline** — `parse_data.py` runs without errors, outputs valid JSON (KESA2026 tested)
-8. ⏸ **GitHub Pages** — Not yet deployed
+7. ✅ **Python pipeline** — `src/otso_scrape/` package runs without errors, outputs valid JSON (101 seasons scraped, 2000–2025)
+8. ⏸ **GitHub Pages** — Blocked by private repository (requires public repo or Pro plan)
 9. ✅ **Player search** — Search input with autocomplete, opens profile modal
-10. ✅ **Social network** — Graph renders, interactive with click-to-profile
+10. ✅ **Social network** — Graph renders, interactive with click-to-profile (247 players)
+11. ✅ **Historical data** — 101 seasons scraped, 247 players, 116 Otso teams across 2000–2025
+12. ✅ **Data pipeline** — Refactored into reusable Python package with `uv` venv
 
 ## Current Status
 
@@ -167,8 +169,9 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 ### What's Done
 - ✅ Phases 1-11: All visualization features implemented
 - ✅ Code committed and pushed to `main` branch
-- ✅ Data pipeline working (KESA2026 scraped)
-- ✅ Processed data in `data/processed/`
+- ✅ Data pipeline: 101 seasons scraped (2000–2025), 247 players, 116 Otso teams
+- ✅ Processed data in `data/processed/` (team_timeline.json, player_network.json, summary.json)
+- ✅ Data pipeline refactored into reusable Python package (`src/otso_scrape/`) with `uv` venv
 
 ### What's Blocked
 - ⏸ Phase 12: GitHub Pages deployment blocked because repository is **private**
@@ -185,7 +188,7 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 - Performance line chart (Chart.js)
 - Medal section with animated counters
 - Season type polar area chart (Chart.js)
-- Player network with click-to-profile
+- Player network with click-to-profile (247 players, 16573 connections)
 - Player search with autocomplete
 - Player profile modal
 - Timeline with scroll animations
@@ -203,6 +206,41 @@ The current site has basic Chart.js charts that don't tell the story. We need an
 - **Chart.js**: Keep for polar area and doughnut charts
 - **Placeholders**: Mark clearly with comments for easy future replacement
 - **Mobile**: Use CSS media queries, touch events for tooltips, simplified particle count on mobile
-- **Python**: Use `requests` + `BeautifulSoup4` for scraping, `json` for output
+- **Python**: `src/otso_scrape/` package (installable via `uv`), CLI entry point `otso-scrape`
 - **Data storage**: Processed JSON in `data/`, raw data in `.gitignore`
 - **Graph visualization**: Custom canvas or D3.js (CDN) for player network
+
+## Data Pipeline (src/otso_scrape/)
+
+The scraper is now a proper Python package:
+
+```
+src/otso_scrape/
+├── __init__.py    # Public API exports
+├── __main__.py    # python -m otso_scrape entry
+├── cli.py         # CLI with argparse (otso-scrape command)
+├── config.py      # Constants (BASE_URL, DATA_DIR, etc.)
+├── cache.py       # Caching logic (get_cache, save_cache)
+├── fetcher.py     # HTTP fetching with caching
+├── parsers.py     # HTML/CSV parsing functions
+└── builders.py    # Derived data (timeline, network, summary)
+```
+
+Install and run:
+```bash
+uv venv .venv --python 3.12
+uv pip install -e .
+python -m otso_scrape              # Parse all seasons
+python -m otso_scrape --season 2025.1  # Parse specific season
+python -m otso_scrape --refresh    # Force re-download
+```
+
+Or use programmatically:
+```python
+from otso_scrape import (
+    parse_season_list,
+    parse_teams_page,
+    build_team_timeline,
+    build_player_network,
+)
+```

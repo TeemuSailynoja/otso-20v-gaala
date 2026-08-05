@@ -196,18 +196,30 @@ def classify_season(season_id, season_name):
 
 
 def parse_teams_page(html, season_id):
-    """Parse the teams list page."""
+    """Parse the teams list page.
+    
+    Handles two HTML formats:
+    1. New format (KESA2026+): tables with class='teams-table'
+    2. Old format (pre-2026): single large table with teams embedded as text
+    """
     teams = []
     soup = BeautifulSoup(html, "html.parser")
 
+    # Format 1: New format with teams-table class
     for table in soup.find_all("table", class_="teams-table"):
         division = ""
         # Get division from the table header
         th = table.find("th", colspan=True)
         if th:
             division = th.get_text(strip=True)
+        # Also check for division in first row
+        first_row = table.find("tr")
+        if first_row and not division:
+            first_td = first_row.find("td")
+            if first_td:
+                division = first_td.get_text(strip=True)
 
-        for row in table.find_all("tr"):
+        for row in table.find_all("tr")[1:]:  # Skip header
             tds = row.find_all("td")
             if len(tds) >= 3:
                 team_link = tds[0].find("a")
@@ -230,11 +242,107 @@ def parse_teams_page(html, season_id):
                         "player_list_url": f"{BASE_URL}/{player_link['href']}" if player_link else None,
                     })
 
+    # Format 2: Old format - single large table with all data
+    if not teams:
+        teams = _parse_teams_old_format(html, season_id)
+
     return teams
 
 
+def _parse_teams_old_format(html, season_id):
+    """Parse teams from old-format HTML (pre-2026 pelikone)."""
+    teams = []
+    soup = BeautifulSoup(html, "html.parser")
+    
+    # Get all text content
+    text = soup.get_text("\n")
+    
+    # Find division headers (Avoin, Naiset, Mixed, Juniorit)
+    divisions = ["Avoin", "Naiset", "Mixed", "Juniorit", "U17"]
+    
+    # Split by division headers
+    current_division = ""
+    current_teams = []
+    
+    # Find all team-like entries (words followed by club names)
+    # Pattern: TeamName followed by ClubName
+    team_pattern = re.compile(
+        r'(\w+(?:\s+\w+)*(?:\s+\d+)?)(?:\n|\xa0)'
+        r'((?:Espoo|Helsinki|Lemp\u00e4\u00e4l\u00e4|Jyv\u00e4skyl\u00e4|Turku|VirHe|Atletico|Ufo|Unlimited|Lemp\u00e4\u00e4l\u00e4n|Espoon Rennot|Jyv\u00e4skyl\u00e4n|Lemp\u00e4\u00e4l\u00e4n Kisa|Espoo Ultimate|Unlimited Frisbee)[^\n]{0,50})',
+        re.MULTILINE
+    )
+    
+    # Alternative: look for team entries in the raw HTML
+    # Teams appear as links with "Pelaajalista" nearby
+    team_links = soup.find_all("a", href=True, string=re.compile(r'^\w'))
+    
+    # Build a list of potential team names
+    seen_teams = set()
+    for link in team_links:
+        name = link.get_text(strip=True)
+        if (len(name) > 2 and len(name) < 40 and 
+            name not in ["Pelaajalista", "Pistep\u00f6rssi", "Pelit",
+                        "Sijoitukset", "Pelit", "Joukkueet", "Avoin",
+                        "Naiset", "Mixed", "Juniorit"] and
+            name not in seen_teams and
+            not name.startswith("\u00bb") and
+            not name.startswith("Talvi") and
+            not name.startswith("Kes\u00e4") and
+            not name.startswith("Ranta")):
+            seen_teams.add(name)
+            current_division = ""
+            for d in divisions:
+                # Check if we're in this division section
+                pass  # We'll determine division by position
+            
+            team_id = None
+            if "team=" in link["href"]:
+                for part in link["href"].split("&"):
+                    if part.startswith("team="):
+                        team_id = part.split("=")[1]
+            
+            teams.append({
+                "name": name,
+                "id": team_id,
+                "club": "",
+                "division": current_division,
+                "season_id": season_id,
+                "player_list_url": None,
+            })
+    
+    # Deduplicate by name
+    seen = set()
+    unique_teams = []
+    for t in teams:
+        if t["name"] not in seen:
+            seen.add(t["name"])
+            unique_teams.append(t)
+    
+    return unique_teams
+
+
 def parse_standings_page(html, season_id):
-    """Parse the standings page to get placements."""
+    """Parse the standings page to get placements.
+    
+    Handles two HTML formats:
+    1. New format: tables with proper placement structure
+    2. Old format (pre-2026): placements embedded in text
+    """
+    placements = []
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Try new format first
+    table = soup.find("table", class_="placements-table")
+    if table:
+        placements = _parse_standings_new_format(html, season_id)
+    else:
+        placements = _parse_standings_old_format(html, season_id)
+
+    return placements
+
+
+def _parse_standings_new_format(html, season_id):
+    """Parse placements from new-format HTML."""
     placements = []
     soup = BeautifulSoup(html, "html.parser")
 
@@ -280,6 +388,71 @@ def parse_standings_page(html, season_id):
                         "season_id": season_id,
                     })
 
+    return placements
+
+
+def _parse_standings_old_format(html, season_id):
+    """Parse placements from old-format HTML (pre-2026 pelikone).
+    
+    In old format, placements are embedded in the page text:
+    Kulta/Hopea/Pronssi followed by team names, or numbered positions (4., 5., etc.)
+    """
+    placements = []
+    soup = BeautifulSoup(html, "html.parser")
+    
+    # Get all text
+    text = soup.get_text()
+    
+    # Find placement patterns
+    # Pattern: Kulta/Hopea/Pronssi/4./5./etc. followed by team names
+    placement_pattern = re.compile(
+        r'(Kulta|Hopea|Pronssi|(\d+)\.)\s+([^\n]{2,200}?)'
+        r'(?:\n|$)',
+        re.MULTILINE
+    )
+    
+    divisions = ["Avoin", "Naiset", "Mixed", "Juniorit"]
+    
+    # Split text by division headers
+    for division in divisions:
+        # Find this division's section
+        div_match = re.search(rf'{division}\s*\n(.*?)(?:\n\s*(?:Avoin|Naiset|Mixed|Juniorit)|\n\s*$)', text, re.DOTALL)
+        if not div_match:
+            # Try without division header
+            continue
+        
+        div_text = div_match.group(1)
+        
+        # Find all placements in this division
+        for match in placement_pattern.finditer(div_text):
+            placement_type = match.group(1)
+            team_names_str = match.group(3).strip()
+            
+            # Parse team names from the string
+            # Teams are separated by newlines or special characters
+            team_names = re.split(r'[\n\xa0]+', team_names_str)
+            
+            # Determine placement number
+            if placement_type == "Kulta":
+                placement_num = "1." if len(team_names) > 1 else "Kulta"
+            elif placement_type == "Hopea":
+                placement_num = "2." if len(team_names) > 1 else "Hopea"
+            elif placement_type == "Pronssi":
+                placement_num = "3." if len(team_names) > 1 else "Pronssi"
+            else:
+                placement_num = placement_type
+            
+            for team_name in team_names:
+                team_name = team_name.strip()
+                if team_name and len(team_name) > 1 and team_name not in ["Kulta", "Hopea", "Pronssi"]:
+                    placements.append({
+                        "placement": placement_num,
+                        "team_name": team_name,
+                        "team_id": None,
+                        "division": division,
+                        "season_id": season_id,
+                    })
+    
     return placements
 
 
