@@ -1403,9 +1403,9 @@
         // ============================================
         
         // PERFORMANCE CHART — Win rate by season (from scraped match data)
-        // 2006-2014: from team card game lists, 2015-2026: from gameplay pages
+        // 2006-2010: from team card game lists, 2011-2026: from gameplay pages
         const perfData = {
-            2006:50,2007:48,2008:52,2009:56,2010:44,2011:47,2012:36,2013:47,2014:29,
+            2006:50,2007:48,2008:52,2009:56,2010:44,2011:83,2012:91,2013:72,2014:100,
             2015:74,2016:75,2017:71,2018:82,2019:80,2020:46,2021:63,2022:71,
             2023:61,2024:72,2025:59,2026:100
         };
@@ -1453,13 +1453,14 @@
         // ============================================
         (function() {
             // Data from scraped match_results.json + team card data (2006-2026)
-            // 2006-2014: from team card game lists (no point-by-point available)
+            // 2006-2010: from team card game lists (no point-by-point)
+            // 2011-2014: from gameplay pages (87 games with point-by-point)
             // 2015-2026: from gameplay pages (483 games, 472 with point-by-point)
             // 2025.3 = Talvi 2025 (winter), 2025.1 = Kesä 2025 (summer)
             const seasonRecords = {
                 2006:{wins:11,losses:11},2007:{wins:11,losses:12},2008:{wins:12,losses:11},
-                2009:{wins:14,losses:11},2010:{wins:8,losses:10},2011:{wins:16,losses:18},
-                2012:{wins:13,losses:23},2013:{wins:29,losses:33},2014:{wins:6,losses:15},
+                2009:{wins:14,losses:11},2010:{wins:8,losses:10},2011:{wins:15,losses:3},
+                2012:{wins:20,losses:2},2013:{wins:23,losses:9},2014:{wins:15,losses:0},
                 2015:{wins:35,losses:12},2016:{wins:38,losses:13},2017:{wins:39,losses:16},
                 2018:{wins:41,losses:9},2019:{wins:40,losses:10},2020:{wins:6,losses:7},
                 2021:{wins:17,losses:10},2022:{wins:29,losses:12},2023:{wins:28,losses:18},
@@ -1468,8 +1469,8 @@
             // Main team only (Otso Avoin, excluding Otso 2/3)
             const mainTeamRecords = {
                 2006:{wins:11,losses:11},2007:{wins:11,losses:12},2008:{wins:12,losses:11},
-                2009:{wins:14,losses:11},2010:{wins:8,losses:10},2011:{wins:10,losses:14},
-                2012:{wins:8,losses:18},2013:{wins:13,losses:17},2014:{wins:2,losses:14},
+                2009:{wins:14,losses:11},2010:{wins:8,losses:10},2011:{wins:13,losses:1},
+                2012:{wins:17,losses:0},2013:{wins:14,losses:3},2014:{wins:14,losses:0},
                 2015:{wins:26,losses:2},2016:{wins:25,losses:3},2017:{wins:28,losses:3},
                 2018:{wins:29,losses:2},2019:{wins:13,losses:0},2021:{wins:15,losses:2},
                 2022:{wins:25,losses:1},2023:{wins:20,losses:4},2024:{wins:23,losses:2},
