@@ -1,176 +1,159 @@
-# Otso 20v — Data Cleanup, Visual Redesign & Gameplay Scraping
+# Otso 20v — Full Website Redesign
 
 ## Context
 
-The current site has three problems:
-1. **Data is noisy** — the scraper pulls all teams from pelikone (418 teams, 247 players), including women's, mixed, and youth divisions. Otso only plays Avoin/miehet.
-2. **Visuals are team-name focused** — the Gantt chart, Bear Lineage, and team river treat "Otso 2", "Grizzly", "Polar", "Akatemia" as separate clubs. They're just roster splits of one club.
-3. **No point-by-point data** — we have 562 unique Otso match results (scores, opponents, seasons) but no disc-by-disc scoring.
+The current `index.html` is ~2171 lines with a dark theme and Chart.js, but it only has 2026 data — the processed JSON files were regenerated with only the latest season. The raw data has 103 season files, 483 games with full gameplay (point-by-point scorers, assists, rosters), and 163 players from raw team cards. This project rebuilds the site from the full historical dataset for the 20th anniversary gala.
+
+> [!IMPORTANT]
+> Birth year data does **not** exist anywhere in the scraped data (raw team cards, gameplay pages, or pelikone HTML). The "average age" stretch goal is not feasible without external data.
 
 ## Approach
 
-### Phase 1: Filter Data Pipeline to Otso-Only Avoin
+### Architecture
 
-**Goal**: Re-scan pelikone but only extract Otso teams and their Avoin matches.
+Single-page application in one `index.html` with hash-based routing:
 
-**Steps**:
-- [x] Update `config.py` — `OTSO_PATTERNS` to only match `otso`, `grizzly`, `polar` (remove `akatemia` — it's a separate club)
-- [x] Update `parsers.py` — `parse_teams_page()` to only return teams matching Otso patterns
-- [x] Update `builders.py` — `build_team_timeline()` and `build_player_network()` to only process Otso data
-- [x] Update `cli.py` — add `--otso-only` flag to skip non-Otso teams entirely (saves ~80% of requests)
-- [x] Re-run scraper with `--otso-only` flag (67 seasons × ~3 pages/season = ~200 requests, down from ~300)
-- [x] Expected output: ~116 Otso team instances, ~562 unique Otso matches, ~200 players
+```
+#           → Landing page (hero + summary stats + charts)
+#players    → Searchable player grid
+#player/Name → Player detail page (stats, pass network, co-occurrence, career timeline)
+#timeline   → 20-year evolution animation
+```
 
-**Key insight**: We already have 562 unique Otso matches from the current data. The filtering just removes the ~300 non-Otso teams and their ~1,400 non-Otso team instances.
+All data loaded from pre-processed JSON files. Zero build step — just serve `index.html` (GitHub Pages compatible).
 
-### Phase 2: Scrape Point-by-Point Gameplay Data
+### Data Processing Phase
 
-**Goal**: Get disc-by-disc scoring for Otso matches.
+A new Python script `build_site_data.py` processes raw data + gameplay into four JSON files:
 
-**Steps**:
-- [x] Add `fetch_games_page()` to `fetcher.py` — scrapes `?view=games&season=SEASON_ID&filter=tournaments` to get game IDs, times, venues, and scores
-- [x] Add `fetch_gameplay()` to `fetcher.py` — scrapes `?view=gameplay&game=GAME_ID` for point-by-point data, player rosters, final score
-- [x] Add `parse_gameplay()` to `parsers.py` — extracts point-by-point scoring (scorer + assist), team rosters (goals/assists per player), final score from `<h1>`
-- [x] Update `cli.py` — after fetching team cards, also fetch games list for each season, filter for Otso matches, then fetch gameplay for each Otso match
-- [x] Rate limiting: 562 games × 1.5s delay = ~14 minutes of scraping. Do it in batches per season.
-- [x] Cache every gameplay page (they don't change)
+| File | Content |
+|------|---------|
+| `site_data/players.json` | Per-player: seasons played (year list), first/last game date, goals/assists/total from raw data, games played from gameplay rosters |
+| `site_data/pass_network.json` | Directed adjacency: `{player: {other: count, ...}, ...}` — how many assists A gave B, and how many B gave A |
+| `site_data/cooccurrence.json` | Undirected matrix: `{player: {other: count, ...}, ...}` — how many games played together (from `home_players`/`away_players` in gameplay) |
+| `site_data/summary.json` | Aggregate: total matches, total players, total wins/losses, goals for/against, top scorers/assists, longest careers, most connected players |
+| `site_data/years.json` | Year-by-year: matches, wins, losses, goals for/against, unique roster players |
 
-**Data structure per game** (verified from 3 actual gameplay pages):
+### Website Phase
 
-**Gameplay page** (`?view=gameplay&game=GAME_ID`):
-- `<h1>` title: `"Team A - Team B    SCORE - SCORE"` (e.g., "Saints - Otso Akatemia    9 - 12")
-- Two `<div class="gameplay-scoreboard">` tables with player rosters:
-  - `<caption>` = team name
-  - Per player: `#` (number), `Nimi` (name + player card link), `Syötöt` (assists), `Maalit` (goals), `Yht.` (total)
-  - Captain marked with `(C)`
-- Point-by-point table: single `<tr>` with `<td>` cells
-  - `class="home"` / `class="guest"` per point
-  - `class="halftime"` for halftime marker
-  - `title` = `"TIME SCORE SCORER -> ASSISTANT"` (e.g., `"2.35 1-0 Kantonen Miikka -> Wiklund Antti"`)
+- **Landing page**: Hero section with 4 stat cards, season timeline bar, win/loss chart, top players highlights
+- **Player search**: Input field → filters grid of player cards (name, seasons, goals+assists)
+- **Player detail**: Stats cards, pass network (Chart.js chord or Sankey-style visualization), co-occurrence heatmap (canvas), career timeline (bar chart)
+- **20-year animation**: Scroll-triggered section showing evolution of matches, wins, roster size over years
 
-**Games list page** (`?view=games&season=SEASON&filter=tournaments`):
-- Per row: "Pelin kulku" link, time, venue, home team, home score, away score, away team
-- Series/division headers (e.g., "Avoin Tour 2: SM Lohko A") between groups
+### Tech Stack
 
-**NOT available**: throw types, throw-by-throw data, dates (only time), field numbers, pool info.
-
-**Scope**: Start with 2023–2026 (most recent, ~130 games). If that goes well, expand to all 562 games.
-
-### Phase 3: Redesign Visuals — "Otso" as One Club
-
-**Goal**: Replace team-name-focused visuals with a club-centric narrative.
-
-**Changes**:
-
-#### 3a. Remove "Bear Lineage" section
-- [x] Deleted the entire "Bear Lineage" section (Grizzly/Polar/Akatemia cards)
-- [x] Confirmed — Grizzly and Polar were alternate names for the same team in 2019–2020, not separate clubs
-
-#### 3b. Redesign Gantt Chart
-- [x] Show "Otso" as one continuous bar from 2006–2026
-- [x] Add annotations/labels for when multiple squads existed:
-  - "Otso 2 formed" (2011)
-  - "Grizzly/Polar split" (2019–2020)
-  - "Akatemia formed" (2023)
-- [x] Add milestone markers on the bar:
-  - First SM medal
-  - First national trophy
-  - 100th match won
-  - 200th match won
-  - etc.
-- [x] Color the main bar Otso orange, with thin annotation lines for squad splits
-- [x] Tooltip shows: "Otso (Avoin)" + squad info + milestones for that year
-
-#### 3c. Redesign Team River
-- [x] Instead of separate rivers for "Otso", "Otso 2", "Grizzly", etc., show:
-  - **One thick river**: "Otso" (all squads combined)
-  - **Y-axis**: number of active players (sum of all Otso squad rosters that season)
-  - **Optional thin overlay**: "Active squads" count (1, 2, or 3)
-- [x] This shows the club's participation scale over time, not roster fragmentation
-
-#### 3d. Update Hero Stats
-- [x] Changed "6 Teams" → "200+ Players"
-- [x] Kept "20 Years" and "95+ Seasons"
-- [x] Added "480+ Matches" from scraped match data
-
-#### 3e. Update Timeline
-- [x] Group entries by year, show "Otso" as the team name
-- [x] Add notes for squad splits: "Otso + Otso 2" or "Otso (Grizzly) + Otso (Polar)"
-- [x] Removed "UFO Akatemia" from timeline (not an Otso team)
-
-#### 3f. Update Medals & Achievements
-- [x] Removed all women's division achievements (SM-kulta naiset, etc.)
-- [x] Only show Otso Avoin/miehet achievements
-- [x] Medal counts set to "TBD" medal data exists, use placeholder text like "Medal data from pelikone being compiled"
-
-#### 3g. Player Network
-- [x] Updated with real player names from scraped data — 247 players from Otso teams only
-- [x] Updated with real player names from scraped data — 580+ unique players from Otso teams
-
-#### 3h. Performance Heatmap & Placement Timeline
-- [x] Filtered to Otso-only placements (remove non-Otso teams from standings)
-- [x] Updated embedded data in `index.html` with filtered placements
-- [x] Removed women's/mixed achievements from the timeline
-
-### Phase 4: Integrate Gameplay Data into Visuals
-
-**When gameplay data is available (Phase 2)**:
-
-- [x] Added "Match Results" section showing:
-  - Win/loss record by year
-  - Average score differential
-  - Notable games (big wins, close losses)
-- [x] Point-by-point scoring available for all 472 games with gameplay data
-- [x] Season Record cards with W-L and win % bars
-- [x] Top 15 scorers from scraped gameplay data
-- [x] Top 15 assist leaders from scraped gameplay data
-- [x] Confirmed: no throw-type data available, so no throw-type analytics
+- **HTML/CSS/JS** — vanilla, no framework
+- **Chart.js** — reuse from existing site (v4.4.1 via CDN)
+- **Canvas 2D** — for co-occurrence heatmap (smaller than Chart.js)
+- **CSS Grid/Flexbox** — responsive layout
+- **Existing dark theme** — keep the color palette, adapt for new sections
 
 ## Files to Modify
 
-### Data Pipeline
-- `src/otso_scrape/config.py` — OTSO_PATTERNS, add GAMEPLAY settings
-- `src/otso_scrape/fetcher.py` — add `fetch_games_page()` (game list), `fetch_gameplay()` (point-by-point + rosters)
-- `src/otso_scrape/parsers.py` — add `parse_games_list()` (teams, scores, venues), `parse_gameplay()` (points, scorers, assists, player stats)
-- `src/otso_scrape/builders.py` — filter Otso-only, add match builder
-- `src/otso_scrape/cli.py` — add `--otso-only` flag, integrate gameplay scraping
-
-### Visuals
-- `index.html` — complete rewrite of sections (remove Bear Lineage, redesign Gantt/River, update hero stats, clean medals, remove non-Otso data from embedded arrays)
-
-### Data
-- `data/raw/` — re-scan with otso-only filter (overwrite old raw data)
-- `data/processed/team_timeline.json` — regenerated Otso-only
-- `data/processed/player_network.json` — already clean
-- `data/processed/summary.json` — regenerated
-- `data/processed/match_results.json` — new file: games list data (teams, scores, venues, times) + gameplay data (point-by-point, player stats) for Otso matches
+| File | Action |
+|------|--------|
+| `index.html` | **Replace** — complete rewrite as SPA |
+| `build_site_data.py` | **Create** — data processing script |
+| `site_data/players.json` | **Create** — player stats |
+| `site_data/pass_network.json` | **Create** — pass connections |
+| `site_data/cooccurrence.json` | **Create** — co-occurrence matrix |
+| `site_data/summary.json` | **Replace** — full historical summary |
+| `site_data/years.json` | **Create** — year-by-year evolution |
+| `.gitignore` | **Update** — add `site_data/` to git tracking (it's new processed data) |
 
 ## Reuse
 
-- `fetch_url()` — already handles caching, rate limiting, polite delays
-- `parse_teams_page()` — already handles both old and new HTML formats
-- `parse_team_card()` — already extracts games with scores (just need to filter)
-- `build_player_network()` — already deduplicates connections
-- Canvas 2D chart code in `index.html` — keep the rendering logic, just change data
-- Chart.js embedded in `index.html` — keep for season type pie chart
-- CSS dark theme — keep as-is
+| Existing Code | File | What to Reuse |
+|---------------|------|---------------|
+| Dark theme CSS variables | `index.html:14-28` | `--bg`, `--card`, `--orange`, `--pink`, `--blue`, `--green`, `--purple`, `--gold`, `--text`, `--muted`, `--border` |
+| Font imports | `index.html:8` | Space Grotesk + Inter from Google Fonts |
+| Chart.js CDN | `index.html:7` | Chart.js 4.4.1 |
+| Hero stat card style | `index.html:79-94` | `.hero-stat` layout |
+| Section layout | `index.html:110-116` | `.section`, `.section-header` |
+| Chart card style | `index.html:121-133` | `.chart-card`, `.grid-2` |
+| Fade-in animation | `index.html:265-270` | `.fade-in` class |
+| Player network builder | `src/otso_scrape/builders.py:55` | Logic for co-occurrence (adapt for gameplay data) |
+| Is Otso team filter | `src/otso_scrape/parsers.py:is_otso_team()` | Team name matching |
+| Season year extraction | `parse_data.py:SEASON_TYPES` + pattern matching | Year from season_id |
 
-## Steps Summary
+## Steps
 
-1. **Filter config** — update `OTSO_PATTERNS`, add `--otso-only` flag
-2. **Re-scan** — run scraper with `--otso-only`, verify ~116 Otso teams, ~562 matches
-3. **Scrape gameplay** — add fetcher/parser for games list + gameplay pages, scraped 483 games across 12 seasons
-4. **Rewrite index.html** — remove Bear Lineage, redesign Gantt/River/Timeline, update hero stats, clean medals, add Match Results section
-5. **Commit & push** — single commit with all changes
-6. **Verify** — local preview on port 3000
+### Phase 1: Data Processing
+
+- [ ] Create `build_site_data.py` with imports and config
+- [ ] Implement `load_raw_data()` — reads all `data/raw/*.json` files
+- [ ] Implement `load_gameplay_data()` — reads `data/processed/match_results.json`
+- [ ] Implement `build_players()` — aggregate per-player stats from raw + gameplay:
+  - Seasons played (deduplicated year list)
+  - First and last game year
+  - Total goals, assists, points (from raw team cards)
+  - Games played (count of gameplay roster appearances)
+- [ ] Implement `build_pass_network()` — from gameplay points:
+  - For each point with scorer+assist: `pass_network[scorer][assistant] += 1`
+  - Also track reverse: `pass_network[assistant][scorer] += 1` (who passed TO you)
+  - Filter to only Otso players (names appearing in Otso rosters)
+- [ ] Implement `build_cooccurrence()` — from gameplay rosters:
+  - For each game, for each pair of players on the same Otso roster: `cooc[p1][p2] += 1`
+  - Undirected (symmetric matrix)
+  - Only Otso players
+- [ ] Implement `build_summary()` — aggregate stats for landing page
+- [ ] Implement `build_years()` — year-by-year evolution data
+- [ ] Write all JSON files to `site_data/`
+- [ ] Run script and verify output sizes
+
+### Phase 2: Website
+
+- [ ] Write HTML skeleton with hash routing structure
+- [ ] Implement CSS (reuse existing variables, adapt layout)
+- [ ] Implement router: `#`, `#players`, `#player/Name`, `#timeline`
+- [ ] Build landing page:
+  - Hero with 4 stat cards (matches, players, wins, seasons)
+  - Summary section: win/loss bar chart, goals for/against chart
+  - Top players highlights (top 5 scorers, top 5 assists, longest careers)
+- [ ] Build player search page:
+  - Search input with debounce
+  - Grid of player cards (name, seasons, goals+assists)
+  - Click → navigate to `#player/Name`
+- [ ] Build player detail page:
+  - Stats cards (matches, seasons, goals, assists, points, goals/match)
+  - Pass network chart (bar chart: top 10 receivers, top 10 givers)
+  - Co-occurrence chart (bar chart: top 10 teammates)
+  - Career timeline (bar chart: matches per year)
+- [ ] Build 20-year timeline page:
+  - Roster size over years (line chart)
+  - Matches/wins over years (stacked bar)
+  - Win rate over years (line chart)
+- [ ] Add smooth scrolling, fade-in animations
+- [ ] Responsive design (mobile-friendly)
+- [ ] Local preview and test
+
+### Phase 3: Polish
+
+- [ ] Add Finnish translation toggle (simple object-based i18n)
+- [ ] Optimize JSON file sizes (compress if needed)
+- [ ] Add favicon / meta tags for GitHub Pages
+- [ ] Commit and push
 
 ## Verification
 
-- [x] `python -m otso_scrape --otso-only` runs and produces clean Otso-only JSON
-- [x] `data/processed/team_timeline.json` has only Otso teams (no UFO Akatemia, no women's teams)
-- [x] `data/processed/summary.json` shows correct Otso-only counts
-- [x] Gameplay scraper fetches 483 games with point-by-point data (472 with full point-by-point)
-- [x] `index.html` renders correctly with redesigned sections
-- [x] No Finnish text remains in `index.html`
-- [x] Local preview on port 3000 verified
-- [x] Git commit and push to `main`
+1. **Data**: `python build_site_data.py` runs cleanly, outputs 5 JSON files
+   - `players.json`: ~400 players with stats
+   - `pass_network.json`: player→player adjacency, total edges > 1000
+   - `cooccurrence.json`: player→player adjacency, total edges > 1000
+   - `summary.json`: correct totals (483 games, ~400 players, wins/losses match match_stats.json)
+   - `years.json`: 12 years of data (2015-2026)
+2. **Website**: `python -m http.server 3000` serves the site
+   - Landing page loads, hero stats are correct
+   - Player search filters correctly
+   - Player detail page shows stats, charts render
+   - Timeline page shows year-by-year evolution
+   - All charts use Chart.js and render without errors
+   - Mobile layout works (viewport meta, flex-wrap)
+3. **GitHub Pages**: Site works as static files (no server-side code needed)
+
+## Known Limitations
+
+- **No birth years** — average age cannot be computed; omit from the 20-year animation
+- **Player count discrepancy** — raw data has 163 players, gameplay has ~400 scorers/assistants. The site will include all players who appear in any Otso gameplay roster (more complete).
+- **2024 inflated** — the `2024.123` season file adds extra games to 2024 count; document this in the data
