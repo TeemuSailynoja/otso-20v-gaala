@@ -32,17 +32,6 @@
         }
         h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
 
-        /* CONSTRUCTION BANNER */
-        .construction-banner {
-            background: var(--orange);
-            color: #000;
-            text-align: center;
-            padding: 0.5rem;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-        
         /* NAV */
         nav {
             position: fixed;
@@ -51,12 +40,26 @@
             right: 0;
             z-index: 100;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 2rem;
-            background: rgba(6, 10, 20, 0.85);
+            flex-direction: column;
+            background: rgba(6, 10, 20, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 2rem;
+        }
+        /* CONSTRUCTION BANNER */
+        .construction-banner {
+            background: var(--orange);
+            color: #000;
+            text-align: center;
+            padding: 0.35rem;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
         }
         .nav-brand {
             font-family: 'Space Grotesk', sans-serif;
@@ -570,18 +573,16 @@
 <body>
     <canvas id="paw-particles"></canvas>
 
-    <!-- UNDER CONSTRUCTION BANNER -->
-    <div class="construction-banner">
-        🚧 Under construction — more features coming soon! 🚧
-    </div>
-    
     <!-- NAV -->
     <nav>
-        <a href="#/" class="nav-brand">Otso 20v</a>
-        <div class="nav-links">
+        <div class="construction-banner">🚧 Under construction — more features coming soon! 🚧</div>
+        <div class="nav-content">
+            <a href="#/" class="nav-brand">Otso 20v</a>
+            <div class="nav-links">
             <a href="#/" data-page="home">Home</a>
             <a href="#/players" data-page="players">Players</a>
             <a href="#/timeline" data-page="timeline">Timeline</a>
+            </div>
         </div>
     </nav>
 
