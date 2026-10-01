@@ -1,0 +1,406 @@
+{
+  "2025.3": {
+    "type": "winter",
+    "name": "Talvi 2025JoukkueetPelatut"
+  },
+  "2025.1": {
+    "type": "summer",
+    "name": "Kesä 2025JoukkueetPelatut"
+  },
+  "2024.123": {
+    "type": "beach",
+    "name": "Ranta SM"
+  },
+  "2024.2": {
+    "type": "winter",
+    "name": "Talvi 2024JoukkueetPelatut"
+  },
+  "2024.1": {
+    "type": "summer",
+    "name": "Kesä 2024JoukkueetPelatut"
+  },
+  "2023.2": {
+    "type": "winter",
+    "name": "Talvi 2023JoukkueetPelatut"
+  },
+  "2023.1": {
+    "type": "summer",
+    "name": "Kesä 2023JoukkueetPelatut"
+  },
+  "2022.3": {
+    "type": "winter",
+    "name": "Talvi 2022JoukkueetPelatut"
+  },
+  "SM2022K": {
+    "type": "summer",
+    "name": "Kesä 2022JoukkueetPelatut"
+  },
+  "2021.2": {
+    "type": "winter",
+    "name": "Talvi 2021JoukkueetPelatut"
+  },
+  "2021.1": {
+    "type": "summer",
+    "name": "Kesä 2021JoukkueetPelatut"
+  },
+  "BEACH2021": {
+    "type": "beach",
+    "name": "Ranta SM"
+  },
+  "2020.2": {
+    "type": "winter",
+    "name": "Talvi 2020JoukkueetPelatut"
+  },
+  "2020.1": {
+    "type": "summer",
+    "name": "Kesä 2020JoukkueetPelatut"
+  },
+  "2019.1": {
+    "type": "winter",
+    "name": "Talvi 2019JoukkueetPelatut"
+  },
+  "2019.MXD": {
+    "type": "mixed",
+    "name": "Mixed-SM 2019JoukkueetPelatut"
+  },
+  "2019.Finaa": {
+    "type": "summer",
+    "name": "Kesä 2019:"
+  },
+  "2019.T3": {
+    "type": "summer",
+    "name": "Kesä 2019:"
+  },
+  "2019.T2": {
+    "type": "summer",
+    "name": "Kesä 2019:"
+  },
+  "BMSM2": {
+    "type": "beach",
+    "name": "Ranta SM"
+  },
+  "JSM2019": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2019.T1": {
+    "type": "summer",
+    "name": "Kesä 2019:"
+  },
+  "2018.1": {
+    "type": "winter",
+    "name": "Talvi 2018JoukkueetPelatut"
+  },
+  "2018.F": {
+    "type": "summer",
+    "name": "Kesä 2018"
+  },
+  "2018.T3": {
+    "type": "summer",
+    "name": "Kesä 2018:"
+  },
+  "2018.T2": {
+    "type": "summer",
+    "name": "Kesä 2018:"
+  },
+  "XSM2018": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "2018.T1": {
+    "type": "summer",
+    "name": "Kesä 2018:"
+  },
+  "*JSM2018": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2017.1": {
+    "type": "winter",
+    "name": "Talvi 2017JoukkueetPelatut"
+  },
+  "2017F": {
+    "type": "summer",
+    "name": "Kesä 2017"
+  },
+  "2017.T3": {
+    "type": "summer",
+    "name": "Kesä 2017:"
+  },
+  "2017.T2": {
+    "type": "summer",
+    "name": "Kesä 2017:"
+  },
+  "2017.MX": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "JSM17": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2017.T1": {
+    "type": "summer",
+    "name": "Kesä 2017:"
+  },
+  "Talvi2016": {
+    "type": "winter",
+    "name": "Talvi 2016JoukkueetPelatut"
+  },
+  "2016.1.F": {
+    "type": "summer",
+    "name": "Kesä 2016"
+  },
+  "JSM2016": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2016.1.T3": {
+    "type": "summer",
+    "name": "Kesä 2016:"
+  },
+  "2016.1.T2": {
+    "type": "summer",
+    "name": "Kesä 2016:"
+  },
+  "2016.1": {
+    "type": "summer",
+    "name": "Kesä 2016:"
+  },
+  "2015.4": {
+    "type": "winter",
+    "name": "Talvi 2015JoukkueetPelatut"
+  },
+  "2015.1F": {
+    "type": "summer",
+    "name": "Kesä 2015"
+  },
+  "JSM2015": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2015.3": {
+    "type": "summer",
+    "name": "Kesä 2015:"
+  },
+  "2015.2": {
+    "type": "summer",
+    "name": "Kesä 2015:"
+  },
+  "2015.1": {
+    "type": "summer",
+    "name": "Kesä 2015:"
+  },
+  "MSM2015": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "OSM2015": {
+    "type": "osm",
+    "name": "OSM 2015JoukkueetPelatut"
+  },
+  "Hallitour2": {
+    "type": "winter",
+    "name": "Talvi 2014JoukkueetPelatut"
+  },
+  "2014.1F": {
+    "type": "summer",
+    "name": "Kesä 2014:"
+  },
+  "2014.3": {
+    "type": "summer",
+    "name": "Kesä 2014:"
+  },
+  "JSM2014": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2014.2": {
+    "type": "summer",
+    "name": "Kesä 2014:"
+  },
+  "2014.1": {
+    "type": "summer",
+    "name": "Kesä 2014:"
+  },
+  "2014.x": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "2013.2": {
+    "type": "winter",
+    "name": "Talvi 2013JoukkueetPelatut"
+  },
+  "2013.1": {
+    "type": "summer",
+    "name": "Kesä 2013:"
+  },
+  "2013.1.T3": {
+    "type": "summer",
+    "name": "Kesä 2013:"
+  },
+  "JSM2013": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2013.1.T2": {
+    "type": "summer",
+    "name": "Kesä 2013:"
+  },
+  "2013.1.T1": {
+    "type": "summer",
+    "name": "Kesä 2013:"
+  },
+  "2013.3": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "2012.2": {
+    "type": "winter",
+    "name": "Talvi 2012JoukkueetPelatut"
+  },
+  "2012.T4": {
+    "type": "summer",
+    "name": "Kesä 2012:"
+  },
+  "2012.1.T3": {
+    "type": "summer",
+    "name": "Kesä 2012:"
+  },
+  "2012.1.T2": {
+    "type": "summer",
+    "name": "Kesä 2012:"
+  },
+  "JSM2012": {
+    "type": "junior",
+    "name": "Juniori SM"
+  },
+  "2012.1.T1": {
+    "type": "summer",
+    "name": "Kesä 2012:"
+  },
+  "2012.3": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "2011.2": {
+    "type": "winter",
+    "name": "Talvi 2011JoukkueetPelatut"
+  },
+  "2011.4": {
+    "type": "summer",
+    "name": "Kesä 2011:"
+  },
+  "2011.1.T3": {
+    "type": "summer",
+    "name": "Kesä 2011:"
+  },
+  "2011.1.T2": {
+    "type": "summer",
+    "name": "Kesä 2011:"
+  },
+  "2011.1.T1": {
+    "type": "summer",
+    "name": "Kesä 2011:"
+  },
+  "2011.3": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "2010.2": {
+    "type": "winter",
+    "name": "Talvi 2010JoukkueetPelatut"
+  },
+  "2010.1": {
+    "type": "summer",
+    "name": "Kesä 2010JoukkueetPelatut"
+  },
+  "2009.2": {
+    "type": "winter",
+    "name": "Talvi 2009JoukkueetPelatut"
+  },
+  "2009.1": {
+    "type": "summer",
+    "name": "Kesä 2009JoukkueetPelatut"
+  },
+  "2008.2": {
+    "type": "winter",
+    "name": "Talvi 2008JoukkueetPelatut"
+  },
+  "2008.1": {
+    "type": "summer",
+    "name": "Kesä 2008JoukkueetPelatut"
+  },
+  "2008.3": {
+    "type": "mixed",
+    "name": "Mixed SM"
+  },
+  "2007.2": {
+    "type": "winter",
+    "name": "Talvi 2007JoukkueetPelatut"
+  },
+  "2007.1": {
+    "type": "summer",
+    "name": "Kesä 2007JoukkueetPelatut"
+  },
+  "2006.2": {
+    "type": "winter",
+    "name": "Talvi 2006JoukkueetPelatut"
+  },
+  "2006.1": {
+    "type": "summer",
+    "name": "Kesä 2006JoukkueetPelatut"
+  },
+  "2005.2": {
+    "type": "winter",
+    "name": "Talvi 2005JoukkueetPelatut"
+  },
+  "2005.1": {
+    "type": "summer",
+    "name": "Kesä 2005JoukkueetPelatut"
+  },
+  "2004.2": {
+    "type": "winter",
+    "name": "Talvi 2004JoukkueetPelatut"
+  },
+  "2004.1": {
+    "type": "summer",
+    "name": "Kesä 2004JoukkueetPelatut"
+  },
+  "2003.2": {
+    "type": "winter",
+    "name": "Talvi 2003JoukkueetPelatut"
+  },
+  "2003.1": {
+    "type": "summer",
+    "name": "Kesä 2003JoukkueetPelatut"
+  },
+  "2002.2": {
+    "type": "winter",
+    "name": "Talvi 2002JoukkueetPelatut"
+  },
+  "2002.1": {
+    "type": "summer",
+    "name": "Kesä 2002JoukkueetPelatut"
+  },
+  "2001.2": {
+    "type": "winter",
+    "name": "Talvi 2001JoukkueetPelatut"
+  },
+  "2001.1": {
+    "type": "summer",
+    "name": "Kesä 2001JoukkueetPelatut"
+  },
+  "2000.2": {
+    "type": "winter",
+    "name": "Talvi 2000JoukkueetPelatut"
+  },
+  "2000.1": {
+    "type": "summer",
+    "name": "Kesä 2000JoukkueetPelatut"
+  },
+  "1999.2": {
+    "type": "winter",
+    "name": "Talvi 1999JoukkueetPelatut"
+  }
+}

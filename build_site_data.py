@@ -191,6 +191,26 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
     players = {}
     # Track display name preference (most common order)
     name_order_count = defaultdict(int)
+    # Build season type mapping from raw data, falling back to season list page
+    season_type_map = {}
+    for season_data in raw_data:
+        sid = season_data.get("id", "")
+        classified = season_data.get("classified", {})
+        if isinstance(classified, dict):
+            stype = classified.get("type", "unknown")
+            # pelikone classifies winter correctly, but summer as "unknown"
+            # We'll fix summer seasons using the season list page mapping
+            season_type_map[sid] = stype
+    
+    # Load season list page mapping if available
+    mapping_file = BASE_DIR / "site_data" / "season_mapping.json"
+    if mapping_file.exists():
+        with open(mapping_file) as f:
+            page_mapping = json.load(f)
+        # Update season_type_map with page mapping for unknown types
+        for sid, info in page_mapping.items():
+            if season_type_map.get(sid, "unknown") == "unknown":
+                season_type_map[sid] = info["type"]
     
     def add_player(raw_name: str, season_id: str, year: int, team_name: str, 
                    games: int, goals: int, assists: int):
@@ -208,6 +228,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
             players[canonical] = {
                 "seasons": [],
                 "years": set(),
+                "season_types": {"summer": set(), "winter": set(), "other": set()},
                 "first_year": year,
                 "last_year": year,
                 "games": 0,
@@ -221,6 +242,14 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         if season_id not in p["seasons"]:
             p["seasons"].append(season_id)
         p["years"].add(year)
+        # Track season type
+        stype = season_type_map.get(season_id, "unknown")
+        if stype == "winter":
+            p["season_types"]["winter"].add(year)
+        elif stype == "summer":
+            p["season_types"]["summer"].add(year)
+        else:
+            p["season_types"]["other"].add(year)
         p["teams"].add(team_name)
         
         if year < p["first_year"]:
@@ -296,6 +325,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 players[canon] = {
                     "seasons": [],
                     "years": set(),
+                    "season_types": {"summer": set(), "winter": set(), "other": set()},
                     "first_year": year if year else 2006,
                     "last_year": year if year else 2006,
                     "games": 0,
@@ -368,6 +398,11 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
             "assists": p["assists"],
             "total": p["goals"] + p["assists"],
             "teams": sorted(p["teams"]),
+            "season_types": {
+                "summer": sorted(p["season_types"]["summer"]),
+                "winter": sorted(p["season_types"]["winter"]),
+                "other": sorted(p["season_types"]["other"]),
+            },
         }
     
     return result

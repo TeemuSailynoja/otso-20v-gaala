@@ -37,7 +37,27 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "winter": [
+        2007,
+        2008,
+        2009,
+        2011
+      ],
+      "other": [
+        2011,
+        2012
+      ]
+    }
   },
   "Ari Rantalainen": {
     "seasons": [
@@ -67,7 +87,21 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2007,
+        2008
+      ],
+      "winter": [
+        2006,
+        2007,
+        2009,
+        2011
+      ],
+      "other": []
+    }
   },
   "Esa Pensala": {
     "seasons": [
@@ -87,7 +121,16 @@
     "total": 80,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [
+        2006
+      ],
+      "other": []
+    }
   },
   "Esko Saura": {
     "seasons": [
@@ -119,7 +162,22 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2008,
+        2009,
+        2010
+      ],
+      "winter": [
+        2011,
+        2012
+      ],
+      "other": [
+        2013
+      ]
+    }
   },
   "Hannu Saarinen": {
     "seasons": [
@@ -144,7 +202,19 @@
     "total": 104,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2007
+      ],
+      "winter": [
+        2006,
+        2007,
+        2008
+      ],
+      "other": []
+    }
   },
   "Heikki Väänänen": {
     "seasons": [
@@ -185,7 +255,28 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2007,
+        2008,
+        2010,
+        2012
+      ],
+      "winter": [
+        2006,
+        2007,
+        2008,
+        2011,
+        2012,
+        2013
+      ],
+      "other": [
+        2012,
+        2013
+      ]
+    }
   },
   "Juha Nurminen": {
     "seasons": [
@@ -204,7 +295,14 @@
     "total": 6,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Juha Poikolainen": {
     "seasons": [
@@ -223,7 +321,14 @@
     "total": 2,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Juhana Oivio": {
     "seasons": [
@@ -243,7 +348,16 @@
     "total": 60,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [
+        2006
+      ],
+      "other": []
+    }
   },
   "Kimmo Berg": {
     "seasons": [
@@ -285,7 +399,29 @@
     "total": 276,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "winter": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "other": [
+        2011,
+        2012
+      ]
+    }
   },
   "Marko Korhonen": {
     "seasons": [
@@ -305,7 +441,16 @@
     "total": 7,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [
+        2006
+      ],
+      "other": []
+    }
   },
   "Markus Nora": {
     "seasons": [
@@ -324,7 +469,14 @@
     "total": 9,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Sami Holopainen": {
     "seasons": [
@@ -349,7 +501,19 @@
     "total": 86,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2010
+      ],
+      "winter": [
+        2006,
+        2009,
+        2010
+      ],
+      "other": []
+    }
   },
   "Sebastian Godenhjelm": {
     "seasons": [
@@ -368,7 +532,14 @@
     "total": 8,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Timo Vaskio": {
     "seasons": [
@@ -416,7 +587,31 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2010,
+        2011
+      ],
+      "winter": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "other": [
+        2011
+      ]
+    }
   },
   "Tuomo Sirkka": {
     "seasons": [
@@ -441,7 +636,19 @@
     "total": 88,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006,
+        2007,
+        2008
+      ],
+      "winter": [
+        2007,
+        2008
+      ],
+      "other": []
+    }
   },
   "Ville Rantamaula": {
     "seasons": [
@@ -461,7 +668,16 @@
     "total": 25,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [
+        2006
+      ],
+      "other": []
+    }
   },
   "Ilkka Vaahtoranta": {
     "seasons": [
@@ -557,7 +773,56 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Juha Jalovaara": {
     "seasons": [
@@ -583,7 +848,19 @@
     "total": 36,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2012
+      ],
+      "winter": [
+        2006
+      ],
+      "other": [
+        2012
+      ]
+    }
   },
   "Jukka Mäki": {
     "seasons": [
@@ -605,7 +882,17 @@
     "total": 28,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [
+        2006,
+        2007
+      ],
+      "other": []
+    }
   },
   "Juuso Parkkinen": {
     "seasons": [
@@ -672,7 +959,39 @@
       "Otso 2",
       "Otso 3",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "winter": [
+        2006,
+        2008,
+        2009,
+        2010,
+        2012,
+        2015,
+        2016
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2019
+      ]
+    }
   },
   "Aki Vehtari": {
     "seasons": [
@@ -766,7 +1085,51 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2009,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2020,
+        2021,
+        2023,
+        2024
+      ],
+      "winter": [
+        2008,
+        2009,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Heikki Härkönen": {
     "seasons": [
@@ -785,7 +1148,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Heikki Nuoranne": {
     "seasons": [
@@ -804,7 +1174,14 @@
     "total": 28,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Jani Honkanen": {
     "seasons": [
@@ -823,7 +1200,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Janne Aittomäki": {
     "seasons": [
@@ -842,7 +1226,14 @@
     "total": 1,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Jarno Sihvo": {
     "seasons": [
@@ -942,7 +1333,56 @@
       "Otso 1",
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Juha Mertanen": {
     "seasons": [
@@ -961,7 +1401,14 @@
     "total": 11,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Julius Rissanen": {
     "seasons": [
@@ -987,7 +1434,18 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2010
+      ],
+      "winter": [
+        2011
+      ],
+      "other": []
+    }
   },
   "Matti Paatsama": {
     "seasons": [
@@ -1006,7 +1464,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Roni Hotari": {
     "seasons": [
@@ -1110,7 +1575,57 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Timo Idänheimo": {
     "seasons": [
@@ -1156,7 +1671,30 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2009,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "winter": [
+        2008,
+        2009,
+        2011,
+        2012,
+        2013
+      ],
+      "other": [
+        2011,
+        2012,
+        2013
+      ]
+    }
   },
   "Tommi Palomäki": {
     "seasons": [
@@ -1216,7 +1754,37 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2013,
+        2015,
+        2016,
+        2020
+      ],
+      "winter": [
+        2008,
+        2009,
+        2010,
+        2013,
+        2017
+      ],
+      "other": [
+        2011,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Olli Huotari": {
     "seasons": [
@@ -1238,7 +1806,15 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2008,
+        2023
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Ora Visuri": {
     "seasons": [
@@ -1281,7 +1857,27 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2013,
+        2014,
+        2015
+      ],
+      "winter": [
+        2011,
+        2016
+      ],
+      "other": [
+        2012,
+        2013,
+        2014
+      ]
+    }
   },
   "Pauli Siponen": {
     "seasons": [
@@ -1300,7 +1896,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2008
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Santeri Salo": {
     "seasons": [
@@ -1375,7 +1978,40 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020
+      ],
+      "winter": [
+        2011,
+        2013,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Tuukka Koistinen": {
     "seasons": [
@@ -1447,7 +2083,40 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021
+      ],
+      "winter": [
+        2008,
+        2013,
+        2016,
+        2017,
+        2018
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Viljami Aittomäki": {
     "seasons": [
@@ -1477,7 +2146,21 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "winter": [
+        2011
+      ],
+      "other": [
+        2011
+      ]
+    }
   },
   "Arto Heikkilä": {
     "seasons": [
@@ -1501,7 +2184,18 @@
     "total": 70,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010
+      ],
+      "winter": [
+        2008,
+        2009,
+        2010
+      ],
+      "other": []
+    }
   },
   "Tommi Lehto": {
     "seasons": [
@@ -1556,7 +2250,35 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "winter": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "other": [
+        2011,
+        2012,
+        2013
+      ]
+    }
   },
   "Ari Ojanperä": {
     "seasons": [
@@ -1575,7 +2297,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2009
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Jari Hentunen": {
     "seasons": [
@@ -1596,7 +2325,16 @@
     "total": 25,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010
+      ],
+      "winter": [
+        2009
+      ],
+      "other": []
+    }
   },
   "Eetu Tiihonen": {
     "seasons": [
@@ -1615,7 +2353,14 @@
     "total": 2,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Kasperi Kunnas": {
     "seasons": [
@@ -1634,7 +2379,14 @@
     "total": 2,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Kerkko Visuri": {
     "seasons": [
@@ -1673,7 +2425,26 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "winter": [
+        2011,
+        2012
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014
+      ]
+    }
   },
   "Mikko Jauhonen": {
     "seasons": [
@@ -1695,7 +2466,16 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010
+      ],
+      "winter": [
+        2012
+      ],
+      "other": []
+    }
   },
   "Otto Forsbom": {
     "seasons": [
@@ -1714,7 +2494,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2010
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Lassi Kallio": {
     "seasons": [
@@ -1787,7 +2574,40 @@
       "Otso 1",
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "winter": [
+        2010,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Tomi Sandberg": {
     "seasons": [
@@ -1874,7 +2694,48 @@
       "Otso 1",
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Antti Elonheimo": {
     "seasons": [
@@ -1957,7 +2818,46 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2012,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Eero Smeds": {
     "seasons": [
@@ -2002,7 +2902,27 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "winter": [
+        2013,
+        2016
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2016,
+        2017
+      ]
+    }
   },
   "Erkka Niini": {
     "seasons": [
@@ -2089,7 +3009,46 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2020,
+        2021,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Lauri Hiivala": {
     "seasons": [
@@ -2130,7 +3089,26 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2012,
+        2013
+      ],
+      "winter": [
+        2011,
+        2012,
+        2013,
+        2015,
+        2023
+      ],
+      "other": [
+        2011,
+        2012,
+        2013
+      ]
+    }
   },
   "Pasi Tamminen": {
     "seasons": [
@@ -2183,7 +3161,33 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "winter": [
+        2011,
+        2012,
+        2013,
+        2015,
+        2016
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ]
+    }
   },
   "Ekku Rytkönen": {
     "seasons": [
@@ -2206,7 +3210,18 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011
+      ],
+      "winter": [
+        2011
+      ],
+      "other": [
+        2011
+      ]
+    }
   },
   "Pekka Neuvo": {
     "seasons": [
@@ -2236,7 +3251,21 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2015
+      ],
+      "winter": [
+        2016,
+        2019
+      ],
+      "other": [
+        2011,
+        2016
+      ]
+    }
   },
   "Simo Siitonen": {
     "seasons": [
@@ -2275,7 +3304,25 @@
       "Otso",
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2012,
+        2014
+      ],
+      "winter": [
+        2011,
+        2018,
+        2019
+      ],
+      "other": [
+        2011,
+        2012,
+        2013,
+        2019
+      ]
+    }
   },
   "Ismo Sutela": {
     "seasons": [
@@ -2325,7 +3372,33 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2013,
+        2015,
+        2016
+      ],
+      "winter": [
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "other": [
+        2011,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ]
+    }
   },
   "Juho Keitaanniemi": {
     "seasons": [
@@ -2345,7 +3418,16 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011
+      ],
+      "winter": [],
+      "other": [
+        2011
+      ]
+    }
   },
   "Ville Haaramo": {
     "seasons": [
@@ -2381,7 +3463,26 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2011,
+        2013,
+        2014,
+        2015
+      ],
+      "winter": [
+        2015,
+        2017,
+        2018
+      ],
+      "other": [
+        2011,
+        2013,
+        2014,
+        2015
+      ]
+    }
   },
   "Antti Järvi": {
     "seasons": [
@@ -2450,7 +3551,36 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2015,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2011,
+        2013,
+        2016,
+        2017,
+        2018,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2014,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Ilkka Rämö": {
     "seasons": [
@@ -2502,7 +3632,32 @@
       "Otso",
       "Otso 1",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012,
+        2013,
+        2015
+      ],
+      "winter": [
+        2011,
+        2012,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023
+      ],
+      "other": [
+        2012,
+        2013,
+        2015,
+        2017
+      ]
+    }
   },
   "Damijan Marin": {
     "seasons": [
@@ -2534,7 +3689,22 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012,
+        2013
+      ],
+      "winter": [
+        2011,
+        2012,
+        2013
+      ],
+      "other": [
+        2012,
+        2013
+      ]
+    }
   },
   "Sebastian Sala": {
     "seasons": [
@@ -2553,7 +3723,14 @@
     "total": 0,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2011
+      ],
+      "other": []
+    }
   },
   "Adrian Hornsby": {
     "seasons": [
@@ -2591,7 +3768,25 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "winter": [
+        2013,
+        2016
+      ],
+      "other": [
+        2012,
+        2013,
+        2014,
+        2015
+      ]
+    }
   },
   "Tommi Ylönen": {
     "seasons": [
@@ -2614,7 +3809,18 @@
     "total": 18,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012
+      ],
+      "winter": [
+        2012
+      ],
+      "other": [
+        2012
+      ]
+    }
   },
   "Oskari Vuorio": {
     "seasons": [
@@ -2695,7 +3901,44 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2012,
+        2013,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Jesse Saastamoinen": {
     "seasons": [
@@ -2765,7 +4008,40 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2015,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2024,
+        2025
+      ],
+      "other": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Karli Kalpala": {
     "seasons": [
@@ -2823,7 +4099,33 @@
       "Otso 2",
       "Otso 3",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2015,
+        2016,
+        2021
+      ],
+      "winter": [
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "other": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Sami Koivisto": {
     "seasons": [
@@ -2849,7 +4151,19 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013
+      ],
+      "winter": [
+        2012,
+        2013
+      ],
+      "other": [
+        2013
+      ]
+    }
   },
   "Teemu Säilynoja": {
     "seasons": [
@@ -2914,7 +4228,37 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2024,
+        2025
+      ],
+      "winter": [
+        2012,
+        2013,
+        2016,
+        2017,
+        2018,
+        2019,
+        2023,
+        2024
+      ],
+      "other": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Tommy Mattila": {
     "seasons": [
@@ -2933,7 +4277,14 @@
     "total": 8,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2012
+      ],
+      "other": []
+    }
   },
   "Juha Jokinen": {
     "seasons": [
@@ -2954,7 +4305,16 @@
     "total": 15,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013
+      ],
+      "winter": [],
+      "other": [
+        2013
+      ]
+    }
   },
   "Juho Siitonen": {
     "seasons": [
@@ -2974,7 +4334,14 @@
     "total": 0,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": [
+        2013
+      ]
+    }
   },
   "Konsta Kokkonen": {
     "seasons": [
@@ -2995,7 +4362,16 @@
     "total": 3,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013
+      ],
+      "winter": [],
+      "other": [
+        2013
+      ]
+    }
   },
   "Anssi Matilainen": {
     "seasons": [
@@ -3016,7 +4392,16 @@
     "teams": [
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2013
+      ],
+      "other": [
+        2013
+      ]
+    }
   },
   "Arimo Lemettinen": {
     "seasons": [
@@ -3035,7 +4420,14 @@
     "total": 3,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": [
+        2013
+      ]
+    }
   },
   "István Prán": {
     "seasons": [
@@ -3065,7 +4457,21 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013,
+        2014
+      ],
+      "winter": [
+        2013,
+        2015
+      ],
+      "other": [
+        2013,
+        2016
+      ]
+    }
   },
   "Waltteri Wickström": {
     "seasons": [
@@ -3105,7 +4511,26 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013,
+        2014
+      ],
+      "winter": [
+        2013,
+        2015,
+        2016,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "other": [
+        2013,
+        2014
+      ]
+    }
   },
   "Yrjänä Hynninen": {
     "seasons": [
@@ -3141,7 +4566,25 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2013,
+        2014,
+        2015
+      ],
+      "winter": [
+        2013,
+        2015,
+        2016,
+        2017
+      ],
+      "other": [
+        2013,
+        2014,
+        2015
+      ]
+    }
   },
   "Daniel Palander": {
     "seasons": [
@@ -3160,7 +4603,14 @@
     "total": 15,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2013
+      ],
+      "other": []
+    }
   },
   "Jussi Kitusuo": {
     "seasons": [
@@ -3204,7 +4654,26 @@
       "Otso 2",
       "Otso 3",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2015,
+        2016
+      ],
+      "winter": [
+        2013,
+        2016,
+        2018
+      ],
+      "other": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2019
+      ]
+    }
   },
   "Pyry Aurasmaa": {
     "seasons": [
@@ -3229,7 +4698,19 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014
+      ],
+      "winter": [
+        2013,
+        2016
+      ],
+      "other": [
+        2014
+      ]
+    }
   },
   "Heikki Tiittanen": {
     "seasons": [
@@ -3250,7 +4731,16 @@
     "total": 17,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014
+      ],
+      "winter": [],
+      "other": [
+        2014
+      ]
+    }
   },
   "Patrick Potrykus": {
     "seasons": [
@@ -3308,7 +4798,31 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2014,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Pekka Kinnunen": {
     "seasons": [
@@ -3365,7 +4879,32 @@
       "Otso 1",
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2014,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Totti Brunila": {
     "seasons": [
@@ -3397,7 +4936,22 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2016
+      ],
+      "winter": [
+        2016,
+        2017
+      ],
+      "other": [
+        2014,
+        2016,
+        2017
+      ]
+    }
   },
   "Tatu Kokkonen": {
     "seasons": [
@@ -3435,7 +4989,21 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2014,
+        2020,
+        2021
+      ],
+      "winter": [],
+      "other": [
+        2014,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Anttoni Söderlund": {
     "seasons": [
@@ -3456,7 +5024,16 @@
     "teams": [
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2015
+      ],
+      "winter": [
+        2015
+      ],
+      "other": []
+    }
   },
   "Jasu Vehtari": {
     "seasons": [
@@ -3513,7 +5090,32 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2015,
+        2016,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2015,
+        2016,
+        2017,
+        2019,
+        2023
+      ],
+      "other": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Pekka Lehtelä": {
     "seasons": [
@@ -3552,7 +5154,24 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2015,
+        2016
+      ],
+      "winter": [
+        2015,
+        2016,
+        2017
+      ],
+      "other": [
+        2015,
+        2016,
+        2017,
+        2018
+      ]
+    }
   },
   "Ville Antila": {
     "seasons": [
@@ -3574,7 +5193,15 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2015,
+        2025
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Adam Torda": {
     "seasons": [
@@ -3599,7 +5226,19 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2016
+      ],
+      "winter": [
+        2015,
+        2017
+      ],
+      "other": [
+        2017
+      ]
+    }
   },
   "Emil Videman": {
     "seasons": [
@@ -3651,7 +5290,29 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020,
+        2021,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2015,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": [
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Joonas Myhrberg": {
     "seasons": [
@@ -3683,7 +5344,21 @@
       "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [
+        2015,
+        2016,
+        2017
+      ],
+      "other": [
+        2017,
+        2019
+      ]
+    }
   },
   "Kim Kåhre": {
     "seasons": [
@@ -3702,7 +5377,14 @@
     "total": 9,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2015
+      ],
+      "other": []
+    }
   },
   "Mares Vaclav": {
     "seasons": [
@@ -3721,7 +5403,14 @@
     "total": 17,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2015
+      ],
+      "other": []
+    }
   },
   "Ilari Visuri": {
     "seasons": [
@@ -3742,7 +5431,16 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2016
+      ],
+      "other": [
+        2016
+      ]
+    }
   },
   "Antti-Jussi Miettinen": {
     "seasons": [
@@ -3784,7 +5482,27 @@
       "Otso 2",
       "Otso 3",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2016,
+        2017,
+        2021,
+        2022,
+        2024
+      ],
+      "other": [
+        2017,
+        2018,
+        2019
+      ]
+    }
   },
   "Johannes Elmnäinen": {
     "seasons": [
@@ -3803,7 +5521,14 @@
     "total": 24,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2017
+      ],
+      "other": []
+    }
   },
   "Timi Rautamäki": {
     "seasons": [
@@ -3828,7 +5553,18 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2016,
+        2017
+      ],
+      "other": [
+        2017,
+        2018
+      ]
+    }
   },
   "Mikko Nietosvaara": {
     "seasons": [
@@ -3855,7 +5591,17 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2016
+      ],
+      "other": [
+        2017,
+        2018
+      ]
+    }
   },
   "Mikko Paanasalo": {
     "seasons": [
@@ -3882,7 +5628,17 @@
       "Otso",
       "Otso 2",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2018
+      ],
+      "other": [
+        2018,
+        2019
+      ]
+    }
   },
   "Šimon Kadlec": {
     "seasons": [
@@ -3901,7 +5657,14 @@
     "total": 6,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2018
+      ],
+      "other": []
+    }
   },
   "Kasperi Lahti": {
     "seasons": [
@@ -3932,7 +5695,17 @@
       "Otso 2",
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": [
+        2018,
+        2019
+      ]
+    }
   },
   "Jaakko Junttu": {
     "seasons": [
@@ -3951,7 +5724,14 @@
     "total": 29,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": [
+        2018
+      ]
+    }
   },
   "Artur Vaskio": {
     "seasons": [
@@ -3973,7 +5753,16 @@
     "teams": [
       "Otso 2",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [
+        2019
+      ],
+      "other": []
+    }
   },
   "George Kuvaja": {
     "seasons": [
@@ -3998,7 +5787,18 @@
     "teams": [
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [
+        2019
+      ],
+      "other": [
+        2019
+      ]
+    }
   },
   "Tommi Taivalkoski": {
     "seasons": [
@@ -4017,7 +5817,14 @@
     "total": 5,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2019
+      ],
+      "other": []
+    }
   },
   "Eero Metso": {
     "seasons": [
@@ -4042,7 +5849,16 @@
     "teams": [
       "Otso Grizzly",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": [
+        2019
+      ]
+    }
   },
   "Alexander Lehtonen": {
     "seasons": [
@@ -4063,7 +5879,16 @@
     "total": 8,
     "teams": [
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": [
+        2019
+      ]
+    }
   },
   "Antti Mäkipää": {
     "seasons": [
@@ -4087,7 +5912,17 @@
       "Otso",
       "Otso 2",
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020,
+        2021
+      ],
+      "winter": [
+        2021
+      ],
+      "other": []
+    }
   },
   "Jali Veranen": {
     "seasons": [
@@ -4106,7 +5941,14 @@
     "total": 10,
     "teams": [
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Juho Hiekkanen": {
     "seasons": [
@@ -4125,7 +5967,14 @@
     "total": 4,
     "teams": [
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Simo Soini": {
     "seasons": [
@@ -4144,7 +5993,14 @@
     "total": 6,
     "teams": [
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Teemu Granqvist": {
     "seasons": [
@@ -4163,7 +6019,14 @@
     "total": 12,
     "teams": [
       "Otso Polar"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2020
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Eric Hytönen": {
     "seasons": [
@@ -4183,7 +6046,16 @@
     "total": 58,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2021
+      ],
+      "winter": [
+        2021
+      ],
+      "other": []
+    }
   },
   "Jason Mc Keen": {
     "seasons": [
@@ -4204,7 +6076,15 @@
     "total": 38,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2021,
+        2023
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Jori Kuvaja": {
     "seasons": [
@@ -4234,7 +6114,21 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2021,
+        2022,
+        2023
+      ],
+      "other": []
+    }
   },
   "Kaapo Peura": {
     "seasons": [
@@ -4263,7 +6157,20 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024
+      ],
+      "winter": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Kivi Knuuti": {
     "seasons": [
@@ -4297,7 +6204,23 @@
       "Otso",
       "Otso 1",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Pieti Siivola": {
     "seasons": [
@@ -4324,7 +6247,19 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024
+      ],
+      "winter": [
+        2021,
+        2022,
+        2023
+      ],
+      "other": []
+    }
   },
   "Touko Väänänen": {
     "seasons": [
@@ -4400,7 +6335,21 @@
       "Otso 1",
       "Otso 2",
       "Otso Grizzly"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024
+      ],
+      "winter": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Andrey Przhibelskiy": {
     "seasons": [
@@ -4428,7 +6377,20 @@
     "teams": [
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024
+      ],
+      "winter": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Eemeli Kärkkäinen": {
     "seasons": [
@@ -4453,7 +6415,18 @@
     "total": 42,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2022
+      ],
+      "other": []
+    }
   },
   "Johannes Hokkanen": {
     "seasons": [
@@ -4482,7 +6455,21 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Mikko Alitalo": {
     "seasons": [
@@ -4514,7 +6501,22 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Samuel-Visal Roeung": {
     "seasons": [
@@ -4546,7 +6548,22 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Aleksi Mustonen": {
     "seasons": [
@@ -4576,7 +6593,21 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Hugo Fournier": {
     "seasons": [
@@ -4602,7 +6633,19 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2023,
+        2024
+      ],
+      "other": []
+    }
   },
   "Roope Kettunen": {
     "seasons": [
@@ -4630,7 +6673,19 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Alec Stiller": {
     "seasons": [
@@ -4649,7 +6704,14 @@
     "total": 0,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Eelis Junnila": {
     "seasons": [
@@ -4671,7 +6733,15 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2026
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Eemi Oksanen": {
     "seasons": [
@@ -4692,7 +6762,15 @@
     "total": 12,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Jukka Ilomäki": {
     "seasons": [
@@ -4711,7 +6789,14 @@
     "total": 3,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Matias Pentikäinen": {
     "seasons": [
@@ -4737,7 +6822,19 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Mikko Tervakangas": {
     "seasons": [
@@ -4765,7 +6862,20 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2024,
+        2025
+      ],
+      "winter": [
+        2023,
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Torsti Visuri": {
     "seasons": [
@@ -4787,7 +6897,15 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2023,
+        2025
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Santtu Lehto": {
     "seasons": [
@@ -4806,7 +6924,14 @@
     "total": 9,
     "teams": [
       "Otso 1"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2023
+      ],
+      "other": []
+    }
   },
   "Aku Westerberg": {
     "seasons": [
@@ -4825,7 +6950,14 @@
     "total": 2,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Aapo Kaijanmäki": {
     "seasons": [
@@ -4844,7 +6976,14 @@
     "total": 1,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Aapo Putkonen": {
     "seasons": [
@@ -4863,7 +7002,14 @@
     "total": 6,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Arttu Rautamäki": {
     "seasons": [
@@ -4886,7 +7032,17 @@
     "teams": [
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024,
+        2025
+      ],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Clemens Jonas Hellmig": {
     "seasons": [
@@ -4905,7 +7061,14 @@
     "total": 5,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Matthew Schilke": {
     "seasons": [
@@ -4924,7 +7087,14 @@
     "total": 3,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2024
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Tapio Tiihonen": {
     "seasons": [
@@ -4947,7 +7117,17 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025
+      ],
+      "winter": [
+        2024,
+        2025
+      ],
+      "other": []
+    }
   },
   "Jonne Happonen": {
     "seasons": [
@@ -4968,7 +7148,16 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025
+      ],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Santeri Harmaala": {
     "seasons": [
@@ -4991,7 +7180,17 @@
     "teams": [
       "Otso",
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025,
+        2026
+      ],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Yury Elkin": {
     "seasons": [
@@ -5010,7 +7209,14 @@
     "total": 5,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Abhinav Omprakash Naik": {
     "seasons": [
@@ -5029,7 +7235,14 @@
     "total": 1,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Arvi Tuuri": {
     "seasons": [
@@ -5048,7 +7261,14 @@
     "total": 7,
     "teams": [
       "Otso 2"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025
+      ],
+      "winter": [],
+      "other": []
+    }
   },
   "Phong Tran": {
     "seasons": [
@@ -5072,7 +7292,17 @@
       "Otso",
       "Otso 2",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2025,
+        2026
+      ],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Niilo Suontama": {
     "seasons": [
@@ -5091,7 +7321,14 @@
     "total": 18,
     "teams": [
       "Otso"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Erno Kerman": {
     "seasons": [
@@ -5110,7 +7347,14 @@
     "total": 0,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Matias Arola": {
     "seasons": [
@@ -5132,7 +7376,16 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [
+        2026
+      ],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Zaheer Gauhar": {
     "seasons": [
@@ -5151,7 +7404,14 @@
     "total": 8,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
   },
   "Jesper Pettersson": {
     "seasons": [
@@ -5170,7 +7430,14 @@
     "total": 8,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2016
+      ],
+      "other": []
+    }
   },
   "Joonatan Bergholm": {
     "seasons": [
@@ -5189,7 +7456,14 @@
     "total": 12,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2016
+      ],
+      "other": []
+    }
   },
   "Topi Hintukainen": {
     "seasons": [
@@ -5208,7 +7482,14 @@
     "total": 0,
     "teams": [
       "Otso 3"
-    ]
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2016
+      ],
+      "other": []
+    }
   },
   "Euramo Sisu": {
     "seasons": [],
@@ -5221,7 +7502,12 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "Lacy Theo": {
     "seasons": [],
@@ -5234,7 +7520,12 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "Iivo Laaksonen": {
     "seasons": [],
@@ -5247,7 +7538,12 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "eetu strengell": {
     "seasons": [],
@@ -5260,7 +7556,12 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "dmitri podolsky": {
     "seasons": [],
@@ -5273,7 +7574,12 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "nikolaev nikolay": {
     "seasons": [],
@@ -5286,20 +7592,12 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
-  },
-  "alexander gorokhov": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "alexey zhebel": {
     "seasons": [],
@@ -5312,7 +7610,30 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "alexander gorokhov": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2018,
+    "last_year": 2018,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   },
   "smolov viktor": {
     "seasons": [],
@@ -5325,6 +7646,11 @@
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": []
+    "teams": [],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
   }
 }
