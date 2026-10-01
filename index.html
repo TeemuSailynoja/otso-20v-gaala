@@ -239,6 +239,38 @@
         }
         .chart-wrapper { position: relative; height: 320px; }
         .full-width { grid-column: 1 / -1; }
+
+        /* PARTICLE ANIMATION */
+        .animation-wrapper {
+            position: relative;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+        #particle-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .year-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+            font-family: 'Space Grotesk', sans-serif;
+            z-index: 10;
+        }
+        .animation-desc {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
         .charts-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 
         /* STATS GRID */
@@ -722,6 +754,14 @@
                     <div class="chart-wrapper"><canvas id="chart-points"></canvas></div>
                 </div>
             </div>
+            <div class="chart-card full-width">
+                <h3>🌌 Team Evolution — Player Cloud</h3>
+                <p class="animation-desc">Watch players join and leave as seasons pass</p>
+                <div class="animation-wrapper">
+                    <canvas id="particle-canvas"></canvas>
+                    <div class="year-display" id="year-display">2006</div>
+                </div>
+            </div>
             <div class="timeline-year-cards" id="timeline-cards"></div>
         </section>
         <footer class="footer">
@@ -771,6 +811,7 @@
         } else if (page === 'timeline') {
             document.getElementById('page-timeline').classList.add('active');
             renderTimeline();
+            setTimeout(initTeamEvolution, 100);
         }
     }
 
@@ -1334,6 +1375,177 @@
             particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animate);
         }
+        animate();
+    }
+
+    // ==================== TEAM EVOLUTION ANIMATION ====================
+    let evolutionAnim = null;
+
+    function initTeamEvolution() {
+        const canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        // Stop any existing animation
+        if (evolutionAnim) {
+            cancelAnimationFrame(evolutionAnim);
+            evolutionAnim = null;
+        }
+
+        const wrapper = canvas.parentElement;
+        let w, h;
+
+        function resize() {
+            w = canvas.width = wrapper.clientWidth;
+            h = canvas.height = wrapper.clientHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Build player-year map: { year: [player_names] }
+        const years = Object.keys(DATA.players).length > 0 ? 
+            Object.values(DATA.players).reduce((acc, p) => {
+                (p.years || []).forEach(y => {
+                    if (!acc[y]) acc[y] = [];
+                    acc[y].push(Object.keys(DATA.players).find(n => DATA.players[n] === p));
+                });
+                return acc;
+            }, {}) : {};
+
+        const yearList = Object.keys(years).sort((a, b) => a - b);
+        if (yearList.length === 0) return;
+
+        // Generate unique colors for players
+        const playerColors = {};
+        const colorPalette = [
+            '#ff6b35', '#06d6a0', '#00b4d8', '#e63946', '#f4a261',
+            '#2a9d8f', '#e9c46a', '#264653', '#f77f00', '#7209b7',
+            '#3a86ff', '#8338ec', '#ff006e', '#fb5607', '#06d6a0',
+            '#118ab2', '#073b4c', '#ef476f', '#ffd166', '#06d6a0'
+        ];
+        let colorIdx = 0;
+        const allPlayers = Object.keys(DATA.players);
+        allPlayers.forEach(name => {
+            playerColors[name] = colorPalette[colorIdx % colorPalette.length];
+            colorIdx++;
+        });
+
+        // Animation state
+        let currentYearIdx = 0;
+        let yearProgress = 0; // 0-1 progress through year transition
+        const YEAR_DURATION = 120; // frames per year
+        const TRANSITION_DURATION = 60; // frames for player fade in/out
+        const PARTICLE_COUNT = 5; // particles per player
+        const CENTER_RADIUS = Math.min(w, h) * 0.25;
+
+        // Generate particles for each player
+        function generateParticles(yearIdx) {
+            const year = yearList[yearIdx];
+            const activePlayers = years[year] || [];
+            const particles = [];
+
+            activePlayers.forEach(name => {
+                const color = playerColors[name] || '#ffffff';
+                // Generate 5 particles per player, clustered around center
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const angle = (Math.PI * 2 * i) / PARTICLE_COUNT + (Math.random() - 0.5) * 0.5;
+                    const dist = Math.random() * CENTER_RADIUS * 0.6;
+                    particles.push({
+                        x: w / 2 + Math.cos(angle) * dist,
+                        y: h / 2 + Math.sin(angle) * dist,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        r: 3 + Math.random() * 2,
+                        color: color,
+                        alpha: 1,
+                        name: name,
+                        isEntering: false,
+                        isLeaving: false,
+                        enterProgress: 0,
+                        leaveProgress: 0
+                    });
+                }
+            });
+
+            return particles;
+        }
+
+        let currentParticles = generateParticles(currentYearIdx);
+        let nextParticles = [];
+
+        // Season lines (white lines moving right to left)
+        const seasonLines = [];
+        function addSeasonLine() {
+            seasonLines.push({
+                x: w + 100,
+                y: Math.random() * h,
+                w: 50 + Math.random() * 100,
+                speed: 1 + Math.random() * 2,
+                alpha: 0.1 + Math.random() * 0.2
+            });
+        }
+        // Initial season lines
+        for (let i = 0; i < 10; i++) {
+            addSeasonLine();
+            seasonLines[seasonLines.length - 1].x = Math.random() * w;
+        }
+
+        // Year display update
+        const yearDisplay = document.getElementById('year-display');
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+
+            // Draw season lines
+            seasonLines.forEach((line, i) => {
+                line.x -= line.speed;
+                if (line.x + line.w < 0) {
+                    seasonLines[i] = { x: w + 100, y: Math.random() * h, w: 50 + Math.random() * 100, speed: 1 + Math.random() * 2, alpha: 0.1 + Math.random() * 0.2 };
+                }
+                ctx.fillStyle = `rgba(255, 255, 255, ${line.alpha})`;
+                ctx.fillRect(line.x, line.y, line.w, 1);
+            });
+
+            // Update year progress
+            yearProgress++;
+            if (yearProgress > YEAR_DURATION) {
+                yearProgress = 0;
+                currentYearIdx = (currentYearIdx + 1) % yearList.length;
+                // Generate next particles
+                nextParticles = generateParticles(currentYearIdx);
+            }
+
+            // Update year display
+            const currentYear = parseInt(yearList[currentYearIdx]);
+            if (yearDisplay) yearDisplay.textContent = currentYear;
+
+            // Draw particles
+            currentParticles.forEach(p => {
+                // Random drift
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Keep in bounds
+                if (p.x < 0) p.x = w;
+                if (p.x > w) p.x = 0;
+                if (p.y < 0) p.y = h;
+                if (p.y > h) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.color.replace(')', `, ${p.alpha})`).replace('rgb', 'rgba');
+                // Handle hex colors
+                const hex = p.color;
+                const r = parseInt(hex.slice(1, 3), 16);
+                const g = parseInt(hex.slice(3, 5), 16);
+                const b = parseInt(hex.slice(5, 7), 16);
+                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${p.alpha})`;
+                ctx.fill();
+            });
+
+            evolutionAnim = requestAnimationFrame(animate);
+        }
+
         animate();
     }
 
