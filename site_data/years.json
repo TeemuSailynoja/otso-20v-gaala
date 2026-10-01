@@ -88,11 +88,11 @@
     "roster_players": 45
   },
   "2026": {
-    "matches": 4,
-    "wins": 4,
+    "matches": 10,
+    "wins": 10,
     "losses": 0,
-    "goals_for": 60,
-    "goals_against": 23,
+    "goals_for": 150,
+    "goals_against": 56,
     "roster_players": 17
   }
 }
