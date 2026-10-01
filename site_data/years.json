@@ -5,7 +5,7 @@
     "losses": 22,
     "goals_for": 698,
     "goals_against": 631,
-    "roster_players": 51
+    "roster_players": 47
   },
   "2007": {
     "matches": 23,
@@ -37,7 +37,7 @@
     "losses": 6,
     "goals_for": 250,
     "goals_against": 198,
-    "roster_players": 35
+    "roster_players": 33
   },
   "2011": {
     "matches": 34,
@@ -45,7 +45,7 @@
     "losses": 9,
     "goals_for": 465,
     "goals_against": 356,
-    "roster_players": 49
+    "roster_players": 46
   },
   "2012": {
     "matches": 35,
@@ -53,7 +53,7 @@
     "losses": 5,
     "goals_for": 489,
     "goals_against": 329,
-    "roster_players": 44
+    "roster_players": 39
   },
   "2013": {
     "matches": 61,
@@ -61,7 +61,7 @@
     "losses": 15,
     "goals_for": 814,
     "goals_against": 585,
-    "roster_players": 74
+    "roster_players": 69
   },
   "2014": {
     "matches": 21,
@@ -69,7 +69,7 @@
     "losses": 2,
     "goals_for": 298,
     "goals_against": 144,
-    "roster_players": 50
+    "roster_players": 48
   },
   "2015": {
     "matches": 47,
@@ -77,7 +77,7 @@
     "losses": 11,
     "goals_for": 608,
     "goals_against": 449,
-    "roster_players": 43
+    "roster_players": 42
   },
   "2016": {
     "matches": 51,
@@ -101,7 +101,7 @@
     "losses": 9,
     "goals_for": 685,
     "goals_against": 465,
-    "roster_players": 38
+    "roster_players": 36
   },
   "2019": {
     "matches": 50,
@@ -117,7 +117,7 @@
     "losses": 6,
     "goals_for": 154,
     "goals_against": 138,
-    "roster_players": 32
+    "roster_players": 30
   },
   "2021": {
     "matches": 27,
@@ -125,7 +125,7 @@
     "losses": 9,
     "goals_for": 373,
     "goals_against": 245,
-    "roster_players": 27
+    "roster_players": 26
   },
   "2022": {
     "matches": 30,
@@ -141,7 +141,7 @@
     "losses": 17,
     "goals_for": 575,
     "goals_against": 472,
-    "roster_players": 44
+    "roster_players": 43
   },
   "2024": {
     "matches": 43,
@@ -157,7 +157,7 @@
     "losses": 26,
     "goals_for": 697,
     "goals_against": 644,
-    "roster_players": 46
+    "roster_players": 45
   },
   "2026": {
     "matches": 10,
@@ -165,6 +165,6 @@
     "losses": 0,
     "goals_for": 150,
     "goals_against": 56,
-    "roster_players": 31
+    "roster_players": 30
   }
 }

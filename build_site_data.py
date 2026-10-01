@@ -165,8 +165,12 @@ def canonicalize_name(name: str) -> str:
     Strategy: prefer the order that appears most often. For now, we'll use
     alphabetical order of parts as a stable canonical form, then resolve
     to a human-readable form at the end.
+    
+    Strips captain notation '(c)' from names before processing.
     """
     name = normalize_name(name)
+    # Strip captain notation
+    name = name.replace('(c)', '').replace('(C)', '').strip()
     parts = [p for p in name.split() if p]
     if not parts:
         return name
