@@ -1386,7 +1386,6 @@
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         
-        // Stop any existing animation
         if (evolutionAnim) {
             cancelAnimationFrame(evolutionAnim);
             evolutionAnim = null;
@@ -1402,12 +1401,11 @@
         resize();
         window.addEventListener('resize', resize);
 
-        // Build player-year map: { year: [player_names] }
+        // Build player-year map
         const playerYears = {};
         const allPlayerNames = Object.keys(DATA.players);
         allPlayerNames.forEach(name => {
-            const p = DATA.players[name];
-            (p.years || []).forEach(y => {
+            (DATA.players[name].years || []).forEach(y => {
                 if (!playerYears[y]) playerYears[y] = [];
                 playerYears[y].push(name);
             });
@@ -1416,289 +1414,211 @@
         const yearList = Object.keys(playerYears).sort((a, b) => a - b);
         if (yearList.length === 0) return;
 
-        // Generate unique colors for players
+        // Colors
         const playerColors = {};
-        const colorPalette = [
-            '#ff6b35', '#06d6a0', '#00b4d8', '#e63946', '#f4a261',
-            '#2a9d8f', '#e9c46a', '#264653', '#f77f00', '#7209b7',
-            '#3a86ff', '#8338ec', '#ff006e', '#fb5607', '#06d6a0',
-            '#118ab2', '#073b4c', '#ef476f', '#ffd166', '#06d6a0'
-        ];
-        let colorIdx = 0;
-        allPlayerNames.forEach(name => {
-            playerColors[name] = colorPalette[colorIdx % colorPalette.length];
-            colorIdx++;
+        const palette = ['#ff6b35','#06d6a0','#00b4d8','#e63946','#f4a261','#2a9d8f','#e9c46a','#264653','#f77f00','#7209b7','#3a86ff','#8338ec','#ff006e','#fb5607','#118ab2','#073b4c','#ef476f','#ffd166'];
+        allPlayerNames.forEach((name, i) => {
+            playerColors[name] = palette[i % palette.length];
         });
 
-        // Animation state
         let currentYearIdx = 0;
         let frameCount = 0;
-        const YEAR_DURATION = 180; // frames per year (3 seconds at 60fps)
-        const TRANSITION_FRAMES = 90; // frames for fade in/out
-        const PARTICLE_COUNT = 8; // particles per player
-        const CENTER_X = () => w / 2;
-        const CENTER_Y = () => h / 2;
-        const CLUSTER_RADIUS = Math.min(w, h) * 0.22;
+        const YEAR_DURATION = 180;
+        const TRANSITION_FRAMES = 90;
+        const PARTICLES_PER_PLAYER = 6;
 
-        // Particle class with attraction/repulsion physics
-        class EvolutionParticle {
-            constructor(name, color, x, y, state) {
-                this.name = name;
-                this.color = color;
-                this.x = x;
-                this.y = y;
-                this.vx = 0;
-                this.vy = 0;
-                this.r = 3 + Math.random() * 2;
-                this.alpha = 0;
-                this.state = state; // 'entering', 'active', 'leaving'
-                this.transitionProgress = 0;
-                this.targetX = x;
-                this.targetY = y;
-                this.wobblePhase = Math.random() * Math.PI * 2;
-                this.wobbleSpeed = 0.02 + Math.random() * 0.03;
-                this.wobbleRadius = 5 + Math.random() * 10;
-            }
+        // All particles in one array
+        let particles = [];
 
-            update(cx, cy, frame) {
-                const dx = this.x - cx;
-                const dy = this.y - cy;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (this.state === 'entering') {
-                    // Attracted toward center cluster
-                    this.transitionProgress += 1 / TRANSITION_FRAMES;
-                    const t = Math.min(1, this.transitionProgress);
-                    const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-                    
-                    // Target position in cluster
-                    const angle = Math.random() * Math.PI * 2;
-                    const clusterDist = ease * CLUSTER_RADIUS * (0.3 + Math.random() * 0.7);
-                    this.targetX = cx + Math.cos(angle) * clusterDist;
-                    this.targetY = cy + Math.sin(angle) * clusterDist;
-                    
-                    // Move toward target
-                    this.vx += (this.targetX - this.x) * 0.05;
-                    this.vy += (this.targetY - this.y) * 0.05;
-                    this.vx *= 0.9;
-                    this.vy *= 0.9;
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    
-                    // Fade in
-                    this.alpha = ease;
-                    
-                    if (t >= 1) {
-                        this.state = 'active';
-                        this.transitionProgress = 0;
-                    }
-
-                } else if (this.state === 'active') {
-                    // Gentle wobble around cluster center
-                    this.wobblePhase += this.wobbleSpeed;
-                    const wobbleX = Math.cos(this.wobblePhase) * this.wobbleRadius;
-                    const wobbleY = Math.sin(this.wobblePhase * 1.3) * this.wobbleRadius;
-                    
-                    // Stay within cluster bounds
-                    const angle = Math.atan2(this.y - cy, this.x - cx);
-                    const currentDist = Math.sqrt((this.x - cx) ** 2 + (this.y - cy) ** 2);
-                    const targetDist = CLUSTER_RADIUS * (0.2 + Math.sin(this.wobblePhase * 0.5) * 0.5);
-                    
-                    if (currentDist > CLUSTER_RADIUS * 0.8) {
-                        // Push back toward center
-                        this.vx -= dx * 0.01;
-                        this.vy -= dy * 0.01;
-                    }
-                    
-                    this.vx += wobbleX * 0.01;
-                    this.vy += wobbleY * 0.01;
-                    this.vx *= 0.95;
-                    this.vy *= 0.95;
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    
-                    this.alpha = 0.7 + Math.sin(this.wobblePhase) * 0.3;
-
-                } else if (this.state === 'leaving') {
-                    // Repelled away from center toward left edge
-                    this.transitionProgress += 1 / TRANSITION_FRAMES;
-                    const t = Math.min(1, this.transitionProgress);
-                    
-                    // Direction away from center, biased toward left
-                    const awayAngle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 0.5;
-                    const repelForce = t * Math.max(w, h) * 0.8;
-                    
-                    this.targetX = cx + Math.cos(awayAngle) * repelForce;
-                    this.targetY = cy + Math.sin(awayAngle) * repelForce;
-                    
-                    this.vx += (this.targetX - this.x) * 0.08;
-                    this.vy += (this.targetY - this.y) * 0.08;
-                    this.vx *= 0.92;
-                    this.vy *= 0.92;
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    
-                    // Fade out
-                    this.alpha = 1 - t;
-                    
-                    if (t >= 1 || this.x < -50) {
-                        this.alpha = 0;
-                    }
-                }
-            }
-
-            draw(ctx) {
-                if (this.alpha <= 0) return;
-                const hex = this.color;
-                const r = parseInt(hex.slice(1, 3), 16);
-                const g = parseInt(hex.slice(3, 5), 16);
-                const b = parseInt(hex.slice(5, 7), 16);
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.alpha})`;
-                ctx.fill();
-                
-                // Glow effect for active particles
-                if (this.state === 'active' && this.alpha > 0.5) {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.r * 2, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.15})`;
-                    ctx.fill();
-                }
-            }
+        function hexToRGBA(hex, alpha) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return `rgba(${r},${g},${b},${alpha})`;
         }
 
-        // Season lines (white lines moving right to left)
+        function getClusterRadius() {
+            return Math.min(w, h) * 0.22;
+        }
+
+        function addPlayerParticles(names, state, startX) {
+            const clusterR = getClusterRadius();
+            names.forEach(name => {
+                const color = playerColors[name] || '#ffffff';
+                for (let i = 0; i < PARTICLES_PER_PLAYER; i++) {
+                    const angle = (Math.PI * 2 * i) / PARTICLES_PER_PLAYER + Math.random() * 0.3;
+                    const dist = Math.random() * clusterR * 0.5;
+                    particles.push({
+                        name: name,
+                        color: color,
+                        x: startX !== undefined ? startX : w + 50 + Math.random() * 100,
+                        y: h * 0.2 + Math.random() * h * 0.6,
+                        vx: 0, vy: 0,
+                        r: 3 + Math.random() * 2,
+                        alpha: 0,
+                        state: state,
+                        progress: 0,
+                        targetX: w/2 + Math.cos(angle) * dist,
+                        targetY: h/2 + Math.sin(angle) * dist,
+                        wobblePhase: Math.random() * Math.PI * 2,
+                        wobbleSpeed: 0.02 + Math.random() * 0.03,
+                        wobbleRadius: 5 + Math.random() * 10,
+                        clusterAngle: angle,
+                        clusterDist: dist
+                    });
+                }
+            });
+        }
+
+        // Initial: all first-year players enter from right
+        const firstYear = playerYears[yearList[0]] || [];
+        addPlayerParticles(firstYear, 'entering');
+
+        // Season lines
         const seasonLines = [];
-        function addSeasonLine() {
+        for (let i = 0; i < 15; i++) {
             seasonLines.push({
-                x: w + 100,
+                x: Math.random() * w,
                 y: Math.random() * h,
                 w: 50 + Math.random() * 100,
                 speed: 1 + Math.random() * 2,
                 alpha: 0.1 + Math.random() * 0.2
             });
         }
-        for (let i = 0; i < 15; i++) {
-            addSeasonLine();
-            seasonLines[seasonLines.length - 1].x = Math.random() * w;
-        }
 
-        // Year display
         const yearDisplay = document.getElementById('year-display');
 
-        // Particle pools
-        let enteringParticles = [];
-        let activeParticles = [];
-        let leavingParticles = [];
+        function syncYearChange() {
+            const currentYear = yearList[currentYearIdx];
+            const nextYear = yearList[(currentYearIdx + 1) % yearList.length];
+            const currentSet = new Set(playerYears[currentYear] || []);
+            const nextSet = new Set(playerYears[nextYear] || []);
 
-        function syncParticles(yearIdx) {
-            const currentYear = yearList[yearIdx];
-            const nextYear = yearList[(yearIdx + 1) % yearList.length];
-            const currentPlayers = new Set(playerYears[currentYear] || []);
-            const nextPlayers = new Set(playerYears[nextYear] || []);
-
-            // Find new players (entering)
-            const enteringNames = [...nextPlayers].filter(n => !currentPlayers.has(n));
-            // Find departing players (leaving)
-            const leavingNames = [...currentPlayers].filter(n => !nextPlayers.has(n));
-
-            // Add entering particles from right edge
-            enteringNames.forEach(name => {
-                const color = playerColors[name] || '#ffffff';
-                for (let i = 0; i < PARTICLE_COUNT; i++) {
-                    const y = h * 0.2 + Math.random() * h * 0.6;
-                    enteringParticles.push(new EvolutionParticle(
-                        name, color, w + 20 + Math.random() * 100, y, 'entering'
-                    ));
-                }
-            });
-
-            // Mark departing players for leaving
-            leavingNames.forEach(name => {
-                const color = playerColors[name] || '#ffffff';
-                // Find existing active particles for this player
-                const existing = activeParticles.filter(p => p.name === name);
-                existing.forEach(p => {
-                    p.state = 'leaving';
-                    p.transitionProgress = 0;
-                    leavingParticles.push(p);
-                });
-                // Remove from active
-                activeParticles = activeParticles.filter(p => p.name !== name);
-            });
-
-            // Add new active particles for players that are in next year
-            const allNextPlayers = [...nextPlayers];
-            allNextPlayers.forEach(name => {
-                if (!enteringNames.includes(name) && !leavingNames.includes(name)) {
-                    // Already active or just transitioned
-                }
-            });
-
-            // Clean up finished leaving particles
-            leavingParticles = leavingParticles.filter(p => p.alpha > 0);
-        }
-
-        // Initial state: all players entering
-        const firstYearPlayers = playerYears[yearList[0]] || [];
-        firstYearPlayers.forEach(name => {
-            const color = playerColors[name] || '#ffffff';
-            for (let i = 0; i < PARTICLE_COUNT; i++) {
-                const y = h * 0.2 + Math.random() * h * 0.6;
-                enteringParticles.push(new EvolutionParticle(
-                    name, color, w + 20 + Math.random() * 100, y, 'entering'
-                ));
+            // New players enter from right
+            const entering = [...nextSet].filter(n => !currentSet.has(n));
+            if (entering.length > 0) {
+                addPlayerParticles(entering, 'entering', w + 50 + Math.random() * 100);
             }
-        });
+
+            // Departing players leave to left
+            const leaving = [...currentSet].filter(n => !nextSet.has(n));
+            if (leaving.length > 0) {
+                particles.forEach(p => {
+                    if (leaving.includes(p.name) && p.state === 'active') {
+                        p.state = 'leaving';
+                        p.progress = 0;
+                    }
+                });
+            }
+        }
 
         function animate() {
             ctx.clearRect(0, 0, w, h);
-            const cx = CENTER_X();
-            const cy = CENTER_Y();
+            const cx = w / 2;
+            const cy = h / 2;
+            const clusterR = getClusterRadius();
 
-            // Draw season lines
-            seasonLines.forEach((line, i) => {
+            // Season lines
+            seasonLines.forEach(line => {
                 line.x -= line.speed;
                 if (line.x + line.w < 0) {
-                    seasonLines[i] = { x: w + 100, y: Math.random() * h, w: 50 + Math.random() * 100, speed: 1 + Math.random() * 2, alpha: 0.1 + Math.random() * 0.2 };
+                    line.x = w + 100;
+                    line.y = Math.random() * h;
                 }
-                ctx.fillStyle = `rgba(255, 255, 255, ${line.alpha})`;
+                ctx.fillStyle = `rgba(255,255,255,${line.alpha})`;
                 ctx.fillRect(line.x, line.y, line.w, 1);
             });
 
-            // Update year
+            // Year progression
             frameCount++;
             if (frameCount >= YEAR_DURATION) {
                 frameCount = 0;
                 currentYearIdx = (currentYearIdx + 1) % yearList.length;
-                syncParticles(currentYearIdx);
+                syncYearChange();
             }
+            if (yearDisplay) yearDisplay.textContent = yearList[currentYearIdx];
 
-            // Update year display
-            const currentYear = parseInt(yearList[currentYearIdx]);
-            if (yearDisplay) yearDisplay.textContent = currentYear;
+            // Update particles
+            particles = particles.filter(p => p.alpha > 0.01);
 
-            // Update and draw entering particles
-            enteringParticles = enteringParticles.filter(p => p.alpha > 0);
-            enteringParticles.forEach(p => {
-                p.update(cx, cy, frameCount);
-                p.draw(ctx);
-                if (p.state === 'active') {
-                    activeParticles.push(p);
+            particles.forEach(p => {
+                if (p.state === 'entering') {
+                    p.progress += 1 / TRANSITION_FRAMES;
+                    const t = Math.min(1, p.progress);
+                    const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+                    
+                    p.vx += (p.targetX - p.x) * 0.04;
+                    p.vy += (p.targetY - p.y) * 0.04;
+                    p.vx *= 0.92;
+                    p.vy *= 0.92;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.alpha = ease;
+
+                    if (t >= 1) {
+                        p.state = 'active';
+                        p.progress = 0;
+                    }
+
+                } else if (p.state === 'active') {
+                    p.wobblePhase += p.wobbleSpeed;
+                    
+                    const targetX = cx + Math.cos(p.clusterAngle + p.wobblePhase * 0.5) * p.clusterDist;
+                    const targetY = cy + Math.sin(p.clusterAngle + p.wobblePhase * 0.7) * p.clusterDist;
+                    
+                    p.vx += (targetX - p.x) * 0.02;
+                    p.vy += (targetY - p.y) * 0.02;
+                    p.vx *= 0.96;
+                    p.vy *= 0.96;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    
+                    const dx = p.x - cx;
+                    const dy = p.y - cy;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist > clusterR) {
+                        p.vx -= dx * 0.02;
+                        p.vy -= dy * 0.02;
+                    }
+                    
+                    p.alpha = 0.6 + Math.sin(p.wobblePhase) * 0.3;
+
+                } else if (p.state === 'leaving') {
+                    p.progress += 1 / TRANSITION_FRAMES;
+                    const t = Math.min(1, p.progress);
+                    
+                    const dx = p.x - cx;
+                    const dy = p.y - cy;
+                    const baseAngle = Math.atan2(dy, dx);
+                    const leaveAngle = baseAngle + (Math.random() - 0.5) * 0.3;
+                    const force = t * Math.max(w, h) * 0.5;
+                    
+                    const targetX = cx + Math.cos(leaveAngle) * force;
+                    const targetY = cy + Math.sin(leaveAngle) * force;
+                    
+                    p.vx += (targetX - p.x) * 0.06;
+                    p.vy += (targetY - p.y) * 0.06;
+                    p.vx *= 0.93;
+                    p.vy *= 0.93;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.alpha = 1 - t;
                 }
-            });
 
-            // Update and draw active particles
-            activeParticles.forEach(p => {
-                p.update(cx, cy, frameCount);
-                p.draw(ctx);
-            });
-
-            // Update and draw leaving particles
-            leavingParticles.forEach(p => {
-                p.update(cx, cy, frameCount);
-                p.draw(ctx);
+                // Draw
+                if (p.alpha > 0.01) {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = hexToRGBA(p.color, p.alpha);
+                    ctx.fill();
+                    
+                    if (p.state === 'active' && p.alpha > 0.4) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+                        ctx.fillStyle = hexToRGBA(p.color, p.alpha * 0.12);
+                        ctx.fill();
+                    }
+                }
             });
 
             evolutionAnim = requestAnimationFrame(animate);
