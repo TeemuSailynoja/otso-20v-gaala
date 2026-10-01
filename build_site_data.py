@@ -138,7 +138,8 @@ def extract_year_from_season_id(season_id: str) -> int | None:
             elif y >= 10:
                 return 1900 + y
             else:
-                return 2000 + y
+                # Hallitour2 is from 2016 (context: Talvi2016 exists)
+                return 2016
     return None
 
 

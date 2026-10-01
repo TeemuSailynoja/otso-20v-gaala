@@ -1,11 +1,11 @@
 {
   "2006": {
-    "matches": 54,
-    "wins": 32,
-    "losses": 22,
-    "goals_for": 698,
-    "goals_against": 631,
-    "roster_players": 47
+    "matches": 21,
+    "wins": 11,
+    "losses": 10,
+    "goals_for": 293,
+    "goals_against": 242,
+    "roster_players": 21
   },
   "2007": {
     "matches": 23,
@@ -80,12 +80,12 @@
     "roster_players": 42
   },
   "2016": {
-    "matches": 48,
-    "wins": 39,
-    "losses": 9,
-    "goals_for": 661,
-    "goals_against": 449,
-    "roster_players": 35
+    "matches": 81,
+    "wins": 60,
+    "losses": 21,
+    "goals_for": 1066,
+    "goals_against": 838,
+    "roster_players": 43
   },
   "2017": {
     "matches": 53,

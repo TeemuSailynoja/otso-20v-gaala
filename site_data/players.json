@@ -393,7 +393,6 @@
     ],
     "season_count": 18,
     "years": [
-      2002,
       2006,
       2007,
       2008,
@@ -407,8 +406,8 @@
       2018,
       2019
     ],
-    "year_count": 13,
-    "first_year": 2002,
+    "year_count": 12,
+    "first_year": 2006,
     "last_year": 2019,
     "games": 196,
     "goals": 96,
@@ -522,7 +521,6 @@
     ],
     "season_count": 53,
     "years": [
-      2002,
       2006,
       2007,
       2008,
@@ -545,8 +543,8 @@
       2025,
       2026
     ],
-    "year_count": 22,
-    "first_year": 2002,
+    "year_count": 21,
+    "first_year": 2006,
     "last_year": 2026,
     "games": 571,
     "goals": 299,
@@ -648,7 +646,6 @@
     ],
     "season_count": 34,
     "years": [
-      2002,
       2006,
       2007,
       2008,
@@ -663,8 +660,8 @@
       2017,
       2019
     ],
-    "year_count": 14,
-    "first_year": 2002,
+    "year_count": 13,
+    "first_year": 2006,
     "last_year": 2019,
     "games": 255,
     "goals": 213,
@@ -737,7 +734,6 @@
     ],
     "season_count": 55,
     "years": [
-      2002,
       2007,
       2008,
       2009,
@@ -757,8 +753,8 @@
       2024,
       2025
     ],
-    "year_count": 19,
-    "first_year": 2002,
+    "year_count": 18,
+    "first_year": 2007,
     "last_year": 2025,
     "games": 459,
     "goals": 89,
@@ -913,7 +909,6 @@
     ],
     "season_count": 60,
     "years": [
-      2002,
       2007,
       2008,
       2009,
@@ -935,8 +930,8 @@
       2025,
       2026
     ],
-    "year_count": 21,
-    "first_year": 2002,
+    "year_count": 20,
+    "first_year": 2007,
     "last_year": 2026,
     "games": 648,
     "goals": 307,
@@ -1081,7 +1076,6 @@
     ],
     "season_count": 63,
     "years": [
-      2002,
       2007,
       2008,
       2009,
@@ -1103,8 +1097,8 @@
       2025,
       2026
     ],
-    "year_count": 21,
-    "first_year": 2002,
+    "year_count": 20,
+    "first_year": 2007,
     "last_year": 2026,
     "games": 688,
     "goals": 698,
@@ -1266,7 +1260,6 @@
     ],
     "season_count": 15,
     "years": [
-      2002,
       2008,
       2009,
       2010,
@@ -1274,11 +1267,12 @@
       2012,
       2013,
       2014,
-      2015
+      2015,
+      2016
     ],
     "year_count": 9,
-    "first_year": 2002,
-    "last_year": 2015,
+    "first_year": 2008,
+    "last_year": 2016,
     "games": 92,
     "goals": 59,
     "assists": 32,
@@ -1426,7 +1420,6 @@
     ],
     "season_count": 38,
     "years": [
-      2002,
       2008,
       2009,
       2010,
@@ -1442,8 +1435,8 @@
       2020,
       2021
     ],
-    "year_count": 15,
-    "first_year": 2002,
+    "year_count": 14,
+    "first_year": 2008,
     "last_year": 2021,
     "games": 281,
     "goals": 101,
@@ -1540,7 +1533,6 @@
     ],
     "season_count": 25,
     "years": [
-      2002,
       2008,
       2009,
       2010,
@@ -1554,8 +1546,8 @@
       2018,
       2019
     ],
-    "year_count": 13,
-    "first_year": 2002,
+    "year_count": 12,
+    "first_year": 2008,
     "last_year": 2019,
     "games": 296,
     "goals": 273,
@@ -1769,7 +1761,6 @@
     ],
     "season_count": 40,
     "years": [
-      2002,
       2010,
       2012,
       2013,
@@ -1784,8 +1775,8 @@
       2024,
       2025
     ],
-    "year_count": 14,
-    "first_year": 2002,
+    "year_count": 13,
+    "first_year": 2010,
     "last_year": 2025,
     "games": 422,
     "goals": 249,
@@ -1853,7 +1844,6 @@
     ],
     "season_count": 50,
     "years": [
-      2002,
       2010,
       2011,
       2012,
@@ -1872,8 +1862,8 @@
       2025,
       2026
     ],
-    "year_count": 18,
-    "first_year": 2002,
+    "year_count": 17,
+    "first_year": 2010,
     "last_year": 2026,
     "games": 582,
     "goals": 542,
@@ -1938,7 +1928,6 @@
     ],
     "season_count": 47,
     "years": [
-      2002,
       2011,
       2012,
       2013,
@@ -1955,8 +1944,8 @@
       2024,
       2025
     ],
-    "year_count": 16,
-    "first_year": 2002,
+    "year_count": 15,
+    "first_year": 2011,
     "last_year": 2025,
     "games": 520,
     "goals": 360,
@@ -2070,7 +2059,6 @@
     ],
     "season_count": 50,
     "years": [
-      2002,
       2011,
       2012,
       2013,
@@ -2088,8 +2076,8 @@
       2025,
       2026
     ],
-    "year_count": 17,
-    "first_year": 2002,
+    "year_count": 16,
+    "first_year": 2011,
     "last_year": 2026,
     "games": 533,
     "goals": 596,
@@ -2318,7 +2306,6 @@
     ],
     "season_count": 24,
     "years": [
-      2002,
       2011,
       2012,
       2013,
@@ -2328,8 +2315,8 @@
       2017,
       2018
     ],
-    "year_count": 9,
-    "first_year": 2002,
+    "year_count": 8,
+    "first_year": 2011,
     "last_year": 2018,
     "games": 224,
     "goals": 116,
@@ -2434,7 +2421,6 @@
     ],
     "season_count": 33,
     "years": [
-      2002,
       2011,
       2013,
       2014,
@@ -2450,8 +2436,8 @@
       2024,
       2025
     ],
-    "year_count": 15,
-    "first_year": 2002,
+    "year_count": 14,
+    "first_year": 2011,
     "last_year": 2025,
     "games": 450,
     "goals": 163,
@@ -2493,7 +2479,6 @@
     ],
     "season_count": 22,
     "years": [
-      2002,
       2011,
       2012,
       2013,
@@ -2506,8 +2491,8 @@
       2022,
       2023
     ],
-    "year_count": 12,
-    "first_year": 2002,
+    "year_count": 11,
+    "first_year": 2011,
     "last_year": 2023,
     "games": 287,
     "goals": 168,
@@ -2590,15 +2575,15 @@
     ],
     "season_count": 15,
     "years": [
-      2002,
       2012,
       2013,
       2014,
-      2015
+      2015,
+      2016
     ],
     "year_count": 5,
-    "first_year": 2002,
-    "last_year": 2015,
+    "first_year": 2012,
+    "last_year": 2016,
     "games": 80,
     "goals": 45,
     "assists": 57,
@@ -2681,7 +2666,6 @@
     ],
     "season_count": 45,
     "years": [
-      2002,
       2012,
       2013,
       2014,
@@ -2698,8 +2682,8 @@
       2025,
       2026
     ],
-    "year_count": 16,
-    "first_year": 2002,
+    "year_count": 15,
+    "first_year": 2012,
     "last_year": 2026,
     "games": 501,
     "goals": 432,
@@ -2817,7 +2801,6 @@
     ],
     "season_count": 29,
     "years": [
-      2002,
       2012,
       2013,
       2014,
@@ -2828,8 +2811,8 @@
       2019,
       2021
     ],
-    "year_count": 10,
-    "first_year": 2002,
+    "year_count": 9,
+    "first_year": 2012,
     "last_year": 2021,
     "games": 251,
     "goals": 123,
@@ -3201,7 +3184,6 @@
     ],
     "season_count": 17,
     "years": [
-      2002,
       2013,
       2014,
       2015,
@@ -3210,8 +3192,8 @@
       2018,
       2019
     ],
-    "year_count": 8,
-    "first_year": 2002,
+    "year_count": 7,
+    "first_year": 2013,
     "last_year": 2019,
     "games": 169,
     "goals": 126,
@@ -3233,13 +3215,13 @@
     ],
     "season_count": 4,
     "years": [
-      2002,
       2013,
-      2014
+      2014,
+      2016
     ],
     "year_count": 3,
-    "first_year": 2002,
-    "last_year": 2014,
+    "first_year": 2013,
+    "last_year": 2016,
     "games": 37,
     "goals": 14,
     "assists": 17,
@@ -3507,7 +3489,6 @@
     ],
     "season_count": 26,
     "years": [
-      2002,
       2015,
       2016,
       2017,
@@ -3519,8 +3500,8 @@
       2024,
       2025
     ],
-    "year_count": 11,
-    "first_year": 2002,
+    "year_count": 10,
+    "first_year": 2015,
     "last_year": 2025,
     "games": 196,
     "goals": 48,
@@ -3555,14 +3536,13 @@
     ],
     "season_count": 16,
     "years": [
-      2002,
       2015,
       2016,
       2017,
       2018
     ],
-    "year_count": 5,
-    "first_year": 2002,
+    "year_count": 4,
+    "first_year": 2015,
     "last_year": 2018,
     "games": 154,
     "goals": 62,
@@ -3685,14 +3665,14 @@
     ],
     "season_count": 7,
     "years": [
-      2002,
       2015,
+      2016,
       2017,
       2019,
       2020
     ],
     "year_count": 5,
-    "first_year": 2002,
+    "first_year": 2015,
     "last_year": 2020,
     "games": 42,
     "goals": 29,
@@ -3750,11 +3730,10 @@
     ],
     "season_count": 2,
     "years": [
-      2002,
       2016
     ],
-    "year_count": 2,
-    "first_year": 2002,
+    "year_count": 1,
+    "first_year": 2016,
     "last_year": 2016,
     "games": 18,
     "goals": 9,
@@ -4394,7 +4373,6 @@
     ],
     "season_count": 42,
     "years": [
-      2002,
       2012,
       2013,
       2014,
@@ -4410,8 +4388,8 @@
       2024,
       2025
     ],
-    "year_count": 15,
-    "first_year": 2002,
+    "year_count": 14,
+    "first_year": 2012,
     "last_year": 2025,
     "games": 426,
     "goals": 527,
@@ -5181,11 +5159,11 @@
     ],
     "season_count": 1,
     "years": [
-      2002
+      2016
     ],
     "year_count": 1,
-    "first_year": 2002,
-    "last_year": 2002,
+    "first_year": 2016,
+    "last_year": 2016,
     "games": 4,
     "goals": 5,
     "assists": 3,
@@ -5200,11 +5178,11 @@
     ],
     "season_count": 1,
     "years": [
-      2002
+      2016
     ],
     "year_count": 1,
-    "first_year": 2002,
-    "last_year": 2002,
+    "first_year": 2016,
+    "last_year": 2016,
     "games": 8,
     "goals": 7,
     "assists": 5,
@@ -5219,11 +5197,11 @@
     ],
     "season_count": 1,
     "years": [
-      2002
+      2016
     ],
     "year_count": 1,
-    "first_year": 2002,
-    "last_year": 2002,
+    "first_year": 2016,
+    "last_year": 2016,
     "games": 8,
     "goals": 0,
     "assists": 0,
@@ -5245,19 +5223,6 @@
     "total": 0,
     "teams": []
   },
-  "Iivo Laaksonen": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
-    "games": 9,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": []
-  },
   "Lacy Theo": {
     "seasons": [],
     "season_count": 0,
@@ -5266,6 +5231,19 @@
     "first_year": 2018,
     "last_year": 2018,
     "games": 8,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": []
+  },
+  "Iivo Laaksonen": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2018,
+    "last_year": 2018,
+    "games": 9,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -5310,7 +5288,7 @@
     "total": 0,
     "teams": []
   },
-  "smolov viktor": {
+  "alexander gorokhov": {
     "seasons": [],
     "season_count": 0,
     "years": [],
@@ -5336,7 +5314,7 @@
     "total": 0,
     "teams": []
   },
-  "alexander gorokhov": {
+  "smolov viktor": {
     "seasons": [],
     "season_count": 0,
     "years": [],
