@@ -402,5 +402,9 @@
   "1999.2": {
     "type": "winter",
     "name": "Talvi 1999JoukkueetPelatut"
+  },
+  "KESA2026": {
+    "type": "summer",
+    "name": "Kesä 2026"
   }
 }

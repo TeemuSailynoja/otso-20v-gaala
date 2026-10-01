@@ -222,64 +222,64 @@
   ],
   "longest_careers": [
     {
+      "name": "Roni Hotari",
+      "seasons": 36,
+      "years": "2007-2026",
+      "games": 689
+    },
+    {
       "name": "Ilkka Vaahtoranta",
-      "seasons": 23,
+      "seasons": 35,
       "years": "2006-2026",
       "games": 571
     },
     {
       "name": "Jarno Sihvo",
-      "seasons": 22,
+      "seasons": 35,
       "years": "2007-2026",
       "games": 648
     },
     {
-      "name": "Roni Hotari",
-      "seasons": 22,
-      "years": "2007-2026",
-      "games": 689
-    },
-    {
       "name": "Aki Vehtari",
-      "seasons": 20,
+      "seasons": 31,
       "years": "2007-2025",
       "games": 459
     },
     {
       "name": "Tomi Sandberg",
-      "seasons": 19,
+      "seasons": 28,
       "years": "2010-2026",
       "games": 582
     },
     {
       "name": "Erkka Niini",
-      "seasons": 18,
+      "seasons": 26,
       "years": "2011-2026",
       "games": 533
     },
     {
       "name": "Antti Elonheimo",
-      "seasons": 17,
+      "seasons": 25,
       "years": "2011-2025",
       "games": 521
     },
     {
       "name": "Oskari Vuorio",
-      "seasons": 17,
+      "seasons": 24,
       "years": "2012-2026",
       "games": 503
     },
     {
-      "name": "Touko Väänänen",
-      "seasons": 17,
+      "name": "Jesse Saastamoinen",
+      "seasons": 23,
       "years": "2012-2025",
-      "games": 427
+      "games": 399
     },
     {
-      "name": "Tuukka Koistinen",
-      "seasons": 16,
-      "years": "2008-2021",
-      "games": 283
+      "name": "Lassi Kallio",
+      "seasons": 20,
+      "years": "2010-2025",
+      "games": 423
     }
   ],
   "most_connected": [

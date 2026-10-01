@@ -146,23 +146,22 @@ def extract_year_from_season_id(season_id: str) -> int | None:
     return None
 
 
-def normalize_season_id(season_id: str) -> str:
+def normalize_season_id(season_id: str, season_type_map: dict) -> str:
     """Normalize a season ID to its base season for counting unique seasons.
     
     Strips tour/final suffixes (.T1-.T4, .F, .Finaa, .1F) to get the base season.
-    Year-only IDs (like '2012') are normalized to '.1' base season (e.g., '2012.1')
-    to avoid counting them as separate from the actual summer season.
+    Uses the season_type_map to determine if a season is summer or winter.
     
-    Summer sub-seasons (.2, .3, .4) are normalized to .1 to count as the main summer season.
-    Winter seasons (Talvi*, Hallitour*) are kept distinct from summer seasons.
+    Every year has ONE summer season and ONE winter season. Tours and Finals
+    are part of the main season, not separate.
     
     Examples:
-        '2011.1.T1' -> '2011.1'
-        '2012.T4' -> '2012.1'
-        '2016.1.F' -> '2016.1'
-        '2012' -> '2012.1'
-        '2007.2' -> '2007.1' (summer sub-season -> main summer)
-        '2014.3' -> '2014.1' (summer sub-season -> main summer)
+        '2011.1.T1' -> '2011.1' (summer tour -> summer)
+        '2012.T4' -> '2012' (summer tour -> summer, year-only)
+        '2016.1.F' -> '2016.1' (summer final -> summer)
+        '2012' -> '2012' (summer, year-only kept as-is)
+        '2007.2' -> '2007.2' (winter, kept distinct from summer .1)
+        '2014.3' -> '2014.3' (winter, kept distinct from summer .1)
         'Hallitour2' -> 'Hallitour2' (winter, kept distinct)
         'Talvi2016' -> 'Talvi2016' (winter, kept distinct)
     """
@@ -172,19 +171,6 @@ def normalize_season_id(season_id: str) -> str:
     season_id = re.sub(r'\.Finaa$', '', season_id)
     season_id = re.sub(r'\.1F$', '', season_id)
     season_id = re.sub(r'\.F$', '', season_id)
-    
-    # If the result is a pure year (e.g., '2012'), normalize to '.1' base season
-    if re.match(r'^\d{4}$', season_id):
-        season_id = season_id + '.1'
-    
-    # Normalize summer sub-seasons (.2, .3, .4) to .1 (main summer season)
-    # Only for numeric year seasons, not winter seasons
-    match = re.match(r'^(\d{4})\.(\d)$', season_id)
-    if match:
-        year = match.group(1)
-        suffix = match.group(2)
-        if suffix != '1':
-            season_id = year + '.1'
     
     return season_id
 
@@ -237,26 +223,22 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
     players = {}
     # Track display name preference (most common order)
     name_order_count = defaultdict(int)
-    # Build season type mapping from raw data, falling back to season list page
+    # Load season list page mapping as primary source of truth
+    # This was created by reading the actual season list page structure
+    mapping_file = BASE_DIR / "site_data" / "season_mapping.json"
+    page_mapping = {}
+    if mapping_file.exists():
+        with open(mapping_file) as f:
+            page_mapping = json.load(f)
+    
+    # Build fallback season_type_map from raw data for seasons not in page mapping
     season_type_map = {}
     for season_data in raw_data:
         sid = season_data.get("id", "")
         classified = season_data.get("classified", {})
         if isinstance(classified, dict):
             stype = classified.get("type", "unknown")
-            # pelikone classifies winter correctly, but summer as "unknown"
-            # We'll fix summer seasons using the season list page mapping
             season_type_map[sid] = stype
-    
-    # Load season list page mapping if available
-    mapping_file = BASE_DIR / "site_data" / "season_mapping.json"
-    if mapping_file.exists():
-        with open(mapping_file) as f:
-            page_mapping = json.load(f)
-        # Update season_type_map with page mapping for unknown types
-        for sid, info in page_mapping.items():
-            if season_type_map.get(sid, "unknown") == "unknown":
-                season_type_map[sid] = info["type"]
     
     def add_player(raw_name: str, season_id: str, year: int, team_name: str, 
                    games: int, goals: int, assists: int):
@@ -264,9 +246,6 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         canonical = canonicalize_name(raw_name)
         if not canonical:
             return
-        
-        # Normalize season ID for counting unique seasons
-        normalized_season = normalize_season_id(season_id)
         
         # Track name order for display name
         parts = [p for p in normalize_name(raw_name).split() if p]
@@ -278,6 +257,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 "seasons": [],
                 "years": set(),
                 "season_types": {"summer": set(), "winter": set(), "other": set()},
+                "season_count": 0,
                 "first_year": year,
                 "last_year": year,
                 "games": 0,
@@ -288,11 +268,16 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
             }
         
         p = players[canonical]
-        if normalized_season not in p["seasons"]:
-            p["seasons"].append(normalized_season)
+        # Track unique season IDs for display
+        if season_id not in p["seasons"]:
+            p["seasons"].append(season_id)
         p["years"].add(year)
-        # Track season type
-        stype = season_type_map.get(season_id, "unknown")
+        # Track season type - use page_mapping as primary source of truth
+        normalized_for_lookup = normalize_season_id(season_id, season_type_map)
+        # Try normalized ID in page mapping first, then raw ID, then fallback map
+        stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
+                 page_mapping.get(season_id, {}).get("type") or
+                 season_type_map.get(season_id, "unknown"))
         if stype == "winter":
             p["season_types"]["winter"].add(year)
         elif stype == "summer":
@@ -455,7 +440,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         
         result[display] = {
             "seasons": sorted(p["seasons"]),
-            "season_count": len(p["seasons"]),
+            "season_count": len(p["season_types"]["summer"]) + len(p["season_types"]["winter"]),
             "years": sorted(p["years"]),
             "year_count": len(p["years"]),
             "first_year": p["first_year"],
