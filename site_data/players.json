@@ -155,7 +155,7 @@
     "year_count": 7,
     "first_year": 2006,
     "last_year": 2013,
-    "games": 45,
+    "games": 46,
     "goals": 13,
     "assists": 6,
     "total": 19,
@@ -630,7 +630,7 @@
     "year_count": 3,
     "first_year": 2006,
     "last_year": 2008,
-    "games": 78,
+    "games": 79,
     "goals": 36,
     "assists": 52,
     "total": 88,
@@ -876,7 +876,7 @@
     "year_count": 2,
     "first_year": 2006,
     "last_year": 2007,
-    "games": 22,
+    "games": 24,
     "goals": 20,
     "assists": 8,
     "total": 28,
@@ -950,14 +950,16 @@
     "year_count": 13,
     "first_year": 2006,
     "last_year": 2019,
-    "games": 255,
+    "games": 257,
     "goals": 213,
     "assists": 129,
     "total": 342,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
       "Otso 3",
+      "Otso Grizzly",
       "Otso Polar"
     ],
     "season_types": {
@@ -1080,11 +1082,14 @@
     "assists": 225,
     "total": 314,
     "teams": [
+      "Hukka",
+      "Lätty - Otso 3",
       "Otso",
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar"
+      "Otso Polar",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -1142,7 +1147,7 @@
     "year_count": 1,
     "first_year": 2007,
     "last_year": 2007,
-    "games": 0,
+    "games": 1,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -1194,7 +1199,7 @@
     "year_count": 1,
     "first_year": 2007,
     "last_year": 2007,
-    "games": 2,
+    "games": 3,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -1220,7 +1225,7 @@
     "year_count": 1,
     "first_year": 2007,
     "last_year": 2007,
-    "games": 8,
+    "games": 10,
     "goals": 0,
     "assists": 1,
     "total": 1,
@@ -1332,7 +1337,8 @@
       "Otso",
       "Otso 1",
       "Otso 2",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -1395,7 +1401,7 @@
     "year_count": 1,
     "first_year": 2007,
     "last_year": 2007,
-    "games": 16,
+    "games": 18,
     "goals": 11,
     "assists": 0,
     "total": 11,
@@ -1427,7 +1433,7 @@
     "year_count": 4,
     "first_year": 2007,
     "last_year": 2011,
-    "games": 24,
+    "games": 26,
     "goals": 8,
     "assists": 3,
     "total": 11,
@@ -1565,7 +1571,7 @@
     "year_count": 20,
     "first_year": 2007,
     "last_year": 2026,
-    "games": 688,
+    "games": 689,
     "goals": 698,
     "assists": 929,
     "total": 1627,
@@ -1663,7 +1669,7 @@
     "year_count": 7,
     "first_year": 2007,
     "last_year": 2014,
-    "games": 158,
+    "games": 160,
     "goals": 56,
     "assists": 54,
     "total": 110,
@@ -1752,6 +1758,7 @@
     "teams": [
       "Otso",
       "Otso 2",
+      "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -1856,7 +1863,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -1969,13 +1977,15 @@
     "year_count": 13,
     "first_year": 2008,
     "last_year": 2020,
-    "games": 339,
+    "games": 341,
     "goals": 261,
     "assists": 201,
     "total": 462,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
+      "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -2074,13 +2084,15 @@
     "year_count": 14,
     "first_year": 2008,
     "last_year": 2021,
-    "games": 281,
+    "games": 283,
     "goals": 101,
     "assists": 87,
     "total": 188,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
+      "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -2565,7 +2577,7 @@
     "year_count": 13,
     "first_year": 2010,
     "last_year": 2025,
-    "games": 422,
+    "games": 423,
     "goals": 249,
     "assists": 394,
     "total": 643,
@@ -2573,7 +2585,8 @@
       "Otso",
       "Otso 1",
       "Otso 2",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -2693,7 +2706,8 @@
       "Otso",
       "Otso 1",
       "Otso 2",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -2808,7 +2822,7 @@
     "year_count": 15,
     "first_year": 2011,
     "last_year": 2025,
-    "games": 520,
+    "games": 521,
     "goals": 360,
     "assists": 371,
     "total": 731,
@@ -2894,11 +2908,12 @@
     "year_count": 7,
     "first_year": 2011,
     "last_year": 2017,
-    "games": 131,
+    "games": 133,
     "goals": 128,
     "assists": 20,
     "total": 148,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
       "Otso 3"
@@ -3244,13 +3259,15 @@
     "year_count": 4,
     "first_year": 2011,
     "last_year": 2019,
-    "games": 48,
+    "games": 50,
     "goals": 37,
     "assists": 10,
     "total": 47,
     "teams": [
+      "Hukka",
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -3365,11 +3382,12 @@
     "year_count": 8,
     "first_year": 2011,
     "last_year": 2018,
-    "games": 224,
+    "games": 225,
     "goals": 116,
     "assists": 231,
     "total": 347,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2"
     ],
@@ -3456,11 +3474,12 @@
     "year_count": 6,
     "first_year": 2011,
     "last_year": 2018,
-    "games": 59,
+    "games": 60,
     "goals": 4,
     "assists": 40,
     "total": 44,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2"
     ],
@@ -3550,7 +3569,8 @@
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar"
+      "Otso Polar",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -3891,14 +3911,16 @@
     "year_count": 15,
     "first_year": 2012,
     "last_year": 2026,
-    "games": 501,
+    "games": 503,
     "goals": 432,
     "assists": 254,
     "total": 686,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 1",
       "Otso 2",
+      "Otso 3",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -4095,10 +4117,13 @@
     "assists": 107,
     "total": 230,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
       "Otso 3",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -4218,11 +4243,13 @@
     "year_count": 12,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 336,
+    "games": 338,
     "goals": 134,
     "assists": 123,
     "total": 257,
     "teams": [
+      "Hukka",
+      "Lätty - Otso 3",
       "Otso",
       "Otso 2",
       "Otso 3",
@@ -4454,6 +4481,7 @@
     "assists": 45,
     "total": 65,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
       "Otso 3"
@@ -4565,7 +4593,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -4645,14 +4674,16 @@
     "year_count": 7,
     "first_year": 2013,
     "last_year": 2019,
-    "games": 169,
+    "games": 171,
     "goals": 126,
     "assists": 52,
     "total": 178,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 2",
       "Otso 3",
+      "Otso Grizzly",
       "Otso Polar"
     ],
     "season_types": {
@@ -4697,6 +4728,7 @@
     "total": 31,
     "teams": [
       "Otso",
+      "Otso 2",
       "Otso 3"
     ],
     "season_types": {
@@ -4878,7 +4910,8 @@
       "Otso",
       "Otso 1",
       "Otso 2",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -5023,7 +5056,8 @@
     "total": 23,
     "teams": [
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -5089,7 +5123,8 @@
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar"
+      "Otso Polar",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -5151,9 +5186,12 @@
     "assists": 14,
     "total": 76,
     "teams": [
+      "Hukka",
+      "Lätty - Otso 3",
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -5192,7 +5230,8 @@
     "total": 15,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Terror - Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -5224,6 +5263,7 @@
     "assists": 22,
     "total": 58,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 3"
     ],
@@ -5376,6 +5416,7 @@
     "assists": 4,
     "total": 9,
     "teams": [
+      "Hukka",
       "Otso 3"
     ],
     "season_types": {
@@ -5430,6 +5471,7 @@
     "total": 18,
     "teams": [
       "Otso",
+      "Otso 2",
       "Otso 3"
     ],
     "season_types": {
@@ -5478,10 +5520,12 @@
     "assists": 57,
     "total": 122,
     "teams": [
+      "Lätty - Otso 3",
       "Otso",
       "Otso 2",
       "Otso 3",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -5520,6 +5564,7 @@
     "assists": 10,
     "total": 24,
     "teams": [
+      "Lätty - Otso 3",
       "Otso 3"
     ],
     "season_types": {
@@ -5551,6 +5596,7 @@
     "assists": 7,
     "total": 46,
     "teams": [
+      "Lätty - Otso 3",
       "Otso",
       "Otso 3"
     ],
@@ -5627,6 +5673,7 @@
     "teams": [
       "Otso",
       "Otso 2",
+      "Otso Grizzly",
       "Otso Polar"
     ],
     "season_types": {
@@ -5751,6 +5798,7 @@
     "assists": 4,
     "total": 17,
     "teams": [
+      "Otso",
       "Otso 2",
       "Otso Polar"
     ],
@@ -5785,8 +5833,10 @@
     "assists": 11,
     "total": 42,
     "teams": [
+      "Otso",
       "Otso 2",
-      "Otso Grizzly"
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -5816,6 +5866,7 @@
     "assists": 4,
     "total": 5,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -6045,7 +6096,8 @@
     "assists": 31,
     "total": 58,
     "teams": [
-      "Otso"
+      "Otso",
+      "Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -6156,7 +6208,8 @@
     "total": 65,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -6246,7 +6299,8 @@
     "total": 30,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -6326,15 +6380,18 @@
     "year_count": 14,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 426,
+    "games": 427,
     "goals": 527,
     "assists": 223,
     "total": 750,
     "teams": [
+      "Hukka",
       "Otso",
       "Otso 1",
       "Otso 2",
-      "Otso Grizzly"
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -6375,6 +6432,7 @@
     "assists": 22,
     "total": 69,
     "teams": [
+      "Otso",
       "Otso 2",
       "Otso 3"
     ],
@@ -6414,6 +6472,7 @@
     "assists": 22,
     "total": 42,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -6703,6 +6762,7 @@
     "assists": 0,
     "total": 0,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -6761,6 +6821,7 @@
     "assists": 0,
     "total": 12,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -6788,6 +6849,7 @@
     "assists": 1,
     "total": 3,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -6821,7 +6883,8 @@
     "total": 50,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -6896,7 +6959,8 @@
     "total": 4,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -6975,6 +7039,7 @@
     "assists": 0,
     "total": 1,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -7001,6 +7066,7 @@
     "assists": 2,
     "total": 6,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -7030,6 +7096,7 @@
     "assists": 2,
     "total": 10,
     "teams": [
+      "Otso",
       "Otso 2",
       "Otso 3"
     ],
@@ -7060,6 +7127,7 @@
     "assists": 3,
     "total": 5,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -7086,6 +7154,7 @@
     "assists": 1,
     "total": 3,
     "teams": [
+      "Otso",
       "Otso 2"
     ],
     "season_types": {
@@ -7147,6 +7216,7 @@
     "total": 15,
     "teams": [
       "Otso",
+      "Otso 2",
       "Otso 3"
     ],
     "season_types": {
@@ -7208,7 +7278,8 @@
     "assists": 1,
     "total": 5,
     "teams": [
-      "Otso"
+      "Otso",
+      "Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -7260,7 +7331,9 @@
     "assists": 0,
     "total": 7,
     "teams": [
-      "Otso 2"
+      "Otso",
+      "Otso 2",
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -7320,7 +7393,8 @@
     "assists": 3,
     "total": 18,
     "teams": [
-      "Otso"
+      "Otso",
+      "Otso 3"
     ],
     "season_types": {
       "summer": [],
@@ -7346,6 +7420,8 @@
     "assists": 0,
     "total": 0,
     "teams": [
+      "Otso",
+      "Otso 2",
       "Otso 3"
     ],
     "season_types": {
@@ -7496,31 +7572,16 @@
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2025,
+    "last_year": 2025,
     "games": 12,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "Lacy Theo": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
-    "games": 8,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso",
+      "Otso 3"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],
@@ -7532,13 +7593,155 @@
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2025,
+    "last_year": 2025,
     "games": 9,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "Lacy Theo": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2025,
+    "last_year": 2025,
+    "games": 8,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "chandika chandrasekeram": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "pekka sääskilahti": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "luhtala roope": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "eerikki mäki": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "leinikka taavi": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "sampo smeds": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],
@@ -7550,31 +7753,15 @@
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2013,
+    "last_year": 2013,
     "games": 0,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "dmitri podolsky": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso 3"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],
@@ -7586,31 +7773,35 @@
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 1,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],
       "other": []
     }
   },
-  "alexey zhebel": {
+  "dmitri podolsky": {
     "seasons": [],
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 0,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],
@@ -7622,13 +7813,15 @@
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 0,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],
@@ -7640,13 +7833,35 @@
     "season_count": 0,
     "years": [],
     "year_count": 0,
-    "first_year": 2018,
-    "last_year": 2018,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 0,
     "goals": 0,
     "assists": 0,
     "total": 0,
-    "teams": [],
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "alexey zhebel": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
     "season_types": {
       "summer": [],
       "winter": [],

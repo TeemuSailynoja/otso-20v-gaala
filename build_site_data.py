@@ -46,11 +46,11 @@ def normalize_name(name: str) -> str:
 
 
 def is_otso_team(name: str) -> bool:
-    """Check if a team name belongs to Otso main/2/3/Grizzly/Polar (excludes Akatemia)."""
+    """Check if a team name belongs to Otso main/2/3/Grizzly/Polar/Hukka (excludes Akatemia)."""
     lower = name.lower()
     if "akatemia" in lower:
         return False
-    return any(t in lower for t in ["otso", "grizzly", "polar"])
+    return any(t in lower for t in ["otso", "grizzly", "polar", "hukka"])
 
 
 def is_otso_akatemia(name: str) -> bool:
@@ -81,6 +81,8 @@ def canonicalize_team_name(name: str) -> str:
         return 'Otso Grizzly'
     elif 'polar' in lower:
         return 'Otso Polar'
+    elif 'hukka' in lower:
+        return 'Hukka'
     elif 'akatemia' in lower and 'otso' in lower:
         return 'Otso Akatemia'
     elif 'akatemia' in lower:
@@ -292,6 +294,9 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         if not gp:
             continue
         
+        season_id = game.get("season_id", "")
+        year = extract_year_from_season_id(season_id)
+        
         home_is_otso = is_otso_team(gp.get("home_team", ""))
         away_is_otso = is_otso_team(gp.get("away_team", ""))
         home_is_otso_akatemia = is_otso_akatemia(gp.get("home_team", ""))
@@ -318,10 +323,25 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         for canon in otso_canonicals:
             if canon in players:
                 players[canon]["games"] += 1
+                # Add team if this player appeared for a different team (e.g., Hukka)
+                player_team = ""
+                if home_is_otso:
+                    player_team = canonicalize_team_name(gp.get("home_team", ""))
+                elif away_is_otso:
+                    player_team = canonicalize_team_name(gp.get("away_team", ""))
+                if player_team:
+                    players[canon]["teams"].add(player_team)
         
         # Add new Otso players from roster who weren't in raw data
         for canon in otso_canonicals:
             if canon not in players:
+                # Determine which team this player belongs to
+                player_team = ""
+                if home_is_otso:
+                    player_team = canonicalize_team_name(gp.get("home_team", ""))
+                elif away_is_otso:
+                    player_team = canonicalize_team_name(gp.get("away_team", ""))
+                
                 players[canon] = {
                     "seasons": [],
                     "years": set(),
@@ -332,7 +352,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     "goals": 0,
                     "assists": 0,
                     "total": 0,
-                    "teams": set(),
+                    "teams": {player_team} if player_team else set(),
                 }
     
     # Merge known name duplicates (case-insensitive dedup already handles most)

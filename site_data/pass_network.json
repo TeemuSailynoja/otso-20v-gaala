@@ -67,7 +67,7 @@
       "Heikki Väänänen": 1
     },
     "Esko Saura": {
-      "Tuomo Sirkka": 1,
+      "Tuomo Sirkka": 2,
       "Santeri Salo": 2,
       "Timo Idänheimo": 1,
       "Damijan Marin": 1,
@@ -233,6 +233,8 @@
     },
     "Tuomo Sirkka": {
       "Esa Pensala": 1,
+      "Julius Rissanen": 2,
+      "Esko Saura": 1,
       "Jukka Mäki": 2,
       "Heikki Väänänen": 2,
       "Ilkka Vaahtoranta": 4,
@@ -346,11 +348,12 @@
       "Juha Mertanen": 2
     },
     "Jukka Mäki": {
+      "Janne Aittomäki": 1,
+      "Juuso Parkkinen": 3,
       "Heikki Väänänen": 2,
       "Kimmo Berg": 3,
       "Ville Rantamaula": 1,
-      "Ari Rantalainen": 1,
-      "Juuso Parkkinen": 1
+      "Ari Rantalainen": 1
     },
     "Juuso Parkkinen": {
       "Ilkka Vaahtoranta": 6,
@@ -446,6 +449,7 @@
       "Kimmo Berg": 1
     },
     "Janne Aittomäki": {
+      "Juuso Parkkinen": 1,
       "Ari Rantalainen": 1
     },
     "Jarno Sihvo": {
@@ -509,7 +513,7 @@
       "Emil Videman": 33,
       "Tomi Sandberg": 128,
       "Jesse Saastamoinen": 87,
-      "Lassi Kallio": 83,
+      "Lassi Kallio": 87,
       "Erkka Niini": 122,
       "Kivi Knuuti": 20,
       "Touko Väänänen": 30,
@@ -520,7 +524,7 @@
       "Mikko Alitalo": 2,
       "Hugo Fournier": 14,
       "Jarno Sihvo": 54,
-      "Antti Elonheimo": 66,
+      "Antti Elonheimo": 68,
       "Oskari Vuorio": 70,
       "Santtu Lehto": 6,
       "Antti Järvi": 24,
@@ -536,7 +540,7 @@
       "Karli Kalpala": 24,
       "Juuso Parkkinen": 25,
       "Santeri Salo": 21,
-      "Jussi Kitusuo": 9,
+      "Jussi Kitusuo": 11,
       "Kasperi Lahti": 6,
       "Mikko Paanasalo": 14,
       "Ismo Sutela": 10,
@@ -546,8 +550,9 @@
       "Tuukka Koistinen": 10,
       "Pasi Tamminen": 5,
       "Adam Torda": 2,
+      "Eero Smeds": 11,
+      "Pekka Neuvo": 2,
       "Teemu Säilynoja": 2,
-      "Eero Smeds": 7,
       "Tapio Tiihonen": 1,
       "Olli Huotari": 2,
       "Antti Niinikoski": 8,
@@ -651,7 +656,7 @@
       "Patrick Potrykus": 2,
       "Roni Hotari": 16,
       "Artur Vaskio": 6,
-      "Oskari Vuorio": 44,
+      "Oskari Vuorio": 46,
       "Ilkka Vaahtoranta": 5,
       "Antti Elonheimo": 4,
       "Juuso Parkkinen": 2,
@@ -661,8 +666,8 @@
       "Karli Kalpala": 6,
       "Antti Järvi": 10,
       "Timo Vaskio": 10,
-      "Tuukka Koistinen": 11,
-      "Jussi Kitusuo": 6,
+      "Tuukka Koistinen": 13,
+      "Jussi Kitusuo": 10,
       "Teemu Säilynoja": 4,
       "Mikko Nietosvaara": 2,
       "Yrjänä Hynninen": 18,
@@ -688,13 +693,13 @@
       "Alexander Lehtonen": 4,
       "Tomi Sandberg": 3,
       "Simo Siitonen": 2,
-      "Santeri Salo": 9,
+      "Santeri Salo": 11,
       "Erkka Niini": 6,
       "Patrick Potrykus": 2,
       "Jaakko Junttu": 8,
       "Ilkka Vaahtoranta": 6,
       "Yrjänä Hynninen": 2,
-      "Antti Elonheimo": 6,
+      "Antti Elonheimo": 8,
       "Karli Kalpala": 6,
       "Lassi Kallio": 2,
       "Antti Niinikoski": 1,
@@ -817,6 +822,7 @@
       "Ilkka Rämö": 6,
       "Yrjänä Hynninen": 10,
       "Santeri Salo": 9,
+      "Eero Smeds": 2,
       "Juuso Parkkinen": 2,
       "Adrian Hornsby": 2,
       "Pasi Tamminen": 7,
@@ -912,7 +918,7 @@
       "Ismo Sutela": 6,
       "Mikko Nietosvaara": 2,
       "Tommi Lehto": 9,
-      "Santeri Salo": 9,
+      "Santeri Salo": 11,
       "Tuukka Koistinen": 6,
       "Yrjänä Hynninen": 2,
       "Pekka Neuvo": 2,
@@ -1084,7 +1090,7 @@
       "Erkka Niini": 2,
       "Pasi Tamminen": 4,
       "Ilkka Rämö": 6,
-      "Eero Smeds": 1
+      "Eero Smeds": 3
     },
     "Antti Järvi": {
       "Ilkka Vaahtoranta": 8,
@@ -1256,19 +1262,19 @@
       "Tommi Palomäki": 2,
       "Jasu Vehtari": 4,
       "Jali Veranen": 2,
-      "Santeri Salo": 38,
+      "Santeri Salo": 40,
       "Tommi Taivalkoski": 2,
       "George Kuvaja": 2,
       "Eero Metso": 2,
       "Karli Kalpala": 11,
       "Šimon Kadlec": 2,
-      "Jussi Kitusuo": 8,
+      "Jussi Kitusuo": 10,
       "Mikko Paanasalo": 2,
       "Tommi Lehto": 4,
       "Juuso Parkkinen": 2,
       "Pasi Tamminen": 2,
       "Ismo Sutela": 2,
-      "Pekka Neuvo": 2,
+      "Pekka Neuvo": 4,
       "Eero Smeds": 4,
       "Damijan Marin": 1,
       "Teemu Säilynoja": 3,
@@ -1479,7 +1485,7 @@
     "Jussi Kitusuo": {
       "Antti Järvi": 4,
       "Oskari Vuorio": 3,
-      "Santeri Salo": 2,
+      "Santeri Salo": 6,
       "Tomi Sandberg": 6,
       "Juuso Parkkinen": 2,
       "Totti Brunila": 2,
@@ -2214,13 +2220,17 @@
       "Ilari Visuri": 1,
       "Jesper Pettersson": 1
     },
+    "luhtala roope": {
+      "Timo Idänheimo": 1,
+      "Jukka Mäki": 1
+    },
     "nikolaev nikolay": {
       "dmitri podolsky": 1
     },
-    "alexey zhebel": {
+    "smolov viktor": {
       "nikolaev nikolay": 1
     },
-    "smolov viktor": {
+    "alexey zhebel": {
       "nikolaev nikolay": 1
     }
   },
@@ -2271,6 +2281,7 @@
       "Antti Niinikoski": 3,
       "Heikki Väänänen": 3,
       "Timo Vaskio": 1,
+      "Tuomo Sirkka": 1,
       "Ville Rantamaula": 1,
       "Ilkka Vaahtoranta": 2,
       "Tommi Palomäki": 1,
@@ -2287,7 +2298,7 @@
       "Roni Hotari": 10,
       "Timo Idänheimo": 1,
       "Tommi Palomäki": 2,
-      "Santeri Salo": 11,
+      "Santeri Salo": 13,
       "Tommi Lehto": 2,
       "Lassi Kallio": 5,
       "Tomi Sandberg": 5,
@@ -2321,7 +2332,8 @@
       "Arto Heikkilä": 2,
       "Tommi Lehto": 2,
       "Pasi Tamminen": 2,
-      "Damijan Marin": 7
+      "Damijan Marin": 7,
+      "luhtala roope": 1
     },
     "Olli Huotari": {
       "Antti Niinikoski": 1,
@@ -2355,6 +2367,7 @@
     },
     "Julius Rissanen": {
       "Antti Niinikoski": 1,
+      "Tuomo Sirkka": 2,
       "Aki Vehtari": 1,
       "Timo Idänheimo": 1,
       "Viljami Aittomäki": 1,
@@ -2552,9 +2565,10 @@
       "Ville Rantamaula": 1,
       "Ilkka Vaahtoranta": 26,
       "Juha Jalovaara": 3,
-      "Jukka Mäki": 1,
+      "Jukka Mäki": 3,
       "Juuso Parkkinen": 1,
       "Aki Vehtari": 7,
+      "Janne Aittomäki": 1,
       "Jarno Sihvo": 8,
       "Roni Hotari": 25,
       "Timo Idänheimo": 1,
@@ -2693,11 +2707,11 @@
       "Timo Idänheimo": 2,
       "Tommi Palomäki": 1,
       "Ora Visuri": 1,
-      "Tuukka Koistinen": 9,
+      "Tuukka Koistinen": 11,
       "Tommi Lehto": 1,
       "Lassi Kallio": 9,
       "Tomi Sandberg": 4,
-      "Antti Elonheimo": 9,
+      "Antti Elonheimo": 11,
       "Erkka Niini": 6,
       "Pasi Tamminen": 10,
       "Ekku Rytkönen": 1,
@@ -2707,11 +2721,11 @@
       "Ilkka Rämö": 4,
       "Damijan Marin": 9,
       "Adrian Hornsby": 2,
-      "Oskari Vuorio": 38,
+      "Oskari Vuorio": 40,
       "Jesse Saastamoinen": 6,
       "Karli Kalpala": 2,
       "Yrjänä Hynninen": 14,
-      "Jussi Kitusuo": 2,
+      "Jussi Kitusuo": 6,
       "Patrick Potrykus": 4,
       "Pekka Kinnunen": 6,
       "Jasu Vehtari": 2,
@@ -2869,7 +2883,8 @@
       "Tuomo Sirkka": 2,
       "Ville Rantamaula": 3,
       "Ilkka Vaahtoranta": 3,
-      "Juha Jalovaara": 3
+      "Juha Jalovaara": 3,
+      "luhtala roope": 1
     },
     "Juha Mertanen": {
       "Ari Rantalainen": 7,
@@ -2880,7 +2895,7 @@
     "Tuomo Sirkka": {
       "Ari Rantalainen": 9,
       "Esa Pensala": 2,
-      "Esko Saura": 1,
+      "Esko Saura": 2,
       "Hannu Saarinen": 1,
       "Heikki Väänänen": 3,
       "Kimmo Berg": 4,
@@ -3096,8 +3111,8 @@
       "Timo Vaskio": 4,
       "Ilkka Vaahtoranta": 9,
       "Juuso Parkkinen": 8,
-      "Roni Hotari": 9,
-      "Santeri Salo": 6,
+      "Roni Hotari": 11,
+      "Santeri Salo": 10,
       "Tommi Lehto": 2,
       "Lassi Kallio": 5,
       "Tomi Sandberg": 10,
@@ -3109,7 +3124,7 @@
       "Ilkka Rämö": 6,
       "Damijan Marin": 14,
       "Adrian Hornsby": 2,
-      "Oskari Vuorio": 8,
+      "Oskari Vuorio": 10,
       "Jesse Saastamoinen": 8,
       "Teemu Säilynoja": 2,
       "Waltteri Wickström": 8,
@@ -3124,7 +3139,7 @@
       "Juuso Parkkinen": 2,
       "Aki Vehtari": 1,
       "Jarno Sihvo": 48,
-      "Roni Hotari": 83,
+      "Roni Hotari": 87,
       "Tommi Palomäki": 1,
       "Santeri Salo": 6,
       "Tuukka Koistinen": 2,
@@ -3191,7 +3206,7 @@
       "Roni Hotari": 70,
       "Timo Idänheimo": 3,
       "Tommi Palomäki": 7,
-      "Santeri Salo": 44,
+      "Santeri Salo": 46,
       "Tuukka Koistinen": 5,
       "Tommi Lehto": 3,
       "Lassi Kallio": 15,
@@ -3676,9 +3691,9 @@
       "Juuso Parkkinen": 4,
       "Aki Vehtari": 4,
       "Jarno Sihvo": 40,
-      "Roni Hotari": 66,
+      "Roni Hotari": 68,
       "Santeri Salo": 4,
-      "Tuukka Koistinen": 6,
+      "Tuukka Koistinen": 8,
       "Tommi Lehto": 3,
       "Lassi Kallio": 45,
       "Tomi Sandberg": 103,
@@ -3907,13 +3922,14 @@
       "Juuso Parkkinen": 3,
       "Aki Vehtari": 18,
       "Jarno Sihvo": 5,
-      "Roni Hotari": 7,
+      "Roni Hotari": 11,
       "Santeri Salo": 2,
       "Tuukka Koistinen": 4,
       "Tommi Lehto": 3,
+      "Lassi Kallio": 2,
       "Antti Elonheimo": 1,
       "Pasi Tamminen": 3,
-      "Ville Haaramo": 1,
+      "Ville Haaramo": 3,
       "Ilkka Rämö": 4,
       "Adrian Hornsby": 2,
       "Oskari Vuorio": 4,
@@ -3947,12 +3963,13 @@
       "Ilkka Vaahtoranta": 2,
       "Juuso Parkkinen": 2,
       "Aki Vehtari": 2,
+      "Roni Hotari": 2,
       "Tommi Lehto": 4,
       "Antti Elonheimo": 2,
       "Erkka Niini": 2,
       "Ismo Sutela": 10,
       "Ilkka Rämö": 6,
-      "Oskari Vuorio": 2,
+      "Oskari Vuorio": 4,
       "Jesse Saastamoinen": 2,
       "Karli Kalpala": 2,
       "Ville Antila": 2
@@ -4044,6 +4061,9 @@
       "Adam Torda": 2,
       "Emil Videman": 2,
       "Mares Vaclav": 4
+    },
+    "Janne Aittomäki": {
+      "Jukka Mäki": 1
     },
     "Mikko Paanasalo": {
       "Juuso Parkkinen": 2,
@@ -4461,8 +4481,8 @@
       "nikolaev nikolay": 1
     },
     "nikolaev nikolay": {
-      "alexey zhebel": 1,
-      "smolov viktor": 1
+      "smolov viktor": 1,
+      "alexey zhebel": 1
     }
   }
 }
