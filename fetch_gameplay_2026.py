@@ -98,9 +98,11 @@ for gid in new_to_add:
     
     print(f"  Found {len(points)} points")
     
-    # Get player rosters from scoreboards
+    # Get player rosters - handle both modern (div.scoreboard) and old (table with caption) formats
     home_players = []
     away_players = []
+    
+    # Modern format: div.gameplay-scoreboard
     scoreboards = soup.find_all("div", class_="gameplay-scoreboard")
     for sb in scoreboards:
         team_name = sb.find("span", class_="gameplay-team-name")
@@ -113,9 +115,8 @@ for gid in new_to_add:
             else:
                 continue
             
-            # Parse player rows
             rows = sb.find_all("tr")
-            for row in rows[1:]:  # Skip header
+            for row in rows[1:]:
                 tds = row.find_all("td")
                 if len(tds) >= 5:
                     name_raw = tds[1].get_text(strip=True)
@@ -129,6 +130,69 @@ for gid in new_to_add:
                         "assists": int(assists) if assists.isdigit() else 0,
                         "goals": int(goals) if goals.isdigit() else 0,
                         "total": int(total) if total.isdigit() else 0,
+                    }
+                    
+                    if is_home:
+                        home_players.append(player)
+                    else:
+                        away_players.append(player)
+    
+    # Old format: table with caption (for pre-2015 games)
+    if not home_players and not away_players:
+        tables = soup.find_all("table")
+        for table in tables:
+            caption = table.find("caption")
+            if not caption:
+                continue
+            team = caption.get_text(strip=True)
+            if team == home_team:
+                is_home = True
+            elif team == away_team:
+                is_home = False
+            else:
+                continue
+            
+            rows = table.find_all("tr")
+            for row in rows[1:]:
+                tds = row.find_all("td")
+                if len(tds) >= 6:
+                    name_raw = tds[1].get_text(strip=True)
+                    name = re.sub(r'^#\d+\s*', '', name_raw).strip()
+                    if not name:
+                        continue
+                    # Older format has goals/assists in column 4/5 with decimal values
+                    goals_raw = tds[4].get_text(strip=True)
+                    assists_raw = tds[3].get_text(strip=True)
+                    total_raw = tds[5].get_text(strip=True)
+                    
+                    # Extract integer goals from "X.XX goals" or "X.XX"
+                    goals = 0
+                    if goals_raw:
+                        gm = re.search(r'([\d.]+)\s*goals', goals_raw)
+                        if gm:
+                            goals = int(float(gm.group(1)))
+                        else:
+                            try:
+                                goals = int(float(goals_raw))
+                            except ValueError:
+                                pass
+                    
+                    assists = 0
+                    if assists_raw:
+                        am = re.search(r'([\d.]+)\s*assists', assists_raw)
+                        if am:
+                            assists = int(float(am.group(1)))
+                        else:
+                            try:
+                                assists = int(float(assists_raw))
+                            except ValueError:
+                                pass
+                    
+                    player = {
+                        "name": name,
+                        "assists": assists,
+                        "goals": goals,
+                        "total": 0,
                     }
                     
                     if is_home:
