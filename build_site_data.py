@@ -12,6 +12,7 @@ Reads raw scraped data and gameplay data, produces JSON files for the static sit
 
 import json
 import os
+import re
 import sys
 import glob
 from collections import defaultdict
@@ -145,6 +146,49 @@ def extract_year_from_season_id(season_id: str) -> int | None:
     return None
 
 
+def normalize_season_id(season_id: str) -> str:
+    """Normalize a season ID to its base season for counting unique seasons.
+    
+    Strips tour/final suffixes (.T1-.T4, .F, .Finaa, .1F) to get the base season.
+    Year-only IDs (like '2012') are normalized to '.1' base season (e.g., '2012.1')
+    to avoid counting them as separate from the actual summer season.
+    
+    Summer sub-seasons (.2, .3, .4) are normalized to .1 to count as the main summer season.
+    Winter seasons (Talvi*, Hallitour*) are kept distinct from summer seasons.
+    
+    Examples:
+        '2011.1.T1' -> '2011.1'
+        '2012.T4' -> '2012.1'
+        '2016.1.F' -> '2016.1'
+        '2012' -> '2012.1'
+        '2007.2' -> '2007.1' (summer sub-season -> main summer)
+        '2014.3' -> '2014.1' (summer sub-season -> main summer)
+        'Hallitour2' -> 'Hallitour2' (winter, kept distinct)
+        'Talvi2016' -> 'Talvi2016' (winter, kept distinct)
+    """
+    # Strip tour suffixes: .T1, .T2, .T3, .T4
+    season_id = re.sub(r'\.T[1-4]$', '', season_id)
+    # Strip final suffixes: .F, .Finaa, .1F, .Finaa
+    season_id = re.sub(r'\.Finaa$', '', season_id)
+    season_id = re.sub(r'\.1F$', '', season_id)
+    season_id = re.sub(r'\.F$', '', season_id)
+    
+    # If the result is a pure year (e.g., '2012'), normalize to '.1' base season
+    if re.match(r'^\d{4}$', season_id):
+        season_id = season_id + '.1'
+    
+    # Normalize summer sub-seasons (.2, .3, .4) to .1 (main summer season)
+    # Only for numeric year seasons, not winter seasons
+    match = re.match(r'^(\d{4})\.(\d)$', season_id)
+    if match:
+        year = match.group(1)
+        suffix = match.group(2)
+        if suffix != '1':
+            season_id = year + '.1'
+    
+    return season_id
+
+
 def load_raw_data() -> list[dict]:
     """Load all raw season JSON files."""
     all_data = []
@@ -221,6 +265,9 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         if not canonical:
             return
         
+        # Normalize season ID for counting unique seasons
+        normalized_season = normalize_season_id(season_id)
+        
         # Track name order for display name
         parts = [p for p in normalize_name(raw_name).split() if p]
         if len(parts) >= 2:
@@ -241,8 +288,8 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
             }
         
         p = players[canonical]
-        if season_id not in p["seasons"]:
-            p["seasons"].append(season_id)
+        if normalized_season not in p["seasons"]:
+            p["seasons"].append(normalized_season)
         p["years"].add(year)
         # Track season type
         stype = season_type_map.get(season_id, "unknown")

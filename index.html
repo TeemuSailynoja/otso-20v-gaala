@@ -172,12 +172,20 @@
         .hero-stat-value.orange { color: var(--orange); }
         .hero-stat-value.blue { color: var(--blue); }
         .hero-stat-value.pink { color: var(--pink); }
+        .hero-stat-value.gold { color: var(--gold); }
+        .hero-stat-value.green { color: var(--green); }
         .hero-stat-label {
             font-size: 0.8rem;
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 0.4rem;
+        }
+        .hero-divider {
+            width: 1px;
+            background: var(--border);
+            align-self: center;
+            margin: 0 1rem;
         }
         .scroll-arrow {
             margin-top: 3rem;
@@ -592,22 +600,30 @@
             <div class="hero-content">
                 <div class="hero-badge">Est. 2006 · Espoo, Finland</div>
                 <h1>Otso<br>20 Years</h1>
-                <p class="hero-subtitle">Two decades of Ultimate Frisbee. 795 players. 483 games. One bear.</p>
+                <p class="hero-subtitle">Two decades of Ultimate Frisbee. 175 players. 798 matches. One bear.</p>
                 <div class="hero-stats">
+                    <div>
+                        <div class="hero-stat-value gold" id="stat-years">—</div>
+                        <div class="hero-stat-label">Years</div>
+                    </div>
+                    <div class="hero-divider"></div>
                     <div>
                         <div class="hero-stat-value orange" id="stat-players">—</div>
                         <div class="hero-stat-label">Players</div>
                     </div>
+                    <div class="hero-divider"></div>
                     <div>
                         <div class="hero-stat-value blue" id="stat-matches">—</div>
                         <div class="hero-stat-label">Matches</div>
                     </div>
+                    <div class="hero-divider"></div>
                     <div>
                         <div class="hero-stat-value pink" id="stat-wins">—</div>
                         <div class="hero-stat-label">Wins</div>
                     </div>
+                    <div class="hero-divider"></div>
                     <div>
-                        <div class="hero-stat-value orange" id="stat-winpct">—</div>
+                        <div class="hero-stat-value green" id="stat-winpct">—</div>
                         <div class="hero-stat-label">Win %</div>
                     </div>
                 </div>

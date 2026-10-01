@@ -222,64 +222,64 @@
   ],
   "longest_careers": [
     {
-      "name": "Roni Hotari",
-      "seasons": 63,
-      "years": "2007-2026",
-      "games": 689
-    },
-    {
-      "name": "Jarno Sihvo",
-      "seasons": 60,
-      "years": "2007-2026",
-      "games": 648
-    },
-    {
-      "name": "Aki Vehtari",
-      "seasons": 55,
-      "years": "2007-2025",
-      "games": 459
-    },
-    {
       "name": "Ilkka Vaahtoranta",
-      "seasons": 53,
+      "seasons": 23,
       "years": "2006-2026",
       "games": 571
     },
     {
+      "name": "Jarno Sihvo",
+      "seasons": 22,
+      "years": "2007-2026",
+      "games": 648
+    },
+    {
+      "name": "Roni Hotari",
+      "seasons": 22,
+      "years": "2007-2026",
+      "games": 689
+    },
+    {
+      "name": "Aki Vehtari",
+      "seasons": 20,
+      "years": "2007-2025",
+      "games": 459
+    },
+    {
       "name": "Tomi Sandberg",
-      "seasons": 50,
+      "seasons": 19,
       "years": "2010-2026",
       "games": 582
     },
     {
       "name": "Erkka Niini",
-      "seasons": 50,
+      "seasons": 18,
       "years": "2011-2026",
       "games": 533
     },
     {
       "name": "Antti Elonheimo",
-      "seasons": 47,
+      "seasons": 17,
       "years": "2011-2025",
       "games": 521
     },
     {
       "name": "Oskari Vuorio",
-      "seasons": 45,
+      "seasons": 17,
       "years": "2012-2026",
       "games": 503
     },
     {
-      "name": "Santeri Salo",
-      "seasons": 42,
-      "years": "2008-2020",
-      "games": 341
-    },
-    {
       "name": "Touko Väänänen",
-      "seasons": 42,
+      "seasons": 17,
       "years": "2012-2025",
       "games": 427
+    },
+    {
+      "name": "Tuukka Koistinen",
+      "seasons": 16,
+      "years": "2008-2021",
+      "games": 283
     }
   ],
   "most_connected": [
