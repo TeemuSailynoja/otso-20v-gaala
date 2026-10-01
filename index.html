@@ -1383,6 +1383,7 @@
 
     function initTeamEvolution() {
         const canvas = document.getElementById('particle-canvas');
+        console.log('[evolution] canvas:', canvas);
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         
@@ -1472,7 +1473,9 @@
 
         // Initial: all first-year players enter from right
         const firstYear = playerYears[yearList[0]] || [];
+        console.log('[evolution] firstYear:', firstYear.length, 'players in', yearList[0]);
         addPlayerParticles(firstYear, 'entering');
+        console.log('[evolution] total particles:', particles.length);
 
         // Season lines
         const seasonLines = [];
@@ -1513,6 +1516,7 @@
         }
 
         function animate() {
+            if (frameCount % 60 === 0) console.log('[evolution] frame:', frameCount, 'particles:', particles.length, 'canvas size:', w, 'x', h);
             ctx.clearRect(0, 0, w, h);
             const cx = w / 2;
             const cy = h / 2;
