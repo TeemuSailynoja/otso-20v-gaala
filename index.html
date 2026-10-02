@@ -1581,10 +1581,12 @@
             const currentSet = new Set(playerYears[currentYear] || []);
             const nextSet = new Set(playerYears[nextYear] || []);
 
-            // New players enter from right edge (minimal stagger, slower)
+            // New players enter from right edge (minimal stagger, slower, randomized order)
             const entering = [...nextSet].filter(n => !currentSet.has(n));
             if (entering.length > 0) {
-                addPlayerParticles(entering, 'entering', 0);
+                // Shuffle entering players so they don't enter top-to-bottom
+                const shuffled = entering.sort(() => Math.random() - 0.5);
+                addPlayerParticles(shuffled, 'entering', 0);
             }
 
             // Departing players leave to left edge (staggered)
@@ -1632,14 +1634,12 @@
             // Update particles
             particles = particles.filter(p => p.alpha > -0.1);
 
-            // Continuous repulsion between settling and active players (not entering/leaving)
+            // Continuous repulsion between settling and active players (not leaving)
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const p1 = particles[i];
                     const p2 = particles[j];
                     if (p1.alpha <= 0 || p2.alpha <= 0) continue;
-                    // Skip entering players - they should glide in smoothly
-                    if (p1.state === 'entering' || p2.state === 'entering') continue;
                     // Skip leaving players - they're exiting
                     if (p1.state === 'leaving' || p2.state === 'leaving') continue;
                     
@@ -1653,7 +1653,7 @@
                         const nx = dx / dist;
                         const ny = dy / dist;
                         
-                        // Push apart gently
+                        // Symmetric push apart
                         p1.vx -= nx * force;
                         p1.vy -= ny * force;
                         p2.vx += nx * force;
