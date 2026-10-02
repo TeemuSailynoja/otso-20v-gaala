@@ -307,6 +307,44 @@
             margin-top: 0.25rem;
         }
 
+        /* STATS HIGHLIGHT GRID */
+        .stats-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .stat-highlight {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        .stat-highlight:hover {
+            border-color: rgba(229, 176, 55, 0.4);
+            background: var(--card-hover);
+        }
+        .stat-highlight-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+        .stat-highlight-value {
+            font-family: 'Prototype', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+        .stat-highlight-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
         /* STAT CATEGORIES — CINEMATIC SCROLL */
         .categories-scroll {
             position: relative;
@@ -832,12 +870,12 @@
             </div>
         </section>
 
-        <!-- STAT CATEGORIES — CINEMATIC SCROLL -->
+        <!-- STATS FROM THE YEARS -->
         <section class="section">
             <div class="section-header">
-                <h2>Stat Categories</h2>
-                <p>Creative ways to measure 20 years of Otso</p>
+                <h2>Stats from the years</h2>
             </div>
+            <div class="stats-highlight-grid" id="stats-highlight-grid"></div>
             <div class="categories-scroll" id="categories-scroll"></div>
             <div class="scroll-progress" id="scroll-progress"></div>
 
@@ -965,7 +1003,67 @@
         document.getElementById('stat-wins').textContent = s.total_wins.toLocaleString();
         document.getElementById('stat-winpct').textContent = s.win_percentage + '%';
 
+        renderStatsHighlights();
         renderCategories();
+    }
+
+    function renderStatsHighlights() {
+        const years = DATA.years;
+
+        // Compute highlights
+        const qualified = [];
+        for (const [year, data] of Object.entries(years)) {
+            const wins = data.wins || 0;
+            const losses = data.losses || 0;
+            if (wins + losses >= 15) qualified.push({ year, ...data });
+        }
+
+        const bestWin = qualified.reduce((a, b) => (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses)) ? a : b);
+        const largestRoster = Object.entries(years).reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a);
+        const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
+        const mostGames = Object.entries(years).reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
+        const mostDominant = qualified.reduce((a, b) => (a.wins >= 20 && (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses))) ? a : b);
+
+        const highlights = [
+            {
+                label: 'Best Win %',
+                value: `${bestWin.wins}–${bestWin.losses}`,
+                desc: `${bestWin.year} — ${Math.round(bestWin.wins / (bestWin.wins + bestWin.losses) * 100)}% win rate (15+ games)`
+            },
+            {
+                label: 'Largest Roster',
+                value: largestRoster[1].roster_players,
+                desc: `${largestRoster[0]} — ${largestRoster[1].roster_players} players on the books`
+            },
+            {
+                label: 'Skeleton Crew',
+                value: smallestRoster[1].roster_players,
+                desc: `${smallestRoster[0]} — ${smallestRoster[1].wins}–${smallestRoster[1].losses} with just ${smallestRoster[1].roster_players} players`
+            },
+            {
+                label: 'Most Games',
+                value: mostGames[1].matches,
+                desc: `${mostGames[0]} — ${mostGames[1].wins}–${mostGames[1].losses} in a ${mostGames[1].matches}-game season`
+            },
+            {
+                label: 'Most Dominant',
+                value: `${mostDominant.wins}–${mostDominant.losses}`,
+                desc: `${mostDominant.year} — ${Math.round(mostDominant.wins / (mostDominant.wins + mostDominant.losses) * 100)}% with 20+ wins`
+            },
+            {
+                label: 'Perfect Start',
+                value: '9–0',
+                desc: `${years['2026'] ? '2026' : 'Latest'} — 100% win rate, undefeated start`
+            },
+        ];
+
+        document.getElementById('stats-highlight-grid').innerHTML = highlights.map(h => `
+            <div class="stat-highlight">
+                <div class="stat-highlight-label">${h.label}</div>
+                <div class="stat-highlight-value">${h.value}</div>
+                <div class="stat-highlight-desc">${h.desc}</div>
+            </div>
+        `).join('');
     }
 
     function renderCategories() {
