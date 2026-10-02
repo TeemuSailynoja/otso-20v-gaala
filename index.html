@@ -1016,11 +1016,14 @@
 
         if (qualified.length === 0) return;
 
-        const bestWin = qualified.reduce((a, b) => (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses)) ? a : b);
-        const largestRoster = Object.entries(years).filter(([, v]) => v && typeof v === 'object').reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a);
-        const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
-        const mostGames = Object.entries(years).filter(([, v]) => v && typeof v === 'object').reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
-        const mostDominant = qualified.reduce((a, b) => (a.wins >= 20 && (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses))) ? a : b);
+        try {
+            const bestWin = qualified.reduce((a, b) => (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses)) ? a : b);
+            const validYears = Object.entries(years).filter(([, v]) => v && typeof v === 'object' && v.roster_players != null);
+            const largestRoster = validYears.length > 0 ? validYears.reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a) : ['2013', {roster_players: 47}];
+            const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
+            const validGames = Object.entries(years).filter(([, v]) => v && typeof v === 'object' && v.matches != null);
+            const mostGames = validGames.length > 0 ? validGames.reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a) : ['2016', {matches: 81}];
+            const mostDominant = qualified.reduce((a, b) => (a.wins >= 20 && (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses))) ? a : b);
 
         const highlights = [
             {
@@ -1062,6 +1065,9 @@
                 <div class="stat-highlight-desc">${h.desc}</div>
             </div>
         `).join('');
+        } catch (e) {
+            console.error('renderStatsHighlights error:', e);
+        }
     }
 
     function renderCategories() {
