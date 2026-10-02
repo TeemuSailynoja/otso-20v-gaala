@@ -350,20 +350,25 @@
             position: relative;
         }
         .category-slide {
-            min-height: 100vh;
+            min-height: 45vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            pointer-events: auto;
+            margin-bottom: 2rem;
+        }
+        .category-slide.active {
             opacity: 1;
             transform: translateX(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            pointer-events: auto;
         }
         .category-slide.exit-up {
             opacity: 0;
-            transform: translateX(60px);
+            transform: translateX(80px);
         }
         .category-emoji {
             font-size: 3rem;
@@ -1284,18 +1289,32 @@
             entries.forEach(entry => {
                 const idx = parseInt(entry.target.dataset.category);
                 const dots = scrollProgress.querySelectorAll('.scroll-dot');
-                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                const midPoint = entry.boundingClientRect.top + entry.boundingClientRect.height / 2;
+                const viewportCenter = window.innerHeight / 2;
+
+                if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
                     entry.target.classList.add('active');
                     entry.target.classList.remove('exit-up');
-                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                } else if (entry.boundingClientRect.top < window.innerHeight * 0.3) {
+                    // Activate the closest slide to viewport center
+                    dots.forEach((d, i) => {
+                        const slide = scrollContainer.querySelector(`[data-category="${i}"]`);
+                        if (slide) {
+                            const slideMid = slide.getBoundingClientRect().top + slide.getBoundingClientRect().height / 2;
+                            if (Math.abs(slideMid - viewportCenter) < Math.abs(entry.boundingClientRect.top + entry.boundingClientRect.height / 2 - viewportCenter)) {
+                                d.classList.toggle('active', false);
+                            } else {
+                                d.classList.toggle('active', i === idx);
+                            }
+                        }
+                    });
+                } else if (entry.boundingClientRect.top + entry.boundingClientRect.height < viewportCenter) {
                     entry.target.classList.add('exit-up');
                     entry.target.classList.remove('active');
                 }
             });
         }, {
-            threshold: [0.3, 0.5, 0.7],
-            rootMargin: '-10% 0px -10% 0px'
+            threshold: [0.2, 0.4, 0.6],
+            rootMargin: '-5% 0px -5% 0px'
         });
 
         document.querySelectorAll('.category-slide').forEach(slide => observer.observe(slide));
