@@ -1696,9 +1696,9 @@
                     p.vy *= 0.96;
                     p.x += p.vx;
                     p.y += p.vy;
-                    // Fade in based on horizontal position - visible once away from right edge
-                    const edgeFadeStart = w * 0.85;
-                    const edgeFadeEnd = w * 0.5;
+                    // Fade in based on horizontal position - invisible at right edge, visible once away
+                    const edgeFadeStart = w;
+                    const edgeFadeEnd = w * 0.85;
                     if (p.x >= edgeFadeStart) {
                         p.alpha = 0;
                     } else if (p.x <= edgeFadeEnd) {
