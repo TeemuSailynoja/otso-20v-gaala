@@ -1417,6 +1417,20 @@
             .sort((a, b) => b.perMatch - a.perMatch)
             .slice(0, 3);
 
+        // ===== WINTER SPECIALIST — only played winter =====
+        const winterSpecialist = Object.entries(players)
+            .filter(([, d]) => d.winter_games > 0 && d.summer_games === 0)
+            .sort((a, b) => b[1].winter_games - a[1].winter_games)
+            .slice(0, 3)
+            .map(([name, d]) => ({ name, games: d.winter_games }));
+
+        // ===== SUMMER SPECIALIST — only played summer =====
+        const summerSpecialist = Object.entries(players)
+            .filter(([, d]) => d.summer_games > 0 && d.winter_games === 0)
+            .sort((a, b) => b[1].summer_games - a[1].summer_games)
+            .slice(0, 3)
+            .map(([name, d]) => ({ name, games: d.summer_games }));
+
         // Otso season highlights
         const qualified = Object.entries(years).filter(([, v]) => v && v.wins + v.losses >= 15);
         const bestWin = qualified.reduce((a, b) => (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses)) ? a : b);
@@ -1458,6 +1472,8 @@
             { emoji: '📡', name: 'Defense Playmaker Rate', desc: 'Best defense assists per game (min 10)', type: 'single', data: defPlaymakerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
             { emoji: '🐻', name: 'Winter Bear', desc: 'Best winter points/game (≥8 winter games, ≥50 total)', type: 'single', data: winterBear.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.winter_total} in ${p.winter_games})` })) },
             { emoji: '🐾', name: 'Summer Cub', desc: 'Best summer points/game (≥8 summer games, ≥50 total)', type: 'single', data: summerCub.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.summer_total} in ${p.summer_games})` })) },
+            { emoji: '❄️', name: 'Winter Specialist', desc: 'Only played winter — most games', type: 'single', data: winterSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
+            { emoji: '☀️', name: 'Summer Specialist', desc: 'Only played summer — most games', type: 'single', data: summerSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
         ];
 
         const scrollContainer = document.getElementById('categories-scroll');
