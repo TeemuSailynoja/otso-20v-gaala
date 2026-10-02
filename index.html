@@ -1065,11 +1065,13 @@
     }
 
     function renderCategories() {
+        console.log('renderCategories called, DATA.players:', Object.keys(DATA.players || {}).length);
         const players = DATA.players || {};
         const passNet = DATA.passNetwork || {};
         const cooc = DATA.cooccurrence || {};
         const given = passNet.given || {};
         const received = passNet.received || {};
+        console.log('given:', Object.keys(given).length, 'received:', Object.keys(received).length);
         if (!document.getElementById('categories-scroll')) return;
 
         // Helper: normalize name
@@ -1361,6 +1363,7 @@
                 location.hash = `#/player/${encodeURIComponent(row.dataset.player1)}`;
             });
         });
+        console.log('renderCategories done, slides:', document.querySelectorAll('.category-slide').length);
     }
 
     // ==================== PLAYERS PAGE ====================
