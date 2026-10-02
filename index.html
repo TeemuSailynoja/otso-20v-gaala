@@ -870,7 +870,6 @@
             <div class="section-header">
                 <h2>Stats from the years</h2>
             </div>
-            <div class="stats-highlight-grid" id="stats-highlight-grid"></div>
             <div class="categories-scroll" id="categories-scroll"></div>
             <div class="scroll-progress" id="scroll-progress"></div>
 
@@ -998,76 +997,7 @@
         document.getElementById('stat-wins').textContent = s.total_wins.toLocaleString();
         document.getElementById('stat-winpct').textContent = s.win_percentage + '%';
 
-        renderStatsHighlights();
         renderCategories();
-    }
-
-    function renderStatsHighlights() {
-        const years = DATA.years || {};
-
-        // Compute highlights
-        const qualified = [];
-        for (const [year, data] of Object.entries(years)) {
-            if (!data || typeof data !== 'object') continue;
-            const wins = data.wins || 0;
-            const losses = data.losses || 0;
-            if (wins + losses >= 15) qualified.push({ year, ...data });
-        }
-
-        if (qualified.length === 0) return;
-
-        try {
-            const bestWin = qualified.reduce((a, b) => (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses)) ? a : b);
-            const validYears = Object.entries(years).filter(([, v]) => v && typeof v === 'object' && v.roster_players != null);
-            const largestRoster = validYears.length > 0 ? validYears.reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a) : ['2013', {roster_players: 47}];
-            const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
-            const validGames = Object.entries(years).filter(([, v]) => v && typeof v === 'object' && v.matches != null);
-            const mostGames = validGames.length > 0 ? validGames.reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a) : ['2016', {matches: 81}];
-            const mostDominant = qualified.reduce((a, b) => (a.wins >= 20 && (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses))) ? a : b);
-
-        const highlights = [
-            {
-                label: 'Best Win %',
-                value: `${bestWin.wins}–${bestWin.losses}`,
-                desc: `${bestWin.year} — ${Math.round(bestWin.wins / (bestWin.wins + bestWin.losses) * 100)}% win rate (15+ games)`
-            },
-            {
-                label: 'Largest Roster',
-                value: largestRoster[1].roster_players,
-                desc: `${largestRoster[0]} — ${largestRoster[1].roster_players} players on the books`
-            },
-            {
-                label: 'Skeleton Crew',
-                value: smallestRoster[1].roster_players,
-                desc: `${smallestRoster[0]} — ${smallestRoster[1].wins}–${smallestRoster[1].losses} with just ${smallestRoster[1].roster_players} players`
-            },
-            {
-                label: 'Most Games',
-                value: mostGames[1].matches,
-                desc: `${mostGames[0]} — ${mostGames[1].wins}–${mostGames[1].losses} in a ${mostGames[1].matches}-game season`
-            },
-            {
-                label: 'Most Dominant',
-                value: `${mostDominant.wins}–${mostDominant.losses}`,
-                desc: `${mostDominant.year} — ${Math.round(mostDominant.wins / (mostDominant.wins + mostDominant.losses) * 100)}% with 20+ wins`
-            },
-            {
-                label: 'Perfect Start',
-                value: '9–0',
-                desc: `${years['2026'] ? '2026' : 'Latest'} — 100% win rate, undefeated start`
-            },
-        ];
-
-        document.getElementById('stats-highlight-grid').innerHTML = highlights.map(h => `
-            <div class="stat-highlight">
-                <div class="stat-highlight-label">${h.label}</div>
-                <div class="stat-highlight-value">${h.value}</div>
-                <div class="stat-highlight-desc">${h.desc}</div>
-            </div>
-        `).join('');
-        } catch (e) {
-            console.error('renderStatsHighlights error:', e);
-        }
     }
 
     function renderCategories() {
@@ -1277,7 +1207,22 @@
         // ===== DEFENSE PLAYMAKER =====
         const defPlaymaker = [{ name: 'Niilo Suontama', count: 9 }, { name: 'Roni Hotari', count: 9 }, { name: 'Tomi Sandberg', count: 9 }];
 
+        // Otso season highlights
+        const qualified = Object.entries(years).filter(([, v]) => v && v.wins + v.losses >= 15);
+        const bestWin = qualified.reduce((a, b) => (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses)) ? a : b);
+        const largestRoster = Object.entries(years).reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a);
+        const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
+        const mostGames = Object.entries(years).reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
+        const mostDominant = qualified.reduce((a, b) => (a[1].wins >= 20 && (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses))) ? a : b);
+        const perfectStart = years['2026'] ? { year: '2026', wins: 9, losses: 0 } : null;
+
         const categories = [
+            { emoji: '🏆', name: 'Best Win %', desc: `${bestWin[0]} — ${Math.round(bestWin[1].wins / (bestWin[1].wins + bestWin[1].losses) * 100)}% win rate (15+ games)`, type: 'single', data: [{ name: `${bestWin[1].wins}–${bestWin[1].losses}`, stat: `${Math.round(bestWin[1].wins / (bestWin[1].wins + bestWin[1].losses) * 100)}%` }] },
+            { emoji: '👥', name: 'Largest Roster', desc: `${largestRoster[0]} — ${largestRoster[1].roster_players} players on the books`, type: 'single', data: [{ name: `${largestRoster[1].roster_players} players`, stat: largestRoster[0] }] },
+            { emoji: '💪', name: 'Skeleton Crew', desc: `${smallestRoster[0]} — ${smallestRoster[1].wins}–${smallestRoster[1].losses} with just ${smallestRoster[1].roster_players} players`, type: 'single', data: [{ name: `${smallestRoster[1].roster_players} players`, stat: `${smallestRoster[1].wins}–${smallestRoster[1].losses}` }] },
+            { emoji: '🎮', name: 'Most Games', desc: `${mostGames[0]} — ${mostGames[1].wins}–${mostGames[1].losses} in a ${mostGames[1].matches}-game season`, type: 'single', data: [{ name: `${mostGames[1].matches} games`, stat: `${mostGames[1].wins}–${mostGames[1].losses}` }] },
+            { emoji: '🔥', name: 'Most Dominant', desc: `${mostDominant[0]} — ${Math.round(mostDominant[1].wins / (mostDominant[1].wins + mostDominant[1].losses) * 100)}% with 20+ wins`, type: 'single', data: [{ name: `${mostDominant[1].wins}–${mostDominant[1].losses}`, stat: `${Math.round(mostDominant[1].wins / (mostDominant[1].wins + mostDominant[1].losses) * 100)}%` }] },
+            ...(perfectStart ? [{ emoji: '✨', name: 'Perfect Start', desc: `${perfectStart.year} — 100% win rate, undefeated start`, type: 'single', data: [{ name: '9–0', stat: '100%' }] }] : []),
             { emoji: '🤝', name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
             { emoji: '🎯', name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
             { emoji: '🔗', name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
