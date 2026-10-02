@@ -400,10 +400,11 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 elif away_is_otso:
                     player_team = canonicalize_team_name(gp.get("away_team", ""))
                 
-                players[canon] = {
+                p = {
                     "seasons": [],
                     "years": set(),
                     "season_types": {"summer": set(), "winter": set(), "other": set()},
+                    "season_count": 0,
                     "first_year": year if year else 2006,
                     "last_year": year if year else 2006,
                     "games": 1,
@@ -412,6 +413,22 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     "total": 0,
                     "teams": {player_team} if player_team else set(),
                 }
+                players[canon] = p
+                # Track season and year (same logic as Phase 1's add_player)
+                if season_id:
+                    p["seasons"].append(season_id)
+                if year:
+                    p["years"].add(year)
+                    normalized_for_lookup = normalize_season_id(season_id, season_type_map)
+                    stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
+                             page_mapping.get(season_id, {}).get("type") or
+                             season_type_map.get(season_id, "unknown"))
+                    if stype == "winter":
+                        p["season_types"]["winter"].add(year)
+                    elif stype == "summer":
+                        p["season_types"]["summer"].add(year)
+                    else:
+                        p["season_types"]["other"].add(year)
     
     # Merge known name duplicates (case-insensitive dedup already handles most)
     # Touko Väänänen / Touko aukusti Väänänen — same person, different middle name
