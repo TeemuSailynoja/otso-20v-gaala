@@ -498,6 +498,10 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 "winter": sorted(p["season_types"]["winter"]),
                 "other": sorted(p["season_types"]["other"]),
             },
+            # Defense stats (will be merged later)
+            "defense_points": 0,
+            "offense_points": 0,
+            "total_points": 0,
         }
     
     return result
@@ -788,6 +792,175 @@ def build_years(gameplay: list[dict]) -> dict:
     return result
 
 
+def build_defense_stats(gameplay: list[dict]) -> dict:
+    """Build per-player defense stats from point-by-point gameplay data.
+    
+    For each point, determines whether Otso was on offense or defense:
+    - First point: uses 'Hyökkäys' marker from HTML (team with matching class started on offense)
+      Falls back to side field for older JSON data without the marker
+    - Subsequent points: the scorer starts on defense for the next point
+    - Halftime: resets offense to the team that started on defense in the first point
+    
+    Attributes defense points to specific players (Otso scored while on defense).
+    
+    Returns: {display_name: {defense_points, offense_points, total_points}}
+    """
+    from bs4 import BeautifulSoup
+    
+    player_stats = defaultdict(lambda: {
+        'defense_points': 0,
+        'offense_points': 0,
+        'total_points': 0,
+    })
+    
+    for game in gameplay:
+        gp = game.get('gameplay')
+        if not gp:
+            continue
+        
+        points = gp.get('points', [])
+        if not points:
+            continue
+        
+        # Deduplicate points by score string in title
+        seen_scores = set()
+        unique_points = []
+        for p in points:
+            if p.get('type') == 'point':
+                title = p.get('title', '')
+                # Extract full score like "0 - 1" from title "1.30 0 - 1 Player -> Player"
+                parts = title.split()
+                score = None
+                for i, part in enumerate(parts):
+                    if part == '-' and i > 0 and i < len(parts) - 1:
+                        score = f"{parts[i-1]} - {parts[i+1]}"
+                        break
+                if score and score not in seen_scores:
+                    seen_scores.add(score)
+                    unique_points.append(p)
+            elif p.get('type') == 'halftime':
+                unique_points.append(p)
+        
+        point_entries = [p for p in unique_points if p.get('type') == 'point']
+        if not point_entries:
+            continue
+        
+        # Determine Otso's side
+        home_team = gp.get('home_team', '')
+        away_team = gp.get('away_team', '')
+        home_is_otso = is_otso_team(home_team) or is_otso_akatemia(home_team)
+        away_is_otso = is_otso_team(away_team) or is_otso_akatemia(away_team)
+        
+        if home_is_otso:
+            otso_side = 'home'
+        elif away_is_otso:
+            otso_side = 'guest'
+        else:
+            continue
+        
+        # Determine which team started on offense for the first point
+        # Try to load HTML file using game_id
+        game_id = game.get('game_id', '')
+        html_file = RAW_DIR / f'game_{game_id}.html'
+        
+        first_offense_side = None
+        
+        if html_file.exists():
+            with open(html_file) as f:
+                raw_html = f.read()
+            
+            if 'Hyökkäys' in raw_html:
+                # Parse HTML to find Hyökkäys marker class
+                soup = BeautifulSoup(raw_html, 'html.parser')
+                tables = soup.find_all('table')
+                
+                # Find the point table (headers: Pisteet, Syöttäjä, Maali, Aika, Kesto, Pelitapahtumat)
+                point_table = None
+                for table in tables:
+                    headers = [th.get_text(strip=True) for th in table.find_all('th')]
+                    if 'Pelitapahtumat' in headers:
+                        point_table = table
+                        break
+                
+                if point_table:
+                    rows = point_table.find_all('tr')
+                    for row in rows:
+                        cells = [td.get_text(strip=True) for td in row.find_all('td')]
+                        if cells and len(cells) >= 2 and ' - ' in cells[0]:
+                            # Found first data row
+                            last_cell = row.find_all('td')[-1]
+                            div = last_cell.find('div')
+                            if div and div.get('class'):
+                                hyökk_class = div.get('class')[0]
+                                # The team with matching class started on offense
+                                first_offense_side = hyökk_class
+                            break
+        
+        if first_offense_side is None:
+            # No HTML file or Hyökkäys marker found — skip this game
+            # The first point's side field is the scorer's side, NOT the starting offense
+            continue
+        
+        first_defense_side = 'home' if first_offense_side == 'guest' else 'guest'
+        first_half_defense_side = first_defense_side
+        current_offense_side = first_offense_side
+        current_defense_side = first_defense_side
+        
+        # Build roster map: canonical name → team side (home/guest)
+        # This is needed because the `side` field in points data is unreliable
+        # and doesn't always match the player's actual team
+        roster_map = {}
+        for p in gp.get('home_players', []):
+            name = p.get('name', '')
+            if name:
+                canon = canonicalize_name(name)
+                if canon:
+                    roster_map[canon] = 'home'
+        for p in gp.get('away_players', []):
+            name = p.get('name', '')
+            if name:
+                canon = canonicalize_name(name)
+                if canon:
+                    roster_map[canon] = 'guest'
+        
+        for point in point_entries:
+            if point.get('type') == 'halftime':
+                # Halftime: team that started on defense starts on offense
+                current_offense_side = first_half_defense_side
+                current_defense_side = 'home' if first_half_defense_side == 'guest' else 'guest'
+                continue
+            
+            scorer_name = point.get('scorer', '')
+            
+            # Determine scorer's team from roster, NOT from unreliable `side` field
+            scorer_canon = canonicalize_name(scorer_name) if scorer_name else None
+            scorer_side = roster_map.get(scorer_canon) if scorer_canon else None
+            
+            if scorer_side is None:
+                # Scorer not in roster — skip this point
+                continue
+            
+            # Check if Otso scored
+            otso_is_scorer = (scorer_side == otso_side)
+            otso_on_defense = (current_defense_side == otso_side)
+            
+            if otso_is_scorer and scorer_name:
+                player_stats[scorer_name]['defense_points' if otso_on_defense else 'offense_points'] += 1
+                player_stats[scorer_name]['total_points'] += 1
+            
+            # Next point: the team that did NOT score starts on offense
+            # (the scorer starts on defense)
+            current_defense_side = scorer_side
+            current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
+    
+    # Convert defaultdict to regular dict with display names
+    result = {}
+    for name, stats in player_stats.items():
+        result[name] = stats
+    
+    return result
+
+
 def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
     """Build top opponents by career points against Otso.
     
@@ -913,6 +1086,10 @@ def main():
     players = build_players(raw_data, gameplay)
     print(f"  {len(players)} players")
     
+    print("Building defense stats...")
+    defense_stats = build_defense_stats(gameplay)
+    print(f"  {len(defense_stats)} players with defense stats")
+    
     print("Building pass network...")
     pass_network = build_pass_network(gameplay, players)
     received_count = len(pass_network.get("received", {}))
@@ -948,6 +1125,13 @@ def main():
         "summary.json": summary,
         "frenemies.json": frenemies,
     }
+    
+    # Merge defense stats into players
+    for display_name, stats in defense_stats.items():
+        if display_name in players:
+            players[display_name]["defense_points"] = stats["defense_points"]
+            players[display_name]["offense_points"] = stats["offense_points"]
+            players[display_name]["total_points"] = stats["total_points"]
     
     for filename, data in files.items():
         filepath = SITE_DATA_DIR / filename
