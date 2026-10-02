@@ -307,102 +307,75 @@
             margin-top: 0.25rem;
         }
 
-        /* STAT CATEGORIES — SLIDESHOW */
-        .categories-slideshow {
+        /* STAT CATEGORIES — CINEMATIC SCROLL */
+        .categories-scroll {
             position: relative;
-            overflow: hidden;
-        }
-        .categories-track {
-            display: flex;
-            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform;
         }
         .category-slide {
-            min-width: 100vw;
-            padding: 1rem 0;
-            flex-shrink: 0;
-        }
-        .category-slide-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .category-slide-inner.single {
-            max-width: 600px;
-        }
-        .category-slide-inner.triple {
-            max-width: 1200px;
-        }
-        .category-card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 1.75rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            flex: 1;
-            min-width: 300px;
-            max-width: 380px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        .category-slide.visible .category-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .category-slide.visible .category-card:nth-child(1) { transition-delay: 0.1s; }
-        .category-slide.visible .category-card:nth-child(2) { transition-delay: 0.2s; }
-        .category-slide.visible .category-card:nth-child(3) { transition-delay: 0.3s; }
-        .category-card:hover {
-            border-color: rgba(229, 176, 55, 0.4);
-            background: var(--card-hover);
-        }
-        .category-card-header {
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.35rem;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            pointer-events: none;
+        }
+        .category-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+        .category-slide.exit-up {
+            opacity: 0;
+            transform: translateX(60px);
         }
         .category-emoji {
-            font-size: 1.4rem;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
         }
         .category-name {
             font-family: 'Prototype', sans-serif;
-            font-size: 1.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold);
+            margin-bottom: 0.25rem;
+            text-align: center;
         }
         .category-desc {
-            font-size: 0.82rem;
+            font-size: 1rem;
             color: var(--muted);
-            margin-bottom: 1rem;
-            line-height: 1.4;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 600px;
         }
-        .category-players {
+        .category-list {
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.5rem;
+            width: 100%;
+            max-width: 600px;
         }
-        .category-player {
+        .category-row {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            padding: 0.35rem 0.5rem;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
             border-radius: 8px;
             transition: background 0.15s;
+            cursor: pointer;
         }
-        .category-player:hover {
+        .category-row:hover {
             background: rgba(255,255,255,0.05);
         }
         .category-rank {
             font-family: 'Prototype', sans-serif;
             font-weight: 700;
-            font-size: 0.85rem;
-            width: 22px;
+            font-size: 1rem;
+            width: 28px;
             text-align: center;
         }
         .category-rank.gold { color: var(--gold); }
@@ -415,7 +388,7 @@
         }
         .category-player-stat {
             color: var(--muted);
-            font-size: 0.82rem;
+            font-size: 0.95rem;
         }
         .category-player-stat.highlight {
             color: var(--gold);
@@ -424,53 +397,50 @@
         .category-pair {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 0.5rem;
+            flex: 1;
         }
         .category-pair-arrow {
             color: var(--muted);
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
 
-        /* SLIDESHOW NAVIGATION */
-        .slide-nav {
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 0.5rem;
-            margin-top: 1.5rem;
-            padding-bottom: 0.5rem;
+            z-index: 100;
         }
-        .slide-dot {
-            width: 10px;
-            height: 10px;
+        .scroll-dot {
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--border);
-            cursor: pointer;
             transition: all 0.3s ease;
         }
-        .slide-dot.active {
+        .scroll-dot.active {
             background: var(--gold);
-            transform: scale(1.3);
-        }
-        .slide-nav-hint {
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.75rem;
-            margin-top: 0.5rem;
-            opacity: 0.6;
+            transform: scale(1.5);
         }
 
         @media (max-width: 768px) {
-            .category-slide {
-                min-width: 100vw;
+            .category-name {
+                font-size: 1.8rem;
             }
-            .category-slide-inner {
-                flex-direction: column;
-                align-items: center;
+            .category-emoji {
+                font-size: 2rem;
             }
-            .category-card {
+            .category-list {
                 max-width: 100%;
-                min-width: 0;
-                width: 100%;
+            }
+            .category-row {
+                font-size: 0.95rem;
+                padding: 0.4rem 0.75rem;
             }
         }
 
@@ -862,17 +832,14 @@
             </div>
         </section>
 
-        <!-- STAT CATEGORIES — SLIDESHOW -->
+        <!-- STAT CATEGORIES — CINEMATIC SCROLL -->
         <section class="section">
             <div class="section-header">
                 <h2>Stat Categories</h2>
                 <p>Creative ways to measure 20 years of Otso</p>
             </div>
-            <div class="categories-slideshow">
-                <div class="categories-track" id="categories-track"></div>
-                <div class="slide-nav" id="slide-nav"></div>
-                <div class="slide-nav-hint">Scroll or click dots to navigate</div>
-            </div>
+            <div class="categories-scroll" id="categories-scroll"></div>
+            <div class="scroll-progress" id="scroll-progress"></div>
 
         </section>
 
@@ -1229,128 +1196,66 @@
             { emoji: '📡', name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymaker.map(p => ({ name: p.name, stat: `${p.count} assists` })) },
         ];
 
-        // Group categories into slides of 1-3
-        const slides = [];
-        let i = 0;
-        while (i < categories.length) {
-            // Alternate: 3, 3, 3, 3, 3, 3, 2 (21 categories)
-            const count = (slides.length < 6 && i + 2 < categories.length) ? 3 : Math.min(3, categories.length - i);
-            slides.push(categories.slice(i, i + count));
-            i += count;
-        }
+        const scrollContainer = document.getElementById('categories-scroll');
+        const scrollProgress = document.getElementById('scroll-progress');
 
-        const track = document.getElementById('categories-track');
-        const slideNav = document.getElementById('slide-nav');
-        let currentSlide = 0;
-
-        // Build slides
-        track.innerHTML = slides.map((slide, slideIdx) => {
-            const count = slide.length;
-            const innerClass = count === 1 ? 'single' : count === 3 ? 'triple' : '';
-            const cards = slide.map(cat => {
-                const rows = cat.data.map((p, rowIdx) => {
-                    if (cat.type === 'pair') {
-                        return pairRow(rowIdx, p.name1, p.name2, p.pct1, p.pct2);
-                    }
-                    return playerRow(rowIdx, p.name, p.stat, rowIdx === 0);
-                }).join('');
-                return `<div class="category-card">
-                    <div class="category-card-header">
-                        <span class="category-emoji">${cat.emoji}</span>
-                        <span class="category-name">${cat.name}</span>
-                    </div>
-                    <div class="category-desc">${cat.desc}</div>
-                    <div class="category-players">${rows}</div>
-                </div>`;
+        // Build category slides
+        scrollContainer.innerHTML = categories.map((cat, idx) => {
+            const rows = cat.data.map((p, rowIdx) => {
+                if (cat.type === 'pair') {
+                    const n1 = normalize(p.name1), n2 = normalize(p.name2);
+                    const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
+                    return `<div class="category-row" ${click}>
+                        <span class="category-rank ${rowIdx === 0 ? 'gold' : rowIdx === 1 ? 'silver' : 'bronze'}">${rowIdx + 1}</span>
+                        <span class="category-pair">
+                            <span class="category-player-name">${n1}</span>
+                            <span class="category-pair-arrow">↔</span>
+                            <span class="category-player-name">${n2}</span>
+                        </span>
+                        <span class="category-player-stat highlight">${p.pct1}% + ${p.pct2}%</span>
+                    </div>`;
+                }
+                return playerRow(rowIdx, p.name, p.stat, rowIdx === 0);
             }).join('');
-            return `<div class="category-slide" data-slide="${slideIdx}">
-                <div class="category-slide-inner ${innerClass}">${cards}</div>
+            return `<div class="category-slide" data-category="${idx}">
+                <div class="category-emoji">${cat.emoji}</div>
+                <div class="category-name">${cat.name}</div>
+                <div class="category-desc">${cat.desc}</div>
+                <div class="category-list">${rows}</div>
             </div>`;
         }).join('');
 
-        // Build nav dots
-        slideNav.innerHTML = slides.map((_, idx) => `<div class="slide-dot ${idx === 0 ? 'active' : ''}" data-slide="${idx}"></div>`).join('');
+        // Build progress dots
+        scrollProgress.innerHTML = categories.map((_, idx) => `<div class="scroll-dot ${idx === 0 ? 'active' : ''}" data-category="${idx}"></div>`).join('');
 
-        // Navigate to slide
-        function goToSlide(idx) {
-            if (idx < 0 || idx >= slides.length) return;
-            currentSlide = idx;
-            track.style.transform = `translateX(-${idx * 100}vw)`;
-            slideNav.querySelectorAll('.slide-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === idx);
+        // Intersection observer for scroll-triggered animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const idx = parseInt(entry.target.dataset.category);
+                const dots = scrollProgress.querySelectorAll('.scroll-dot');
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    entry.target.classList.add('active');
+                    entry.target.classList.remove('exit-up');
+                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                } else if (entry.boundingClientRect.top < window.innerHeight * 0.5) {
+                    entry.target.classList.add('exit-up');
+                    entry.target.classList.remove('active');
+                }
             });
-            // Trigger card animations
-            requestAnimationFrame(() => {
-                const slideEl = track.querySelector(`[data-slide="${idx}"]`);
-                if (slideEl) slideEl.classList.add('visible');
-            });
-        }
-
-        // Initial slide - add visible class immediately
-        goToSlide(0);
-        const firstSlide = track.querySelector('[data-slide="0"]');
-        if (firstSlide) firstSlide.classList.add('visible');
-
-        // Click on dots
-        slideNav.querySelectorAll('.slide-dot').forEach(dot => {
-            dot.addEventListener('click', () => {
-                goToSlide(parseInt(dot.dataset.slide));
-            });
+        }, {
+            threshold: [0.3, 0.5, 0.7],
+            rootMargin: '-20% 0px -20% 0px'
         });
 
-        // Scroll-based navigation (debounced, threshold-based)
-        let lastScrollY = 0;
-        let scrollThrottle = false;
-        window.addEventListener('scroll', () => {
-            if (scrollThrottle) return;
-            const slideshow = document.querySelector('.categories-slideshow');
-            if (!slideshow) return;
-            const rect = slideshow.getBoundingClientRect();
-            // Only activate when slideshow is centered in viewport
-            if (rect.top > window.innerHeight * 0.5 || rect.bottom < -window.innerHeight * 0.5) return;
-
-            const delta = window.scrollY - lastScrollY;
-            if (Math.abs(delta) > 100) {
-                scrollThrottle = true;
-                if (delta > 0 && currentSlide < slides.length - 1) {
-                    goToSlide(currentSlide + 1);
-                } else if (delta < 0 && currentSlide > 0) {
-                    goToSlide(currentSlide - 1);
-                }
-                setTimeout(() => { scrollThrottle = false; }, 800);
-            }
-            lastScrollY = window.scrollY;
-        }, { passive: true });
-
-        // Touch support
-        let touchStartX = 0;
-        window.addEventListener('touchstart', (e) => {
-            const slideshow = document.querySelector('.categories-slideshow');
-            if (!slideshow) return;
-            const rect = slideshow.getBoundingClientRect();
-            if (rect.top > window.innerHeight || rect.bottom < 0) return;
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
-
-        window.addEventListener('touchend', (e) => {
-            const slideshow = document.querySelector('.categories-slideshow');
-            if (!slideshow) return;
-            const rect = slideshow.getBoundingClientRect();
-            if (rect.top > window.innerHeight || rect.bottom < 0) return;
-            const diff = touchStartX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0 && currentSlide < slides.length - 1) goToSlide(currentSlide + 1);
-                else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
-            }
-        }, { passive: true });
+        document.querySelectorAll('.category-slide').forEach(slide => observer.observe(slide));
 
         // Click on category players to go to player page
-        track.querySelectorAll('.category-player[data-player]').forEach(row => {
+        scrollContainer.querySelectorAll('.category-player[data-player]').forEach(row => {
             row.addEventListener('click', () => {
                 location.hash = `#/player/${encodeURIComponent(row.dataset.player)}`;
             });
         });
-        track.querySelectorAll('.category-player[data-player1]').forEach(row => {
+        scrollContainer.querySelectorAll('.category-player[data-player1]').forEach(row => {
             row.addEventListener('click', () => {
                 location.hash = `#/player/${encodeURIComponent(row.dataset.player1)}`;
             });
