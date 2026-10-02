@@ -1426,8 +1426,9 @@
         const YEAR_DURATION = 360; // 6 seconds per year
         const TRANSITION_FRAMES = 240; // 4 seconds for fade in/out (slower)
         const PARTICLES_PER_PLAYER = 1;
-        const COLLISION_RADIUS = 10;
-        const COLLISION_DAMPING = 0.5; // more damping on collision
+        const REPULSION_RADIUS = 25;
+        const REPULSION_FORCE = 0.08;
+        const SETTLE_FRAMES = 120; // 2 seconds for new players to settle
 
         // All particles in one array
         let particles = [];
@@ -1455,6 +1456,7 @@
                     let initAlpha = 0;
                     let entryDelay = 0;
                     let leaveDelay = 0;
+                    let settleTimer = 0;
                     
                     if (state === 'entering') {
                         // Spawn along right edge of canvas
@@ -1467,7 +1469,7 @@
                         entryDelay = delayBase + nameIdx * 5; // Very small stagger
                     } else if (state === 'leaving') {
                         // Start from current position
-                        const existing = particles.find(p => p.name === name && p.state === 'active');
+                        const existing = particles.find(p => p.name === name && (p.state === 'active' || p.state === 'settling'));
                         px = existing ? existing.x : centerX;
                         py = existing ? existing.y : centerY;
                         // Target at left edge center
@@ -1499,7 +1501,8 @@
                         targetX: targetX,
                         targetY: targetY,
                         entryDelay: entryDelay,
-                        leaveDelay: leaveDelay
+                        leaveDelay: leaveDelay,
+                        settleTimer: settleTimer
                     });
                 }
             });
@@ -1629,6 +1632,32 @@
             // Update particles
             particles = particles.filter(p => p.alpha > -0.1);
 
+            // Continuous repulsion between all visible players
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+                    if (p1.alpha <= 0 || p2.alpha <= 0) continue;
+                    
+                    const dx = p2.x - p1.x;
+                    const dy = p2.y - p1.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < REPULSION_RADIUS && dist > 1) {
+                        // Repulsive force - stronger when closer
+                        const force = REPULSION_FORCE * (1 - dist / REPULSION_RADIUS);
+                        const nx = dx / dist;
+                        const ny = dy / dist;
+                        
+                        // Push apart gently
+                        p1.vx -= nx * force;
+                        p1.vy -= ny * force;
+                        p2.vx += nx * force;
+                        p2.vy += ny * force;
+                    }
+                }
+            }
+
             particles.forEach(p => {
                 // Handle delays
                 if (p.entryDelay > 0) {
@@ -1658,8 +1687,34 @@
                     p.alpha = 1.0 - ease * 0.3;
 
                     if (t >= 1) {
-                        p.state = 'active';
+                        p.state = 'settling';
+                        p.settleTimer = SETTLE_FRAMES;
                         p.progress = 0;
+                    }
+
+                } else if (p.state === 'settling') {
+                    // Gradual settling - strong center pull + repulsion handles spread
+                    p.settleTimer--;
+                    
+                    const dx = p.x - cx;
+                    const dy = p.y - cy;
+                    
+                    // Strong center pull
+                    p.vx -= dx * 0.025;
+                    p.vy -= dy * 0.025;
+                    
+                    // Strong damping to prevent bouncing
+                    p.vx *= 0.92;
+                    p.vy *= 0.92;
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    
+                    p.alpha = 0.7;
+                    
+                    // Transition to active when settled
+                    if (p.settleTimer <= 0) {
+                        p.state = 'active';
                     }
 
                 } else if (p.state === 'active') {
@@ -1685,8 +1740,6 @@
                     
                     // Steady alpha, no pulsing
                     p.alpha = 0.7;
-                    
-                    // Extra damping from collisions with entering players (handled in handleCollisions)
 
                 } else if (p.state === 'leaving') {
                     p.progress += 1 / TRANSITION_FRAMES;
@@ -1705,9 +1758,6 @@
                     p.alpha = t < 0.5 ? 0.7 : 0.7 * (1 - (t - 0.5) * 2);
                 }
             });
-
-            // Handle collisions
-            handleCollisions();
 
             // Draw particles
             particles.forEach(p => {
