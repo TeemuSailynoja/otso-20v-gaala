@@ -1,0 +1,170 @@
+{
+  "2006": {
+    "matches": 8,
+    "wins": 2,
+    "losses": 6,
+    "goals_for": 87,
+    "goals_against": 121,
+    "roster_players": 31
+  },
+  "2007": {
+    "matches": 10,
+    "wins": 6,
+    "losses": 4,
+    "goals_for": 141,
+    "goals_against": 112,
+    "roster_players": 16
+  },
+  "2008": {
+    "matches": 10,
+    "wins": 2,
+    "losses": 8,
+    "goals_for": 106,
+    "goals_against": 160,
+    "roster_players": 18
+  },
+  "2009": {
+    "matches": 11,
+    "wins": 4,
+    "losses": 7,
+    "goals_for": 136,
+    "goals_against": 153,
+    "roster_players": 15
+  },
+  "2010": {
+    "matches": 7,
+    "wins": 3,
+    "losses": 4,
+    "goals_for": 89,
+    "goals_against": 97,
+    "roster_players": 17
+  },
+  "2011": {
+    "matches": 14,
+    "wins": 11,
+    "losses": 3,
+    "goals_for": 199,
+    "goals_against": 145,
+    "roster_players": 16
+  },
+  "2012": {
+    "matches": 15,
+    "wins": 15,
+    "losses": 0,
+    "goals_for": 221,
+    "goals_against": 106,
+    "roster_players": 22
+  },
+  "2013": {
+    "matches": 18,
+    "wins": 14,
+    "losses": 4,
+    "goals_for": 236,
+    "goals_against": 180,
+    "roster_players": 30
+  },
+  "2014": {
+    "matches": 18,
+    "wins": 16,
+    "losses": 2,
+    "goals_for": 253,
+    "goals_against": 123,
+    "roster_players": 37
+  },
+  "2015": {
+    "matches": 19,
+    "wins": 16,
+    "losses": 3,
+    "goals_for": 256,
+    "goals_against": 164,
+    "roster_players": 32
+  },
+  "2016": {
+    "matches": 11,
+    "wins": 11,
+    "losses": 0,
+    "goals_for": 157,
+    "goals_against": 82,
+    "roster_players": 22
+  },
+  "2017": {
+    "matches": 14,
+    "wins": 12,
+    "losses": 2,
+    "goals_for": 200,
+    "goals_against": 125,
+    "roster_players": 20
+  },
+  "2018": {
+    "matches": 20,
+    "wins": 17,
+    "losses": 3,
+    "goals_for": 278,
+    "goals_against": 168,
+    "roster_players": 28
+  },
+  "2019": {
+    "matches": 24,
+    "wins": 17,
+    "losses": 7,
+    "goals_for": 323,
+    "goals_against": 199,
+    "roster_players": 28
+  },
+  "2020": {
+    "matches": 13,
+    "wins": 7,
+    "losses": 6,
+    "goals_for": 154,
+    "goals_against": 138,
+    "roster_players": 30
+  },
+  "2021": {
+    "matches": 9,
+    "wins": 8,
+    "losses": 1,
+    "goals_for": 132,
+    "goals_against": 60,
+    "roster_players": 17
+  },
+  "2022": {
+    "matches": 11,
+    "wins": 11,
+    "losses": 0,
+    "goals_for": 164,
+    "goals_against": 66,
+    "roster_players": 21
+  },
+  "2023": {
+    "matches": 16,
+    "wins": 6,
+    "losses": 10,
+    "goals_for": 163,
+    "goals_against": 190,
+    "roster_players": 34
+  },
+  "2024": {
+    "matches": 13,
+    "wins": 7,
+    "losses": 6,
+    "goals_for": 151,
+    "goals_against": 138,
+    "roster_players": 34
+  },
+  "2025": {
+    "matches": 18,
+    "wins": 8,
+    "losses": 10,
+    "goals_for": 205,
+    "goals_against": 217,
+    "roster_players": 35
+  },
+  "2026": {
+    "matches": 9,
+    "wins": 9,
+    "losses": 0,
+    "goals_for": 135,
+    "goals_against": 46,
+    "roster_players": 22
+  }
+}

@@ -23,6 +23,11 @@ RAW_DIR = BASE_DIR / "data" / "raw"
 GAMEPLAY_FILE = BASE_DIR / "data" / "processed" / "match_results.json"
 SITE_DATA_DIR = BASE_DIR / "site_data"
 
+# Load season mapping for type filtering
+SEASON_MAPPING_FILE = SITE_DATA_DIR / "season_mapping.json"
+with open(SEASON_MAPPING_FILE) as _f:
+    SEASON_MAPPING = json.load(_f)
+
 
 def normalize_name(name: str) -> str:
     """Normalize player name: strip whitespace, replace non-breaking spaces,
@@ -58,6 +63,25 @@ def is_otso_akatemia(name: str) -> bool:
     """Check if a team name is Otso Akatemia (not UFO Akatemia)."""
     lower = name.lower()
     return "akatemia" in lower and "otso" in lower
+
+
+def _is_main_otso_team(name: str) -> bool:
+    """Check if a team name is the main Otso team (Otso, Otso1, Otso Grizzly, Otso Polar).
+    
+    Excludes: Otso 2, Otso 3, Hukka, Karhuvaarit, Akatemia.
+    """
+    lower = name.lower()
+    no_space = lower.replace(" ", "").replace("-", "")
+    
+    # Main Otso variants
+    if no_space in ["otso", "otso1", "otso1", "otsogrizzly", "otsog", "otso polar", "otsop"]:
+        return True
+    
+    # Also check for "Otso Grizzly" and "Otso Polar" with spaces
+    if "otso grizzly" in lower or "otso polar" in lower:
+        return True
+    
+    return False
 
 
 def canonicalize_team_name(name: str) -> str:
@@ -119,7 +143,7 @@ def canonicalize_team_name(name: str) -> str:
 
 
 def extract_year_from_season_id(season_id: str) -> int | None:
-    """Extract year from season ID like '2025.1', 'KESA2026', 'Talvi2016', etc."""
+    """Extract year from season ID like '2025.1', 'KESA2026', 'Talvi2016', 'Hallitour2', etc."""
     # Direct year pattern
     for part in season_id.split("."):
         if part.isdigit() and len(part) == 4:
@@ -130,14 +154,18 @@ def extract_year_from_season_id(season_id: str) -> int | None:
     # TALVIyyyy
     if season_id.startswith("Talvi") and season_id[5:].isdigit():
         return int(season_id[5:])
-    # BEACHyyyy
+    # BEACHyyyy (skip beach - Otso didn't play)
     if season_id.startswith("BEACH") and season_id[5:].isdigit():
         return int(season_id[5:])
-    # SMyyyy, XSMyyyy, MSMyyyy, OSMyyyy
+    # SMyyyy, XSMyyyy, MSMyyyy, OSMyyyy (also handle suffixes like SM2022K)
     for prefix in ["SM", "XSM", "MSM", "OSM"]:
-        if season_id.startswith(prefix) and len(season_id) > len(prefix) and season_id[len(prefix):].isdigit():
-            y = int(season_id[len(prefix):])
-            return y if y >= 2006 else None
+        if season_id.startswith(prefix) and len(season_id) > len(prefix):
+            rest = season_id[len(prefix):]
+            # Extract leading digits (ignore trailing letters like K)
+            digits = ''.join(c for c in rest if c.isdigit())
+            if digits and len(digits) == 4:
+                y = int(digits)
+                return y if y >= 2006 else None
     # JSMyyyy
     if season_id.startswith("JSM") and season_id[3:].isdigit():
         y = int(season_id[3:])
@@ -146,6 +174,15 @@ def extract_year_from_season_id(season_id: str) -> int | None:
     if season_id.startswith("*JSM") and season_id[4:].isdigit():
         y = int(season_id[4:])
         return y if y >= 2006 else None
+    # HallitourN -> look up in mapping for year
+    if season_id.startswith("Hallitour"):
+        mapping_info = SEASON_MAPPING.get(season_id, {})
+        name = mapping_info.get("name", "")
+        # Extract year from name like "Talvi 2014JoukkueetPelatut"
+        import re
+        match = re.search(r'(\d{4})', name)
+        if match:
+            return int(match.group(1))
     # BMSMyyyy (handle truncated like BMSM2)
     if season_id.startswith("BMSM") and len(season_id) > 4:
         suffix = season_id[4:]
@@ -725,8 +762,15 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
     }
 
 
-def build_years(gameplay: list[dict]) -> dict:
+def build_years(gameplay: list[dict], include_all_bears: bool = False, season_type: str = None) -> dict:
     """Build year-by-year evolution data.
+    
+    Args:
+        gameplay: List of game data.
+        include_all_bears: If True, include Otso 2, Otso 3, Hukka, Karhuvaarit, etc.
+                          If False, only include main Otso team.
+        season_type: If 'summer', only summer seasons. If 'winter', only winter seasons.
+                    If None, include all seasons (full year).
     
     Returns: {year: {matches, wins, losses, goals_for, goals_against, roster_players}}
     """
@@ -748,8 +792,26 @@ def build_years(gameplay: list[dict]) -> dict:
         if year < 2006:
             year = 2006  # Otso founded 2006
         
-        home_is_otso = is_otso_team(gp.get("home_team", ""))
-        away_is_otso = is_otso_team(gp.get("away_team", ""))
+        # Filter by season type - look up directly in season mapping
+        if season_type:
+            season_info = SEASON_MAPPING.get(season_id, {})
+            stype = season_info.get("type", "unknown")
+            if stype != season_type:
+                continue
+        
+        home_team = gp.get("home_team", "")
+        away_team = gp.get("away_team", "")
+        
+        if include_all_bears:
+            # Include all Otso-related teams
+            home_is_otso = is_otso_team(home_team) or is_otso_akatemia(home_team)
+            away_is_otso = is_otso_team(away_team) or is_otso_akatemia(away_team)
+        else:
+            # Main Otso team: "Otso", "Otso1", "Otso Grizzly", "Otso Polar"
+            # Exclude: Otso 2, Otso 3, Hukka, Karhuvaarit, Akatemia
+            home_is_otso = _is_main_otso_team(home_team)
+            away_is_otso = _is_main_otso_team(away_team)
+        
         if not home_is_otso and not away_is_otso:
             continue
         
@@ -896,16 +958,6 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                                 first_offense_side = hyökk_class
                             break
         
-        if first_offense_side is None:
-            # No HTML file or Hyökkäys marker found — skip this game
-            # The first point's side field is the scorer's side, NOT the starting offense
-            continue
-        
-        first_defense_side = 'home' if first_offense_side == 'guest' else 'guest'
-        first_half_defense_side = first_defense_side
-        current_offense_side = first_offense_side
-        current_defense_side = first_defense_side
-        
         # Build roster map: canonical name → team side (home/guest)
         # This is needed because the `side` field in points data is unreliable
         # and doesn't always match the player's actual team
@@ -923,35 +975,93 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                 if canon:
                     roster_map[canon] = 'guest'
         
-        for point in point_entries:
-            if point.get('type') == 'halftime':
-                # Halftime: team that started on defense starts on offense
-                current_offense_side = first_half_defense_side
-                current_defense_side = 'home' if first_half_defense_side == 'guest' else 'guest'
-                continue
+        if first_offense_side is not None:
+            # HTML file with Hyökkäys marker: use it for the first point
+            first_defense_side = 'home' if first_offense_side == 'guest' else 'guest'
+            first_half_defense_side = first_defense_side
+            current_offense_side = first_offense_side
+            current_defense_side = first_defense_side
             
-            scorer_name = point.get('scorer', '')
+            for point in point_entries:
+                if point.get('type') == 'halftime':
+                    # Halftime: team that started on defense starts on offense
+                    current_offense_side = first_half_defense_side
+                    current_defense_side = 'home' if first_half_defense_side == 'guest' else 'guest'
+                    continue
+                
+                scorer_name = point.get('scorer', '')
+                
+                # Determine scorer's team from roster
+                scorer_canon = canonicalize_name(scorer_name) if scorer_name else None
+                scorer_side = roster_map.get(scorer_canon) if scorer_canon else None
+                
+                if scorer_side is None:
+                    continue
+                
+                otso_is_scorer = (scorer_side == otso_side)
+                otso_on_defense = (current_defense_side == otso_side)
+                
+                if otso_is_scorer and scorer_name:
+                    player_stats[scorer_name]['defense_points' if otso_on_defense else 'offense_points'] += 1
+                    player_stats[scorer_name]['total_points'] += 1
+                
+                # Next point: scorer starts on defense
+                current_defense_side = scorer_side
+                current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
+        else:
+            # No HTML file: can't know who started on offense for point 1
+            # Use alternating logic from point 2 onward
+            # Skip defensive attribution for point 1 only
+            point_index = 0
             
-            # Determine scorer's team from roster, NOT from unreliable `side` field
-            scorer_canon = canonicalize_name(scorer_name) if scorer_name else None
-            scorer_side = roster_map.get(scorer_canon) if scorer_canon else None
-            
-            if scorer_side is None:
-                # Scorer not in roster — skip this point
-                continue
-            
-            # Check if Otso scored
-            otso_is_scorer = (scorer_side == otso_side)
-            otso_on_defense = (current_defense_side == otso_side)
-            
-            if otso_is_scorer and scorer_name:
-                player_stats[scorer_name]['defense_points' if otso_on_defense else 'offense_points'] += 1
-                player_stats[scorer_name]['total_points'] += 1
-            
-            # Next point: the team that did NOT score starts on offense
-            # (the scorer starts on defense)
-            current_defense_side = scorer_side
-            current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
+            for point in point_entries:
+                if point.get('type') == 'halftime':
+                    # Halftime: team that was on defense starts on offense
+                    # But we don't know who was on defense at halftime without HTML
+                    # Reset: alternate from the point after halftime
+                    point_index += 1
+                    continue
+                
+                scorer_name = point.get('scorer', '')
+                
+                # Determine scorer's team from roster
+                scorer_canon = canonicalize_name(scorer_name) if scorer_name else None
+                scorer_side = roster_map.get(scorer_canon) if scorer_canon else None
+                
+                if scorer_side is None:
+                    point_index += 1
+                    continue
+                
+                otso_is_scorer = (scorer_side == otso_side)
+                
+                # For point 1 (index 0), we don't know who was on defense
+                # So we can't attribute defensive points
+                # For point 2+ (index >= 1), we can use alternating logic
+                if point_index == 0:
+                    # First point: only count offensive points for Otso
+                    # (we don't know who was on defense)
+                    if otso_is_scorer and scorer_name:
+                        player_stats[scorer_name]['offense_points'] += 1
+                        player_stats[scorer_name]['total_points'] += 1
+                    
+                    # Initialize alternating state for next point
+                    # If Otso scored, they start on defense next
+                    # If opponent scored, they start on defense next
+                    current_defense_side = scorer_side
+                    current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
+                else:
+                    # Points 2+: use alternating logic
+                    otso_on_defense = (current_defense_side == otso_side)
+                    
+                    if otso_is_scorer and scorer_name:
+                        player_stats[scorer_name]['defense_points' if otso_on_defense else 'offense_points'] += 1
+                        player_stats[scorer_name]['total_points'] += 1
+                    
+                    # Next point: scorer starts on defense
+                    current_defense_side = scorer_side
+                    current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
+                
+                point_index += 1
     
     # Convert defaultdict to regular dict with display names
     result = {}
@@ -1103,15 +1213,23 @@ def main():
     print(f"  {len(cooccurrence)} players with co-occurrences, {total_cooc_edges // 2} undirected edges")
     
     print("Building years...")
-    years = build_years(gameplay)
-    print(f"  {len(years)} years")
+    # Generate datasets for each team scope and season type
+    years_otso = build_years(gameplay, include_all_bears=False)
+    years_all_bears = build_years(gameplay, include_all_bears=True)
+    years_otso_summer = build_years(gameplay, include_all_bears=False, season_type="summer")
+    years_all_bears_summer = build_years(gameplay, include_all_bears=True, season_type="summer")
+    years_otso_winter = build_years(gameplay, include_all_bears=False, season_type="winter")
+    years_all_bears_winter = build_years(gameplay, include_all_bears=True, season_type="winter")
+    print(f"  Full: {len(years_otso)} years (Otso), {len(years_all_bears)} years (All Bears)")
+    print(f"  Summer: {len(years_otso_summer)} years (Otso), {len(years_all_bears_summer)} years (All Bears)")
+    print(f"  Winter: {len(years_otso_winter)} years (Otso), {len(years_all_bears_winter)} years (All Bears)")
     
     print("Building frenemies...")
     frenemies = build_frenemies(gameplay)
     print(f"  {len(frenemies)} frenemies")
     
     print("Building summary...")
-    summary = build_summary(players, pass_network, cooccurrence, years, gameplay)
+    summary = build_summary(players, pass_network, cooccurrence, years_otso, gameplay)
     
     # Create output directory
     SITE_DATA_DIR.mkdir(exist_ok=True)
@@ -1121,7 +1239,12 @@ def main():
         "players.json": players,
         "pass_network.json": pass_network,
         "cooccurrence.json": cooccurrence,
-        "years.json": years,
+        "years_otso.json": years_otso,
+        "years_all_bears.json": years_all_bears,
+        "years_otso_summer.json": years_otso_summer,
+        "years_all_bears_summer.json": years_all_bears_summer,
+        "years_otso_winter.json": years_otso_winter,
+        "years_all_bears_winter.json": years_all_bears_winter,
         "summary.json": summary,
         "frenemies.json": frenemies,
     }

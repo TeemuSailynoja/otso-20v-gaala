@@ -55,9 +55,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 29,
+    "offense_points": 28,
+    "total_points": 57
   },
   "Ari Rantalainen": {
     "seasons": [
@@ -102,9 +102,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 54,
+    "offense_points": 108,
+    "total_points": 162
   },
   "Esa Pensala": {
     "seasons": [
@@ -134,9 +134,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 11,
+    "offense_points": 6,
+    "total_points": 17
   },
   "Esko Saura": {
     "seasons": [
@@ -183,9 +183,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 5,
+    "offense_points": 1,
+    "total_points": 6
   },
   "Hannu Saarinen": {
     "seasons": [
@@ -223,9 +223,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 22,
+    "offense_points": 53,
+    "total_points": 75
   },
   "Heikki Väänänen": {
     "seasons": [
@@ -286,9 +286,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 40,
+    "offense_points": 65,
+    "total_points": 105
   },
   "Juha Nurminen": {
     "seasons": [
@@ -315,9 +315,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 1,
+    "total_points": 2
   },
   "Juha Poikolainen": {
     "seasons": [
@@ -344,9 +344,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 1,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 1
   },
   "Juhana Oivio": {
     "seasons": [
@@ -376,9 +376,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 8,
+    "offense_points": 24,
+    "total_points": 32
   },
   "Kimmo Berg": {
     "seasons": [
@@ -440,9 +440,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 25,
+    "offense_points": 33,
+    "total_points": 58
   },
   "Marko Korhonen": {
     "seasons": [
@@ -472,9 +472,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 4,
+    "offense_points": 2,
+    "total_points": 6
   },
   "Markus Nora": {
     "seasons": [
@@ -501,9 +501,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 2,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 2
   },
   "Sami Holopainen": {
     "seasons": [
@@ -541,9 +541,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 14,
+    "offense_points": 32,
+    "total_points": 46
   },
   "Sebastian Godenhjelm": {
     "seasons": [
@@ -570,9 +570,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 3,
+    "offense_points": 1,
+    "total_points": 4
   },
   "Timo Vaskio": {
     "seasons": [
@@ -595,7 +595,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 15,
+    "season_count": 16,
     "years": [
       2006,
       2007,
@@ -604,13 +604,14 @@
       2010,
       2011,
       2013,
+      2014,
       2015,
       2016,
       2017,
       2018,
       2019
     ],
-    "year_count": 12,
+    "year_count": 13,
     "first_year": 2006,
     "last_year": 2019,
     "games": 196,
@@ -636,6 +637,7 @@
         2010,
         2011,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -644,9 +646,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 50,
+    "offense_points": 114,
+    "total_points": 164
   },
   "Tuomo Sirkka": {
     "seasons": [
@@ -684,9 +686,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 29,
+    "offense_points": 23,
+    "total_points": 52
   },
   "Ville Rantamaula": {
     "seasons": [
@@ -716,9 +718,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 19,
+    "offense_points": 1,
+    "total_points": 20
   },
   "Ilkka Vaahtoranta": {
     "seasons": [
@@ -774,9 +776,10 @@
       "2025.3",
       "Hallitour2",
       "KESA2026",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 35,
+    "season_count": 37,
     "years": [
       2006,
       2007,
@@ -803,10 +806,10 @@
     "year_count": 21,
     "first_year": 2006,
     "last_year": 2026,
-    "games": 571,
-    "goals": 299,
-    "assists": 622,
-    "total": 921,
+    "games": 578,
+    "goals": 307,
+    "assists": 634,
+    "total": 941,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -833,6 +836,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025,
@@ -847,6 +851,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2019,
@@ -858,9 +863,9 @@
       ],
       "other": []
     },
-    "defense_points": 4,
-    "offense_points": 0,
-    "total_points": 4
+    "defense_points": 153,
+    "offense_points": 164,
+    "total_points": 317
   },
   "Juha Jalovaara": {
     "seasons": [
@@ -897,9 +902,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 7,
+    "offense_points": 24,
+    "total_points": 31
   },
   "Jukka Mäki": {
     "seasons": [
@@ -932,9 +937,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 6,
+    "offense_points": 2,
+    "total_points": 8
   },
   "Juuso Parkkinen": {
     "seasons": [
@@ -973,7 +978,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 18,
+    "season_count": 19,
     "years": [
       2006,
       2007,
@@ -1024,14 +1029,15 @@
         2009,
         2010,
         2012,
+        2014,
         2015,
         2016
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 33,
+    "offense_points": 27,
+    "total_points": 60
   },
   "Aki Vehtari": {
     "seasons": [
@@ -1091,7 +1097,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 31,
+    "season_count": 32,
     "years": [
       2007,
       2008,
@@ -1152,6 +1158,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -1165,9 +1172,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 19,
+    "offense_points": 27,
+    "total_points": 46
   },
   "Heikki Härkönen": {
     "seasons": [
@@ -1224,8 +1231,8 @@
       "other": []
     },
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "offense_points": 1,
+    "total_points": 1
   },
   "Jani Honkanen": {
     "seasons": [
@@ -1281,9 +1288,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 1,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 1
   },
   "Jarno Sihvo": {
     "seasons": [
@@ -1346,9 +1353,10 @@
       "2025.3",
       "Hallitour2",
       "KESA2026",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 35,
+    "season_count": 37,
     "years": [
       2007,
       2008,
@@ -1374,10 +1382,10 @@
     "year_count": 20,
     "first_year": 2007,
     "last_year": 2026,
-    "games": 648,
-    "goals": 307,
-    "assists": 414,
-    "total": 721,
+    "games": 659,
+    "goals": 317,
+    "assists": 428,
+    "total": 745,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -1403,6 +1411,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025,
@@ -1415,6 +1424,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -1428,9 +1438,9 @@
       ],
       "other": []
     },
-    "defense_points": 4,
-    "offense_points": 0,
-    "total_points": 4
+    "defense_points": 46,
+    "offense_points": 35,
+    "total_points": 81
   },
   "Juha Mertanen": {
     "seasons": [
@@ -1497,9 +1507,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 2,
+    "total_points": 3
   },
   "Matti Paatsama": {
     "seasons": [
@@ -1594,9 +1604,10 @@
       "2025.3",
       "Hallitour2",
       "KESA2026",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 36,
+    "season_count": 38,
     "years": [
       2007,
       2008,
@@ -1622,10 +1633,10 @@
     "year_count": 20,
     "first_year": 2007,
     "last_year": 2026,
-    "games": 689,
-    "goals": 698,
-    "assists": 929,
-    "total": 1627,
+    "games": 700,
+    "goals": 708,
+    "assists": 955,
+    "total": 1663,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -1651,6 +1662,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025,
@@ -1664,6 +1676,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -1677,9 +1690,9 @@
       ],
       "other": []
     },
-    "defense_points": 9,
-    "offense_points": 2,
-    "total_points": 11
+    "defense_points": 130,
+    "offense_points": 99,
+    "total_points": 229
   },
   "Timo Idänheimo": {
     "seasons": [
@@ -1745,9 +1758,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 16,
+    "offense_points": 32,
+    "total_points": 48
   },
   "Tommi Palomäki": {
     "seasons": [
@@ -1834,9 +1847,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 35,
+    "offense_points": 30,
+    "total_points": 65
   },
   "Olli Huotari": {
     "seasons": [
@@ -1867,9 +1880,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 1,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 1
   },
   "Ora Visuri": {
     "seasons": [
@@ -1898,12 +1911,11 @@
       2012,
       2013,
       2014,
-      2015,
-      2016
+      2015
     ],
-    "year_count": 9,
+    "year_count": 8,
     "first_year": 2008,
-    "last_year": 2016,
+    "last_year": 2015,
     "games": 92,
     "goals": 59,
     "assists": 32,
@@ -1926,13 +1938,13 @@
       ],
       "winter": [
         2011,
-        2016
+        2014
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 6,
+    "offense_points": 12,
+    "total_points": 18
   },
   "Pauli Siponen": {
     "seasons": [
@@ -2065,9 +2077,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 14,
+    "offense_points": 15,
+    "total_points": 29
   },
   "Tuukka Koistinen": {
     "seasons": [
@@ -2110,7 +2122,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 19,
+    "season_count": 20,
     "years": [
       2008,
       2009,
@@ -2162,15 +2174,16 @@
       "winter": [
         2008,
         2013,
+        2014,
         2016,
         2017,
         2018
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 15,
+    "offense_points": 32,
+    "total_points": 47
   },
   "Viljami Aittomäki": {
     "seasons": [
@@ -2213,9 +2226,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 2,
+    "offense_points": 1,
+    "total_points": 3
   },
   "Arto Heikkilä": {
     "seasons": [
@@ -2251,9 +2264,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 15,
+    "offense_points": 15,
+    "total_points": 30
   },
   "Tommi Lehto": {
     "seasons": [
@@ -2283,7 +2296,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 17,
+    "season_count": 18,
     "years": [
       2008,
       2009,
@@ -2326,6 +2339,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -2334,9 +2348,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 61,
+    "offense_points": 79,
+    "total_points": 140
   },
   "Ari Ojanperä": {
     "seasons": [
@@ -2396,9 +2410,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 3,
+    "offense_points": 2,
+    "total_points": 5
   },
   "Eetu Tiihonen": {
     "seasons": [
@@ -2510,9 +2524,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 3,
+    "offense_points": 3,
+    "total_points": 6
   },
   "Mikko Jauhonen": {
     "seasons": [
@@ -2544,9 +2558,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 3,
+    "total_points": 4
   },
   "Otto Forsbom": {
     "seasons": [
@@ -2620,7 +2634,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 20,
+    "season_count": 21,
     "years": [
       2010,
       2012,
@@ -2666,6 +2680,7 @@
         2010,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -2678,9 +2693,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 38,
+    "offense_points": 63,
+    "total_points": 101
   },
   "Tomi Sandberg": {
     "seasons": [
@@ -2733,9 +2748,10 @@
       "2025.3",
       "Hallitour2",
       "KESA2026",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 28,
+    "season_count": 30,
     "years": [
       2010,
       2011,
@@ -2758,10 +2774,10 @@
     "year_count": 17,
     "first_year": 2010,
     "last_year": 2026,
-    "games": 582,
-    "goals": 542,
-    "assists": 780,
-    "total": 1322,
+    "games": 593,
+    "goals": 553,
+    "assists": 806,
+    "total": 1359,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -2782,6 +2798,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025,
@@ -2792,6 +2809,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -2805,9 +2823,9 @@
       ],
       "other": []
     },
-    "defense_points": 3,
-    "offense_points": 6,
-    "total_points": 9
+    "defense_points": 52,
+    "offense_points": 65,
+    "total_points": 117
   },
   "Antti Elonheimo": {
     "seasons": [
@@ -2857,9 +2875,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 25,
+    "season_count": 27,
     "years": [
       2011,
       2012,
@@ -2880,10 +2899,10 @@
     "year_count": 15,
     "first_year": 2011,
     "last_year": 2025,
-    "games": 525,
-    "goals": 360,
-    "assists": 371,
-    "total": 731,
+    "games": 536,
+    "goals": 370,
+    "assists": 385,
+    "total": 755,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -2905,12 +2924,14 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025
       ],
       "winter": [
         2012,
+        2014,
         2015,
         2016,
         2017,
@@ -2924,9 +2945,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 33,
+    "offense_points": 28,
+    "total_points": 61
   },
   "Eero Smeds": {
     "seasons": [
@@ -2989,9 +3010,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 2,
+    "total_points": 3
   },
   "Erkka Niini": {
     "seasons": [
@@ -3044,9 +3065,10 @@
       "2025.3",
       "Hallitour2",
       "KESA2026",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 26,
+    "season_count": 28,
     "years": [
       2011,
       2012,
@@ -3068,10 +3090,10 @@
     "year_count": 16,
     "first_year": 2011,
     "last_year": 2026,
-    "games": 533,
-    "goals": 596,
-    "assists": 355,
-    "total": 951,
+    "games": 544,
+    "goals": 615,
+    "assists": 368,
+    "total": 983,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -3093,6 +3115,7 @@
         2019,
         2020,
         2021,
+        2022,
         2024,
         2025,
         2026
@@ -3101,6 +3124,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -3113,9 +3137,9 @@
       ],
       "other": []
     },
-    "defense_points": 5,
-    "offense_points": 1,
-    "total_points": 6
+    "defense_points": 24,
+    "offense_points": 29,
+    "total_points": 53
   },
   "Lauri Hiivala": {
     "seasons": [
@@ -3172,9 +3196,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 10,
+    "offense_points": 13,
+    "total_points": 23
   },
   "Pasi Tamminen": {
     "seasons": [
@@ -3248,9 +3272,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 61,
+    "offense_points": 55,
+    "total_points": 116
   },
   "Ekku Rytkönen": {
     "seasons": [
@@ -3283,9 +3307,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 2,
+    "total_points": 3
   },
   "Pekka Neuvo": {
     "seasons": [
@@ -3388,9 +3412,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 5,
+    "offense_points": 3,
+    "total_points": 8
   },
   "Ismo Sutela": {
     "seasons": [
@@ -3419,7 +3443,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 14,
+    "season_count": 15,
     "years": [
       2011,
       2012,
@@ -3457,6 +3481,7 @@
         2011,
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -3464,9 +3489,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 29,
+    "offense_points": 19,
+    "total_points": 48
   },
   "Juho Keitaanniemi": {
     "seasons": [
@@ -3548,9 +3573,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 3,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 3
   },
   "Antti Järvi": {
     "seasons": [
@@ -3586,9 +3611,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 20,
+    "season_count": 22,
     "years": [
       2011,
       2013,
@@ -3608,10 +3634,10 @@
     "year_count": 14,
     "first_year": 2011,
     "last_year": 2025,
-    "games": 450,
-    "goals": 163,
-    "assists": 207,
-    "total": 370,
+    "games": 461,
+    "goals": 172,
+    "assists": 211,
+    "total": 383,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -3630,6 +3656,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025
@@ -3637,6 +3664,7 @@
       "winter": [
         2011,
         2013,
+        2014,
         2016,
         2017,
         2018,
@@ -3648,9 +3676,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 15,
+    "offense_points": 24,
+    "total_points": 39
   },
   "Ilkka Rämö": {
     "seasons": [
@@ -3677,11 +3705,12 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 14,
+    "season_count": 15,
     "years": [
       2011,
       2012,
       2013,
+      2014,
       2015,
       2016,
       2017,
@@ -3691,7 +3720,7 @@
       2022,
       2023
     ],
-    "year_count": 11,
+    "year_count": 12,
     "first_year": 2011,
     "last_year": 2023,
     "games": 290,
@@ -3714,6 +3743,7 @@
       "winter": [
         2011,
         2012,
+        2014,
         2015,
         2016,
         2017,
@@ -3725,9 +3755,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 46,
+    "offense_points": 45,
+    "total_points": 91
   },
   "Damijan Marin": {
     "seasons": [
@@ -3772,9 +3802,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 78,
+    "offense_points": 82,
+    "total_points": 160
   },
   "Sebastian Sala": {
     "seasons": [
@@ -3828,12 +3858,11 @@
       2012,
       2013,
       2014,
-      2015,
-      2016
+      2015
     ],
-    "year_count": 5,
+    "year_count": 4,
     "first_year": 2012,
-    "last_year": 2016,
+    "last_year": 2015,
     "games": 80,
     "goals": 45,
     "assists": 57,
@@ -3851,13 +3880,13 @@
       ],
       "winter": [
         2013,
-        2016
+        2014
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 19,
+    "offense_points": 12,
+    "total_points": 31
   },
   "Tommi Ylönen": {
     "seasons": [
@@ -3890,9 +3919,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 2,
+    "offense_points": 6,
+    "total_points": 8
   },
   "Oskari Vuorio": {
     "seasons": [
@@ -3940,9 +3969,10 @@
       "2025.3",
       "Hallitour2",
       "KESA2026",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 24,
+    "season_count": 26,
     "years": [
       2012,
       2013,
@@ -3963,10 +3993,10 @@
     "year_count": 15,
     "first_year": 2012,
     "last_year": 2026,
-    "games": 503,
-    "goals": 432,
+    "games": 509,
+    "goals": 441,
     "assists": 254,
-    "total": 686,
+    "total": 695,
     "teams": [
       "Hukka",
       "Otso",
@@ -3987,6 +4017,7 @@
         2018,
         2019,
         2020,
+        2022,
         2023,
         2024,
         2025,
@@ -3995,6 +4026,7 @@
       "winter": [
         2012,
         2013,
+        2014,
         2016,
         2017,
         2018,
@@ -4007,9 +4039,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 12,
+    "offense_points": 8,
+    "total_points": 20
   },
   "Jesse Saastamoinen": {
     "seasons": [
@@ -4046,9 +4078,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 23,
+    "season_count": 24,
     "years": [
       2012,
       2013,
@@ -4068,10 +4101,10 @@
     "year_count": 14,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 399,
-    "goals": 265,
-    "assists": 164,
-    "total": 429,
+    "games": 404,
+    "goals": 272,
+    "assists": 168,
+    "total": 440,
     "teams": [
       "Otso",
       "Otso 1",
@@ -4091,6 +4124,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025
@@ -4110,9 +4144,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 29,
+    "offense_points": 34,
+    "total_points": 63
   },
   "Karli Kalpala": {
     "seasons": [
@@ -4146,7 +4180,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 15,
+    "season_count": 16,
     "years": [
       2012,
       2013,
@@ -4187,6 +4221,7 @@
       "winter": [
         2012,
         2013,
+        2014,
         2015,
         2016,
         2017,
@@ -4195,9 +4230,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 10,
+    "offense_points": 21,
+    "total_points": 31
   },
   "Sami Koivisto": {
     "seasons": [
@@ -4234,9 +4269,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 4,
+    "offense_points": 3,
+    "total_points": 7
   },
   "Teemu Säilynoja": {
     "seasons": [
@@ -4328,9 +4363,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 5,
+    "offense_points": 6,
+    "total_points": 11
   },
   "Tommy Mattila": {
     "seasons": [
@@ -4358,8 +4393,8 @@
       "other": []
     },
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "offense_points": 1,
+    "total_points": 1
   },
   "Juha Jokinen": {
     "seasons": [
@@ -4390,9 +4425,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 7,
+    "offense_points": 4,
+    "total_points": 11
   },
   "Juho Siitonen": {
     "seasons": [
@@ -4423,8 +4458,8 @@
       "other": []
     },
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "offense_points": 2,
+    "total_points": 2
   },
   "Konsta Kokkonen": {
     "seasons": [
@@ -4561,9 +4596,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 8,
+    "offense_points": 6,
+    "total_points": 14
   },
   "Waltteri Wickström": {
     "seasons": [
@@ -4620,9 +4655,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 19,
+    "offense_points": 15,
+    "total_points": 34
   },
   "Yrjänä Hynninen": {
     "seasons": [
@@ -4673,9 +4708,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 4,
+    "offense_points": 7,
+    "total_points": 11
   },
   "Daniel Palander": {
     "seasons": [
@@ -4702,9 +4737,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 6,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 6
   },
   "Jussi Kitusuo": {
     "seasons": [
@@ -4726,7 +4761,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 8,
+    "season_count": 9,
     "years": [
       2013,
       2014,
@@ -4761,14 +4796,15 @@
       ],
       "winter": [
         2013,
+        2014,
         2016,
         2018
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 12,
+    "offense_points": 13,
+    "total_points": 25
   },
   "Pyry Aurasmaa": {
     "seasons": [
@@ -4780,12 +4816,11 @@
     "season_count": 3,
     "years": [
       2013,
-      2014,
-      2016
+      2014
     ],
-    "year_count": 3,
+    "year_count": 2,
     "first_year": 2013,
-    "last_year": 2016,
+    "last_year": 2014,
     "games": 37,
     "goals": 14,
     "assists": 17,
@@ -4801,13 +4836,13 @@
       ],
       "winter": [
         2013,
-        2016
+        2014
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 10,
+    "offense_points": 6,
+    "total_points": 16
   },
   "Heikki Tiittanen": {
     "seasons": [
@@ -4838,9 +4873,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 7,
+    "offense_points": 3,
+    "total_points": 10
   },
   "Patrick Potrykus": {
     "seasons": [
@@ -4869,9 +4904,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026"
+      "KESA2026",
+      "SM2022K"
     ],
-    "season_count": 15,
+    "season_count": 16,
     "years": [
       2014,
       2017,
@@ -4888,10 +4924,10 @@
     "year_count": 11,
     "first_year": 2014,
     "last_year": 2026,
-    "games": 262,
-    "goals": 216,
-    "assists": 206,
-    "total": 422,
+    "games": 270,
+    "goals": 224,
+    "assists": 214,
+    "total": 438,
     "teams": [
       "Otso",
       "Otso 1",
@@ -4907,6 +4943,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025,
@@ -4921,9 +4958,9 @@
       ],
       "other": []
     },
-    "defense_points": 3,
+    "defense_points": 6,
     "offense_points": 2,
-    "total_points": 5
+    "total_points": 8
   },
   "Pekka Kinnunen": {
     "seasons": [
@@ -4952,9 +4989,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026"
+      "KESA2026",
+      "SM2022K"
     ],
-    "season_count": 16,
+    "season_count": 17,
     "years": [
       2014,
       2017,
@@ -4971,10 +5009,10 @@
     "year_count": 11,
     "first_year": 2014,
     "last_year": 2026,
-    "games": 282,
-    "goals": 103,
-    "assists": 171,
-    "total": 274,
+    "games": 287,
+    "goals": 104,
+    "assists": 174,
+    "total": 278,
     "teams": [
       "Otso",
       "Otso 1",
@@ -4990,6 +5028,7 @@
         2019,
         2020,
         2021,
+        2022,
         2023,
         2024,
         2025,
@@ -5005,9 +5044,9 @@
       ],
       "other": []
     },
-    "defense_points": 7,
-    "offense_points": 1,
-    "total_points": 8
+    "defense_points": 12,
+    "offense_points": 3,
+    "total_points": 15
   },
   "Totti Brunila": {
     "seasons": [
@@ -5069,24 +5108,26 @@
       "2018.T2",
       "2019.T1",
       "2020.1",
-      "2021.1"
+      "2021.1",
+      "SM2022K"
     ],
-    "season_count": 6,
+    "season_count": 7,
     "years": [
       2014,
       2017,
       2018,
       2019,
       2020,
-      2021
+      2021,
+      2022
     ],
-    "year_count": 6,
+    "year_count": 7,
     "first_year": 2014,
-    "last_year": 2021,
-    "games": 74,
-    "goals": 9,
-    "assists": 50,
-    "total": 59,
+    "last_year": 2022,
+    "games": 78,
+    "goals": 11,
+    "assists": 53,
+    "total": 64,
     "teams": [
       "Otso",
       "Otso 2",
@@ -5100,14 +5141,15 @@
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022
       ],
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 6,
+    "offense_points": 1,
+    "total_points": 7
   },
   "Anttoni Söderlund": {
     "seasons": [
@@ -5171,8 +5213,9 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 15,
+    "season_count": 16,
     "years": [
+      2014,
       2015,
       2016,
       2017,
@@ -5184,8 +5227,8 @@
       2024,
       2025
     ],
-    "year_count": 10,
-    "first_year": 2015,
+    "year_count": 11,
+    "first_year": 2014,
     "last_year": 2025,
     "games": 196,
     "goals": 48,
@@ -5212,6 +5255,7 @@
         2025
       ],
       "winter": [
+        2014,
         2015,
         2016,
         2017,
@@ -5220,9 +5264,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 4,
+    "total_points": 5
   },
   "Pekka Lehtelä": {
     "seasons": [
@@ -5243,15 +5287,16 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
+      2014,
       2015,
       2016,
       2017,
       2018
     ],
-    "year_count": 4,
-    "first_year": 2015,
+    "year_count": 5,
+    "first_year": 2014,
     "last_year": 2018,
     "games": 154,
     "goals": 62,
@@ -5271,15 +5316,16 @@
         2018
       ],
       "winter": [
+        2014,
         2015,
         2016,
         2017
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 2,
+    "total_points": 3
   },
   "Ville Antila": {
     "seasons": [
@@ -5373,9 +5419,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026"
+      "KESA2026",
+      "SM2022K"
     ],
-    "season_count": 14,
+    "season_count": 15,
     "years": [
       2015,
       2016,
@@ -5393,10 +5440,10 @@
     "year_count": 12,
     "first_year": 2015,
     "last_year": 2026,
-    "games": 197,
-    "goals": 141,
-    "assists": 87,
-    "total": 228,
+    "games": 201,
+    "goals": 147,
+    "assists": 89,
+    "total": 236,
     "teams": [
       "Otso",
       "Otso 1",
@@ -5413,6 +5460,7 @@
         2019,
         2020,
         2021,
+        2022,
         2024,
         2025,
         2026
@@ -5442,14 +5490,14 @@
     ],
     "season_count": 6,
     "years": [
+      2014,
       2015,
-      2016,
       2017,
       2019,
       2020
     ],
     "year_count": 5,
-    "first_year": 2015,
+    "first_year": 2014,
     "last_year": 2020,
     "games": 42,
     "goals": 29,
@@ -5468,15 +5516,15 @@
         2020
       ],
       "winter": [
+        2014,
         2015,
-        2016,
         2017
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 1,
+    "offense_points": 1,
+    "total_points": 2
   },
   "Kim Kåhre": {
     "seasons": [
@@ -5544,10 +5592,11 @@
     ],
     "season_count": 2,
     "years": [
+      2014,
       2016
     ],
-    "year_count": 1,
-    "first_year": 2016,
+    "year_count": 2,
+    "first_year": 2014,
     "last_year": 2016,
     "games": 18,
     "goals": 9,
@@ -5563,13 +5612,13 @@
         2016
       ],
       "winter": [
-        2016
+        2014
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 3,
+    "offense_points": 6,
+    "total_points": 9
   },
   "Antti-Jussi Miettinen": {
     "seasons": [
@@ -5585,9 +5634,10 @@
       "2024.1",
       "2024.2",
       "2025.1",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 12,
+    "season_count": 13,
     "years": [
       2016,
       2017,
@@ -5602,10 +5652,10 @@
     "year_count": 9,
     "first_year": 2016,
     "last_year": 2025,
-    "games": 173,
-    "goals": 65,
-    "assists": 57,
-    "total": 122,
+    "games": 179,
+    "goals": 69,
+    "assists": 59,
+    "total": 128,
     "teams": [
       "Otso",
       "Otso 2",
@@ -5619,6 +5669,7 @@
         2018,
         2019,
         2021,
+        2022,
         2023,
         2024,
         2025
@@ -6248,26 +6299,29 @@
   "Jason Mc Keen": {
     "seasons": [
       "2021.1",
-      "2023.1"
+      "2023.1",
+      "SM2022K"
     ],
-    "season_count": 2,
+    "season_count": 3,
     "years": [
       2021,
+      2022,
       2023
     ],
-    "year_count": 2,
+    "year_count": 3,
     "first_year": 2021,
     "last_year": 2023,
-    "games": 22,
-    "goals": 19,
-    "assists": 19,
-    "total": 38,
+    "games": 28,
+    "goals": 21,
+    "assists": 25,
+    "total": 46,
     "teams": [
       "Otso"
     ],
     "season_types": {
       "summer": [
         2021,
+        2022,
         2023
       ],
       "winter": [],
@@ -6285,9 +6339,10 @@
       "2023.1",
       "2023.2",
       "2024.1",
-      "2025.1"
+      "2025.1",
+      "SM2022K"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
       2021,
       2022,
@@ -6298,10 +6353,10 @@
     "year_count": 5,
     "first_year": 2021,
     "last_year": 2025,
-    "games": 83,
-    "goals": 76,
-    "assists": 39,
-    "total": 115,
+    "games": 89,
+    "goals": 85,
+    "assists": 41,
+    "total": 126,
     "teams": [
       "Otso",
       "Otso 2"
@@ -6309,6 +6364,7 @@
     "season_types": {
       "summer": [
         2021,
+        2022,
         2023,
         2024,
         2025
@@ -6366,9 +6422,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 22,
+    "offense_points": 40,
+    "total_points": 62
   },
   "Kivi Knuuti": {
     "seasons": [
@@ -6380,9 +6436,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026"
+      "KESA2026",
+      "SM2022K"
     ],
-    "season_count": 9,
+    "season_count": 10,
     "years": [
       2021,
       2022,
@@ -6394,10 +6451,10 @@
     "year_count": 6,
     "first_year": 2021,
     "last_year": 2026,
-    "games": 158,
-    "goals": 109,
-    "assists": 89,
-    "total": 198,
+    "games": 169,
+    "goals": 120,
+    "assists": 96,
+    "total": 216,
     "teams": [
       "Otso",
       "Otso 1",
@@ -6405,6 +6462,7 @@
     ],
     "season_types": {
       "summer": [
+        2022,
         2023,
         2024,
         2025,
@@ -6429,9 +6487,10 @@
       "2022.3",
       "2023.1",
       "2023.2",
-      "2024.1"
+      "2024.1",
+      "SM2022K"
     ],
-    "season_count": 5,
+    "season_count": 6,
     "years": [
       2021,
       2022,
@@ -6441,10 +6500,10 @@
     "year_count": 4,
     "first_year": 2021,
     "last_year": 2024,
-    "games": 98,
-    "goals": 19,
+    "games": 104,
+    "goals": 21,
     "assists": 11,
-    "total": 30,
+    "total": 32,
     "teams": [
       "Otso",
       "Otso 2",
@@ -6452,6 +6511,7 @@
     ],
     "season_types": {
       "summer": [
+        2022,
         2023,
         2024
       ],
@@ -6462,9 +6522,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 11,
+    "offense_points": 20,
+    "total_points": 31
   },
   "Touko Väänänen": {
     "seasons": [
@@ -6509,9 +6569,10 @@
       "2024.2",
       "2025.3",
       "Hallitour2",
+      "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
       2012,
       2013,
@@ -6531,10 +6592,10 @@
     "year_count": 14,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 427,
-    "goals": 527,
-    "assists": 223,
-    "total": 750,
+    "games": 438,
+    "goals": 545,
+    "assists": 238,
+    "total": 783,
     "teams": [
       "Hukka",
       "Otso",
@@ -6546,6 +6607,7 @@
     ],
     "season_types": {
       "summer": [
+        2022,
         2023,
         2024
       ],
@@ -6655,9 +6717,10 @@
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "SM2022K"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
       2022,
       2023,
@@ -6667,16 +6730,17 @@
     "year_count": 4,
     "first_year": 2022,
     "last_year": 2025,
-    "games": 125,
-    "goals": 47,
+    "games": 131,
+    "goals": 52,
     "assists": 68,
-    "total": 115,
+    "total": 120,
     "teams": [
       "Otso",
       "Otso 2"
     ],
     "season_types": {
       "summer": [
+        2022,
         2023,
         2024,
         2025
@@ -6702,9 +6766,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026"
+      "KESA2026",
+      "SM2022K"
     ],
-    "season_count": 8,
+    "season_count": 9,
     "years": [
       2022,
       2023,
@@ -6715,10 +6780,10 @@
     "year_count": 5,
     "first_year": 2022,
     "last_year": 2026,
-    "games": 178,
-    "goals": 43,
-    "assists": 208,
-    "total": 251,
+    "games": 184,
+    "goals": 45,
+    "assists": 210,
+    "total": 255,
     "teams": [
       "Otso",
       "Otso 2",
@@ -6726,6 +6791,7 @@
     ],
     "season_types": {
       "summer": [
+        2022,
         2023,
         2024,
         2025,
@@ -6920,9 +6986,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 12,
+    "offense_points": 26,
+    "total_points": 38
   },
   "Alec Stiller": {
     "seasons": [
@@ -7088,9 +7154,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 18,
+    "offense_points": 29,
+    "total_points": 47
   },
   "Mikko Tervakangas": {
     "seasons": [
@@ -7166,9 +7232,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 14,
+    "offense_points": 14,
+    "total_points": 28
   },
   "Santtu Lehto": {
     "seasons": [
@@ -7254,9 +7320,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
+    "defense_points": 1,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 1
   },
   "Aapo Putkonen": {
     "seasons": [
@@ -7285,8 +7351,8 @@
       "other": []
     },
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "offense_points": 3,
+    "total_points": 3
   },
   "Arttu Rautamäki": {
     "seasons": [
@@ -7321,9 +7387,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 9,
+    "offense_points": 13,
+    "total_points": 22
   },
   "Clemens Jonas Hellmig": {
     "seasons": [
@@ -7417,9 +7483,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 13,
+    "offense_points": 20,
+    "total_points": 33
   },
   "Jonne Happonen": {
     "seasons": [
@@ -7577,9 +7643,9 @@
       "winter": [],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 8,
+    "offense_points": 13,
+    "total_points": 21
   },
   "Phong Tran": {
     "seasons": [
@@ -7645,8 +7711,8 @@
       "other": []
     },
     "defense_points": 2,
-    "offense_points": 1,
-    "total_points": 3
+    "offense_points": 2,
+    "total_points": 4
   },
   "Erno Kerman": {
     "seasons": [
@@ -7675,9 +7741,9 @@
       ],
       "other": []
     },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "defense_points": 7,
+    "offense_points": 14,
+    "total_points": 21
   },
   "Matias Arola": {
     "seasons": [
@@ -7748,11 +7814,11 @@
     ],
     "season_count": 1,
     "years": [
-      2016
+      2014
     ],
     "year_count": 1,
-    "first_year": 2016,
-    "last_year": 2016,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 4,
     "goals": 5,
     "assists": 3,
@@ -7763,13 +7829,13 @@
     "season_types": {
       "summer": [],
       "winter": [
-        2016
+        2014
       ],
       "other": []
     },
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "offense_points": 3,
+    "total_points": 3
   },
   "Joonatan Bergholm": {
     "seasons": [
@@ -7777,11 +7843,11 @@
     ],
     "season_count": 1,
     "years": [
-      2016
+      2014
     ],
     "year_count": 1,
-    "first_year": 2016,
-    "last_year": 2016,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 8,
     "goals": 7,
     "assists": 5,
@@ -7792,13 +7858,13 @@
     "season_types": {
       "summer": [],
       "winter": [
-        2016
+        2014
       ],
       "other": []
     },
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
+    "offense_points": 5,
+    "total_points": 5
   },
   "Topi Hintukainen": {
     "seasons": [
@@ -7806,11 +7872,11 @@
     ],
     "season_count": 1,
     "years": [
-      2016
+      2014
     ],
     "year_count": 1,
-    "first_year": 2016,
-    "last_year": 2016,
+    "first_year": 2014,
+    "last_year": 2014,
     "games": 8,
     "goals": 0,
     "assists": 0,
@@ -7821,7 +7887,7 @@
     "season_types": {
       "summer": [],
       "winter": [
-        2016
+        2014
       ],
       "other": []
     },
@@ -7847,35 +7913,6 @@
     "teams": [
       "Otso",
       "Otso 3"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [
-        2025
-      ],
-      "other": []
-    },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
-  },
-  "Iivo Laaksonen": {
-    "seasons": [
-      "2025.3"
-    ],
-    "season_count": 1,
-    "years": [
-      2025
-    ],
-    "year_count": 1,
-    "first_year": 2025,
-    "last_year": 2025,
-    "games": 10,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
     ],
     "season_types": {
       "summer": [],
@@ -7916,6 +7953,35 @@
     "defense_points": 0,
     "offense_points": 0,
     "total_points": 0
+  },
+  "Iivo Laaksonen": {
+    "seasons": [
+      "2025.3"
+    ],
+    "season_count": 1,
+    "years": [
+      2025
+    ],
+    "year_count": 1,
+    "first_year": 2025,
+    "last_year": 2025,
+    "games": 10,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2025
+      ],
+      "other": []
+    },
+    "defense_points": 4,
+    "offense_points": 3,
+    "total_points": 7
   },
   "chandika chandrasekeram": {
     "seasons": [
@@ -7975,36 +8041,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "eerikki mäki": {
-    "seasons": [
-      "2006.1"
-    ],
-    "season_count": 1,
-    "years": [
-      2006
-    ],
-    "year_count": 1,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [
-        2006
-      ],
-      "winter": [],
-      "other": []
-    },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
-  },
-  "leinikka taavi": {
+  "pekka sääskilahti": {
     "seasons": [
       "2006.1"
     ],
@@ -8062,7 +8099,36 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "pekka sääskilahti": {
+  "eerikki mäki": {
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [],
+      "other": []
+    },
+    "defense_points": 0,
+    "offense_points": 0,
+    "total_points": 0
+  },
+  "leinikka taavi": {
     "seasons": [
       "2006.1"
     ],

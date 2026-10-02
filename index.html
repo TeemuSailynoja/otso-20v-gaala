@@ -786,6 +786,36 @@
         }
 
         /* TIMELINE PAGE */
+        .timeline-toggles {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .timeline-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .toggle-btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .toggle-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .toggle-btn.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border-color: var(--gold);
+        }
         .timeline-year-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -994,6 +1024,17 @@
             <div class="section-header">
                 <h2>20-Year Timeline</h2>
                 <p>Every season at a glance</p>
+                <div class="timeline-toggles">
+                    <div class="timeline-toggle">
+                        <button class="toggle-btn active" data-view="otso">Otso</button>
+                        <button class="toggle-btn" data-view="all-bears">All Bears</button>
+                    </div>
+                    <div class="timeline-toggle">
+                        <button class="toggle-btn active" data-season="full">Full Year</button>
+                        <button class="toggle-btn" data-season="summer">Summer</button>
+                        <button class="toggle-btn" data-season="winter">Winter</button>
+                    </div>
+                </div>
             </div>
             <div class="chart-card full-width">
                 <h3>Matches, Wins & Roster Size Over Time</h3>
@@ -1026,10 +1067,17 @@
 
     <script>
     // ==================== DATA ====================
-    let DATA = { players: {}, passNetwork: {}, cooccurrence: {}, summary: {}, years: {}, frenemies: [] };
+    let DATA = {
+        players: {}, passNetwork: {}, cooccurrence: {}, summary: {}, frenemies: [],
+        years: {}, yearsOtso: {}, yearsAllBears: {},
+        yearsOtsoSummer: {}, yearsAllBearsSummer: {},
+        yearsOtsoWinter: {}, yearsAllBearsWinter: {},
+    };
+    let currentView = 'otso'; // 'otso' or 'all-bears'
+    let currentSeason = 'full'; // 'full', 'summer', 'winter'
 
     async function loadData() {
-        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'years', 'frenemies'];
+        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies'];
         const results = await Promise.all(files.map(f =>
             fetch(`site_data/${f}.json`).then(r => r.json())
         ));
@@ -1037,8 +1085,24 @@
         DATA.passNetwork = results[1];
         DATA.cooccurrence = results[2];
         DATA.summary = results[3];
-        DATA.years = results[4];
-        DATA.frenemies = results[5];
+        DATA.frenemies = results[4];
+        
+        // Load all years datasets
+        const [yearsOtso, yearsAllBears, yearsOtsoSummer, yearsAllBearsSummer, yearsOtsoWinter, yearsAllBearsWinter] = await Promise.all([
+            fetch('site_data/years_otso.json').then(r => r.json()),
+            fetch('site_data/years_all_bears.json').then(r => r.json()),
+            fetch('site_data/years_otso_summer.json').then(r => r.json()),
+            fetch('site_data/years_all_bears_summer.json').then(r => r.json()),
+            fetch('site_data/years_otso_winter.json').then(r => r.json()),
+            fetch('site_data/years_all_bears_winter.json').then(r => r.json()),
+        ]);
+        DATA.yearsOtso = yearsOtso;
+        DATA.yearsAllBears = yearsAllBears;
+        DATA.yearsOtsoSummer = yearsOtsoSummer;
+        DATA.yearsAllBearsSummer = yearsAllBearsSummer;
+        DATA.yearsOtsoWinter = yearsOtsoWinter;
+        DATA.yearsAllBearsWinter = yearsAllBearsWinter;
+        DATA.years = yearsOtso; // Default to Otso full year
     }
 
     // ==================== ROUTING ====================
@@ -1929,6 +1993,63 @@
             }
         });
     }
+
+    // Toggle between Otso and All Bears
+    function switchTimelineView(view) {
+        currentView = view;
+        
+        // Update view toggle buttons
+        document.querySelectorAll('.timeline-toggle')[0]?.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.view === view);
+        });
+        
+        updateTimelineDatasets();
+    }
+
+    // Toggle season type (Full/Summer/Winter)
+    function switchTimelineSeason(season) {
+        currentSeason = season;
+        
+        // Update season toggle buttons
+        document.querySelectorAll('.timeline-toggle')[1]?.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.season === season);
+        });
+        
+        updateTimelineDatasets();
+    }
+
+    // Update DATA.years based on current view and season
+    function updateTimelineDatasets() {
+        const view = currentView;
+        const season = currentSeason;
+        
+        let yearsData;
+        if (view === 'all-bears') {
+            if (season === 'summer') yearsData = DATA.yearsAllBearsSummer;
+            else if (season === 'winter') yearsData = DATA.yearsAllBearsWinter;
+            else yearsData = DATA.yearsAllBears;
+        } else {
+            if (season === 'summer') yearsData = DATA.yearsOtsoSummer;
+            else if (season === 'winter') yearsData = DATA.yearsOtsoWinter;
+            else yearsData = DATA.yearsOtso;
+        }
+        
+        DATA.years = yearsData;
+        renderTimeline();
+    }
+
+    // Add toggle event listeners
+    document.querySelectorAll('.timeline-toggle')[0]?.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchTimelineView(btn.dataset.view);
+        });
+    });
+    
+    document.querySelectorAll('.timeline-toggle')[1]?.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchTimelineSeason(btn.dataset.season);
+        });
+    });
 
     // ==================== PARTICLES ====================
     function initParticles() {
