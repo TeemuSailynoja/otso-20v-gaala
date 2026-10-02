@@ -1,0 +1,395 @@
+[
+  {
+    "name": "Elias Päällysaho",
+    "games": 70,
+    "wins": 19,
+    "losses": 51,
+    "goals": 335,
+    "assists": 128,
+    "total": 463,
+    "ppg": 6.61,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 1
+  },
+  {
+    "name": "Antti Wiklund",
+    "games": 75,
+    "wins": 23,
+    "losses": 52,
+    "goals": 97,
+    "assists": 361,
+    "total": 458,
+    "ppg": 6.11,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 2
+  },
+  {
+    "name": "Teemu Kalliokoski",
+    "games": 80,
+    "wins": 24,
+    "losses": 56,
+    "goals": 284,
+    "assists": 174,
+    "total": 458,
+    "ppg": 5.72,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 3
+  },
+  {
+    "name": "Aki Ropo",
+    "games": 64,
+    "wins": 19,
+    "losses": 45,
+    "goals": 325,
+    "assists": 59,
+    "total": 384,
+    "ppg": 6.0,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 4
+  },
+  {
+    "name": "Saska Karpansalo",
+    "games": 81,
+    "wins": 33,
+    "losses": 48,
+    "goals": 117,
+    "assists": 227,
+    "total": 344,
+    "ppg": 4.25,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 5
+  },
+  {
+    "name": "Okko Winqvist",
+    "games": 49,
+    "wins": 22,
+    "losses": 27,
+    "goals": 183,
+    "assists": 150,
+    "total": 333,
+    "ppg": 6.8,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 6
+  },
+  {
+    "name": "Jaakko Junttu",
+    "games": 34,
+    "wins": 12,
+    "losses": 22,
+    "goals": 192,
+    "assists": 131,
+    "total": 323,
+    "ppg": 9.5,
+    "teams": [
+      "Otso",
+      "Otso 2",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 7
+  },
+  {
+    "name": "Ilja Winqvist",
+    "games": 49,
+    "wins": 24,
+    "losses": 25,
+    "goals": 164,
+    "assists": 150,
+    "total": 314,
+    "ppg": 6.41,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 8
+  },
+  {
+    "name": "Antti Kahri",
+    "games": 73,
+    "wins": 26,
+    "losses": 47,
+    "goals": 228,
+    "assists": 72,
+    "total": 300,
+    "ppg": 4.11,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 9
+  },
+  {
+    "name": "Santtu Lehto",
+    "games": 43,
+    "wins": 15,
+    "losses": 28,
+    "goals": 110,
+    "assists": 189,
+    "total": 299,
+    "ppg": 6.95,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 10
+  },
+  {
+    "name": "Tuomas Niemi",
+    "games": 40,
+    "wins": 13,
+    "losses": 27,
+    "goals": 139,
+    "assists": 144,
+    "total": 283,
+    "ppg": 7.08,
+    "teams": [
+      "Otso",
+      "Otso 2",
+      "Otso 3"
+    ],
+    "rank": 11
+  },
+  {
+    "name": "Lauri Saksa",
+    "games": 59,
+    "wins": 22,
+    "losses": 37,
+    "goals": 129,
+    "assists": 150,
+    "total": 279,
+    "ppg": 4.73,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 12
+  },
+  {
+    "name": "Eetu Tiihonen",
+    "games": 56,
+    "wins": 21,
+    "losses": 35,
+    "goals": 175,
+    "assists": 104,
+    "total": 279,
+    "ppg": 4.98,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 13
+  },
+  {
+    "name": "Aarni Nagy",
+    "games": 42,
+    "wins": 11,
+    "losses": 31,
+    "goals": 173,
+    "assists": 103,
+    "total": 276,
+    "ppg": 6.57,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 14
+  },
+  {
+    "name": "Jyri Saarinen",
+    "games": 61,
+    "wins": 23,
+    "losses": 38,
+    "goals": 178,
+    "assists": 96,
+    "total": 274,
+    "ppg": 4.49,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 15
+  },
+  {
+    "name": "Aleksi Pelto",
+    "games": 42,
+    "wins": 17,
+    "losses": 25,
+    "goals": 193,
+    "assists": 81,
+    "total": 274,
+    "ppg": 6.52,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2"
+    ],
+    "rank": 16
+  },
+  {
+    "name": "Juho Pulakka",
+    "games": 79,
+    "wins": 29,
+    "losses": 50,
+    "goals": 161,
+    "assists": 112,
+    "total": 273,
+    "ppg": 3.46,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Akatemia",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 17
+  },
+  {
+    "name": "Juha Jokinen",
+    "games": 35,
+    "wins": 14,
+    "losses": 21,
+    "goals": 210,
+    "assists": 53,
+    "total": 263,
+    "ppg": 7.51,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2"
+    ],
+    "rank": 18
+  },
+  {
+    "name": "Thomas Pfister",
+    "games": 63,
+    "wins": 18,
+    "losses": 45,
+    "goals": 145,
+    "assists": 117,
+    "total": 262,
+    "ppg": 4.16,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 19
+  },
+  {
+    "name": "Juho Lehtimäki",
+    "games": 56,
+    "wins": 16,
+    "losses": 40,
+    "goals": 140,
+    "assists": 112,
+    "total": 252,
+    "ppg": 4.5,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 20
+  },
+  {
+    "name": "Einari Leinonen",
+    "games": 43,
+    "wins": 13,
+    "losses": 30,
+    "goals": 104,
+    "assists": 136,
+    "total": 240,
+    "ppg": 5.58,
+    "teams": [
+      "Otso",
+      "Otso 1",
+      "Otso 2",
+      "Otso 3",
+      "Otso Grizzly",
+      "Otso Polar"
+    ],
+    "rank": 21
+  }
+]

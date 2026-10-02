@@ -7350,10 +7350,14 @@
     }
   },
   "Euramo Sisu": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2025.3"
+    ],
+    "season_count": 1,
+    "years": [
+      2025
+    ],
+    "year_count": 1,
     "first_year": 2025,
     "last_year": 2025,
     "games": 13,
@@ -7366,35 +7370,21 @@
     ],
     "season_types": {
       "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "Iivo Laaksonen": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2025,
-    "last_year": 2025,
-    "games": 10,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
+      "winter": [
+        2025
+      ],
       "other": []
     }
   },
   "Lacy Theo": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2025.3"
+    ],
+    "season_count": 1,
+    "years": [
+      2025
+    ],
+    "year_count": 1,
     "first_year": 2025,
     "last_year": 2025,
     "games": 9,
@@ -7406,15 +7396,47 @@
     ],
     "season_types": {
       "summer": [],
-      "winter": [],
+      "winter": [
+        2025
+      ],
+      "other": []
+    }
+  },
+  "Iivo Laaksonen": {
+    "seasons": [
+      "2025.3"
+    ],
+    "season_count": 1,
+    "years": [
+      2025
+    ],
+    "year_count": 1,
+    "first_year": 2025,
+    "last_year": 2025,
+    "games": 10,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2025
+      ],
       "other": []
     }
   },
   "chandika chandrasekeram": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
     "first_year": 2006,
     "last_year": 2006,
     "games": 1,
@@ -7425,16 +7447,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2006
+      ],
       "winter": [],
       "other": []
     }
   },
   "eerikki mäki": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
     "first_year": 2006,
     "last_year": 2006,
     "games": 1,
@@ -7445,16 +7473,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2006
+      ],
       "winter": [],
       "other": []
     }
   },
   "leinikka taavi": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
     "first_year": 2006,
     "last_year": 2006,
     "games": 1,
@@ -7465,16 +7499,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2006
+      ],
       "winter": [],
       "other": []
     }
   },
   "pekka sääskilahti": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
     "first_year": 2006,
     "last_year": 2006,
     "games": 1,
@@ -7485,16 +7525,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2006
+      ],
       "winter": [],
       "other": []
     }
   },
   "sampo smeds": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
     "first_year": 2006,
     "last_year": 2006,
     "games": 1,
@@ -7505,16 +7551,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2006
+      ],
       "winter": [],
       "other": []
     }
   },
   "luhtala roope": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
     "first_year": 2006,
     "last_year": 2006,
     "games": 1,
@@ -7525,37 +7577,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "konstantin laakkonen": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2013,
-    "last_year": 2013,
-    "games": 2,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Karhuvaarit",
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
+      "summer": [
+        2006
+      ],
       "winter": [],
       "other": []
     }
   },
   "eero lunden": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2013.2"
+    ],
+    "season_count": 1,
+    "years": [
+      2013
+    ],
+    "year_count": 1,
     "first_year": 2013,
     "last_year": 2013,
     "games": 4,
@@ -7569,15 +7606,48 @@
     ],
     "season_types": {
       "summer": [],
-      "winter": [],
+      "winter": [
+        2013
+      ],
+      "other": []
+    }
+  },
+  "konstantin laakkonen": {
+    "seasons": [
+      "2013.2"
+    ],
+    "season_count": 1,
+    "years": [
+      2013
+    ],
+    "year_count": 1,
+    "first_year": 2013,
+    "last_year": 2013,
+    "games": 2,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Karhuvaarit",
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2013
+      ],
       "other": []
     }
   },
   "eetu strengell": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2013.2"
+    ],
+    "season_count": 1,
+    "years": [
+      2013
+    ],
+    "year_count": 1,
     "first_year": 2013,
     "last_year": 2013,
     "games": 1,
@@ -7589,15 +7659,21 @@
     ],
     "season_types": {
       "summer": [],
-      "winter": [],
+      "winter": [
+        2013
+      ],
       "other": []
     }
   },
   "nikolaev nikolay": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2014.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2014
+    ],
+    "year_count": 1,
     "first_year": 2014,
     "last_year": 2014,
     "games": 2,
@@ -7608,16 +7684,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2014
+      ],
       "winter": [],
       "other": []
     }
   },
   "dmitri podolsky": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2014.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2014
+    ],
+    "year_count": 1,
     "first_year": 2014,
     "last_year": 2014,
     "games": 1,
@@ -7628,56 +7710,22 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "smolov viktor": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "alexander gorokhov": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
+      "summer": [
+        2014
+      ],
       "winter": [],
       "other": []
     }
   },
   "alexey zhebel": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
+    "seasons": [
+      "2014.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2014
+    ],
+    "year_count": 1,
     "first_year": 2014,
     "last_year": 2014,
     "games": 1,
@@ -7688,7 +7736,61 @@
       "Otso"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2014
+      ],
+      "winter": [],
+      "other": []
+    }
+  },
+  "smolov viktor": {
+    "seasons": [
+      "2014.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2014
+    ],
+    "year_count": 1,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [
+        2014
+      ],
+      "winter": [],
+      "other": []
+    }
+  },
+  "alexander gorokhov": {
+    "seasons": [
+      "2014.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2014
+    ],
+    "year_count": 1,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [
+        2014
+      ],
       "winter": [],
       "other": []
     }

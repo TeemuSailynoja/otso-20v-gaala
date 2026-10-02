@@ -788,6 +788,118 @@ def build_years(gameplay: list[dict]) -> dict:
     return result
 
 
+def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
+    """Build top opponents by career points against Otso.
+    
+    Processes all non-Otso players in gameplay data, counting goals/assists
+    from the points data (not roster totals which are unreliable).
+    Uses canonical name matching to handle "Lastname Firstname" vs
+    "Firstname Lastname" format differences.
+    
+    Returns list of dicts sorted by total points, limited to top_n.
+    Each entry has: rank, name, games, wins, losses, goals, assists, total, ppg, teams
+    """
+    players = defaultdict(lambda: {
+        'games': 0, 'wins': 0, 'goals': 0, 'assists': 0, 'teams': set()
+    })
+    
+    for game in gameplay:
+        gp = game.get('gameplay')
+        if not gp:
+            continue
+        
+        home = gp.get('home_team', '')
+        away = gp.get('away_team', '')
+        home_score = gp.get('home_score', 0)
+        away_score = gp.get('away_score', 0)
+        
+        home_is_otso = is_otso_team(home) or is_otso_akatemia(home)
+        away_is_otso = is_otso_team(away) or is_otso_akatemia(away)
+        
+        if not home_is_otso and not away_is_otso:
+            continue
+        
+        # Build canonical name → display name map for all players in this game
+        canon_to_display = {}
+        for p in gp.get('home_players', []) + gp.get('away_players', []):
+            name = p.get('name', '')
+            if name:
+                canon = canonicalize_name(name)
+                if canon and canon not in canon_to_display:
+                    canon_to_display[canon] = name
+        
+        # Build set of Otso canonical names
+        otso_canonicals = set()
+        for p in gp.get('home_players', []):
+            if home_is_otso:
+                canon = canonicalize_name(p.get('name', ''))
+                if canon:
+                    otso_canonicals.add(canon)
+        for p in gp.get('away_players', []):
+            if away_is_otso:
+                canon = canonicalize_name(p.get('name', ''))
+                if canon:
+                    otso_canonicals.add(canon)
+        
+        # Determine which side is Otso and which is opponent
+        if home_is_otso:
+            otso_score = home_score
+            opp_score = away_score
+            opp_canonicals = set(canon_to_display.keys()) - otso_canonicals
+        else:
+            otso_score = away_score
+            opp_score = home_score
+            opp_canonicals = set(canon_to_display.keys()) - otso_canonicals
+        
+        # Count games and wins for opponent players
+        for canon in opp_canonicals:
+            display_name = canon_to_display[canon]
+            players[display_name]['games'] += 1
+            if opp_score > otso_score:
+                players[display_name]['wins'] += 1
+            # Track team
+            team = gp.get('away_team') if away_is_otso else gp.get('home_team')
+            players[display_name]['teams'].add(canonicalize_team_name(team))
+        
+        # Count goals/assists from points data using canonical matching
+        for point in gp.get('points', []):
+            if point.get('type') != 'point':
+                continue
+            scorer_canon = canonicalize_name(point.get('scorer', ''))
+            assist_canon = canonicalize_name(point.get('assist', ''))
+            
+            if scorer_canon in canon_to_display and scorer_canon not in otso_canonicals:
+                players[canon_to_display[scorer_canon]]['goals'] += 1
+            if assist_canon in canon_to_display and assist_canon not in otso_canonicals:
+                players[canon_to_display[assist_canon]]['assists'] += 1
+    
+    # Sort by total points and take top_n
+    scored = []
+    for name, p in players.items():
+        total = p['goals'] + p['assists']
+        if total > 0:
+            ppg = total / p['games'] if p['games'] > 0 else 0
+            scored.append({
+                'name': name,
+                'games': p['games'],
+                'wins': p['wins'],
+                'losses': p['games'] - p['wins'],
+                'goals': p['goals'],
+                'assists': p['assists'],
+                'total': total,
+                'ppg': round(ppg, 2),
+                'teams': sorted(p['teams']),
+            })
+    
+    scored.sort(key=lambda x: -x['total'])
+    
+    # Add rank
+    for i, entry in enumerate(scored[:top_n], 1):
+        entry['rank'] = i
+    
+    return scored[:top_n]
+
+
 def main():
     print("Loading raw data...")
     raw_data = load_raw_data()
@@ -817,6 +929,10 @@ def main():
     years = build_years(gameplay)
     print(f"  {len(years)} years")
     
+    print("Building frenemies...")
+    frenemies = build_frenemies(gameplay)
+    print(f"  {len(frenemies)} frenemies")
+    
     print("Building summary...")
     summary = build_summary(players, pass_network, cooccurrence, years, gameplay)
     
@@ -830,6 +946,7 @@ def main():
         "cooccurrence.json": cooccurrence,
         "years.json": years,
         "summary.json": summary,
+        "frenemies.json": frenemies,
     }
     
     for filename, data in files.items():

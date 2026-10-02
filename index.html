@@ -615,6 +615,72 @@
         }
         .player-card-stats span { font-weight: 600; color: var(--text); }
 
+        /* FRENEMIES */
+        .frenemies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+        .frenemy-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .frenemy-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(220, 50, 50, 0.4);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .frenemy-rank {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Prototype', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: white;
+            background: linear-gradient(135deg, #dc3232, #8b3a4a);
+            border-radius: 0 0 12px 0;
+        }
+        .frenemy-card:nth-child(1) .frenemy-rank {
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+        }
+        .frenemy-card:nth-child(2) .frenemy-rank {
+            background: linear-gradient(135deg, #c0c0c0, #808080);
+        }
+        .frenemy-card:nth-child(3) .frenemy-rank {
+            background: linear-gradient(135deg, #cd7f32, #8b4513);
+        }
+        .frenemy-name {
+            font-family: 'Prototype', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 2.5rem 0 0.75rem;
+            color: var(--text);
+        }
+        .frenemy-stats {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+        .frenemy-stats span { font-weight: 600; }
+        .frenemy-teams {
+            font-size: 0.75rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
         /* PLAYER DETAIL */
         .player-detail {
             max-width: 900px;
@@ -828,6 +894,7 @@
             <div class="nav-links">
             <a href="#/" data-page="home">Home</a>
             <a href="#/players" data-page="players">Players</a>
+            <a href="#/frenemies" data-page="frenemies">Frenemies</a>
             <a href="#/timeline" data-page="timeline">Timeline</a>
             </div>
         </div>
@@ -908,6 +975,17 @@
         </section>
     </div>
 
+    <!-- FRENEMIES PAGE -->
+    <div id="page-frenemies" class="page">
+        <section class="section">
+            <div class="section-header">
+                <h2>Frenemies</h2>
+                <p>The top 21 players who scored the most against Otso — our most respected opponents</p>
+            </div>
+            <div class="frenemies-grid" id="frenemies-grid"></div>
+        </section>
+    </div>
+
     <!-- TIMELINE PAGE -->
     <div id="page-timeline" class="page">
         <section class="section">
@@ -946,10 +1024,10 @@
 
     <script>
     // ==================== DATA ====================
-    let DATA = { players: {}, passNetwork: {}, cooccurrence: {}, summary: {}, years: {} };
+    let DATA = { players: {}, passNetwork: {}, cooccurrence: {}, summary: {}, years: {}, frenemies: [] };
 
     async function loadData() {
-        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'years'];
+        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'years', 'frenemies'];
         const results = await Promise.all(files.map(f =>
             fetch(`site_data/${f}.json`).then(r => r.json())
         ));
@@ -958,6 +1036,7 @@
         DATA.cooccurrence = results[2];
         DATA.summary = results[3];
         DATA.years = results[4];
+        DATA.frenemies = results[5];
     }
 
     // ==================== ROUTING ====================
@@ -984,6 +1063,9 @@
             const playerName = decodeURIComponent(parts.slice(2).join('/'));
             document.getElementById('page-player').classList.add('active');
             renderPlayerDetail(playerName);
+        } else if (page === 'frenemies') {
+            document.getElementById('page-frenemies').classList.add('active');
+            renderFrenemies();
         } else if (page === 'timeline') {
             document.getElementById('page-timeline').classList.add('active');
             renderTimeline();
@@ -1376,6 +1458,29 @@
     document.getElementById('player-search').addEventListener('input', (e) => {
         renderPlayers(e.target.value);
     });
+
+    // ==================== FRENEMIES PAGE ====================
+    function renderFrenemies() {
+        const grid = document.getElementById('frenemies-grid');
+        const frenemies = DATA.frenemies || [];
+        
+        grid.innerHTML = frenemies.map(f => {
+            const teamsStr = f.teams.slice(0, 3).join(', ') + (f.teams.length > 3 ? '...' : '');
+            return `
+                <div class="frenemy-card">
+                    <div class="frenemy-rank">#${f.rank}</div>
+                    <div class="frenemy-name">${f.name}</div>
+                    <div class="frenemy-stats">
+                        <div><span>${f.games}</span>G</div>
+                        <div><span>${f.wins}-${f.losses}</span></div>
+                        <div><span>${f.total}</span>pts</div>
+                        <div><span>${f.ppg}</span>PPG</div>
+                    </div>
+                    <div class="frenemy-teams">${teamsStr}</div>
+                </div>
+            `;
+        }).join('');
+    }
 
     // ==================== ERA THEMING ====================
     // Player pages styled by the era they started in
