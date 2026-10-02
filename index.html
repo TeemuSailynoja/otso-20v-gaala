@@ -1678,13 +1678,13 @@
                     const t = Math.min(1, p.progress);
                     const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
                     
-                    // Attracted to center, with random jitter
-                    const jitterX = (Math.random() - 0.5) * 0.2;
-                    const jitterY = (Math.random() - 0.5) * 0.2;
-                    p.vx += (p.targetX - p.x) * 0.01 + jitterX;
-                    p.vy += (p.targetY - p.y) * 0.01 + jitterY;
-                    p.vx *= 0.96;
-                    p.vy *= 0.96;
+                    // Gentle attraction to center - let repulsion guide them to open spots
+                    const jitterX = (Math.random() - 0.5) * 0.15;
+                    const jitterY = (Math.random() - 0.5) * 0.15;
+                    p.vx += (p.targetX - p.x) * 0.005 + jitterX;
+                    p.vy += (p.targetY - p.y) * 0.005 + jitterY;
+                    p.vx *= 0.97;
+                    p.vy *= 0.97;
                     p.x += p.vx;
                     p.y += p.vy;
                     // Start with alpha 1 at edge, fade to 0.7 as they reach center
