@@ -1470,7 +1470,7 @@
                         // Attraction point at middle of canvas
                         targetX = centerX;
                         targetY = centerY;
-                        initAlpha = 1.0; // Visible immediately at edge
+                        initAlpha = 0; // Start invisible, fade handled in animate
                         // Random delay independent of position - shorter stagger
                         entryDelay = delayBase + Math.floor(Math.random() * names.length * 8);
                     } else if (state === 'leaving') {
@@ -1696,15 +1696,13 @@
                     p.vy *= 0.96;
                     p.x += p.vx;
                     p.y += p.vy;
-                    // Fade in based on horizontal position - invisible at right edge, visible once away
-                    const edgeFadeStart = w;
-                    const edgeFadeEnd = w * 0.85;
-                    if (p.x >= edgeFadeStart) {
+                    // Fade in based on horizontal position - invisible at far right, visible once past 90%
+                    if (p.x >= w * 0.9) {
                         p.alpha = 0;
-                    } else if (p.x <= edgeFadeEnd) {
+                    } else if (p.x <= w * 0.8) {
                         p.alpha = 0.7;
                     } else {
-                        p.alpha = (p.x - edgeFadeEnd) / (edgeFadeStart - edgeFadeEnd) * 0.7;
+                        p.alpha = (p.x - w * 0.8) / (w * 0.1) * 0.7;
                     }
 
                     if (t >= 1) {
@@ -1769,21 +1767,19 @@
                     // Slower attraction to left edge center
                     const dx = p.targetX - p.x;
                     const dy = p.targetY - p.y;
-                    p.vx += dx * 0.006;
-                    p.vy += dy * 0.006;
+                    p.vx += dx * 0.008;
+                    p.vy += dy * 0.008;
                     p.vx *= 0.96;
                     p.vy *= 0.96;
                     p.x += p.vx;
                     p.y += p.vy;
-                    // Fade out based on horizontal position - fade once close to left edge
-                    const leftFadeStart = w * 0.15;
-                    const leftFadeEnd = 0;
-                    if (p.x <= leftFadeEnd) {
+                    // Fade out based on horizontal position - fade once close to left edge, fully gone at x=5
+                    if (p.x <= 5) {
                         p.alpha = 0;
-                    } else if (p.x >= leftFadeStart) {
+                    } else if (p.x >= w * 0.15) {
                         p.alpha = 0.7;
                     } else {
-                        p.alpha = (p.x - leftFadeEnd) / (leftFadeStart - leftFadeEnd) * 0.7;
+                        p.alpha = (p.x - 5) / (w * 0.15 - 5) * 0.7;
                     }
                 }
             });
