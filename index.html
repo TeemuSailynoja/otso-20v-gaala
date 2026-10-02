@@ -1542,8 +1542,8 @@
             }
             if (yearDisplay) yearDisplay.textContent = yearList[currentYearIdx];
 
-            // Update particles
-            particles = particles.filter(p => p.alpha > 0.01);
+            // Update particles - keep particles with alpha > -0.1 to allow fade-in
+            particles = particles.filter(p => p.alpha > -0.1);
 
             particles.forEach(p => {
                 if (p.state === 'entering') {
