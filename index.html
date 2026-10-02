@@ -1666,6 +1666,7 @@
                         y: py,
                         vx: 0, vy: 0,
                         r: 2.5,
+                        seasons: state === 'entering' ? 1 : 1,
                         alpha: initAlpha,
                         state: state,
                         progress: 0,
@@ -1759,6 +1760,13 @@
                 const shuffled = entering.sort(() => Math.random() - 0.5);
                 addPlayerParticles(shuffled, 'entering', 0);
             }
+
+            // Survivors — players who stay active get a slight size bump
+            const survivors = [...currentSet].filter(n => nextSet.has(n));
+            survivors.forEach(name => {
+                const p = particles.find(p => p.name === name && (p.state === 'active' || p.state === 'settling'));
+                if (p) p.seasons = (p.seasons || 1) + 1;
+            });
 
             // Departing players leave to left edge (staggered)
             const leaving = [...currentSet].filter(n => !nextSet.has(n));
@@ -1952,14 +1960,15 @@
             // Draw particles
             particles.forEach(p => {
                 if (p.alpha > 0.01) {
+                    const grown = p.r + (p.seasons - 1) * 0.15;
                     ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.arc(p.x, p.y, grown, 0, Math.PI * 2);
                     ctx.fillStyle = hexToRGBA(p.color, p.alpha);
                     ctx.fill();
                     
                     if (p.state === 'active' && p.alpha > 0.4) {
                         ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+                        ctx.arc(p.x, p.y, grown * 2.5, 0, Math.PI * 2);
                         ctx.fillStyle = hexToRGBA(p.color, p.alpha * 0.12);
                         ctx.fill();
                     }
