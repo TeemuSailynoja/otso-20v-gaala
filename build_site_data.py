@@ -328,6 +328,12 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 "assists": 0,
                 "total": 0,
                 "teams": set(),
+                "summer_games": 0,
+                "summer_goals": 0,
+                "summer_assists": 0,
+                "winter_games": 0,
+                "winter_goals": 0,
+                "winter_assists": 0,
             }
         
         p = players[canonical]
@@ -341,10 +347,18 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
                  page_mapping.get(season_id, {}).get("type") or
                  season_type_map.get(season_id, "unknown"))
-        if stype == "winter":
-            p["season_types"]["winter"].add(year)
-        elif stype == "summer":
+        
+        # Track summer/winter stats
+        if stype == "summer":
+            p["summer_games"] += games
+            p["summer_goals"] += goals
+            p["summer_assists"] += assists
             p["season_types"]["summer"].add(year)
+        elif stype == "winter":
+            p["winter_games"] += games
+            p["winter_goals"] += goals
+            p["winter_assists"] += assists
+            p["season_types"]["winter"].add(year)
         else:
             p["season_types"]["other"].add(year)
         p["teams"].add(team_name)
@@ -418,6 +432,18 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         for canon in otso_canonicals:
             if canon in players:
                 players[canon]["games"] += 1
+                # Increment summer/winter games
+                if season_id in season_type_map:
+                    stype = season_type_map[season_id]
+                else:
+                    normalized_for_lookup = normalize_season_id(season_id, season_type_map)
+                    stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
+                             page_mapping.get(season_id, {}).get("type") or
+                             season_type_map.get(season_id, "unknown"))
+                if stype == "summer":
+                    players[canon]["summer_games"] += 1
+                elif stype == "winter":
+                    players[canon]["winter_games"] += 1
                 # Add team if this player appeared for a different team (e.g., Hukka)
                 player_team = ""
                 if home_is_otso:
@@ -437,6 +463,12 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 elif away_is_otso:
                     player_team = canonicalize_team_name(gp.get("away_team", ""))
                 
+                # Determine season type for this game
+                normalized_for_lookup = normalize_season_id(season_id, season_type_map)
+                stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
+                         page_mapping.get(season_id, {}).get("type") or
+                         season_type_map.get(season_id, "unknown"))
+                
                 p = {
                     "seasons": [],
                     "years": set(),
@@ -449,7 +481,19 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     "assists": 0,
                     "total": 0,
                     "teams": {player_team} if player_team else set(),
+                    "summer_games": 1 if stype == "summer" else 0,
+                    "summer_goals": 0,
+                    "summer_assists": 0,
+                    "winter_games": 1 if stype == "winter" else 0,
+                    "winter_goals": 0,
+                    "winter_assists": 0,
                 }
+                if stype == "summer":
+                    p["season_types"]["summer"].add(year if year else 2006)
+                elif stype == "winter":
+                    p["season_types"]["winter"].add(year if year else 2006)
+                else:
+                    p["season_types"]["other"].add(year if year else 2006)
                 players[canon] = p
                 # Track season and year (same logic as Phase 1's add_player)
                 if season_id:
@@ -535,6 +579,13 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 "winter": sorted(p["season_types"]["winter"]),
                 "other": sorted(p["season_types"]["other"]),
             },
+            # Summer/winter split
+            "summer_games": p["summer_games"],
+            "summer_goals": p["summer_goals"],
+            "summer_assists": p["summer_assists"],
+            "winter_games": p["winter_games"],
+            "winter_goals": p["winter_goals"],
+            "winter_assists": p["winter_assists"],
             # Defense stats (will be merged later)
             "defense_points": 0,
             "offense_points": 0,

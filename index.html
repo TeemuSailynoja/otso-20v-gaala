@@ -1393,6 +1393,30 @@
             .sort((a, b) => b.perMatch - a.perMatch)
             .slice(0, 3);
 
+        // ===== WINTER BEAR — best winter points/game =====
+        const winterBear = Object.entries(players)
+            .filter(([, d]) => d.winter_games >= 8 && (d.winter_goals + d.winter_assists) >= 50)
+            .map(([name, d]) => ({
+                name,
+                perMatch: ((d.winter_goals + d.winter_assists) / d.winter_games).toFixed(2),
+                winter_total: d.winter_goals + d.winter_assists,
+                winter_games: d.winter_games
+            }))
+            .sort((a, b) => b.perMatch - a.perMatch)
+            .slice(0, 3);
+
+        // ===== SUMMER CUB — best summer points/game =====
+        const summerCub = Object.entries(players)
+            .filter(([, d]) => d.summer_games >= 8 && (d.summer_goals + d.summer_assists) >= 50)
+            .map(([name, d]) => ({
+                name,
+                perMatch: ((d.summer_goals + d.summer_assists) / d.summer_games).toFixed(2),
+                summer_total: d.summer_goals + d.summer_assists,
+                summer_games: d.summer_games
+            }))
+            .sort((a, b) => b.perMatch - a.perMatch)
+            .slice(0, 3);
+
         // Otso season highlights
         const qualified = Object.entries(years).filter(([, v]) => v && v.wins + v.losses >= 15);
         const bestWin = qualified.reduce((a, b) => (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses)) ? a : b);
@@ -1432,6 +1456,8 @@
             { emoji: '🛡️', name: 'Defense Scorer Rate', desc: 'Best defense goals per game (min 10)', type: 'single', data: defScorerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
             { emoji: '📡', name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymakerAbs.map(p => ({ name: p.name, stat: `${p.total} assists (${p.games} games)` })) },
             { emoji: '📡', name: 'Defense Playmaker Rate', desc: 'Best defense assists per game (min 10)', type: 'single', data: defPlaymakerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
+            { emoji: '🐻', name: 'Winter Bear', desc: 'Best winter points/game (≥8 winter games, ≥50 total)', type: 'single', data: winterBear.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.winter_total} in ${p.winter_games})` })) },
+            { emoji: '🐾', name: 'Summer Cub', desc: 'Best summer points/game (≥8 summer games, ≥50 total)', type: 'single', data: summerCub.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.summer_total} in ${p.summer_games})` })) },
         ];
 
         const scrollContainer = document.getElementById('categories-scroll');

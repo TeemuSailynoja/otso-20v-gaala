@@ -18,14 +18,14 @@
     "rank": 1
   },
   {
-    "name": "Antti Wiklund",
-    "games": 75,
-    "wins": 23,
-    "losses": 52,
-    "goals": 97,
-    "assists": 361,
+    "name": "Teemu Kalliokoski",
+    "games": 80,
+    "wins": 24,
+    "losses": 56,
+    "goals": 284,
+    "assists": 174,
     "total": 458,
-    "ppg": 6.11,
+    "ppg": 5.72,
     "teams": [
       "Otso",
       "Otso 1",
@@ -38,14 +38,14 @@
     "rank": 2
   },
   {
-    "name": "Teemu Kalliokoski",
-    "games": 80,
-    "wins": 24,
-    "losses": 56,
-    "goals": 284,
-    "assists": 174,
+    "name": "Antti Wiklund",
+    "games": 75,
+    "wins": 23,
+    "losses": 52,
+    "goals": 97,
+    "assists": 361,
     "total": 458,
-    "ppg": 5.72,
+    "ppg": 6.11,
     "teams": [
       "Otso",
       "Otso 1",
