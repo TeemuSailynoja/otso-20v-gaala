@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Otso 20 Years — Espoo Ultimate Club</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <!-- Prototype font: download from 1001fonts.com and self-host for commercial use, or use Outfit (geometric sans) as fallback -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Prototype font by Mickey Avenue — free for personal use -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* 2023-2026 Jersey Theme */
@@ -32,7 +32,13 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; }
+        @font-face {
+            font-family: 'Prototype';
+            src: url('fonts/Prototype.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        h1, h2, h3 { font-family: 'Prototype', sans-serif; font-weight: 800; }
 
         /* NAV */
         nav {
@@ -64,7 +70,7 @@
             letter-spacing: 0.5px;
         }
         .nav-brand {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-weight: 800;
             font-size: 1.2rem;
             color: var(--gold);
@@ -161,7 +167,7 @@
         }
         .hero-stats { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease-out 0.6s both; }
         .hero-stat-value {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-size: 3rem;
             font-weight: 800;
             line-height: 1;
@@ -258,7 +264,7 @@
             font-weight: 900;
             color: rgba(229, 176, 55, 0.08);
             pointer-events: none;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             z-index: 10;
         }
         .animation-desc {
@@ -288,7 +294,7 @@
             border-color: rgba(229, 176, 55, 0.3);
         }
         .stat-value {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
         }
@@ -335,7 +341,7 @@
         .leaderboard-row .rank.silver { color: var(--gray); }
         .leaderboard-row .rank.bronze { color: #c4953a; }
         .leaderboard-row .rank {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-weight: 700;
             color: var(--muted);
         }
@@ -399,7 +405,7 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
         .player-card-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
@@ -435,7 +441,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-size: 2rem;
             font-weight: 800;
             color: var(--white);
@@ -467,7 +473,7 @@
             border: 1px solid var(--border);
         }
         .player-big-stat .value {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
         }
@@ -522,7 +528,7 @@
             border-color: rgba(229, 176, 55, 0.3);
         }
         .timeline-year-card .year {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-size: 2rem;
             font-weight: 800;
             color: var(--gold);
@@ -540,7 +546,7 @@
             border-radius: 8px;
         }
         .timeline-year-card .year-stat .val {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Prototype', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
         }
