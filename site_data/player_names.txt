@@ -77,6 +77,7 @@ Juha Poikolainen
 Juhana Oivio
 Juho Hiekkanen
 Juho Keitaanniemi
+Juho Siitonen
 Jukka Ilomäki
 Jukka Mäki
 Julius Rissanen
@@ -100,6 +101,7 @@ Markus Nora
 Matias Arola
 Matias Pentikäinen
 Matthew Schilke
+Matti Paatsama
 Mikko Alitalo
 Mikko Jauhonen
 Mikko Nietosvaara
@@ -128,6 +130,7 @@ Santeri Harmaala
 Santeri Salo
 Santtu Lehto
 Sebastian Godenhjelm
+Sebastian Sala
 Simo Siitonen
 Simo Soini
 Tapio Tiihonen
@@ -157,5 +160,18 @@ Waltteri Wickström
 Yrjänä Hynninen
 Yury Elkin
 Zaheer Gauhar
+alexander gorokhov
+alexey zhebel
+chandika chandrasekeram
+dmitri podolsky
+eerikki mäki
+eero lunden
+eetu strengell
+konstantin laakkonen
+leinikka taavi
+luhtala roope
 nikolaev nikolay
+pekka sääskilahti
+sampo smeds
+smolov viktor
 Šimon Kadlec
