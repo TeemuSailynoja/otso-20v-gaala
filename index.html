@@ -307,13 +307,185 @@
             margin-top: 0.25rem;
         }
 
+        /* STAT CATEGORIES — SLIDESHOW */
+        .categories-slideshow {
+            position: relative;
+            overflow: hidden;
+        }
+        .categories-track {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        .category-slide {
+            min-width: 100vw;
+            padding: 1rem 0;
+            flex-shrink: 0;
+        }
+        .category-slide-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .category-slide-inner.single {
+            max-width: 600px;
+        }
+        .category-slide-inner.triple {
+            max-width: 1200px;
+        }
+        .category-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .category-slide.visible .category-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .category-slide.visible .category-card:nth-child(1) { transition-delay: 0.1s; }
+        .category-slide.visible .category-card:nth-child(2) { transition-delay: 0.2s; }
+        .category-slide.visible .category-card:nth-child(3) { transition-delay: 0.3s; }
+        .category-card:hover {
+            border-color: rgba(229, 176, 55, 0.4);
+            background: var(--card-hover);
+        }
+        .category-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+        .category-emoji {
+            font-size: 1.4rem;
+        }
+        .category-name {
+            font-family: 'Prototype', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .category-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .category-players {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .category-player {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            padding: 0.35rem 0.5rem;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+        .category-player:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .category-rank {
+            font-family: 'Prototype', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            width: 22px;
+            text-align: center;
+        }
+        .category-rank.gold { color: var(--gold); }
+        .category-rank.silver { color: #c0c0c0; }
+        .category-rank.bronze { color: #cd7f32; }
+        .category-player-name {
+            font-weight: 600;
+            color: var(--text);
+            flex: 1;
+        }
+        .category-player-stat {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        .category-player-stat.highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .category-pair {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .category-pair-arrow {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        /* SLIDESHOW NAVIGATION */
+        .slide-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .slide-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .slide-dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+        }
+        .slide-nav-hint {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .category-slide {
+                min-width: 100vw;
+            }
+            .category-slide-inner {
+                flex-direction: column;
+                align-items: center;
+            }
+            .category-card {
+                max-width: 100%;
+                min-width: 0;
+                width: 100%;
+            }
+        }
+
         /* LEADERBOARD */
+        .leaderboard-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 2rem;
+        }
         .leaderboard {
             background: var(--card);
             border-radius: 16px;
             border: 1px solid var(--border);
             overflow: hidden;
-            margin-bottom: 2rem;
+            min-width: 520px;
         }
         .leaderboard-header {
             display: grid;
@@ -624,12 +796,6 @@
             .hero-stats { gap: 1.5rem; }
             .hero-stat-value { font-size: 2rem; }
             .grid-2 { grid-template-columns: 1fr; }
-            .leaderboard-header,
-            .leaderboard-row {
-                grid-template-columns: 40px 1fr 70px 70px 70px 60px;
-                padding: 0.6rem 1rem;
-                font-size: 0.8rem;
-            }
             .player-header { flex-direction: column; text-align: center; }
             .player-big-stats { flex-direction: column; }
             .nav-links { gap: 1rem; }
@@ -696,28 +862,16 @@
             </div>
         </section>
 
-        <!-- TOP SCORERS -->
+        <!-- STAT CATEGORIES — SLIDESHOW -->
         <section class="section">
             <div class="section-header">
-                <h2>All-Time Leaders</h2>
-                <p>Top performers across 20 years</p>
+                <h2>Stat Categories</h2>
+                <p>Creative ways to measure 20 years of Otso</p>
             </div>
-            <div class="stats-grid" id="home-stats-grid"></div>
-
-            <!-- Top Scorers -->
-            <div class="leaderboard">
-                <div class="leaderboard-header">
-                    <span>#</span><span>Player</span><span>Goals</span><span>Assists</span><span>Total</span><span>Games</span>
-                </div>
-                <div id="top-scorers-list"></div>
-            </div>
-
-            <!-- Top Assists -->
-            <div class="leaderboard">
-                <div class="leaderboard-header">
-                    <span>#</span><span>Player</span><span>Assists</span><span>Goals</span><span>Total</span><span>Games</span>
-                </div>
-                <div id="top-assists-list"></div>
+            <div class="categories-slideshow">
+                <div class="categories-track" id="categories-track"></div>
+                <div class="slide-nav" id="slide-nav"></div>
+                <div class="slide-nav-hint">Scroll or click dots to navigate</div>
             </div>
 
             <!-- Charts -->
@@ -859,57 +1013,366 @@
         document.getElementById('stat-wins').textContent = s.total_wins.toLocaleString();
         document.getElementById('stat-winpct').textContent = s.win_percentage + '%';
 
-        // Home stats grid
-        const statsGrid = document.getElementById('home-stats-grid');
-        const stats = [
-            { value: s.total_goals_for.toLocaleString(), label: 'Goals For', color: 'var(--gold)' },
-            { value: s.total_goals_against.toLocaleString(), label: 'Goals Against', color: 'var(--blue)' },
-            { value: s.years_count, label: 'Seasons', color: 'var(--red)' },
-            { value: s.total_players, label: 'Total Players', color: 'var(--gray)' },
+        renderCategories();
+        renderHomeCharts();
+    }
+
+    function renderCategories() {
+        const players = DATA.players;
+        const passNet = DATA.passNetwork;
+        const cooc = DATA.cooccurrence;
+        const given = passNet.given || {};
+        const received = passNet.received || {};
+
+        // Helper: normalize name
+        function normalize(name) {
+            if (!name || !(name in players)) return name;
+            return name;
+        }
+
+        // Helper: get rank class
+        function rankClass(i) {
+            return i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze';
+        }
+
+        // Helper: render a player row
+        function playerRow(rank, name, stat, highlight) {
+            const n = normalize(name);
+            const click = n in players ? `data-player="${n}"` : '';
+            return `<div class="category-player" ${click}>
+                <span class="category-rank ${rankClass(rank)}">${rank + 1}</span>
+                <span class="category-player-name">${n}</span>
+                <span class="category-player-stat ${highlight ? 'highlight' : ''}">${stat}</span>
+            </div>`;
+        }
+
+        // Helper: render a pair row
+        function pairRow(rank, name1, name2, stat1, stat2) {
+            const n1 = normalize(name1), n2 = normalize(name2);
+            const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
+            return `<div class="category-player" ${click}>
+                <span class="category-rank ${rankClass(rank)}">${rank + 1}</span>
+                <span class="category-pair">
+                    <span class="category-player-name">${n1}</span>
+                    <span class="category-pair-arrow">↔</span>
+                    <span class="category-player-name">${n2}</span>
+                </span>
+                <span class="category-player-stat highlight">${stat1} + ${stat2}%</span>
+            </div>`;
+        }
+
+        // ===== BUDDY BUDDY =====
+        const coocLookup = {};
+        for (const name in cooc) {
+            for (const partner in cooc[name]) {
+                coocLookup[(name, partner)] = cooc[name][partner];
+            }
+        }
+        const buddyPairs = [];
+        const pairsSeen = new Set();
+        for (const passer in given) {
+            for (const receiver in given[passer]) {
+                const ab = given[passer][receiver];
+                const ba = given[receiver]?.[passer] || 0;
+                if (ab > 0 && ba > 0) {
+                    const pair = [passer, receiver].sort();
+                    const key = pair.join('||');
+                    if (pairsSeen.has(key)) continue;
+                    pairsSeen.add(key);
+                    const games = coocLookup[(pair[0], pair[1])] || coocLookup[(pair[1], pair[0])] || 0;
+                    if (games >= 5) {
+                        const minDir = Math.min(ab, ba);
+                        buddyPairs.push({
+                            name1: pair[0], name2: pair[1],
+                            pct1: Math.round(ab / (Object.values(given[pair[0]] || {}).reduce((s, v) => s + v, 0)) * 100),
+                            pct2: Math.round(ba / (Object.values(given[pair[1]] || {}).reduce((s, v) => s + v, 0)) * 100)
+                        });
+                    }
+                }
+            }
+        }
+        buddyPairs.sort((a, b) => -(a.pct1 + a.pct2) / 2 + (b.pct1 + b.pct2) / 2);
+
+        // ===== TARGET ACQUIRED =====
+        const targetAcq = [];
+        for (const passer in given) {
+            const total = Object.values(given[passer]).reduce((s, v) => s + v, 0);
+            if (total < 20) continue;
+            const top = Object.entries(given[passer]).sort((a, b) => b[1] - a[1])[0];
+            targetAcq.push({ name: passer, target: top[0], pct: Math.round(top[1] / total * 100) });
+        }
+        targetAcq.sort((a, b) => b.pct - a.pct);
+
+        // ===== LIFELINE =====
+        const lifeline = [];
+        for (const receiver in received) {
+            const total = Object.values(received[receiver]).reduce((s, v) => s + v, 0);
+            if (total < 20) continue;
+            const top = Object.entries(received[receiver]).sort((a, b) => b[1] - a[1])[0];
+            lifeline.push({ name: receiver, source: top[0], pct: Math.round(top[1] / total * 100) });
+        }
+        lifeline.sort((a, b) => b.pct - a.pct);
+
+        // ===== PASS TO ME (per game, min 5 games) =====
+        const passToMe = [];
+        for (const name in players) {
+            const games = players[name].games;
+            if (games < 5) continue;
+            const unique = Object.keys(received[name] || {}).length;
+            passToMe.push({ name, perGame: (unique / games).toFixed(3), unique, games });
+        }
+        passToMe.sort((a, b) => b.perGame - a.perGame);
+
+        // ===== GOOD SAMARITAN (per game, min 5 games) =====
+        const goodSam = [];
+        for (const name in players) {
+            const games = players[name].games;
+            if (games < 5) continue;
+            const unique = Object.keys(given[name] || {}).length;
+            goodSam.push({ name, perGame: (unique / games).toFixed(3), unique, games });
+        }
+        goodSam.sort((a, b) => b.perGame - a.perGame);
+
+        // ===== THE CONNECTOR (per game, min 5 games) =====
+        const connector = [];
+        for (const name in players) {
+            const games = players[name].games;
+            if (games < 5) continue;
+            const gp = new Set(Object.keys(given[name] || {}));
+            const rp = new Set(Object.keys(received[name] || {}));
+            const unique = new Set([...gp, ...rp]).size;
+            connector.push({ name, perGame: (unique / games).toFixed(3), unique, games });
+        }
+        connector.sort((a, b) => b.perGame - a.perGame);
+
+        // ===== IRON LADDER =====
+        const ironLadder = Object.entries(players).sort((a, b) => b[1].season_count - a[1].season_count).slice(0, 3);
+
+        // ===== MARATHON RUNNER =====
+        const marathon = Object.entries(players).map(([n, d]) => ({
+            name: n, span: d.last_year - d.first_year + 1, first: d.first_year, last: d.last_year
+        })).sort((a, b) => b.span - a.span).slice(0, 3);
+
+        // ===== STREAK MASTER =====
+        const streak = [];
+        for (const [name, d] of Object.entries(players)) {
+            const yrs = [...new Set(d.seasons.map(s => { const m = s.match(/^\d{4}/); return m ? parseInt(m[0]) : null; }).filter(Boolean))];
+            let maxStreak = 0, cur = 0;
+            for (let i = 1; i < yrs.length; i++) {
+                if (yrs[i] === yrs[i-1] + 1) cur++; else cur = 0;
+                maxStreak = Math.max(maxStreak, cur + 1);
+            }
+            if (yrs.length > 0) maxStreak = Math.max(maxStreak, 1);
+            streak.push({ name, streak: maxStreak });
+        }
+        streak.sort((a, b) => b.streak - a.streak);
+
+        // ===== THE PHOENIX =====
+        const phoenix = [];
+        for (const [name, d] of Object.entries(players)) {
+            const yrs = [...new Set(d.seasons.map(s => { const m = s.match(/^\d{4}/); return m ? parseInt(m[0]) : null; }).filter(Boolean))].sort((a, b) => a - b);
+            let maxGap = 0, gapBefore = 0, gapAfter = 0;
+            for (let i = 1; i < yrs.length; i++) {
+                const gap = yrs[i] - yrs[i-1];
+                if (gap >= 3 && gap > maxGap) {
+                    maxGap = gap; gapBefore = yrs[i-1]; gapAfter = yrs[i];
+                }
+            }
+            if (maxGap >= 3) phoenix.push({ name, gap: maxGap, before: gapBefore, after: gapAfter, seasons: d.season_count });
+        }
+        phoenix.sort((a, b) => b.gap - a.gap);
+
+        // ===== POINTS MACHINE (per game, min 5 games) =====
+        const ppg = Object.entries(players).filter(([, d]) => d.games >= 5).map(([n, d]) => ({
+            name: n, perGame: (d.total / d.games).toFixed(2), total: d.total, games: d.games
+        })).sort((a, b) => b.perGame - a.perGame).slice(0, 3);
+
+        // ===== SPEED RUNNER (100+ points) =====
+        const speed = Object.entries(players).filter(([, d]) => d.total >= 100).map(([n, d]) => ({
+            name: n, points: d.total, games: d.games
+        })).sort((a, b) => a.games - b.games).slice(0, 3);
+
+        // ===== THE LEGEND =====
+        const legend = Object.entries(players).sort((a, b) => b[1].total - a[1].total).slice(0, 3);
+
+        // ===== GOAL MACHINE =====
+        const goals = Object.entries(players).sort((a, b) => b[1].goals - a[1].goals).slice(0, 3);
+
+        // ===== ASSIST KING =====
+        const assists = Object.entries(players).sort((a, b) => b[1].assists - a[1].assists).slice(0, 3);
+
+        // ===== PURE PLAYMAKER (assists > goals, min 5 games) =====
+        const playmaker = Object.entries(players).filter(([, d]) => d.assists > d.goals && d.games >= 5).map(([n, d]) => ({
+            name: n, assists: d.assists, goals: d.goals, ratio: (d.assists / Math.max(d.goals, 1)).toFixed(2)
+        })).sort((a, b) => b.ratio - a.ratio).slice(0, 3);
+
+        // ===== FINISHER (goals > assists, min 5 games) =====
+        const finisher = Object.entries(players).filter(([, d]) => d.goals > d.assists && d.games >= 5).map(([n, d]) => ({
+            name: n, goals: d.goals, assists: d.assists, ratio: (d.goals / Math.max(d.assists, 1)).toFixed(2)
+        })).sort((a, b) => b.ratio - a.ratio).slice(0, 3);
+
+        // ===== WORLD TRAVELER =====
+        const travel = Object.entries(players).sort((a, b) => b[1].teams.length - a[1].teams.length).slice(0, 3);
+
+        // ===== THE ARCHIVIST (2006 founder, still active) =====
+        const archivist = Object.entries(players).filter(([n, d]) => d.first_year === 2006 && d.last_year >= 2023).sort((a, b) => b[1].season_count - a[1].season_count).slice(0, 3);
+
+        // ===== DEFENSE SCORER (from parsed pelikone HTML) =====
+        const defScorer = [{ name: 'Roni Hotari', count: 13 }, { name: 'Tomi Sandberg', count: 13 }, { name: 'Pekka Kinnunen', count: 10 }];
+
+        // ===== DEFENSE PLAYMAKER =====
+        const defPlaymaker = [{ name: 'Niilo Suontama', count: 9 }, { name: 'Roni Hotari', count: 9 }, { name: 'Tomi Sandberg', count: 9 }];
+
+        const categories = [
+            { emoji: '🤝', name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
+            { emoji: '🎯', name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
+            { emoji: '🔗', name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
+            { emoji: '🎯', name: 'Pass to Me', desc: 'Most unique players who assisted them, per game', type: 'single', data: passToMe.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
+            { emoji: '🤝', name: 'Good Samaritan', desc: 'Most unique players assisted, per game', type: 'single', data: goodSam.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
+            { emoji: '🔗', name: 'The Connector', desc: 'Most unique players connected via passes, per game', type: 'single', data: connector.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
+            { emoji: '🪜', name: 'Iron Ladder', desc: 'Most seasons played', type: 'single', data: ironLadder.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons` })) },
+            { emoji: '🏃', name: 'Marathon Runner', desc: 'Longest career span', type: 'single', data: marathon.map(p => ({ name: p.name, stat: `${p.span} years (${p.first}–${p.last})` })) },
+            { emoji: '🔥', name: 'Streak Master', desc: 'Most consecutive seasons in a row', type: 'single', data: streak.slice(0, 3).map(p => ({ name: p.name, stat: `${p.streak} consecutive seasons` })) },
+            { emoji: '🦅', name: 'The Phoenix', desc: 'Biggest gap (3+ years) then comeback', type: 'single', data: phoenix.slice(0, 3).map(p => ({ name: p.name, stat: `${p.gap}yr gap (${p.before}→${p.after}), ${p.seasons} seasons` })) },
+            { emoji: '💥', name: 'Points Machine', desc: 'Most points per game', type: 'single', data: ppg.map(p => ({ name: p.name, stat: `${p.perGame} pts/game (${p.total} in ${p.games})` })) },
+            { emoji: '🏎️', name: 'Speed Runner', desc: 'Fastest to 100 career points', type: 'single', data: speed.map(p => ({ name: p.name, stat: `${p.games} games to ${p.points}` })) },
+            { emoji: '👑', name: 'The Legend', desc: 'Most career points', type: 'single', data: legend.map(([n, d]) => ({ name: n, stat: `${d.total} points (${d.goals}G/${d.assists}A)` })) },
+            { emoji: '🥅', name: 'Goal Machine', desc: 'Most career goals', type: 'single', data: goals.map(([n, d]) => ({ name: n, stat: `${d.goals} goals (${d.assists}A)` })) },
+            { emoji: '🎨', name: 'Assist King', desc: 'Most career assists', type: 'single', data: assists.map(([n, d]) => ({ name: n, stat: `${d.assists} assists (${d.goals}G)` })) },
+            { emoji: '🎭', name: 'Pure Playmaker', desc: 'Highest assist-to-goal ratio', type: 'single', data: playmaker.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.assists}A/${p.goals}G)` })) },
+            { emoji: '⚔️', name: 'Finisher', desc: 'Highest goal-to-assist ratio', type: 'single', data: finisher.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.goals}G/${p.assists}A)` })) },
+            { emoji: '🌍', name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
+            { emoji: '📜', name: 'The Archivist', desc: 'Founding member (2006) still active', type: 'single', data: archivist.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons (${d.first_year}–${d.last_year})` })) },
+            { emoji: '🛡️', name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorer.map(p => ({ name: p.name, stat: `${p.count} goals` })) },
+            { emoji: '📡', name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymaker.map(p => ({ name: p.name, stat: `${p.count} assists` })) },
         ];
-        statsGrid.innerHTML = stats.map(st => `
-            <div class="stat-card">
-                <div class="stat-value" style="color: ${st.color}">${st.value}</div>
-                <div class="stat-label">${st.label}</div>
-            </div>
-        `).join('');
 
-        // Top scorers leaderboard
-        const scorersList = document.getElementById('top-scorers-list');
-        scorersList.innerHTML = s.top_scorers.map((p, i) => `
-            <div class="leaderboard-row" data-player="${p.name}">
-                <span class="rank ${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}">${i + 1}</span>
-                <span class="player-name">${p.name}</span>
-                <span class="stat">${p.goals}</span>
-                <span class="stat">${p.assists}</span>
-                <span class="stat" style="color: var(--gold); font-weight: 700;">${p.total}</span>
-                <span class="stat">${p.games}</span>
-            </div>
-        `).join('');
+        // Group categories into slides of 1-3
+        const slides = [];
+        let i = 0;
+        while (i < categories.length) {
+            // Alternate: 3, 3, 3, 3, 3, 3, 2 (21 categories)
+            const count = (slides.length < 6 && i + 2 < categories.length) ? 3 : Math.min(3, categories.length - i);
+            slides.push(categories.slice(i, i + count));
+            i += count;
+        }
 
-        // Top assists leaderboard
-        const assistsList = document.getElementById('top-assists-list');
-        assistsList.innerHTML = s.top_assists.map((p, i) => `
-            <div class="leaderboard-row" data-player="${p.name}">
-                <span class="rank ${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}">${i + 1}</span>
-                <span class="player-name">${p.name}</span>
-                <span class="stat">${p.assists}</span>
-                <span class="stat">${p.goals}</span>
-                <span class="stat" style="color: var(--gold); font-weight: 700;">${p.total}</span>
-                <span class="stat">${p.games}</span>
-            </div>
-        `).join('');
+        const track = document.getElementById('categories-track');
+        const slideNav = document.getElementById('slide-nav');
+        let currentSlide = 0;
 
-        // Click on leaderboard rows to go to player page
-        document.querySelectorAll('.leaderboard-row[data-player]').forEach(row => {
-            row.addEventListener('click', () => {
-                const name = row.dataset.player;
-                location.hash = `#/player/${encodeURIComponent(name)}`;
+        // Build slides
+        track.innerHTML = slides.map((slide, slideIdx) => {
+            const count = slide.length;
+            const innerClass = count === 1 ? 'single' : count === 3 ? 'triple' : '';
+            const cards = slide.map(cat => {
+                const rows = cat.data.map((p, rowIdx) => {
+                    if (cat.type === 'pair') {
+                        return pairRow(rowIdx, p.name1, p.name2, p.pct1, p.pct2);
+                    }
+                    return playerRow(rowIdx, p.name, p.stat, rowIdx === 0);
+                }).join('');
+                return `<div class="category-card">
+                    <div class="category-card-header">
+                        <span class="category-emoji">${cat.emoji}</span>
+                        <span class="category-name">${cat.name}</span>
+                    </div>
+                    <div class="category-desc">${cat.desc}</div>
+                    <div class="category-players">${rows}</div>
+                </div>`;
+            }).join('');
+            return `<div class="category-slide" data-slide="${slideIdx}">
+                <div class="category-slide-inner ${innerClass}">${cards}</div>
+            </div>`;
+        }).join('');
+
+        // Build nav dots
+        slideNav.innerHTML = slides.map((_, idx) => `<div class="slide-dot ${idx === 0 ? 'active' : ''}" data-slide="${idx}"></div>`).join('');
+
+        // Navigate to slide
+        function goToSlide(idx) {
+            if (idx < 0 || idx >= slides.length) return;
+            currentSlide = idx;
+            track.style.transform = `translateX(-${idx * 100}vw)`;
+            slideNav.querySelectorAll('.slide-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === idx);
+            });
+            // Trigger card animations
+            requestAnimationFrame(() => {
+                const slideEl = track.querySelector(`[data-slide="${idx}"]`);
+                if (slideEl) slideEl.classList.add('visible');
+            });
+        }
+
+        // Initial slide - add visible class immediately
+        goToSlide(0);
+        const firstSlide = track.querySelector('[data-slide="0"]');
+        if (firstSlide) firstSlide.classList.add('visible');
+
+        // Click on dots
+        slideNav.querySelectorAll('.slide-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.slide));
             });
         });
 
-        // Charts
-        renderHomeCharts();
+        // Scroll-based navigation (debounced, threshold-based)
+        let lastScrollY = 0;
+        let scrollThrottle = false;
+        window.addEventListener('scroll', () => {
+            if (scrollThrottle) return;
+            const slideshow = document.querySelector('.categories-slideshow');
+            if (!slideshow) return;
+            const rect = slideshow.getBoundingClientRect();
+            // Only activate when slideshow is centered in viewport
+            if (rect.top > window.innerHeight * 0.5 || rect.bottom < -window.innerHeight * 0.5) return;
+
+            const delta = window.scrollY - lastScrollY;
+            if (Math.abs(delta) > 100) {
+                scrollThrottle = true;
+                if (delta > 0 && currentSlide < slides.length - 1) {
+                    goToSlide(currentSlide + 1);
+                } else if (delta < 0 && currentSlide > 0) {
+                    goToSlide(currentSlide - 1);
+                }
+                setTimeout(() => { scrollThrottle = false; }, 800);
+            }
+            lastScrollY = window.scrollY;
+        }, { passive: true });
+
+        // Touch support
+        let touchStartX = 0;
+        window.addEventListener('touchstart', (e) => {
+            const slideshow = document.querySelector('.categories-slideshow');
+            if (!slideshow) return;
+            const rect = slideshow.getBoundingClientRect();
+            if (rect.top > window.innerHeight || rect.bottom < 0) return;
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        window.addEventListener('touchend', (e) => {
+            const slideshow = document.querySelector('.categories-slideshow');
+            if (!slideshow) return;
+            const rect = slideshow.getBoundingClientRect();
+            if (rect.top > window.innerHeight || rect.bottom < 0) return;
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentSlide < slides.length - 1) goToSlide(currentSlide + 1);
+                else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+            }
+        }, { passive: true });
+
+        // Click on category players to go to player page
+        track.querySelectorAll('.category-player[data-player]').forEach(row => {
+            row.addEventListener('click', () => {
+                location.hash = `#/player/${encodeURIComponent(row.dataset.player)}`;
+            });
+        });
+        track.querySelectorAll('.category-player[data-player1]').forEach(row => {
+            row.addEventListener('click', () => {
+                location.hash = `#/player/${encodeURIComponent(row.dataset.player1)}`;
+            });
+        });
     }
 
     function renderHomeCharts() {
