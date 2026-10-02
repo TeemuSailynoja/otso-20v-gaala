@@ -36,7 +36,7 @@
       "games": 571
     },
     {
-      "name": "Touko Väänänen",
+      "name": "Touko V\u00e4\u00e4n\u00e4nen",
       "total": 750,
       "goals": 527,
       "assists": 223,
@@ -78,7 +78,7 @@
       "games": 296
     },
     {
-      "name": "Ilkka Rämö",
+      "name": "Ilkka R\u00e4m\u00f6",
       "total": 517,
       "goals": 168,
       "assists": 349,
@@ -164,7 +164,7 @@
       "games": 533
     },
     {
-      "name": "Ilkka Rämö",
+      "name": "Ilkka R\u00e4m\u00f6",
       "assists": 349,
       "goals": 168,
       "total": 517,
@@ -213,7 +213,7 @@
       "games": 459
     },
     {
-      "name": "Touko Väänänen",
+      "name": "Touko V\u00e4\u00e4n\u00e4nen",
       "assists": 223,
       "goals": 527,
       "total": 750,
@@ -330,7 +330,7 @@
       "teammates": 100
     },
     {
-      "name": "Antti Järvi",
+      "name": "Antti J\u00e4rvi",
       "teammates": 98
     }
   ],
@@ -372,7 +372,7 @@
       "games": 96
     },
     {
-      "name": "Eric Hytönen",
+      "name": "Eric Hyt\u00f6nen",
       "goals_per_match": 2.0,
       "total": 58,
       "games": 29

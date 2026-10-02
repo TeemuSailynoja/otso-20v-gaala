@@ -1413,32 +1413,6 @@
       "other": []
     }
   },
-  "Matti Paatsama": {
-    "seasons": [
-      "2007.1"
-    ],
-    "season_count": 1,
-    "years": [
-      2007
-    ],
-    "year_count": 1,
-    "first_year": 2007,
-    "last_year": 2007,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [
-        2007
-      ],
-      "winter": [],
-      "other": []
-    }
-  },
   "Roni Hotari": {
     "seasons": [
       "2007.1",
@@ -3574,32 +3548,6 @@
       "other": []
     }
   },
-  "Sebastian Sala": {
-    "seasons": [
-      "2011.2"
-    ],
-    "season_count": 1,
-    "years": [
-      2011
-    ],
-    "year_count": 1,
-    "first_year": 2011,
-    "last_year": 2011,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso 2"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [
-        2011
-      ],
-      "other": []
-    }
-  },
   "Adrian Hornsby": {
     "seasons": [
       "2012.1.T1",
@@ -4151,33 +4099,6 @@
     "goals": 0,
     "assists": 15,
     "total": 15,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [
-        2013
-      ],
-      "winter": [],
-      "other": []
-    }
-  },
-  "Juho Siitonen": {
-    "seasons": [
-      "2013.1.T1",
-      "2013.1.T2"
-    ],
-    "season_count": 1,
-    "years": [
-      2013
-    ],
-    "year_count": 1,
-    "first_year": 2013,
-    "last_year": 2013,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
     "teams": [
       "Otso"
     ],
@@ -7405,146 +7326,6 @@
       "other": []
     }
   },
-  "chandika chandrasekeram": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "pekka s\u00e4\u00e4skilahti": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "sampo smeds": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "eerikki m\u00e4ki": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "leinikka taavi": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "eetu strengell": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2013,
-    "last_year": 2013,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso 3"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "dmitri podolsky": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
   "nikolaev nikolay": {
     "seasons": [],
     "season_count": 0,
@@ -7553,86 +7334,6 @@
     "first_year": 2014,
     "last_year": 2014,
     "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "alexey zhebel": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "alexander gorokhov": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "smolov viktor": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 0,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "Roope Luhtala": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 0,
     "goals": 0,
     "assists": 0,
     "total": 0,

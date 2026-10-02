@@ -380,7 +380,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     "season_types": {"summer": set(), "winter": set(), "other": set()},
                     "first_year": year if year else 2006,
                     "last_year": year if year else 2006,
-                    "games": 0,
+                    "games": 1,
                     "goals": 0,
                     "assists": 0,
                     "total": 0,
