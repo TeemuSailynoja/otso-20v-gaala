@@ -212,7 +212,7 @@
       "other": []
     }
   },
-  "Heikki V\u00e4\u00e4n\u00e4nen": {
+  "Heikki Väänänen": {
     "seasons": [
       "2006.1",
       "2006.2",
@@ -576,6 +576,7 @@
     "assists": 288,
     "total": 384,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 2"
     ],
@@ -756,6 +757,7 @@
     "assists": 622,
     "total": 921,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -842,7 +844,7 @@
       "other": []
     }
   },
-  "Jukka M\u00e4ki": {
+  "Jukka Mäki": {
     "seasons": [
       "2006.2",
       "2007.1",
@@ -1056,13 +1058,11 @@
     "total": 314,
     "teams": [
       "Hukka",
-      "L\u00e4tty - Otso 3",
       "Otso",
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar",
-      "Terror - Otso 2"
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -1103,7 +1103,7 @@
       "other": []
     }
   },
-  "Heikki H\u00e4rk\u00f6nen": {
+  "Heikki Härkönen": {
     "seasons": [
       "2007.1"
     ],
@@ -1181,7 +1181,7 @@
       "other": []
     }
   },
-  "Janne Aittom\u00e4ki": {
+  "Janne Aittomäki": {
     "seasons": [
       "2007.1"
     ],
@@ -1301,6 +1301,7 @@
     "assists": 414,
     "total": 721,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -1413,6 +1414,32 @@
       "other": []
     }
   },
+  "Matti Paatsama": {
+    "seasons": [
+      "2007.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2007
+    ],
+    "year_count": 1,
+    "first_year": 2007,
+    "last_year": 2007,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [
+        2007
+      ],
+      "winter": [],
+      "other": []
+    }
+  },
   "Roni Hotari": {
     "seasons": [
       "2007.1",
@@ -1510,6 +1537,7 @@
     "assists": 929,
     "total": 1627,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -1560,7 +1588,7 @@
       "other": []
     }
   },
-  "Timo Id\u00e4nheimo": {
+  "Timo Idänheimo": {
     "seasons": [
       "2007.1",
       "2008.1",
@@ -1625,7 +1653,7 @@
       "other": []
     }
   },
-  "Tommi Palom\u00e4ki": {
+  "Tommi Palomäki": {
     "seasons": [
       "2007.1",
       "2008.1",
@@ -1781,8 +1809,7 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3",
-      "Terror - Otso 2"
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -2031,7 +2058,7 @@
       "other": []
     }
   },
-  "Viljami Aittom\u00e4ki": {
+  "Viljami Aittomäki": {
     "seasons": [
       "2008.1",
       "2009.1",
@@ -2073,7 +2100,7 @@
       "other": []
     }
   },
-  "Arto Heikkil\u00e4": {
+  "Arto Heikkilä": {
     "seasons": [
       "2008.2",
       "2009.2",
@@ -2159,6 +2186,7 @@
     "assists": 288,
     "total": 561,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 2"
     ],
@@ -2187,7 +2215,7 @@
       "other": []
     }
   },
-  "Ari Ojanper\u00e4": {
+  "Ari Ojanperä": {
     "seasons": [
       "2009.1"
     ],
@@ -2472,6 +2500,7 @@
     "assists": 394,
     "total": 643,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -2587,6 +2616,7 @@
     "assists": 780,
     "total": 1322,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -2700,11 +2730,12 @@
     "year_count": 15,
     "first_year": 2011,
     "last_year": 2025,
-    "games": 521,
+    "games": 525,
     "goals": 360,
     "assists": 371,
     "total": 731,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -2886,6 +2917,7 @@
     "assists": 355,
     "total": 951,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
@@ -3031,6 +3063,7 @@
     "assists": 251,
     "total": 426,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 2"
     ],
@@ -3054,7 +3087,7 @@
       "other": []
     }
   },
-  "Ekku Rytk\u00f6nen": {
+  "Ekku Rytkönen": {
     "seasons": [
       "2011.1.T2",
       "2011.1.T3",
@@ -3107,15 +3140,15 @@
     "year_count": 4,
     "first_year": 2011,
     "last_year": 2019,
-    "games": 50,
+    "games": 53,
     "goals": 37,
     "assists": 10,
     "total": 47,
     "teams": [
       "Hukka",
+      "Karhuvaarit",
       "Otso",
-      "Otso 2",
-      "Terror - Otso 2"
+      "Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -3159,11 +3192,12 @@
     "year_count": 6,
     "first_year": 2011,
     "last_year": 2019,
-    "games": 74,
+    "games": 78,
     "goals": 40,
     "assists": 25,
     "total": 65,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 2",
       "Otso Grizzly"
@@ -3231,6 +3265,7 @@
     "total": 347,
     "teams": [
       "Hukka",
+      "Karhuvaarit",
       "Otso",
       "Otso 2"
     ],
@@ -3310,7 +3345,7 @@
     "year_count": 6,
     "first_year": 2011,
     "last_year": 2018,
-    "games": 60,
+    "games": 61,
     "goals": 4,
     "assists": 40,
     "total": 44,
@@ -3334,7 +3369,7 @@
       "other": []
     }
   },
-  "Antti J\u00e4rvi": {
+  "Antti Järvi": {
     "seasons": [
       "2011.2",
       "2013.2",
@@ -3395,13 +3430,13 @@
     "assists": 207,
     "total": 370,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar",
-      "Terror - Otso 2"
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -3431,7 +3466,7 @@
       "other": []
     }
   },
-  "Ilkka R\u00e4m\u00f6": {
+  "Ilkka Rämö": {
     "seasons": [
       "2011.2",
       "2012.1.T1",
@@ -3473,11 +3508,12 @@
     "year_count": 11,
     "first_year": 2011,
     "last_year": 2023,
-    "games": 287,
+    "games": 290,
     "goals": 168,
     "assists": 349,
     "total": 517,
     "teams": [
+      "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2"
@@ -3548,6 +3584,32 @@
       "other": []
     }
   },
+  "Sebastian Sala": {
+    "seasons": [
+      "2011.2"
+    ],
+    "season_count": 1,
+    "years": [
+      2011
+    ],
+    "year_count": 1,
+    "first_year": 2011,
+    "last_year": 2011,
+    "games": 0,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso 2"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2011
+      ],
+      "other": []
+    }
+  },
   "Adrian Hornsby": {
     "seasons": [
       "2012.1.T1",
@@ -3599,7 +3661,7 @@
       "other": []
     }
   },
-  "Tommi Yl\u00f6nen": {
+  "Tommi Ylönen": {
     "seasons": [
       "2012.1.T1",
       "2012.1.T2",
@@ -3902,8 +3964,7 @@
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar",
-      "Terror - Otso 2"
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -3964,7 +4025,7 @@
       "other": []
     }
   },
-  "Teemu S\u00e4ilynoja": {
+  "Teemu Säilynoja": {
     "seasons": [
       "2012.2",
       "2013.1",
@@ -4023,7 +4084,6 @@
     "total": 257,
     "teams": [
       "Hukka",
-      "L\u00e4tty - Otso 3",
       "Otso",
       "Otso 2",
       "Otso 3",
@@ -4095,12 +4155,43 @@
     "year_count": 1,
     "first_year": 2013,
     "last_year": 2013,
-    "games": 13,
+    "games": 15,
     "goals": 0,
     "assists": 15,
     "total": 15,
     "teams": [
-      "Otso"
+      "Karhuvaarit",
+      "Otso",
+      "Otso 2"
+    ],
+    "season_types": {
+      "summer": [
+        2013
+      ],
+      "winter": [],
+      "other": []
+    }
+  },
+  "Juho Siitonen": {
+    "seasons": [
+      "2013.1.T1",
+      "2013.1.T2"
+    ],
+    "season_count": 1,
+    "years": [
+      2013
+    ],
+    "year_count": 1,
+    "first_year": 2013,
+    "last_year": 2013,
+    "games": 4,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Karhuvaarit",
+      "Otso",
+      "Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -4194,7 +4285,7 @@
       "other": []
     }
   },
-  "Istv\u00e1n Pr\u00e1n": {
+  "István Prán": {
     "seasons": [
       "2013.1",
       "2013.1.T1",
@@ -4237,7 +4328,7 @@
       "other": []
     }
   },
-  "Waltteri Wickstr\u00f6m": {
+  "Waltteri Wickström": {
     "seasons": [
       "2013.1",
       "2013.1.T1",
@@ -4293,7 +4384,7 @@
       "other": []
     }
   },
-  "Yrj\u00e4n\u00e4 Hynninen": {
+  "Yrjänä Hynninen": {
     "seasons": [
       "2013.1",
       "2013.1.T2",
@@ -4326,8 +4417,7 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3",
-      "Terror - Otso 2"
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -4480,12 +4570,14 @@
     "year_count": 1,
     "first_year": 2014,
     "last_year": 2014,
-    "games": 15,
+    "games": 19,
     "goals": 7,
     "assists": 10,
     "total": 17,
     "teams": [
-      "Otso"
+      "Karhuvaarit",
+      "Otso",
+      "Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -4750,7 +4842,7 @@
       "other": []
     }
   },
-  "Anttoni S\u00f6derlund": {
+  "Anttoni Söderlund": {
     "seasons": [
       "2015.1",
       "2015.4"
@@ -4768,8 +4860,7 @@
     "total": 23,
     "teams": [
       "Otso 2",
-      "Otso 3",
-      "Terror - Otso 2"
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -4835,8 +4926,7 @@
       "Otso 2",
       "Otso 3",
       "Otso Grizzly",
-      "Otso Polar",
-      "Terror - Otso 2"
+      "Otso Polar"
     ],
     "season_types": {
       "summer": [
@@ -4861,7 +4951,7 @@
       "other": []
     }
   },
-  "Pekka Lehtel\u00e4": {
+  "Pekka Lehtelä": {
     "seasons": [
       "2015.1",
       "2015.1F",
@@ -4896,11 +4986,9 @@
     "total": 76,
     "teams": [
       "Hukka",
-      "L\u00e4tty - Otso 3",
       "Otso",
       "Otso 2",
-      "Otso 3",
-      "Terror - Otso 2"
+      "Otso 3"
     ],
     "season_types": {
       "summer": [
@@ -4936,8 +5024,7 @@
     "total": 15,
     "teams": [
       "Otso",
-      "Otso 2",
-      "Terror - Otso 2"
+      "Otso 2"
     ],
     "season_types": {
       "summer": [
@@ -5103,7 +5190,7 @@
       "other": []
     }
   },
-  "Kim K\u00e5hre": {
+  "Kim Kåhre": {
     "seasons": [
       "2015.4"
     ],
@@ -5223,7 +5310,6 @@
     "assists": 57,
     "total": 122,
     "teams": [
-      "L\u00e4tty - Otso 3",
       "Otso",
       "Otso 2",
       "Otso 3",
@@ -5250,7 +5336,7 @@
       "other": []
     }
   },
-  "Johannes Elmn\u00e4inen": {
+  "Johannes Elmnäinen": {
     "seasons": [
       "2017.1"
     ],
@@ -5266,7 +5352,6 @@
     "assists": 10,
     "total": 24,
     "teams": [
-      "L\u00e4tty - Otso 3",
       "Otso 3"
     ],
     "season_types": {
@@ -5277,7 +5362,7 @@
       "other": []
     }
   },
-  "Timi Rautam\u00e4ki": {
+  "Timi Rautamäki": {
     "seasons": [
       "2017.1",
       "2017.T3",
@@ -5298,7 +5383,6 @@
     "assists": 7,
     "total": 46,
     "teams": [
-      "L\u00e4tty - Otso 3",
       "Otso",
       "Otso 3"
     ],
@@ -5389,7 +5473,7 @@
       "other": []
     }
   },
-  "\u0160imon Kadlec": {
+  "Šimon Kadlec": {
     "seasons": [
       "2018.1"
     ],
@@ -5639,7 +5723,7 @@
       "other": []
     }
   },
-  "Antti M\u00e4kip\u00e4\u00e4": {
+  "Antti Mäkipää": {
     "seasons": [
       "2020.1",
       "2021.1",
@@ -5777,7 +5861,7 @@
       "other": []
     }
   },
-  "Eric Hyt\u00f6nen": {
+  "Eric Hytönen": {
     "seasons": [
       "2021.1",
       "2021.2"
@@ -6013,7 +6097,7 @@
       "other": []
     }
   },
-  "Touko V\u00e4\u00e4n\u00e4nen": {
+  "Touko Väänänen": {
     "seasons": [
       "2012.2",
       "2013.1",
@@ -6148,7 +6232,7 @@
       "other": []
     }
   },
-  "Eemeli K\u00e4rkk\u00e4inen": {
+  "Eemeli Kärkkäinen": {
     "seasons": [
       "2022.3",
       "2023.1",
@@ -6531,7 +6615,7 @@
       "other": []
     }
   },
-  "Jukka Ilom\u00e4ki": {
+  "Jukka Ilomäki": {
     "seasons": [
       "2023.1"
     ],
@@ -6558,7 +6642,7 @@
       "other": []
     }
   },
-  "Matias Pentik\u00e4inen": {
+  "Matias Pentikäinen": {
     "seasons": [
       "2023.1",
       "2024.1",
@@ -6721,7 +6805,7 @@
       "other": []
     }
   },
-  "Aapo Kaijanm\u00e4ki": {
+  "Aapo Kaijanmäki": {
     "seasons": [
       "2024.1"
     ],
@@ -6775,7 +6859,7 @@
       "other": []
     }
   },
-  "Arttu Rautam\u00e4ki": {
+  "Arttu Rautamäki": {
     "seasons": [
       "2024.1",
       "2025.1",
@@ -7272,7 +7356,7 @@
     "year_count": 0,
     "first_year": 2025,
     "last_year": 2025,
-    "games": 12,
+    "games": 13,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -7293,7 +7377,7 @@
     "year_count": 0,
     "first_year": 2025,
     "last_year": 2025,
-    "games": 8,
+    "games": 9,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -7313,7 +7397,210 @@
     "year_count": 0,
     "first_year": 2025,
     "last_year": 2025,
-    "games": 9,
+    "games": 10,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "chandika chandrasekeram": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "eerikki mäki": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "pekka sääskilahti": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "sampo smeds": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "leinikka taavi": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "luhtala roope": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "konstantin laakkonen": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2013,
+    "last_year": 2013,
+    "games": 2,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Karhuvaarit",
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "eero lunden": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2013,
+    "last_year": 2013,
+    "games": 4,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Karhuvaarit",
+      "Otso",
+      "Otso 2"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "eetu strengell": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2013,
+    "last_year": 2013,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso 3"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "dmitri podolsky": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 1,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -7327,6 +7614,66 @@
     }
   },
   "nikolaev nikolay": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 2,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "alexander gorokhov": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "smolov viktor": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "alexey zhebel": {
     "seasons": [],
     "season_count": 0,
     "years": [],

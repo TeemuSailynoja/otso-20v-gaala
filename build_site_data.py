@@ -47,11 +47,11 @@ def normalize_name(name: str) -> str:
 
 
 def is_otso_team(name: str) -> bool:
-    """Check if a team name belongs to Otso main/2/3/Grizzly/Polar/Hukka (excludes Akatemia)."""
+    """Check if a team name belongs to Otso main/2/3/Grizzly/Polar/Hukka/Karhuvaarit (excludes Akatemia)."""
     lower = name.lower()
     if "akatemia" in lower:
         return False
-    return any(t in lower for t in ["otso", "grizzly", "polar", "hukka"])
+    return any(t in lower for t in ["otso", "grizzly", "polar", "hukka", "karhuvaarit"])
 
 
 def is_otso_akatemia(name: str) -> bool:
@@ -64,10 +64,34 @@ def canonicalize_team_name(name: str) -> str:
     """Canonicalize team names to a consistent format.
     
     Maps variants like 'OTSO 2', 'Otso 2', 'Otso2' → 'Otso 2'
+    Also handles scraping artifacts like 'Terror - Otso 2' → 'Otso 2'.
     """
     lower = name.strip().lower()
     # Remove spaces to normalize 'Otso 2' vs 'Otso2'
     no_space = lower.replace(' ', '')
+    
+    # Handle scraping artifacts: 'X - Otso Y' → 'Otso Y'
+    if ' - otso ' in lower or ' - otso' in lower:
+        # Extract the Otso part after the dash
+        parts = lower.split(' - otso', 1)
+        if len(parts) == 2:
+            rest = parts[1].strip()
+            if rest == '':
+                return 'Otso'
+            elif rest == '2':
+                return 'Otso 2'
+            elif rest == '3':
+                return 'Otso 3'
+            elif rest == '1':
+                return 'Otso 1'
+            elif rest == 'grizzly':
+                return 'Otso Grizzly'
+            elif rest == 'polar':
+                return 'Otso Polar'
+            elif rest == 'akatemia':
+                return 'Otso Akatemia'
+            else:
+                return 'Otso'  # Default fallback
     
     # Map to canonical names
     if no_space == 'otso':
@@ -84,6 +108,8 @@ def canonicalize_team_name(name: str) -> str:
         return 'Otso Polar'
     elif 'hukka' in lower:
         return 'Hukka'
+    elif 'karhuvaarit' in lower:
+        return 'Karhuvaarit'
     elif 'akatemia' in lower and 'otso' in lower:
         return 'Otso Akatemia'
     elif 'akatemia' in lower:
