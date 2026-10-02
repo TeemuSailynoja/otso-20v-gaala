@@ -1575,11 +1575,15 @@
         const yearList = Object.keys(playerYears).sort((a, b) => a - b);
         if (yearList.length === 0) return;
 
-        // Colors
+        // Colors — use era-based colors (same as player cards/pages)
         const playerColors = {};
-        const palette = ['#e5b037','#6a1e32','#085c95','#d0d0d0','#f7f7f7','#c4953a','#4a7ab5','#8a9bae','#b8860b','#5a1a28','#064a7a','#a0a0a0','#ffd700','#7a2540','#074d82','#909090','#d4a843','#5a8ab5'];
-        allPlayerNames.forEach((name, i) => {
-            playerColors[name] = palette[i % palette.length];
+        allPlayerNames.forEach(name => {
+            const p = DATA.players[name];
+            if (p && p.first_year) {
+                playerColors[name] = getEraInfo(p.first_year).statColors.goals;
+            } else {
+                playerColors[name] = '#ffffff';
+            }
         });
 
         let currentYearIdx = 0;
