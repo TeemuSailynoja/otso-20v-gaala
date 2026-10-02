@@ -675,10 +675,12 @@
             margin-bottom: 0.5rem;
         }
         .frenemy-stats span { font-weight: 600; }
-        .frenemy-teams {
-            font-size: 0.75rem;
-            color: var(--muted);
-            line-height: 1.4;
+        .frenemy-team {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #dc3232;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         /* PLAYER DETAIL */
@@ -1465,18 +1467,19 @@
         const frenemies = DATA.frenemies || [];
         
         grid.innerHTML = frenemies.map(f => {
-            const teamsStr = f.teams.slice(0, 3).join(', ') + (f.teams.length > 3 ? '...' : '');
+            const mainTeam = f.teams[0];
+            const otherTeams = f.teams.length > 1 ? f.teams.slice(1).join(', ') : '';
             return `
                 <div class="frenemy-card">
                     <div class="frenemy-rank">#${f.rank}</div>
                     <div class="frenemy-name">${f.name}</div>
+                    <div class="frenemy-team" title="${f.teams.join(', ')}">${mainTeam}${otherTeams ? ' · ' + otherTeams : ''}</div>
                     <div class="frenemy-stats">
                         <div><span>${f.games}</span>G</div>
                         <div><span>${f.wins}-${f.losses}</span></div>
                         <div><span>${f.total}</span>pts</div>
                         <div><span>${f.ppg}</span>PPG</div>
                     </div>
-                    <div class="frenemy-teams">${teamsStr}</div>
                 </div>
             `;
         }).join('');
