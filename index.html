@@ -1449,6 +1449,10 @@
             const centerY = h / 2;
             const leftEdgeCenter = { x: 0, y: h / 2 };
             
+            // Randomize positions and delays independently
+            const indices = names.map((_, i) => i);
+            const shuffledIndices = indices.sort(() => Math.random() - 0.5);
+            
             names.forEach((name, nameIdx) => {
                 const color = playerColors[name] || '#ffffff';
                 for (let i = 0; i < PARTICLES_PER_PLAYER; i++) {
@@ -1459,14 +1463,16 @@
                     let settleTimer = 0;
                     
                     if (state === 'entering') {
-                        // Spawn along right edge of canvas
+                        // Spawn along right edge of canvas - position independent of timing
+                        const posIdx = shuffledIndices[nameIdx];
                         px = w;
-                        py = (nameIdx / names.length) * h + (Math.random() - 0.5) * 30;
+                        py = (posIdx / names.length) * h + (Math.random() - 0.5) * 30;
                         // Attraction point at middle of canvas
                         targetX = centerX;
                         targetY = centerY;
                         initAlpha = 1.0; // Visible immediately at edge
-                        entryDelay = delayBase + nameIdx * 5; // Very small stagger
+                        // Random delay independent of position
+                        entryDelay = delayBase + Math.floor(Math.random() * names.length * 15);
                     } else if (state === 'leaving') {
                         // Start from current position
                         const existing = particles.find(p => p.name === name && (p.state === 'active' || p.state === 'settling'));
