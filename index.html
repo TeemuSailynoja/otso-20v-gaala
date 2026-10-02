@@ -1008,20 +1008,23 @@
     }
 
     function renderStatsHighlights() {
-        const years = DATA.years;
+        const years = DATA.years || {};
 
         // Compute highlights
         const qualified = [];
         for (const [year, data] of Object.entries(years)) {
+            if (!data || typeof data !== 'object') continue;
             const wins = data.wins || 0;
             const losses = data.losses || 0;
             if (wins + losses >= 15) qualified.push({ year, ...data });
         }
 
+        if (qualified.length === 0) return;
+
         const bestWin = qualified.reduce((a, b) => (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses)) ? a : b);
-        const largestRoster = Object.entries(years).reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a);
+        const largestRoster = Object.entries(years).filter(([, v]) => v && typeof v === 'object').reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a);
         const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
-        const mostGames = Object.entries(years).reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
+        const mostGames = Object.entries(years).filter(([, v]) => v && typeof v === 'object').reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
         const mostDominant = qualified.reduce((a, b) => (a.wins >= 20 && (a.wins / (a.wins + a.losses)) > (b.wins / (b.wins + b.losses))) ? a : b);
 
         const highlights = [
