@@ -1070,11 +1070,12 @@
     }
 
     function renderCategories() {
-        const players = DATA.players;
-        const passNet = DATA.passNetwork;
-        const cooc = DATA.cooccurrence;
+        const players = DATA.players || {};
+        const passNet = DATA.passNetwork || {};
+        const cooc = DATA.cooccurrence || {};
         const given = passNet.given || {};
         const received = passNet.received || {};
+        if (!document.getElementById('categories-scroll')) return;
 
         // Helper: normalize name
         function normalize(name) {
