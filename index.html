@@ -1053,6 +1053,7 @@
         if (fy <= 2009) return {
             name: 'Founders',
             range: '2006–2009',
+            particleColor: '#c0392b',
             avatarGrad: 'linear-gradient(135deg, #8b3a4a, #1a237e)',
             bgGrad: 'linear-gradient(135deg, rgba(139,58,74,0.08) 0%, rgba(26,35,126,0.06) 100%)',
             borderColor: 'rgba(139, 58, 74, 0.4)',
@@ -1075,6 +1076,7 @@
         if (fy <= 2014) return {
             name: 'Red Era',
             range: '2010–2014',
+            particleColor: '#ff5722',
             avatarGrad: 'linear-gradient(135deg, #d32f2f, #ff9800)',
             bgGrad: 'linear-gradient(135deg, rgba(211,47,47,0.08) 0%, rgba(255,152,0,0.06) 100%)',
             borderColor: 'rgba(211, 47, 47, 0.4)',
@@ -1097,6 +1099,7 @@
         if (fy <= 2018) return {
             name: 'Classic',
             range: '2015–2018',
+            particleColor: '#f5f5f5',
             avatarGrad: 'linear-gradient(135deg, #212121, #f5f5f5)',
             bgGrad: 'linear-gradient(135deg, rgba(33,33,33,0.12) 0%, rgba(245,245,245,0.04) 100%)',
             borderColor: 'rgba(245, 245, 245, 0.3)',
@@ -1119,6 +1122,7 @@
         if (fy <= 2022) return {
             name: 'Blue Era',
             range: '2019–2022',
+            particleColor: '#5a8ab5',
             avatarGrad: 'linear-gradient(135deg, #7ba7cc, #ff8c00)',
             bgGrad: 'linear-gradient(135deg, rgba(123,167,204,0.10) 0%, rgba(255,140,0,0.06) 100%)',
             borderColor: 'rgba(123, 167, 204, 0.4)',
@@ -1142,6 +1146,7 @@
         return {
             name: 'Modern',
             range: '2023+',
+            particleColor: '#e5b037',
             avatarGrad: 'linear-gradient(135deg, #e5b037, #6a1e32)',
             bgGrad: 'linear-gradient(135deg, rgba(229,176,55,0.08) 0%, rgba(106,30,50,0.06) 100%)',
             borderColor: 'rgba(229, 176, 55, 0.3)',
@@ -1575,12 +1580,12 @@
         const yearList = Object.keys(playerYears).sort((a, b) => a - b);
         if (yearList.length === 0) return;
 
-        // Colors — use era-based colors (same as player cards/pages)
+        // Colors — use era-based particle colors (bright, visible on dark bg)
         const playerColors = {};
         allPlayerNames.forEach(name => {
             const p = DATA.players[name];
             if (p && p.first_year) {
-                playerColors[name] = getEraInfo(p.first_year).statColors.goals;
+                playerColors[name] = getEraInfo(p.first_year).particleColor;
             } else {
                 playerColors[name] = '#ffffff';
             }
