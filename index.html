@@ -65,9 +65,10 @@
             color: #1c242b;
             text-align: center;
             padding: 0.35rem;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
         .nav-brand {
             font-family: 'Prototype', sans-serif;
@@ -192,8 +193,12 @@
         .scroll-arrow {
             margin-top: 3rem;
             animation: bounce 2s infinite;
-            font-size: 2rem;
-            color: var(--muted);
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid var(--muted);
+            border-bottom: 2px solid var(--muted);
+            transform: rotate(45deg);
+            opacity: 0.5;
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -379,12 +384,28 @@
             border-color: var(--gold);
         }
         .players-search::before {
-            content: '🔍';
+            content: '';
             position: absolute;
             left: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1rem;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--muted);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        .players-search::after {
+            content: '';
+            position: absolute;
+            left: 1.45rem;
+            top: 58%;
+            width: 6px;
+            height: 2px;
+            background: var(--muted);
+            opacity: 0.5;
+            transform: rotate(-45deg);
+            transform-origin: left center;
         }
         .players-grid {
             display: grid;
@@ -493,6 +514,16 @@
             margin-bottom: 2rem;
             cursor: pointer;
             transition: color 0.2s;
+        }
+        .player-back::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-left: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(-45deg);
+            transition: border-color 0.2s;
         }
         .player-back:hover { color: var(--text); }
 
@@ -621,7 +652,7 @@
 
     <!-- NAV -->
     <nav>
-        <div class="construction-banner">🚧 Under construction — more features coming soon! 🚧</div>
+        <div class="construction-banner">Under Construction — More Features Coming Soon</div>
         <div class="nav-content">
             <a href="#/" class="nav-brand">Otso 20v</a>
             <div class="nav-links">
@@ -672,7 +703,7 @@
         <!-- TOP SCORERS -->
         <section class="section">
             <div class="section-header">
-                <h2>🏆 All-Time Leaders</h2>
+                <h2>All-Time Leaders</h2>
                 <p>Top performers across 20 years</p>
             </div>
             <div class="stats-grid" id="home-stats-grid"></div>
@@ -696,15 +727,15 @@
             <!-- Charts -->
             <div class="grid-2">
                 <div class="chart-card full-width">
-                    <h3>📈 Wins vs Losses by Year</h3>
+                    <h3>Wins vs Losses by Year</h3>
                     <div class="chart-wrapper"><canvas id="chart-yearly"></canvas></div>
                 </div>
                 <div class="chart-card">
-                    <h3>🎯 Goals Per Match (min 10 games)</h3>
+                    <h3>Goals Per Match (min 10 games)</h3>
                     <div class="chart-wrapper"><canvas id="chart-gpm"></canvas></div>
                 </div>
                 <div class="chart-card">
-                    <h3>👥 Roster Size by Year</h3>
+                    <h3>Roster Size by Year</h3>
                     <div class="chart-wrapper"><canvas id="chart-roster"></canvas></div>
                 </div>
             </div>
@@ -720,7 +751,7 @@
     <div id="page-players" class="page">
         <section class="section">
             <div class="section-header">
-                <h2>👥 Player Directory</h2>
+                <h2>Player Directory</h2>
                 <p>Browse all <span id="player-count">—</span> players</p>
             </div>
             <div class="players-search">
@@ -742,25 +773,25 @@
     <div id="page-timeline" class="page">
         <section class="section">
             <div class="section-header">
-                <h2>📅 20-Year Timeline</h2>
+                <h2>20-Year Timeline</h2>
                 <p>Every season at a glance</p>
             </div>
             <div class="grid-2">
                 <div class="chart-card full-width">
-                    <h3>📊 Matches, Wins & Roster Size Over Time</h3>
+                    <h3>Matches, Wins & Roster Size Over Time</h3>
                     <div class="chart-wrapper"><canvas id="chart-evolution"></canvas></div>
                 </div>
                 <div class="chart-card">
-                    <h3>🏆 Win Rate by Year</h3>
+                    <h3>Win Rate by Year</h3>
                     <div class="chart-wrapper"><canvas id="chart-winrate"></canvas></div>
                 </div>
                 <div class="chart-card">
-                    <h3>⚔️ Points For vs Against</h3>
+                    <h3>Points For vs Against</h3>
                     <div class="chart-wrapper"><canvas id="chart-points"></canvas></div>
                 </div>
             </div>
             <div class="chart-card full-width">
-                <h3>🌌 Team Evolution — Player Cloud</h3>
+                <h3>Team Evolution — Player Cloud</h3>
                 <p class="animation-desc">Watch players join and leave as seasons pass</p>
                 <div class="animation-wrapper">
                     <canvas id="particle-canvas"></canvas>
@@ -1026,7 +1057,6 @@
         if (fy <= 2009) return {
             name: 'Founders',
             range: '2006–2009',
-            badge: '🏛️',
             avatarGrad: 'linear-gradient(135deg, #8b3a4a, #1a237e)',
             bgGrad: 'linear-gradient(135deg, rgba(139,58,74,0.08) 0%, rgba(26,35,126,0.06) 100%)',
             borderColor: 'rgba(139, 58, 74, 0.4)',
@@ -1049,7 +1079,6 @@
         if (fy <= 2014) return {
             name: 'Red Era',
             range: '2010–2014',
-            badge: '🔥',
             avatarGrad: 'linear-gradient(135deg, #d32f2f, #ff9800)',
             bgGrad: 'linear-gradient(135deg, rgba(211,47,47,0.08) 0%, rgba(255,152,0,0.06) 100%)',
             borderColor: 'rgba(211, 47, 47, 0.4)',
@@ -1072,7 +1101,6 @@
         if (fy <= 2018) return {
             name: 'Classic',
             range: '2015–2018',
-            badge: '⚫',
             avatarGrad: 'linear-gradient(135deg, #212121, #f5f5f5)',
             bgGrad: 'linear-gradient(135deg, rgba(33,33,33,0.12) 0%, rgba(245,245,245,0.04) 100%)',
             borderColor: 'rgba(245, 245, 245, 0.3)',
@@ -1095,7 +1123,6 @@
         if (fy <= 2022) return {
             name: 'Blue Era',
             range: '2019–2022',
-            badge: '💙',
             avatarGrad: 'linear-gradient(135deg, #7ba7cc, #ff8c00)',
             bgGrad: 'linear-gradient(135deg, rgba(123,167,204,0.10) 0%, rgba(255,140,0,0.06) 100%)',
             borderColor: 'rgba(123, 167, 204, 0.4)',
@@ -1119,7 +1146,6 @@
         return {
             name: 'Modern',
             range: '2023+',
-            badge: '🐻',
             avatarGrad: 'linear-gradient(135deg, #e5b037, #6a1e32)',
             bgGrad: 'linear-gradient(135deg, rgba(229,176,55,0.08) 0%, rgba(106,30,50,0.06) 100%)',
             borderColor: 'rgba(229, 176, 55, 0.3)',
@@ -1176,10 +1202,9 @@
                 <div class="player-info">
                     <h2>${name}</h2>
                     <div class="player-meta">
-                        <span>🏅 ${p.first_year}–${p.last_year} (${p.year_count} years)</span>
-                        <span>🎽 ${p.season_count} seasons</span>
-
-                        ${p.teams.length > 0 ? `<span>🐻 ${p.teams.join(', ')}</span>` : ''}
+                        <span>${p.first_year}–${p.last_year} · ${p.year_count} years</span>
+                        <span>${p.season_count} seasons</span>
+                        ${p.teams.length > 0 ? `<span>${p.teams.join(', ')}</span>` : ''}
                     </div>
                 </div>
             </div>
@@ -1211,13 +1236,13 @@
             <div class="charts-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                 ${topReceived.length > 0 ? `
                 <div class="chart-card">
-                    <h3>🎯 Assists Received From</h3>
+                    <h3>Assists Received From</h3>
                     <div class="chart-wrapper"><canvas id="chart-passes-received"></canvas></div>
                 </div>
                 ` : ''}
                 ${topGiven.length > 0 ? `
                 <div class="chart-card">
-                    <h3>🎯 Assists Given To</h3>
+                    <h3>Assists Given To</h3>
                     <div class="chart-wrapper"><canvas id="chart-passes-given"></canvas></div>
                 </div>
                 ` : ''}
@@ -1226,7 +1251,7 @@
 
             ${topTeammates.length > 0 ? `
             <div class="chart-card">
-                <h3>🤝 Most Frequent Teammates</h3>
+                <h3>Most Frequent Teammates</h3>
                 <div class="chart-wrapper"><canvas id="chart-teammates"></canvas></div>
             </div>
             ` : ''}
