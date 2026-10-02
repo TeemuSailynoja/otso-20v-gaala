@@ -1424,10 +1424,10 @@
         let currentYearIdx = 0;
         let frameCount = 0;
         const YEAR_DURATION = 360; // 6 seconds per year
-        const TRANSITION_FRAMES = 180; // 3 seconds for fade in/out
+        const TRANSITION_FRAMES = 240; // 4 seconds for fade in/out (slower)
         const PARTICLES_PER_PLAYER = 1;
-        const COLLISION_RADIUS = 8;
-        const COLLISION_DAMPING = 0.3; // very damp, no bouncing
+        const COLLISION_RADIUS = 10;
+        const COLLISION_DAMPING = 0.5; // more damping on collision
 
         // All particles in one array
         let particles = [];
@@ -1443,7 +1443,7 @@
             return Math.min(w, h) * 0.22;
         }
 
-        function addPlayerParticles(names, state, entryDelayBase) {
+        function addPlayerParticles(names, state, delayBase) {
             const centerX = w / 2;
             const centerY = h / 2;
             const leftEdgeCenter = { x: 0, y: h / 2 };
@@ -1453,6 +1453,8 @@
                 for (let i = 0; i < PARTICLES_PER_PLAYER; i++) {
                     let px, py, targetX, targetY;
                     let initAlpha = 0;
+                    let entryDelay = 0;
+                    let leaveDelay = 0;
                     
                     if (state === 'entering') {
                         // Spawn along right edge of canvas
@@ -1462,6 +1464,7 @@
                         targetX = centerX;
                         targetY = centerY;
                         initAlpha = 1.0; // Visible immediately at edge
+                        entryDelay = delayBase + nameIdx * 5; // Very small stagger
                     } else if (state === 'leaving') {
                         // Start from current position
                         const existing = particles.find(p => p.name === name && p.state === 'active');
@@ -1471,6 +1474,7 @@
                         targetX = leftEdgeCenter.x + (Math.random() - 0.5) * 60;
                         targetY = leftEdgeCenter.y + (Math.random() - 0.5) * 80;
                         initAlpha = 0.7; // Visible immediately
+                        leaveDelay = delayBase + nameIdx * 15; // Stagger leaving
                     } else {
                         // Active - start at a position in cluster
                         const angle = Math.random() * Math.PI * 2;
@@ -1494,8 +1498,8 @@
                         progress: 0,
                         targetX: targetX,
                         targetY: targetY,
-                        entryDelay: entryDelayBase + nameIdx * 15,
-                        leaveDelay: 0
+                        entryDelay: entryDelay,
+                        leaveDelay: leaveDelay
                     });
                 }
             });
@@ -1531,15 +1535,38 @@
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     
                     if (dist < COLLISION_RADIUS && dist > 0) {
-                        // Very damp collision - just push apart slightly
                         const overlap = COLLISION_RADIUS - dist;
                         const nx = dx / dist;
                         const ny = dy / dist;
                         
-                        p1.vx -= nx * overlap * COLLISION_DAMPING * 0.1;
-                        p1.vy -= ny * overlap * COLLISION_DAMPING * 0.1;
-                        p2.vx += nx * overlap * COLLISION_DAMPING * 0.1;
-                        p2.vy += ny * overlap * COLLISION_DAMPING * 0.1;
+                        // If one is entering and the other is active, damp the active one more
+                        if ((p1.state === 'entering' && p2.state === 'active') ||
+                            (p2.state === 'entering' && p1.state === 'active')) {
+                            // Damp the active player
+                            if (p1.state === 'active') {
+                                p1.vx -= nx * overlap * 0.05;
+                                p1.vy -= ny * overlap * 0.05;
+                            }
+                            if (p2.state === 'active') {
+                                p2.vx += nx * overlap * 0.05;
+                                p2.vy += ny * overlap * 0.05;
+                            }
+                            // Damp the entering player slightly
+                            if (p1.state === 'entering') {
+                                p1.vx -= nx * overlap * 0.02;
+                                p1.vy -= ny * overlap * 0.02;
+                            }
+                            if (p2.state === 'entering') {
+                                p2.vx += nx * overlap * 0.02;
+                                p2.vy += ny * overlap * 0.02;
+                            }
+                        } else {
+                            // Regular damp collision
+                            p1.vx -= nx * overlap * COLLISION_DAMPING * 0.1;
+                            p1.vy -= ny * overlap * COLLISION_DAMPING * 0.1;
+                            p2.vx += nx * overlap * COLLISION_DAMPING * 0.1;
+                            p2.vy += ny * overlap * COLLISION_DAMPING * 0.1;
+                        }
                     }
                 }
             }
@@ -1551,7 +1578,7 @@
             const currentSet = new Set(playerYears[currentYear] || []);
             const nextSet = new Set(playerYears[nextYear] || []);
 
-            // New players enter from right edge (staggered)
+            // New players enter from right edge (minimal stagger, slower)
             const entering = [...nextSet].filter(n => !currentSet.has(n));
             if (entering.length > 0) {
                 addPlayerParticles(entering, 'entering', 0);
@@ -1566,7 +1593,7 @@
                         if (p.name === name && p.state === 'active') {
                             p.state = 'leaving';
                             p.progress = 0;
-                            p.leaveDelay = idx * 25;
+                            p.leaveDelay = idx * 15;
                         }
                     });
                 });
@@ -1619,12 +1646,12 @@
                     const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
                     
                     // Attracted to center, with random jitter
-                    const jitterX = (Math.random() - 0.5) * 0.3;
-                    const jitterY = (Math.random() - 0.5) * 0.3;
-                    p.vx += (p.targetX - p.x) * 0.015 + jitterX;
-                    p.vy += (p.targetY - p.y) * 0.015 + jitterY;
-                    p.vx *= 0.95;
-                    p.vy *= 0.95;
+                    const jitterX = (Math.random() - 0.5) * 0.2;
+                    const jitterY = (Math.random() - 0.5) * 0.2;
+                    p.vx += (p.targetX - p.x) * 0.01 + jitterX;
+                    p.vy += (p.targetY - p.y) * 0.01 + jitterY;
+                    p.vx *= 0.96;
+                    p.vy *= 0.96;
                     p.x += p.vx;
                     p.y += p.vy;
                     // Start with alpha 1 at edge, fade to 0.7 as they reach center
@@ -1658,6 +1685,8 @@
                     
                     // Steady alpha, no pulsing
                     p.alpha = 0.7;
+                    
+                    // Extra damping from collisions with entering players (handled in handleCollisions)
 
                 } else if (p.state === 'leaving') {
                     p.progress += 1 / TRANSITION_FRAMES;
