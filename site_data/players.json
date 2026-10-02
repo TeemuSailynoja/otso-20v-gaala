@@ -7370,14 +7370,14 @@
       "other": []
     }
   },
-  "Lacy Theo": {
+  "Iivo Laaksonen": {
     "seasons": [],
     "season_count": 0,
     "years": [],
     "year_count": 0,
     "first_year": 2025,
     "last_year": 2025,
-    "games": 9,
+    "games": 10,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -7390,14 +7390,14 @@
       "other": []
     }
   },
-  "Iivo Laaksonen": {
+  "Lacy Theo": {
     "seasons": [],
     "season_count": 0,
     "years": [],
     "year_count": 0,
     "first_year": 2025,
     "last_year": 2025,
-    "games": 10,
+    "games": 9,
     "goals": 0,
     "assists": 0,
     "total": 0,
@@ -7450,6 +7450,26 @@
       "other": []
     }
   },
+  "leinikka taavi": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
   "pekka sääskilahti": {
     "seasons": [],
     "season_count": 0,
@@ -7471,26 +7491,6 @@
     }
   },
   "sampo smeds": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
-  "leinikka taavi": {
     "seasons": [],
     "season_count": 0,
     "years": [],
@@ -7593,26 +7593,6 @@
       "other": []
     }
   },
-  "dmitri podolsky": {
-    "seasons": [],
-    "season_count": 0,
-    "years": [],
-    "year_count": 0,
-    "first_year": 2014,
-    "last_year": 2014,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [],
-      "winter": [],
-      "other": []
-    }
-  },
   "nikolaev nikolay": {
     "seasons": [],
     "season_count": 0,
@@ -7633,7 +7613,7 @@
       "other": []
     }
   },
-  "alexander gorokhov": {
+  "dmitri podolsky": {
     "seasons": [],
     "season_count": 0,
     "years": [],
@@ -7654,6 +7634,26 @@
     }
   },
   "smolov viktor": {
+    "seasons": [],
+    "season_count": 0,
+    "years": [],
+    "year_count": 0,
+    "first_year": 2014,
+    "last_year": 2014,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [],
+      "other": []
+    }
+  },
+  "alexander gorokhov": {
     "seasons": [],
     "season_count": 0,
     "years": [],
