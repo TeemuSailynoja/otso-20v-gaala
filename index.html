@@ -1061,35 +1061,33 @@
             </div>`;
         }
 
-        // ===== BUDDY BUDDY =====
-        const coocLookup = {};
-        for (const name in cooc) {
-            for (const partner in cooc[name]) {
-                coocLookup[(name, partner)] = cooc[name][partner];
-            }
-        }
+        // ===== BUDDY BUDDY (reciprocal: both list each other as TOP target) =====
         const buddyPairs = [];
-        const pairsSeen = new Set();
+        const buddySeen = new Set();
         for (const passer in given) {
-            for (const receiver in given[passer]) {
-                const ab = given[passer][receiver];
-                const ba = given[receiver]?.[passer] || 0;
-                if (ab > 0 && ba > 0) {
-                    const pair = [passer, receiver].sort();
-                    const key = pair.join('||');
-                    if (pairsSeen.has(key)) continue;
-                    pairsSeen.add(key);
-                    const games = coocLookup[(pair[0], pair[1])] || coocLookup[(pair[1], pair[0])] || 0;
-                    if (games >= 5) {
-                        const minDir = Math.min(ab, ba);
-                        buddyPairs.push({
-                            name1: pair[0], name2: pair[1],
-                            pct1: Math.round(ab / (Object.values(given[pair[0]] || {}).reduce((s, v) => s + v, 0)) * 100),
-                            pct2: Math.round(ba / (Object.values(given[pair[1]] || {}).reduce((s, v) => s + v, 0)) * 100)
-                        });
-                    }
-                }
-            }
+            const pGiven = given[passer];
+            if (!pGiven || Object.keys(pGiven).length === 0) continue;
+            const topReceiver = Object.entries(pGiven).sort((a, b) => b[1] - a[1])[0];
+            if (!topReceiver || topReceiver[1] === 0) continue;
+            const partner = topReceiver[0];
+            if (partner === passer) continue;
+            const key = [passer, partner].sort().join('||');
+            if (buddySeen.has(key)) continue;
+
+            // Check if partner also lists passer as top
+            const partnerGiven = given[partner];
+            if (!partnerGiven || Object.keys(partnerGiven).length === 0) continue;
+            const partnerTop = Object.entries(partnerGiven).sort((a, b) => b[1] - a[1])[0];
+            if (!partnerTop || partnerTop[1] === 0 || partnerTop[0] !== passer) continue;
+
+            buddySeen.add(key);
+            const totalP = Object.values(pGiven).reduce((s, v) => s + v, 0);
+            const totalR = Object.values(partnerGiven).reduce((s, v) => s + v, 0);
+            buddyPairs.push({
+                name1: passer, name2: partner,
+                pct1: Math.round(topReceiver[1] / totalP * 100),
+                pct2: Math.round(partnerTop[1] / totalR * 100)
+            });
         }
         buddyPairs.sort((a, b) => -(a.pct1 + a.pct2) / 2 + (b.pct1 + b.pct2) / 2);
 
