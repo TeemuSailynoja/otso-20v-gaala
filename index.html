@@ -1007,6 +1007,7 @@
         const cooc = DATA.cooccurrence || {};
         const given = passNet.given || {};
         const received = passNet.received || {};
+        const years = DATA.years || {};
         console.log('given:', Object.keys(given).length, 'received:', Object.keys(received).length);
         if (!document.getElementById('categories-scroll')) return;
 
