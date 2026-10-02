@@ -1331,21 +1331,25 @@
             entries.forEach(entry => {
                 const idx = parseInt(entry.target.dataset.category);
                 const dots = scrollProgress.querySelectorAll('.scroll-dot');
-                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
                     entry.target.classList.add('active');
                     entry.target.classList.remove('exit-up');
                     dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                } else if (entry.boundingClientRect.top < window.innerHeight * 0.5) {
+                } else if (entry.boundingClientRect.top < window.innerHeight * 0.3) {
                     entry.target.classList.add('exit-up');
                     entry.target.classList.remove('active');
                 }
             });
         }, {
             threshold: [0.3, 0.5, 0.7],
-            rootMargin: '-20% 0px -20% 0px'
+            rootMargin: '-10% 0px -10% 0px'
         });
 
         document.querySelectorAll('.category-slide').forEach(slide => observer.observe(slide));
+
+        // Activate first slide immediately
+        const firstSlide = scrollContainer.querySelector('[data-category="0"]');
+        if (firstSlide) firstSlide.classList.add('active');
 
         // Click on category players to go to player page
         scrollContainer.querySelectorAll('.category-player[data-player]').forEach(row => {
