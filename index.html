@@ -1458,12 +1458,12 @@
                     let px, py, targetX, targetY;
                     
                     if (state === 'entering') {
-                        // Start at right edge
-                        px = w + 10;
-                        py = h * 0.1 + Math.random() * h * 0.8;
-                        // Target in center cluster
-                        targetX = centerX + Math.cos(angle) * dist;
-                        targetY = centerY + Math.sin(angle) * dist;
+                        // Spawn along right edge of canvas
+                        px = w;
+                        py = (nameIdx / names.length) * h + (Math.random() - 0.5) * 20;
+                        // Attraction point at middle of canvas
+                        targetX = centerX;
+                        targetY = centerY;
                     } else if (state === 'leaving') {
                         // Start from current position
                         const existing = particles.find(p => p.name === name && p.state === 'active');
