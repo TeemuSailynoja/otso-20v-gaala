@@ -825,6 +825,7 @@
     // ==================== HOME PAGE ====================
     function renderHome() {
         const s = DATA.summary;
+        document.getElementById('stat-years').textContent = s.years_count;
         document.getElementById('stat-players').textContent = s.total_players.toLocaleString();
         document.getElementById('stat-matches').textContent = s.total_matches.toLocaleString();
         document.getElementById('stat-wins').textContent = s.total_wins.toLocaleString();
