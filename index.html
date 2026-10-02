@@ -1426,8 +1426,8 @@
         const YEAR_DURATION = 360; // 6 seconds per year
         const TRANSITION_FRAMES = 240; // 4 seconds for fade in/out (slower)
         const PARTICLES_PER_PLAYER = 1;
-        const REPULSION_RADIUS = 35;
-        const REPULSION_FORCE = 0.15;
+        const REPULSION_RADIUS = 40;
+        const REPULSION_FORCE = 0.2;
         const SETTLE_FRAMES = 120; // 2 seconds for new players to settle
 
         // All particles in one array
@@ -1681,10 +1681,10 @@
                     // Gentle attraction to center - let repulsion guide them to open spots
                     const jitterX = (Math.random() - 0.5) * 0.15;
                     const jitterY = (Math.random() - 0.5) * 0.15;
-                    p.vx += (p.targetX - p.x) * 0.005 + jitterX;
-                    p.vy += (p.targetY - p.y) * 0.005 + jitterY;
-                    p.vx *= 0.97;
-                    p.vy *= 0.97;
+                    p.vx += (p.targetX - p.x) * 0.008 + jitterX;
+                    p.vy += (p.targetY - p.y) * 0.008 + jitterY;
+                    p.vx *= 0.96;
+                    p.vy *= 0.96;
                     p.x += p.vx;
                     p.y += p.vy;
                     // Start with alpha 1 at edge, fade to 0.7 as they reach center
