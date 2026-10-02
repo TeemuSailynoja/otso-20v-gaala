@@ -874,21 +874,6 @@
                 <div class="slide-nav-hint">Scroll or click dots to navigate</div>
             </div>
 
-            <!-- Charts -->
-            <div class="grid-2">
-                <div class="chart-card full-width">
-                    <h3>Wins vs Losses by Year</h3>
-                    <div class="chart-wrapper"><canvas id="chart-yearly"></canvas></div>
-                </div>
-                <div class="chart-card">
-                    <h3>Goals Per Match (min 10 games)</h3>
-                    <div class="chart-wrapper"><canvas id="chart-gpm"></canvas></div>
-                </div>
-                <div class="chart-card">
-                    <h3>Roster Size by Year</h3>
-                    <div class="chart-wrapper"><canvas id="chart-roster"></canvas></div>
-                </div>
-            </div>
         </section>
 
         <footer class="footer">
@@ -1014,7 +999,6 @@
         document.getElementById('stat-winpct').textContent = s.win_percentage + '%';
 
         renderCategories();
-        renderHomeCharts();
     }
 
     function renderCategories() {
@@ -1370,100 +1354,6 @@
             row.addEventListener('click', () => {
                 location.hash = `#/player/${encodeURIComponent(row.dataset.player1)}`;
             });
-        });
-    }
-
-    function renderHomeCharts() {
-        const years = Object.keys(DATA.years).sort((a, b) => a - b);
-        const yearData = years.map(y => DATA.years[y]);
-
-        // Yearly wins vs losses
-        new Chart(document.getElementById('chart-yearly'), {
-            type: 'bar',
-            data: {
-                labels: years,
-                datasets: [
-                    {
-                        label: 'Wins',
-                        data: yearData.map(y => y.wins),
-                        backgroundColor: 'rgba(229, 176, 55, 0.7)',
-                        borderColor: 'rgba(229, 176, 55, 1)',
-                        borderWidth: 1,
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'Losses',
-                        data: yearData.map(y => y.losses),
-                        backgroundColor: 'rgba(107, 122, 153, 0.5)',
-                        borderColor: 'rgba(107, 122, 153, 0.7)',
-                        borderWidth: 1,
-                        borderRadius: 4,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#8a9bae' } } },
-                scales: {
-                    x: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-                    y: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true }
-                }
-            }
-        });
-
-        // Goals per match
-        const gpmData = DATA.summary.goals_per_match.slice(0, 15).reverse();
-        new Chart(document.getElementById('chart-gpm'), {
-            type: 'bar',
-            data: {
-                labels: gpmData.map(p => p.name.split(' ').pop()),
-                datasets: [{
-                    label: 'Goals/Match',
-                    data: gpmData.map(p => p.goals_per_match),
-                    backgroundColor: 'rgba(8, 92, 149, 0.6)',
-                    borderColor: 'rgba(8, 92, 149, 1)',
-                    borderWidth: 1,
-                    borderRadius: 4,
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true },
-                    y: { ticks: { color: '#8a9bae', font: { size: 10 } }, grid: { display: false } }
-                }
-            }
-        });
-
-        // Roster size
-        new Chart(document.getElementById('chart-roster'), {
-            type: 'line',
-            data: {
-                labels: years,
-                datasets: [{
-                    label: 'Roster Size',
-                    data: yearData.map(y => y.roster_players),
-                    borderColor: 'rgba(229, 176, 55, 1)',
-                    backgroundColor: 'rgba(229, 176, 55, 0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    pointRadius: 4,
-                    pointBackgroundColor: 'rgba(229, 176, 55, 1)',
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#8a9bae' } } },
-                scales: {
-                    x: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-                    y: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true }
-                }
-            }
         });
     }
 
