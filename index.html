@@ -1355,19 +1355,29 @@
         // ===== THE ARCHIVIST (2006 founder, still active) =====
         const archivist = Object.entries(players).filter(([n, d]) => d.first_year === 2006 && d.last_year >= 2023).sort((a, b) => b[1].season_count - a[1].season_count).slice(0, 3);
 
-        // ===== DEFENSE SCORER (from parsed pelikone HTML) =====
+        // ===== DEFENSE SCORER (from parsed pelikone HTML) — per match =====
         const defScorer = Object.entries(players)
-            .filter(([, d]) => d.defense_goals > 0)
-            .sort((a, b) => b[1].defense_goals - a[1].defense_goals)
-            .slice(0, 3)
-            .map(([name, d]) => ({ name, count: d.defense_goals }));
+            .filter(([, d]) => d.defense_goals > 0 && d.games >= 10)
+            .map(([name, d]) => ({
+                name,
+                perMatch: (d.defense_goals / d.games).toFixed(2),
+                total: d.defense_goals,
+                games: d.games
+            }))
+            .sort((a, b) => b.perMatch - a.perMatch)
+            .slice(0, 3);
 
-        // ===== DEFENSE PLAYMAKER =====
+        // ===== DEFENSE PLAYMAKER — per match =====
         const defPlaymaker = Object.entries(players)
-            .filter(([, d]) => d.defense_assists > 0)
-            .sort((a, b) => b[1].defense_assists - a[1].defense_assists)
-            .slice(0, 3)
-            .map(([name, d]) => ({ name, count: d.defense_assists }));
+            .filter(([, d]) => d.defense_assists > 0 && d.games >= 10)
+            .map(([name, d]) => ({
+                name,
+                perMatch: (d.defense_assists / d.games).toFixed(2),
+                total: d.defense_assists,
+                games: d.games
+            }))
+            .sort((a, b) => b.perMatch - a.perMatch)
+            .slice(0, 3);
 
         // Otso season highlights
         const qualified = Object.entries(years).filter(([, v]) => v && v.wins + v.losses >= 15);
@@ -1404,8 +1414,8 @@
             { emoji: '⚔️', name: 'Finisher', desc: 'Highest goal-to-assist ratio', type: 'single', data: finisher.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.goals}G/${p.assists}A)` })) },
             { emoji: '🌍', name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
             { emoji: '📜', name: 'The Archivist', desc: 'Founding member (2006) still active', type: 'single', data: archivist.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons (${d.first_year}–${d.last_year})` })) },
-            { emoji: '🛡️', name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorer.map(p => ({ name: p.name, stat: `${p.count} goals` })) },
-            { emoji: '📡', name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymaker.map(p => ({ name: p.name, stat: `${p.count} assists` })) },
+            { emoji: '🛡️', name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorer.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games} games)` })) },
+            { emoji: '📡', name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymaker.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games} games)` })) },
         ];
 
         const scrollContainer = document.getElementById('categories-scroll');
