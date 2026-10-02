@@ -1443,6 +1443,8 @@
 
         function addPlayerParticles(names, state, startX) {
             const clusterR = getClusterRadius();
+            const centerX = w / 2;
+            const centerY = h / 2;
             names.forEach(name => {
                 const color = playerColors[name] || '#ffffff';
                 for (let i = 0; i < PARTICLES_PER_PLAYER; i++) {
@@ -1458,8 +1460,8 @@
                         alpha: 0,
                         state: state,
                         progress: 0,
-                        targetX: cx + Math.cos(angle) * dist,
-                        targetY: cy + Math.sin(angle) * dist,
+                        targetX: centerX + Math.cos(angle) * dist,
+                        targetY: centerY + Math.sin(angle) * dist,
                         wobblePhase: Math.random() * Math.PI * 2,
                         wobbleSpeed: 0.02 + Math.random() * 0.03,
                         wobbleRadius: 5 + Math.random() * 10,
