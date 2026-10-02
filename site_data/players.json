@@ -57,7 +57,11 @@
     },
     "defense_points": 29,
     "offense_points": 28,
-    "total_points": 57
+    "total_points": 57,
+    "defense_goals": 29,
+    "defense_assists": 50,
+    "offense_goals": 28,
+    "offense_assists": 37
   },
   "Ari Rantalainen": {
     "seasons": [
@@ -104,7 +108,11 @@
     },
     "defense_points": 54,
     "offense_points": 108,
-    "total_points": 162
+    "total_points": 162,
+    "defense_goals": 54,
+    "defense_assists": 15,
+    "offense_goals": 108,
+    "offense_assists": 53
   },
   "Esa Pensala": {
     "seasons": [
@@ -136,7 +144,11 @@
     },
     "defense_points": 11,
     "offense_points": 6,
-    "total_points": 17
+    "total_points": 17,
+    "defense_goals": 11,
+    "defense_assists": 26,
+    "offense_goals": 6,
+    "offense_assists": 37
   },
   "Esko Saura": {
     "seasons": [
@@ -185,7 +197,11 @@
     },
     "defense_points": 5,
     "offense_points": 1,
-    "total_points": 6
+    "total_points": 6,
+    "defense_goals": 5,
+    "defense_assists": 9,
+    "offense_goals": 1,
+    "offense_assists": 4
   },
   "Hannu Saarinen": {
     "seasons": [
@@ -225,7 +241,11 @@
     },
     "defense_points": 22,
     "offense_points": 53,
-    "total_points": 75
+    "total_points": 75,
+    "defense_goals": 22,
+    "defense_assists": 5,
+    "offense_goals": 53,
+    "offense_assists": 24
   },
   "Heikki Väänänen": {
     "seasons": [
@@ -288,7 +308,11 @@
     },
     "defense_points": 40,
     "offense_points": 65,
-    "total_points": 105
+    "total_points": 105,
+    "defense_goals": 40,
+    "defense_assists": 36,
+    "offense_goals": 65,
+    "offense_assists": 34
   },
   "Juha Nurminen": {
     "seasons": [
@@ -317,7 +341,11 @@
     },
     "defense_points": 1,
     "offense_points": 1,
-    "total_points": 2
+    "total_points": 2,
+    "defense_goals": 1,
+    "defense_assists": 0,
+    "offense_goals": 1,
+    "offense_assists": 4
   },
   "Juha Poikolainen": {
     "seasons": [
@@ -346,7 +374,11 @@
     },
     "defense_points": 1,
     "offense_points": 0,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 1,
+    "defense_assists": 1,
+    "offense_goals": 0,
+    "offense_assists": 0
   },
   "Juhana Oivio": {
     "seasons": [
@@ -378,7 +410,11 @@
     },
     "defense_points": 8,
     "offense_points": 24,
-    "total_points": 32
+    "total_points": 32,
+    "defense_goals": 8,
+    "defense_assists": 6,
+    "offense_goals": 24,
+    "offense_assists": 22
   },
   "Kimmo Berg": {
     "seasons": [
@@ -442,7 +478,11 @@
     },
     "defense_points": 25,
     "offense_points": 33,
-    "total_points": 58
+    "total_points": 58,
+    "defense_goals": 25,
+    "defense_assists": 77,
+    "offense_goals": 33,
+    "offense_assists": 95
   },
   "Marko Korhonen": {
     "seasons": [
@@ -474,7 +514,11 @@
     },
     "defense_points": 4,
     "offense_points": 2,
-    "total_points": 6
+    "total_points": 6,
+    "defense_goals": 4,
+    "defense_assists": 0,
+    "offense_goals": 2,
+    "offense_assists": 1
   },
   "Markus Nora": {
     "seasons": [
@@ -503,7 +547,11 @@
     },
     "defense_points": 2,
     "offense_points": 0,
-    "total_points": 2
+    "total_points": 2,
+    "defense_goals": 2,
+    "defense_assists": 6,
+    "offense_goals": 0,
+    "offense_assists": 1
   },
   "Sami Holopainen": {
     "seasons": [
@@ -543,7 +591,11 @@
     },
     "defense_points": 14,
     "offense_points": 32,
-    "total_points": 46
+    "total_points": 46,
+    "defense_goals": 14,
+    "defense_assists": 5,
+    "offense_goals": 32,
+    "offense_assists": 34
   },
   "Sebastian Godenhjelm": {
     "seasons": [
@@ -572,7 +624,11 @@
     },
     "defense_points": 3,
     "offense_points": 1,
-    "total_points": 4
+    "total_points": 4,
+    "defense_goals": 3,
+    "defense_assists": 4,
+    "offense_goals": 1,
+    "offense_assists": 0
   },
   "Timo Vaskio": {
     "seasons": [
@@ -648,7 +704,11 @@
     },
     "defense_points": 50,
     "offense_points": 114,
-    "total_points": 164
+    "total_points": 164,
+    "defense_goals": 50,
+    "defense_assists": 17,
+    "offense_goals": 114,
+    "offense_assists": 55
   },
   "Tuomo Sirkka": {
     "seasons": [
@@ -688,7 +748,11 @@
     },
     "defense_points": 29,
     "offense_points": 23,
-    "total_points": 52
+    "total_points": 52,
+    "defense_goals": 29,
+    "defense_assists": 14,
+    "offense_goals": 23,
+    "offense_assists": 20
   },
   "Ville Rantamaula": {
     "seasons": [
@@ -720,7 +784,11 @@
     },
     "defense_points": 19,
     "offense_points": 1,
-    "total_points": 20
+    "total_points": 20,
+    "defense_goals": 19,
+    "defense_assists": 3,
+    "offense_goals": 1,
+    "offense_assists": 2
   },
   "Ilkka Vaahtoranta": {
     "seasons": [
@@ -865,7 +933,11 @@
     },
     "defense_points": 153,
     "offense_points": 164,
-    "total_points": 317
+    "total_points": 317,
+    "defense_goals": 153,
+    "defense_assists": 49,
+    "offense_goals": 164,
+    "offense_assists": 87
   },
   "Juha Jalovaara": {
     "seasons": [
@@ -904,7 +976,11 @@
     },
     "defense_points": 7,
     "offense_points": 24,
-    "total_points": 31
+    "total_points": 31,
+    "defense_goals": 7,
+    "defense_assists": 1,
+    "offense_goals": 24,
+    "offense_assists": 3
   },
   "Jukka Mäki": {
     "seasons": [
@@ -939,7 +1015,11 @@
     },
     "defense_points": 6,
     "offense_points": 2,
-    "total_points": 8
+    "total_points": 8,
+    "defense_goals": 6,
+    "defense_assists": 13,
+    "offense_goals": 2,
+    "offense_assists": 7
   },
   "Juuso Parkkinen": {
     "seasons": [
@@ -1037,7 +1117,11 @@
     },
     "defense_points": 33,
     "offense_points": 27,
-    "total_points": 60
+    "total_points": 60,
+    "defense_goals": 33,
+    "defense_assists": 76,
+    "offense_goals": 27,
+    "offense_assists": 34
   },
   "Aki Vehtari": {
     "seasons": [
@@ -1174,7 +1258,11 @@
     },
     "defense_points": 19,
     "offense_points": 27,
-    "total_points": 46
+    "total_points": 46,
+    "defense_goals": 19,
+    "defense_assists": 9,
+    "offense_goals": 27,
+    "offense_assists": 19
   },
   "Heikki Härkönen": {
     "seasons": [
@@ -1232,7 +1320,11 @@
     },
     "defense_points": 0,
     "offense_points": 1,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 0,
+    "defense_assists": 13,
+    "offense_goals": 1,
+    "offense_assists": 14
   },
   "Jani Honkanen": {
     "seasons": [
@@ -1290,7 +1382,11 @@
     },
     "defense_points": 1,
     "offense_points": 0,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 1,
+    "defense_assists": 0,
+    "offense_goals": 0,
+    "offense_assists": 0
   },
   "Jarno Sihvo": {
     "seasons": [
@@ -1440,7 +1536,11 @@
     },
     "defense_points": 46,
     "offense_points": 35,
-    "total_points": 81
+    "total_points": 81,
+    "defense_goals": 46,
+    "defense_assists": 59,
+    "offense_goals": 35,
+    "offense_assists": 43
   },
   "Juha Mertanen": {
     "seasons": [
@@ -1469,7 +1569,11 @@
     },
     "defense_points": 0,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 5,
+    "offense_goals": 0,
+    "offense_assists": 6
   },
   "Julius Rissanen": {
     "seasons": [
@@ -1509,7 +1613,11 @@
     },
     "defense_points": 1,
     "offense_points": 2,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 1,
+    "defense_assists": 2,
+    "offense_goals": 2,
+    "offense_assists": 3
   },
   "Matti Paatsama": {
     "seasons": [
@@ -1692,7 +1800,11 @@
     },
     "defense_points": 130,
     "offense_points": 99,
-    "total_points": 229
+    "total_points": 229,
+    "defense_goals": 130,
+    "defense_assists": 78,
+    "offense_goals": 99,
+    "offense_assists": 90
   },
   "Timo Idänheimo": {
     "seasons": [
@@ -1760,7 +1872,11 @@
     },
     "defense_points": 16,
     "offense_points": 32,
-    "total_points": 48
+    "total_points": 48,
+    "defense_goals": 16,
+    "defense_assists": 24,
+    "offense_goals": 32,
+    "offense_assists": 28
   },
   "Tommi Palomäki": {
     "seasons": [
@@ -1849,7 +1965,11 @@
     },
     "defense_points": 35,
     "offense_points": 30,
-    "total_points": 65
+    "total_points": 65,
+    "defense_goals": 35,
+    "defense_assists": 35,
+    "offense_goals": 30,
+    "offense_assists": 35
   },
   "Olli Huotari": {
     "seasons": [
@@ -1882,7 +2002,11 @@
     },
     "defense_points": 1,
     "offense_points": 0,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 1,
+    "defense_assists": 2,
+    "offense_goals": 0,
+    "offense_assists": 11
   },
   "Ora Visuri": {
     "seasons": [
@@ -1944,7 +2068,11 @@
     },
     "defense_points": 6,
     "offense_points": 12,
-    "total_points": 18
+    "total_points": 18,
+    "defense_goals": 6,
+    "defense_assists": 10,
+    "offense_goals": 12,
+    "offense_assists": 22
   },
   "Pauli Siponen": {
     "seasons": [
@@ -2079,7 +2207,11 @@
     },
     "defense_points": 14,
     "offense_points": 15,
-    "total_points": 29
+    "total_points": 29,
+    "defense_goals": 14,
+    "defense_assists": 32,
+    "offense_goals": 15,
+    "offense_assists": 31
   },
   "Tuukka Koistinen": {
     "seasons": [
@@ -2183,7 +2315,11 @@
     },
     "defense_points": 15,
     "offense_points": 32,
-    "total_points": 47
+    "total_points": 47,
+    "defense_goals": 15,
+    "defense_assists": 20,
+    "offense_goals": 32,
+    "offense_assists": 27
   },
   "Viljami Aittomäki": {
     "seasons": [
@@ -2228,7 +2364,11 @@
     },
     "defense_points": 2,
     "offense_points": 1,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 2,
+    "defense_assists": 5,
+    "offense_goals": 1,
+    "offense_assists": 4
   },
   "Arto Heikkilä": {
     "seasons": [
@@ -2266,7 +2406,11 @@
     },
     "defense_points": 15,
     "offense_points": 15,
-    "total_points": 30
+    "total_points": 30,
+    "defense_goals": 15,
+    "defense_assists": 12,
+    "offense_goals": 15,
+    "offense_assists": 21
   },
   "Tommi Lehto": {
     "seasons": [
@@ -2350,7 +2494,11 @@
     },
     "defense_points": 61,
     "offense_points": 79,
-    "total_points": 140
+    "total_points": 140,
+    "defense_goals": 61,
+    "defense_assists": 47,
+    "offense_goals": 79,
+    "offense_assists": 72
   },
   "Ari Ojanperä": {
     "seasons": [
@@ -2412,7 +2560,11 @@
     },
     "defense_points": 3,
     "offense_points": 2,
-    "total_points": 5
+    "total_points": 5,
+    "defense_goals": 3,
+    "defense_assists": 13,
+    "offense_goals": 2,
+    "offense_assists": 7
   },
   "Eetu Tiihonen": {
     "seasons": [
@@ -2526,7 +2678,11 @@
     },
     "defense_points": 3,
     "offense_points": 3,
-    "total_points": 6
+    "total_points": 6,
+    "defense_goals": 3,
+    "defense_assists": 10,
+    "offense_goals": 3,
+    "offense_assists": 2
   },
   "Mikko Jauhonen": {
     "seasons": [
@@ -2560,7 +2716,11 @@
     },
     "defense_points": 1,
     "offense_points": 3,
-    "total_points": 4
+    "total_points": 4,
+    "defense_goals": 1,
+    "defense_assists": 7,
+    "offense_goals": 3,
+    "offense_assists": 10
   },
   "Otto Forsbom": {
     "seasons": [
@@ -2695,7 +2855,11 @@
     },
     "defense_points": 38,
     "offense_points": 63,
-    "total_points": 101
+    "total_points": 101,
+    "defense_goals": 38,
+    "defense_assists": 25,
+    "offense_goals": 63,
+    "offense_assists": 45
   },
   "Tomi Sandberg": {
     "seasons": [
@@ -2825,7 +2989,11 @@
     },
     "defense_points": 52,
     "offense_points": 65,
-    "total_points": 117
+    "total_points": 117,
+    "defense_goals": 52,
+    "defense_assists": 65,
+    "offense_goals": 65,
+    "offense_assists": 66
   },
   "Antti Elonheimo": {
     "seasons": [
@@ -2947,7 +3115,11 @@
     },
     "defense_points": 33,
     "offense_points": 28,
-    "total_points": 61
+    "total_points": 61,
+    "defense_goals": 33,
+    "defense_assists": 32,
+    "offense_goals": 28,
+    "offense_assists": 17
   },
   "Eero Smeds": {
     "seasons": [
@@ -3012,7 +3184,11 @@
     },
     "defense_points": 1,
     "offense_points": 2,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 1,
+    "defense_assists": 25,
+    "offense_goals": 2,
+    "offense_assists": 22
   },
   "Erkka Niini": {
     "seasons": [
@@ -3139,7 +3315,11 @@
     },
     "defense_points": 24,
     "offense_points": 29,
-    "total_points": 53
+    "total_points": 53,
+    "defense_goals": 24,
+    "defense_assists": 74,
+    "offense_goals": 29,
+    "offense_assists": 54
   },
   "Lauri Hiivala": {
     "seasons": [
@@ -3198,7 +3378,11 @@
     },
     "defense_points": 10,
     "offense_points": 13,
-    "total_points": 23
+    "total_points": 23,
+    "defense_goals": 10,
+    "defense_assists": 15,
+    "offense_goals": 13,
+    "offense_assists": 17
   },
   "Pasi Tamminen": {
     "seasons": [
@@ -3274,7 +3458,11 @@
     },
     "defense_points": 61,
     "offense_points": 55,
-    "total_points": 116
+    "total_points": 116,
+    "defense_goals": 61,
+    "defense_assists": 30,
+    "offense_goals": 55,
+    "offense_assists": 27
   },
   "Ekku Rytkönen": {
     "seasons": [
@@ -3309,7 +3497,11 @@
     },
     "defense_points": 1,
     "offense_points": 2,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 1,
+    "defense_assists": 3,
+    "offense_goals": 2,
+    "offense_assists": 11
   },
   "Pekka Neuvo": {
     "seasons": [
@@ -3356,7 +3548,11 @@
     },
     "defense_points": 0,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
+    "offense_goals": 0,
+    "offense_assists": 2
   },
   "Simo Siitonen": {
     "seasons": [
@@ -3414,7 +3610,11 @@
     },
     "defense_points": 5,
     "offense_points": 3,
-    "total_points": 8
+    "total_points": 8,
+    "defense_goals": 5,
+    "defense_assists": 6,
+    "offense_goals": 3,
+    "offense_assists": 4
   },
   "Ismo Sutela": {
     "seasons": [
@@ -3491,7 +3691,11 @@
     },
     "defense_points": 29,
     "offense_points": 19,
-    "total_points": 48
+    "total_points": 48,
+    "defense_goals": 29,
+    "defense_assists": 25,
+    "offense_goals": 19,
+    "offense_assists": 18
   },
   "Juho Keitaanniemi": {
     "seasons": [
@@ -3575,7 +3779,11 @@
     },
     "defense_points": 3,
     "offense_points": 0,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 3,
+    "defense_assists": 0,
+    "offense_goals": 0,
+    "offense_assists": 1
   },
   "Antti Järvi": {
     "seasons": [
@@ -3678,7 +3886,11 @@
     },
     "defense_points": 15,
     "offense_points": 24,
-    "total_points": 39
+    "total_points": 39,
+    "defense_goals": 15,
+    "defense_assists": 21,
+    "offense_goals": 24,
+    "offense_assists": 14
   },
   "Ilkka Rämö": {
     "seasons": [
@@ -3757,7 +3969,11 @@
     },
     "defense_points": 46,
     "offense_points": 45,
-    "total_points": 91
+    "total_points": 91,
+    "defense_goals": 46,
+    "defense_assists": 29,
+    "offense_goals": 45,
+    "offense_assists": 40
   },
   "Damijan Marin": {
     "seasons": [
@@ -3804,7 +4020,11 @@
     },
     "defense_points": 78,
     "offense_points": 82,
-    "total_points": 160
+    "total_points": 160,
+    "defense_goals": 78,
+    "defense_assists": 15,
+    "offense_goals": 82,
+    "offense_assists": 23
   },
   "Sebastian Sala": {
     "seasons": [
@@ -3886,7 +4106,11 @@
     },
     "defense_points": 19,
     "offense_points": 12,
-    "total_points": 31
+    "total_points": 31,
+    "defense_goals": 19,
+    "defense_assists": 11,
+    "offense_goals": 12,
+    "offense_assists": 12
   },
   "Tommi Ylönen": {
     "seasons": [
@@ -3921,7 +4145,11 @@
     },
     "defense_points": 2,
     "offense_points": 6,
-    "total_points": 8
+    "total_points": 8,
+    "defense_goals": 2,
+    "defense_assists": 2,
+    "offense_goals": 6,
+    "offense_assists": 4
   },
   "Oskari Vuorio": {
     "seasons": [
@@ -4041,7 +4269,11 @@
     },
     "defense_points": 12,
     "offense_points": 8,
-    "total_points": 20
+    "total_points": 20,
+    "defense_goals": 12,
+    "defense_assists": 20,
+    "offense_goals": 8,
+    "offense_assists": 29
   },
   "Jesse Saastamoinen": {
     "seasons": [
@@ -4146,7 +4378,11 @@
     },
     "defense_points": 29,
     "offense_points": 34,
-    "total_points": 63
+    "total_points": 63,
+    "defense_goals": 29,
+    "defense_assists": 22,
+    "offense_goals": 34,
+    "offense_assists": 15
   },
   "Karli Kalpala": {
     "seasons": [
@@ -4232,7 +4468,11 @@
     },
     "defense_points": 10,
     "offense_points": 21,
-    "total_points": 31
+    "total_points": 31,
+    "defense_goals": 10,
+    "defense_assists": 18,
+    "offense_goals": 21,
+    "offense_assists": 26
   },
   "Sami Koivisto": {
     "seasons": [
@@ -4271,7 +4511,11 @@
     },
     "defense_points": 4,
     "offense_points": 3,
-    "total_points": 7
+    "total_points": 7,
+    "defense_goals": 4,
+    "defense_assists": 1,
+    "offense_goals": 3,
+    "offense_assists": 9
   },
   "Teemu Säilynoja": {
     "seasons": [
@@ -4365,7 +4609,11 @@
     },
     "defense_points": 5,
     "offense_points": 6,
-    "total_points": 11
+    "total_points": 11,
+    "defense_goals": 5,
+    "defense_assists": 16,
+    "offense_goals": 6,
+    "offense_assists": 19
   },
   "Tommy Mattila": {
     "seasons": [
@@ -4394,7 +4642,11 @@
     },
     "defense_points": 0,
     "offense_points": 1,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 0,
+    "defense_assists": 2,
+    "offense_goals": 1,
+    "offense_assists": 5
   },
   "Juha Jokinen": {
     "seasons": [
@@ -4427,7 +4679,11 @@
     },
     "defense_points": 7,
     "offense_points": 4,
-    "total_points": 11
+    "total_points": 11,
+    "defense_goals": 7,
+    "defense_assists": 1,
+    "offense_goals": 4,
+    "offense_assists": 0
   },
   "Juho Siitonen": {
     "seasons": [
@@ -4459,7 +4715,11 @@
     },
     "defense_points": 0,
     "offense_points": 2,
-    "total_points": 2
+    "total_points": 2,
+    "defense_goals": 0,
+    "defense_assists": 0,
+    "offense_goals": 2,
+    "offense_assists": 1
   },
   "Konsta Kokkonen": {
     "seasons": [
@@ -4523,7 +4783,11 @@
     },
     "defense_points": 0,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 2,
+    "offense_goals": 0,
+    "offense_assists": 1
   },
   "Arimo Lemettinen": {
     "seasons": [
@@ -4598,7 +4862,11 @@
     },
     "defense_points": 8,
     "offense_points": 6,
-    "total_points": 14
+    "total_points": 14,
+    "defense_goals": 8,
+    "defense_assists": 4,
+    "offense_goals": 6,
+    "offense_assists": 2
   },
   "Waltteri Wickström": {
     "seasons": [
@@ -4657,7 +4925,11 @@
     },
     "defense_points": 19,
     "offense_points": 15,
-    "total_points": 34
+    "total_points": 34,
+    "defense_goals": 19,
+    "defense_assists": 29,
+    "offense_goals": 15,
+    "offense_assists": 21
   },
   "Yrjänä Hynninen": {
     "seasons": [
@@ -4710,7 +4982,11 @@
     },
     "defense_points": 4,
     "offense_points": 7,
-    "total_points": 11
+    "total_points": 11,
+    "defense_goals": 4,
+    "defense_assists": 41,
+    "offense_goals": 7,
+    "offense_assists": 40
   },
   "Daniel Palander": {
     "seasons": [
@@ -4739,7 +5015,11 @@
     },
     "defense_points": 6,
     "offense_points": 0,
-    "total_points": 6
+    "total_points": 6,
+    "defense_goals": 6,
+    "defense_assists": 4,
+    "offense_goals": 0,
+    "offense_assists": 5
   },
   "Jussi Kitusuo": {
     "seasons": [
@@ -4804,7 +5084,11 @@
     },
     "defense_points": 12,
     "offense_points": 13,
-    "total_points": 25
+    "total_points": 25,
+    "defense_goals": 12,
+    "defense_assists": 40,
+    "offense_goals": 13,
+    "offense_assists": 31
   },
   "Pyry Aurasmaa": {
     "seasons": [
@@ -4842,7 +5126,11 @@
     },
     "defense_points": 10,
     "offense_points": 6,
-    "total_points": 16
+    "total_points": 16,
+    "defense_goals": 10,
+    "defense_assists": 7,
+    "offense_goals": 6,
+    "offense_assists": 9
   },
   "Heikki Tiittanen": {
     "seasons": [
@@ -4875,7 +5163,11 @@
     },
     "defense_points": 7,
     "offense_points": 3,
-    "total_points": 10
+    "total_points": 10,
+    "defense_goals": 7,
+    "defense_assists": 4,
+    "offense_goals": 3,
+    "offense_assists": 6
   },
   "Patrick Potrykus": {
     "seasons": [
@@ -4960,7 +5252,11 @@
     },
     "defense_points": 6,
     "offense_points": 2,
-    "total_points": 8
+    "total_points": 8,
+    "defense_goals": 6,
+    "defense_assists": 5,
+    "offense_goals": 2,
+    "offense_assists": 5
   },
   "Pekka Kinnunen": {
     "seasons": [
@@ -5046,7 +5342,11 @@
     },
     "defense_points": 12,
     "offense_points": 3,
-    "total_points": 15
+    "total_points": 15,
+    "defense_goals": 12,
+    "defense_assists": 2,
+    "offense_goals": 3,
+    "offense_assists": 1
   },
   "Totti Brunila": {
     "seasons": [
@@ -5093,7 +5393,11 @@
     },
     "defense_points": 0,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 10,
+    "offense_goals": 0,
+    "offense_assists": 1
   },
   "Tatu Kokkonen": {
     "seasons": [
@@ -5149,7 +5453,11 @@
     },
     "defense_points": 6,
     "offense_points": 1,
-    "total_points": 7
+    "total_points": 7,
+    "defense_goals": 6,
+    "defense_assists": 3,
+    "offense_goals": 1,
+    "offense_assists": 1
   },
   "Anttoni Söderlund": {
     "seasons": [
@@ -5266,7 +5574,11 @@
     },
     "defense_points": 1,
     "offense_points": 4,
-    "total_points": 5
+    "total_points": 5,
+    "defense_goals": 1,
+    "defense_assists": 0,
+    "offense_goals": 4,
+    "offense_assists": 1
   },
   "Pekka Lehtelä": {
     "seasons": [
@@ -5325,7 +5637,11 @@
     },
     "defense_points": 1,
     "offense_points": 2,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 1,
+    "defense_assists": 0,
+    "offense_goals": 2,
+    "offense_assists": 4
   },
   "Ville Antila": {
     "seasons": [
@@ -5476,7 +5792,11 @@
     },
     "defense_points": 0,
     "offense_points": 1,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 0,
+    "defense_assists": 2,
+    "offense_goals": 1,
+    "offense_assists": 1
   },
   "Joonas Myhrberg": {
     "seasons": [
@@ -5524,7 +5844,11 @@
     },
     "defense_points": 1,
     "offense_points": 1,
-    "total_points": 2
+    "total_points": 2,
+    "defense_goals": 1,
+    "defense_assists": 0,
+    "offense_goals": 1,
+    "offense_assists": 4
   },
   "Kim Kåhre": {
     "seasons": [
@@ -5618,7 +5942,11 @@
     },
     "defense_points": 3,
     "offense_points": 6,
-    "total_points": 9
+    "total_points": 9,
+    "defense_goals": 3,
+    "defense_assists": 2,
+    "offense_goals": 6,
+    "offense_assists": 6
   },
   "Antti-Jussi Miettinen": {
     "seasons": [
@@ -6424,7 +6752,11 @@
     },
     "defense_points": 22,
     "offense_points": 40,
-    "total_points": 62
+    "total_points": 62,
+    "defense_goals": 22,
+    "defense_assists": 14,
+    "offense_goals": 40,
+    "offense_assists": 19
   },
   "Kivi Knuuti": {
     "seasons": [
@@ -6524,7 +6856,11 @@
     },
     "defense_points": 11,
     "offense_points": 20,
-    "total_points": 31
+    "total_points": 31,
+    "defense_goals": 11,
+    "defense_assists": 16,
+    "offense_goals": 20,
+    "offense_assists": 17
   },
   "Touko Väänänen": {
     "seasons": [
@@ -6622,7 +6958,11 @@
     },
     "defense_points": 3,
     "offense_points": 2,
-    "total_points": 5
+    "total_points": 5,
+    "defense_goals": 3,
+    "defense_assists": 5,
+    "offense_goals": 2,
+    "offense_assists": 2
   },
   "Andrey Przhibelskiy": {
     "seasons": [
@@ -6904,7 +7244,11 @@
     },
     "defense_points": 0,
     "offense_points": 0,
-    "total_points": 0
+    "total_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 1,
+    "offense_goals": 0,
+    "offense_assists": 1
   },
   "Hugo Fournier": {
     "seasons": [
@@ -6988,7 +7332,11 @@
     },
     "defense_points": 12,
     "offense_points": 26,
-    "total_points": 38
+    "total_points": 38,
+    "defense_goals": 12,
+    "defense_assists": 9,
+    "offense_goals": 26,
+    "offense_assists": 9
   },
   "Alec Stiller": {
     "seasons": [
@@ -7156,7 +7504,11 @@
     },
     "defense_points": 18,
     "offense_points": 29,
-    "total_points": 47
+    "total_points": 47,
+    "defense_goals": 18,
+    "defense_assists": 17,
+    "offense_goals": 29,
+    "offense_assists": 34
   },
   "Mikko Tervakangas": {
     "seasons": [
@@ -7234,7 +7586,11 @@
     },
     "defense_points": 14,
     "offense_points": 14,
-    "total_points": 28
+    "total_points": 28,
+    "defense_goals": 14,
+    "defense_assists": 2,
+    "offense_goals": 14,
+    "offense_assists": 4
   },
   "Santtu Lehto": {
     "seasons": [
@@ -7322,7 +7678,11 @@
     },
     "defense_points": 1,
     "offense_points": 0,
-    "total_points": 1
+    "total_points": 1,
+    "defense_goals": 1,
+    "defense_assists": 1,
+    "offense_goals": 0,
+    "offense_assists": 3
   },
   "Aapo Putkonen": {
     "seasons": [
@@ -7352,7 +7712,11 @@
     },
     "defense_points": 0,
     "offense_points": 3,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 0,
+    "defense_assists": 2,
+    "offense_goals": 3,
+    "offense_assists": 0
   },
   "Arttu Rautamäki": {
     "seasons": [
@@ -7389,7 +7753,11 @@
     },
     "defense_points": 9,
     "offense_points": 13,
-    "total_points": 22
+    "total_points": 22,
+    "defense_goals": 9,
+    "defense_assists": 16,
+    "offense_goals": 13,
+    "offense_assists": 30
   },
   "Clemens Jonas Hellmig": {
     "seasons": [
@@ -7485,7 +7853,11 @@
     },
     "defense_points": 13,
     "offense_points": 20,
-    "total_points": 33
+    "total_points": 33,
+    "defense_goals": 13,
+    "defense_assists": 22,
+    "offense_goals": 20,
+    "offense_assists": 37
   },
   "Jonne Happonen": {
     "seasons": [
@@ -7645,7 +8017,11 @@
     },
     "defense_points": 8,
     "offense_points": 13,
-    "total_points": 21
+    "total_points": 21,
+    "defense_goals": 8,
+    "defense_assists": 31,
+    "offense_goals": 13,
+    "offense_assists": 58
   },
   "Phong Tran": {
     "seasons": [
@@ -7712,7 +8088,11 @@
     },
     "defense_points": 2,
     "offense_points": 2,
-    "total_points": 4
+    "total_points": 4,
+    "defense_goals": 2,
+    "defense_assists": 8,
+    "offense_goals": 2,
+    "offense_assists": 1
   },
   "Erno Kerman": {
     "seasons": [
@@ -7743,7 +8123,11 @@
     },
     "defense_points": 7,
     "offense_points": 14,
-    "total_points": 21
+    "total_points": 21,
+    "defense_goals": 7,
+    "defense_assists": 6,
+    "offense_goals": 14,
+    "offense_assists": 5
   },
   "Matias Arola": {
     "seasons": [
@@ -7835,7 +8219,11 @@
     },
     "defense_points": 0,
     "offense_points": 3,
-    "total_points": 3
+    "total_points": 3,
+    "defense_goals": 0,
+    "defense_assists": 4,
+    "offense_goals": 3,
+    "offense_assists": 1
   },
   "Joonatan Bergholm": {
     "seasons": [
@@ -7864,7 +8252,11 @@
     },
     "defense_points": 0,
     "offense_points": 5,
-    "total_points": 5
+    "total_points": 5,
+    "defense_goals": 0,
+    "defense_assists": 0,
+    "offense_goals": 5,
+    "offense_assists": 7
   },
   "Topi Hintukainen": {
     "seasons": [
@@ -7981,7 +8373,11 @@
     },
     "defense_points": 4,
     "offense_points": 3,
-    "total_points": 7
+    "total_points": 7,
+    "defense_goals": 4,
+    "defense_assists": 1,
+    "offense_goals": 3,
+    "offense_assists": 2
   },
   "chandika chandrasekeram": {
     "seasons": [
@@ -8099,35 +8495,6 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "eerikki mäki": {
-    "seasons": [
-      "2006.1"
-    ],
-    "season_count": 1,
-    "years": [
-      2006
-    ],
-    "year_count": 1,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [
-        2006
-      ],
-      "winter": [],
-      "other": []
-    },
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
-  },
   "leinikka taavi": {
     "seasons": [
       "2006.1"
@@ -8157,30 +8524,29 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "konstantin laakkonen": {
+  "eerikki mäki": {
     "seasons": [
-      "2013.2"
+      "2006.1"
     ],
     "season_count": 1,
     "years": [
-      2013
+      2006
     ],
     "year_count": 1,
-    "first_year": 2013,
-    "last_year": 2013,
-    "games": 2,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
     "goals": 0,
     "assists": 0,
     "total": 0,
     "teams": [
-      "Karhuvaarit",
       "Otso"
     ],
     "season_types": {
-      "summer": [],
-      "winter": [
-        2013
+      "summer": [
+        2006
       ],
+      "winter": [],
       "other": []
     },
     "defense_points": 0,
@@ -8206,6 +8572,36 @@
       "Karhuvaarit",
       "Otso",
       "Otso 2"
+    ],
+    "season_types": {
+      "summer": [],
+      "winter": [
+        2013
+      ],
+      "other": []
+    },
+    "defense_points": 0,
+    "offense_points": 0,
+    "total_points": 0
+  },
+  "konstantin laakkonen": {
+    "seasons": [
+      "2013.2"
+    ],
+    "season_count": 1,
+    "years": [
+      2013
+    ],
+    "year_count": 1,
+    "first_year": 2013,
+    "last_year": 2013,
+    "games": 2,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Karhuvaarit",
+      "Otso"
     ],
     "season_types": {
       "summer": [],

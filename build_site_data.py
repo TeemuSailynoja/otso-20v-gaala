@@ -871,7 +871,11 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
     
     player_stats = defaultdict(lambda: {
         'defense_points': 0,
+        'defense_goals': 0,
+        'defense_assists': 0,
         'offense_points': 0,
+        'offense_goals': 0,
+        'offense_assists': 0,
         'total_points': 0,
     })
     
@@ -1002,8 +1006,17 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                 otso_on_defense = (current_defense_side == otso_side)
                 
                 if otso_is_scorer and scorer_name:
-                    player_stats[scorer_name]['defense_points' if otso_on_defense else 'offense_points'] += 1
+                    is_defense = otso_on_defense
+                    player_stats[scorer_name]['defense_points' if is_defense else 'offense_points'] += 1
+                    player_stats[scorer_name]['defense_goals' if is_defense else 'offense_goals'] += 1
                     player_stats[scorer_name]['total_points'] += 1
+                    
+                    # Track assist on defense/offense
+                    assist_name = point.get('assist', '')
+                    if assist_name:
+                        assist_canon = canonicalize_name(assist_name)
+                        if assist_canon:
+                            player_stats[assist_name]['defense_assists' if is_defense else 'offense_assists'] += 1
                 
                 # Next point: scorer starts on defense
                 current_defense_side = scorer_side
@@ -1042,7 +1055,15 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                     # (we don't know who was on defense)
                     if otso_is_scorer and scorer_name:
                         player_stats[scorer_name]['offense_points'] += 1
+                        player_stats[scorer_name]['offense_goals'] += 1
                         player_stats[scorer_name]['total_points'] += 1
+                        
+                        # Track assist
+                        assist_name = point.get('assist', '')
+                        if assist_name:
+                            assist_canon = canonicalize_name(assist_name)
+                            if assist_canon:
+                                player_stats[assist_name]['offense_assists'] += 1
                     
                     # Initialize alternating state for next point
                     # If Otso scored, they start on defense next
@@ -1054,8 +1075,17 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                     otso_on_defense = (current_defense_side == otso_side)
                     
                     if otso_is_scorer and scorer_name:
-                        player_stats[scorer_name]['defense_points' if otso_on_defense else 'offense_points'] += 1
+                        is_defense = otso_on_defense
+                        player_stats[scorer_name]['defense_points' if is_defense else 'offense_points'] += 1
+                        player_stats[scorer_name]['defense_goals' if is_defense else 'offense_goals'] += 1
                         player_stats[scorer_name]['total_points'] += 1
+                        
+                        # Track assist on defense/offense
+                        assist_name = point.get('assist', '')
+                        if assist_name:
+                            assist_canon = canonicalize_name(assist_name)
+                            if assist_canon:
+                                player_stats[assist_name]['defense_assists' if is_defense else 'offense_assists'] += 1
                     
                     # Next point: scorer starts on defense
                     current_defense_side = scorer_side
@@ -1253,7 +1283,11 @@ def main():
     for display_name, stats in defense_stats.items():
         if display_name in players:
             players[display_name]["defense_points"] = stats["defense_points"]
+            players[display_name]["defense_goals"] = stats["defense_goals"]
+            players[display_name]["defense_assists"] = stats["defense_assists"]
             players[display_name]["offense_points"] = stats["offense_points"]
+            players[display_name]["offense_goals"] = stats["offense_goals"]
+            players[display_name]["offense_assists"] = stats["offense_assists"]
             players[display_name]["total_points"] = stats["total_points"]
     
     for filename, data in files.items():

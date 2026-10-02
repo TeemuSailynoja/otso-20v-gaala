@@ -1356,10 +1356,18 @@
         const archivist = Object.entries(players).filter(([n, d]) => d.first_year === 2006 && d.last_year >= 2023).sort((a, b) => b[1].season_count - a[1].season_count).slice(0, 3);
 
         // ===== DEFENSE SCORER (from parsed pelikone HTML) =====
-        const defScorer = [{ name: 'Roni Hotari', count: 13 }, { name: 'Tomi Sandberg', count: 13 }, { name: 'Pekka Kinnunen', count: 10 }];
+        const defScorer = Object.entries(players)
+            .filter(([, d]) => d.defense_goals > 0)
+            .sort((a, b) => b[1].defense_goals - a[1].defense_goals)
+            .slice(0, 3)
+            .map(([name, d]) => ({ name, count: d.defense_goals }));
 
         // ===== DEFENSE PLAYMAKER =====
-        const defPlaymaker = [{ name: 'Niilo Suontama', count: 9 }, { name: 'Roni Hotari', count: 9 }, { name: 'Tomi Sandberg', count: 9 }];
+        const defPlaymaker = Object.entries(players)
+            .filter(([, d]) => d.defense_assists > 0)
+            .sort((a, b) => b[1].defense_assists - a[1].defense_assists)
+            .slice(0, 3)
+            .map(([name, d]) => ({ name, count: d.defense_assists }));
 
         // Otso season highlights
         const qualified = Object.entries(years).filter(([, v]) => v && v.wins + v.losses >= 15);
