@@ -1383,7 +1383,6 @@
 
     function initTeamEvolution() {
         const canvas = document.getElementById('particle-canvas');
-        console.log('[evolution] canvas:', canvas);
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         
@@ -1426,7 +1425,7 @@
         let frameCount = 0;
         const YEAR_DURATION = 180;
         const TRANSITION_FRAMES = 90;
-        const PARTICLES_PER_PLAYER = 6;
+        const PARTICLES_PER_PLAYER = 1;
 
         // All particles in one array
         let particles = [];
@@ -1455,7 +1454,7 @@
                         x: startX !== undefined ? startX : w + 50 + Math.random() * 100,
                         y: h * 0.2 + Math.random() * h * 0.6,
                         vx: 0, vy: 0,
-                        r: 3 + Math.random() * 2,
+                        r: 2.5,
                         alpha: 0,
                         state: state,
                         progress: 0,
@@ -1465,7 +1464,8 @@
                         wobbleSpeed: 0.02 + Math.random() * 0.03,
                         wobbleRadius: 5 + Math.random() * 10,
                         clusterAngle: angle,
-                        clusterDist: dist
+                        clusterDist: dist,
+                        leaveDelay: 0
                     });
                 }
             });
@@ -1473,9 +1473,7 @@
 
         // Initial: all first-year players enter from right
         const firstYear = playerYears[yearList[0]] || [];
-        console.log('[evolution] firstYear:', firstYear.length, 'players in', yearList[0]);
         addPlayerParticles(firstYear, 'entering');
-        console.log('[evolution] total particles:', particles.length);
 
         // Season lines
         const seasonLines = [];
@@ -1503,20 +1501,24 @@
                 addPlayerParticles(entering, 'entering', w + 50 + Math.random() * 100);
             }
 
-            // Departing players leave to left
+            // Departing players leave to left (staggered)
             const leaving = [...currentSet].filter(n => !nextSet.has(n));
             if (leaving.length > 0) {
-                particles.forEach(p => {
-                    if (leaving.includes(p.name) && p.state === 'active') {
-                        p.state = 'leaving';
-                        p.progress = 0;
-                    }
+                // Stagger: shuffle leaving players so they don't all leave at once
+                const shuffled = leaving.sort(() => Math.random() - 0.5);
+                shuffled.forEach((name, idx) => {
+                    particles.forEach(p => {
+                        if (p.name === name && p.state === 'active') {
+                            p.state = 'leaving';
+                            p.progress = 0;
+                            p.leaveDelay = Math.floor(idx / 3); // stagger by 3 frames per player
+                        }
+                    });
                 });
             }
         }
 
         function animate() {
-            if (frameCount % 60 === 0) console.log('[evolution] frame:', frameCount, 'particles:', particles.length, 'canvas size:', w, 'x', h);
             ctx.clearRect(0, 0, w, h);
             const cx = w / 2;
             const cy = h / 2;
@@ -1588,6 +1590,12 @@
                     p.alpha = 0.6 + Math.sin(p.wobblePhase) * 0.3;
 
                 } else if (p.state === 'leaving') {
+                    // Respect leave delay
+                    if (p.leaveDelay > 0) {
+                        p.leaveDelay--;
+                        return; // Skip update for this frame
+                    }
+                    
                     p.progress += 1 / TRANSITION_FRAMES;
                     const t = Math.min(1, p.progress);
                     
