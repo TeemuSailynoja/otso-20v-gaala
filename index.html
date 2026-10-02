@@ -1600,13 +1600,16 @@
             if (leaving.length > 0) {
                 const shuffled = leaving.sort(() => Math.random() - 0.5);
                 shuffled.forEach((name, idx) => {
-                    particles.forEach(p => {
-                        if (p.name === name && p.state === 'active') {
-                            p.state = 'leaving';
-                            p.progress = 0;
-                            p.leaveDelay = idx * 15;
-                        }
-                    });
+                    // Find the particle - can be active or settling
+                    const p = particles.find(p => p.name === name && (p.state === 'active' || p.state === 'settling'));
+                    if (p) {
+                        p.state = 'leaving';
+                        p.progress = 0;
+                        p.leaveDelay = idx * 15;
+                        // Set target at left edge center
+                        p.targetX = 0 + (Math.random() - 0.5) * 60;
+                        p.targetY = h / 2 + (Math.random() - 0.5) * 80;
+                    }
                 });
             }
         }
