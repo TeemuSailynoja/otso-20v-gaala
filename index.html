@@ -228,7 +228,48 @@
             align-items: center;
             gap: 0.5rem;
         }
-        .chart-wrapper { position: relative; height: 320px; }
+        /* Three bars, full name under each. A chart axis truncates a name to a
+           surname, and on a three-row chart the name is the whole point. */
+        .stat-bars { display: flex; flex-direction: column; gap: 1.15rem; margin-top: 0.4rem; }
+        .stat-bar-row { display: flex; flex-direction: column; gap: 0.35rem; }
+        .stat-bar-track {
+            position: relative;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.045);
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        .stat-bar-fill {
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            border: 1px solid;
+            border-radius: 7px;
+        }
+        .stat-bar-val {
+            position: absolute;
+            right: 0.65rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Prototype', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--text);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+        }
+        .stat-bar-label { display: flex; align-items: baseline; gap: 0.5rem; }
+        .stat-bar-rank {
+            font-family: 'Prototype', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            width: 1rem;
+            flex: none;
+        }
+        .stat-bar-rank.gold { color: var(--gold); }
+        .stat-bar-rank.silver { color: #c0c0c0; }
+        .stat-bar-rank.bronze { color: #cd7f32; }
+        .stat-bar-name { font-size: 0.9rem; color: var(--text); letter-spacing: 0.3px; text-decoration: none; }
+        a.stat-bar-name:hover { color: var(--gold); text-decoration: underline; }
+
         .full-width { grid-column: 1 / -1; }
 
         .charts-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -1793,6 +1834,28 @@
         };
     }
 
+    // Bars are plain DOM: the full name sits under its own bar, which an axis
+    // label can never promise. Width is relative to the leader of the set.
+    function statBars(rows, fill, border) {
+        const max = rows.length ? rows[0][1] : 0;
+        const rank = ['gold', 'silver', 'bronze'];
+        return `<div class="stat-bars">${rows.map(([who, count], i) => {
+            const pct = max > 0 ? Math.max(6, Math.round(count / max * 100)) : 0;
+            const name = DATA.players[who]
+                ? `<a class="stat-bar-name" href="#/player/${encodeURIComponent(who)}">${who}</a>`
+                : `<span class="stat-bar-name">${who}</span>`;
+            return `<div class="stat-bar-row">
+                    <div class="stat-bar-track">
+                        <div class="stat-bar-fill" style="width: ${pct}%; background: ${fill}; border-color: ${border};"></div>
+                        <div class="stat-bar-val">${count}</div>
+                    </div>
+                    <div class="stat-bar-label">
+                        <span class="stat-bar-rank ${rank[i] || ''}">${i + 1}</span>${name}
+                    </div>
+                </div>`;
+        }).join('')}</div>`;
+    }
+
     // ==================== PLAYER DETAIL ====================
     function renderPlayerDetail(name) {
         const p = DATA.players[name];
@@ -1807,12 +1870,12 @@
         const passGiven = DATA.passNetwork.given?.[name] || {};
         const cooc = DATA.cooccurrence[name] || {};
 
-        // Top assists received from
-        const topReceived = Object.entries(passReceived).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        // Top 3 only — three bars make a claim ("these are the people"), ten is a dump.
+        const topReceived = Object.entries(passReceived).sort((a, b) => b[1] - a[1]).slice(0, 3);
         // Top assists given to
-        const topGiven = Object.entries(passGiven).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        const topGiven = Object.entries(passGiven).sort((a, b) => b[1] - a[1]).slice(0, 3);
         // Top teammates
-        const topTeammates = Object.entries(cooc).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        const topTeammates = Object.entries(cooc).sort((a, b) => b[1] - a[1]).slice(0, 3);
 
         const c = era.statColors;
         const cc = era.chartColors;
@@ -1863,13 +1926,13 @@
                 ${topReceived.length > 0 ? `
                 <div class="chart-card">
                     <h3>Assists Received From</h3>
-                    <div class="chart-wrapper"><canvas id="chart-passes-received"></canvas></div>
+                    ${statBars(topReceived, cc.received, cc.receivedBorder)}
                 </div>
                 ` : ''}
                 ${topGiven.length > 0 ? `
                 <div class="chart-card">
                     <h3>Assists Given To</h3>
-                    <div class="chart-wrapper"><canvas id="chart-passes-given"></canvas></div>
+                    ${statBars(topGiven, cc.given, cc.givenBorder)}
                 </div>
                 ` : ''}
             </div>
@@ -1878,95 +1941,10 @@
             ${topTeammates.length > 0 ? `
             <div class="chart-card">
                 <h3>Most Frequent Teammates</h3>
-                <div class="chart-wrapper"><canvas id="chart-teammates"></canvas></div>
+                ${statBars(topTeammates, cc.teammates, cc.teammatesBorder)}
             </div>
             ` : ''}
         `;
-
-        // Passes charts
-        if (topReceived.length > 0) {
-            const receivedReverse = topReceived.slice().reverse();
-            new Chart(document.getElementById('chart-passes-received'), {
-                type: 'bar',
-                data: {
-                    labels: receivedReverse.map(([n]) => n.split(' ').pop()),
-                    datasets: [{
-                        label: 'Assists received',
-                        data: receivedReverse.map(([, c]) => c),
-                        backgroundColor: cc.received,
-                        borderColor: cc.receivedBorder,
-                        borderWidth: 1,
-                        borderRadius: 4,
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true },
-                        y: { ticks: { color: '#8a9bae' }, grid: { display: false } }
-                    }
-                }
-            });
-        }
-        if (topGiven.length > 0) {
-            const givenReverse = topGiven.slice().reverse();
-            new Chart(document.getElementById('chart-passes-given'), {
-                type: 'bar',
-                data: {
-                    labels: givenReverse.map(([n]) => n.split(' ').pop()),
-                    datasets: [{
-                        label: 'Assists given',
-                        data: givenReverse.map(([, c]) => c),
-                        backgroundColor: cc.given,
-                        borderColor: cc.givenBorder,
-                        borderWidth: 1,
-                        borderRadius: 4,
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true },
-                        y: { ticks: { color: '#8a9bae' }, grid: { display: false } }
-                    }
-                }
-            });
-        }
-
-        // Teammates chart
-        if (topTeammates.length > 0) {
-            const teammatesReverse = topTeammates.slice().reverse();
-            new Chart(document.getElementById('chart-teammates'), {
-                type: 'bar',
-                data: {
-                    labels: teammatesReverse.map(([n]) => n.split(' ').pop()),
-                    datasets: [{
-                        label: 'Games together',
-                        data: teammatesReverse.map(([, c]) => c),
-                        backgroundColor: cc.teammates,
-                        borderColor: cc.teammatesBorder,
-                        borderWidth: 1,
-                        borderRadius: 4,
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { ticks: { color: '#8a9bae' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true },
-                        y: { ticks: { color: '#8a9bae' }, grid: { display: false } }
-                    }
-                }
-            });
-        }
     }
 
     document.getElementById('player-back').addEventListener('click', () => {
