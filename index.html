@@ -1938,11 +1938,12 @@
         const seasonSummer = seasonRate('summer');
 
         const categories = [
+            { name: 'Longevity', desc: 'Seasons played, and how many years they stayed on the roster', type: 'table', columns: ['Player', 'Seasons', 'Career'], foot: '<span class="cat-mark">★</span> founding member (2006), still active', rows: longevity.map(r => ({ name: r.name, mark: r.founder ? '★' : '', cells: [String(r.seasons), `${r.first}–${r.last}<span class="cat-yrs"> · ${r.span} yrs</span>`] })) },
+            { name: 'The Phoenix', desc: 'Away three or more years, then back on the roster', type: 'gaps', data: phoenix.slice(0, 3) },
+            { name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
             { name: 'The Triangle', desc: 'The three players who shared the most field time in 20 years', type: 'trio', triangle: triangles[0], runnerUp: triangles[1] },
             { name: 'The Pair', desc: 'Each is the other\'s #1 assist target — the biggest and longest of the four pairs where that is true', type: 'duo', duo: duo, others: buddyPairs.slice(1), chain: duoChain, hub: duoHub, spoke: duoSpoke, hubFeeds: duoHubFeeds, spokeFeeds: duoSpokeFeeds, combined: duoCombined },
             { name: 'The Connector', desc: 'Unique players passed to or received from, per game', type: 'table', columns: ['Player', 'In/g', 'Out/g', 'Total/g', 'Games'], rows: connectorRows.slice(0, 6).map(r => ({ name: r.name, cells: [r.inPerGame, r.outPerGame, r.perGame, String(r.games)] })) },
-            { name: 'Longevity', desc: 'Seasons played, and how many years they stayed on the roster', type: 'table', columns: ['Player', 'Seasons', 'Career'], foot: '<span class="cat-mark">★</span> founding member (2006), still active', rows: longevity.map(r => ({ name: r.name, mark: r.founder ? '★' : '', cells: [String(r.seasons), `${r.first}–${r.last}<span class="cat-yrs"> · ${r.span} yrs</span>`] })) },
-            { name: 'The Phoenix', desc: 'Away three or more years, then back on the roster', type: 'gaps', data: phoenix.slice(0, 3) },
             { name: 'Scoring', desc: 'The all-time counting list, and the best rate per game', type: 'split', foot: '▲ the all-time leader in that column', panels: [
                 { title: 'Most points', columns: ['Player', 'Pts', 'G', 'A', 'Games'], rows: scoringVolume },
                 { title: 'Best points per game (100+ games)', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: scoringRate.map(r => ({ name: r.name, cells: [r.perGame, String(r.points), String(r.games)] })) },
@@ -1960,7 +1961,6 @@
                 { title: 'Summer', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: seasonSummer.map(r => ({ name: r.name, mark: r.mark, cells: [r.perGame, String(r.points), String(r.games)] })) },
             ] },
             { name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
-            { name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
         ];
 
         const scrollContainer = document.getElementById('categories-scroll');
