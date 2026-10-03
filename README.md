@@ -23,14 +23,15 @@ index.html          — SPA frontend (47 KB)
 build_site_data.py  — Data processing pipeline
 site_data/          — Generated JSON data files
   players.json      — Per-player stats (81 KB)
-  pass_network.json — Directed pass connections (40 KB)
+  pass_network.json — Directed pass connections (40 KB); `given[X][Y]` = X assisted Y,
+                      `received[X][Y]` = X was assisted by Y
   cooccurrence.json — Co-occurrence matrix (123 KB)
   summary.json      — Aggregate stats (7.5 KB)
   years.json        — Year-by-year evolution (1.7 KB)
   trophies.json     — Season-level gold/silver/bronze record (7 KB)
 data/
   raw/              — Scraped season data (103 files, excluded from git)
-  processed/        — Processed match data (excluded from git)
+  processed/        — Processed match data, including point-by-point gameplay (tracked in git)
 ```
 
 ## Generating Data
@@ -40,6 +41,12 @@ python build_site_data.py
 ```
 
 Reads `data/raw/*.json` and `data/processed/match_results.json`, outputs to `site_data/`.
+
+Point-by-point gameplay rows carry `passer` and `scorer`, matching the pelikone points table
+column order (`Pisteet | Syöttäjä | Maali | Aika` — Syöttäjä is the passer, Maali the goal
+scorer). The scrapers had those two names under swapped keys until 2026-10;
+`migrate_point_fields.py` renames them in the committed dataset and is idempotent, so it is
+safe to re-run after any re-scrape of older data.
 
 ## Local Development
 

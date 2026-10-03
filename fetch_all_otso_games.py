@@ -138,13 +138,15 @@ for i, game in enumerate(new_games):
             cells = row.find_all(["td", "th"])
             if len(cells) >= 4:
                 score = cells[0].get_text(strip=True)
-                scorer_raw = cells[1].get_text(strip=True)
-                assist_raw = cells[2].get_text(strip=True)
+                # Header is Pisteet | Syöttäjä | Maali | Aika — cells[1] is the
+                # PASSER, cells[2] is the goal SCORER.
+                passer_raw = cells[1].get_text(strip=True)
+                scorer_raw = cells[2].get_text(strip=True)
                 time_str = cells[3].get_text(strip=True)
                 
                 # Extract player names
+                passer = re.sub(r"^#\d+\s*", "", passer_raw).strip()
                 scorer = re.sub(r"^#\d+\s*", "", scorer_raw).strip()
-                assist = re.sub(r"^#\d+\s*", "", assist_raw).strip()
                 
                 # Determine side
                 score_parts = score.split("-")
@@ -157,11 +159,11 @@ for i, game in enumerate(new_games):
                 points.append({
                     "type": "point",
                     "side": side,
-                    "title": f"{time_str} {score} {scorer} -> {assist}",
+                    "title": f"{time_str} {score} {passer} -> {scorer}",
                     "time": time_str,
                     "score": score,
+                    "passer": passer,
                     "scorer": scorer,
-                    "assist": assist,
                 })
         
         # Get player rosters - handle both modern (div.scoreboard) and old (table with caption) formats

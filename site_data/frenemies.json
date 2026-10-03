@@ -4,8 +4,8 @@
     "games": 70,
     "wins": 19,
     "losses": 51,
-    "goals": 335,
-    "assists": 128,
+    "goals": 128,
+    "assists": 335,
     "total": 463,
     "ppg": 6.61,
     "teams": [
@@ -15,12 +15,28 @@
     "rank": 1
   },
   {
+    "name": "Antti Wiklund",
+    "games": 75,
+    "wins": 23,
+    "losses": 52,
+    "goals": 361,
+    "assists": 97,
+    "total": 458,
+    "ppg": 6.11,
+    "teams": [
+      "Saints",
+      "Muu Suomi",
+      "Vaasa Saints"
+    ],
+    "rank": 2
+  },
+  {
     "name": "Teemu Kalliokoski",
     "games": 80,
     "wins": 24,
     "losses": 56,
-    "goals": 284,
-    "assists": 174,
+    "goals": 174,
+    "assists": 284,
     "total": 458,
     "ppg": 5.72,
     "teams": [
@@ -30,22 +46,6 @@
       "UFO 2",
       "UFO Akatemia"
     ],
-    "rank": 2
-  },
-  {
-    "name": "Antti Wiklund",
-    "games": 75,
-    "wins": 23,
-    "losses": 52,
-    "goals": 97,
-    "assists": 361,
-    "total": 458,
-    "ppg": 6.11,
-    "teams": [
-      "Saints",
-      "Muu Suomi",
-      "Vaasa Saints"
-    ],
     "rank": 3
   },
   {
@@ -53,8 +53,8 @@
     "games": 64,
     "wins": 19,
     "losses": 45,
-    "goals": 325,
-    "assists": 59,
+    "goals": 59,
+    "assists": 325,
     "total": 384,
     "ppg": 6.0,
     "teams": [
@@ -71,8 +71,8 @@
     "games": 81,
     "wins": 33,
     "losses": 48,
-    "goals": 117,
-    "assists": 227,
+    "goals": 227,
+    "assists": 117,
     "total": 344,
     "ppg": 4.25,
     "teams": [
@@ -93,8 +93,8 @@
     "games": 49,
     "wins": 22,
     "losses": 27,
-    "goals": 183,
-    "assists": 150,
+    "goals": 150,
+    "assists": 183,
     "total": 333,
     "ppg": 6.8,
     "teams": [
@@ -115,8 +115,8 @@
     "games": 34,
     "wins": 12,
     "losses": 22,
-    "goals": 192,
-    "assists": 131,
+    "goals": 131,
+    "assists": 192,
     "total": 323,
     "ppg": 9.5,
     "teams": [
@@ -131,8 +131,8 @@
     "games": 50,
     "wins": 24,
     "losses": 26,
-    "goals": 166,
-    "assists": 152,
+    "goals": 152,
+    "assists": 166,
     "total": 318,
     "ppg": 6.36,
     "teams": [
@@ -153,8 +153,8 @@
     "games": 74,
     "wins": 26,
     "losses": 48,
-    "goals": 230,
-    "assists": 74,
+    "goals": 74,
+    "assists": 230,
     "total": 304,
     "ppg": 4.11,
     "teams": [
@@ -174,8 +174,8 @@
     "games": 43,
     "wins": 15,
     "losses": 28,
-    "goals": 110,
-    "assists": 189,
+    "goals": 189,
+    "assists": 110,
     "total": 299,
     "ppg": 6.95,
     "teams": [
@@ -192,8 +192,8 @@
     "games": 40,
     "wins": 13,
     "losses": 27,
-    "goals": 139,
-    "assists": 144,
+    "goals": 144,
+    "assists": 139,
     "total": 283,
     "ppg": 7.08,
     "teams": [
@@ -208,8 +208,8 @@
     "games": 60,
     "wins": 22,
     "losses": 38,
-    "goals": 129,
-    "assists": 150,
+    "goals": 150,
+    "assists": 129,
     "total": 279,
     "ppg": 4.65,
     "teams": [
@@ -229,8 +229,8 @@
     "games": 56,
     "wins": 21,
     "losses": 35,
-    "goals": 175,
-    "assists": 104,
+    "goals": 104,
+    "assists": 175,
     "total": 279,
     "ppg": 4.98,
     "teams": [
@@ -246,8 +246,8 @@
     "games": 42,
     "wins": 11,
     "losses": 31,
-    "goals": 173,
-    "assists": 103,
+    "goals": 103,
+    "assists": 173,
     "total": 276,
     "ppg": 6.57,
     "teams": [
@@ -267,8 +267,8 @@
     "games": 62,
     "wins": 23,
     "losses": 39,
-    "goals": 178,
-    "assists": 96,
+    "goals": 96,
+    "assists": 178,
     "total": 274,
     "ppg": 4.42,
     "teams": [
@@ -292,8 +292,8 @@
     "games": 42,
     "wins": 17,
     "losses": 25,
-    "goals": 193,
-    "assists": 81,
+    "goals": 81,
+    "assists": 193,
     "total": 274,
     "ppg": 6.52,
     "teams": [
@@ -308,8 +308,8 @@
     "games": 79,
     "wins": 29,
     "losses": 50,
-    "goals": 161,
-    "assists": 112,
+    "goals": 112,
+    "assists": 161,
     "total": 273,
     "ppg": 3.46,
     "teams": [
@@ -326,8 +326,8 @@
     "games": 35,
     "wins": 14,
     "losses": 21,
-    "goals": 210,
-    "assists": 53,
+    "goals": 53,
+    "assists": 210,
     "total": 263,
     "ppg": 7.51,
     "teams": [
@@ -341,8 +341,8 @@
     "games": 63,
     "wins": 18,
     "losses": 45,
-    "goals": 145,
-    "assists": 117,
+    "goals": 117,
+    "assists": 145,
     "total": 262,
     "ppg": 4.16,
     "teams": [
@@ -359,8 +359,8 @@
     "games": 56,
     "wins": 16,
     "losses": 40,
-    "goals": 140,
-    "assists": 112,
+    "goals": 112,
+    "assists": 140,
     "total": 252,
     "ppg": 4.5,
     "teams": [
@@ -376,8 +376,8 @@
     "games": 43,
     "wins": 13,
     "losses": 30,
-    "goals": 104,
-    "assists": 136,
+    "goals": 136,
+    "assists": 104,
     "total": 240,
     "ppg": 5.58,
     "teams": [

@@ -603,7 +603,12 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
 
 def build_pass_network(gameplay: list[dict], players: dict) -> dict:
     """Build directed pass network from gameplay points.
-    
+
+    A point carries "passer" (pelikone column Syöttäjä) and "scorer" (column
+    Maali); see migrate_point_fields.py for why those names were swapped in the
+    scraped data before 2026-10. network[scorer][passer] = times passer fed
+    scorer.
+
     Returns: {player: {other: count, ...}, ...}
     """
     # Build reverse map: canonical_key → display_name
@@ -645,14 +650,14 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
             if point.get("type") != "point":
                 continue
             raw_scorer = point.get("scorer", "")
-            raw_assist = point.get("assist", "")
-            
+            raw_passer = point.get("passer", "")
+
             scorer_canon = canonicalize_name(raw_scorer)
-            assist_canon = canonicalize_name(raw_assist)
-            
+            passer_canon = canonicalize_name(raw_passer)
+
             # Only count if both players are Otso players we know
-            if scorer_canon in otso_canonicals and assist_canon in otso_canonicals:
-                network[scorer_canon][assist_canon] += 1
+            if scorer_canon in otso_canonicals and passer_canon in otso_canonicals:
+                network[scorer_canon][passer_canon] += 1
     
     # Convert to regular dicts with display names
     received = {}  # player → {other: count} = assists received from other
@@ -1149,7 +1154,7 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                     player_stats[scorer_name]['total_points'] += 1
                     
                     # Track assist on defense/offense
-                    assist_name = point.get('assist', '')
+                    assist_name = point.get('passer', '')
                     if assist_name:
                         assist_canon = canonicalize_name(assist_name)
                         if assist_canon:
@@ -1196,7 +1201,7 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                         player_stats[scorer_name]['total_points'] += 1
                         
                         # Track assist
-                        assist_name = point.get('assist', '')
+                        assist_name = point.get('passer', '')
                         if assist_name:
                             assist_canon = canonicalize_name(assist_name)
                             if assist_canon:
@@ -1218,7 +1223,7 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                         player_stats[scorer_name]['total_points'] += 1
                         
                         # Track assist on defense/offense
-                        assist_name = point.get('assist', '')
+                        assist_name = point.get('passer', '')
                         if assist_name:
                             assist_canon = canonicalize_name(assist_name)
                             if assist_canon:
@@ -1321,7 +1326,7 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
             if point.get('type') != 'point':
                 continue
             scorer_canon = canonicalize_name(point.get('scorer', ''))
-            assist_canon = canonicalize_name(point.get('assist', ''))
+            assist_canon = canonicalize_name(point.get('passer', ''))
             
             if scorer_canon in canon_to_display and scorer_canon not in otso_canonicals:
                 players[canon_to_display[scorer_canon]]['goals'] += 1

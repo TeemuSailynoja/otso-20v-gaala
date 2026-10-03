@@ -284,11 +284,11 @@
   ],
   "most_connected": [
     {
-      "name": "given",
+      "name": "received",
       "connections": 147
     },
     {
-      "name": "received",
+      "name": "given",
       "connections": 137
     }
   ],

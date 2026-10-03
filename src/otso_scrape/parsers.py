@@ -830,7 +830,9 @@ def parse_gameplay(html: str) -> Dict:
                         "title": title,
                     }
                     # Parse title: "2.35 1-0 Kantonen Miikka -> Wiklund Antti"
-                    # Time uses dots (2.35), not colons
+                    # Time uses dots (2.35), not colons. The pelikone points table
+                    # columns are Pisteet | Syöttäjä | Maali | Aika, so the name
+                    # before the arrow is the PASSER and the one after is the scorer.
                     title_match = re.match(
                         r'(\d+\.\d+)\s+(\d+-\d+)\s+(.+?)\s*->\s*(.+)',
                         title.strip()
@@ -838,8 +840,8 @@ def parse_gameplay(html: str) -> Dict:
                     if title_match:
                         point["time"] = title_match.group(1)
                         point["score"] = title_match.group(2)
-                        point["scorer"] = title_match.group(3).strip()
-                        point["assist"] = title_match.group(4).strip() if title_match.group(4).strip() != "-" else None
+                        point["passer"] = title_match.group(3).strip()
+                        point["scorer"] = title_match.group(4).strip() if title_match.group(4).strip() != "-" else None
                     else:
                         point["raw_title"] = title
                     result["points"].append(point)

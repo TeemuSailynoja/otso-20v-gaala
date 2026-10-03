@@ -32,12 +32,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 0,
-    "total_points": 1,
+    "offense_points": 3,
+    "total_points": 4,
     "defense_goals": 1,
     "defense_assists": 1,
-    "offense_goals": 0,
-    "offense_assists": 3
+    "offense_goals": 3,
+    "offense_assists": 0
   },
   "Aapo Putkonen": {
     "seasons": [
@@ -71,13 +71,13 @@
     "winter_games": 8,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 0,
-    "offense_points": 3,
-    "total_points": 3,
-    "defense_goals": 0,
-    "defense_assists": 2,
-    "offense_goals": 3,
-    "offense_assists": 0
+    "defense_points": 2,
+    "offense_points": 0,
+    "total_points": 2,
+    "defense_goals": 2,
+    "defense_assists": 0,
+    "offense_goals": 0,
+    "offense_assists": 3
   },
   "Abhinav Omprakash Naik": {
     "seasons": [
@@ -215,11 +215,11 @@
     "winter_games": 17,
     "winter_goals": 16,
     "winter_assists": 10,
-    "defense_points": 19,
+    "defense_points": 11,
     "offense_points": 12,
-    "total_points": 31,
-    "defense_goals": 19,
-    "defense_assists": 11,
+    "total_points": 23,
+    "defense_goals": 11,
+    "defense_assists": 19,
     "offense_goals": 12,
     "offense_assists": 12
   },
@@ -254,11 +254,11 @@
     "winter_games": 1,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 1,
+    "defense_points": 0,
     "offense_points": 0,
-    "total_points": 1,
-    "defense_goals": 1,
-    "defense_assists": 0,
+    "total_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 1,
     "offense_goals": 0,
     "offense_assists": 0
   },
@@ -309,13 +309,13 @@
     "winter_games": 6,
     "winter_goals": 0,
     "winter_assists": 2,
-    "defense_points": 2,
-    "offense_points": 1,
-    "total_points": 3,
-    "defense_goals": 2,
-    "defense_assists": 5,
-    "offense_goals": 1,
-    "offense_assists": 4
+    "defense_points": 4,
+    "offense_points": 4,
+    "total_points": 8,
+    "defense_goals": 4,
+    "defense_assists": 2,
+    "offense_goals": 4,
+    "offense_assists": 1
   },
   "Aki Vehtari": {
     "seasons": [
@@ -456,13 +456,13 @@
     "winter_games": 259,
     "winter_goals": 58,
     "winter_assists": 161,
-    "defense_points": 19,
-    "offense_points": 27,
-    "total_points": 46,
-    "defense_goals": 19,
-    "defense_assists": 9,
-    "offense_goals": 27,
-    "offense_assists": 19
+    "defense_points": 9,
+    "offense_points": 19,
+    "total_points": 28,
+    "defense_goals": 9,
+    "defense_assists": 19,
+    "offense_goals": 19,
+    "offense_assists": 27
   },
   "Aku Westerberg": {
     "seasons": [
@@ -581,13 +581,13 @@
     "winter_games": 62,
     "winter_goals": 23,
     "winter_assists": 4,
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0,
-    "defense_goals": 0,
-    "defense_assists": 1,
-    "offense_goals": 0,
-    "offense_assists": 1
+    "defense_points": 1,
+    "offense_points": 1,
+    "total_points": 2,
+    "defense_goals": 1,
+    "defense_assists": 0,
+    "offense_goals": 1,
+    "offense_assists": 0
   },
   "alexander gorokhov": {
     "seasons": [
@@ -838,13 +838,13 @@
     "winter_games": 12,
     "winter_goals": 2,
     "winter_assists": 0,
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0,
-    "defense_goals": 0,
-    "defense_assists": 2,
-    "offense_goals": 0,
-    "offense_assists": 1
+    "defense_points": 2,
+    "offense_points": 1,
+    "total_points": 3,
+    "defense_goals": 2,
+    "defense_assists": 0,
+    "offense_goals": 1,
+    "offense_assists": 0
   },
   "Ville Antila": {
     "seasons": [
@@ -1009,13 +1009,13 @@
     "winter_games": 304,
     "winter_goals": 232,
     "winter_assists": 181,
-    "defense_points": 33,
-    "offense_points": 28,
-    "total_points": 61,
-    "defense_goals": 33,
-    "defense_assists": 32,
-    "offense_goals": 28,
-    "offense_assists": 17
+    "defense_points": 32,
+    "offense_points": 17,
+    "total_points": 49,
+    "defense_goals": 32,
+    "defense_assists": 31,
+    "offense_goals": 17,
+    "offense_assists": 29
   },
   "Antti Järvi": {
     "seasons": [
@@ -1122,13 +1122,13 @@
     "winter_games": 274,
     "winter_goals": 103,
     "winter_assists": 144,
-    "defense_points": 15,
-    "offense_points": 24,
-    "total_points": 39,
-    "defense_goals": 15,
-    "defense_assists": 21,
-    "offense_goals": 24,
-    "offense_assists": 14
+    "defense_points": 20,
+    "offense_points": 14,
+    "total_points": 34,
+    "defense_goals": 20,
+    "defense_assists": 15,
+    "offense_goals": 14,
+    "offense_assists": 24
   },
   "Antti Mäkipää": {
     "seasons": [
@@ -1235,13 +1235,13 @@
     "winter_games": 45,
     "winter_goals": 23,
     "winter_assists": 13,
-    "defense_points": 29,
-    "offense_points": 28,
-    "total_points": 57,
-    "defense_goals": 29,
-    "defense_assists": 50,
-    "offense_goals": 28,
-    "offense_assists": 37
+    "defense_points": 50,
+    "offense_points": 40,
+    "total_points": 90,
+    "defense_goals": 50,
+    "defense_assists": 29,
+    "offense_goals": 40,
+    "offense_assists": 28
   },
   "Antti-Jussi Miettinen": {
     "seasons": [
@@ -1439,13 +1439,13 @@
     "winter_games": 67,
     "winter_goals": 73,
     "winter_assists": 85,
-    "defense_points": 54,
-    "offense_points": 108,
-    "total_points": 162,
-    "defense_goals": 54,
-    "defense_assists": 15,
-    "offense_goals": 108,
-    "offense_assists": 53
+    "defense_points": 19,
+    "offense_points": 68,
+    "total_points": 87,
+    "defense_goals": 19,
+    "defense_assists": 53,
+    "offense_goals": 68,
+    "offense_assists": 104
   },
   "Arimo Lemettinen": {
     "seasons": [
@@ -1558,13 +1558,13 @@
     "winter_games": 52,
     "winter_goals": 32,
     "winter_assists": 30,
-    "defense_points": 15,
-    "offense_points": 15,
-    "total_points": 30,
-    "defense_goals": 15,
-    "defense_assists": 12,
-    "offense_goals": 15,
-    "offense_assists": 21
+    "defense_points": 12,
+    "offense_points": 21,
+    "total_points": 33,
+    "defense_goals": 12,
+    "defense_assists": 15,
+    "offense_goals": 21,
+    "offense_assists": 15
   },
   "Arttu Rautamäki": {
     "seasons": [
@@ -1605,13 +1605,13 @@
     "winter_games": 51,
     "winter_goals": 3,
     "winter_assists": 2,
-    "defense_points": 9,
-    "offense_points": 13,
-    "total_points": 22,
-    "defense_goals": 9,
-    "defense_assists": 16,
-    "offense_goals": 13,
-    "offense_assists": 30
+    "defense_points": 16,
+    "offense_points": 30,
+    "total_points": 46,
+    "defense_goals": 16,
+    "defense_assists": 9,
+    "offense_goals": 30,
+    "offense_assists": 13
   },
   "Artur Vaskio": {
     "seasons": [
@@ -1687,13 +1687,13 @@
     "winter_games": 36,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 8,
-    "offense_points": 13,
-    "total_points": 21,
-    "defense_goals": 8,
-    "defense_assists": 31,
-    "offense_goals": 13,
-    "offense_assists": 58
+    "defense_points": 31,
+    "offense_points": 58,
+    "total_points": 89,
+    "defense_goals": 31,
+    "defense_assists": 8,
+    "offense_goals": 58,
+    "offense_assists": 13
   },
   "Pyry Aurasmaa": {
     "seasons": [
@@ -1735,13 +1735,13 @@
     "winter_games": 34,
     "winter_goals": 14,
     "winter_assists": 17,
-    "defense_points": 10,
-    "offense_points": 6,
+    "defense_points": 7,
+    "offense_points": 9,
     "total_points": 16,
-    "defense_goals": 10,
-    "defense_assists": 7,
-    "offense_goals": 6,
-    "offense_assists": 9
+    "defense_goals": 7,
+    "defense_assists": 10,
+    "offense_goals": 9,
+    "offense_assists": 6
   },
   "Kimmo Berg": {
     "seasons": [
@@ -1809,13 +1809,13 @@
     "winter_games": 117,
     "winter_goals": 101,
     "winter_assists": 39,
-    "defense_points": 25,
-    "offense_points": 33,
-    "total_points": 58,
-    "defense_goals": 25,
-    "defense_assists": 77,
-    "offense_goals": 33,
-    "offense_assists": 95
+    "defense_points": 82,
+    "offense_points": 104,
+    "total_points": 186,
+    "defense_goals": 82,
+    "defense_assists": 25,
+    "offense_goals": 104,
+    "offense_assists": 30
   },
   "Joonatan Bergholm": {
     "seasons": [
@@ -1849,12 +1849,12 @@
     "winter_goals": 7,
     "winter_assists": 5,
     "defense_points": 0,
-    "offense_points": 5,
-    "total_points": 5,
+    "offense_points": 7,
+    "total_points": 7,
     "defense_goals": 0,
     "defense_assists": 0,
-    "offense_goals": 5,
-    "offense_assists": 7
+    "offense_goals": 7,
+    "offense_assists": 5
   },
   "Totti Brunila": {
     "seasons": [
@@ -1905,13 +1905,13 @@
     "winter_games": 32,
     "winter_goals": 8,
     "winter_assists": 3,
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0,
-    "defense_goals": 0,
-    "defense_assists": 10,
-    "offense_goals": 0,
-    "offense_assists": 1
+    "defense_points": 7,
+    "offense_points": 1,
+    "total_points": 8,
+    "defense_goals": 7,
+    "defense_assists": 0,
+    "offense_goals": 1,
+    "offense_assists": 0
   },
   "chandika chandrasekeram": {
     "seasons": [
@@ -2033,13 +2033,13 @@
     "winter_games": 67,
     "winter_goals": 38,
     "winter_assists": 147,
-    "defense_points": 78,
-    "offense_points": 82,
-    "total_points": 160,
-    "defense_goals": 78,
-    "defense_assists": 15,
-    "offense_goals": 82,
-    "offense_assists": 23
+    "defense_points": 15,
+    "offense_points": 23,
+    "total_points": 38,
+    "defense_goals": 15,
+    "defense_assists": 74,
+    "offense_goals": 23,
+    "offense_assists": 82
   },
   "Daniel Palander": {
     "seasons": [
@@ -2072,13 +2072,13 @@
     "winter_games": 14,
     "winter_goals": 9,
     "winter_assists": 6,
-    "defense_points": 6,
-    "offense_points": 0,
-    "total_points": 6,
-    "defense_goals": 6,
-    "defense_assists": 4,
-    "offense_goals": 0,
-    "offense_assists": 5
+    "defense_points": 4,
+    "offense_points": 5,
+    "total_points": 9,
+    "defense_goals": 4,
+    "defense_assists": 5,
+    "offense_goals": 5,
+    "offense_assists": 0
   },
   "dmitri podolsky": {
     "seasons": [
@@ -2417,13 +2417,13 @@
     "winter_games": 42,
     "winter_goals": 54,
     "winter_assists": 12,
-    "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
-    "defense_goals": 1,
-    "defense_assists": 25,
-    "offense_goals": 2,
-    "offense_assists": 22
+    "defense_points": 25,
+    "offense_points": 22,
+    "total_points": 47,
+    "defense_goals": 25,
+    "defense_assists": 1,
+    "offense_goals": 22,
+    "offense_assists": 2
   },
   "eetu strengell": {
     "seasons": [
@@ -2532,13 +2532,13 @@
     "winter_games": 18,
     "winter_goals": 14,
     "winter_assists": 3,
-    "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
-    "defense_goals": 1,
-    "defense_assists": 3,
-    "offense_goals": 2,
-    "offense_assists": 11
+    "defense_points": 3,
+    "offense_points": 11,
+    "total_points": 14,
+    "defense_goals": 3,
+    "defense_assists": 1,
+    "offense_goals": 11,
+    "offense_assists": 2
   },
   "Yury Elkin": {
     "seasons": [
@@ -2688,11 +2688,11 @@
     "winter_games": 100,
     "winter_goals": 76,
     "winter_assists": 63,
-    "defense_points": 0,
+    "defense_points": 2,
     "offense_points": 1,
-    "total_points": 1,
-    "defense_goals": 0,
-    "defense_assists": 2,
+    "total_points": 3,
+    "defense_goals": 2,
+    "defense_assists": 0,
     "offense_goals": 1,
     "offense_assists": 1
   },
@@ -2861,13 +2861,13 @@
     "winter_games": 306,
     "winter_goals": 362,
     "winter_assists": 186,
-    "defense_points": 24,
-    "offense_points": 29,
-    "total_points": 53,
-    "defense_goals": 24,
-    "defense_assists": 74,
-    "offense_goals": 29,
-    "offense_assists": 54
+    "defense_points": 74,
+    "offense_points": 54,
+    "total_points": 128,
+    "defense_goals": 74,
+    "defense_assists": 22,
+    "offense_goals": 54,
+    "offense_assists": 29
   },
   "Erno Kerman": {
     "seasons": [
@@ -2902,13 +2902,13 @@
     "winter_games": 27,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 7,
-    "offense_points": 14,
-    "total_points": 21,
-    "defense_goals": 7,
-    "defense_assists": 6,
-    "offense_goals": 14,
-    "offense_assists": 5
+    "defense_points": 6,
+    "offense_points": 5,
+    "total_points": 11,
+    "defense_goals": 6,
+    "defense_assists": 7,
+    "offense_goals": 5,
+    "offense_assists": 14
   },
   "Esa Pensala": {
     "seasons": [
@@ -2944,13 +2944,13 @@
     "winter_games": 26,
     "winter_goals": 36,
     "winter_assists": 10,
-    "defense_points": 11,
-    "offense_points": 6,
-    "total_points": 17,
-    "defense_goals": 11,
-    "defense_assists": 26,
-    "offense_goals": 6,
-    "offense_assists": 37
+    "defense_points": 26,
+    "offense_points": 37,
+    "total_points": 63,
+    "defense_goals": 26,
+    "defense_assists": 11,
+    "offense_goals": 37,
+    "offense_assists": 6
   },
   "Esko Saura": {
     "seasons": [
@@ -3003,13 +3003,13 @@
     "winter_games": 13,
     "winter_goals": 3,
     "winter_assists": 5,
-    "defense_points": 5,
-    "offense_points": 1,
-    "total_points": 6,
-    "defense_goals": 5,
-    "defense_assists": 9,
-    "offense_goals": 1,
-    "offense_assists": 4
+    "defense_points": 9,
+    "offense_points": 4,
+    "total_points": 13,
+    "defense_goals": 9,
+    "defense_assists": 5,
+    "offense_goals": 4,
+    "offense_assists": 1
   },
   "Euramo Sisu": {
     "seasons": [
@@ -3241,13 +3241,13 @@
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 3,
-    "offense_points": 1,
+    "defense_points": 4,
+    "offense_points": 0,
     "total_points": 4,
-    "defense_goals": 3,
-    "defense_assists": 4,
-    "offense_goals": 1,
-    "offense_assists": 0
+    "defense_goals": 4,
+    "defense_assists": 3,
+    "offense_goals": 0,
+    "offense_assists": 1
   },
   "Teemu Granqvist": {
     "seasons": [
@@ -3340,13 +3340,13 @@
     "winter_games": 29,
     "winter_goals": 1,
     "winter_assists": 25,
-    "defense_points": 3,
-    "offense_points": 0,
-    "total_points": 3,
-    "defense_goals": 3,
-    "defense_assists": 0,
-    "offense_goals": 0,
-    "offense_assists": 1
+    "defense_points": 0,
+    "offense_points": 1,
+    "total_points": 1,
+    "defense_goals": 0,
+    "defense_assists": 1,
+    "offense_goals": 1,
+    "offense_assists": 0
   },
   "Hannu Saarinen": {
     "seasons": [
@@ -3390,13 +3390,13 @@
     "winter_games": 34,
     "winter_goals": 22,
     "winter_assists": 39,
-    "defense_points": 22,
-    "offense_points": 53,
-    "total_points": 75,
-    "defense_goals": 22,
-    "defense_assists": 5,
-    "offense_goals": 53,
-    "offense_assists": 24
+    "defense_points": 5,
+    "offense_points": 24,
+    "total_points": 29,
+    "defense_goals": 5,
+    "defense_assists": 21,
+    "offense_goals": 24,
+    "offense_assists": 54
   },
   "Jonne Happonen": {
     "seasons": [
@@ -3543,13 +3543,13 @@
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
-    "defense_goals": 0,
-    "defense_assists": 13,
-    "offense_goals": 1,
-    "offense_assists": 14
+    "defense_points": 13,
+    "offense_points": 14,
+    "total_points": 27,
+    "defense_goals": 13,
+    "defense_assists": 0,
+    "offense_goals": 14,
+    "offense_assists": 1
   },
   "Heikki Tiittanen": {
     "seasons": [
@@ -3586,13 +3586,13 @@
     "winter_games": 4,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 7,
-    "offense_points": 3,
+    "defense_points": 4,
+    "offense_points": 6,
     "total_points": 10,
-    "defense_goals": 7,
-    "defense_assists": 4,
-    "offense_goals": 3,
-    "offense_assists": 6
+    "defense_goals": 4,
+    "defense_assists": 6,
+    "offense_goals": 6,
+    "offense_assists": 3
   },
   "Heikki Väänänen": {
     "seasons": [
@@ -3659,13 +3659,13 @@
     "winter_games": 104,
     "winter_goals": 59,
     "winter_assists": 81,
-    "defense_points": 40,
-    "offense_points": 65,
-    "total_points": 105,
-    "defense_goals": 40,
-    "defense_assists": 36,
-    "offense_goals": 65,
-    "offense_assists": 34
+    "defense_points": 37,
+    "offense_points": 40,
+    "total_points": 77,
+    "defense_goals": 37,
+    "defense_assists": 43,
+    "offense_goals": 40,
+    "offense_assists": 59
   },
   "Jari Hentunen": {
     "seasons": [
@@ -3702,13 +3702,13 @@
     "winter_games": 20,
     "winter_goals": 17,
     "winter_assists": 4,
-    "defense_points": 3,
-    "offense_points": 2,
-    "total_points": 5,
-    "defense_goals": 3,
-    "defense_assists": 13,
-    "offense_goals": 2,
-    "offense_assists": 7
+    "defense_points": 13,
+    "offense_points": 7,
+    "total_points": 20,
+    "defense_goals": 13,
+    "defense_assists": 3,
+    "offense_goals": 7,
+    "offense_assists": 2
   },
   "Juho Hiekkanen": {
     "seasons": [
@@ -3806,13 +3806,13 @@
     "winter_games": 75,
     "winter_goals": 34,
     "winter_assists": 35,
-    "defense_points": 10,
-    "offense_points": 13,
-    "total_points": 23,
-    "defense_goals": 10,
-    "defense_assists": 15,
-    "offense_goals": 13,
-    "offense_assists": 17
+    "defense_points": 13,
+    "offense_points": 17,
+    "total_points": 30,
+    "defense_goals": 13,
+    "defense_assists": 10,
+    "offense_goals": 17,
+    "offense_assists": 13
   },
   "Topi Hintukainen": {
     "seasons": [
@@ -3945,13 +3945,13 @@
     "winter_games": 28,
     "winter_goals": 31,
     "winter_assists": 28,
-    "defense_points": 14,
-    "offense_points": 32,
-    "total_points": 46,
-    "defense_goals": 14,
-    "defense_assists": 5,
-    "offense_goals": 32,
-    "offense_assists": 34
+    "defense_points": 5,
+    "offense_points": 34,
+    "total_points": 39,
+    "defense_goals": 5,
+    "defense_assists": 13,
+    "offense_goals": 34,
+    "offense_assists": 33
   },
   "Jani Honkanen": {
     "seasons": [
@@ -4141,13 +4141,13 @@
     "winter_games": 384,
     "winter_goals": 474,
     "winter_assists": 482,
-    "defense_points": 130,
-    "offense_points": 99,
-    "total_points": 229,
-    "defense_goals": 130,
-    "defense_assists": 78,
-    "offense_goals": 99,
-    "offense_assists": 90
+    "defense_points": 80,
+    "offense_points": 91,
+    "total_points": 171,
+    "defense_goals": 80,
+    "defense_assists": 128,
+    "offense_goals": 91,
+    "offense_assists": 98
   },
   "Olli Huotari": {
     "seasons": [
@@ -4184,13 +4184,13 @@
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 1,
-    "offense_points": 0,
-    "total_points": 1,
-    "defense_goals": 1,
-    "defense_assists": 2,
-    "offense_goals": 0,
-    "offense_assists": 11
+    "defense_points": 2,
+    "offense_points": 11,
+    "total_points": 13,
+    "defense_goals": 2,
+    "defense_assists": 1,
+    "offense_goals": 11,
+    "offense_assists": 0
   },
   "Yrjänä Hynninen": {
     "seasons": [
@@ -4247,13 +4247,13 @@
     "winter_games": 100,
     "winter_goals": 172,
     "winter_assists": 28,
-    "defense_points": 4,
-    "offense_points": 7,
-    "total_points": 11,
-    "defense_goals": 4,
-    "defense_assists": 41,
-    "offense_goals": 7,
-    "offense_assists": 40
+    "defense_points": 35,
+    "offense_points": 40,
+    "total_points": 75,
+    "defense_goals": 35,
+    "defense_assists": 4,
+    "offense_goals": 40,
+    "offense_assists": 7
   },
   "Timo Idänheimo": {
     "seasons": [
@@ -4325,13 +4325,13 @@
     "winter_games": 42,
     "winter_goals": 21,
     "winter_assists": 32,
-    "defense_points": 16,
-    "offense_points": 32,
-    "total_points": 48,
-    "defense_goals": 16,
-    "defense_assists": 24,
-    "offense_goals": 32,
-    "offense_assists": 28
+    "defense_points": 24,
+    "offense_points": 28,
+    "total_points": 52,
+    "defense_goals": 24,
+    "defense_assists": 16,
+    "offense_goals": 28,
+    "offense_assists": 32
   },
   "Iivo Laaksonen": {
     "seasons": [
@@ -4364,13 +4364,13 @@
     "winter_games": 10,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 4,
-    "offense_points": 3,
-    "total_points": 7,
-    "defense_goals": 4,
-    "defense_assists": 1,
-    "offense_goals": 3,
-    "offense_assists": 2
+    "defense_points": 1,
+    "offense_points": 2,
+    "total_points": 3,
+    "defense_goals": 1,
+    "defense_assists": 4,
+    "offense_goals": 2,
+    "offense_assists": 3
   },
   "Ilari Visuri": {
     "seasons": [
@@ -4409,11 +4409,11 @@
     "winter_games": 17,
     "winter_goals": 9,
     "winter_assists": 9,
-    "defense_points": 3,
+    "defense_points": 2,
     "offense_points": 6,
-    "total_points": 9,
-    "defense_goals": 3,
-    "defense_assists": 2,
+    "total_points": 8,
+    "defense_goals": 2,
+    "defense_assists": 3,
     "offense_goals": 6,
     "offense_assists": 6
   },
@@ -4498,13 +4498,13 @@
     "winter_games": 241,
     "winter_goals": 152,
     "winter_assists": 274,
-    "defense_points": 46,
-    "offense_points": 45,
-    "total_points": 91,
-    "defense_goals": 46,
-    "defense_assists": 29,
-    "offense_goals": 45,
-    "offense_assists": 40
+    "defense_points": 29,
+    "offense_points": 40,
+    "total_points": 69,
+    "defense_goals": 29,
+    "defense_assists": 46,
+    "offense_goals": 40,
+    "offense_assists": 45
   },
   "Ilkka Vaahtoranta": {
     "seasons": [
@@ -4650,13 +4650,13 @@
     "winter_games": 339,
     "winter_goals": 208,
     "winter_assists": 364,
-    "defense_points": 153,
-    "offense_points": 164,
-    "total_points": 317,
-    "defense_goals": 153,
-    "defense_assists": 49,
-    "offense_goals": 164,
-    "offense_assists": 87
+    "defense_points": 51,
+    "offense_points": 99,
+    "total_points": 150,
+    "defense_goals": 51,
+    "defense_assists": 154,
+    "offense_goals": 99,
+    "offense_assists": 157
   },
   "Jukka Ilomäki": {
     "seasons": [
@@ -4773,13 +4773,13 @@
     "winter_games": 172,
     "winter_goals": 92,
     "winter_assists": 171,
-    "defense_points": 29,
-    "offense_points": 19,
-    "total_points": 48,
-    "defense_goals": 29,
-    "defense_assists": 25,
-    "offense_goals": 19,
-    "offense_assists": 18
+    "defense_points": 25,
+    "offense_points": 18,
+    "total_points": 43,
+    "defense_goals": 25,
+    "defense_assists": 29,
+    "offense_goals": 18,
+    "offense_assists": 19
   },
   "István Prán": {
     "seasons": [
@@ -4829,13 +4829,13 @@
     "winter_games": 26,
     "winter_goals": 14,
     "winter_assists": 33,
-    "defense_points": 8,
-    "offense_points": 6,
-    "total_points": 14,
-    "defense_goals": 8,
-    "defense_assists": 4,
-    "offense_goals": 6,
-    "offense_assists": 2
+    "defense_points": 4,
+    "offense_points": 2,
+    "total_points": 6,
+    "defense_goals": 4,
+    "defense_assists": 8,
+    "offense_goals": 2,
+    "offense_assists": 6
   },
   "Jaakko Junttu": {
     "seasons": [
@@ -4948,13 +4948,13 @@
     "winter_games": 14,
     "winter_goals": 4,
     "winter_assists": 14,
-    "defense_points": 7,
-    "offense_points": 24,
-    "total_points": 31,
-    "defense_goals": 7,
-    "defense_assists": 1,
-    "offense_goals": 24,
-    "offense_assists": 3
+    "defense_points": 1,
+    "offense_points": 3,
+    "total_points": 4,
+    "defense_goals": 1,
+    "defense_assists": 7,
+    "offense_goals": 3,
+    "offense_assists": 24
   },
   "Jarno Sihvo": {
     "seasons": [
@@ -5105,13 +5105,13 @@
     "winter_games": 323,
     "winter_goals": 178,
     "winter_assists": 219,
-    "defense_points": 46,
-    "offense_points": 35,
-    "total_points": 81,
-    "defense_goals": 46,
-    "defense_assists": 59,
-    "offense_goals": 35,
-    "offense_assists": 43
+    "defense_points": 59,
+    "offense_points": 43,
+    "total_points": 102,
+    "defense_goals": 59,
+    "defense_assists": 46,
+    "offense_goals": 43,
+    "offense_assists": 35
   },
   "Jason Mc Keen": {
     "seasons": [
@@ -5240,13 +5240,13 @@
     "winter_games": 101,
     "winter_goals": 25,
     "winter_assists": 58,
-    "defense_points": 1,
-    "offense_points": 4,
-    "total_points": 5,
-    "defense_goals": 1,
-    "defense_assists": 0,
-    "offense_goals": 4,
-    "offense_assists": 1
+    "defense_points": 0,
+    "offense_points": 1,
+    "total_points": 1,
+    "defense_goals": 0,
+    "defense_assists": 1,
+    "offense_goals": 1,
+    "offense_assists": 4
   },
   "Mikko Jauhonen": {
     "seasons": [
@@ -5284,13 +5284,13 @@
     "winter_games": 12,
     "winter_goals": 17,
     "winter_assists": 4,
-    "defense_points": 1,
-    "offense_points": 3,
-    "total_points": 4,
-    "defense_goals": 1,
-    "defense_assists": 7,
-    "offense_goals": 3,
-    "offense_assists": 10
+    "defense_points": 7,
+    "offense_points": 10,
+    "total_points": 17,
+    "defense_goals": 7,
+    "defense_assists": 1,
+    "offense_goals": 10,
+    "offense_assists": 3
   },
   "Jesper Pettersson": {
     "seasons": [
@@ -5323,13 +5323,13 @@
     "winter_games": 4,
     "winter_goals": 5,
     "winter_assists": 3,
-    "defense_points": 0,
-    "offense_points": 3,
-    "total_points": 3,
-    "defense_goals": 0,
-    "defense_assists": 4,
-    "offense_goals": 3,
-    "offense_assists": 1
+    "defense_points": 4,
+    "offense_points": 1,
+    "total_points": 5,
+    "defense_goals": 4,
+    "defense_assists": 0,
+    "offense_goals": 1,
+    "offense_assists": 3
   },
   "Jesse Saastamoinen": {
     "seasons": [
@@ -5438,13 +5438,13 @@
     "winter_games": 229,
     "winter_goals": 142,
     "winter_assists": 102,
-    "defense_points": 29,
-    "offense_points": 34,
-    "total_points": 63,
-    "defense_goals": 29,
-    "defense_assists": 22,
-    "offense_goals": 34,
-    "offense_assists": 15
+    "defense_points": 18,
+    "offense_points": 14,
+    "total_points": 32,
+    "defense_goals": 18,
+    "defense_assists": 29,
+    "offense_goals": 14,
+    "offense_assists": 34
   },
   "Juha Jokinen": {
     "seasons": [
@@ -5481,13 +5481,13 @@
     "winter_games": 2,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 7,
-    "offense_points": 4,
-    "total_points": 11,
-    "defense_goals": 7,
-    "defense_assists": 1,
-    "offense_goals": 4,
-    "offense_assists": 0
+    "defense_points": 1,
+    "offense_points": 0,
+    "total_points": 1,
+    "defense_goals": 1,
+    "defense_assists": 7,
+    "offense_goals": 0,
+    "offense_assists": 4
   },
   "Joonas Myhrberg": {
     "seasons": [
@@ -5539,13 +5539,13 @@
     "winter_games": 28,
     "winter_goals": 27,
     "winter_assists": 3,
-    "defense_points": 1,
-    "offense_points": 1,
-    "total_points": 2,
-    "defense_goals": 1,
-    "defense_assists": 0,
-    "offense_goals": 1,
-    "offense_assists": 4
+    "defense_points": 0,
+    "offense_points": 4,
+    "total_points": 4,
+    "defense_goals": 0,
+    "defense_assists": 1,
+    "offense_goals": 4,
+    "offense_assists": 1
   },
   "Jori Kuvaja": {
     "seasons": [
@@ -5633,13 +5633,13 @@
     "winter_games": 1,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0,
-    "defense_goals": 0,
-    "defense_assists": 5,
-    "offense_goals": 0,
-    "offense_assists": 6
+    "defense_points": 5,
+    "offense_points": 6,
+    "total_points": 11,
+    "defense_goals": 5,
+    "defense_assists": 0,
+    "offense_goals": 6,
+    "offense_assists": 0
   },
   "Juha Nurminen": {
     "seasons": [
@@ -5672,13 +5672,13 @@
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 1,
-    "offense_points": 1,
-    "total_points": 2,
-    "defense_goals": 1,
-    "defense_assists": 0,
-    "offense_goals": 1,
-    "offense_assists": 4
+    "defense_points": 0,
+    "offense_points": 4,
+    "total_points": 4,
+    "defense_goals": 0,
+    "defense_assists": 1,
+    "offense_goals": 4,
+    "offense_assists": 1
   },
   "Juha Poikolainen": {
     "seasons": [
@@ -5753,13 +5753,13 @@
     "winter_games": 26,
     "winter_goals": 18,
     "winter_assists": 17,
-    "defense_points": 8,
-    "offense_points": 24,
-    "total_points": 32,
-    "defense_goals": 8,
-    "defense_assists": 6,
-    "offense_goals": 24,
-    "offense_assists": 22
+    "defense_points": 5,
+    "offense_points": 23,
+    "total_points": 28,
+    "defense_goals": 5,
+    "defense_assists": 8,
+    "offense_goals": 23,
+    "offense_assists": 24
   },
   "Juho Keitaanniemi": {
     "seasons": [
@@ -5832,12 +5832,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 2,
-    "total_points": 2,
+    "offense_points": 1,
+    "total_points": 1,
     "defense_goals": 0,
     "defense_assists": 0,
-    "offense_goals": 2,
-    "offense_assists": 1
+    "offense_goals": 1,
+    "offense_assists": 2
   },
   "Jukka Mäki": {
     "seasons": [
@@ -5876,13 +5876,13 @@
     "winter_games": 16,
     "winter_goals": 10,
     "winter_assists": 8,
-    "defense_points": 6,
-    "offense_points": 2,
-    "total_points": 8,
-    "defense_goals": 6,
-    "defense_assists": 13,
-    "offense_goals": 2,
-    "offense_assists": 7
+    "defense_points": 13,
+    "offense_points": 7,
+    "total_points": 20,
+    "defense_goals": 13,
+    "defense_assists": 6,
+    "offense_goals": 7,
+    "offense_assists": 2
   },
   "Julius Rissanen": {
     "seasons": [
@@ -5926,13 +5926,13 @@
     "winter_games": 7,
     "winter_goals": 2,
     "winter_assists": 2,
-    "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
-    "defense_goals": 1,
-    "defense_assists": 2,
-    "offense_goals": 2,
-    "offense_assists": 3
+    "defense_points": 2,
+    "offense_points": 3,
+    "total_points": 5,
+    "defense_goals": 2,
+    "defense_assists": 1,
+    "offense_goals": 3,
+    "offense_assists": 2
   },
   "Jussi Kitusuo": {
     "seasons": [
@@ -6001,13 +6001,13 @@
     "winter_games": 111,
     "winter_goals": 89,
     "winter_assists": 39,
-    "defense_points": 12,
-    "offense_points": 13,
-    "total_points": 25,
-    "defense_goals": 12,
-    "defense_assists": 40,
-    "offense_goals": 13,
-    "offense_assists": 31
+    "defense_points": 39,
+    "offense_points": 31,
+    "total_points": 70,
+    "defense_goals": 39,
+    "defense_assists": 12,
+    "offense_goals": 31,
+    "offense_assists": 13
   },
   "Juuso Parkkinen": {
     "seasons": [
@@ -6109,13 +6109,13 @@
     "winter_games": 113,
     "winter_goals": 71,
     "winter_assists": 57,
-    "defense_points": 33,
-    "offense_points": 27,
-    "total_points": 60,
-    "defense_goals": 33,
-    "defense_assists": 76,
-    "offense_goals": 27,
-    "offense_assists": 34
+    "defense_points": 76,
+    "offense_points": 34,
+    "total_points": 110,
+    "defense_goals": 76,
+    "defense_assists": 31,
+    "offense_goals": 34,
+    "offense_assists": 27
   },
   "Kaapo Peura": {
     "seasons": [
@@ -6165,13 +6165,13 @@
     "winter_games": 120,
     "winter_goals": 54,
     "winter_assists": 11,
-    "defense_points": 22,
-    "offense_points": 40,
-    "total_points": 62,
-    "defense_goals": 22,
-    "defense_assists": 14,
-    "offense_goals": 40,
-    "offense_assists": 19
+    "defense_points": 15,
+    "offense_points": 19,
+    "total_points": 34,
+    "defense_goals": 15,
+    "defense_assists": 22,
+    "offense_goals": 19,
+    "offense_assists": 40
   },
   "Šimon Kadlec": {
     "seasons": [
@@ -6316,13 +6316,13 @@
     "winter_games": 305,
     "winter_goals": 219,
     "winter_assists": 293,
-    "defense_points": 38,
-    "offense_points": 63,
-    "total_points": 101,
-    "defense_goals": 38,
-    "defense_assists": 25,
-    "offense_goals": 63,
-    "offense_assists": 45
+    "defense_points": 25,
+    "offense_points": 45,
+    "total_points": 70,
+    "defense_goals": 25,
+    "defense_assists": 38,
+    "offense_goals": 45,
+    "offense_assists": 63
   },
   "Karli Kalpala": {
     "seasons": [
@@ -6412,13 +6412,13 @@
     "winter_games": 151,
     "winter_goals": 97,
     "winter_assists": 86,
-    "defense_points": 10,
-    "offense_points": 21,
-    "total_points": 31,
-    "defense_goals": 10,
-    "defense_assists": 18,
-    "offense_goals": 21,
-    "offense_assists": 26
+    "defense_points": 18,
+    "offense_points": 26,
+    "total_points": 44,
+    "defense_goals": 18,
+    "defense_assists": 10,
+    "offense_goals": 26,
+    "offense_assists": 21
   },
   "Kasperi Kunnas": {
     "seasons": [
@@ -6562,13 +6562,13 @@
     "winter_games": 8,
     "winter_goals": 3,
     "winter_assists": 6,
-    "defense_points": 3,
-    "offense_points": 3,
-    "total_points": 6,
-    "defense_goals": 3,
-    "defense_assists": 10,
-    "offense_goals": 3,
-    "offense_assists": 2
+    "defense_points": 9,
+    "offense_points": 2,
+    "total_points": 11,
+    "defense_goals": 9,
+    "defense_assists": 3,
+    "offense_goals": 2,
+    "offense_assists": 3
   },
   "Roope Kettunen": {
     "seasons": [
@@ -6612,13 +6612,13 @@
     "winter_games": 23,
     "winter_goals": 10,
     "winter_assists": 5,
-    "defense_points": 12,
-    "offense_points": 26,
-    "total_points": 38,
-    "defense_goals": 12,
-    "defense_assists": 9,
-    "offense_goals": 26,
-    "offense_assists": 9
+    "defense_points": 9,
+    "offense_points": 9,
+    "total_points": 18,
+    "defense_goals": 9,
+    "defense_assists": 12,
+    "offense_goals": 9,
+    "offense_assists": 26
   },
   "Kim Kåhre": {
     "seasons": [
@@ -6741,13 +6741,13 @@
     "winter_games": 131,
     "winter_goals": 58,
     "winter_assists": 88,
-    "defense_points": 12,
-    "offense_points": 3,
-    "total_points": 15,
-    "defense_goals": 12,
-    "defense_assists": 2,
-    "offense_goals": 3,
-    "offense_assists": 1
+    "defense_points": 1,
+    "offense_points": 2,
+    "total_points": 3,
+    "defense_goals": 1,
+    "defense_assists": 11,
+    "offense_goals": 2,
+    "offense_assists": 4
   },
   "Kivi Knuuti": {
     "seasons": [
@@ -6913,13 +6913,13 @@
     "winter_games": 128,
     "winter_goals": 36,
     "winter_assists": 49,
-    "defense_points": 15,
-    "offense_points": 32,
+    "defense_points": 20,
+    "offense_points": 27,
     "total_points": 47,
-    "defense_goals": 15,
-    "defense_assists": 20,
-    "offense_goals": 32,
-    "offense_assists": 27
+    "defense_goals": 20,
+    "defense_assists": 15,
+    "offense_goals": 27,
+    "offense_assists": 32
   },
   "Sami Koivisto": {
     "seasons": [
@@ -6962,13 +6962,13 @@
     "winter_games": 35,
     "winter_goals": 10,
     "winter_assists": 6,
-    "defense_points": 4,
-    "offense_points": 3,
-    "total_points": 7,
-    "defense_goals": 4,
-    "defense_assists": 1,
-    "offense_goals": 3,
-    "offense_assists": 9
+    "defense_points": 1,
+    "offense_points": 9,
+    "total_points": 10,
+    "defense_goals": 1,
+    "defense_assists": 4,
+    "offense_goals": 9,
+    "offense_assists": 3
   },
   "Konsta Kokkonen": {
     "seasons": [
@@ -7065,11 +7065,11 @@
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 6,
+    "defense_points": 3,
     "offense_points": 1,
-    "total_points": 7,
-    "defense_goals": 6,
-    "defense_assists": 3,
+    "total_points": 4,
+    "defense_goals": 3,
+    "defense_assists": 6,
     "offense_goals": 1,
     "offense_assists": 1
   },
@@ -7143,13 +7143,13 @@
     "winter_games": 8,
     "winter_goals": 0,
     "winter_assists": 4,
-    "defense_points": 4,
-    "offense_points": 2,
-    "total_points": 6,
-    "defense_goals": 4,
-    "defense_assists": 0,
-    "offense_goals": 2,
-    "offense_assists": 1
+    "defense_points": 0,
+    "offense_points": 1,
+    "total_points": 1,
+    "defense_goals": 0,
+    "defense_assists": 4,
+    "offense_goals": 1,
+    "offense_assists": 2
   },
   "Lacy Theo": {
     "seasons": [
@@ -7247,13 +7247,13 @@
     "winter_games": 89,
     "winter_goals": 54,
     "winter_assists": 12,
-    "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
-    "defense_goals": 1,
-    "defense_assists": 0,
-    "offense_goals": 2,
-    "offense_assists": 4
+    "defense_points": 0,
+    "offense_points": 4,
+    "total_points": 4,
+    "defense_goals": 0,
+    "defense_assists": 1,
+    "offense_goals": 4,
+    "offense_assists": 2
   },
   "Santtu Lehto": {
     "seasons": [
@@ -7376,13 +7376,13 @@
     "winter_games": 240,
     "winter_goals": 254,
     "winter_assists": 209,
-    "defense_points": 61,
-    "offense_points": 79,
-    "total_points": 140,
-    "defense_goals": 61,
-    "defense_assists": 47,
-    "offense_goals": 79,
-    "offense_assists": 72
+    "defense_points": 45,
+    "offense_points": 74,
+    "total_points": 119,
+    "defense_goals": 45,
+    "defense_assists": 58,
+    "offense_goals": 74,
+    "offense_assists": 78
   },
   "leinikka taavi": {
     "seasons": [
@@ -7520,13 +7520,13 @@
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 2,
-    "offense_points": 0,
-    "total_points": 2,
-    "defense_goals": 2,
-    "defense_assists": 6,
-    "offense_goals": 0,
-    "offense_assists": 1
+    "defense_points": 6,
+    "offense_points": 1,
+    "total_points": 7,
+    "defense_goals": 6,
+    "defense_assists": 2,
+    "offense_goals": 1,
+    "offense_assists": 0
   },
   "Matias Pentikäinen": {
     "seasons": [
@@ -7572,13 +7572,13 @@
     "winter_games": 67,
     "winter_goals": 26,
     "winter_assists": 14,
-    "defense_points": 18,
-    "offense_points": 29,
-    "total_points": 47,
-    "defense_goals": 18,
-    "defense_assists": 17,
-    "offense_goals": 29,
-    "offense_assists": 34
+    "defense_points": 17,
+    "offense_points": 34,
+    "total_points": 51,
+    "defense_goals": 17,
+    "defense_assists": 18,
+    "offense_goals": 34,
+    "offense_assists": 29
   },
   "Matthew Schilke": {
     "seasons": [
@@ -7682,13 +7682,13 @@
     "winter_games": 14,
     "winter_goals": 7,
     "winter_assists": 1,
-    "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
-    "defense_goals": 0,
-    "defense_assists": 2,
-    "offense_goals": 1,
-    "offense_assists": 5
+    "defense_points": 2,
+    "offense_points": 5,
+    "total_points": 7,
+    "defense_goals": 2,
+    "defense_assists": 0,
+    "offense_goals": 5,
+    "offense_assists": 1
   },
   "Mikko Nietosvaara": {
     "seasons": [
@@ -7883,12 +7883,12 @@
     "winter_goals": 16,
     "winter_assists": 3,
     "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0,
+    "offense_points": 2,
+    "total_points": 2,
     "defense_goals": 0,
     "defense_assists": 0,
-    "offense_goals": 0,
-    "offense_assists": 2
+    "offense_goals": 2,
+    "offense_assists": 0
   },
   "Niilo Suontama": {
     "seasons": [
@@ -7922,13 +7922,13 @@
     "winter_games": 26,
     "winter_goals": 15,
     "winter_assists": 3,
-    "defense_points": 2,
-    "offense_points": 2,
-    "total_points": 4,
-    "defense_goals": 2,
-    "defense_assists": 8,
-    "offense_goals": 2,
-    "offense_assists": 1
+    "defense_points": 8,
+    "offense_points": 1,
+    "total_points": 9,
+    "defense_goals": 8,
+    "defense_assists": 2,
+    "offense_goals": 1,
+    "offense_assists": 2
   },
   "nikolaev nikolay": {
     "seasons": [
@@ -8029,13 +8029,13 @@
     "winter_games": 20,
     "winter_goals": 19,
     "winter_assists": 11,
-    "defense_points": 6,
-    "offense_points": 12,
-    "total_points": 18,
-    "defense_goals": 6,
-    "defense_assists": 10,
-    "offense_goals": 12,
-    "offense_assists": 22
+    "defense_points": 10,
+    "offense_points": 22,
+    "total_points": 32,
+    "defense_goals": 10,
+    "defense_assists": 6,
+    "offense_goals": 22,
+    "offense_assists": 12
   },
   "Oskari Vuorio": {
     "seasons": [
@@ -8156,13 +8156,13 @@
     "winter_games": 273,
     "winter_goals": 258,
     "winter_assists": 188,
-    "defense_points": 12,
-    "offense_points": 8,
-    "total_points": 20,
-    "defense_goals": 12,
-    "defense_assists": 20,
-    "offense_goals": 8,
-    "offense_assists": 29
+    "defense_points": 16,
+    "offense_points": 29,
+    "total_points": 45,
+    "defense_goals": 16,
+    "defense_assists": 11,
+    "offense_goals": 29,
+    "offense_assists": 8
   },
   "Tommi Palomäki": {
     "seasons": [
@@ -8256,12 +8256,12 @@
     "winter_goals": 46,
     "winter_assists": 43,
     "defense_points": 35,
-    "offense_points": 30,
-    "total_points": 65,
+    "offense_points": 35,
+    "total_points": 70,
     "defense_goals": 35,
-    "defense_assists": 35,
-    "offense_goals": 30,
-    "offense_assists": 35
+    "defense_assists": 34,
+    "offense_goals": 35,
+    "offense_assists": 30
   },
   "Pasi Tamminen": {
     "seasons": [
@@ -8341,13 +8341,13 @@
     "winter_games": 95,
     "winter_goals": 86,
     "winter_assists": 111,
-    "defense_points": 61,
-    "offense_points": 55,
-    "total_points": 116,
-    "defense_goals": 61,
-    "defense_assists": 30,
-    "offense_goals": 55,
-    "offense_assists": 27
+    "defense_points": 29,
+    "offense_points": 28,
+    "total_points": 57,
+    "defense_goals": 29,
+    "defense_assists": 55,
+    "offense_goals": 28,
+    "offense_assists": 56
   },
   "Patrick Potrykus": {
     "seasons": [
@@ -8433,13 +8433,13 @@
     "winter_games": 95,
     "winter_goals": 84,
     "winter_assists": 48,
-    "defense_points": 6,
-    "offense_points": 2,
+    "defense_points": 4,
+    "offense_points": 4,
     "total_points": 8,
-    "defense_goals": 6,
-    "defense_assists": 5,
-    "offense_goals": 2,
-    "offense_assists": 5
+    "defense_goals": 4,
+    "defense_assists": 6,
+    "offense_goals": 4,
+    "offense_assists": 2
   },
   "Pauli Siponen": {
     "seasons": [
@@ -8598,13 +8598,13 @@
     "winter_games": 67,
     "winter_goals": 13,
     "winter_assists": 8,
-    "defense_points": 11,
-    "offense_points": 20,
-    "total_points": 31,
-    "defense_goals": 11,
-    "defense_assists": 16,
-    "offense_goals": 20,
-    "offense_assists": 17
+    "defense_points": 16,
+    "offense_points": 17,
+    "total_points": 33,
+    "defense_goals": 16,
+    "defense_assists": 10,
+    "offense_goals": 17,
+    "offense_assists": 21
   },
   "Ville Rantamaula": {
     "seasons": [
@@ -8640,13 +8640,13 @@
     "winter_games": 24,
     "winter_goals": 2,
     "winter_assists": 15,
-    "defense_points": 19,
-    "offense_points": 1,
-    "total_points": 20,
-    "defense_goals": 19,
-    "defense_assists": 3,
-    "offense_goals": 1,
-    "offense_assists": 2
+    "defense_points": 3,
+    "offense_points": 2,
+    "total_points": 5,
+    "defense_goals": 3,
+    "defense_assists": 19,
+    "offense_goals": 2,
+    "offense_assists": 1
   },
   "Timi Rautamäki": {
     "seasons": [
@@ -8889,13 +8889,13 @@
     "winter_games": 143,
     "winter_goals": 134,
     "winter_assists": 127,
-    "defense_points": 14,
-    "offense_points": 15,
-    "total_points": 29,
-    "defense_goals": 14,
-    "defense_assists": 32,
-    "offense_goals": 15,
-    "offense_assists": 31
+    "defense_points": 30,
+    "offense_points": 31,
+    "total_points": 61,
+    "defense_goals": 30,
+    "defense_assists": 13,
+    "offense_goals": 31,
+    "offense_assists": 15
   },
   "sampo smeds": {
     "seasons": [
@@ -9061,13 +9061,13 @@
     "winter_games": 353,
     "winter_goals": 371,
     "winter_assists": 492,
-    "defense_points": 52,
-    "offense_points": 65,
-    "total_points": 117,
-    "defense_goals": 52,
-    "defense_assists": 65,
-    "offense_goals": 65,
-    "offense_assists": 66
+    "defense_points": 67,
+    "offense_points": 66,
+    "total_points": 133,
+    "defense_goals": 67,
+    "defense_assists": 49,
+    "offense_goals": 66,
+    "offense_assists": 64
   },
   "Simo Siitonen": {
     "seasons": [
@@ -9129,13 +9129,13 @@
     "winter_games": 46,
     "winter_goals": 16,
     "winter_assists": 9,
-    "defense_points": 5,
-    "offense_points": 3,
-    "total_points": 8,
-    "defense_goals": 5,
-    "defense_assists": 6,
-    "offense_goals": 3,
-    "offense_assists": 4
+    "defense_points": 6,
+    "offense_points": 4,
+    "total_points": 10,
+    "defense_goals": 6,
+    "defense_assists": 5,
+    "offense_goals": 4,
+    "offense_assists": 3
   },
   "Simo Soini": {
     "seasons": [
@@ -9214,13 +9214,13 @@
     "winter_games": 45,
     "winter_goals": 19,
     "winter_assists": 26,
-    "defense_points": 29,
-    "offense_points": 23,
-    "total_points": 52,
-    "defense_goals": 29,
-    "defense_assists": 14,
-    "offense_goals": 23,
-    "offense_assists": 20
+    "defense_points": 17,
+    "offense_points": 19,
+    "total_points": 36,
+    "defense_goals": 17,
+    "defense_assists": 29,
+    "offense_goals": 19,
+    "offense_assists": 22
   },
   "smolov viktor": {
     "seasons": [
@@ -9353,13 +9353,13 @@
     "winter_games": 201,
     "winter_goals": 90,
     "winter_assists": 99,
-    "defense_points": 5,
-    "offense_points": 6,
-    "total_points": 11,
-    "defense_goals": 5,
-    "defense_assists": 16,
-    "offense_goals": 6,
-    "offense_assists": 19
+    "defense_points": 15,
+    "offense_points": 19,
+    "total_points": 34,
+    "defense_goals": 15,
+    "defense_assists": 5,
+    "offense_goals": 19,
+    "offense_assists": 6
   },
   "Tommi Taivalkoski": {
     "seasons": [
@@ -9435,13 +9435,13 @@
     "winter_games": 57,
     "winter_goals": 9,
     "winter_assists": 1,
-    "defense_points": 13,
-    "offense_points": 20,
-    "total_points": 33,
-    "defense_goals": 13,
-    "defense_assists": 22,
-    "offense_goals": 20,
-    "offense_assists": 37
+    "defense_points": 22,
+    "offense_points": 37,
+    "total_points": 59,
+    "defense_goals": 22,
+    "defense_assists": 13,
+    "offense_goals": 37,
+    "offense_assists": 20
   },
   "Timo Vaskio": {
     "seasons": [
@@ -9521,13 +9521,13 @@
     "winter_games": 175,
     "winter_goals": 85,
     "winter_assists": 243,
-    "defense_points": 50,
-    "offense_points": 114,
-    "total_points": 164,
-    "defense_goals": 50,
-    "defense_assists": 17,
-    "offense_goals": 114,
-    "offense_assists": 55
+    "defense_points": 18,
+    "offense_points": 55,
+    "total_points": 73,
+    "defense_goals": 18,
+    "defense_assists": 49,
+    "offense_goals": 55,
+    "offense_assists": 115
   },
   "Tommi Ylönen": {
     "seasons": [
@@ -9567,12 +9567,12 @@
     "winter_goals": 6,
     "winter_assists": 8,
     "defense_points": 2,
-    "offense_points": 6,
-    "total_points": 8,
+    "offense_points": 4,
+    "total_points": 6,
     "defense_goals": 2,
     "defense_assists": 2,
-    "offense_goals": 6,
-    "offense_assists": 4
+    "offense_goals": 4,
+    "offense_assists": 6
   },
   "Torsti Visuri": {
     "seasons": [
@@ -9610,13 +9610,13 @@
     "winter_games": 22,
     "winter_goals": 0,
     "winter_assists": 0,
-    "defense_points": 14,
-    "offense_points": 14,
-    "total_points": 28,
-    "defense_goals": 14,
-    "defense_assists": 2,
-    "offense_goals": 14,
-    "offense_assists": 4
+    "defense_points": 2,
+    "offense_points": 4,
+    "total_points": 6,
+    "defense_goals": 2,
+    "defense_assists": 14,
+    "offense_goals": 4,
+    "offense_assists": 14
   },
   "Touko Väänänen": {
     "seasons": [
@@ -9718,11 +9718,11 @@
     "winter_games": 94,
     "winter_goals": 110,
     "winter_assists": 77,
-    "defense_points": 3,
+    "defense_points": 5,
     "offense_points": 2,
-    "total_points": 5,
-    "defense_goals": 3,
-    "defense_assists": 5,
+    "total_points": 7,
+    "defense_goals": 5,
+    "defense_assists": 3,
     "offense_goals": 2,
     "offense_assists": 2
   },
@@ -9787,12 +9787,12 @@
     "winter_games": 98,
     "winter_goals": 92,
     "winter_assists": 111,
-    "defense_points": 19,
-    "offense_points": 15,
-    "total_points": 34,
-    "defense_goals": 19,
-    "defense_assists": 29,
-    "offense_goals": 15,
-    "offense_assists": 21
+    "defense_points": 29,
+    "offense_points": 21,
+    "total_points": 50,
+    "defense_goals": 29,
+    "defense_assists": 16,
+    "offense_goals": 21,
+    "offense_assists": 15
   }
 }

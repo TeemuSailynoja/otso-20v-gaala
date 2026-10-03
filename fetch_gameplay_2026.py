@@ -65,13 +65,15 @@ for gid in new_to_add:
         cells = row.find_all(["td", "th"])
         if len(cells) >= 4:
             score = cells[0].get_text(strip=True)
-            scorer_raw = cells[1].get_text(strip=True)
-            assist_raw = cells[2].get_text(strip=True)
+            # Header is Pisteet | Syöttäjä | Maali | Aika — cells[1] is the
+            # PASSER, cells[2] is the goal SCORER.
+            passer_raw = cells[1].get_text(strip=True)
+            scorer_raw = cells[2].get_text(strip=True)
             time_str = cells[3].get_text(strip=True)
             
             # Extract player names (remove jersey numbers)
+            passer = re.sub(r'^#\d+\s*', '', passer_raw).strip()
             scorer = re.sub(r'^#\d+\s*', '', scorer_raw).strip()
-            assist = re.sub(r'^#\d+\s*', '', assist_raw).strip()
             
             # Determine side (home/away) from score
             side = "home" if score.startswith(score.split("-")[0]) else "guest"
@@ -89,11 +91,11 @@ for gid in new_to_add:
             points.append({
                 "type": "point",
                 "side": side,
-                "title": f"{time_str} {score} {scorer} -> {assist}",
+                "title": f"{time_str} {score} {passer} -> {scorer}",
                 "time": time_str,
                 "score": score,
+                "passer": passer,
                 "scorer": scorer,
-                "assist": assist,
             })
     
     print(f"  Found {len(points)} points")
