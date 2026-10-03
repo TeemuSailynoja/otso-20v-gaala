@@ -1230,7 +1230,6 @@
         const cooc = DATA.cooccurrence || {};
         const given = passNet.given || {};
         const received = passNet.received || {};
-        const years = DATA.years || {};
         console.log('given:', Object.keys(given).length, 'received:', Object.keys(received).length);
         if (!document.getElementById('categories-scroll')) return;
 
@@ -1501,22 +1500,7 @@
             .slice(0, 3)
             .map(([name, d]) => ({ name, games: d.summer_games }));
 
-        // Otso season highlights
-        const qualified = Object.entries(years).filter(([, v]) => v && v.wins + v.losses >= 15);
-        const bestWin = qualified.reduce((a, b) => (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses)) ? a : b);
-        const largestRoster = Object.entries(years).reduce((a, b) => (b[1].roster_players || 0) > (a[1].roster_players || 0) ? b : a);
-        const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
-        const mostGames = Object.entries(years).reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
-        const mostDominant = qualified.reduce((a, b) => (a[1].wins >= 20 && (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses))) ? a : b);
-        const perfectStart = years['2026'] ? { year: '2026', ...years['2026'] } : null;
-
         const categories = [
-            { emoji: '🏆', name: 'Best Win %', desc: `${bestWin[0]} — ${Math.round(bestWin[1].wins / (bestWin[1].wins + bestWin[1].losses) * 100)}% win rate (15+ games)`, type: 'single', data: [{ name: `${bestWin[1].wins}–${bestWin[1].losses}`, stat: `${Math.round(bestWin[1].wins / (bestWin[1].wins + bestWin[1].losses) * 100)}%` }] },
-            { emoji: '👥', name: 'Largest Roster', desc: `${largestRoster[0]} — ${largestRoster[1].roster_players} players on the books`, type: 'single', data: [{ name: `${largestRoster[1].roster_players} players`, stat: largestRoster[0] }] },
-            { emoji: '💪', name: 'Skeleton Crew', desc: `${smallestRoster[0]} — ${smallestRoster[1].wins}–${smallestRoster[1].losses} with just ${smallestRoster[1].roster_players} players`, type: 'single', data: [{ name: `${smallestRoster[1].roster_players} players`, stat: `${smallestRoster[1].wins}–${smallestRoster[1].losses}` }] },
-            { emoji: '🎮', name: 'Most Games', desc: `${mostGames[0]} — ${mostGames[1].wins}–${mostGames[1].losses} in a ${mostGames[1].matches}-game season`, type: 'single', data: [{ name: `${mostGames[1].matches} games`, stat: `${mostGames[1].wins}–${mostGames[1].losses}` }] },
-            { emoji: '🔥', name: 'Most Dominant', desc: `${mostDominant[0]} — ${Math.round(mostDominant[1].wins / (mostDominant[1].wins + mostDominant[1].losses) * 100)}% with 20+ wins`, type: 'single', data: [{ name: `${mostDominant[1].wins}–${mostDominant[1].losses}`, stat: `${Math.round(mostDominant[1].wins / (mostDominant[1].wins + mostDominant[1].losses) * 100)}%` }] },
-            ...(perfectStart ? [{ emoji: '✨', name: 'Perfect Start', desc: `${perfectStart.year} — 100% win rate, undefeated start`, type: 'single', data: [{ name: `${perfectStart.wins}–${perfectStart.losses}`, stat: '100%' }] }] : []),
             { emoji: '🤝', name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
             { emoji: '🎯', name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
             { emoji: '🔗', name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
