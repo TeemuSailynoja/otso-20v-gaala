@@ -16,6 +16,7 @@ import re
 import sys
 import glob
 import hashlib
+from datetime import date
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -803,6 +804,13 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
                         "total": p["total"], "games": p["games"]}
                        for n, p in goals_per_match]
     
+    # Anniversary count, not a count of distinct calendar years in the data.
+    # The data spans 2006-2026, but 2026 is still in progress, so counting it
+    # gives 21 — wrong for a 20th anniversary gala. Full years elapsed since the
+    # first season is what the milestone means.
+    first_year = min(int(y) for y in years) if years else 0
+    years_count = max(date.today().year - first_year, 0) if first_year else len(years)
+    
     return {
         "total_matches": games_with_gameplay,
         "total_players": len(players),
@@ -817,7 +825,9 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
         "most_connected": most_connected,
         "most_teammates": most_teammates,
         "goals_per_match": goals_per_match,
-        "years_count": len(years),
+        "years_count": years_count,
+        "first_year": first_year,
+        "current_year": date.today().year,
     }
 
 

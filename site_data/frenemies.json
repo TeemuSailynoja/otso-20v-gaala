@@ -15,6 +15,22 @@
     "rank": 1
   },
   {
+    "name": "Antti Wiklund",
+    "games": 75,
+    "wins": 23,
+    "losses": 52,
+    "goals": 97,
+    "assists": 361,
+    "total": 458,
+    "ppg": 6.11,
+    "teams": [
+      "Saints",
+      "Muu Suomi",
+      "Vaasa Saints"
+    ],
+    "rank": 2
+  },
+  {
     "name": "Teemu Kalliokoski",
     "games": 80,
     "wins": 24,
@@ -29,22 +45,6 @@
       "Vaasa Saints",
       "UFO 2",
       "UFO Akatemia"
-    ],
-    "rank": 2
-  },
-  {
-    "name": "Antti Wiklund",
-    "games": 75,
-    "wins": 23,
-    "losses": 52,
-    "goals": 97,
-    "assists": 361,
-    "total": 458,
-    "ppg": 6.11,
-    "teams": [
-      "Saints",
-      "Muu Suomi",
-      "Vaasa Saints"
     ],
     "rank": 3
   },

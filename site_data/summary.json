@@ -396,5 +396,7 @@
       "games": 296
     }
   ],
-  "years_count": 21
+  "years_count": 20,
+  "first_year": 2006,
+  "current_year": 2026
 }
