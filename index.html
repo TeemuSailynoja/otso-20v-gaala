@@ -1607,13 +1607,15 @@
         const frenemies = DATA.frenemies || [];
         
         grid.innerHTML = frenemies.map(f => {
-            const mainTeam = f.teams[0];
-            const otherTeams = f.teams.length > 1 ? f.teams.slice(1).join(', ') : '';
+            // Teams are ordered by how many games that player faced Otso in,
+            // so the first is their primary team. Show at most 3, rest in tooltip.
+            const shown = f.teams.slice(0, 3).join(' · ');
+            const extra = f.teams.length > 3 ? ` +${f.teams.length - 3}` : '';
             return `
                 <div class="frenemy-card">
                     <div class="frenemy-rank">#${f.rank}</div>
                     <div class="frenemy-name">${f.name}</div>
-                    <div class="frenemy-team" title="${f.teams.join(', ')}">${mainTeam}${otherTeams ? ' · ' + otherTeams : ''}</div>
+                    <div class="frenemy-team" title="${f.teams.join(', ')}">${shown}${extra}</div>
                     <div class="frenemy-stats">
                         <div><span>${f.games}</span>G</div>
                         <div><span>${f.wins}-${f.losses}</span></div>

@@ -15,7 +15,7 @@ import os
 import re
 import sys
 import glob
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
@@ -1164,7 +1164,7 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
     Each entry has: rank, name, games, wins, losses, goals, assists, total, ppg, teams
     """
     players = defaultdict(lambda: {
-        'games': 0, 'wins': 0, 'goals': 0, 'assists': 0, 'teams': set()
+        'games': 0, 'wins': 0, 'goals': 0, 'assists': 0, 'teams': Counter()
     })
     
     for game in gameplay:
@@ -1183,7 +1183,11 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
         if not home_is_otso and not away_is_otso:
             continue
         
-        # Build canonical name → display name map for all players in this game
+        # Skip intra-squad games: both sides are Otso-family teams, so there is
+        # no external opponent to count as a frenemy.
+        if home_is_otso and away_is_otso:
+            continue
+        
         canon_to_display = {}
         for p in gp.get('home_players', []) + gp.get('away_players', []):
             name = p.get('name', '')
@@ -1209,11 +1213,12 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
         if home_is_otso:
             otso_score = home_score
             opp_score = away_score
-            opp_canonicals = set(canon_to_display.keys()) - otso_canonicals
+            opp_team = away
         else:
             otso_score = away_score
             opp_score = home_score
-            opp_canonicals = set(canon_to_display.keys()) - otso_canonicals
+            opp_team = home
+        opp_canonicals = set(canon_to_display.keys()) - otso_canonicals
         
         # Count games and wins for opponent players
         for canon in opp_canonicals:
@@ -1221,9 +1226,9 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
             players[display_name]['games'] += 1
             if opp_score > otso_score:
                 players[display_name]['wins'] += 1
-            # Track team
-            team = gp.get('away_team') if away_is_otso else gp.get('home_team')
-            players[display_name]['teams'].add(canonicalize_team_name(team))
+            # Track the OPPONENT's team (not the Otso team), with game counts so
+            # the team they faced Otso most often for sorts first.
+            players[display_name]['teams'][opp_team] += 1
         
         # Count goals/assists from points data using canonical matching
         for point in gp.get('points', []):
@@ -1252,7 +1257,7 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
                 'assists': p['assists'],
                 'total': total,
                 'ppg': round(ppg, 2),
-                'teams': sorted(p['teams']),
+                'teams': [t for t, _ in sorted(p['teams'].items(), key=lambda kv: (-kv[1], kv[0]))],
             })
     
     scored.sort(key=lambda x: -x['total'])

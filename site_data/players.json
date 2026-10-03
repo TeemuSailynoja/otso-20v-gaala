@@ -9392,6 +9392,41 @@
     "offense_points": 0,
     "total_points": 0
   },
+  "sampo smeds": {
+    "seasons": [
+      "2006.1"
+    ],
+    "season_count": 1,
+    "years": [
+      2006
+    ],
+    "year_count": 1,
+    "first_year": 2006,
+    "last_year": 2006,
+    "games": 1,
+    "goals": 0,
+    "assists": 0,
+    "total": 0,
+    "teams": [
+      "Otso"
+    ],
+    "season_types": {
+      "summer": [
+        2006
+      ],
+      "winter": [],
+      "other": []
+    },
+    "summer_games": 1,
+    "summer_goals": 0,
+    "summer_assists": 0,
+    "winter_games": 0,
+    "winter_goals": 0,
+    "winter_assists": 0,
+    "defense_points": 0,
+    "offense_points": 0,
+    "total_points": 0
+  },
   "luhtala roope": {
     "seasons": [
       "2006.1"
@@ -9462,41 +9497,6 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "pekka sääskilahti": {
-    "seasons": [
-      "2006.1"
-    ],
-    "season_count": 1,
-    "years": [
-      2006
-    ],
-    "year_count": 1,
-    "first_year": 2006,
-    "last_year": 2006,
-    "games": 1,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
-    "teams": [
-      "Otso"
-    ],
-    "season_types": {
-      "summer": [
-        2006
-      ],
-      "winter": [],
-      "other": []
-    },
-    "summer_games": 1,
-    "summer_goals": 0,
-    "summer_assists": 0,
-    "winter_games": 0,
-    "winter_goals": 0,
-    "winter_assists": 0,
-    "defense_points": 0,
-    "offense_points": 0,
-    "total_points": 0
-  },
   "eerikki mäki": {
     "seasons": [
       "2006.1"
@@ -9532,7 +9532,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "sampo smeds": {
+  "pekka sääskilahti": {
     "seasons": [
       "2006.1"
     ],
@@ -9745,7 +9745,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "alexey zhebel": {
+  "smolov viktor": {
     "seasons": [
       "2014.1"
     ],
@@ -9780,7 +9780,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "smolov viktor": {
+  "alexey zhebel": {
     "seasons": [
       "2014.1"
     ],

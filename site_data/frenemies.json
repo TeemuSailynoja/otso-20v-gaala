@@ -9,11 +9,8 @@
     "total": 463,
     "ppg": 6.61,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Saints",
+      "Vaasa Saints"
     ],
     "rank": 1
   },
@@ -27,13 +24,11 @@
     "total": 458,
     "ppg": 5.72,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Saints",
+      "UFO",
+      "Vaasa Saints",
+      "UFO 2",
+      "UFO Akatemia"
     ],
     "rank": 2
   },
@@ -47,13 +42,9 @@
     "total": 458,
     "ppg": 6.11,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Saints",
+      "Muu Suomi",
+      "Vaasa Saints"
     ],
     "rank": 3
   },
@@ -67,12 +58,11 @@
     "total": 384,
     "ppg": 6.0,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "UFO",
+      "PirU",
+      "UFO Y",
+      "Muu Suomi",
+      "UFO Akatemia"
     ],
     "rank": 4
   },
@@ -86,13 +76,15 @@
     "total": 344,
     "ppg": 4.25,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Helsinki Ultimate 1",
+      "Terror",
+      "Helsinki Ultimate",
+      "PirU",
+      "Turku Terror",
+      "Team",
+      "Helsinki Ultimate Empire",
+      "SOS",
+      "SOS-Terror"
     ],
     "rank": 5
   },
@@ -106,13 +98,15 @@
     "total": 333,
     "ppg": 6.8,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Helsinki Ultimate 1",
+      "Helsinki Ultimate",
+      "U20",
+      "Espoon Kopsu",
+      "Helsinki 2",
+      "Helsinki Ultimate Empire",
+      "Salko All Stars",
+      "Team 2",
+      "ViRHe"
     ],
     "rank": 6
   },
@@ -126,10 +120,9 @@
     "total": 323,
     "ppg": 9.5,
     "teams": [
-      "Otso",
-      "Otso 2",
-      "Otso Grizzly",
-      "Otso Polar"
+      "LeKi",
+      "PirU",
+      "U20"
     ],
     "rank": 7
   },
@@ -143,12 +136,14 @@
     "total": 314,
     "ppg": 6.41,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Helsinki Ultimate 1",
+      "Helsinki Ultimate",
+      "Team 2",
+      "Team",
+      "Helsinki 2",
+      "Salko All Stars",
+      "U20",
+      "ViRHe"
     ],
     "rank": 8
   },
@@ -162,13 +157,13 @@
     "total": 300,
     "ppg": 4.11,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Helsinki Ultimate 1",
+      "Team",
+      "Helsinki Ultimate",
+      "Helsinki Ultimate 2",
+      "UFBG",
+      "Helsinki",
+      "Team 2"
     ],
     "rank": 9
   },
@@ -182,12 +177,11 @@
     "total": 299,
     "ppg": 6.95,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Terror",
+      "Turku Terror",
+      "SOS",
+      "SOS-Terror",
+      "Terror 2"
     ],
     "rank": 10
   },
@@ -201,9 +195,9 @@
     "total": 283,
     "ppg": 7.08,
     "teams": [
-      "Otso",
-      "Otso 2",
-      "Otso 3"
+      "Terror",
+      "Turku Terror",
+      "SOS"
     ],
     "rank": 11
   },
@@ -217,13 +211,14 @@
     "total": 279,
     "ppg": 4.73,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Helsinki Ultimate 1",
+      "Team",
+      "Helsinki Ultimate",
+      "UFBG",
+      "Helsinki Ultimate 2",
+      "Helsinki",
+      "Helsinki Ultimate Rebels",
+      "Team 2"
     ],
     "rank": 12
   },
@@ -237,12 +232,10 @@
     "total": 279,
     "ppg": 4.98,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Terror",
+      "Turku Terror",
+      "SOS",
+      "SOS-Terror"
     ],
     "rank": 13
   },
@@ -256,12 +249,14 @@
     "total": 276,
     "ppg": 6.57,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Sleepwalkers",
+      "LeKi",
+      "Saints",
+      "PirU",
+      "Vaasa Saints",
+      "JSW 2",
+      "LeKi 2",
+      "U20"
     ],
     "rank": 14
   },
@@ -275,12 +270,18 @@
     "total": 274,
     "ppg": 4.49,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Helsinki Ultimate 1",
+      "UFO",
+      "UFBG",
+      "Saints",
+      "PirU",
+      "Helsinki Ultimate",
+      "Team",
+      "LeKi",
+      "Turku Terror",
+      "Helsinki Ultimate Rebels",
+      "Team1",
+      "UFO Akatemia"
     ],
     "rank": 15
   },
@@ -294,9 +295,9 @@
     "total": 274,
     "ppg": 6.52,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2"
+      "LeKi",
+      "PirU",
+      "U20"
     ],
     "rank": 16
   },
@@ -310,13 +311,11 @@
     "total": 273,
     "ppg": 3.46,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Akatemia",
-      "Otso Grizzly",
-      "Otso Polar"
+      "LeKi",
+      "PirU",
+      "UFO",
+      "LeKi 2",
+      "UFO Akatemia"
     ],
     "rank": 17
   },
@@ -330,9 +329,8 @@
     "total": 263,
     "ppg": 7.51,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2"
+      "Terror",
+      "Karhukopla"
     ],
     "rank": 18
   },
@@ -346,11 +344,11 @@
     "total": 262,
     "ppg": 4.16,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso Grizzly",
-      "Otso Polar"
+      "UFO",
+      "PirU",
+      "Team",
+      "UFO Akatemia",
+      "Muu Suomi"
     ],
     "rank": 19
   },
@@ -364,12 +362,10 @@
     "total": 252,
     "ppg": 4.5,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "UFO",
+      "PirU",
+      "LeKi",
+      "UFO Akatemia"
     ],
     "rank": 20
   },
@@ -383,12 +379,13 @@
     "total": 240,
     "ppg": 5.58,
     "teams": [
-      "Otso",
-      "Otso 1",
-      "Otso 2",
-      "Otso 3",
-      "Otso Grizzly",
-      "Otso Polar"
+      "Terror",
+      "Turku Terror",
+      "Helsinki Ultimate",
+      "Muu Suomi",
+      "PirU",
+      "SOS-Terror",
+      "Terror 2"
     ],
     "rank": 21
   }
