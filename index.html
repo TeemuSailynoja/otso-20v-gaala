@@ -59,17 +59,6 @@
             align-items: center;
             padding: 0.5rem 2rem;
         }
-        /* CONSTRUCTION BANNER */
-        .construction-banner {
-            background: var(--gold);
-            color: #1c242b;
-            text-align: center;
-            padding: 0.35rem;
-            font-weight: 600;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
         .nav-brand {
             font-family: 'Prototype', sans-serif;
             font-weight: 800;
@@ -932,7 +921,7 @@
             .player-big-stats { flex-direction: column; }
             .nav-links { gap: 1rem; }
             .nav-links a { font-size: 0.8rem; }
-            /* headroom: the fixed nav is taller on mobile (banner wraps),
+            /* headroom: the fixed nav is taller on mobile (the brand wraps),
                so the first section's title must clear it */
             .section { padding-top: 8rem; }
             .timeline-intro { padding-top: 8rem; }
@@ -968,7 +957,6 @@
 
     <!-- NAV -->
     <nav>
-        <div class="construction-banner">Under Construction — More Features Coming Soon</div>
         <div class="nav-content">
             <a href="#/" class="nav-brand">Otso 20v</a>
             <div class="nav-links">
@@ -1978,8 +1966,9 @@
     const MEDAL_EMOJI = { gold: '🥇', silver: '🥈', bronze: '🥉' };
     const SEASON_LABEL = { summer: 'Kesä', winter: 'Talvi' };
 
-    // The nav height is not a constant: the construction banner wraps to two lines
-    // on narrow screens. Sticky offsets and snap margins must be measured, not guessed.
+    // The nav height is not a constant: it depends on the viewport and on the
+    // brand wrapping on narrow screens. Sticky offsets and snap margins must be
+    // measured, not guessed.
     function measureTimelineChrome() {
         const root = document.documentElement;
         const nav = document.querySelector('nav');
