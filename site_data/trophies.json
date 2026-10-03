@@ -1,0 +1,396 @@
+{
+  "seasons": [
+    {
+      "year": 2006,
+      "season": "summer",
+      "event": "2006.1",
+      "medal": null,
+      "team": "Otso",
+      "placement": "10.",
+      "played": true
+    },
+    {
+      "year": 2006,
+      "season": "winter",
+      "event": "2006.2",
+      "medal": null,
+      "team": "Otso",
+      "placement": "4.",
+      "played": true
+    },
+    {
+      "year": 2007,
+      "season": "summer",
+      "event": "2007.1",
+      "medal": null,
+      "team": "Otso",
+      "placement": "6.",
+      "played": true
+    },
+    {
+      "year": 2007,
+      "season": "winter",
+      "event": "2007.2",
+      "medal": null,
+      "team": "Otso",
+      "placement": "4.",
+      "played": true
+    },
+    {
+      "year": 2008,
+      "season": "summer",
+      "event": "2008.1",
+      "medal": null,
+      "team": "Otso",
+      "placement": "8.",
+      "played": true
+    },
+    {
+      "year": 2008,
+      "season": "winter",
+      "event": "2008.2",
+      "medal": null,
+      "team": "Otso",
+      "placement": "8.",
+      "played": true
+    },
+    {
+      "year": 2009,
+      "season": "summer",
+      "event": "2009.1",
+      "medal": null,
+      "team": "Otso",
+      "placement": "5.",
+      "played": true
+    },
+    {
+      "year": 2009,
+      "season": "winter",
+      "event": "2009.2",
+      "medal": "bronze",
+      "team": "Otso",
+      "placement": "Pronssi",
+      "played": true
+    },
+    {
+      "year": 2010,
+      "season": "summer",
+      "event": "2010.1",
+      "medal": null,
+      "team": "Otso",
+      "placement": "6.",
+      "played": true
+    },
+    {
+      "year": 2010,
+      "season": "winter",
+      "event": "2010.2",
+      "medal": null,
+      "team": "Otso",
+      "placement": "5.",
+      "played": true
+    },
+    {
+      "year": 2011,
+      "season": "summer",
+      "event": "2011.4",
+      "medal": "bronze",
+      "team": "Otso",
+      "placement": "Pronssi",
+      "played": true
+    },
+    {
+      "year": 2011,
+      "season": "winter",
+      "event": "2011.2",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2012,
+      "season": "summer",
+      "event": "2012.T4",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2012,
+      "season": "winter",
+      "event": "2012.2",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2013,
+      "season": "summer",
+      "event": "2013.1",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2013,
+      "season": "winter",
+      "event": "2013.2",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2014,
+      "season": "summer",
+      "event": "2014.1F",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2014,
+      "season": "winter",
+      "event": "Hallitour2",
+      "medal": "silver",
+      "team": "Otso",
+      "placement": "Hopea",
+      "played": true
+    },
+    {
+      "year": 2015,
+      "season": "summer",
+      "event": "2015.1F",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2015,
+      "season": "winter",
+      "event": "2015.4",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2016,
+      "season": "summer",
+      "event": "2016.1.F",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2016,
+      "season": "winter",
+      "event": "Talvi2016",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2017,
+      "season": "summer",
+      "event": "2017F",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2017,
+      "season": "winter",
+      "event": "2017.1",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2018,
+      "season": "summer",
+      "event": "2018.F",
+      "medal": "silver",
+      "team": "Otso",
+      "placement": "Hopea",
+      "played": true
+    },
+    {
+      "year": 2018,
+      "season": "winter",
+      "event": "2018.1",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2019,
+      "season": "summer",
+      "event": "2019.Finaa",
+      "medal": "bronze",
+      "team": "Otso Grizzly",
+      "placement": "Pronssi",
+      "played": true
+    },
+    {
+      "year": 2019,
+      "season": "winter",
+      "event": "2019.1",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2020,
+      "season": "summer",
+      "event": "2020.1",
+      "medal": "silver",
+      "team": "Otso Grizzly",
+      "placement": "Hopea",
+      "played": true
+    },
+    {
+      "year": 2020,
+      "season": "winter",
+      "event": "2020.2",
+      "medal": null,
+      "team": null,
+      "placement": null,
+      "played": false
+    },
+    {
+      "year": 2021,
+      "season": "summer",
+      "event": "2021.1",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2021,
+      "season": "winter",
+      "event": "2021.2",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2022,
+      "season": "summer",
+      "event": "SM2022K",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2022,
+      "season": "winter",
+      "event": "2022.3",
+      "medal": "gold",
+      "team": "Otso1",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2023,
+      "season": "summer",
+      "event": "2023.1",
+      "medal": null,
+      "team": "Otso",
+      "placement": "4.",
+      "played": true
+    },
+    {
+      "year": 2023,
+      "season": "winter",
+      "event": "2023.2",
+      "medal": "gold",
+      "team": "Otso1",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2024,
+      "season": "summer",
+      "event": "2024.1",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2024,
+      "season": "winter",
+      "event": "2024.2",
+      "medal": "gold",
+      "team": "OTSO",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2025,
+      "season": "summer",
+      "event": "2025.1",
+      "medal": "bronze",
+      "team": "Otso2",
+      "placement": "Pronssi",
+      "played": true
+    },
+    {
+      "year": 2025,
+      "season": "winter",
+      "event": "2025.3",
+      "medal": "gold",
+      "team": "OTSO",
+      "placement": "Kulta",
+      "played": true
+    },
+    {
+      "year": 2026,
+      "season": "summer",
+      "event": "KESA2026",
+      "medal": "gold",
+      "team": "Otso",
+      "placement": "Kulta",
+      "played": true
+    }
+  ],
+  "totals": {
+    "summer": {
+      "gold": 10,
+      "silver": 2,
+      "bronze": 3,
+      "podiums": 15,
+      "contested": 21
+    },
+    "winter": {
+      "gold": 13,
+      "silver": 1,
+      "bronze": 1,
+      "podiums": 15,
+      "contested": 19
+    },
+    "all": {
+      "gold": 23,
+      "silver": 3,
+      "bronze": 4,
+      "podiums": 30,
+      "contested": 40
+    }
+  }
+}

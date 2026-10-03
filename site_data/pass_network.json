@@ -559,7 +559,7 @@
       "Ilkka Vaahtoranta": 6,
       "Touko Väänänen": 16,
       "Samuel-Visal Roeung": 6,
-      "Mikko Tervakangas": 2,
+      "Mikko Tervakangas": 4,
       "Patrick Potrykus": 20,
       "Roope Kettunen": 2,
       "Arttu Rautamäki": 2,
@@ -628,7 +628,8 @@
       "Ilkka Vaahtoranta": 2,
       "Mikko Tervakangas": 2,
       "Pekka Kinnunen": 2,
-      "Olli Huotari": 2
+      "Olli Huotari": 2,
+      "Niilo Suontama": 2
     },
     "Zaheer Gauhar": {
       "Mikko Alitalo": 4,
@@ -705,7 +706,8 @@
       "Ville Antila": 2,
       "Jonne Happonen": 6,
       "Mikko Tervakangas": 2,
-      "Jori Kuvaja": 2
+      "Jori Kuvaja": 2,
+      "Mikko Alitalo": 2
     },
     "Heikki Nuoranne": {
       "Kimmo Berg": 1
@@ -786,7 +788,7 @@
       "Eemeli Kärkkäinen": 2,
       "Jesse Saastamoinen": 2,
       "Emil Videman": 2,
-      "Kivi Knuuti": 8,
+      "Kivi Knuuti": 10,
       "Tapio Tiihonen": 2,
       "Antti Järvi": 2,
       "Andrey Przhibelskiy": 14,
@@ -975,7 +977,7 @@
       "Aleksi Mustonen": 8,
       "Samuel-Visal Roeung": 2,
       "Phong Tran": 2,
-      "Emil Videman": 4,
+      "Emil Videman": 8,
       "Roni Hotari": 75,
       "Tomi Sandberg": 28,
       "Oskari Vuorio": 40,
@@ -989,7 +991,7 @@
       "Waltteri Wickström": 14,
       "Antti-Jussi Miettinen": 2,
       "Antti Elonheimo": 17,
-      "Touko Väänänen": 21,
+      "Touko Väänänen": 23,
       "Patrick Potrykus": 4,
       "Ilkka Rämö": 23,
       "Erkka Niini": 25,
@@ -1037,7 +1039,8 @@
       "Lauri Hiivala": 1,
       "Viljami Aittomäki": 1,
       "Adrian Hornsby": 2,
-      "Karli Kalpala": 1
+      "Karli Kalpala": 1,
+      "Santeri Harmaala": 2
     },
     "Jukka Ilomäki": {
       "Samuel-Visal Roeung": 2
@@ -1514,7 +1517,8 @@
       "Samuel-Visal Roeung": 2,
       "Pasi Tamminen": 2,
       "Totti Brunila": 1,
-      "Tatu Kokkonen": 1
+      "Tatu Kokkonen": 1,
+      "Hugo Fournier": 2
     },
     "Kivi Knuuti": {
       "Patrick Potrykus": 6,
@@ -1532,7 +1536,7 @@
       "Mikko Alitalo": 12,
       "Mikko Tervakangas": 6,
       "Antti Järvi": 2,
-      "Samuel-Visal Roeung": 8,
+      "Samuel-Visal Roeung": 10,
       "Touko Väänänen": 8,
       "Jori Kuvaja": 12,
       "Andrey Przhibelskiy": 10,
@@ -1964,7 +1968,7 @@
     "Samuel-Visal Roeung": {
       "Kivi Knuuti": 6,
       "Eelis Junnila": 2,
-      "Matias Pentikäinen": 6,
+      "Matias Pentikäinen": 8,
       "Oskari Vuorio": 22,
       "Mikko Alitalo": 6,
       "Tapio Tiihonen": 3,
@@ -2036,11 +2040,11 @@
       "Oskari Vuorio": 29,
       "Pekka Kinnunen": 16,
       "Roni Hotari": 130,
-      "Emil Videman": 26,
+      "Emil Videman": 30,
       "Lassi Kallio": 105,
       "Erkka Niini": 136,
       "Jarno Sihvo": 94,
-      "Touko Väänänen": 77,
+      "Touko Väänänen": 79,
       "Kivi Knuuti": 14,
       "Jesse Saastamoinen": 28,
       "Niilo Suontama": 6,
@@ -2052,7 +2056,7 @@
       "Antti Järvi": 15,
       "Jonne Happonen": 2,
       "Jori Kuvaja": 8,
-      "Patrick Potrykus": 35,
+      "Patrick Potrykus": 37,
       "Antti Elonheimo": 103,
       "Antti-Jussi Miettinen": 6,
       "Johannes Hokkanen": 2,
@@ -2275,7 +2279,7 @@
       "Matias Arola": 4,
       "Eemeli Kärkkäinen": 6,
       "Emil Videman": 8,
-      "Erkka Niini": 2,
+      "Erkka Niini": 4,
       "Hugo Fournier": 2,
       "Zaheer Gauhar": 6,
       "Santeri Harmaala": 2,
@@ -3146,7 +3150,7 @@
       "Jori Kuvaja": 4,
       "Kaapo Peura": 2,
       "Pekka Kinnunen": 2,
-      "Kivi Knuuti": 8,
+      "Kivi Knuuti": 10,
       "Mikko Tervakangas": 6,
       "Niilo Suontama": 1,
       "Oskari Vuorio": 12,
@@ -3169,7 +3173,7 @@
       "Lauri Hiivala": 6,
       "Johannes Hokkanen": 2,
       "Roni Hotari": 33,
-      "Ilkka Vaahtoranta": 4,
+      "Ilkka Vaahtoranta": 8,
       "Jarno Sihvo": 8,
       "Jasu Vehtari": 4,
       "Jesse Saastamoinen": 4,
@@ -3185,7 +3189,7 @@
       "Patrick Potrykus": 6,
       "Samuel-Visal Roeung": 10,
       "Santeri Salo": 2,
-      "Tomi Sandberg": 26
+      "Tomi Sandberg": 30
     },
     "Jori Kuvaja": {
       "Aki Vehtari": 6,
@@ -3221,6 +3225,7 @@
       "Emil Videman": 6,
       "Erkka Niini": 8,
       "Zaheer Gauhar": 4,
+      "Santeri Harmaala": 2,
       "Johannes Hokkanen": 8,
       "Roni Hotari": 2,
       "Jori Kuvaja": 4,
@@ -3645,7 +3650,7 @@
       "Antti-Jussi Miettinen": 8,
       "Emil Videman": 16,
       "Jonne Happonen": 2,
-      "Johannes Hokkanen": 8,
+      "Johannes Hokkanen": 10,
       "Roni Hotari": 20,
       "Ilkka Rämö": 2,
       "Ilkka Vaahtoranta": 4,
@@ -3672,6 +3677,7 @@
       "Yury Elkin": 2,
       "Erkka Niini": 4,
       "Johannes Hokkanen": 6,
+      "Ilkka Vaahtoranta": 2,
       "Jarno Sihvo": 2,
       "Jori Kuvaja": 2,
       "Kaapo Peura": 4,
@@ -3692,7 +3698,7 @@
       "Kaapo Peura": 2,
       "Lassi Kallio": 2,
       "Oskari Vuorio": 8,
-      "Samuel-Visal Roeung": 6,
+      "Samuel-Visal Roeung": 8,
       "Tomi Sandberg": 10,
       "Tapio Tiihonen": 2
     },
@@ -3741,6 +3747,7 @@
       "Jason Mc Keen": 2,
       "Jori Kuvaja": 4,
       "Roope Kettunen": 6,
+      "Pekka Kinnunen": 2,
       "Mikko Tervakangas": 2,
       "Patrick Potrykus": 12,
       "Samuel-Visal Roeung": 2,
@@ -3799,7 +3806,7 @@
       "Oskari Vuorio": 20,
       "Pasi Tamminen": 1,
       "Santeri Salo": 2,
-      "Tomi Sandberg": 35,
+      "Tomi Sandberg": 37,
       "Teemu Säilynoja": 2,
       "Touko Väänänen": 10
     },
@@ -3920,7 +3927,7 @@
       "Erkka Niini": 16,
       "Roni Hotari": 30,
       "Ilkka Rämö": 6,
-      "Ilkka Vaahtoranta": 21,
+      "Ilkka Vaahtoranta": 23,
       "Jarno Sihvo": 26,
       "Jesse Saastamoinen": 6,
       "Jori Kuvaja": 4,
@@ -3931,7 +3938,7 @@
       "Oskari Vuorio": 20,
       "Patrick Potrykus": 9,
       "Pieti Siivola": 2,
-      "Tomi Sandberg": 77
+      "Tomi Sandberg": 79
     },
     "Pekka Kinnunen": {
       "Antti Elonheimo": 8,
@@ -4380,6 +4387,7 @@
     "Niilo Suontama": {
       "Emil Videman": 2,
       "Erkka Niini": 2,
+      "Hugo Fournier": 2,
       "Roni Hotari": 5,
       "Jarno Sihvo": 2,
       "Jesse Saastamoinen": 4,

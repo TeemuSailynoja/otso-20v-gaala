@@ -8,6 +8,7 @@ Reads raw scraped data and gameplay data, produces JSON files for the static sit
   site_data/cooccurrence.json — undirected co-occurrence matrix
   site_data/summary.json     — aggregate stats for landing page
   site_data/years.json       — year-by-year evolution data
+  site_data/trophies.json    — season-level gold/silver/bronze record
 """
 
 import json
@@ -1287,6 +1288,131 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
     return scored[:top_n]
 
 
+# --- Trophy record -----------------------------------------------------------
+#
+# The pelikone format changed three times, so which file decides a season's medals
+# is stated explicitly here rather than inferred from filenames: filename inference
+# is what would silently count a Tour stop as a finale.
+#   2006-2010  the season file itself (no separate finale existed)
+#   2011-2019  summer = the Finaalit file; winter = the winter season file
+#   2020+      one championship event per season, in the season file itself
+#              (Kesä 2026 keeps Tour 1 / Tour 2 / Finaalit as sub-tournaments inside
+#              the single KESA2026 season id; its placements are the final standings)
+# Winter never had a separate finale file.
+TROPHY_EVENTS: dict[str, tuple[int, str]] = {
+    # summer (Kesä)
+    "2006.1": (2006, "summer"), "2007.1": (2007, "summer"), "2008.1": (2008, "summer"),
+    "2009.1": (2009, "summer"), "2010.1": (2010, "summer"), "2011.4": (2011, "summer"),
+    "2012.T4": (2012, "summer"), "2013.1": (2013, "summer"), "2014.1F": (2014, "summer"),
+    "2015.1F": (2015, "summer"), "2016.1.F": (2016, "summer"), "2017F": (2017, "summer"),
+    "2018.F": (2018, "summer"), "2019.Finaa": (2019, "summer"), "2020.1": (2020, "summer"),
+    "2021.1": (2021, "summer"), "SM2022K": (2022, "summer"), "2023.1": (2023, "summer"),
+    "2024.1": (2024, "summer"), "2025.1": (2025, "summer"), "KESA2026": (2026, "summer"),
+    # winter (Talvi)
+    "2006.2": (2006, "winter"), "2007.2": (2007, "winter"), "2008.2": (2008, "winter"),
+    "2009.2": (2009, "winter"), "2010.2": (2010, "winter"), "2011.2": (2011, "winter"),
+    "2012.2": (2012, "winter"), "2013.2": (2013, "winter"), "Hallitour2": (2014, "winter"),
+    "2015.4": (2015, "winter"), "Talvi2016": (2016, "winter"), "2017.1": (2017, "winter"),
+    "2018.1": (2018, "winter"), "2019.1": (2019, "winter"), "2020.2": (2020, "winter"),
+    "2021.2": (2021, "winter"), "2022.3": (2022, "winter"), "2023.2": (2023, "winter"),
+    "2024.2": (2024, "winter"), "2025.3": (2025, "winter"),
+}
+
+MEDAL_PLACEMENTS = {"Kulta": "gold", "Hopea": "silver", "Pronssi": "bronze"}
+MEDAL_RANK = {"gold": 0, "silver": 1, "bronze": 2}
+MEDAL_PLACEMENTS_INV = {v: k for k, v in MEDAL_PLACEMENTS.items()}
+
+# Talvi 2020 was never played — cancelled because of the covid pandemic. It is not
+# a missing scrape and must not count as a season contested.
+SEASONS_NOT_PLAYED = {"2020.2"}
+
+# Only the open/flagship division counts towards the trophy cabinet. Juniorit,
+# Naiset, Mixed, Master Mixed and SM Ranta results live in other divisions.
+# The label is written two ways in the raw data — "Avoin" and "Avoin SM" (Kesä 2010).
+TROPHY_DIVISION = "avoin"
+
+
+def build_trophies(raw_data: list[dict]) -> dict:
+    """Derive the season-level trophy record from the raw placement tables.
+
+    A trophy is a Kulta/Hopea/Pronssi placement in the Avoin division by an Otso
+    team (main, 2, 3, Grizzly, Polar — never Akatemia) in a season-deciding event.
+    Tour stops are regular-season events and are deliberately not counted.
+    """
+    by_id = {d["id"]: d for d in raw_data if isinstance(d, dict) and "id" in d}
+
+    seasons = []
+    for season_id, (year, season_type) in sorted(
+        TROPHY_EVENTS.items(), key=lambda kv: (kv[1][0], kv[1][1], kv[0])
+    ):
+        record = {
+            "year": year,
+            "season": season_type,
+            "event": season_id,
+            "medal": None,
+            "team": None,
+            "placement": None,
+            "played": season_id not in SEASONS_NOT_PLAYED,
+        }
+        season = by_id.get(season_id)
+        if season is None:
+            print(f"  WARNING: no raw file for trophy event {season_id}")
+            seasons.append(record)
+            continue
+
+        best_medal = None
+        best_team = None
+        best_numeric = None  # (rank, placement string, team)
+        for p in season.get("placements") or []:
+            if not (p.get("division") or "").strip().lower().startswith(TROPHY_DIVISION):
+                continue
+            team = p.get("team_name", "")
+            if not is_otso_team(team):
+                continue
+            placement = p.get("placement", "")
+            medal = MEDAL_PLACEMENTS.get(placement)
+            if medal is not None:
+                if best_medal is None or MEDAL_RANK[medal] < MEDAL_RANK[best_medal]:
+                    best_medal, best_team = medal, team
+            else:
+                match = re.match(r"^(\d+)\.$", placement)
+                if match:
+                    rank = int(match.group(1))
+                    if best_numeric is None or rank < best_numeric[0]:
+                        best_numeric = (rank, placement, team)
+
+        if best_medal is not None:
+            record["medal"] = best_medal
+            record["team"] = best_team
+            record["placement"] = MEDAL_PLACEMENTS_INV[best_medal]
+        elif best_numeric is not None:
+            record["placement"] = best_numeric[1]
+            record["team"] = best_numeric[2]
+        seasons.append(record)
+
+    def totals(rows: list[dict]) -> dict:
+        out = {"gold": 0, "silver": 0, "bronze": 0, "podiums": 0, "contested": 0}
+        for r in rows:
+            if r["played"]:
+                out["contested"] += 1
+            if r["medal"]:
+                out[r["medal"]] += 1
+                out["podiums"] += 1
+        return out
+
+    summer = [r for r in seasons if r["season"] == "summer"]
+    winter = [r for r in seasons if r["season"] == "winter"]
+
+    return {
+        "seasons": seasons,
+        "totals": {
+            "summer": totals(summer),
+            "winter": totals(winter),
+            "all": totals(summer + winter),
+        },
+    }
+
+
 def main():
     print("Loading raw data...")
     raw_data = load_raw_data()
@@ -1334,6 +1460,12 @@ def main():
     
     print("Building summary...")
     summary = build_summary(players, pass_network, cooccurrence, years_otso, gameplay)
+
+    print("Building trophies...")
+    trophies = build_trophies(raw_data)
+    t = trophies["totals"]["all"]
+    print(f"  {t['gold']} gold, {t['silver']} silver, {t['bronze']} bronze "
+          f"= {t['podiums']} podiums in {t['contested']} seasons contested")
     
     # Create output directory
     SITE_DATA_DIR.mkdir(exist_ok=True)
@@ -1351,6 +1483,7 @@ def main():
         "years_all_bears_winter.json": years_all_bears_winter,
         "summary.json": summary,
         "frenemies.json": frenemies,
+        "trophies.json": trophies,
     }
     
     # Merge defense stats into players

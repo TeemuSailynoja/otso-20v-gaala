@@ -542,20 +542,18 @@
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3",
-      "KESA2026"
+      "2025.3"
     ],
-    "season_count": 7,
+    "season_count": 6,
     "years": [
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 4,
+    "year_count": 3,
     "first_year": 2023,
-    "last_year": 2026,
-    "games": 116,
+    "last_year": 2025,
+    "games": 113,
     "goals": 27,
     "assists": 5,
     "total": 32,
@@ -568,8 +566,7 @@
       "summer": [
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2023,
@@ -578,7 +575,7 @@
       ],
       "other": []
     },
-    "summer_games": 36,
+    "summer_games": 33,
     "summer_goals": 4,
     "summer_assists": 1,
     "winter_games": 62,
@@ -709,24 +706,22 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 9,
+    "season_count": 8,
     "years": [
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 5,
+    "year_count": 4,
     "first_year": 2022,
-    "last_year": 2026,
-    "games": 184,
-    "goals": 45,
-    "assists": 210,
-    "total": 255,
+    "last_year": 2025,
+    "games": 181,
+    "goals": 43,
+    "assists": 206,
+    "total": 249,
     "teams": [
       "Otso",
       "Otso 2",
@@ -737,8 +732,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2022,
@@ -748,9 +742,9 @@
       ],
       "other": []
     },
-    "summer_games": 40,
-    "summer_goals": 15,
-    "summer_assists": 42,
+    "summer_games": 37,
+    "summer_goals": 13,
+    "summer_assists": 38,
     "winter_games": 122,
     "winter_goals": 30,
     "winter_assists": 168,
@@ -1080,7 +1074,7 @@
     "year_count": 14,
     "first_year": 2011,
     "last_year": 2025,
-    "games": 461,
+    "games": 462,
     "goals": 172,
     "assists": 211,
     "total": 383,
@@ -1122,7 +1116,7 @@
       ],
       "other": []
     },
-    "summer_games": 122,
+    "summer_games": 123,
     "summer_goals": 69,
     "summer_assists": 67,
     "winter_games": 274,
@@ -1490,37 +1484,33 @@
   },
   "Matias Arola": {
     "seasons": [
-      "2025.3",
-      "KESA2026"
+      "2025.3"
     ],
-    "season_count": 2,
+    "season_count": 1,
     "years": [
-      2025,
-      2026
+      2025
     ],
-    "year_count": 2,
+    "year_count": 1,
     "first_year": 2025,
-    "last_year": 2026,
-    "games": 25,
-    "goals": 22,
-    "assists": 10,
-    "total": 32,
+    "last_year": 2025,
+    "games": 21,
+    "goals": 16,
+    "assists": 9,
+    "total": 25,
     "teams": [
       "Otso",
       "Otso 3"
     ],
     "season_types": {
-      "summer": [
-        2026
-      ],
+      "summer": [],
       "winter": [
         2025
       ],
       "other": []
     },
-    "summer_games": 7,
-    "summer_goals": 6,
-    "summer_assists": 1,
+    "summer_games": 3,
+    "summer_goals": 0,
+    "summer_assists": 0,
     "winter_games": 18,
     "winter_goals": 16,
     "winter_assists": 9,
@@ -2127,36 +2117,33 @@
   },
   "Eelis Junnila": {
     "seasons": [
-      "2023.1",
-      "KESA2026"
+      "2023.1"
     ],
-    "season_count": 2,
+    "season_count": 1,
     "years": [
-      2023,
-      2026
+      2023
     ],
-    "year_count": 2,
+    "year_count": 1,
     "first_year": 2023,
-    "last_year": 2026,
-    "games": 23,
-    "goals": 3,
-    "assists": 5,
-    "total": 8,
+    "last_year": 2023,
+    "games": 20,
+    "goals": 0,
+    "assists": 3,
+    "total": 3,
     "teams": [
       "Otso",
       "Otso 2"
     ],
     "season_types": {
       "summer": [
-        2023,
-        2026
+        2023
       ],
       "winter": [],
       "other": []
     },
-    "summer_games": 15,
-    "summer_goals": 3,
-    "summer_assists": 5,
+    "summer_games": 12,
+    "summer_goals": 0,
+    "summer_assists": 3,
     "winter_games": 0,
     "winter_goals": 0,
     "winter_assists": 0,
@@ -2643,10 +2630,9 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 15,
+    "season_count": 14,
     "years": [
       2015,
       2016,
@@ -2658,16 +2644,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 12,
+    "year_count": 11,
     "first_year": 2015,
-    "last_year": 2026,
+    "last_year": 2025,
     "games": 201,
-    "goals": 147,
+    "goals": 146,
     "assists": 89,
-    "total": 236,
+    "total": 235,
     "teams": [
       "Otso",
       "Otso 1",
@@ -2686,8 +2671,7 @@
         2021,
         2022,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2015,
@@ -2699,7 +2683,7 @@
       "other": []
     },
     "summer_games": 66,
-    "summer_goals": 71,
+    "summer_goals": 70,
     "summer_assists": 26,
     "winter_games": 100,
     "winter_goals": 76,
@@ -2801,11 +2785,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
-      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 28,
+    "season_count": 27,
     "years": [
       2011,
       2012,
@@ -2821,16 +2804,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 16,
+    "year_count": 15,
     "first_year": 2011,
-    "last_year": 2026,
-    "games": 544,
-    "goals": 615,
-    "assists": 368,
-    "total": 983,
+    "last_year": 2025,
+    "games": 541,
+    "goals": 613,
+    "assists": 362,
+    "total": 975,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -2854,8 +2836,7 @@
         2021,
         2022,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2011,
@@ -2874,9 +2855,9 @@
       ],
       "other": []
     },
-    "summer_games": 165,
-    "summer_goals": 253,
-    "summer_assists": 182,
+    "summer_games": 162,
+    "summer_goals": 251,
+    "summer_assists": 176,
     "winter_games": 306,
     "winter_goals": 362,
     "winter_assists": 186,
@@ -3118,7 +3099,7 @@
     "year_count": 3,
     "first_year": 2023,
     "last_year": 2025,
-    "games": 80,
+    "games": 81,
     "goals": 69,
     "assists": 29,
     "total": 98,
@@ -3138,7 +3119,7 @@
       ],
       "other": []
     },
-    "summer_games": 23,
+    "summer_games": 24,
     "summer_goals": 46,
     "summer_assists": 11,
     "winter_games": 40,
@@ -3460,38 +3441,35 @@
   "Santeri Harmaala": {
     "seasons": [
       "2025.1",
-      "2025.3",
-      "KESA2026"
+      "2025.3"
     ],
-    "season_count": 3,
+    "season_count": 2,
     "years": [
-      2025,
-      2026
+      2025
     ],
-    "year_count": 2,
+    "year_count": 1,
     "first_year": 2025,
-    "last_year": 2026,
-    "games": 47,
-    "goals": 36,
-    "assists": 23,
-    "total": 59,
+    "last_year": 2025,
+    "games": 44,
+    "goals": 30,
+    "assists": 18,
+    "total": 48,
     "teams": [
       "Otso",
       "Otso 2"
     ],
     "season_types": {
       "summer": [
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2025
       ],
       "other": []
     },
-    "summer_games": 17,
-    "summer_goals": 20,
-    "summer_assists": 12,
+    "summer_games": 14,
+    "summer_goals": 14,
+    "summer_assists": 7,
     "winter_games": 20,
     "winter_goals": 16,
     "winter_assists": 11,
@@ -3892,7 +3870,7 @@
     "year_count": 4,
     "first_year": 2022,
     "last_year": 2025,
-    "games": 131,
+    "games": 132,
     "goals": 52,
     "assists": 68,
     "total": 120,
@@ -3915,7 +3893,7 @@
       ],
       "other": []
     },
-    "summer_games": 34,
+    "summer_games": 35,
     "summer_goals": 21,
     "summer_assists": 22,
     "winter_games": 74,
@@ -4073,11 +4051,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
-      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 38,
+    "season_count": 37,
     "years": [
       2007,
       2008,
@@ -4097,16 +4074,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 20,
+    "year_count": 19,
     "first_year": 2007,
-    "last_year": 2026,
-    "games": 700,
-    "goals": 708,
-    "assists": 955,
-    "total": 1663,
+    "last_year": 2025,
+    "games": 696,
+    "goals": 706,
+    "assists": 945,
+    "total": 1651,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -4135,8 +4111,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2007,
@@ -4160,9 +4135,9 @@
       ],
       "other": []
     },
-    "summer_games": 212,
-    "summer_goals": 234,
-    "summer_assists": 473,
+    "summer_games": 208,
+    "summer_goals": 232,
+    "summer_assists": 463,
     "winter_games": 384,
     "winter_goals": 474,
     "winter_assists": 482,
@@ -4584,11 +4559,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
-      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 37,
+    "season_count": 36,
     "years": [
       2006,
       2007,
@@ -4609,16 +4583,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 21,
+    "year_count": 20,
     "first_year": 2006,
-    "last_year": 2026,
-    "games": 578,
-    "goals": 307,
-    "assists": 634,
-    "total": 941,
+    "last_year": 2025,
+    "games": 576,
+    "goals": 306,
+    "assists": 632,
+    "total": 938,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -4648,8 +4621,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2006,
@@ -4672,9 +4644,9 @@
       ],
       "other": []
     },
-    "summer_games": 157,
-    "summer_goals": 99,
-    "summer_assists": 270,
+    "summer_games": 155,
+    "summer_goals": 98,
+    "summer_assists": 268,
     "winter_games": 339,
     "winter_goals": 208,
     "winter_assists": 364,
@@ -5044,11 +5016,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
-      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 37,
+    "season_count": 36,
     "years": [
       2007,
       2008,
@@ -5068,16 +5039,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 20,
+    "year_count": 19,
     "first_year": 2007,
-    "last_year": 2026,
-    "games": 659,
-    "goals": 317,
-    "assists": 428,
-    "total": 745,
+    "last_year": 2025,
+    "games": 656,
+    "goals": 314,
+    "assists": 422,
+    "total": 736,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -5106,8 +5076,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2008,
@@ -5130,9 +5099,9 @@
       ],
       "other": []
     },
-    "summer_games": 224,
-    "summer_goals": 139,
-    "summer_assists": 209,
+    "summer_games": 221,
+    "summer_goals": 136,
+    "summer_assists": 203,
     "winter_games": 323,
     "winter_goals": 178,
     "winter_assists": 219,
@@ -6606,19 +6575,17 @@
       "2023.1",
       "2024.1",
       "2025.1",
-      "2025.3",
-      "KESA2026"
+      "2025.3"
     ],
-    "season_count": 5,
+    "season_count": 4,
     "years": [
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 4,
+    "year_count": 3,
     "first_year": 2023,
-    "last_year": 2026,
+    "last_year": 2025,
     "games": 58,
     "goals": 34,
     "assists": 26,
@@ -6632,8 +6599,7 @@
       "summer": [
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2025
@@ -6717,10 +6683,9 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 17,
+    "season_count": 16,
     "years": [
       2014,
       2017,
@@ -6731,16 +6696,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 11,
+    "year_count": 10,
     "first_year": 2014,
-    "last_year": 2026,
-    "games": 287,
-    "goals": 104,
-    "assists": 174,
-    "total": 278,
+    "last_year": 2025,
+    "games": 284,
+    "goals": 101,
+    "assists": 169,
+    "total": 270,
     "teams": [
       "Otso",
       "Otso 1",
@@ -6759,8 +6723,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2019,
@@ -6772,9 +6735,9 @@
       ],
       "other": []
     },
-    "summer_games": 102,
-    "summer_goals": 46,
-    "summer_assists": 86,
+    "summer_games": 99,
+    "summer_goals": 43,
+    "summer_assists": 81,
     "winter_games": 131,
     "winter_goals": 58,
     "winter_assists": 88,
@@ -6796,25 +6759,23 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 10,
+    "season_count": 9,
     "years": [
       2021,
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 6,
+    "year_count": 5,
     "first_year": 2021,
-    "last_year": 2026,
-    "games": 169,
-    "goals": 120,
-    "assists": 96,
-    "total": 216,
+    "last_year": 2025,
+    "games": 166,
+    "goals": 115,
+    "assists": 93,
+    "total": 208,
     "teams": [
       "Otso",
       "Otso 1",
@@ -6825,8 +6786,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2021,
@@ -6837,9 +6797,9 @@
       ],
       "other": []
     },
-    "summer_games": 36,
-    "summer_goals": 38,
-    "summer_assists": 24,
+    "summer_games": 33,
+    "summer_goals": 33,
+    "summer_assists": 21,
     "winter_games": 114,
     "winter_goals": 82,
     "winter_assists": 72,
@@ -7585,7 +7545,7 @@
     "year_count": 3,
     "first_year": 2023,
     "last_year": 2025,
-    "games": 93,
+    "games": 94,
     "goals": 31,
     "assists": 19,
     "total": 50,
@@ -7606,7 +7566,7 @@
       ],
       "other": []
     },
-    "summer_games": 15,
+    "summer_games": 16,
     "summer_goals": 5,
     "summer_assists": 5,
     "winter_games": 67,
@@ -7841,7 +7801,7 @@
     "year_count": 3,
     "first_year": 2023,
     "last_year": 2025,
-    "games": 118,
+    "games": 119,
     "goals": 126,
     "assists": 31,
     "total": 157,
@@ -7863,7 +7823,7 @@
       ],
       "other": []
     },
-    "summer_games": 23,
+    "summer_games": 24,
     "summer_goals": 26,
     "summer_assists": 8,
     "winter_games": 80,
@@ -7941,7 +7901,7 @@
     "year_count": 1,
     "first_year": 2025,
     "last_year": 2025,
-    "games": 30,
+    "games": 31,
     "goals": 15,
     "assists": 3,
     "total": 18,
@@ -7956,7 +7916,7 @@
       ],
       "other": []
     },
-    "summer_games": 4,
+    "summer_games": 5,
     "summer_goals": 0,
     "summer_assists": 0,
     "winter_games": 26,
@@ -8122,11 +8082,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
-      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 26,
+    "season_count": 25,
     "years": [
       2012,
       2013,
@@ -8141,16 +8100,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 15,
+    "year_count": 14,
     "first_year": 2012,
-    "last_year": 2026,
-    "games": 509,
-    "goals": 441,
+    "last_year": 2025,
+    "games": 505,
+    "goals": 431,
     "assists": 254,
-    "total": 695,
+    "total": 685,
     "teams": [
       "Hukka",
       "Otso",
@@ -8174,8 +8132,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2012,
@@ -8193,8 +8150,8 @@
       ],
       "other": []
     },
-    "summer_games": 156,
-    "summer_goals": 183,
+    "summer_games": 152,
+    "summer_goals": 173,
     "summer_assists": 66,
     "winter_games": 273,
     "winter_goals": 258,
@@ -8419,10 +8376,9 @@
       "2024.2",
       "2025.1",
       "2025.3",
-      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 16,
+    "season_count": 15,
     "years": [
       2014,
       2017,
@@ -8433,16 +8389,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 11,
+    "year_count": 10,
     "first_year": 2014,
-    "last_year": 2026,
-    "games": 270,
-    "goals": 224,
-    "assists": 214,
-    "total": 438,
+    "last_year": 2025,
+    "games": 267,
+    "goals": 219,
+    "assists": 210,
+    "total": 429,
     "teams": [
       "Otso",
       "Otso 1",
@@ -8461,8 +8416,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2021,
@@ -8473,9 +8427,9 @@
       ],
       "other": []
     },
-    "summer_games": 115,
-    "summer_goals": 140,
-    "summer_assists": 166,
+    "summer_games": 112,
+    "summer_goals": 135,
+    "summer_assists": 162,
     "winter_games": 95,
     "winter_goals": 84,
     "winter_assists": 48,
@@ -8560,21 +8514,19 @@
   "Phong Tran": {
     "seasons": [
       "2025.1",
-      "2025.3",
-      "KESA2026"
+      "2025.3"
     ],
-    "season_count": 3,
+    "season_count": 2,
     "years": [
-      2025,
-      2026
+      2025
     ],
-    "year_count": 2,
+    "year_count": 1,
     "first_year": 2025,
-    "last_year": 2026,
-    "games": 20,
-    "goals": 7,
+    "last_year": 2025,
+    "games": 19,
+    "goals": 5,
     "assists": 0,
-    "total": 7,
+    "total": 5,
     "teams": [
       "Otso",
       "Otso 2",
@@ -8582,16 +8534,15 @@
     ],
     "season_types": {
       "summer": [
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2025
       ],
       "other": []
     },
-    "summer_games": 8,
-    "summer_goals": 3,
+    "summer_games": 7,
+    "summer_goals": 1,
     "summer_assists": 0,
     "winter_games": 8,
     "winter_goals": 4,
@@ -8750,24 +8701,22 @@
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3",
-      "KESA2026"
+      "2025.3"
     ],
-    "season_count": 8,
+    "season_count": 7,
     "years": [
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 5,
+    "year_count": 4,
     "first_year": 2022,
-    "last_year": 2026,
-    "games": 197,
-    "goals": 127,
-    "assists": 78,
-    "total": 205,
+    "last_year": 2025,
+    "games": 194,
+    "goals": 121,
+    "assists": 73,
+    "total": 194,
     "teams": [
       "Otso",
       "Otso 2",
@@ -8777,8 +8726,7 @@
       "summer": [
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2022,
@@ -8788,9 +8736,9 @@
       ],
       "other": []
     },
-    "summer_games": 35,
-    "summer_goals": 36,
-    "summer_assists": 18,
+    "summer_games": 32,
+    "summer_goals": 30,
+    "summer_assists": 13,
     "winter_games": 143,
     "winter_goals": 91,
     "winter_assists": 60,
@@ -9034,11 +8982,10 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
-      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 30,
+    "season_count": 29,
     "years": [
       2010,
       2011,
@@ -9055,16 +9002,15 @@
       2022,
       2023,
       2024,
-      2025,
-      2026
+      2025
     ],
-    "year_count": 17,
+    "year_count": 16,
     "first_year": 2010,
-    "last_year": 2026,
-    "games": 593,
-    "goals": 553,
-    "assists": 806,
-    "total": 1359,
+    "last_year": 2025,
+    "games": 591,
+    "goals": 550,
+    "assists": 799,
+    "total": 1349,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -9088,8 +9034,7 @@
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "winter": [
         2010,
@@ -9110,9 +9055,9 @@
       ],
       "other": []
     },
-    "summer_games": 161,
-    "summer_goals": 182,
-    "summer_assists": 314,
+    "summer_games": 159,
+    "summer_goals": 179,
+    "summer_assists": 307,
     "winter_games": 353,
     "winter_goals": 371,
     "winter_assists": 492,
@@ -9466,7 +9411,7 @@
     "year_count": 2,
     "first_year": 2024,
     "last_year": 2025,
-    "games": 65,
+    "games": 66,
     "goals": 11,
     "assists": 2,
     "total": 13,
@@ -9484,7 +9429,7 @@
       ],
       "other": []
     },
-    "summer_games": 6,
+    "summer_games": 7,
     "summer_goals": 2,
     "summer_assists": 1,
     "winter_games": 57,
@@ -9739,7 +9684,7 @@
     "year_count": 14,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 438,
+    "games": 439,
     "goals": 545,
     "assists": 238,
     "total": 783,
@@ -9767,7 +9712,7 @@
       ],
       "other": []
     },
-    "summer_games": 28,
+    "summer_games": 29,
     "summer_goals": 34,
     "summer_assists": 26,
     "winter_games": 94,

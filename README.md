@@ -4,7 +4,7 @@ Interactive visualization for the 20th anniversary of Otso Ultimate Frisbee club
 
 ## Features
 
-- **Landing page**: 20-year summary stats, top scorers, assists leaders, yearly trends
+- **Landing page**: 20-year summary stats, trophy record (golds and podiums, Kesä/Talvi split), top scorers, assists leaders, yearly trends
 - **Player directory**: Searchable grid of all 163 players with quick stats
 - **Player detail**: Per-player stats, assist networks, teammate co-occurrence charts
 - **Timeline**: Year-by-year evolution with win rates, roster sizes, goal differentials
@@ -27,6 +27,7 @@ site_data/          — Generated JSON data files
   cooccurrence.json — Co-occurrence matrix (123 KB)
   summary.json      — Aggregate stats (7.5 KB)
   years.json        — Year-by-year evolution (1.7 KB)
+  trophies.json     — Season-level gold/silver/bronze record (7 KB)
 data/
   raw/              — Scraped season data (103 files, excluded from git)
   processed/        — Processed match data (excluded from git)
@@ -60,6 +61,10 @@ python -m http.server 8000
 - **103 season files**: 2006–2026 (including SM, XSM, Beach, Hallitour, Kesa, Talvi)
 - **483 games**: With full point-by-point gameplay data
 - **163 unique players**: Across 20 years (main Otso teams only, excludes Akatemia)
+- **Trophy record**: derived from the `placements` tables (Kulta/Hopea/Pronssi) of the season-deciding
+  event of each year, Avoin division only — 23 gold, 3 silver, 4 bronze across the 40 seasons Otso
+  contested (21 summer 2006–2026, 19 winter). Tour stops are regular-season events and are not counted.
+  **Talvi 2020 was not played** — cancelled because of the covid pandemic.
 
 ## Known Limitations
 

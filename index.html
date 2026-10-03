@@ -190,6 +190,13 @@
             align-self: center;
             margin: 0 1rem;
         }
+        .hero-trophy-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
         .scroll-arrow {
             margin-top: 3rem;
             animation: bounce 2s infinite;
@@ -964,7 +971,18 @@
                         <div class="hero-stat-value gold" id="stat-winpct">—</div>
                         <div class="hero-stat-label">Win %</div>
                     </div>
+                    <div class="hero-divider"></div>
+                    <div>
+                        <div class="hero-stat-value gold" id="stat-trophies">—</div>
+                        <div class="hero-stat-label">Trophies</div>
+                    </div>
+                    <div class="hero-divider"></div>
+                    <div>
+                        <div class="hero-stat-value white" id="stat-podiums">—</div>
+                        <div class="hero-stat-label">Podiums</div>
+                    </div>
                 </div>
+                <div class="hero-trophy-note" id="hero-trophy-note"></div>
                 <div class="scroll-arrow">↓</div>
             </div>
         </section>
@@ -1080,11 +1098,11 @@
     // so browsers get fresh JSON whenever the data changes but can still cache
     // aggressively between rebuilds. Do not edit by hand.
     // BUILD_VERSION_START
-    const DATA_VERSION = '3f63da509aa4';
+    const DATA_VERSION = 'ad14df530da0';
     // BUILD_VERSION_END
 
     async function loadData() {
-        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies'];
+        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies', 'trophies'];
         const results = await Promise.all(files.map(f =>
             fetch(`site_data/${f}.json?v=${DATA_VERSION}`).then(r => r.json())
         ));
@@ -1093,6 +1111,7 @@
         DATA.cooccurrence = results[2];
         DATA.summary = results[3];
         DATA.frenemies = results[4];
+        DATA.trophies = results[5];
         
         // Load all years datasets
         const [yearsOtso, yearsAllBears, yearsOtsoSummer, yearsAllBearsSummer, yearsOtsoWinter, yearsAllBearsWinter] = await Promise.all([
@@ -1156,6 +1175,16 @@
         document.getElementById('stat-matches').textContent = s.total_matches.toLocaleString();
         document.getElementById('stat-wins').textContent = s.total_wins.toLocaleString();
         document.getElementById('stat-winpct').textContent = s.win_percentage + '%';
+
+        const tr = DATA.trophies;
+        if (tr) {
+            const t = tr.totals;
+            document.getElementById('stat-trophies').textContent = t.all.gold;
+            document.getElementById('stat-podiums').textContent = t.all.podiums;
+            document.getElementById('hero-trophy-note').textContent =
+                `Kesä ${t.summer.gold} · Talvi ${t.winter.gold} gold — ` +
+                `${t.all.podiums} podiums in ${t.all.contested} seasons`;
+        }
 
         renderCategories();
     }

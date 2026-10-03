@@ -1,46 +1,46 @@
 {
-  "total_matches": 798,
+  "total_matches": 799,
   "total_players": 177,
-  "total_wins": 523,
+  "total_wins": 524,
   "total_losses": 237,
-  "total_goals_for": 10045,
-  "total_goals_against": 7837,
+  "total_goals_for": 10060,
+  "total_goals_against": 7847,
   "win_percentage": 69,
   "top_scorers": [
     {
       "name": "Roni Hotari",
-      "total": 1663,
-      "goals": 708,
-      "assists": 955,
-      "games": 700
+      "total": 1651,
+      "goals": 706,
+      "assists": 945,
+      "games": 696
     },
     {
       "name": "Tomi Sandberg",
-      "total": 1359,
-      "goals": 553,
-      "assists": 806,
-      "games": 593
+      "total": 1349,
+      "goals": 550,
+      "assists": 799,
+      "games": 591
     },
     {
       "name": "Erkka Niini",
-      "total": 983,
-      "goals": 615,
-      "assists": 368,
-      "games": 544
+      "total": 975,
+      "goals": 613,
+      "assists": 362,
+      "games": 541
     },
     {
       "name": "Ilkka Vaahtoranta",
-      "total": 941,
-      "goals": 307,
-      "assists": 634,
-      "games": 578
+      "total": 938,
+      "goals": 306,
+      "assists": 632,
+      "games": 576
     },
     {
       "name": "Touko Väänänen",
       "total": 783,
       "goals": 545,
       "assists": 238,
-      "games": 438
+      "games": 439
     },
     {
       "name": "Antti Elonheimo",
@@ -51,17 +51,17 @@
     },
     {
       "name": "Jarno Sihvo",
-      "total": 745,
-      "goals": 317,
-      "assists": 428,
-      "games": 659
+      "total": 736,
+      "goals": 314,
+      "assists": 422,
+      "games": 656
     },
     {
       "name": "Oskari Vuorio",
-      "total": 695,
-      "goals": 441,
+      "total": 685,
+      "goals": 431,
       "assists": 254,
-      "games": 509
+      "games": 505
     },
     {
       "name": "Lassi Kallio",
@@ -100,10 +100,10 @@
     },
     {
       "name": "Patrick Potrykus",
-      "total": 438,
-      "goals": 224,
-      "assists": 214,
-      "games": 270
+      "total": 429,
+      "goals": 219,
+      "assists": 210,
+      "games": 267
     },
     {
       "name": "Pasi Tamminen",
@@ -116,31 +116,31 @@
   "top_assists": [
     {
       "name": "Roni Hotari",
-      "assists": 955,
-      "goals": 708,
-      "total": 1663,
-      "games": 700
+      "assists": 945,
+      "goals": 706,
+      "total": 1651,
+      "games": 696
     },
     {
       "name": "Tomi Sandberg",
-      "assists": 806,
-      "goals": 553,
-      "total": 1359,
-      "games": 593
+      "assists": 799,
+      "goals": 550,
+      "total": 1349,
+      "games": 591
     },
     {
       "name": "Ilkka Vaahtoranta",
-      "assists": 634,
-      "goals": 307,
-      "total": 941,
-      "games": 578
+      "assists": 632,
+      "goals": 306,
+      "total": 938,
+      "games": 576
     },
     {
       "name": "Jarno Sihvo",
-      "assists": 428,
-      "goals": 317,
-      "total": 745,
-      "games": 659
+      "assists": 422,
+      "goals": 314,
+      "total": 736,
+      "games": 656
     },
     {
       "name": "Lassi Kallio",
@@ -158,10 +158,10 @@
     },
     {
       "name": "Erkka Niini",
-      "assists": 368,
-      "goals": 615,
-      "total": 983,
-      "games": 544
+      "assists": 362,
+      "goals": 613,
+      "total": 975,
+      "games": 541
     },
     {
       "name": "Ilkka Rämö",
@@ -187,9 +187,9 @@
     {
       "name": "Oskari Vuorio",
       "assists": 254,
-      "goals": 441,
-      "total": 695,
-      "games": 509
+      "goals": 431,
+      "total": 685,
+      "games": 505
     },
     {
       "name": "Pasi Tamminen",
@@ -203,7 +203,7 @@
       "assists": 238,
       "goals": 545,
       "total": 783,
-      "games": 438
+      "games": 439
     },
     {
       "name": "Ismo Sutela",
@@ -223,21 +223,21 @@
   "longest_careers": [
     {
       "name": "Roni Hotari",
-      "seasons": 38,
-      "years": "2007-2026",
-      "games": 700
+      "seasons": 37,
+      "years": "2007-2025",
+      "games": 696
     },
     {
       "name": "Ilkka Vaahtoranta",
-      "seasons": 37,
-      "years": "2006-2026",
-      "games": 578
+      "seasons": 36,
+      "years": "2006-2025",
+      "games": 576
     },
     {
       "name": "Jarno Sihvo",
-      "seasons": 37,
-      "years": "2007-2026",
-      "games": 659
+      "seasons": 36,
+      "years": "2007-2025",
+      "games": 656
     },
     {
       "name": "Aki Vehtari",
@@ -247,15 +247,9 @@
     },
     {
       "name": "Tomi Sandberg",
-      "seasons": 30,
-      "years": "2010-2026",
-      "games": 593
-    },
-    {
-      "name": "Erkka Niini",
-      "seasons": 28,
-      "years": "2011-2026",
-      "games": 544
+      "seasons": 29,
+      "years": "2010-2025",
+      "games": 591
     },
     {
       "name": "Antti Elonheimo",
@@ -264,10 +258,16 @@
       "games": 536
     },
     {
+      "name": "Erkka Niini",
+      "seasons": 27,
+      "years": "2011-2025",
+      "games": 541
+    },
+    {
       "name": "Oskari Vuorio",
-      "seasons": 26,
-      "years": "2012-2026",
-      "games": 509
+      "seasons": 25,
+      "years": "2012-2025",
+      "games": 505
     },
     {
       "name": "Jesse Saastamoinen",
@@ -279,7 +279,7 @@
       "name": "Antti Järvi",
       "seasons": 22,
       "years": "2011-2025",
-      "games": 461
+      "games": 462
     }
   ],
   "most_connected": [
@@ -322,11 +322,11 @@
       "teammates": 105
     },
     {
-      "name": "Antti Elonheimo",
-      "teammates": 103
+      "name": "Antti Järvi",
+      "teammates": 104
     },
     {
-      "name": "Antti Järvi",
+      "name": "Antti Elonheimo",
       "teammates": 103
     },
     {
@@ -349,15 +349,15 @@
     },
     {
       "name": "Roni Hotari",
-      "goals_per_match": 2.38,
-      "total": 1663,
-      "games": 700
+      "goals_per_match": 2.37,
+      "total": 1651,
+      "games": 696
     },
     {
       "name": "Tomi Sandberg",
-      "goals_per_match": 2.29,
-      "total": 1359,
-      "games": 593
+      "goals_per_match": 2.28,
+      "total": 1349,
+      "games": 591
     },
     {
       "name": "Ari Rantalainen",

@@ -15,22 +15,6 @@
     "rank": 1
   },
   {
-    "name": "Antti Wiklund",
-    "games": 75,
-    "wins": 23,
-    "losses": 52,
-    "goals": 97,
-    "assists": 361,
-    "total": 458,
-    "ppg": 6.11,
-    "teams": [
-      "Saints",
-      "Muu Suomi",
-      "Vaasa Saints"
-    ],
-    "rank": 2
-  },
-  {
     "name": "Teemu Kalliokoski",
     "games": 80,
     "wins": 24,
@@ -45,6 +29,22 @@
       "Vaasa Saints",
       "UFO 2",
       "UFO Akatemia"
+    ],
+    "rank": 2
+  },
+  {
+    "name": "Antti Wiklund",
+    "games": 75,
+    "wins": 23,
+    "losses": 52,
+    "goals": 97,
+    "assists": 361,
+    "total": 458,
+    "ppg": 6.11,
+    "teams": [
+      "Saints",
+      "Muu Suomi",
+      "Vaasa Saints"
     ],
     "rank": 3
   },
@@ -128,19 +128,20 @@
   },
   {
     "name": "Ilja Winqvist",
-    "games": 49,
+    "games": 50,
     "wins": 24,
-    "losses": 25,
-    "goals": 164,
-    "assists": 150,
-    "total": 314,
-    "ppg": 6.41,
+    "losses": 26,
+    "goals": 166,
+    "assists": 152,
+    "total": 318,
+    "ppg": 6.36,
     "teams": [
       "Helsinki Ultimate 1",
       "Helsinki Ultimate",
       "Team 2",
       "Team",
       "Helsinki 2",
+      "Helsinki Ultimate Rebels",
       "Salko All Stars",
       "U20",
       "ViRHe"
@@ -149,12 +150,12 @@
   },
   {
     "name": "Antti Kahri",
-    "games": 73,
+    "games": 74,
     "wins": 26,
-    "losses": 47,
-    "goals": 228,
-    "assists": 72,
-    "total": 300,
+    "losses": 48,
+    "goals": 230,
+    "assists": 74,
+    "total": 304,
     "ppg": 4.11,
     "teams": [
       "Helsinki Ultimate 1",
@@ -163,7 +164,8 @@
       "Helsinki Ultimate 2",
       "UFBG",
       "Helsinki",
-      "Team 2"
+      "Team 2",
+      "Helsinki Ultimate Rebels"
     ],
     "rank": 9
   },
@@ -203,21 +205,21 @@
   },
   {
     "name": "Lauri Saksa",
-    "games": 59,
+    "games": 60,
     "wins": 22,
-    "losses": 37,
+    "losses": 38,
     "goals": 129,
     "assists": 150,
     "total": 279,
-    "ppg": 4.73,
+    "ppg": 4.65,
     "teams": [
       "Helsinki Ultimate 1",
       "Team",
       "Helsinki Ultimate",
       "UFBG",
       "Helsinki Ultimate 2",
-      "Helsinki",
       "Helsinki Ultimate Rebels",
+      "Helsinki",
       "Team 2"
     ],
     "rank": 12
@@ -262,13 +264,13 @@
   },
   {
     "name": "Jyri Saarinen",
-    "games": 61,
+    "games": 62,
     "wins": 23,
-    "losses": 38,
+    "losses": 39,
     "goals": 178,
     "assists": 96,
     "total": 274,
-    "ppg": 4.49,
+    "ppg": 4.42,
     "teams": [
       "Helsinki Ultimate 1",
       "UFO",
@@ -277,9 +279,9 @@
       "PirU",
       "Helsinki Ultimate",
       "Team",
+      "Helsinki Ultimate Rebels",
       "LeKi",
       "Turku Terror",
-      "Helsinki Ultimate Rebels",
       "Team1",
       "UFO Akatemia"
     ],
