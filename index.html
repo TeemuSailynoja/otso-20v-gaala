@@ -863,6 +863,21 @@
             color: var(--muted);
         }
         .year-split { color: var(--muted); font-size: 0.95rem; }
+        .year-teams {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 1rem;
+            align-items: baseline;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .team-group { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; }
+        .team-season {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
         .year-notes { display: flex; flex-direction: column; gap: 0.5rem; max-width: 640px; }
         .year-note { color: var(--text); }
         .year-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -1114,7 +1129,7 @@
     // so browsers get fresh JSON whenever the data changes but can still cache
     // aggressively between rebuilds. Do not edit by hand.
     // BUILD_VERSION_START
-    const DATA_VERSION = 'a3cdd58c474b';
+    const DATA_VERSION = '6a5a58b1e7be';
     // BUILD_VERSION_END
 
     async function loadData() {
@@ -2085,8 +2100,10 @@
         document.getElementById('hud-chips').innerHTML = seasons.map(s => {
             if (!s.played) return '';
             const label = SEASON_LABEL[s.season] || s.season;
-            if (s.medal) return `<span class="hud-chip ${s.medal}">${MEDAL_EMOJI[s.medal]} ${label}</span>`;
-            return `<span class="hud-chip">${label} ${s.placement || '—'}</span>`;
+            const team = otsoTeamLabel(s.team);
+            const who = team && team !== 'Otso' ? ` · ${team}` : '';
+            if (s.medal) return `<span class="hud-chip ${s.medal}">${MEDAL_EMOJI[s.medal]} ${label}${who}</span>`;
+            return `<span class="hud-chip">${label} ${s.placement || '—'}${who}</span>`;
         }).join('');
         document.getElementById('hud-split').textContent = seasonSplitLine(y);
         if (hudCloud) hudCloud.setYear(y);
@@ -2097,7 +2114,7 @@
     // rather than generate; every line below is a fact from site_data, not lore.
     const SEASON_STORY = {
         '2006': ["Otso's first competitive year: two seasons, 21 matches, 11–10, and 21 names on the books."],
-        '2007': ["A busier first follow-up — 23 matches — finishing 6th in summer and 4th in winter."],
+        '2007': ["23 matches off just 18 names — the thinnest roster in the record — finishing 6th in summer and 4th in winter."],
         '2008': ["The rockiest season on record: 7–15 and 62 fewer goals scored than conceded."],
         '2009': ["The first medal arrives — winter bronze — after a 5th-place summer."],
         '2010': ["A step forward: 11–5 (69%) and outscoring opponents by 45."],
@@ -2109,7 +2126,7 @@
         '2016': ["24–2 with both season titles — the fifth straight season above 90%."],
         '2017': ["The busiest season so far — 29 matches — and 26 wins anyway."],
         '2018': ["Winter gold and summer silver, with a then-record +211 goal difference."],
-        '2019': ["Still the busiest year: 38 matches, winter gold, summer bronze."],
+        '2019': ["Still the busiest year: 38 matches and 31 names, the largest roster on record. Winter gold; Otso Grizzly took the summer bronze."],
         '2020': ["A short season — only 13 matches — and the winter season has no recorded placement."],
         '2021': ["The roster drops 11 to 19, and the team still goes 16–2 with double gold."],
         '2022': ["25–1, 96% — and +216, the largest goal difference in the record."],
@@ -2124,7 +2141,7 @@
         const years = Object.keys(DATA.years).sort((a, b) => a - b);
         const badges = {};
         const add = (y, text) => { (badges[y] = badges[y] || []).push(text); };
-        let bestWr = null, worstWr = null, mostM = null, bestGd = null, biggestR = null, biggestIn = null;
+        let bestWr = null, worstWr = null, mostM = null, bestGd = null, biggestR = null, smallestR = null, biggestIn = null;
         let prevRoster = null;
         for (const y of years) {
             const d = DATA.years[y];
@@ -2134,6 +2151,7 @@
             if (played >= 15) {
                 if (!bestWr || wr > bestWr.v) bestWr = { y, v: wr };
                 if (!worstWr || wr < worstWr.v) worstWr = { y, v: wr };
+                if (!smallestR || d.roster_players < smallestR.v) smallestR = { y, v: d.roster_players };
             }
             if (!mostM || d.matches > mostM.v) mostM = { y, v: d.matches };
             if (!bestGd || gd > bestGd.v) bestGd = { y, v: gd };
@@ -2149,6 +2167,7 @@
         if (mostM) add(mostM.y, 'Most matches');
         if (bestGd) add(bestGd.y, 'Best goal difference');
         if (biggestR) add(biggestR.y, 'Largest roster');
+        if (smallestR) add(smallestR.y, 'Skeleton crew');
         if (biggestIn && biggestIn.v > 0) add(biggestIn.y, `+${biggestIn.v} players`);
 
         const seasons = (DATA.trophies && DATA.trophies.seasons) || [];
@@ -2181,6 +2200,35 @@
         return parts.join(' · ');
     }
 
+    // The raw scrape writes the same club four ways — Otso, OTSO, Otso1, Otso 2,
+    // OTSO 2. Collapse them to one label; Otso1 is the main team, not a reserve.
+    function otsoTeamLabel(name) {
+        const raw = String(name || '').replace(/\s+/g, ' ').trim();
+        if (!raw) return '';
+        if (raw.toLowerCase().replace(/[\s-]/g, '') === 'otso1') return 'Otso';
+        const family = raw.replace(/^otso\s*/i, '').trim();
+        if (!family || family === '1') return 'Otso';
+        return `Otso ${family}`;
+    }
+
+    // Every Otso team that finished the season-deciding event, not just the best one:
+    // in 2013 winter Otso won it, Otso 2 was 7th and Otso 3 was 10th.
+    function teamPlacementsLine(y) {
+        const seasons = ((DATA.trophies && DATA.trophies.seasons) || []).filter(s => String(s.year) === y);
+        const groups = [];
+        for (const s of seasons) {
+            if (!s.played || !(s.entries || []).length) continue;
+            const label = SEASON_LABEL[s.season] || s.season;
+            const teams = s.entries.map(e =>
+                // A middot before a numeric placement: "Otso 2 · 5." must not read
+                // as a team called Otso 25, or "Otso 2 🥉, Otso 4." as Otso 4.
+                e.medal ? `${otsoTeamLabel(e.team)} ${MEDAL_EMOJI[e.medal]}` : `${otsoTeamLabel(e.team)} · ${e.placement}`
+            ).join(', ');
+            groups.push(`<span class="team-group"><span class="team-season">${label}</span><span>${teams}</span></span>`);
+        }
+        return groups.join('');
+    }
+
     function renderTimelineStream() {
         const host = document.getElementById('timeline-stream');
         if (!host) return;
@@ -2205,6 +2253,7 @@
                         </div>
                     </div>
                     <div class="year-split">${seasonSplitLine(y)}</div>
+                    <div class="year-teams">${teamPlacementsLine(y)}</div>
                     <div class="year-badges">${(badges[y] || []).map(b => `<span class="year-badge">${b}</span>`).join('')}</div>
                     <div class="year-notes">${(SEASON_STORY[y] || []).map(n => `<p class="year-note">${n}</p>`).join('')}</div>
                 </div>`;
