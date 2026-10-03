@@ -1372,7 +1372,7 @@
     // so browsers get fresh JSON whenever the data changes but can still cache
     // aggressively between rebuilds. Do not edit by hand.
     // BUILD_VERSION_START
-    const DATA_VERSION = '153741262ab7';
+    const DATA_VERSION = '4777698b5ba2';
     // BUILD_VERSION_END
 
     async function loadData() {
@@ -1651,71 +1651,68 @@
             const c1 = d.name1 in players ? `data-player="${d.name1}"` : '';
             const c2 = d.name2 in players ? `data-player="${d.name2}"` : '';
             const stats = [
+                { v: String(d.weight), l: `assists ${firstName(d.name1)}→${firstName(d.name2)} — the heaviest single link in the data` },
                 { v: String(d.games), l: 'games on the same roster' },
                 { v: shared.first ? `${shared.first}–${shared.last}` : '—', l: `${shared.seasons} seasons together` },
-                { v: String(d.assists1 + d.assists2), l: `assists between them · ${d.assists2} ${firstName(d.name2)}→${firstName(d.name1)}, ${d.assists1} back` },
-                { v: `${cat.combined.games} / ${cat.combined.points}`, l: 'combined games / points' },
+                { v: `${cat.combined.games} / ${cat.combined.points}`, l: `combined games / points · ${d.assists2} ${firstName(d.name2)}→${firstName(d.name1)} back` },
             ].map(s => `<div class="duo-stat"><div class="duo-stat-value">${s.v}</div><div class="duo-stat-label">${s.l}</div></div>`).join('');
             const ch = cat.chain;
             const chainLine = ch
-                ? `${ch.from} → ${ch.mid} → ${ch.end} (${ch.w1} + ${ch.w2}) is the longest chain of #1 targets in the data. `
+                ? `${ch.from} → ${ch.mid} → ${ch.end} (${ch.w1} + ${ch.w2}) is the heaviest chain of #1 targets in the data. `
                 : '';
-            const spokeTxt = cat.spokeFeeds.length === 1
-                ? `the only player whose #1 target is ${cat.spoke} is ${cat.spokeFeeds[0]} himself`
-                : `${cat.spokeFeeds.length} players — ${cat.spokeFeeds.map(firstName).join(', ')} — have ${cat.spoke} as theirs`;
+            const spokeTxt = cat.spokeFeeds.length === 0
+                ? `nobody's #1 target is ${cat.spoke} — he is the source of this link, not its hub`
+                : cat.spokeFeeds.length === 1
+                    ? `the only player whose #1 target is ${cat.spoke} is ${cat.spokeFeeds[0]}`
+                    : `${cat.spokeFeeds.length} players — ${cat.spokeFeeds.map(firstName).join(', ')} — have ${cat.spoke} as theirs`;
             const traffic = `${cat.hubFeeds.length} players run their offense through ${cat.hub}; ${spokeTxt}.`;
-            const others = (cat.others || []).map(p => {
-                const s = pairSpan(p.name1, p.name2);
-                return `${p.name1} ↔ ${p.name2} · ${p.games} games${s.first ? `, ${s.first}–${s.last}` : ''}`;
-            });
-            return `<div class="duo-names"><span class="duo-name" ${c1}>${d.name1}</span><span class="duo-vs">↔</span><span class="duo-name" ${c2}>${d.name2}</span></div>
+            const others = (cat.others || []).map(p =>
+                `${p.name1} → ${p.name2} · ${p.weight} assists, ${p.games} games`);
+            const othersLine = (cat.others || []).length
+                ? `<div class="duo-foot">True of ${cat.totalLinks} links in all; the next ${cat.others.length}: ${others.join(' · ')}.</div>`
+                : '';
+            return `<div class="duo-names"><span class="duo-name" ${c1}>${d.name1}</span><span class="duo-vs">→</span><span class="duo-name" ${c2}>${d.name2}</span></div>
                 <div class="duo-stats">${stats}</div>
                 <div class="duo-lanes">${lane(d.name1)}${lane(d.name2)}
                     <div class="duo-axis"><span>${lo}</span><span>${hi}</span></div>
                 </div>
                 <div class="duo-foot">${chainLine}${traffic}</div>
-                <div class="duo-foot">Also true of: ${others.join(' · ')}.</div>`;
+                ${othersLine}`;
         }
 
-        // ===== BUDDY BUDDY (reciprocal: both list each other as TOP target) =====
-        const buddyPairs = [];
-        const buddySeen = new Set();
-        for (const passer in given) {
-            const pGiven = given[passer];
-            if (!pGiven || Object.keys(pGiven).length === 0) continue;
-            const topReceiver = Object.entries(pGiven).sort((a, b) => b[1] - a[1])[0];
+        // ===== THE PAIR LINKS — a link X → Y counts when X's #1 assist target is Y, and Y's
+        // #1 assist source is X: the feeder and the finisher chose each other. Directional on
+        // purpose. Before the pass-network field fix (migrate_point_fields.py) this rule was
+        // measured on transposed maps and returned four unrelated pairs; with the direction
+        // corrected it returns 13, and the heaviest is the pair the club is known for.
+        const mutualLinks = [];
+        for (const feeder in given) {
+            const fGiven = given[feeder];
+            if (!fGiven || Object.keys(fGiven).length === 0) continue;
+            const topReceiver = Object.entries(fGiven).sort((a, b) => b[1] - a[1])[0];
             if (!topReceiver || topReceiver[1] === 0) continue;
-            const partner = topReceiver[0];
-            if (partner === passer) continue;
-            const key = [passer, partner].sort().join('||');
-            if (buddySeen.has(key)) continue;
-
-            // Check if partner also lists passer as top
-            const partnerGiven = given[partner];
-            if (!partnerGiven || Object.keys(partnerGiven).length === 0) continue;
-            const partnerTop = Object.entries(partnerGiven).sort((a, b) => b[1] - a[1])[0];
-            if (!partnerTop || partnerTop[1] === 0 || partnerTop[0] !== passer) continue;
-
-            buddySeen.add(key);
-            const totalP = Object.values(pGiven).reduce((s, v) => s + v, 0);
-            const totalR = Object.values(partnerGiven).reduce((s, v) => s + v, 0);
-            const span = pairSpan(passer, partner);
-            buddyPairs.push({
-                name1: passer, name2: partner,
-                pct1: Math.round(topReceiver[1] / totalP * 100),
-                pct2: Math.round(partnerTop[1] / totalR * 100),
+            const finisher = topReceiver[0];
+            if (finisher === feeder) continue;
+            // The other half of the rule: Y's biggest source must be X, not merely someone.
+            const fRecv = received[finisher];
+            if (!fRecv || Object.keys(fRecv).length === 0) continue;
+            const topSource = Object.entries(fRecv).sort((a, b) => b[1] - a[1])[0];
+            if (!topSource || topSource[1] === 0 || topSource[0] !== feeder) continue;
+            const span = pairSpan(feeder, finisher);
+            mutualLinks.push({
+                name1: feeder, name2: finisher,
+                weight: topReceiver[1],
                 assists1: topReceiver[1],
-                assists2: partnerTop[1],
-                games: (cooc[passer] || {})[partner] || 0,
+                assists2: (given[finisher] || {})[feeder] || 0,
+                games: (cooc[feeder] || {})[finisher] || 0,
                 seasons: span.seasons,
                 first: span.first,
                 last: span.last,
             });
         }
-        // All of them, not a slice: the rule finds exactly four pairs among 177 players, and the
-        // set being complete is what makes "the biggest such pair" mean anything. Ranked by games
-        // on the same roster, so the pair with the most field time leads.
-        buddyPairs.sort((a, b) => b.games - a.games || b.seasons - a.seasons || b.pct1 + b.pct2 - (a.pct1 + a.pct2));
+        // Ranked by the link itself, not by field time: the claim is about the pass, and the
+        // weight is what makes "heaviest" checkable against the numbers on the slide.
+        mutualLinks.sort((a, b) => b.weight - a.weight || b.games - a.games);
 
         // ===== THE TRIANGLE — the three players who shared the most field time, scored by the
         // sum of the three co-occurrence edges. The search is bounded to each player's 12
@@ -1751,23 +1748,23 @@
         }
         triangles.sort((x, y) => y.score - x.score);
 
-        // ===== THE PAIR — the reciprocal pair with the most games on the same roster. Derived,
-        // never named: the rule is "each is the other's #1 assist target". By raw field time this
-        // pair is #9 in the dataset, so the slide states the rule instead of leaning on a
-        // superlative the co-occurrence matrix would not support.
-        const duo = buddyPairs[0] || null;
+        // ===== THE PAIR — the heaviest link the rule finds. Derived, never named: the rule is
+        // "the passer's #1 target is the finisher, and the finisher's #1 source is that passer".
+        // The weight is also the single heaviest assist link in the pass matrix, so the headline
+        // superlative is one the data supports without leaning on field time (where this pair is
+        // #9, not #1).
+        const duo = mutualLinks[0] || null;
         const duoFeeds1 = duo ? runsThrough(duo.name1) : [];
         const duoFeeds2 = duo ? runsThrough(duo.name2) : [];
         const duoHub = duoFeeds2.length >= duoFeeds1.length ? duo.name2 : duo.name1;
         const duoSpoke = duoHub === duo.name1 ? duo.name2 : duo.name1;
         const duoHubFeeds = duoHub === duo.name1 ? duoFeeds1 : duoFeeds2;
         const duoSpokeFeeds = duoHub === duo.name1 ? duoFeeds2 : duoFeeds1;
-        // feeder → hub → spoke, taking the heaviest feeder link.
-        const duoChainFrom = duoHubFeeds.filter(p => p !== duoSpoke)
-            .sort((x, y) => linkWeight(y, duoHub) - linkWeight(x, duoHub))[0] || null;
-        const duoChain = duoChainFrom ? {
-            from: duoChainFrom, mid: duoHub, end: duoSpoke,
-            w1: linkWeight(duoChainFrom, duoHub), w2: linkWeight(duoHub, duoSpoke),
+        // feeder → finisher → the finisher's own #1 target, i.e. where the link goes next.
+        const duoChainEnd = duo ? topTarget(duo.name2) : null;
+        const duoChain = duo && duoChainEnd && duoChainEnd !== duo.name1 ? {
+            from: duo.name1, mid: duo.name2, end: duoChainEnd,
+            w1: linkWeight(duo.name1, duo.name2), w2: linkWeight(duo.name2, duoChainEnd),
         } : null;
         const duoCombined = duo ? {
             games: ((players[duo.name1] || {}).games || 0) + ((players[duo.name2] || {}).games || 0),
@@ -1800,7 +1797,7 @@
         const connectorRows = [];
         for (const name in players) {
             const games = players[name].games;
-            if (games < 5) continue;
+            if (games < 100) continue;
             const gp = new Set(Object.keys(given[name] || {}));
             const rp = new Set(Object.keys(received[name] || {}));
             const unique = new Set([...gp, ...rp]).size;
@@ -1942,8 +1939,8 @@
             { name: 'The Phoenix', desc: 'Away three or more years, then back on the roster', type: 'gaps', data: phoenix.slice(0, 3) },
             { name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
             { name: 'The Triangle', desc: 'The three players who shared the most field time in 20 years', type: 'trio', triangle: triangles[0], runnerUp: triangles[1] },
-            { name: 'The Pair', desc: 'Each is the other\'s #1 assist target — the biggest and longest of the four pairs where that is true', type: 'duo', duo: duo, others: buddyPairs.slice(1), chain: duoChain, hub: duoHub, spoke: duoSpoke, hubFeeds: duoHubFeeds, spokeFeeds: duoSpokeFeeds, combined: duoCombined },
-            { name: 'The Connector', desc: 'Unique players passed to or received from, per game', type: 'table', columns: ['Player', 'In/g', 'Out/g', 'Total/g', 'Games'], rows: connectorRows.slice(0, 6).map(r => ({ name: r.name, cells: [r.inPerGame, r.outPerGame, r.perGame, String(r.games)] })) },
+            { name: 'The Pair', desc: 'The passer\'s #1 target is the finisher, and the finisher\'s #1 source is that passer — the heaviest of the 13 links where that is true', type: 'duo', duo: duo, others: mutualLinks.slice(1, 5), totalLinks: mutualLinks.length, chain: duoChain, hub: duoHub, spoke: duoSpoke, hubFeeds: duoHubFeeds, spokeFeeds: duoSpokeFeeds, combined: duoCombined },
+            { name: 'The Connector', desc: 'Unique players passed to or received from, per game (100+ games)', type: 'table', columns: ['Player', 'In/g', 'Out/g', 'Total/g', 'Games'], rows: connectorRows.slice(0, 6).map(r => ({ name: r.name, cells: [r.inPerGame, r.outPerGame, r.perGame, String(r.games)] })) },
             { name: 'Scoring', desc: 'The all-time counting list, and the best rate per game', type: 'split', foot: '▲ the all-time leader in that column', panels: [
                 { title: 'Most points', columns: ['Player', 'Pts', 'G', 'A', 'Games'], rows: scoringVolume },
                 { title: 'Best points per game (100+ games)', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: scoringRate.map(r => ({ name: r.name, cells: [r.perGame, String(r.points), String(r.games)] })) },
