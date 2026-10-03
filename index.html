@@ -190,13 +190,6 @@
             align-self: center;
             margin: 0 1rem;
         }
-        .hero-trophy-note {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-            letter-spacing: 1px;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
         .scroll-arrow {
             margin-top: 3rem;
             animation: bounce 2s infinite;
@@ -986,7 +979,6 @@
                         <div class="hero-stat-label">Podiums</div>
                     </div>
                 </div>
-                <div class="hero-trophy-note" id="hero-trophy-note"></div>
                 <div class="scroll-arrow">↓</div>
             </div>
         </section>
@@ -1185,9 +1177,6 @@
             const t = tr.totals;
             document.getElementById('stat-trophies').textContent = t.all.gold;
             document.getElementById('stat-podiums').textContent = t.all.podiums;
-            document.getElementById('hero-trophy-note').textContent =
-                `Kesä ${t.summer.gold} · Talvi ${t.winter.gold} gold — ` +
-                `${t.all.podiums} podiums in ${t.all.contested} seasons`;
         }
 
         renderCategories();
