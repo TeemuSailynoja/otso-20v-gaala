@@ -850,6 +850,7 @@
             color: var(--muted);
         }
         .hud-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: flex-end; }
+        .hud-split { font-size: 0.75rem; color: var(--muted); }
         .hud-chip {
             font-size: 0.7rem;
             padding: 0.15rem 0.5rem;
@@ -1217,6 +1218,7 @@
                     </div>
                 </div>
                 <div class="hud-chips" id="hud-chips"></div>
+                <div class="hud-split" id="hud-split"></div>
             </div>
         </div>
         <div class="timeline-stream" id="timeline-stream"></div>
@@ -2270,6 +2272,7 @@
             if (s.medal) return `<span class="hud-chip ${s.medal}">${MEDAL_EMOJI[s.medal]} ${label}</span>`;
             return `<span class="hud-chip">${label} ${s.placement || '—'}</span>`;
         }).join('');
+        document.getElementById('hud-split').textContent = seasonSplitLine(y);
     }
 
     // ==================== TIMELINE YEAR STREAM ====================
