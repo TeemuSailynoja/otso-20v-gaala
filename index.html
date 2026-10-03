@@ -1664,7 +1664,7 @@
         const smallestRoster = qualified.reduce((a, b) => (b[1].roster_players || 999) < (a[1].roster_players || 999) ? b : a);
         const mostGames = Object.entries(years).reduce((a, b) => (b[1].matches || 0) > (a[1].matches || 0) ? b : a);
         const mostDominant = qualified.reduce((a, b) => (a[1].wins >= 20 && (a[1].wins / (a[1].wins + a[1].losses)) > (b[1].wins / (b[1].wins + b[1].losses))) ? a : b);
-        const perfectStart = years['2026'] ? { year: '2026', wins: 9, losses: 0 } : null;
+        const perfectStart = years['2026'] ? { year: '2026', ...years['2026'] } : null;
 
         const categories = [
             { emoji: '🏆', name: 'Best Win %', desc: `${bestWin[0]} — ${Math.round(bestWin[1].wins / (bestWin[1].wins + bestWin[1].losses) * 100)}% win rate (15+ games)`, type: 'single', data: [{ name: `${bestWin[1].wins}–${bestWin[1].losses}`, stat: `${Math.round(bestWin[1].wins / (bestWin[1].wins + bestWin[1].losses) * 100)}%` }] },
@@ -1672,7 +1672,7 @@
             { emoji: '💪', name: 'Skeleton Crew', desc: `${smallestRoster[0]} — ${smallestRoster[1].wins}–${smallestRoster[1].losses} with just ${smallestRoster[1].roster_players} players`, type: 'single', data: [{ name: `${smallestRoster[1].roster_players} players`, stat: `${smallestRoster[1].wins}–${smallestRoster[1].losses}` }] },
             { emoji: '🎮', name: 'Most Games', desc: `${mostGames[0]} — ${mostGames[1].wins}–${mostGames[1].losses} in a ${mostGames[1].matches}-game season`, type: 'single', data: [{ name: `${mostGames[1].matches} games`, stat: `${mostGames[1].wins}–${mostGames[1].losses}` }] },
             { emoji: '🔥', name: 'Most Dominant', desc: `${mostDominant[0]} — ${Math.round(mostDominant[1].wins / (mostDominant[1].wins + mostDominant[1].losses) * 100)}% with 20+ wins`, type: 'single', data: [{ name: `${mostDominant[1].wins}–${mostDominant[1].losses}`, stat: `${Math.round(mostDominant[1].wins / (mostDominant[1].wins + mostDominant[1].losses) * 100)}%` }] },
-            ...(perfectStart ? [{ emoji: '✨', name: 'Perfect Start', desc: `${perfectStart.year} — 100% win rate, undefeated start`, type: 'single', data: [{ name: '9–0', stat: '100%' }] }] : []),
+            ...(perfectStart ? [{ emoji: '✨', name: 'Perfect Start', desc: `${perfectStart.year} — 100% win rate, undefeated start`, type: 'single', data: [{ name: `${perfectStart.wins}–${perfectStart.losses}`, stat: '100%' }] }] : []),
             { emoji: '🤝', name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
             { emoji: '🎯', name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
             { emoji: '🔗', name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
@@ -2285,6 +2285,79 @@
     }
 
     // ==================== TIMELINE YEAR STREAM ====================
+    // Hand-authored season notes. 20.5 seasons is small enough to write down
+    // rather than generate; every line below is a fact from site_data, not lore.
+    const SEASON_STORY = {
+        '2006': ["Otso's first competitive year: two seasons, 21 matches, 11–10, and 21 names on the books."],
+        '2007': ["A busier first follow-up — 23 matches — finishing 6th in summer and 4th in winter."],
+        '2008': ["The rockiest season on record: 7–15 and 62 fewer goals scored than conceded."],
+        '2009': ["The first medal arrives — winter bronze — after a 5th-place summer."],
+        '2010': ["A step forward: 11–5 (69%) and outscoring opponents by 45."],
+        '2011': ["First year with a podium in both seasons — winter gold, summer bronze."],
+        '2012': ["Undefeated. 23 matches, 23 wins, and gold in both seasons."],
+        '2013': ["26–2 again, double gold, and the first 170+ goal difference."],
+        '2014': ["The roster jumps by 9 to 30 — the biggest single-year intake in the record."],
+        '2015': ["A third straight 26–2 season and another double gold."],
+        '2016': ["24–2 with both season titles — the fifth straight season above 90%."],
+        '2017': ["The busiest season so far — 29 matches — and 26 wins anyway."],
+        '2018': ["Winter gold and summer silver, with a then-record +211 goal difference."],
+        '2019': ["Still the busiest year: 38 matches, winter gold, summer bronze."],
+        '2020': ["A short season — only 13 matches — and the winter season has no recorded placement."],
+        '2021': ["The roster drops 11 to 19, and the team still goes 16–2 with double gold."],
+        '2022': ["25–1, 96% — and +216, the largest goal difference in the record."],
+        '2023': ["Winter gold, but a 4th-place summer — the first summer outside the podium since 2010."],
+        '2024': ["23–2 and the quiet return of double gold."],
+        '2025': ["Eight losses — more than in any season between 2019 and 2024 — rescued by winter gold and summer bronze."],
+        '2026': ["10–0 so far and summer gold; the winter season is still to come."]
+    };
+
+    // Superlatives are computed, never typed: if the data changes, the badge moves.
+    function computeHighlightBadges() {
+        const years = Object.keys(DATA.years).sort((a, b) => a - b);
+        const badges = {};
+        const add = (y, text) => { (badges[y] = badges[y] || []).push(text); };
+        let bestWr = null, worstWr = null, mostM = null, bestGd = null, biggestR = null, biggestIn = null;
+        let prevRoster = null;
+        for (const y of years) {
+            const d = DATA.years[y];
+            const played = d.wins + d.losses;
+            const wr = played > 0 ? d.wins / played : 0;
+            const gd = d.goals_for - d.goals_against;
+            if (played >= 15) {
+                if (!bestWr || wr > bestWr.v) bestWr = { y, v: wr };
+                if (!worstWr || wr < worstWr.v) worstWr = { y, v: wr };
+            }
+            if (!mostM || d.matches > mostM.v) mostM = { y, v: d.matches };
+            if (!bestGd || gd > bestGd.v) bestGd = { y, v: gd };
+            if (!biggestR || d.roster_players > biggestR.v) biggestR = { y, v: d.roster_players };
+            if (prevRoster !== null) {
+                const delta = d.roster_players - prevRoster;
+                if (!biggestIn || delta > biggestIn.v) biggestIn = { y, v: delta };
+            }
+            prevRoster = d.roster_players;
+        }
+        if (bestWr) add(bestWr.y, 'Best win rate');
+        if (worstWr) add(worstWr.y, 'Toughest season');
+        if (mostM) add(mostM.y, 'Most matches');
+        if (bestGd) add(bestGd.y, 'Best goal difference');
+        if (biggestR) add(biggestR.y, 'Largest roster');
+        if (biggestIn && biggestIn.v > 0) add(biggestIn.y, `+${biggestIn.v} players`);
+
+        const seasons = (DATA.trophies && DATA.trophies.seasons) || [];
+        for (const y of years) {
+            const rows = seasons.filter(s => String(s.year) === y);
+            if (rows.filter(s => s.medal === 'gold').length === 2) add(y, 'Kulta molemmissa');
+        }
+        const firstMedal = seasons.filter(s => s.medal).sort((a, b) => a.year - b.year)[0];
+        if (firstMedal) add(String(firstMedal.year), 'First medal');
+        const undefeated = years.filter(y => {
+            const d = DATA.years[y];
+            return d.losses === 0 && d.wins >= 15;
+        });
+        undefeated.forEach(y => add(y, 'Undefeated'));
+        return badges;
+    }
+
     let yearObserver = null;
     let streamRaf = null;
 
@@ -2304,6 +2377,7 @@
         const host = document.getElementById('timeline-stream');
         if (!host) return;
         const years = hudYearList();
+        const badges = computeHighlightBadges();
         host.innerHTML = years.map(y => {
             const d = DATA.years[y];
             const played = d.wins + d.losses;
@@ -2331,8 +2405,8 @@
                         </div>
                     </div>
                     <div class="year-split">${seasonSplitLine(y)}</div>
-                    <div class="year-badges" data-badges-for="${y}"></div>
-                    <div class="year-notes" data-notes-for="${y}"></div>
+                    <div class="year-badges">${(badges[y] || []).map(b => `<span class="year-badge">${b}</span>`).join('')}</div>
+                    <div class="year-notes">${(SEASON_STORY[y] || []).map(n => `<p class="year-note">${n}</p>`).join('')}</div>
                 </div>`;
         }).join('');
         observeYearBlocks();
