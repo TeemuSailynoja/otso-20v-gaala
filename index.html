@@ -808,7 +808,7 @@
         }
         .hud-chart-wrap { position: relative; flex: 1; min-width: 0; }
         .hud-chart-box { position: absolute; inset: 0; }
-        .hud-cloud-canvas { position: absolute; inset: 0; pointer-events: none; }
+        .hud-cloud-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
         .hud-chart-label {
             position: absolute;
             top: 0;
@@ -1198,7 +1198,10 @@
         </div>
         <div class="timeline-hud" id="timeline-hud">
             <div class="hud-chart-wrap">
-                <div class="hud-chart-box"><canvas id="hud-roster-chart"></canvas></div>
+                <div class="hud-chart-box">
+                    <canvas id="hud-roster-chart"></canvas>
+                    <canvas id="hud-cloud" class="hud-cloud-canvas"></canvas>
+                </div>
                 <div class="hud-chart-label">Roster size</div>
             </div>
             <div class="hud-readout">
@@ -1326,6 +1329,7 @@
 
         // Snap is timeline-only: leave it off the other pages.
         document.documentElement.classList.toggle('snap-timeline', page === 'timeline');
+        if (page !== 'timeline' && hudCloud) hudCloud.pause();
 
         // Update nav
         document.querySelectorAll('.nav-links a').forEach(a => {
@@ -1349,6 +1353,7 @@
             document.getElementById('page-timeline').classList.add('active');
             hudActiveYear = null; // re-entry starts at the top of the stream
             renderTimeline();
+            if (hudCloud) hudCloud.resume();
             setTimeout(initTeamEvolution, 100);
         }
     }
@@ -2161,6 +2166,7 @@
         const hud = document.getElementById('timeline-hud');
         if (nav) root.style.setProperty('--nav-h', nav.offsetHeight + 'px');
         if (hud) root.style.setProperty('--hud-h', hud.offsetHeight + 'px');
+        if (hudCloud) hudCloud.resize();
     }
 
     window.addEventListener('resize', () => {
@@ -2204,6 +2210,8 @@
         measureTimelineChrome();
 
         if (hudChart) { hudChart.destroy(); hudChart = null; }
+        if (!hudCloud) hudCloud = createTeamCloud(document.getElementById('hud-cloud'));
+        if (hudCloud) hudCloud.resize();
         hudChart = new Chart(canvas, {
             type: 'line',
             data: {
@@ -2273,6 +2281,7 @@
             return `<span class="hud-chip">${label} ${s.placement || '—'}</span>`;
         }).join('');
         document.getElementById('hud-split').textContent = seasonSplitLine(y);
+        if (hudCloud) hudCloud.setYear(y);
     }
 
     // ==================== TIMELINE YEAR STREAM ====================
@@ -2367,6 +2376,148 @@
             activeYearFromScroll();
         });
     }, { passive: true });
+
+    // ==================== HUD TEAM CLOUD ====================
+    // The roster dots over the HUD chart *are* the players of the year being read.
+    // Deterministic on purpose: the same year always animates the same way, so the
+    // transition is a legible reshaping rather than a fresh dice roll each visit.
+    function mulberry32(seed) {
+        let s = seed >>> 0;
+        return function () {
+            s = (s + 0x6D2B79F5) >>> 0;
+            let t = Math.imul(s ^ (s >>> 15), 1 | s);
+            t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
+
+    // roster_names are canonicalized in the build (sorted lowercase parts, e.g.
+    // "hotari roni"), so resolve them back to the display keys of players.json.
+    const canonicalKey = name =>
+        name.split(/\s+/).filter(Boolean).map(p => p.toLowerCase()).sort().join(' ');
+
+    let _playerByCanon = null;
+    function playerByCanon() {
+        if (!_playerByCanon) {
+            _playerByCanon = {};
+            for (const name in DATA.players) _playerByCanon[canonicalKey(name)] = name;
+        }
+        return _playerByCanon;
+    }
+
+    function createTeamCloud(canvas) {
+        if (!canvas) return null;
+        const ctx = canvas.getContext('2d');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let w = 0, h = 0, raf = null, year = null, particles = [];
+
+        function resize() {
+            const box = canvas.parentElement;
+            w = canvas.width = box.clientWidth;
+            h = canvas.height = box.clientHeight;
+        }
+
+        function colorFor(display) {
+            const p = DATA.players[display];
+            // Era colours are jersey-dark (Founders #a04a5a); on the navy background
+            // they vanish, so lift them toward white before plotting.
+            const base = p && p.first_year ? getEraInfo(p.first_year).statColors.goals : '#8a9bae';
+            return lighten(base, 0.45);
+        }
+
+        function lighten(hex, amt) {
+            const m = hex.replace('#', '');
+            const full = m.length === 3 ? m.split('').map(c => c + c).join('') : m;
+            const n = parseInt(full, 16);
+            const lift = v => Math.round(v + (255 - v) * amt);
+            return `rgb(${lift((n >> 16) & 255)}, ${lift((n >> 8) & 255)}, ${lift(n & 255)})`;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            for (const p of particles) {
+                ctx.globalAlpha = p.a;
+                ctx.fillStyle = p.color;
+                ctx.shadowColor = p.color;
+                ctx.shadowBlur = 6;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+            ctx.shadowBlur = 0;
+        }
+
+        function frame() {
+            let moving = false;
+            for (const p of particles) {
+                if (p.delay > 0) { p.delay -= 1; moving = true; continue; }
+                if (p.leaving) { p.a = Math.max(0, p.a - 0.05); p.x -= 6; }
+                else if (p.a < 0.9) { p.a = Math.min(0.9, p.a + 0.05); moving = true; }
+                const dx = p.tx - p.x, dy = p.ty - p.y;
+                p.x += dx * 0.07;
+                p.y += dy * 0.07;
+                if (Math.abs(dx) + Math.abs(dy) > 0.5) moving = true;
+            }
+            particles = particles.filter(p => !(p.leaving && p.a <= 0));
+            draw();
+            raf = (moving && particles.length) ? requestAnimationFrame(frame) : null;
+        }
+
+        function start() {
+            if (reduceMotion) { particles.forEach(p => { p.x = p.tx; p.y = p.ty; p.delay = 0; p.a = p.leaving ? 0 : 0.9; }); particles = particles.filter(p => !p.leaving); draw(); return; }
+            if (!raf) raf = requestAnimationFrame(frame);
+        }
+
+        function setYear(y) {
+            const key = String(y);
+            if (key === year) return;
+            year = key;
+            if (!w || !h) resize();
+            if (!w || !h) return; // page hidden: nothing to draw into yet
+
+            const rng = mulberry32(parseInt(key, 10) || 1);
+            const idx = playerByCanon();
+            const roster = ((DATA.years[key] && DATA.years[key].roster_names) || []);
+            const inRoster = new Set(roster);
+
+            for (const p of particles) {
+                if (!inRoster.has(p.key)) { p.leaving = true; p.a = 0.8; }
+            }
+            const staying = particles.filter(p => !p.leaving);
+            staying.forEach(p => {
+                p.tx = w * 0.5 + (rng() - 0.5) * w * 0.86;
+                p.ty = h * 0.55 + (rng() - 0.5) * h * 0.72;
+            });
+
+            const live = new Set(staying.map(p => p.key));
+            roster.forEach((name, i) => {
+                if (live.has(name)) return;
+                const display = idx[name] || name;
+                particles.push({
+                    key: name,
+                    color: colorFor(display),
+                    x: w + 10,
+                    y: h * (i + 1) / (roster.length + 1),
+                    tx: w * 0.5 + (rng() - 0.5) * w * 0.86,
+                    ty: h * 0.55 + (rng() - 0.5) * h * 0.72,
+                    r: 2.2 + rng() * 1.6,
+                    a: 0,
+                    delay: Math.floor(rng() * 20),
+                    leaving: false
+                });
+            });
+            start();
+        }
+
+        function pause() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+        function resume() { if (!raf && !reduceMotion) raf = requestAnimationFrame(frame); }
+
+        resize();
+        return { setYear, resize, pause, resume };
+    }
+
+    let hudCloud = null;
 
     function renderTimeline() {
         const years = Object.keys(DATA.years).sort((a, b) => a - b);
