@@ -588,6 +588,20 @@
         /* QR OVERLAY — `?qr` turns whatever is on screen into a code a phone can scan
            from across a room. The code itself has to be dark-on-light, so it sits on a
            white card even though the rest of the site is dark. */
+        .qr-badge {
+            position: absolute; top: 5.5rem; left: 2rem; z-index: 2;
+            width: clamp(140px, 20vmin, 280px);
+            background: #ffffff; color: #14191e;
+            padding: 0.55rem 0.55rem 0.4rem; border-radius: 8px;
+            display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+            box-shadow: 0 0 0 3px rgba(229, 176, 55, 0.55);
+            cursor: pointer;
+        }
+        .qr-badge-canvas { width: 100%; height: auto; image-rendering: pixelated; }
+        .qr-badge-caption {
+            font-family: 'Prototype', sans-serif; font-size: 0.62rem;
+            letter-spacing: 0.06em; text-transform: uppercase; color: #4a5866;
+        }
         .qr-overlay {
             position: fixed; inset: 0; z-index: 300;
             background: rgba(12, 16, 20, 0.94);
@@ -609,6 +623,9 @@
         }
         .qr-hint { font-size: 0.74rem; color: #5b6b7a; }
         .qr-warn { font-size: 0.74rem; color: #6a1e32; font-weight: 600; text-align: center; }
+        @media (max-width: 760px) {
+            .qr-badge { display: none; }   /* a corner code is for a big screen, not a phone */
+        }
 
         /* Scroll progress indicator */
         .scroll-progress {
@@ -3043,13 +3060,17 @@
         });
     }
 
-    async function drawQr(canvas, text) {
+    function isLocalAddress() {
+        return location.protocol === 'file:'
+            || /^(localhost|127\.|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
+    }
+
+    async function drawQr(canvas, text, size) {
         try {
             await loadQrLib();
-            // Draw at roughly the size it will be shown, so the modules are not resampled
-            // on the way to the screen — a code on a projector has to survive a phone
-            // camera at a distance.
-            const size = Math.max(220, Math.floor(Math.min(window.innerWidth, window.innerHeight) * 0.6));
+            // Drawn at the size it will be shown, so the modules are not resampled on the
+            // way to the screen — a code on a projector has to survive a phone camera at a
+            // distance.
             await window.QRCode.toCanvas(canvas, text, { width: size, margin: 2, errorCorrectionLevel: 'M' });
         } catch (err) {
             const fallback = document.createElement('div');
@@ -3059,10 +3080,30 @@
         }
     }
 
+    // `?qr` puts a scannable code in the top-left of the hero. The site is meant to run on a
+    // big screen at the gaala, and a corner code leaves the page — and the carousel — usable,
+    // unlike a full-screen takeover. Clicking it opens the big version for a room further away.
+    function showQrBadge() {
+        const hero = document.querySelector('#page-home .hero');
+        if (!hero || hero.querySelector('.qr-badge')) return;
+        const target = qrTargetUrl();
+        const badge = document.createElement('div');
+        badge.className = 'qr-badge';
+        badge.title = 'Open the full-size code';
+        badge.innerHTML = '<canvas class="qr-badge-canvas"></canvas><div class="qr-badge-caption">Scan to open</div>';
+        const canvas = badge.querySelector('.qr-badge-canvas');
+        canvas.setAttribute('aria-label', 'QR code for ' + target);
+        if (isLocalAddress()) badge.querySelector('.qr-badge-caption').textContent = 'Local address';
+        hero.appendChild(badge);
+        const rect = canvas.getBoundingClientRect();
+        const size = Math.max(160, Math.min(1024, Math.round((rect.width || 200) * (window.devicePixelRatio || 1))));
+        drawQr(canvas, target, size);
+        badge.addEventListener('click', showQrOverlay);
+    }
+
     function showQrOverlay() {
         const target = qrTargetUrl();
-        const local = location.protocol === 'file:'
-            || /^(localhost|127\.|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
+        const local = isLocalAddress();
         const overlay = document.createElement('div');
         overlay.className = 'qr-overlay';
         overlay.innerHTML = `<div class="qr-card">
@@ -3080,6 +3121,7 @@
         const canvas = overlay.querySelector('#qr-canvas');
         canvas.setAttribute('aria-label', 'QR code for ' + target);
         document.body.appendChild(overlay);
+        const fullSize = Math.max(220, Math.floor(Math.min(window.innerWidth, window.innerHeight) * 0.6));
 
         const close = () => {
             overlay.remove();
@@ -3090,7 +3132,7 @@
         const onKey = (e) => { if (e.key === 'Escape') close(); };
         document.addEventListener('keydown', onKey);
         overlay.addEventListener('click', close);
-        drawQr(canvas, target);
+        drawQr(canvas, target, fullSize);
     }
 
 
@@ -3098,7 +3140,10 @@
         await loadData();
         initParticles();
         navigate();
-        if (new URLSearchParams(location.search).has('qr')) showQrOverlay();
+        if (new URLSearchParams(location.search).has('qr')) {
+            // `?qr` = corner code on the hero, `?qr=full` = the takeover version.
+            (new URLSearchParams(location.search).get('qr') === 'full' ? showQrOverlay : showQrBadge)();
+        }
     }
 
     init();
