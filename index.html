@@ -864,6 +864,65 @@
         /* Old dashboard cards — kept only until the year stream is verified (step 7 deletes them) */
         .timeline-legacy { display: none; }
 
+        /* YEAR STREAM — one snapped block per season, read under the HUD */
+        html.snap-timeline { scroll-snap-type: y proximity; }
+        .timeline-stream { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
+        .year-block {
+            scroll-snap-align: start;
+            scroll-margin-top: calc(var(--nav-h, 0px) + var(--hud-h, 0px));
+            min-height: 100vh;
+            min-height: calc(100dvh - var(--nav-h, 0px) - var(--hud-h, 0px));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.25rem;
+            padding: 2rem 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .year-block.active { opacity: 1; transform: translateY(0); }
+        .year-num {
+            font-family: 'Prototype', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--gold);
+        }
+        .year-stats { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .year-stat {
+            min-width: 110px;
+            padding: 0.75rem 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .year-stat .val {
+            font-family: 'Prototype', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+        .year-stat .lbl {
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .year-split { color: var(--muted); font-size: 0.95rem; }
+        .year-notes { display: flex; flex-direction: column; gap: 0.5rem; max-width: 640px; }
+        .year-note { color: var(--text); }
+        .year-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .year-badge {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 100px;
+            border: 1px solid rgba(229, 176, 55, 0.4);
+            background: rgba(229, 176, 55, 0.08);
+            color: var(--gold);
+        }
+
         /* TIMELINE PAGE */
         .timeline-toggles {
             display: flex;
@@ -1005,6 +1064,9 @@
                 gap: 0.5rem;
             }
             .hud-chips { flex-basis: 100%; justify-content: flex-start; }
+            .timeline-stream { padding: 0 1rem 3rem; }
+            .year-block { gap: 1rem; padding: 1rem 0; }
+            .year-stat { min-width: 90px; padding: 0.5rem 0.75rem; }
         }
 
         /* SCROLLBAR */
@@ -1260,6 +1322,9 @@
         // Hide all pages
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
 
+        // Snap is timeline-only: leave it off the other pages.
+        document.documentElement.classList.toggle('snap-timeline', page === 'timeline');
+
         // Update nav
         document.querySelectorAll('.nav-links a').forEach(a => {
             a.classList.toggle('active', a.dataset.page === page);
@@ -1280,6 +1345,7 @@
             renderFrenemies();
         } else if (page === 'timeline') {
             document.getElementById('page-timeline').classList.add('active');
+            hudActiveYear = null; // re-entry starts at the top of the stream
             renderTimeline();
             setTimeout(initTeamEvolution, 100);
         }
@@ -2206,11 +2272,105 @@
         }).join('');
     }
 
+    // ==================== TIMELINE YEAR STREAM ====================
+    let yearObserver = null;
+    let streamRaf = null;
+
+    // Kesä / Talvi split for one year, following the active view.
+    function seasonSplitLine(y) {
+        const summer = currentView === 'all-bears' ? DATA.yearsAllBearsSummer : DATA.yearsOtsoSummer;
+        const winter = currentView === 'all-bears' ? DATA.yearsAllBearsWinter : DATA.yearsOtsoWinter;
+        const parts = [];
+        for (const [label, src] of [['Kesä', summer], ['Talvi', winter]]) {
+            const s = src && src[y];
+            if (s && (s.wins + s.losses) > 0) parts.push(`${label} ${s.wins}–${s.losses}`);
+        }
+        return parts.join(' · ');
+    }
+
+    function renderTimelineStream() {
+        const host = document.getElementById('timeline-stream');
+        if (!host) return;
+        const years = hudYearList();
+        host.innerHTML = years.map(y => {
+            const d = DATA.years[y];
+            const played = d.wins + d.losses;
+            const wr = played > 0 ? Math.round(d.wins / played * 100) : 0;
+            const diff = d.goals_for - d.goals_against;
+            return `
+                <div class="year-block" data-year="${y}">
+                    <div class="year-num">${y}</div>
+                    <div class="year-stats">
+                        <div class="year-stat">
+                            <div class="val">${d.matches}</div>
+                            <div class="lbl">Matches</div>
+                        </div>
+                        <div class="year-stat">
+                            <div class="val" style="color: ${wr >= 60 ? 'var(--gold)' : wr >= 45 ? 'var(--blue)' : 'var(--red)'}">${d.wins}–${d.losses}</div>
+                            <div class="lbl">${wr}% win rate</div>
+                        </div>
+                        <div class="year-stat">
+                            <div class="val" style="color: ${diff > 0 ? 'var(--gold)' : 'var(--red)'}">${diff > 0 ? '+' : ''}${diff}</div>
+                            <div class="lbl">Goal diff</div>
+                        </div>
+                        <div class="year-stat">
+                            <div class="val">${d.roster_players}</div>
+                            <div class="lbl">Roster</div>
+                        </div>
+                    </div>
+                    <div class="year-split">${seasonSplitLine(y)}</div>
+                    <div class="year-badges" data-badges-for="${y}"></div>
+                    <div class="year-notes" data-notes-for="${y}"></div>
+                </div>`;
+        }).join('');
+        observeYearBlocks();
+        const first = host.querySelector('.year-block');
+        if (first) first.classList.add('active');
+    }
+
+    // Reveal on entry (same idea as the home category carousel, index.html:1541).
+    function observeYearBlocks() {
+        if (yearObserver) yearObserver.disconnect();
+        yearObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting && e.intersectionRatio > 0.15) e.target.classList.add('active');
+            });
+        }, { threshold: [0.15, 0.4], rootMargin: '-5% 0px -5% 0px' });
+        document.querySelectorAll('.year-block').forEach(b => yearObserver.observe(b));
+    }
+
+    // Which year the reader is standing on: the block whose centre is nearest the
+    // middle of the viewport. A scroll handler is more direct here than squeezing
+    // "closest" into the reveal observer.
+    function activeYearFromScroll() {
+        const blocks = document.querySelectorAll('.year-block');
+        if (!blocks.length) return;
+        const mid = window.innerHeight / 2;
+        let best = null;
+        let bestDist = Infinity;
+        blocks.forEach(b => {
+            const r = b.getBoundingClientRect();
+            const dist = Math.abs(r.top + r.height / 2 - mid);
+            if (dist < bestDist) { bestDist = dist; best = b; }
+        });
+        if (best && best.dataset.year !== hudActiveYear) setHudYear(best.dataset.year);
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!document.getElementById('page-timeline')?.classList.contains('active')) return;
+        if (streamRaf) return;
+        streamRaf = requestAnimationFrame(() => {
+            streamRaf = null;
+            activeYearFromScroll();
+        });
+    }, { passive: true });
+
     function renderTimeline() {
         const years = Object.keys(DATA.years).sort((a, b) => a - b);
         const yearData = years.map(y => ({ year: y, ...DATA.years[y] }));
 
         renderTimelineHud();
+        renderTimelineStream();
 
         // Timeline cards
         const cards = document.getElementById('timeline-cards');
