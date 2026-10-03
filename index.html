@@ -359,6 +359,11 @@
             opacity: 0;
             transform: translateX(80px);
         }
+        .category-chart {
+            width: min(720px, 94%);
+            height: clamp(200px, 32vh, 320px);
+            margin-top: 1.25rem;
+        }
         .category-emoji {
             font-size: 3rem;
             margin-bottom: 0.5rem;
@@ -1561,6 +1566,8 @@
             { emoji: '🐾', name: 'Summer Cub', desc: 'Best summer points/game (≥8 summer games, ≥50 total)', type: 'single', data: summerCub.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.summer_total} in ${p.summer_games})` })) },
             { emoji: '❄️', name: 'Winter Specialist', desc: 'Only played winter — most games', type: 'single', data: winterSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
             { emoji: '☀️', name: 'Summer Specialist', desc: 'Only played summer — most games', type: 'single', data: summerSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
+            // The one team-level slide: not who, but what the squad looked like.
+            { emoji: '📈', name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
         ];
 
         const scrollContainer = document.getElementById('categories-scroll');
@@ -1568,7 +1575,7 @@
 
         // Build category slides
         scrollContainer.innerHTML = categories.map((cat, idx) => {
-            const rows = cat.data.map((p, rowIdx) => {
+            const rows = cat.type === 'chart' ? '' : cat.data.map((p, rowIdx) => {
                 if (cat.type === 'pair') {
                     const n1 = normalize(p.name1), n2 = normalize(p.name2);
                     const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
@@ -1584,16 +1591,84 @@
                 }
                 return playerRow(rowIdx, p.name, p.stat, rowIdx === 0);
             }).join('');
+            const body = cat.type === 'chart'
+                ? '<div class="category-chart"><canvas id="slide-age-chart"></canvas></div>'
+                : `<div class="category-list">${rows}</div>`;
             return `<div class="category-slide" data-category="${idx}">
                 <div class="category-emoji">${cat.emoji}</div>
                 <div class="category-name">${cat.name}</div>
                 <div class="category-desc">${cat.desc}</div>
-                <div class="category-list">${rows}</div>
+                ${body}
             </div>`;
         }).join('');
 
         // Build progress dots
         scrollProgress.innerHTML = categories.map((_, idx) => `<div class="scroll-dot ${idx === 0 ? 'active' : ''}" data-category="${idx}"></div>`).join('');
+
+        // Two lines on two axes: squad size is a headcount, mean age is years old,
+        // and neither belongs on the other's scale. Lines rather than bars because
+        // a roster that never leaves 18–31 would need a truncated bar axis to read.
+        const ageCanvas = document.getElementById('slide-age-chart');
+        if (ageCanvas && DATA.years) {
+            const yrs = Object.keys(DATA.years).sort();
+            new Chart(ageCanvas, {
+                type: 'line',
+                data: {
+                    labels: yrs,
+                    datasets: [
+                        {
+                            label: 'Roster (players)',
+                            data: yrs.map(y => DATA.years[y].roster_players),
+                            borderColor: 'rgba(123, 167, 204, 0.95)',
+                            backgroundColor: 'rgba(123, 167, 204, 0.14)',
+                            borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3,
+                            yAxisID: 'y',
+                        },
+                        {
+                            label: 'Avg age (years)',
+                            data: yrs.map(y => DATA.years[y].avg_age ?? null),
+                            borderColor: '#e5b037',
+                            backgroundColor: '#e5b037',
+                            borderWidth: 2, pointRadius: 2, fill: false, tension: 0.3,
+                            spanGaps: true, yAxisID: 'y1',
+                        },
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { labels: { color: '#8a9bae', boxWidth: 12, font: { size: 11 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: (c) => {
+                                    if (c.dataset.yAxisID !== 'y1') return `Roster: ${c.parsed.y} players`;
+                                    const d = DATA.years[c.label] || {};
+                                    if (c.parsed.y == null) return 'Avg age: no birthdays recorded';
+                                    return `Avg age: ${c.parsed.y} (${d.avg_age_known}/${d.roster_players} with a recorded birthday)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#8a9bae', maxTicksLimit: 6, font: { size: 10 } }, grid: { display: false } },
+                        // No axis titles: the right one lands on top of its own ticks at
+                        // slide width. The legend carries the units instead.
+                        y: {
+                            position: 'left',
+                            ticks: { color: 'rgba(123, 167, 204, 0.85)', font: { size: 10 } },
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                        },
+                        y1: {
+                            position: 'right',
+                            ticks: { color: 'rgba(229, 176, 55, 0.85)', font: { size: 10 } },
+                            grid: { display: false },
+                        },
+                    }
+                }
+            });
+        }
 
         // Intersection observer for scroll-triggered animations
         const observer = new IntersectionObserver((entries) => {
