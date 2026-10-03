@@ -364,10 +364,6 @@
             height: clamp(200px, 32vh, 320px);
             margin-top: 1.25rem;
         }
-        .category-emoji {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
         .category-name {
             font-family: 'Prototype', sans-serif;
             font-size: 2.5rem;
@@ -463,9 +459,6 @@
         @media (max-width: 768px) {
             .category-name {
                 font-size: 1.8rem;
-            }
-            .category-emoji {
-                font-size: 2rem;
             }
             .category-list {
                 max-width: 100%;
@@ -1539,35 +1532,35 @@
             .map(([name, d]) => ({ name, games: d.summer_games }));
 
         const categories = [
-            { emoji: '🤝', name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
-            { emoji: '🎯', name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
-            { emoji: '🔗', name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
-            { emoji: '🎯', name: 'Pass to Me', desc: 'Most unique players who assisted them, per game', type: 'single', data: passToMe.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { emoji: '🤝', name: 'Good Samaritan', desc: 'Most unique players assisted, per game', type: 'single', data: goodSam.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { emoji: '🔗', name: 'The Connector', desc: 'Most unique players connected via passes, per game', type: 'single', data: connector.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { emoji: '🪜', name: 'Iron Ladder', desc: 'Most seasons played', type: 'single', data: ironLadder.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons` })) },
-            { emoji: '🏃', name: 'Marathon Runner', desc: 'Longest career span', type: 'single', data: marathon.map(p => ({ name: p.name, stat: `${p.span} years (${p.first}–${p.last})` })) },
-            { emoji: '🔥', name: 'Streak Master', desc: 'Most consecutive seasons in a row', type: 'single', data: streak.slice(0, 3).map(p => ({ name: p.name, stat: `${p.streak} consecutive seasons` })) },
-            { emoji: '🦅', name: 'The Phoenix', desc: 'Biggest gap (3+ years) then comeback', type: 'single', data: phoenix.slice(0, 3).map(p => ({ name: p.name, stat: `${p.gap}yr gap (${p.before}→${p.after}), ${p.seasons} seasons` })) },
-            { emoji: '💥', name: 'Points Machine', desc: 'Most points per game', type: 'single', data: ppg.map(p => ({ name: p.name, stat: `${p.perGame} pts/game (${p.total} in ${p.games})` })) },
-            { emoji: '🏎️', name: 'Speed Runner', desc: 'Fastest to 100 career points', type: 'single', data: speed.map(p => ({ name: p.name, stat: `${p.games} games to ${p.points}` })) },
-            { emoji: '👑', name: 'The Legend', desc: 'Most career points', type: 'single', data: legend.map(([n, d]) => ({ name: n, stat: `${d.total} points (${d.goals}G/${d.assists}A)` })) },
-            { emoji: '🥅', name: 'Goal Machine', desc: 'Most career goals', type: 'single', data: goals.map(([n, d]) => ({ name: n, stat: `${d.goals} goals (${d.assists}A)` })) },
-            { emoji: '🎨', name: 'Assist King', desc: 'Most career assists', type: 'single', data: assists.map(([n, d]) => ({ name: n, stat: `${d.assists} assists (${d.goals}G)` })) },
-            { emoji: '🎭', name: 'Pure Playmaker', desc: 'Highest assist-to-goal ratio', type: 'single', data: playmaker.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.assists}A/${p.goals}G)` })) },
-            { emoji: '⚔️', name: 'Finisher', desc: 'Highest goal-to-assist ratio', type: 'single', data: finisher.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.goals}G/${p.assists}A)` })) },
-            { emoji: '🌍', name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
-            { emoji: '📜', name: 'The Archivist', desc: 'Founding member (2006) still active', type: 'single', data: archivist.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons (${d.first_year}–${d.last_year})` })) },
-            { emoji: '🛡️', name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorerAbs.map(p => ({ name: p.name, stat: `${p.total} goals (${p.games} games)` })) },
-            { emoji: '🛡️', name: 'Defense Scorer Rate', desc: 'Best defense goals per game (min 10)', type: 'single', data: defScorerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
-            { emoji: '📡', name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymakerAbs.map(p => ({ name: p.name, stat: `${p.total} assists (${p.games} games)` })) },
-            { emoji: '📡', name: 'Defense Playmaker Rate', desc: 'Best defense assists per game (min 10)', type: 'single', data: defPlaymakerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
-            { emoji: '🐻', name: 'Winter Bear', desc: 'Best winter points/game (≥8 winter games, ≥50 total)', type: 'single', data: winterBear.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.winter_total} in ${p.winter_games})` })) },
-            { emoji: '🐾', name: 'Summer Cub', desc: 'Best summer points/game (≥8 summer games, ≥50 total)', type: 'single', data: summerCub.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.summer_total} in ${p.summer_games})` })) },
-            { emoji: '❄️', name: 'Winter Specialist', desc: 'Only played winter — most games', type: 'single', data: winterSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
-            { emoji: '☀️', name: 'Summer Specialist', desc: 'Only played summer — most games', type: 'single', data: summerSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
+            { name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
+            { name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
+            { name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
+            { name: 'Pass to Me', desc: 'Most unique players who assisted them, per game', type: 'single', data: passToMe.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
+            { name: 'Good Samaritan', desc: 'Most unique players assisted, per game', type: 'single', data: goodSam.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
+            { name: 'The Connector', desc: 'Most unique players connected via passes, per game', type: 'single', data: connector.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
+            { name: 'Iron Ladder', desc: 'Most seasons played', type: 'single', data: ironLadder.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons` })) },
+            { name: 'Marathon Runner', desc: 'Longest career span', type: 'single', data: marathon.map(p => ({ name: p.name, stat: `${p.span} years (${p.first}–${p.last})` })) },
+            { name: 'Streak Master', desc: 'Most consecutive seasons in a row', type: 'single', data: streak.slice(0, 3).map(p => ({ name: p.name, stat: `${p.streak} consecutive seasons` })) },
+            { name: 'The Phoenix', desc: 'Biggest gap (3+ years) then comeback', type: 'single', data: phoenix.slice(0, 3).map(p => ({ name: p.name, stat: `${p.gap}yr gap (${p.before}→${p.after}), ${p.seasons} seasons` })) },
+            { name: 'Points Machine', desc: 'Most points per game', type: 'single', data: ppg.map(p => ({ name: p.name, stat: `${p.perGame} pts/game (${p.total} in ${p.games})` })) },
+            { name: 'Speed Runner', desc: 'Fastest to 100 career points', type: 'single', data: speed.map(p => ({ name: p.name, stat: `${p.games} games to ${p.points}` })) },
+            { name: 'The Legend', desc: 'Most career points', type: 'single', data: legend.map(([n, d]) => ({ name: n, stat: `${d.total} points (${d.goals}G/${d.assists}A)` })) },
+            { name: 'Goal Machine', desc: 'Most career goals', type: 'single', data: goals.map(([n, d]) => ({ name: n, stat: `${d.goals} goals (${d.assists}A)` })) },
+            { name: 'Assist King', desc: 'Most career assists', type: 'single', data: assists.map(([n, d]) => ({ name: n, stat: `${d.assists} assists (${d.goals}G)` })) },
+            { name: 'Pure Playmaker', desc: 'Highest assist-to-goal ratio', type: 'single', data: playmaker.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.assists}A/${p.goals}G)` })) },
+            { name: 'Finisher', desc: 'Highest goal-to-assist ratio', type: 'single', data: finisher.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.goals}G/${p.assists}A)` })) },
+            { name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
+            { name: 'The Archivist', desc: 'Founding member (2006) still active', type: 'single', data: archivist.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons (${d.first_year}–${d.last_year})` })) },
+            { name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorerAbs.map(p => ({ name: p.name, stat: `${p.total} goals (${p.games} games)` })) },
+            { name: 'Defense Scorer Rate', desc: 'Best defense goals per game (min 10)', type: 'single', data: defScorerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
+            { name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymakerAbs.map(p => ({ name: p.name, stat: `${p.total} assists (${p.games} games)` })) },
+            { name: 'Defense Playmaker Rate', desc: 'Best defense assists per game (min 10)', type: 'single', data: defPlaymakerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
+            { name: 'Winter Bear', desc: 'Best winter points/game (≥8 winter games, ≥50 total)', type: 'single', data: winterBear.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.winter_total} in ${p.winter_games})` })) },
+            { name: 'Summer Cub', desc: 'Best summer points/game (≥8 summer games, ≥50 total)', type: 'single', data: summerCub.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.summer_total} in ${p.summer_games})` })) },
+            { name: 'Winter Specialist', desc: 'Only played winter — most games', type: 'single', data: winterSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
+            { name: 'Summer Specialist', desc: 'Only played summer — most games', type: 'single', data: summerSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
             // The one team-level slide: not who, but what the squad looked like.
-            { emoji: '📈', name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
+            { name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
         ];
 
         const scrollContainer = document.getElementById('categories-scroll');
@@ -1595,7 +1588,6 @@
                 ? '<div class="category-chart"><canvas id="slide-age-chart"></canvas></div>'
                 : `<div class="category-list">${rows}</div>`;
             return `<div class="category-slide" data-category="${idx}">
-                <div class="category-emoji">${cat.emoji}</div>
                 <div class="category-name">${cat.name}</div>
                 <div class="category-desc">${cat.desc}</div>
                 ${body}
