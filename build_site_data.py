@@ -842,7 +842,8 @@ def build_years(gameplay: list[dict], include_all_bears: bool = False, season_ty
         season_type: If 'summer', only summer seasons. If 'winter', only winter seasons.
                     If None, include all seasons (full year).
     
-    Returns: {year: {matches, wins, losses, goals_for, goals_against, roster_players}}
+    Returns: {year: {matches, wins, losses, goals_for, goals_against, roster_players,
+                     roster_names}}
     """
     years = defaultdict(lambda: {
         "matches": 0, "wins": 0, "losses": 0,
@@ -919,6 +920,10 @@ def build_years(gameplay: list[dict], include_all_bears: bool = False, season_ty
             "goals_for": y["goals_for"],
             "goals_against": y["goals_against"],
             "roster_players": len(y["roster_players"]),
+            # Canonicalized names of the players who appeared for this team in this
+            # year — the timeline HUD cloud is seeded from exactly this roster, so it
+            # must match roster_players rather than players[].years (all Otso teams).
+            "roster_names": sorted(y["roster_players"]),
         }
     
     return result
