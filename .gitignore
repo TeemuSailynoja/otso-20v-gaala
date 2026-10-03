@@ -222,3 +222,7 @@ __marimo__/
 data/raw/
 data/cache_manifest.json
 # Processed data is committed (include data/processed/)
+
+# Personal data (birthdays etc.) — never commit, never publish.
+# Only aggregates derived from it may reach site_data/.
+data/private/
