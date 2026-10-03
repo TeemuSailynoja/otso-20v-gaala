@@ -1337,12 +1337,25 @@ SEASONS_NOT_PLAYED = {"2020.2"}
 TROPHY_DIVISION = "avoin"
 
 
+def _placement_rank(placement: str, medal: str | None) -> int:
+    """Sort key for a placement string: medals first, then numeric rank, unknown last."""
+    if medal:
+        return MEDAL_RANK[medal]
+    match = re.match(r"^(\d+)\.$", placement or "")
+    return 3 + int(match.group(1)) if match else 999
+
+
 def build_trophies(raw_data: list[dict]) -> dict:
     """Derive the season-level trophy record from the raw placement tables.
 
     A trophy is a Kulta/Hopea/Pronssi placement in the Avoin division by an Otso
     team (main, 2, 3, Grizzly, Polar — never Akatemia) in a season-deciding event.
     Tour stops are regular-season events and are deliberately not counted.
+
+    Each season record keeps the single best result (medal/team/placement, which is
+    what the trophy cabinet counts) and also lists every Otso team that finished in
+    the division under "entries" — in 2013 winter Otso won it, Otso 2 was 7th and
+    Otso 3 was 10th, and the timeline shows all three.
     """
     by_id = {d["id"]: d for d in raw_data if isinstance(d, dict) and "id" in d}
 
@@ -1358,6 +1371,7 @@ def build_trophies(raw_data: list[dict]) -> dict:
             "team": None,
             "placement": None,
             "played": season_id not in SEASONS_NOT_PLAYED,
+            "entries": [],
         }
         season = by_id.get(season_id)
         if season is None:
@@ -1368,6 +1382,7 @@ def build_trophies(raw_data: list[dict]) -> dict:
         best_medal = None
         best_team = None
         best_numeric = None  # (rank, placement string, team)
+        by_team: dict[str, dict] = {}  # every Otso team in the division, best result each
         for p in season.get("placements") or []:
             if not (p.get("division") or "").strip().lower().startswith(TROPHY_DIVISION):
                 continue
@@ -1385,6 +1400,17 @@ def build_trophies(raw_data: list[dict]) -> dict:
                     rank = int(match.group(1))
                     if best_numeric is None or rank < best_numeric[0]:
                         best_numeric = (rank, placement, team)
+
+            if placement:
+                prev = by_team.get(team)
+                if prev is None or _placement_rank(placement, medal) < _placement_rank(
+                    prev["placement"], prev["medal"]
+                ):
+                    by_team[team] = {"team": team, "placement": placement, "medal": medal}
+
+        record["entries"] = sorted(
+            by_team.values(), key=lambda e: _placement_rank(e["placement"], e["medal"])
+        )
 
         if best_medal is not None:
             record["medal"] = best_medal

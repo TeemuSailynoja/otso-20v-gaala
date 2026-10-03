@@ -7,7 +7,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "10.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "10.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2006,
@@ -16,7 +23,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "4.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "4.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2007,
@@ -25,7 +39,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "6.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "6.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2007,
@@ -34,7 +55,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "4.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "4.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2008,
@@ -43,7 +71,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "8.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "8.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2008,
@@ -52,7 +87,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "8.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "8.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2009,
@@ -61,7 +103,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "5.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "5.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2009,
@@ -70,7 +119,14 @@
       "medal": "bronze",
       "team": "Otso",
       "placement": "Pronssi",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Pronssi",
+          "medal": "bronze"
+        }
+      ]
     },
     {
       "year": 2010,
@@ -79,7 +135,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "6.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "6.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2010,
@@ -88,7 +151,14 @@
       "medal": null,
       "team": "Otso",
       "placement": "5.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "5.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2011,
@@ -97,7 +167,14 @@
       "medal": "bronze",
       "team": "Otso",
       "placement": "Pronssi",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Pronssi",
+          "medal": "bronze"
+        }
+      ]
     },
     {
       "year": 2011,
@@ -106,7 +183,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso2",
+          "placement": "12.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2012,
@@ -115,7 +204,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2012,
@@ -124,7 +220,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso2",
+          "placement": "9.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2013,
@@ -133,7 +241,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2013,
@@ -142,7 +257,24 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso 2",
+          "placement": "7.",
+          "medal": null
+        },
+        {
+          "team": "Otso 3",
+          "placement": "10.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2014,
@@ -151,7 +283,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2014,
@@ -160,7 +299,24 @@
       "medal": "silver",
       "team": "Otso",
       "placement": "Hopea",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Hopea",
+          "medal": "silver"
+        },
+        {
+          "team": "Otso 2",
+          "placement": "6.",
+          "medal": null
+        },
+        {
+          "team": "Otso 3",
+          "placement": "23.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2015,
@@ -169,7 +325,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2015,
@@ -178,7 +341,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso 3",
+          "placement": "13.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2016,
@@ -187,7 +362,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2016,
@@ -196,7 +378,24 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso 2",
+          "placement": "5.",
+          "medal": null
+        },
+        {
+          "team": "Otso 3",
+          "placement": "20.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2017,
@@ -205,7 +404,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2017,
@@ -214,7 +420,24 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso 2",
+          "placement": "4.",
+          "medal": null
+        },
+        {
+          "team": "Otso 3",
+          "placement": "18.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2018,
@@ -223,7 +446,14 @@
       "medal": "silver",
       "team": "Otso",
       "placement": "Hopea",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Hopea",
+          "medal": "silver"
+        }
+      ]
     },
     {
       "year": 2018,
@@ -232,7 +462,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso 2",
+          "placement": "6.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2019,
@@ -241,7 +483,14 @@
       "medal": "bronze",
       "team": "Otso Grizzly",
       "placement": "Pronssi",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso Grizzly",
+          "placement": "Pronssi",
+          "medal": "bronze"
+        }
+      ]
     },
     {
       "year": 2019,
@@ -250,7 +499,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso 2",
+          "placement": "5.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2020,
@@ -259,7 +520,19 @@
       "medal": "silver",
       "team": "Otso Grizzly",
       "placement": "Hopea",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso Grizzly",
+          "placement": "Hopea",
+          "medal": "silver"
+        },
+        {
+          "team": "Otso Polar",
+          "placement": "5.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2020,
@@ -268,7 +541,8 @@
       "medal": null,
       "team": null,
       "placement": null,
-      "played": false
+      "played": false,
+      "entries": []
     },
     {
       "year": 2021,
@@ -277,7 +551,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2021,
@@ -286,7 +567,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso2",
+          "placement": "8.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2022,
@@ -295,7 +588,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     },
     {
       "year": 2022,
@@ -304,7 +604,19 @@
       "medal": "gold",
       "team": "Otso1",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso1",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso2",
+          "placement": "11.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2023,
@@ -313,7 +625,19 @@
       "medal": null,
       "team": "Otso",
       "placement": "4.",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "4.",
+          "medal": null
+        },
+        {
+          "team": "Otso2",
+          "placement": "5.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2023,
@@ -322,7 +646,19 @@
       "medal": "gold",
       "team": "Otso1",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso1",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso2",
+          "placement": "8.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2024,
@@ -331,7 +667,19 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "Otso2",
+          "placement": "6.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2024,
@@ -340,7 +688,19 @@
       "medal": "gold",
       "team": "OTSO",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "OTSO",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "OTSO 2",
+          "placement": "8.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2025,
@@ -349,7 +709,19 @@
       "medal": "bronze",
       "team": "Otso2",
       "placement": "Pronssi",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso2",
+          "placement": "Pronssi",
+          "medal": "bronze"
+        },
+        {
+          "team": "Otso",
+          "placement": "4.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2025,
@@ -358,7 +730,24 @@
       "medal": "gold",
       "team": "OTSO",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "OTSO",
+          "placement": "Kulta",
+          "medal": "gold"
+        },
+        {
+          "team": "OTSO 2",
+          "placement": "5.",
+          "medal": null
+        },
+        {
+          "team": "OTSO 3",
+          "placement": "10.",
+          "medal": null
+        }
+      ]
     },
     {
       "year": 2026,
@@ -367,7 +756,14 @@
       "medal": "gold",
       "team": "Otso",
       "placement": "Kulta",
-      "played": true
+      "played": true,
+      "entries": [
+        {
+          "team": "Otso",
+          "placement": "Kulta",
+          "medal": "gold"
+        }
+      ]
     }
   ],
   "totals": {
