@@ -2207,20 +2207,12 @@
                     <div class="year-num">${y}</div>
                     <div class="year-stats">
                         <div class="year-stat">
-                            <div class="val">${d.matches}</div>
-                            <div class="lbl">Matches</div>
-                        </div>
-                        <div class="year-stat">
                             <div class="val" style="color: ${wr >= 60 ? 'var(--gold)' : wr >= 45 ? 'var(--blue)' : 'var(--red)'}">${d.wins}–${d.losses}</div>
                             <div class="lbl">${wr}% win rate</div>
                         </div>
                         <div class="year-stat">
                             <div class="val" style="color: ${diff > 0 ? 'var(--gold)' : 'var(--red)'}">${diff > 0 ? '+' : ''}${diff}</div>
                             <div class="lbl">Goal diff</div>
-                        </div>
-                        <div class="year-stat">
-                            <div class="val">${d.roster_players}</div>
-                            <div class="lbl">Roster</div>
                         </div>
                     </div>
                     <div class="year-split">${seasonSplitLine(y)}</div>
