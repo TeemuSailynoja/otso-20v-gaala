@@ -913,6 +913,9 @@
             .player-big-stats { flex-direction: column; }
             .nav-links { gap: 1rem; }
             .nav-links a { font-size: 0.8rem; }
+            /* headroom: the fixed nav is taller on mobile (banner wraps),
+               so the first section's title must clear it */
+            .section { padding-top: 8rem; }
         }
 
         /* SCROLLBAR */
