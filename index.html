@@ -585,6 +585,31 @@
             text-align: center; margin-top: 0.9rem; line-height: 1.5;
         }
 
+        /* QR OVERLAY — `?qr` turns whatever is on screen into a code a phone can scan
+           from across a room. The code itself has to be dark-on-light, so it sits on a
+           white card even though the rest of the site is dark. */
+        .qr-overlay {
+            position: fixed; inset: 0; z-index: 300;
+            background: rgba(12, 16, 20, 0.94);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+        .qr-card {
+            background: #ffffff; color: #14191e;
+            padding: 1.5rem 1.6rem 1.1rem; border-radius: 10px;
+            display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+            max-width: min(92vw, 620px);
+            box-shadow: 0 0 0 4px rgba(229, 176, 55, 0.55);
+        }
+        .qr-title { font-family: 'Prototype', sans-serif; font-size: 1.05rem; letter-spacing: 0.04em; }
+        #qr-canvas { max-width: 90vw; height: auto; image-rendering: pixelated; }
+        .qr-url {
+            font-family: 'Prototype', sans-serif; font-size: 0.82rem; text-align: center;
+            word-break: break-all; user-select: all;
+        }
+        .qr-hint { font-size: 0.74rem; color: #5b6b7a; }
+        .qr-warn { font-size: 0.74rem; color: #6a1e32; font-weight: 600; text-align: center; }
+
         /* Scroll progress indicator */
         .scroll-progress {
             position: fixed;
@@ -2994,10 +3019,86 @@
     }
 
 
+    // ==================== QR OVERLAY ====================
+    // `?qr` on any URL turns the screen into a scannable link — the case is a laptop or a
+    // TV at the gaala and a phone across the room. The code encodes the current URL with the
+    // qr parameter stripped, so scanning lands on the page rather than on another overlay,
+    // and the hash route is kept: `?qr#/player/Roni%20Hotari` makes a code for one player.
+    function qrTargetUrl() {
+        const url = new URL(location.href);
+        url.searchParams.delete('qr');
+        return url.toString();
+    }
+
+    // The encoder is only ever useful here, so it is fetched on demand instead of on every
+    // page view. If it cannot be fetched the address is still printed in full.
+    function loadQrLib() {
+        if (window.QRCode) return Promise.resolve();
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    async function drawQr(canvas, text) {
+        try {
+            await loadQrLib();
+            // Draw at roughly the size it will be shown, so the modules are not resampled
+            // on the way to the screen — a code on a projector has to survive a phone
+            // camera at a distance.
+            const size = Math.max(220, Math.floor(Math.min(window.innerWidth, window.innerHeight) * 0.6));
+            await window.QRCode.toCanvas(canvas, text, { width: size, margin: 2, errorCorrectionLevel: 'M' });
+        } catch (err) {
+            const fallback = document.createElement('div');
+            fallback.className = 'qr-warn';
+            fallback.textContent = 'Could not load the QR code — copy the address above.';
+            canvas.replaceWith(fallback);
+        }
+    }
+
+    function showQrOverlay() {
+        const target = qrTargetUrl();
+        const local = location.protocol === 'file:'
+            || /^(localhost|127\.|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
+        const overlay = document.createElement('div');
+        overlay.className = 'qr-overlay';
+        overlay.innerHTML = `<div class="qr-card">
+            <div class="qr-title"></div>
+            <canvas id="qr-canvas"></canvas>
+            <div class="qr-url"></div>
+            <div class="qr-warn" hidden>This address is local — only this machine can open it.</div>
+            <div class="qr-hint">Point a phone camera at the code. Esc or click to close.</div>
+        </div>`;
+        // The address comes from the URL bar, so it goes in as text, never as markup.
+        overlay.querySelector('.qr-title').textContent = document.title;
+        overlay.querySelector('.qr-url').textContent = target;
+        const warn = overlay.querySelector('.qr-warn');
+        if (local) warn.hidden = false; else warn.remove();
+        const canvas = overlay.querySelector('#qr-canvas');
+        canvas.setAttribute('aria-label', 'QR code for ' + target);
+        document.body.appendChild(overlay);
+
+        const close = () => {
+            overlay.remove();
+            document.removeEventListener('keydown', onKey);
+            // Drop the flag so a reload does not reopen the overlay.
+            history.replaceState(null, '', target);
+        };
+        const onKey = (e) => { if (e.key === 'Escape') close(); };
+        document.addEventListener('keydown', onKey);
+        overlay.addEventListener('click', close);
+        drawQr(canvas, target);
+    }
+
+
     async function init() {
         await loadData();
         initParticles();
         navigate();
+        if (new URLSearchParams(location.search).has('qr')) showQrOverlay();
     }
 
     init();

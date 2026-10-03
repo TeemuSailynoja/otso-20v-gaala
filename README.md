@@ -55,6 +55,23 @@ python -m http.server 8000
 3. Select `main` branch, `/ (root)` folder
 4. Site will be live at `https://<username>.github.io/otso-20v-gaala/`
 
+## QR Overlay (`?qr`)
+
+Append `?qr` to any URL to turn the screen into a scannable QR code for that page — the use
+case is a laptop or a TV at the gaala and a phone across the room:
+
+```
+https://<username>.github.io/otso-20v-gaala/?qr
+https://<username>.github.io/otso-20v-gaala/?qr#/player/Roni%20Hotari
+```
+
+The code encodes the same URL with `?qr` removed, so scanning opens the page rather than
+another overlay, and the hash route is kept — a code for one player page is the point. Esc
+or a click closes it and drops the flag from the address bar. Opened from `localhost` the
+overlay says so, because a local address is not scannable by anyone else's phone. The encoder
+(~24 KB) is fetched from jsDelivr only when `?qr` is present; if it cannot be fetched, the
+address is printed in full instead.
+
 ## Data Sources
 
 - **pelikone.fi**: Season team cards, match results, point-by-point gameplay
