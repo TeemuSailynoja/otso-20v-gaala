@@ -833,6 +833,9 @@
         .hud-chip.bronze { border-color: rgba(106, 30, 50, 0.7); color: #d08a6a; }
         /* YEAR STREAM — one snapped block per season, read under the HUD */
         html.snap-timeline { scroll-snap-type: y proximity; }
+        /* The intro is a snap point too, so the page rests showing the heading
+           instead of snapping straight past it into the first year. */
+        .timeline-intro { scroll-snap-align: start; }
         .timeline-stream { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
         .year-block {
             scroll-snap-align: start;
