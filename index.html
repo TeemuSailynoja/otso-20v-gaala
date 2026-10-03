@@ -797,13 +797,6 @@
             gap: 0.35rem;
             min-width: 190px;
         }
-        .hud-year {
-            font-family: 'Prototype', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            font-weight: 800;
-            line-height: 1;
-            color: var(--gold);
-        }
         .hud-metrics { display: flex; gap: 1rem; }
         .hud-metric { text-align: center; }
         .hud-metric .val {
@@ -1098,7 +1091,6 @@
                 <div class="hud-chart-label">Roster size</div>
             </div>
             <div class="hud-readout">
-                <div class="hud-year" id="hud-year">—</div>
                 <div class="hud-metrics">
                     <div class="hud-metric">
                         <div class="val" id="hud-matches">—</div>
@@ -2094,7 +2086,6 @@
             hudChart.update('none');
         }
 
-        document.getElementById('hud-year').textContent = y;
         document.getElementById('hud-matches').textContent = d.matches;
         const played = d.wins + d.losses;
         document.getElementById('hud-winrate').textContent =
