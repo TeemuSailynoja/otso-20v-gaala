@@ -785,6 +785,85 @@
             border-radius: 8px;
         }
 
+        /* TIMELINE HUD — pinned under the fixed nav while the year stream scrolls */
+        .timeline-intro {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 1rem;
+            text-align: center;
+        }
+        .timeline-intro p { color: var(--muted); font-size: 1rem; }
+        .timeline-hud {
+            position: sticky;
+            top: var(--nav-h, 0px);
+            z-index: 90;
+            display: flex;
+            align-items: stretch;
+            gap: 1.5rem;
+            height: clamp(150px, 25vh, 260px);
+            padding: 0.75rem 2rem;
+            background: rgba(28, 36, 43, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .hud-chart-wrap { position: relative; flex: 1; min-width: 0; }
+        .hud-chart-box { position: absolute; inset: 0; }
+        .hud-cloud-canvas { position: absolute; inset: 0; pointer-events: none; }
+        .hud-chart-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            pointer-events: none;
+        }
+        .hud-readout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 0.35rem;
+            min-width: 190px;
+        }
+        .hud-year {
+            font-family: 'Prototype', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--gold);
+        }
+        .hud-metrics { display: flex; gap: 1rem; }
+        .hud-metric { text-align: center; }
+        .hud-metric .val {
+            font-family: 'Prototype', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+        .hud-metric .lbl {
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .hud-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: flex-end; }
+        .hud-chip {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: var(--muted);
+        }
+        .hud-chip.gold { border-color: rgba(229, 176, 55, 0.5); color: var(--gold); }
+        .hud-chip.silver { border-color: rgba(208, 208, 208, 0.45); color: var(--gray); }
+        .hud-chip.bronze { border-color: rgba(106, 30, 50, 0.7); color: #d08a6a; }
+        /* Old dashboard cards — kept only until the year stream is verified (step 7 deletes them) */
+        .timeline-legacy { display: none; }
+
         /* TIMELINE PAGE */
         .timeline-toggles {
             display: flex;
@@ -910,6 +989,22 @@
             /* headroom: the fixed nav is taller on mobile (banner wraps),
                so the first section's title must clear it */
             .section { padding-top: 8rem; }
+            .timeline-intro { padding-top: 8rem; }
+            .timeline-hud {
+                flex-direction: column;
+                height: clamp(190px, 27vh, 260px);
+                padding: 0.5rem 1rem;
+                gap: 0.25rem;
+            }
+            .hud-readout {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: baseline;
+                justify-content: space-between;
+                min-width: 0;
+                gap: 0.5rem;
+            }
+            .hud-chips { flex-basis: 100%; justify-content: flex-start; }
         }
 
         /* SCROLLBAR */
@@ -1034,10 +1129,38 @@
 
     <!-- TIMELINE PAGE -->
     <div id="page-timeline" class="page">
+        <div class="timeline-intro">
+            <h2>20-Year Timeline</h2>
+            <p>Every season at a glance</p>
+        </div>
+        <div class="timeline-hud" id="timeline-hud">
+            <div class="hud-chart-wrap">
+                <div class="hud-chart-box"><canvas id="hud-roster-chart"></canvas></div>
+                <div class="hud-chart-label">Roster size</div>
+            </div>
+            <div class="hud-readout">
+                <div class="hud-year" id="hud-year">—</div>
+                <div class="hud-metrics">
+                    <div class="hud-metric">
+                        <div class="val" id="hud-matches">—</div>
+                        <div class="lbl">Matches</div>
+                    </div>
+                    <div class="hud-metric">
+                        <div class="val" id="hud-winrate">—</div>
+                        <div class="lbl">Win rate</div>
+                    </div>
+                    <div class="hud-metric">
+                        <div class="val" id="hud-roster">—</div>
+                        <div class="lbl">Roster</div>
+                    </div>
+                </div>
+                <div class="hud-chips" id="hud-chips"></div>
+            </div>
+        </div>
+        <div class="timeline-stream" id="timeline-stream"></div>
+        <div class="timeline-legacy">
         <section class="section">
             <div class="section-header">
-                <h2>20-Year Timeline</h2>
-                <p>Every season at a glance</p>
                 <div class="timeline-toggles">
                     <div class="timeline-toggle">
                         <button class="toggle-btn active" data-view="otso">Otso</button>
@@ -1074,6 +1197,7 @@
             </div>
             <div class="timeline-year-cards" id="timeline-cards"></div>
         </section>
+        </div><!-- /.timeline-legacy (deleted in step 7) -->
         <footer class="footer">
             <p>Otso Ultimate Frisbee — 20 years of competition since 2006</p>
         </footer>
@@ -1954,9 +2078,139 @@
     });
 
     // ==================== TIMELINE PAGE ====================
+    // ==================== TIMELINE HUD ====================
+    let hudChart = null;
+    let hudActiveYear = null;
+
+    const MEDAL_EMOJI = { gold: '🥇', silver: '🥈', bronze: '🥉' };
+    const SEASON_LABEL = { summer: 'Kesä', winter: 'Talvi' };
+
+    // The nav height is not a constant: the construction banner wraps to two lines
+    // on narrow screens. Sticky offsets and snap margins must be measured, not guessed.
+    function measureTimelineChrome() {
+        const root = document.documentElement;
+        const nav = document.querySelector('nav');
+        const hud = document.getElementById('timeline-hud');
+        if (nav) root.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        if (hud) root.style.setProperty('--hud-h', hud.offsetHeight + 'px');
+    }
+
+    window.addEventListener('resize', () => {
+        if (document.getElementById('page-timeline')?.classList.contains('active')) {
+            measureTimelineChrome();
+        }
+    });
+
+    // Vertical dashed line on the year the reader is currently standing on.
+    const hudYearMarkerPlugin = {
+        id: 'hudYearMarker',
+        afterDatasetsDraw(chart) {
+            const idx = chart.$activeIndex;
+            if (idx === null || idx === undefined || idx < 0) return;
+            const x = chart.scales.x.getPixelForValue(idx);
+            const area = chart.chartArea;
+            const ctx = chart.ctx;
+            ctx.save();
+            ctx.strokeStyle = 'rgba(229, 176, 55, 0.5)';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(x, area.top);
+            ctx.lineTo(x, area.bottom);
+            ctx.stroke();
+            ctx.restore();
+        }
+    };
+
+    function hudYearList() {
+        return Object.keys(DATA.years).sort((a, b) => a - b);
+    }
+
+    function renderTimelineHud() {
+        const years = hudYearList();
+        const rows = years.map(y => ({ year: y, ...DATA.years[y] }));
+        const canvas = document.getElementById('hud-roster-chart');
+        if (!canvas || years.length === 0) return;
+
+        // offsetHeight is 0 while the page is hidden, so measure only once it is active
+        measureTimelineChrome();
+
+        if (hudChart) { hudChart.destroy(); hudChart = null; }
+        hudChart = new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Roster',
+                    data: rows.map(r => r.roster_players),
+                    borderColor: 'rgba(8, 92, 149, 1)',
+                    backgroundColor: 'rgba(8, 92, 149, 0.12)',
+                    fill: true,
+                    tension: 0.3,
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                layout: { padding: { top: 8 } },
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                scales: {
+                    x: {
+                        ticks: { color: '#8a9bae', maxRotation: 0, autoSkip: true, maxTicksLimit: 7, font: { size: 10 } },
+                        grid: { color: 'rgba(255,255,255,0.04)' }
+                    },
+                    y: {
+                        ticks: { color: '#8a9bae', maxTicksLimit: 4, font: { size: 10 } },
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        beginAtZero: true
+                    }
+                }
+            },
+            plugins: [hudYearMarkerPlugin]
+        });
+
+        setHudYear(years.includes(hudActiveYear) ? hudActiveYear : years[0]);
+    }
+
+    function setHudYear(year) {
+        const y = String(year);
+        const d = DATA.years[y];
+        if (!d) return;
+        hudActiveYear = y;
+
+        const years = hudYearList();
+        if (hudChart) {
+            const idx = years.indexOf(y);
+            hudChart.$activeIndex = idx;
+            hudChart.data.datasets[0].pointRadius = years.map((_, i) => (i === idx ? 5 : 0));
+            hudChart.data.datasets[0].pointBackgroundColor = years.map((_, i) => (i === idx ? '#e5b037' : 'rgba(0,0,0,0)'));
+            hudChart.update('none');
+        }
+
+        document.getElementById('hud-year').textContent = y;
+        document.getElementById('hud-matches').textContent = d.matches;
+        const played = d.wins + d.losses;
+        document.getElementById('hud-winrate').textContent =
+            played > 0 ? Math.round(d.wins / played * 100) + '%' : '—';
+        document.getElementById('hud-roster').textContent = d.roster_players;
+
+        const seasons = ((DATA.trophies && DATA.trophies.seasons) || []).filter(s => String(s.year) === y);
+        document.getElementById('hud-chips').innerHTML = seasons.map(s => {
+            if (!s.played) return '';
+            const label = SEASON_LABEL[s.season] || s.season;
+            if (s.medal) return `<span class="hud-chip ${s.medal}">${MEDAL_EMOJI[s.medal]} ${label}</span>`;
+            return `<span class="hud-chip">${label} ${s.placement || '—'}</span>`;
+        }).join('');
+    }
+
     function renderTimeline() {
         const years = Object.keys(DATA.years).sort((a, b) => a - b);
         const yearData = years.map(y => ({ year: y, ...DATA.years[y] }));
+
+        renderTimelineHud();
 
         // Timeline cards
         const cards = document.getElementById('timeline-cards');
