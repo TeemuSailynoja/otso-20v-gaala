@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import glob
+import hashlib
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -540,9 +541,10 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         canonicalize_name("šimon kadlec"): "Šimon Kadlec",
     }
     
-    # Convert sets to sorted lists for JSON, pick best display name
+    # Convert sets to sorted lists for JSON, pick best display name.
+    # Sorted by display name so the output is byte-stable across runs.
     result = {}
-    for canonical, p in players.items():
+    for canonical, p in sorted(players.items()):
         # Collect all observed names for this canonical key
         candidate_names = [name for name in name_order_count.keys() 
                           if canonicalize_name(name) == canonical]
@@ -714,14 +716,20 @@ def build_cooccurrence(gameplay: list[dict], players: dict) -> dict:
                 cooc[p1][p2] += 1
                 cooc[p2][p1] += 1
     
-    # Convert to regular dicts with display names
+    # Convert to regular dicts with display names. Sort outer keys by display
+    # name and inner keys by count so the JSON is byte-stable across runs —
+    # set iteration order is hash-randomized, which otherwise churns the file
+    # (and the cache-busting DATA_VERSION) on every rebuild.
     result = {}
-    for canon, display_name in canon_to_display.items():
+    for canon, display_name in sorted(canon_to_display.items(), key=lambda kv: kv[1]):
         if cooc[canon]:
-            result[display_name] = {}
+            inner = {}
             for other_canon, count in cooc[canon].items():
                 if other_canon in canon_to_display:
-                    result[display_name][canon_to_display[other_canon]] = count
+                    inner[canon_to_display[other_canon]] = count
+            result[display_name] = dict(
+                sorted(inner.items(), key=lambda kv: (-kv[1], kv[0]))
+            )
     
     return result
 
@@ -1353,7 +1361,37 @@ def main():
         size_kb = filepath.stat().st_size / 1024
         print(f"  Written {filename} ({size_kb:.1f} KB)")
     
+    stamp_build_version(files)
+    
     print("\nDone! Site data ready in site_data/")
+
+
+def stamp_build_version(files: dict) -> None:
+    """Stamp a content hash of the site data into index.html as DATA_VERSION.
+
+    index.html appends ?v=<hash> to every JSON fetch. Without it, browsers and
+    the GitHub Pages CDN serve stale data after a rebuild — the old frenemies
+    team bug stayed visible long after the fix shipped.
+    """
+    h = hashlib.sha256()
+    for filename in sorted(files):
+        h.update(filename.encode("utf-8"))
+        h.update((SITE_DATA_DIR / filename).read_bytes())
+    version = h.hexdigest()[:12]
+    
+    index = BASE_DIR / "index.html"
+    text = index.read_text(encoding="utf-8")
+    new, n = re.subn(
+        r"(// BUILD_VERSION_START\s*\n\s*const DATA_VERSION = ')[^']*(';)",
+        lambda m: m.group(1) + version + m.group(2),
+        text,
+        count=1,
+    )
+    if n == 0:
+        print("  WARNING: BUILD_VERSION markers not found in index.html; not stamped")
+        return
+    index.write_text(new, encoding="utf-8")
+    print(f"  Stamped DATA_VERSION={version} into index.html")
 
 
 if __name__ == "__main__":

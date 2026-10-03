@@ -1076,10 +1076,17 @@
     let currentView = 'otso'; // 'otso' or 'all-bears'
     let currentSeason = 'full'; // 'full', 'summer', 'winter'
 
+    // DATA_VERSION is stamped by build_site_data.py with a hash of site_data/,
+    // so browsers get fresh JSON whenever the data changes but can still cache
+    // aggressively between rebuilds. Do not edit by hand.
+    // BUILD_VERSION_START
+    const DATA_VERSION = 'ab92d6372c34';
+    // BUILD_VERSION_END
+
     async function loadData() {
         const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies'];
         const results = await Promise.all(files.map(f =>
-            fetch(`site_data/${f}.json`).then(r => r.json())
+            fetch(`site_data/${f}.json?v=${DATA_VERSION}`).then(r => r.json())
         ));
         DATA.players = results[0];
         DATA.passNetwork = results[1];
@@ -1089,12 +1096,12 @@
         
         // Load all years datasets
         const [yearsOtso, yearsAllBears, yearsOtsoSummer, yearsAllBearsSummer, yearsOtsoWinter, yearsAllBearsWinter] = await Promise.all([
-            fetch('site_data/years_otso.json').then(r => r.json()),
-            fetch('site_data/years_all_bears.json').then(r => r.json()),
-            fetch('site_data/years_otso_summer.json').then(r => r.json()),
-            fetch('site_data/years_all_bears_summer.json').then(r => r.json()),
-            fetch('site_data/years_otso_winter.json').then(r => r.json()),
-            fetch('site_data/years_all_bears_winter.json').then(r => r.json()),
+            fetch(`site_data/years_otso.json?v=${DATA_VERSION}`).then(r => r.json()),
+            fetch(`site_data/years_all_bears.json?v=${DATA_VERSION}`).then(r => r.json()),
+            fetch(`site_data/years_otso_summer.json?v=${DATA_VERSION}`).then(r => r.json()),
+            fetch(`site_data/years_all_bears_summer.json?v=${DATA_VERSION}`).then(r => r.json()),
+            fetch(`site_data/years_otso_winter.json?v=${DATA_VERSION}`).then(r => r.json()),
+            fetch(`site_data/years_all_bears_winter.json?v=${DATA_VERSION}`).then(r => r.json()),
         ]);
         DATA.yearsOtso = yearsOtso;
         DATA.yearsAllBears = yearsAllBears;
