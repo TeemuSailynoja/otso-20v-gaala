@@ -364,6 +364,78 @@
             height: clamp(200px, 32vh, 320px);
             margin-top: 1.25rem;
         }
+        .category-table {
+            width: min(560px, 94%);
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .category-table th {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-align: right;
+            padding: 0.35rem 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        }
+        .category-table th:first-child { text-align: left; }
+        .category-table td {
+            padding: 0.5rem;
+            font-size: 1.05rem;
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .category-table td:first-child { text-align: left; }
+        .category-tr { cursor: pointer; }
+        .category-tr:hover td { color: var(--gold); }
+        .cat-td-num { font-family: 'Prototype', sans-serif; white-space: nowrap; }
+        .cat-td-name .category-rank { margin-right: 0.55rem; }
+        .cat-founder { color: var(--gold); margin-left: 0.35rem; }
+        .category-foot {
+            width: min(560px, 94%);
+            text-align: left;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.6rem;
+        }
+        .gap-list {
+            width: min(560px, 94%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            margin-top: 1.25rem;
+        }
+        .gap-row { cursor: pointer; }
+        .gap-name { font-size: 1.05rem; margin-bottom: 0.45rem; }
+        .gap-track {
+            position: relative;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 4px;
+        }
+        .gap-span {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(90deg, rgba(229, 176, 55, 0.65) 0 3px, transparent 3px 8px);
+        }
+        .gap-dot {
+            position: absolute;
+            top: -4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        .gap-dot.before { background: var(--gold); }
+        .gap-dot.after { background: #7ba7cc; }
+        .gap-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.45rem;
+        }
         .category-name {
             font-family: 'Prototype', sans-serif;
             font-size: 2.5rem;
@@ -463,10 +535,18 @@
             .category-list {
                 max-width: 100%;
             }
+            .category-table td { font-size: 0.9rem; padding: 0.4rem 0.3rem; }
+            .gap-label { font-size: 0.7rem; }
             .category-row {
                 font-size: 0.95rem;
                 padding: 0.4rem 0.75rem;
             }
+        }
+        @media (max-width: 480px) {
+            /* The span is derivable from the range, so at phone width it goes away
+               and the name gets its own line instead of wrapping. */
+            .cat-yrs { display: none; }
+            .category-table td:first-child { white-space: nowrap; }
         }
 
         /* LEADERBOARD */
@@ -1301,6 +1381,48 @@
             </div>`;
         }
 
+        // Helper: render a ranked table slide. Several metrics about the same
+        // players belong on one screen: columns, not another three-row podium.
+        function categoryTable(cat) {
+            const head = cat.columns.map(c => `<th>${c}</th>`).join('');
+            const body = cat.rows.map((r, i) => {
+                const n = normalize(r.name);
+                const click = n in players ? `data-player="${n}"` : '';
+                const mark = r.founder ? '<span class="cat-founder">★</span>' : '';
+                return `<tr class="category-tr" ${click}>
+                    <td class="cat-td-name"><span class="category-rank ${rankClass(i)}">${i + 1}</span>${n}${mark}</td>
+                    ${r.cells.map(c => `<td class="cat-td-num">${c}</td>`).join('')}
+                </tr>`;
+            }).join('');
+            return `<table class="category-table">
+                    <thead><tr>${head}</tr></thead>
+                    <tbody>${body}</tbody>
+                </table>
+                <div class="category-foot"><span class="cat-founder">★</span> founding member (2006), still active</div>`;
+        }
+
+        // Helper: render a gap-and-comeback slide. The story is the distance, so
+        // draw it on one shared 2006–2026 axis instead of printing numbers nobody
+        // can compare. Gold dot = last season before leaving, dashed run = years
+        // away, blue dot = the season they came back for.
+        function categoryGaps(cat) {
+            const lo = 2006, hi = 2026;
+            const pct = (y) => (y - lo) / (hi - lo) * 100;
+            return `<div class="gap-list">${cat.data.map(p => {
+                const n = normalize(p.name);
+                const click = n in players ? `data-player="${n}"` : '';
+                return `<div class="gap-row" ${click}>
+                    <div class="gap-name">${n}</div>
+                    <div class="gap-track">
+                        <span class="gap-span" style="left:${pct(p.before).toFixed(2)}%;width:${(pct(p.after) - pct(p.before)).toFixed(2)}%"></span>
+                        <span class="gap-dot before" style="left:${pct(p.before).toFixed(2)}%"></span>
+                        <span class="gap-dot after" style="left:${pct(p.after).toFixed(2)}%"></span>
+                    </div>
+                    <div class="gap-label"><span>${p.before}</span><span>${p.gap} years out · ${p.seasons} seasons back</span><span>${p.after}</span></div>
+                </div>`;
+            }).join('')}</div>`;
+        }
+
         // ===== BUDDY BUDDY (reciprocal: both list each other as TOP target) =====
         const buddyPairs = [];
         const buddySeen = new Set();
@@ -1383,27 +1505,20 @@
         }
         connector.sort((a, b) => b.perGame - a.perGame);
 
-        // ===== IRON LADDER =====
-        const ironLadder = Object.entries(players).sort((a, b) => b[1].season_count - a[1].season_count).slice(0, 3);
-
-        // ===== MARATHON RUNNER =====
-        const marathon = Object.entries(players).map(([n, d]) => ({
-            name: n, span: d.last_year - d.first_year + 1, first: d.first_year, last: d.last_year
-        })).sort((a, b) => b.span - a.span).slice(0, 3);
-
-        // ===== STREAK MASTER =====
-        const streak = [];
-        for (const [name, d] of Object.entries(players)) {
-            const yrs = [...new Set(d.seasons.map(s => { const m = s.match(/^\d{4}/); return m ? parseInt(m[0]) : null; }).filter(Boolean))];
-            let maxStreak = 0, cur = 0;
-            for (let i = 1; i < yrs.length; i++) {
-                if (yrs[i] === yrs[i-1] + 1) cur++; else cur = 0;
-                maxStreak = Math.max(maxStreak, cur + 1);
-            }
-            if (yrs.length > 0) maxStreak = Math.max(maxStreak, 1);
-            streak.push({ name, streak: maxStreak });
-        }
-        streak.sort((a, b) => b.streak - a.streak);
+        // ===== LONGEVITY — one table, not four leaderboards of the same four names.
+        // season_count counts season-instances (summer and winter separately); span
+        // counts calendar years. Streak Master used to rank consecutive calendar
+        // years while labelling them "seasons", and is dropped rather than relabelled:
+        // the span column already says who never left. The Archivist was a single row
+        // (Ilkka, the only 2006 founder still active), so it became the ★ marker.
+        const longevity = Object.entries(players).map(([name, d]) => ({
+            name,
+            seasons: d.season_count,
+            first: d.first_year,
+            last: d.last_year,
+            span: d.last_year - d.first_year + 1,
+            founder: d.first_year === 2006 && d.last_year >= 2023,
+        })).sort((a, b) => b.seasons - a.seasons || b.span - a.span).slice(0, 6);
 
         // ===== THE PHOENIX =====
         const phoenix = [];
@@ -1451,9 +1566,6 @@
 
         // ===== WORLD TRAVELER =====
         const travel = Object.entries(players).sort((a, b) => b[1].teams.length - a[1].teams.length).slice(0, 3);
-
-        // ===== THE ARCHIVIST (2006 founder, still active) =====
-        const archivist = Object.entries(players).filter(([n, d]) => d.first_year === 2006 && d.last_year >= 2023).sort((a, b) => b[1].season_count - a[1].season_count).slice(0, 3);
 
         // ===== DEFENSE SCORER — absolute (most defense goals total) =====
         const defScorerAbs = Object.entries(players)
@@ -1538,10 +1650,8 @@
             { name: 'Pass to Me', desc: 'Most unique players who assisted them, per game', type: 'single', data: passToMe.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
             { name: 'Good Samaritan', desc: 'Most unique players assisted, per game', type: 'single', data: goodSam.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
             { name: 'The Connector', desc: 'Most unique players connected via passes, per game', type: 'single', data: connector.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { name: 'Iron Ladder', desc: 'Most seasons played', type: 'single', data: ironLadder.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons` })) },
-            { name: 'Marathon Runner', desc: 'Longest career span', type: 'single', data: marathon.map(p => ({ name: p.name, stat: `${p.span} years (${p.first}–${p.last})` })) },
-            { name: 'Streak Master', desc: 'Most consecutive seasons in a row', type: 'single', data: streak.slice(0, 3).map(p => ({ name: p.name, stat: `${p.streak} consecutive seasons` })) },
-            { name: 'The Phoenix', desc: 'Biggest gap (3+ years) then comeback', type: 'single', data: phoenix.slice(0, 3).map(p => ({ name: p.name, stat: `${p.gap}yr gap (${p.before}→${p.after}), ${p.seasons} seasons` })) },
+            { name: 'Longevity', desc: 'Seasons played, and how many years they stayed on the roster', type: 'table', columns: ['Player', 'Seasons', 'Career'], rows: longevity.map(r => ({ name: r.name, founder: r.founder, cells: [String(r.seasons), `${r.first}–${r.last}<span class="cat-yrs"> · ${r.span} yrs</span>`] })) },
+            { name: 'The Phoenix', desc: 'Away three or more years, then back on the roster', type: 'gaps', data: phoenix.slice(0, 3) },
             { name: 'Points Machine', desc: 'Most points per game', type: 'single', data: ppg.map(p => ({ name: p.name, stat: `${p.perGame} pts/game (${p.total} in ${p.games})` })) },
             { name: 'Speed Runner', desc: 'Fastest to 100 career points', type: 'single', data: speed.map(p => ({ name: p.name, stat: `${p.games} games to ${p.points}` })) },
             { name: 'The Legend', desc: 'Most career points', type: 'single', data: legend.map(([n, d]) => ({ name: n, stat: `${d.total} points (${d.goals}G/${d.assists}A)` })) },
@@ -1550,7 +1660,6 @@
             { name: 'Pure Playmaker', desc: 'Highest assist-to-goal ratio', type: 'single', data: playmaker.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.assists}A/${p.goals}G)` })) },
             { name: 'Finisher', desc: 'Highest goal-to-assist ratio', type: 'single', data: finisher.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.goals}G/${p.assists}A)` })) },
             { name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
-            { name: 'The Archivist', desc: 'Founding member (2006) still active', type: 'single', data: archivist.map(([n, d]) => ({ name: n, stat: `${d.season_count} seasons (${d.first_year}–${d.last_year})` })) },
             { name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorerAbs.map(p => ({ name: p.name, stat: `${p.total} goals (${p.games} games)` })) },
             { name: 'Defense Scorer Rate', desc: 'Best defense goals per game (min 10)', type: 'single', data: defScorerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
             { name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymakerAbs.map(p => ({ name: p.name, stat: `${p.total} assists (${p.games} games)` })) },
@@ -1568,7 +1677,7 @@
 
         // Build category slides
         scrollContainer.innerHTML = categories.map((cat, idx) => {
-            const rows = cat.type === 'chart' ? '' : cat.data.map((p, rowIdx) => {
+            const rows = (cat.type === 'chart' || cat.type === 'table' || cat.type === 'gaps') ? '' : cat.data.map((p, rowIdx) => {
                 if (cat.type === 'pair') {
                     const n1 = normalize(p.name1), n2 = normalize(p.name2);
                     const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
@@ -1586,6 +1695,8 @@
             }).join('');
             const body = cat.type === 'chart'
                 ? '<div class="category-chart"><canvas id="slide-age-chart"></canvas></div>'
+                : cat.type === 'table' ? categoryTable(cat)
+                : cat.type === 'gaps' ? categoryGaps(cat)
                 : `<div class="category-list">${rows}</div>`;
             return `<div class="category-slide" data-category="${idx}">
                 <div class="category-name">${cat.name}</div>
@@ -1702,7 +1813,7 @@
         if (firstSlide) firstSlide.classList.add('active');
 
         // Click on category players to go to player page
-        scrollContainer.querySelectorAll('.category-player[data-player]').forEach(row => {
+        scrollContainer.querySelectorAll('.category-player[data-player], .category-tr[data-player], .gap-row[data-player]').forEach(row => {
             row.addEventListener('click', () => {
                 location.hash = `#/player/${encodeURIComponent(row.dataset.player)}`;
             });
