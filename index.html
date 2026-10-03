@@ -390,13 +390,32 @@
         .category-tr:hover td { color: var(--gold); }
         .cat-td-num { font-family: 'Prototype', sans-serif; white-space: nowrap; }
         .cat-td-name .category-rank { margin-right: 0.55rem; }
-        .cat-founder { color: var(--gold); margin-left: 0.35rem; }
+        .cat-mark { color: var(--gold); margin-left: 0.35rem; }
         .category-foot {
             width: min(560px, 94%);
             text-align: left;
             font-size: 0.75rem;
             color: var(--text-secondary);
             margin-top: 0.6rem;
+        }
+        .category-split {
+            width: min(760px, 96%);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.75rem;
+            margin-top: 1rem;
+        }
+        .category-panel { flex: 1; min-width: 0; }
+        .category-panel .category-table { width: 100%; margin-top: 0; }
+        .category-panel .category-table td { font-size: 0.92rem; padding: 0.4rem 0.3rem; }
+        .category-panel .category-table th { font-size: 0.65rem; padding: 0.3rem 0.3rem; }
+        .panel-title {
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.45rem;
+            text-align: left;
         }
         .gap-list {
             width: min(560px, 94%);
@@ -505,6 +524,67 @@
             font-size: 1rem;
         }
 
+        /* THE TRIANGLE — three nodes, edge weight = games on the same roster */
+        .trio-svg {
+            width: min(560px, 94%);
+            height: clamp(200px, 30vh, 300px);
+            margin-top: 0.5rem;
+        }
+        .trio-svg line { stroke: rgba(123, 167, 204, 0.5); stroke-linecap: round; }
+        .trio-node { cursor: pointer; }
+        .trio-node circle { fill: var(--gold); }
+        .trio-node:hover circle { fill: #ffffff; }
+        .trio-name { fill: var(--text); font-size: 13px; font-weight: 600; }
+        .trio-node:hover .trio-name { fill: var(--gold); }
+        .trio-edge-label { fill: var(--muted); font-size: 11px; font-family: 'Prototype', sans-serif; }
+        .trio-caption {
+            width: min(560px, 94%);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 0.75rem;
+            line-height: 1.5;
+        }
+
+        /* THE PAIR — one duo: stat strip, two season lanes, the other pairs below */
+        .duo-names {
+            display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; justify-content: center;
+            font-family: 'Prototype', sans-serif; font-size: 1.6rem; font-weight: 700;
+            color: var(--text); margin-top: 0.5rem;
+        }
+        .duo-name { cursor: pointer; }
+        .duo-name:hover { color: var(--gold); }
+        .duo-vs { color: var(--gold); font-size: 1.2rem; }
+        .duo-stats {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 1.4rem;
+            width: min(640px, 94%); margin-top: 1.1rem;
+        }
+        .duo-stat { text-align: center; min-width: 110px; }
+        .duo-stat-value { font-family: 'Prototype', sans-serif; font-size: 1.45rem; color: var(--gold); }
+        .duo-stat-label {
+            font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+            color: var(--text-secondary); margin-top: 0.25rem;
+        }
+        .duo-lanes { width: min(560px, 94%); margin-top: 1.4rem; }
+        .duo-lane { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.55rem; cursor: pointer; }
+        .duo-lane-name { width: 130px; font-size: 0.85rem; text-align: right; color: var(--text-secondary); flex: none; }
+        .duo-lane:hover .duo-lane-name { color: var(--gold); }
+        .duo-track {
+            position: relative; flex: 1; height: 14px;
+            background: rgba(255, 255, 255, 0.06); border-radius: 3px;
+        }
+        .duo-shared { position: absolute; top: 0; bottom: 0; background: rgba(229, 176, 55, 0.16); }
+        .duo-tick { position: absolute; top: 2px; width: 3px; height: 10px; background: #7ba7cc; transform: translateX(-50%); }
+        .duo-lane:hover .duo-tick { background: var(--gold); }
+        .duo-axis {
+            display: flex; justify-content: space-between; margin-left: 136px;
+            font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.2rem;
+        }
+        .duo-foot {
+            width: min(560px, 94%); font-size: 0.72rem; color: var(--text-secondary);
+            text-align: center; margin-top: 0.9rem; line-height: 1.5;
+        }
+
         /* Scroll progress indicator */
         .scroll-progress {
             position: fixed;
@@ -536,7 +616,12 @@
                 max-width: 100%;
             }
             .category-table td { font-size: 0.9rem; padding: 0.4rem 0.3rem; }
+            .category-split { flex-direction: column; gap: 1.25rem; }
             .gap-label { font-size: 0.7rem; }
+            .duo-names { font-size: 1.15rem; }
+            .duo-lane-name { width: 92px; font-size: 0.75rem; }
+            .duo-axis { margin-left: 98px; }
+            .trio-name { font-size: 11px; }
             .category-row {
                 font-size: 0.95rem;
                 padding: 0.4rem 0.75rem;
@@ -1381,24 +1466,40 @@
             </div>`;
         }
 
-        // Helper: render a ranked table slide. Several metrics about the same
-        // players belong on one screen: columns, not another three-row podium.
-        function categoryTable(cat) {
+        // Helper: render one ranked table. Several metrics about the same players
+        // belong on one screen: columns, not another three-row podium.
+        function categoryTableHtml(cat) {
             const head = cat.columns.map(c => `<th>${c}</th>`).join('');
             const body = cat.rows.map((r, i) => {
                 const n = normalize(r.name);
                 const click = n in players ? `data-player="${n}"` : '';
-                const mark = r.founder ? '<span class="cat-founder">★</span>' : '';
+                const mark = r.mark ? `<span class="cat-mark">${r.mark}</span>` : '';
                 return `<tr class="category-tr" ${click}>
-                    <td class="cat-td-name"><span class="category-rank ${rankClass(i)}">${i + 1}</span>${n}${mark}</td>
+                    <td class="cat-td-name"><span class="category-rank ${rankClass(i)}">${i + 1}</span>${r.label || n}${mark}</td>
                     ${r.cells.map(c => `<td class="cat-td-num">${c}</td>`).join('')}
                 </tr>`;
             }).join('');
             return `<table class="category-table">
                     <thead><tr>${head}</tr></thead>
                     <tbody>${body}</tbody>
-                </table>
-                <div class="category-foot"><span class="cat-founder">★</span> founding member (2006), still active</div>`;
+                </table>`;
+        }
+
+        function categoryTable(cat) {
+            return categoryTableHtml(cat)
+                + (cat.foot ? `<div class="category-foot">${cat.foot}</div>` : '');
+        }
+
+        // Helper: two rankings side by side, for the families where the absolute
+        // leader and the rate leader are different people and one sort order would
+        // hide one of them. Stacks into one column on phones.
+        function categorySplit(cat) {
+            return `<div class="category-split">${cat.panels.map(p => `
+                    <div class="category-panel">
+                        <div class="panel-title">${p.title}</div>
+                        ${categoryTableHtml(p)}
+                    </div>`).join('')}
+                </div>${cat.foot ? `<div class="category-foot">${cat.foot}</div>` : ''}`;
         }
 
         // Helper: render a gap-and-comeback slide. The story is the distance, so
@@ -1423,6 +1524,117 @@
             }).join('')}</div>`;
         }
 
+        // ===== Pair helpers, shared by the duo slide and the triangle caption =====
+        // Shared calendar seasons for a pair. 74 of the 3,299 co-occurrence pairs have an empty
+        // year intersection, so span comes back null-ended and renders '—', never 0–0, and a
+        // null span must not break the sort below.
+        function pairSpan(a, b) {
+            const ya = (players[a] && players[a].years) || [];
+            const yb = (players[b] && players[b].years) || [];
+            const shared = ya.filter(y => yb.indexOf(y) !== -1).sort((x, y) => x - y);
+            return shared.length
+                ? { seasons: shared.length, first: shared[0], last: shared[shared.length - 1], years: shared }
+                : { seasons: 0, first: null, last: null, years: [] };
+        }
+        function linkWeight(a, b) { return (given[a] && given[a][b]) || 0; }
+        function topTarget(p) {
+            const d = given[p];
+            if (!d || Object.keys(d).length === 0) return null;
+            return Object.entries(d).sort((x, y) => y[1] - x[1])[0][0];
+        }
+        // Players whose single biggest assist target is `target` — how much traffic a name gets.
+        function runsThrough(target) {
+            return Object.keys(given).filter(p => topTarget(p) === target);
+        }
+        function firstName(n) { return String(n).split(' ')[0]; }
+        function initials(n) {
+            const parts = String(n).split(' ');
+            return parts.length > 1 ? parts[0].charAt(0) + '. ' + parts.slice(1).join(' ') : n;
+        }
+
+        // ===== THE TRIANGLE renderer. Three nodes, edge stroke width proportional to the
+        // co-occurrence weight. Edges are games on the same roster — never assists.
+        function categoryTrio(cat) {
+            const t = cat.triangle;
+            if (!t) return '';
+            const pos = [[150, 40], [46, 168], [254, 168]];
+            const at = {};
+            t.names.forEach((n, i) => { at[n] = i; });
+            const maxW = Math.max.apply(null, t.edges.map(e => e.w));
+            const edges = t.edges.map(e => {
+                const p = pos[at[e.a]], q = pos[at[e.b]];
+                const sw = (e.w / maxW * 5.5 + 1.5).toFixed(2);
+                return `<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke-width="${sw}"></line>` +
+                    `<text class="trio-edge-label" x="${(p[0] + q[0]) / 2}" y="${(p[1] + q[1]) / 2 - 8}" text-anchor="middle">${e.w}</text>`;
+            }).join('');
+            const nodes = t.names.map((n, i) => {
+                const p = pos[i];
+                const click = n in players ? `data-player="${n}"` : '';
+                const ly = i === 0 ? p[1] - 18 : p[1] + 26;
+                return `<g class="trio-node" ${click}><circle cx="${p[0]}" cy="${p[1]}" r="7"></circle>` +
+                    `<text class="trio-name" x="${p[0]}" y="${ly}" text-anchor="middle">${n}</text></g>`;
+            }).join('');
+            const spans = t.edges.map(e => {
+                const s = pairSpan(e.a, e.b);
+                const range = s.first ? `${s.seasons} seasons, ${s.first}–${s.last}` : 'no shared season';
+                return `${initials(e.a)}–${initials(e.b)} ${e.w} (${range})`;
+            });
+            const runner = cat.runnerUp;
+            return `<svg class="trio-svg" viewBox="0 0 300 210" role="img" aria-label="${t.names.join(', ')}">${edges}${nodes}</svg>
+                <div class="trio-caption">Edge weight = games on the same roster.<br>${spans.join(' · ')}<br>` +
+                `Next trio: ${runner ? runner.names.map(initials).join(', ') + ' — ' + runner.score : '—'}.</div>`;
+        }
+
+        // ===== THE PAIR renderer. One duo: the stat strip carries the claim, the two season
+        // lanes carry the length (a tick per season on a roster, shaded where both were on one),
+        // and the footnote carries the rest of the qualifying set so 'top' is legible.
+        function categoryDuo(cat) {
+            const d = cat.duo;
+            if (!d) return '';
+            const lo = 2010, hi = 2026;
+            const pct = (y) => (y - lo) / (hi - lo) * 100;
+            const shared = pairSpan(d.name1, d.name2);
+            const shade = shared.first
+                ? `<span class="duo-shared" style="left:${pct(shared.first).toFixed(2)}%;width:${(pct(shared.last) - pct(shared.first)).toFixed(2)}%"></span>`
+                : '';
+            const lane = (name) => {
+                const years = (((players[name] || {}).years) || []).slice().sort((x, y) => x - y);
+                const ticks = years.map(y => `<span class="duo-tick" style="left:${pct(y).toFixed(2)}%"></span>`).join('');
+                const click = name in players ? `data-player="${name}"` : '';
+                return `<div class="duo-lane" ${click}>
+                    <div class="duo-lane-name">${name}</div>
+                    <div class="duo-track">${shade}${ticks}</div>
+                </div>`;
+            };
+            const c1 = d.name1 in players ? `data-player="${d.name1}"` : '';
+            const c2 = d.name2 in players ? `data-player="${d.name2}"` : '';
+            const stats = [
+                { v: String(d.games), l: 'games on the same roster' },
+                { v: shared.first ? `${shared.first}–${shared.last}` : '—', l: `${shared.seasons} seasons together` },
+                { v: String(d.assists1 + d.assists2), l: `assists between them · ${d.assists2} ${firstName(d.name2)}→${firstName(d.name1)}, ${d.assists1} back` },
+                { v: `${cat.combined.games} / ${cat.combined.points}`, l: 'combined games / points' },
+            ].map(s => `<div class="duo-stat"><div class="duo-stat-value">${s.v}</div><div class="duo-stat-label">${s.l}</div></div>`).join('');
+            const ch = cat.chain;
+            const chainLine = ch
+                ? `${ch.from} → ${ch.mid} → ${ch.end} (${ch.w1} + ${ch.w2}) is the longest chain of #1 targets in the data. `
+                : '';
+            const spokeTxt = cat.spokeFeeds.length === 1
+                ? `the only player whose #1 target is ${cat.spoke} is ${cat.spokeFeeds[0]} himself`
+                : `${cat.spokeFeeds.length} players — ${cat.spokeFeeds.map(firstName).join(', ')} — have ${cat.spoke} as theirs`;
+            const traffic = `${cat.hubFeeds.length} players run their offense through ${cat.hub}; ${spokeTxt}.`;
+            const others = (cat.others || []).map(p => {
+                const s = pairSpan(p.name1, p.name2);
+                return `${p.name1} ↔ ${p.name2} · ${p.games} games${s.first ? `, ${s.first}–${s.last}` : ''}`;
+            });
+            return `<div class="duo-names"><span class="duo-name" ${c1}>${d.name1}</span><span class="duo-vs">↔</span><span class="duo-name" ${c2}>${d.name2}</span></div>
+                <div class="duo-stats">${stats}</div>
+                <div class="duo-lanes">${lane(d.name1)}${lane(d.name2)}
+                    <div class="duo-axis"><span>${lo}</span><span>${hi}</span></div>
+                </div>
+                <div class="duo-foot">${chainLine}${traffic}</div>
+                <div class="duo-foot">Also true of: ${others.join(' · ')}.</div>`;
+        }
+
         // ===== BUDDY BUDDY (reciprocal: both list each other as TOP target) =====
         const buddyPairs = [];
         const buddySeen = new Set();
@@ -1445,13 +1657,80 @@
             buddySeen.add(key);
             const totalP = Object.values(pGiven).reduce((s, v) => s + v, 0);
             const totalR = Object.values(partnerGiven).reduce((s, v) => s + v, 0);
+            const span = pairSpan(passer, partner);
             buddyPairs.push({
                 name1: passer, name2: partner,
                 pct1: Math.round(topReceiver[1] / totalP * 100),
-                pct2: Math.round(partnerTop[1] / totalR * 100)
+                pct2: Math.round(partnerTop[1] / totalR * 100),
+                assists1: topReceiver[1],
+                assists2: partnerTop[1],
+                games: (cooc[passer] || {})[partner] || 0,
+                seasons: span.seasons,
+                first: span.first,
+                last: span.last,
             });
         }
-        buddyPairs.sort((a, b) => -(a.pct1 + a.pct2) / 2 + (b.pct1 + b.pct2) / 2);
+        // All of them, not a slice: the rule finds exactly four pairs among 177 players, and the
+        // set being complete is what makes "the biggest such pair" mean anything. Ranked by games
+        // on the same roster, so the pair with the most field time leads.
+        buddyPairs.sort((a, b) => b.games - a.games || b.seasons - a.seasons || b.pct1 + b.pct2 - (a.pct1 + a.pct2));
+
+        // ===== THE TRIANGLE — the three players who shared the most field time, scored by the
+        // sum of the three co-occurrence edges. The search is bounded to each player's 12
+        // strongest partners. Edges are games on the same roster, never assists.
+        const topPartners = {};
+        for (const a in cooc) {
+            topPartners[a] = Object.entries(cooc[a]).sort((x, y) => y[1] - x[1]).slice(0, 12).map(x => x[0]);
+        }
+        const triangles = [];
+        const triSeen = new Set();
+        for (const a in topPartners) {
+            const ps = topPartners[a];
+            for (let i = 0; i < ps.length; i++) {
+                for (let j = i + 1; j < ps.length; j++) {
+                    const b = ps[i], c = ps[j];
+                    if ((topPartners[b] || []).indexOf(c) === -1) continue;
+                    const key = [a, b, c].sort().join('||');
+                    if (triSeen.has(key)) continue;
+                    triSeen.add(key);
+                    const edges = [
+                        { a: a, b: b, w: (cooc[a] || {})[b] || 0 },
+                        { a: a, b: c, w: (cooc[a] || {})[c] || 0 },
+                        { a: b, b: c, w: (cooc[b] || {})[c] || 0 },
+                    ];
+                    if (edges.some(e => !e.w)) continue;
+                    triangles.push({
+                        names: [a, b, c].sort(),
+                        edges,
+                        score: edges.reduce((s, e) => s + e.w, 0),
+                    });
+                }
+            }
+        }
+        triangles.sort((x, y) => y.score - x.score);
+
+        // ===== THE PAIR — the reciprocal pair with the most games on the same roster. Derived,
+        // never named: the rule is "each is the other's #1 assist target". By raw field time this
+        // pair is #9 in the dataset, so the slide states the rule instead of leaning on a
+        // superlative the co-occurrence matrix would not support.
+        const duo = buddyPairs[0] || null;
+        const duoFeeds1 = duo ? runsThrough(duo.name1) : [];
+        const duoFeeds2 = duo ? runsThrough(duo.name2) : [];
+        const duoHub = duoFeeds2.length >= duoFeeds1.length ? duo.name2 : duo.name1;
+        const duoSpoke = duoHub === duo.name1 ? duo.name2 : duo.name1;
+        const duoHubFeeds = duoHub === duo.name1 ? duoFeeds1 : duoFeeds2;
+        const duoSpokeFeeds = duoHub === duo.name1 ? duoFeeds2 : duoFeeds1;
+        // feeder → hub → spoke, taking the heaviest feeder link.
+        const duoChainFrom = duoHubFeeds.filter(p => p !== duoSpoke)
+            .sort((x, y) => linkWeight(y, duoHub) - linkWeight(x, duoHub))[0] || null;
+        const duoChain = duoChainFrom ? {
+            from: duoChainFrom, mid: duoHub, end: duoSpoke,
+            w1: linkWeight(duoChainFrom, duoHub), w2: linkWeight(duoHub, duoSpoke),
+        } : null;
+        const duoCombined = duo ? {
+            games: ((players[duo.name1] || {}).games || 0) + ((players[duo.name2] || {}).games || 0),
+            points: ((players[duo.name1] || {}).total || 0) + ((players[duo.name2] || {}).total || 0),
+        } : null;
 
         // ===== TARGET ACQUIRED =====
         const targetAcq = [];
@@ -1473,37 +1752,24 @@
         }
         lifeline.sort((a, b) => b.pct - a.pct);
 
-        // ===== PASS TO ME (per game, min 5 games) =====
-        const passToMe = [];
-        for (const name in players) {
-            const games = players[name].games;
-            if (games < 5) continue;
-            const unique = Object.keys(received[name] || {}).length;
-            passToMe.push({ name, perGame: (unique / games).toFixed(3), unique, games });
-        }
-        passToMe.sort((a, b) => b.perGame - a.perGame);
-
-        // ===== GOOD SAMARITAN (per game, min 5 games) =====
-        const goodSam = [];
-        for (const name in players) {
-            const games = players[name].games;
-            if (games < 5) continue;
-            const unique = Object.keys(given[name] || {}).length;
-            goodSam.push({ name, perGame: (unique / games).toFixed(3), unique, games });
-        }
-        goodSam.sort((a, b) => b.perGame - a.perGame);
-
-        // ===== THE CONNECTOR (per game, min 5 games) =====
-        const connector = [];
+        // ===== THE CONNECTOR — one table: who they receive from, who they give to,
+        // and the union of the two. Pass to Me and Good Samaritan were this table's
+        // first two columns each wearing a slide of its own. =====
+        const connectorRows = [];
         for (const name in players) {
             const games = players[name].games;
             if (games < 5) continue;
             const gp = new Set(Object.keys(given[name] || {}));
             const rp = new Set(Object.keys(received[name] || {}));
             const unique = new Set([...gp, ...rp]).size;
-            connector.push({ name, perGame: (unique / games).toFixed(3), unique, games });
+            connectorRows.push({
+                name, games, unique,
+                inPerGame: (rp.size / games).toFixed(2),
+                outPerGame: (gp.size / games).toFixed(2),
+                perGame: (unique / games).toFixed(2),
+            });
         }
-        connector.sort((a, b) => b.perGame - a.perGame);
+        connectorRows.sort((a, b) => b.perGame - a.perGame);
 
         // ===== LONGEVITY — one table, not four leaderboards of the same four names.
         // season_count counts season-instances (summer and winter separately); span
@@ -1535,140 +1801,123 @@
         }
         phoenix.sort((a, b) => b.gap - a.gap);
 
-        // ===== POINTS MACHINE (per game, min 5 games) =====
-        const ppg = Object.entries(players).filter(([, d]) => d.games >= 5).map(([n, d]) => ({
-            name: n, perGame: (d.total / d.games).toFixed(2), total: d.total, games: d.games
-        })).sort((a, b) => b.perGame - a.perGame).slice(0, 3);
+        // ===== SCORING — volume and rate side by side. Points Machine, The Legend,
+        // Goal Machine and Assist King were one table torn into four slides.
+        // Speed Runner is dropped rather than merged: it filtered players with 100+
+        // career points and ranked them by total career games, which is "fewest
+        // games played", not "fastest to 100" — the per-game point history the label
+        // claims would need is not in the data. =====
+        // The all-time leader in each counting column. When one name owns points, assists and
+        // games at the same time the table says so on the cell — that sweep is the story of the
+        // list, and a plain sort order hides it.
+        const allTimeLeader = {
+            total: Math.max.apply(null, Object.values(players).map(d => d.total)),
+            goals: Math.max.apply(null, Object.values(players).map(d => d.goals)),
+            assists: Math.max.apply(null, Object.values(players).map(d => d.assists)),
+            games: Math.max.apply(null, Object.values(players).map(d => d.games)),
+        };
+        const LEAD_MARK = '<span class="cat-mark">▲</span>';
+        const scoringVolume = Object.entries(players)
+            .sort((a, b) => b[1].total - a[1].total)
+            .slice(0, 6)
+            .map(([name, d]) => ({
+                name,
+                cells: [
+                    d.total + (d.total === allTimeLeader.total ? LEAD_MARK : ''),
+                    d.goals + (d.goals === allTimeLeader.goals ? LEAD_MARK : ''),
+                    d.assists + (d.assists === allTimeLeader.assists ? LEAD_MARK : ''),
+                    d.games + (d.games === allTimeLeader.games ? LEAD_MARK : ''),
+                ],
+            }));
 
-        // ===== SPEED RUNNER (100+ points) =====
-        const speed = Object.entries(players).filter(([, d]) => d.total >= 100).map(([n, d]) => ({
-            name: n, points: d.total, games: d.games
-        })).sort((a, b) => a.games - b.games).slice(0, 3);
-
-        // ===== THE LEGEND =====
-        const legend = Object.entries(players).sort((a, b) => b[1].total - a[1].total).slice(0, 3);
-
-        // ===== GOAL MACHINE =====
-        const goals = Object.entries(players).sort((a, b) => b[1].goals - a[1].goals).slice(0, 3);
-
-        // ===== ASSIST KING =====
-        const assists = Object.entries(players).sort((a, b) => b[1].assists - a[1].assists).slice(0, 3);
+        // Rate needs a floor. At 5 games the winner is a 10-game sample (Jaakko Junttu, 2.80),
+        // not a career; 100 games is about four seasons on a roster. The floor is stated in the
+        // panel title so the ranking can be checked.
+        const scoringRate = Object.entries(players)
+            .filter(([, d]) => d.games >= 100)
+            .map(([name, d]) => ({ name, perGame: (d.total / d.games).toFixed(2), points: d.total, games: d.games }))
+            .sort((a, b) => b.perGame - a.perGame)
+            .slice(0, 4);
 
         // ===== PURE PLAYMAKER (assists > goals, min 5 games) =====
         const playmaker = Object.entries(players).filter(([, d]) => d.assists > d.goals && d.games >= 5).map(([n, d]) => ({
             name: n, assists: d.assists, goals: d.goals, ratio: (d.assists / Math.max(d.goals, 1)).toFixed(2)
-        })).sort((a, b) => b.ratio - a.ratio).slice(0, 3);
+        })).sort((a, b) => b.ratio - a.ratio).slice(0, 4);
 
         // ===== FINISHER (goals > assists, min 5 games) =====
         const finisher = Object.entries(players).filter(([, d]) => d.goals > d.assists && d.games >= 5).map(([n, d]) => ({
             name: n, goals: d.goals, assists: d.assists, ratio: (d.goals / Math.max(d.assists, 1)).toFixed(2)
-        })).sort((a, b) => b.ratio - a.ratio).slice(0, 3);
+        })).sort((a, b) => b.ratio - a.ratio).slice(0, 4);
 
         // ===== WORLD TRAVELER =====
         const travel = Object.entries(players).sort((a, b) => b[1].teams.length - a[1].teams.length).slice(0, 3);
 
-        // ===== DEFENSE SCORER — absolute (most defense goals total) =====
-        const defScorerAbs = Object.entries(players)
-            .filter(([, d]) => d.defense_goals > 0)
-            .sort((a, b) => b[1].defense_goals - a[1].defense_goals)
-            .slice(0, 3)
-            .map(([name, d]) => ({ name, total: d.defense_goals, games: d.games }));
+        // ===== DEFENSE — volume and rate. Four slides (goals/assists × total/rate)
+        // become one: the goals/assists split survives as columns, and defense points
+        // (D-goals + D-assists) is the quantity the two rankings can both be measured
+        // against. =====
+        const defVolume = Object.entries(players)
+            .map(([name, d]) => ({ name, dg: d.defense_goals, da: d.defense_assists, dp: d.defense_goals + d.defense_assists, games: d.games }))
+            .filter(r => r.dp > 0)
+            .sort((a, b) => b.dp - a.dp)
+            .slice(0, 4);
 
-        // ===== DEFENSE SCORER — per match (best goals/game) =====
-        const defScorerRate = Object.entries(players)
-            .filter(([, d]) => d.defense_goals > 0 && d.games >= 10)
-            .map(([name, d]) => ({
-                name,
-                perMatch: (d.defense_goals / d.games).toFixed(2),
-                total: d.defense_goals,
-                games: d.games
-            }))
-            .sort((a, b) => b.perMatch - a.perMatch)
-            .slice(0, 3);
+        const defRate = Object.entries(players)
+            .map(([name, d]) => ({ name, dp: d.defense_goals + d.defense_assists, games: d.games, perGame: ((d.defense_goals + d.defense_assists) / d.games).toFixed(2) }))
+            .filter(r => r.dp > 0 && r.games >= 10)
+            .sort((a, b) => b.perGame - a.perGame)
+            .slice(0, 4);
 
-        // ===== DEFENSE PLAYMAKER — absolute (most defense assists total) =====
-        const defPlaymakerAbs = Object.entries(players)
-            .filter(([, d]) => d.defense_assists > 0)
-            .sort((a, b) => b[1].defense_assists - a[1].defense_assists)
-            .slice(0, 3)
-            .map(([name, d]) => ({ name, total: d.defense_assists, games: d.games }));
-
-        // ===== DEFENSE PLAYMAKER — per match (best assists/game) =====
-        const defPlaymakerRate = Object.entries(players)
-            .filter(([, d]) => d.defense_assists > 0 && d.games >= 10)
-            .map(([name, d]) => ({
-                name,
-                perMatch: (d.defense_assists / d.games).toFixed(2),
-                total: d.defense_assists,
-                games: d.games
-            }))
-            .sort((a, b) => b.perMatch - a.perMatch)
-            .slice(0, 3);
-
-        // ===== WINTER BEAR — best winter points/game =====
-        const winterBear = Object.entries(players)
-            .filter(([, d]) => d.winter_games >= 8 && (d.winter_goals + d.winter_assists) >= 50)
-            .map(([name, d]) => ({
-                name,
-                perMatch: ((d.winter_goals + d.winter_assists) / d.winter_games).toFixed(2),
-                winter_total: d.winter_goals + d.winter_assists,
-                winter_games: d.winter_games
-            }))
-            .sort((a, b) => b.perMatch - a.perMatch)
-            .slice(0, 3);
-
-        // ===== SUMMER CUB — best summer points/game =====
-        const summerCub = Object.entries(players)
-            .filter(([, d]) => d.summer_games >= 8 && (d.summer_goals + d.summer_assists) >= 50)
-            .map(([name, d]) => ({
-                name,
-                perMatch: ((d.summer_goals + d.summer_assists) / d.summer_games).toFixed(2),
-                summer_total: d.summer_goals + d.summer_assists,
-                summer_games: d.summer_games
-            }))
-            .sort((a, b) => b.perMatch - a.perMatch)
-            .slice(0, 3);
-
-        // ===== WINTER SPECIALIST — only played winter =====
-        const winterSpecialist = Object.entries(players)
-            .filter(([, d]) => d.winter_games > 0 && d.summer_games === 0)
-            .sort((a, b) => b[1].winter_games - a[1].winter_games)
-            .slice(0, 3)
-            .map(([name, d]) => ({ name, games: d.winter_games }));
-
-        // ===== SUMMER SPECIALIST — only played summer =====
-        const summerSpecialist = Object.entries(players)
-            .filter(([, d]) => d.summer_games > 0 && d.winter_games === 0)
-            .sort((a, b) => b[1].summer_games - a[1].summer_games)
-            .slice(0, 3)
-            .map(([name, d]) => ({ name, games: d.summer_games }));
+        // ===== SEASON SPLIT — the Bear, the Cub and both Specialists on one screen.
+        // "Only played winter" is a fact about a player, not a leaderboard, so the
+        // specialists ride in as the ◆ rows instead of two slides of their own. =====
+        function seasonRate(season) {
+            const other = season === 'winter' ? 'summer_games' : 'winter_games';
+            const pts = (d) => d[`${season}_goals`] + d[`${season}_assists`];
+            const rows = Object.entries(players)
+                .filter(([, d]) => d[`${season}_games`] >= 8 && pts(d) >= 50)
+                .map(([name, d]) => ({
+                    name, perGame: (pts(d) / d[`${season}_games`]).toFixed(2),
+                    points: pts(d), games: d[`${season}_games`],
+                    mark: d[other] === 0 ? '◆' : '',
+                }))
+                .sort((a, b) => b.perGame - a.perGame)
+                .slice(0, 3);
+            const specialist = Object.entries(players)
+                .filter(([, d]) => d[`${season}_games`] > 0 && d[other] === 0)
+                .sort((a, b) => b[1][`${season}_games`] - a[1][`${season}_games`])[0];
+            if (specialist && !rows.some(r => r.name === specialist[0])) {
+                const [name, d] = specialist;
+                rows.push({ name, perGame: (pts(d) / d[`${season}_games`]).toFixed(2), points: pts(d), games: d[`${season}_games`], mark: '◆' });
+            }
+            return rows;
+        }
+        const seasonWinter = seasonRate('winter');
+        const seasonSummer = seasonRate('summer');
 
         const categories = [
-            { name: 'Buddy Buddy', desc: 'Both players list each other as their top assist target', type: 'pair', data: buddyPairs.slice(0, 3) },
-            { name: 'Target Acquired', desc: 'Passes most of their assists to one player', type: 'single', data: targetAcq.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% → ${p.target}` })) },
-            { name: 'Lifeline', desc: 'Receives most assists from one player', type: 'single', data: lifeline.slice(0, 3).map(p => ({ name: p.name, stat: `${p.pct}% ← ${p.source}` })) },
-            { name: 'Pass to Me', desc: 'Most unique players who assisted them, per game', type: 'single', data: passToMe.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { name: 'Good Samaritan', desc: 'Most unique players assisted, per game', type: 'single', data: goodSam.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { name: 'The Connector', desc: 'Most unique players connected via passes, per game', type: 'single', data: connector.slice(0, 3).map(p => ({ name: p.name, stat: `${p.perGame} per game (${p.unique} unique)` })) },
-            { name: 'Longevity', desc: 'Seasons played, and how many years they stayed on the roster', type: 'table', columns: ['Player', 'Seasons', 'Career'], rows: longevity.map(r => ({ name: r.name, founder: r.founder, cells: [String(r.seasons), `${r.first}–${r.last}<span class="cat-yrs"> · ${r.span} yrs</span>`] })) },
+            { name: 'The Triangle', desc: 'The three players who shared the most field time in 20 years', type: 'trio', triangle: triangles[0], runnerUp: triangles[1] },
+            { name: 'The Pair', desc: 'Each is the other\'s #1 assist target — the biggest and longest of the four pairs where that is true', type: 'duo', duo: duo, others: buddyPairs.slice(1), chain: duoChain, hub: duoHub, spoke: duoSpoke, hubFeeds: duoHubFeeds, spokeFeeds: duoSpokeFeeds, combined: duoCombined },
+            { name: 'The Connector', desc: 'Unique players passed to or received from, per game', type: 'table', columns: ['Player', 'In/g', 'Out/g', 'Total/g', 'Games'], rows: connectorRows.slice(0, 6).map(r => ({ name: r.name, cells: [r.inPerGame, r.outPerGame, r.perGame, String(r.games)] })) },
+            { name: 'Longevity', desc: 'Seasons played, and how many years they stayed on the roster', type: 'table', columns: ['Player', 'Seasons', 'Career'], foot: '<span class="cat-mark">★</span> founding member (2006), still active', rows: longevity.map(r => ({ name: r.name, mark: r.founder ? '★' : '', cells: [String(r.seasons), `${r.first}–${r.last}<span class="cat-yrs"> · ${r.span} yrs</span>`] })) },
             { name: 'The Phoenix', desc: 'Away three or more years, then back on the roster', type: 'gaps', data: phoenix.slice(0, 3) },
-            { name: 'Points Machine', desc: 'Most points per game', type: 'single', data: ppg.map(p => ({ name: p.name, stat: `${p.perGame} pts/game (${p.total} in ${p.games})` })) },
-            { name: 'Speed Runner', desc: 'Fastest to 100 career points', type: 'single', data: speed.map(p => ({ name: p.name, stat: `${p.games} games to ${p.points}` })) },
-            { name: 'The Legend', desc: 'Most career points', type: 'single', data: legend.map(([n, d]) => ({ name: n, stat: `${d.total} points (${d.goals}G/${d.assists}A)` })) },
-            { name: 'Goal Machine', desc: 'Most career goals', type: 'single', data: goals.map(([n, d]) => ({ name: n, stat: `${d.goals} goals (${d.assists}A)` })) },
-            { name: 'Assist King', desc: 'Most career assists', type: 'single', data: assists.map(([n, d]) => ({ name: n, stat: `${d.assists} assists (${d.goals}G)` })) },
-            { name: 'Pure Playmaker', desc: 'Highest assist-to-goal ratio', type: 'single', data: playmaker.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.assists}A/${p.goals}G)` })) },
-            { name: 'Finisher', desc: 'Highest goal-to-assist ratio', type: 'single', data: finisher.map(p => ({ name: p.name, stat: `${p.ratio}x (${p.goals}G/${p.assists}A)` })) },
+            { name: 'Scoring', desc: 'The all-time counting list, and the best rate per game', type: 'split', foot: '▲ the all-time leader in that column', panels: [
+                { title: 'Most points', columns: ['Player', 'Pts', 'G', 'A', 'Games'], rows: scoringVolume },
+                { title: 'Best points per game (100+ games)', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: scoringRate.map(r => ({ name: r.name, cells: [r.perGame, String(r.points), String(r.games)] })) },
+            ] },
+            { name: 'Ratio', desc: 'Assists per goal, and goals per assist (min 5 games)', type: 'split', panels: [
+                { title: 'Pure playmakers', columns: ['Player', 'A:G', 'A', 'G'], rows: playmaker.map(r => ({ name: r.name, cells: [`${r.ratio}x`, String(r.assists), String(r.goals)] })) },
+                { title: 'Finishers', columns: ['Player', 'G:A', 'G', 'A'], rows: finisher.map(r => ({ name: r.name, cells: [`${r.ratio}x`, String(r.goals), String(r.assists)] })) },
+            ] },
+            { name: 'Defense', desc: 'Points scored on defense; rate needs 10+ games', type: 'split', panels: [
+                { title: 'Most defense points', columns: ['Player', 'DP', 'DG', 'DA'], rows: defVolume.map(r => ({ name: r.name, cells: [String(r.dp), String(r.dg), String(r.da)] })) },
+                { title: 'Best defense rate', columns: ['Player', 'DP/g', 'DP', 'Games'], rows: defRate.map(r => ({ name: r.name, cells: [r.perGame, String(r.dp), String(r.games)] })) },
+            ] },
+            { name: 'Season Split', desc: 'Points per game in winter and in summer', type: 'split', foot: '<span class="cat-mark">◆</span> played only that season type', panels: [
+                { title: 'Winter', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: seasonWinter.map(r => ({ name: r.name, mark: r.mark, cells: [r.perGame, String(r.points), String(r.games)] })) },
+                { title: 'Summer', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: seasonSummer.map(r => ({ name: r.name, mark: r.mark, cells: [r.perGame, String(r.points), String(r.games)] })) },
+            ] },
             { name: 'World Traveler', desc: 'Most different teams played on', type: 'single', data: travel.map(([n, d]) => ({ name: n, stat: `${d.teams.length} teams` })) },
-            { name: 'Defense Scorer', desc: 'Most goals scored on defense points', type: 'single', data: defScorerAbs.map(p => ({ name: p.name, stat: `${p.total} goals (${p.games} games)` })) },
-            { name: 'Defense Scorer Rate', desc: 'Best defense goals per game (min 10)', type: 'single', data: defScorerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
-            { name: 'Defense Playmaker', desc: 'Most assists on defense points', type: 'single', data: defPlaymakerAbs.map(p => ({ name: p.name, stat: `${p.total} assists (${p.games} games)` })) },
-            { name: 'Defense Playmaker Rate', desc: 'Best defense assists per game (min 10)', type: 'single', data: defPlaymakerRate.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.total} in ${p.games})` })) },
-            { name: 'Winter Bear', desc: 'Best winter points/game (≥8 winter games, ≥50 total)', type: 'single', data: winterBear.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.winter_total} in ${p.winter_games})` })) },
-            { name: 'Summer Cub', desc: 'Best summer points/game (≥8 summer games, ≥50 total)', type: 'single', data: summerCub.map(p => ({ name: p.name, stat: `${p.perMatch}/game (${p.summer_total} in ${p.summer_games})` })) },
-            { name: 'Winter Specialist', desc: 'Only played winter — most games', type: 'single', data: winterSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
-            { name: 'Summer Specialist', desc: 'Only played summer — most games', type: 'single', data: summerSpecialist.map(p => ({ name: p.name, stat: `${p.games} games` })) },
-            // The one team-level slide: not who, but what the squad looked like.
             { name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
         ];
 
@@ -1677,7 +1926,7 @@
 
         // Build category slides
         scrollContainer.innerHTML = categories.map((cat, idx) => {
-            const rows = (cat.type === 'chart' || cat.type === 'table' || cat.type === 'gaps') ? '' : cat.data.map((p, rowIdx) => {
+            const rows = (cat.type === 'chart' || cat.type === 'table' || cat.type === 'gaps' || cat.type === 'split' || cat.type === 'trio' || cat.type === 'duo') ? '' : cat.data.map((p, rowIdx) => {
                 if (cat.type === 'pair') {
                     const n1 = normalize(p.name1), n2 = normalize(p.name2);
                     const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
@@ -1697,6 +1946,9 @@
                 ? '<div class="category-chart"><canvas id="slide-age-chart"></canvas></div>'
                 : cat.type === 'table' ? categoryTable(cat)
                 : cat.type === 'gaps' ? categoryGaps(cat)
+                : cat.type === 'split' ? categorySplit(cat)
+                : cat.type === 'trio' ? categoryTrio(cat)
+                : cat.type === 'duo' ? categoryDuo(cat)
                 : `<div class="category-list">${rows}</div>`;
             return `<div class="category-slide" data-category="${idx}">
                 <div class="category-name">${cat.name}</div>
@@ -1813,7 +2065,7 @@
         if (firstSlide) firstSlide.classList.add('active');
 
         // Click on category players to go to player page
-        scrollContainer.querySelectorAll('.category-player[data-player], .category-tr[data-player], .gap-row[data-player]').forEach(row => {
+        scrollContainer.querySelectorAll('.category-player[data-player], .category-tr[data-player], .gap-row[data-player], .trio-node[data-player], .duo-name[data-player], .duo-lane[data-player]').forEach(row => {
             row.addEventListener('click', () => {
                 location.hash = `#/player/${encodeURIComponent(row.dataset.player)}`;
             });
