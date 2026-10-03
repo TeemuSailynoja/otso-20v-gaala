@@ -146,11 +146,11 @@ const SEASON_STORY = {
 - [x] 1. `build_years()` emits `roster_names`; regenerate `site_data/years_*.json`
 - [x] 2. HUD skeleton: sticky bar, `--nav-h` / `--hud-h` wiring, short roster chart + matches/year/win% readout
 - [x] 3. Year blocks + `scroll-snap-type: y proximity` + observer publishing the active year
-- [ ] 4. HUD reacts to active year: chart marker, big numbers, medal chips, Kesä/Talvi split
-- [ ] 5. `createTeamCloud` refactor: seeded PRNG, `setYear()`, overlay on the roster chart
-- [ ] 6. `SEASON_STORY` notes for 2006-2026 + data-derived highlight badges on their years
-- [ ] 7. Delete win-rate/points charts, year-card grid, standalone cloud, toggles, all-bears fetches
-- [ ] 8. After verification: remove the six season cards from the home carousel (separate commit)
+- [x] 4. HUD reacts to active year: chart marker, big numbers, medal chips, Kesä/Talvi split
+- [x] 5. `createTeamCloud` refactor: seeded PRNG, `setYear()`, overlay on the roster chart
+- [x] 6. `SEASON_STORY` notes for 2006-2026 + data-derived highlight badges on their years
+- [x] 7. Delete win-rate/points charts, year-card grid, standalone cloud, toggles, all-bears fetches
+- [x] 8. After verification: remove the six season cards from the home carousel (separate commit)
 
 ## Verification
 
