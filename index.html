@@ -1803,12 +1803,14 @@
             const unique = new Set([...gp, ...rp]).size;
             connectorRows.push({
                 name, games, unique,
-                inPerGame: (rp.size / games).toFixed(2),
-                outPerGame: (gp.size / games).toFixed(2),
-                perGame: (unique / games).toFixed(2),
+                inCount: rp.size,
+                outCount: gp.size,
             });
         }
-        connectorRows.sort((a, b) => b.perGame - a.perGame);
+        // Ranked by how many different names a player traded the disc with, not per game: the
+        // per-game rate falls as careers lengthen, so it was always won by whoever sat just
+        // above the floor. Volume is the claim here, and games are shown beside it.
+        connectorRows.sort((a, b) => b.unique - a.unique || b.games - a.games);
 
         // ===== LONGEVITY — one table, not four leaderboards of the same four names.
         // season_count counts season-instances (summer and winter separately); span
@@ -1879,12 +1881,12 @@
             .slice(0, 4);
 
         // ===== PURE PLAYMAKER (assists > goals, min 5 games) =====
-        const playmaker = Object.entries(players).filter(([, d]) => d.assists > d.goals && d.games >= 5).map(([n, d]) => ({
+        const playmaker = Object.entries(players).filter(([, d]) => d.assists > d.goals && d.games >= 50).map(([n, d]) => ({
             name: n, assists: d.assists, goals: d.goals, ratio: (d.assists / Math.max(d.goals, 1)).toFixed(2)
         })).sort((a, b) => b.ratio - a.ratio).slice(0, 4);
 
-        // ===== FINISHER (goals > assists, min 5 games) =====
-        const finisher = Object.entries(players).filter(([, d]) => d.goals > d.assists && d.games >= 5).map(([n, d]) => ({
+        // ===== FINISHER (goals > assists, min 50 games) =====
+        const finisher = Object.entries(players).filter(([, d]) => d.goals > d.assists && d.games >= 50).map(([n, d]) => ({
             name: n, goals: d.goals, assists: d.assists, ratio: (d.goals / Math.max(d.assists, 1)).toFixed(2)
         })).sort((a, b) => b.ratio - a.ratio).slice(0, 4);
 
@@ -1940,12 +1942,12 @@
             { name: 'Aging Squad', desc: 'Roster size and mean squad age, 2006–2026', type: 'chart' },
             { name: 'The Triangle', desc: 'The three players who shared the most field time in 20 years', type: 'trio', triangle: triangles[0], runnerUp: triangles[1] },
             { name: 'The Pair', desc: 'The passer\'s #1 target is the finisher, and the finisher\'s #1 source is that passer — the heaviest of the 13 links where that is true', type: 'duo', duo: duo, others: mutualLinks.slice(1, 5), totalLinks: mutualLinks.length, chain: duoChain, hub: duoHub, spoke: duoSpoke, hubFeeds: duoHubFeeds, spokeFeeds: duoSpokeFeeds, combined: duoCombined },
-            { name: 'The Connector', desc: 'Unique players passed to or received from, per game (100+ games)', type: 'table', columns: ['Player', 'In/g', 'Out/g', 'Total/g', 'Games'], rows: connectorRows.slice(0, 6).map(r => ({ name: r.name, cells: [r.inPerGame, r.outPerGame, r.perGame, String(r.games)] })) },
+            { name: 'The Connector', desc: 'Different players passed to or received from (100+ games)', foot: 'Total counts each name once — In and Out overlap', type: 'table', columns: ['Player', 'In', 'Out', 'Total', 'Games'], rows: connectorRows.slice(0, 6).map(r => ({ name: r.name, cells: [String(r.inCount), String(r.outCount), String(r.unique), String(r.games)] })) },
             { name: 'Scoring', desc: 'The all-time counting list, and the best rate per game', type: 'split', foot: '▲ the all-time leader in that column', panels: [
                 { title: 'Most points', columns: ['Player', 'Pts', 'G', 'A', 'Games'], rows: scoringVolume },
                 { title: 'Best points per game (100+ games)', columns: ['Player', 'Pts/g', 'Pts', 'Games'], rows: scoringRate.map(r => ({ name: r.name, cells: [r.perGame, String(r.points), String(r.games)] })) },
             ] },
-            { name: 'Ratio', desc: 'Assists per goal, and goals per assist (min 5 games)', type: 'split', panels: [
+            { name: 'Ratio', desc: 'Assists per goal, and goals per assist (min 50 games)', type: 'split', panels: [
                 { title: 'Pure playmakers', columns: ['Player', 'A:G', 'A', 'G'], rows: playmaker.map(r => ({ name: r.name, cells: [`${r.ratio}x`, String(r.assists), String(r.goals)] })) },
                 { title: 'Finishers', columns: ['Player', 'G:A', 'G', 'A'], rows: finisher.map(r => ({ name: r.name, cells: [`${r.ratio}x`, String(r.goals), String(r.assists)] })) },
             ] },
