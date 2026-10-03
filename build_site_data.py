@@ -15,8 +15,10 @@ import json
 import os
 import re
 import sys
+import csv
 import glob
 import hashlib
+import unicodedata
 from datetime import date
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -832,7 +834,55 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
     }
 
 
-def build_years(gameplay: list[dict], include_all_bears: bool = False, season_type: str = None) -> dict:
+# Personal data. Birthdays live in a gitignored file (see extract_birthdays.py)
+# and only ever leave here as an aggregate: the mean age of a year's roster.
+# Never write a birthday, a birth year, or a per-player age into site_data/.
+BIRTHDAYS_PATH = Path(__file__).resolve().parent / "data" / "private" / "birthdays.csv"
+
+# Age is measured at the middle of the season, not at build time — otherwise the
+# 2006 squad reads as a team of 30-year-olds today.
+SEASON_AGE_REF = {None: (6, 30), "summer": (7, 30), "winter": (1, 30)}
+
+
+def name_key(name: str) -> tuple:
+    """Order- and accent-insensitive person key.
+
+    The scrape writes the same person as 'hotari roni' while the birthdays file
+    says 'Roni Hotari'; both keys come out as ('hotari', 'roni').
+    """
+    decomposed = unicodedata.normalize("NFKD", name)
+    stripped = "".join(c for c in decomposed if not unicodedata.combining(c))
+    return tuple(sorted(p.strip(".-").lower() for p in re.split(r"[\s\-]+", stripped) if p.strip(".-")))
+
+
+def load_birthdays(path: Path = BIRTHDAYS_PATH) -> dict:
+    """{name_key: date of birth} from the private CSV, or {} if it is absent.
+
+    Absent is normal — the file never ships to a checkout, and the build simply
+    omits the age stat in that case.
+    """
+    if not path.exists():
+        return {}
+    out = {}
+    with path.open(newline="", encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            iso = (row.get("birthday") or "").strip()
+            name = (row.get("name") or "").strip()
+            if not name or not iso:
+                continue
+            try:
+                out[name_key(name)] = date.fromisoformat(iso)
+            except ValueError:
+                continue
+    return out
+
+
+def age_at(bday: date, year: int, month: int, day: int) -> int:
+    return (year - bday.year) - ((month, day) < (bday.month, bday.day))
+
+
+def build_years(gameplay: list[dict], include_all_bears: bool = False, season_type: str = None,
+                birthdays: dict = None) -> dict:
     """Build year-by-year evolution data.
     
     Args:
@@ -843,8 +893,10 @@ def build_years(gameplay: list[dict], include_all_bears: bool = False, season_ty
                     If None, include all seasons (full year).
     
     Returns: {year: {matches, wins, losses, goals_for, goals_against, roster_players,
-                     roster_names}}
+                     roster_names, avg_age, avg_age_known}}
     """
+    if birthdays is None:
+        birthdays = load_birthdays()
     years = defaultdict(lambda: {
         "matches": 0, "wins": 0, "losses": 0,
         "goals_for": 0, "goals_against": 0,
@@ -911,19 +963,29 @@ def build_years(gameplay: list[dict], include_all_bears: bool = False, season_ty
     
     # Convert sets to counts
     result = {}
+    ref_month, ref_day = SEASON_AGE_REF.get(season_type, (6, 30))
     for year in sorted(years.keys()):
         y = years[year]
+        names = sorted(y["roster_players"])
+        # Aggregate only, and honest about its basis: the birthdays file is a
+        # top-scorers export, so some roster players have no recorded birthday.
+        ages = [age_at(birthdays[k], int(year), ref_month, ref_day)
+                for k in map(name_key, names) if k in birthdays]
         result[str(year)] = {
             "matches": y["matches"],
             "wins": y["wins"],
             "losses": y["losses"],
             "goals_for": y["goals_for"],
             "goals_against": y["goals_against"],
-            "roster_players": len(y["roster_players"]),
+            "roster_players": len(names),
             # Canonicalized names of the players who appeared for this team in this
             # year — the timeline HUD cloud is seeded from exactly this roster, so it
             # must match roster_players rather than players[].years (all Otso teams).
-            "roster_names": sorted(y["roster_players"]),
+            "roster_names": names,
+            **({
+                "avg_age": round(sum(ages) / len(ages), 1),
+                "avg_age_known": len(ages),
+            } if ages else {}),
         }
     
     return result

@@ -226,3 +226,6 @@ data/cache_manifest.json
 # Personal data (birthdays etc.) — never commit, never publish.
 # Only aggregates derived from it may reach site_data/.
 data/private/
+
+# Agent working notes (plans, revisions) — local only.
+.pi/

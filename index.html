@@ -782,6 +782,7 @@
             text-align: center;
         }
         .timeline-intro p { color: var(--muted); font-size: 1rem; }
+        .timeline-intro .timeline-note { font-size: 0.82rem; opacity: 0.7; margin-top: 0.4rem; }
         .timeline-hud {
             position: sticky;
             top: var(--nav-h, 0px);
@@ -1115,6 +1116,8 @@
         <div class="timeline-intro">
             <h2>20-Year Timeline</h2>
             <p>Every season at a glance</p>
+            <p class="timeline-note">Average age is the squad's mean age at the middle of the season,
+                taken over the players with a recorded birthday.</p>
         </div>
         <div class="timeline-hud" id="timeline-hud">
             <div class="hud-chart-wrap">
@@ -1138,6 +1141,10 @@
                         <div class="val" id="hud-roster">—</div>
                         <div class="lbl">Roster</div>
                     </div>
+                    <div class="hud-metric" id="hud-age-metric">
+                        <div class="val" id="hud-age">—</div>
+                        <div class="lbl">Avg age</div>
+                    </div>
                 </div>
                 <div class="hud-chips" id="hud-chips"></div>
                 <div class="hud-split" id="hud-split"></div>
@@ -1160,7 +1167,7 @@
     // so browsers get fresh JSON whenever the data changes but can still cache
     // aggressively between rebuilds. Do not edit by hand.
     // BUILD_VERSION_START
-    const DATA_VERSION = '6a5a58b1e7be';
+    const DATA_VERSION = '153741262ab7';
     // BUILD_VERSION_END
 
     async function loadData() {
@@ -2060,6 +2067,19 @@
         document.getElementById('hud-winrate').textContent =
             played > 0 ? Math.round(d.wins / played * 100) + '%' : '—';
         document.getElementById('hud-roster').textContent = d.roster_players;
+
+        // Aggregate only — the birthdays themselves stay in a gitignored file.
+        const ageEl = document.getElementById('hud-age');
+        const ageMetric = document.getElementById('hud-age-metric');
+        if (d.avg_age != null) {
+            ageEl.textContent = d.avg_age.toFixed(1);
+            ageMetric.title = d.avg_age_known === d.roster_players
+                ? `Mean age of all ${d.roster_players} players`
+                : `Mean age of the ${d.avg_age_known} players with a recorded birthday, of ${d.roster_players}`;
+        } else {
+            ageEl.textContent = '—';
+            ageMetric.title = '';
+        }
 
         const seasons = ((DATA.trophies && DATA.trophies.seasons) || []).filter(s => String(s.year) === y);
         document.getElementById('hud-chips').innerHTML = seasons.map(s => {

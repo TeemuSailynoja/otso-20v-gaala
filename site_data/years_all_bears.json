@@ -40,7 +40,9 @@
       "sampo smeds",
       "sirkka tuomo",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 27.7,
+    "avg_age_known": 18
   },
   "2007": {
     "matches": 23,
@@ -68,7 +70,9 @@
       "juuso parkkinen",
       "palomäki tommi",
       "sirkka tuomo"
-    ]
+    ],
+    "avg_age": 26.3,
+    "avg_age_known": 15
   },
   "2008": {
     "matches": 22,
@@ -101,7 +105,9 @@
       "pauli siponen",
       "sirkka tuomo",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 26.7,
+    "avg_age_known": 22
   },
   "2009": {
     "matches": 24,
@@ -132,7 +138,9 @@
       "palomäki tommi",
       "salo santeri",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 26.6,
+    "avg_age_known": 19
   },
   "2010": {
     "matches": 16,
@@ -162,7 +170,9 @@
       "salo santeri",
       "sandberg tomi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 26.2,
+    "avg_age_known": 19
   },
   "2011": {
     "matches": 32,
@@ -203,7 +213,9 @@
       "sandberg tomi",
       "siitonen simo",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 27.0,
+    "avg_age_known": 31
   },
   "2012": {
     "matches": 33,
@@ -247,7 +259,9 @@
       "sandberg tomi",
       "säilynoja teemu",
       "tommi ylönen"
-    ]
+    ],
+    "avg_age": 28.4,
+    "avg_age_known": 32
   },
   "2013": {
     "matches": 56,
@@ -304,7 +318,9 @@
       "säilynoja teemu",
       "timo vaskio",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 29.0,
+    "avg_age_known": 40
   },
   "2014": {
     "matches": 51,
@@ -364,7 +380,9 @@
       "säilynoja teemu",
       "timo vaskio",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 27.0,
+    "avg_age_known": 40
   },
   "2015": {
     "matches": 46,
@@ -416,7 +434,9 @@
       "säilynoja teemu",
       "timo vaskio",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 28.2,
+    "avg_age_known": 39
   },
   "2016": {
     "matches": 48,
@@ -461,7 +481,9 @@
       "säilynoja teemu",
       "timo vaskio",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 30.0,
+    "avg_age_known": 30
   },
   "2017": {
     "matches": 53,
@@ -506,7 +528,9 @@
       "sandberg tomi",
       "säilynoja teemu",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 29.8,
+    "avg_age_known": 30
   },
   "2018": {
     "matches": 50,
@@ -552,7 +576,9 @@
       "siitonen simo",
       "säilynoja teemu",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 30.3,
+    "avg_age_known": 33
   },
   "2019": {
     "matches": 50,
@@ -596,7 +622,9 @@
       "säilynoja teemu",
       "taivalkoski tommi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 30.5,
+    "avg_age_known": 31
   },
   "2020": {
     "matches": 13,
@@ -636,7 +664,9 @@
       "sandberg tomi",
       "simo soini",
       "säilynoja teemu"
-    ]
+    ],
+    "avg_age": 28.0,
+    "avg_age_known": 26
   },
   "2021": {
     "matches": 27,
@@ -672,7 +702,9 @@
       "sandberg tomi",
       "touko väänänen",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 28.0,
+    "avg_age_known": 22
   },
   "2022": {
     "matches": 41,
@@ -709,7 +741,9 @@
       "sandberg tomi",
       "touko väänänen",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 30.0,
+    "avg_age_known": 20
   },
   "2023": {
     "matches": 58,
@@ -768,7 +802,9 @@
       "torsti visuri",
       "touko väänänen",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 28.8,
+    "avg_age_known": 40
   },
   "2024": {
     "matches": 57,
@@ -819,7 +855,9 @@
       "tapio tiihonen",
       "torsti visuri",
       "touko väänänen"
-    ]
+    ],
+    "avg_age": 28.8,
+    "avg_age_known": 32
   },
   "2025": {
     "matches": 68,
@@ -879,7 +917,9 @@
       "torsti visuri",
       "touko väänänen",
       "waltteri wickström"
-    ]
+    ],
+    "avg_age": 28.6,
+    "avg_age_known": 40
   },
   "2026": {
     "matches": 10,
@@ -915,6 +955,8 @@
       "sandberg tomi",
       "tapio tiihonen",
       "touko väänänen"
-    ]
+    ],
+    "avg_age": 31.2,
+    "avg_age_known": 22
   }
 }

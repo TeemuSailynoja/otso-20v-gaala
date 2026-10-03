@@ -21,7 +21,9 @@
       "korhonen marko",
       "rantamaula ville",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 30.4,
+    "avg_age_known": 10
   },
   "2007": {
     "matches": 13,
@@ -38,7 +40,9 @@
       "hotari roni",
       "ilkka vaahtoranta",
       "sirkka tuomo"
-    ]
+    ],
+    "avg_age": 26.0,
+    "avg_age_known": 7
   },
   "2008": {
     "matches": 12,
@@ -64,7 +68,9 @@
       "palomäki tommi",
       "sirkka tuomo",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 26.8,
+    "avg_age_known": 16
   },
   "2009": {
     "matches": 13,
@@ -87,7 +93,9 @@
       "juuso parkkinen",
       "lehto tommi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 28.4,
+    "avg_age_known": 12
   },
   "2010": {
     "matches": 9,
@@ -109,7 +117,9 @@
       "palomäki tommi",
       "sandberg tomi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 26.3,
+    "avg_age_known": 11
   },
   "2011": {
     "matches": 8,
@@ -131,7 +141,9 @@
       "sandberg tomi",
       "siitonen simo",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 27.0,
+    "avg_age_known": 12
   },
   "2012": {
     "matches": 8,
@@ -154,7 +166,9 @@
       "pasi tamminen",
       "sandberg tomi",
       "tommi ylönen"
-    ]
+    ],
+    "avg_age": 27.5,
+    "avg_age_known": 13
   },
   "2013": {
     "matches": 14,
@@ -175,7 +189,9 @@
       "pasi tamminen",
       "sandberg tomi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 28.0,
+    "avg_age_known": 11
   },
   "2014": {
     "matches": 14,
@@ -198,7 +214,9 @@
       "oskari vuorio",
       "sandberg tomi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 28.2,
+    "avg_age_known": 12
   },
   "2015": {
     "matches": 13,
@@ -222,7 +240,9 @@
       "pasi tamminen",
       "sandberg tomi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 32.0,
+    "avg_age_known": 13
   },
   "2016": {
     "matches": 16,
@@ -245,7 +265,9 @@
       "pasi tamminen",
       "salo santeri",
       "sandberg tomi"
-    ]
+    ],
+    "avg_age": 29.2,
+    "avg_age_known": 13
   },
   "2017": {
     "matches": 15,
@@ -265,7 +287,9 @@
       "kalpala karli",
       "lehto tommi",
       "sandberg tomi"
-    ]
+    ],
+    "avg_age": 30.4,
+    "avg_age_known": 9
   },
   "2018": {
     "matches": 16,
@@ -286,7 +310,9 @@
       "mikko paanasalo",
       "sandberg tomi",
       "siitonen simo"
-    ]
+    ],
+    "avg_age": 32.1,
+    "avg_age_known": 11
   },
   "2019": {
     "matches": 14,
@@ -307,7 +333,9 @@
       "lehto tommi",
       "sandberg tomi",
       "timo vaskio"
-    ]
+    ],
+    "avg_age": 34.2,
+    "avg_age_known": 10
   },
   "2021": {
     "matches": 9,
@@ -328,7 +356,9 @@
       "oskari vuorio",
       "patrick potrykus",
       "sandberg tomi"
-    ]
+    ],
+    "avg_age": 30.0,
+    "avg_age_known": 10
   },
   "2022": {
     "matches": 15,
@@ -350,7 +380,9 @@
       "patrick potrykus",
       "sandberg tomi",
       "touko väänänen"
-    ]
+    ],
+    "avg_age": 33.7,
+    "avg_age_known": 11
   },
   "2023": {
     "matches": 16,
@@ -375,7 +407,9 @@
       "patrick potrykus",
       "sandberg tomi",
       "touko väänänen"
-    ]
+    ],
+    "avg_age": 32.0,
+    "avg_age_known": 15
   },
   "2024": {
     "matches": 16,
@@ -399,7 +433,9 @@
       "patrick potrykus",
       "sandberg tomi",
       "touko väänänen"
-    ]
+    ],
+    "avg_age": 32.4,
+    "avg_age_known": 12
   },
   "2025": {
     "matches": 16,
@@ -422,6 +458,8 @@
       "patrick potrykus",
       "sandberg tomi",
       "touko väänänen"
-    ]
+    ],
+    "avg_age": 31.7,
+    "avg_age_known": 12
   }
 }
