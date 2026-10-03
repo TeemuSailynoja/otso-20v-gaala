@@ -148,21 +148,27 @@
     "losses": 5,
     "goals_for": 221,
     "goals_against": 176,
-    "roster_players": 20,
+    "roster_players": 26,
     "roster_names": [
       "aittomäki viljami",
       "antti niinikoski",
       "arto heikkilä",
       "berg kimmo",
+      "eetu tiihonen",
       "esko saura",
+      "forsbom otto",
       "heikki väänänen",
       "hentunen jari",
       "holopainen sami",
       "hotari roni",
       "ilkka vaahtoranta",
       "jarno sihvo",
+      "jauhonen mikko",
+      "julius rissanen",
       "juuso parkkinen",
       "kallio lassi",
+      "kasperi kunnas",
+      "kerkko visuri",
       "koistinen tuukka",
       "lehto tommi",
       "ora visuri",
@@ -171,8 +177,8 @@
       "sandberg tomi",
       "timo vaskio"
     ],
-    "avg_age": 26.2,
-    "avg_age_known": 19
+    "avg_age": 26.0,
+    "avg_age_known": 25
   },
   "2011": {
     "matches": 32,
@@ -180,7 +186,7 @@
     "losses": 9,
     "goals_for": 437,
     "goals_against": 335,
-    "roster_players": 31,
+    "roster_players": 34,
     "roster_names": [
       "aittomäki viljami",
       "aki vehtari",
@@ -193,6 +199,7 @@
       "ekku rytkönen",
       "erkka niini",
       "esko saura",
+      "haaramo ville",
       "heikki väänänen",
       "hiivala lauri",
       "hotari roni",
@@ -201,11 +208,13 @@
       "ilkka vaahtoranta",
       "ismo sutela",
       "jarno sihvo",
+      "juho keitaanniemi",
       "julius rissanen",
       "juuso parkkinen",
       "kerkko visuri",
       "koistinen tuukka",
       "lehto tommi",
+      "neuvo pekka",
       "ora visuri",
       "palomäki tommi",
       "pasi tamminen",
@@ -214,8 +223,8 @@
       "siitonen simo",
       "timo vaskio"
     ],
-    "avg_age": 27.0,
-    "avg_age_known": 31
+    "avg_age": 27.5,
+    "avg_age_known": 33
   },
   "2012": {
     "matches": 33,
@@ -223,7 +232,7 @@
     "losses": 5,
     "goals_for": 461,
     "goals_against": 314,
-    "roster_players": 34,
+    "roster_players": 35,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
@@ -257,11 +266,12 @@
       "pasi tamminen",
       "salo santeri",
       "sandberg tomi",
+      "siitonen simo",
       "säilynoja teemu",
       "tommi ylönen"
     ],
-    "avg_age": 28.4,
-    "avg_age_known": 32
+    "avg_age": 28.5,
+    "avg_age_known": 33
   },
   "2013": {
     "matches": 56,
@@ -269,13 +279,14 @@
     "losses": 14,
     "goals_for": 750,
     "goals_against": 527,
-    "roster_players": 47,
+    "roster_players": 51,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
       "anssi matilainen",
       "antti elonheimo",
       "antti järvi",
+      "arimo lemettinen",
       "aukusti touko väänänen",
       "aurasmaa pyry",
       "damijan marin",
@@ -284,6 +295,7 @@
       "eero smeds",
       "eetu strengell",
       "erkka niini",
+      "esko saura",
       "haaramo ville",
       "heikki tiittanen",
       "heikki väänänen",
@@ -306,9 +318,11 @@
       "kerkko visuri",
       "koistinen tuukka",
       "koivisto sami",
+      "kokkonen konsta",
       "konstantin laakkonen",
       "lehto tommi",
       "neuvo pekka",
+      "ora visuri",
       "oskari vuorio",
       "palomäki tommi",
       "pasi tamminen",
@@ -319,8 +333,8 @@
       "timo vaskio",
       "waltteri wickström"
     ],
-    "avg_age": 29.0,
-    "avg_age_known": 40
+    "avg_age": 28.5,
+    "avg_age_known": 44
   },
   "2014": {
     "matches": 51,
@@ -328,7 +342,7 @@
     "losses": 14,
     "goals_for": 658,
     "goals_against": 512,
-    "roster_players": 50,
+    "roster_players": 51,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
@@ -347,6 +361,7 @@
       "heikki tiittanen",
       "hintukainen topi",
       "hotari roni",
+      "hynninen yrjänä",
       "idänheimo timo",
       "ilari visuri",
       "ilkka rämö",
@@ -382,7 +397,7 @@
       "waltteri wickström"
     ],
     "avg_age": 27.0,
-    "avg_age_known": 40
+    "avg_age_known": 41
   },
   "2015": {
     "matches": 46,
@@ -444,7 +459,7 @@
     "losses": 9,
     "goals_for": 661,
     "goals_against": 449,
-    "roster_players": 35,
+    "roster_players": 37,
     "roster_names": [
       "adam torda",
       "aki vehtari",
@@ -454,9 +469,11 @@
       "aukusti touko väänänen",
       "brunila totti",
       "eero smeds",
+      "emil videman",
       "erkka niini",
       "hotari roni",
       "hynninen yrjänä",
+      "ilari visuri",
       "ilkka rämö",
       "ilkka vaahtoranta",
       "ismo sutela",
@@ -482,8 +499,8 @@
       "timo vaskio",
       "waltteri wickström"
     ],
-    "avg_age": 30.0,
-    "avg_age_known": 30
+    "avg_age": 29.2,
+    "avg_age_known": 32
   },
   "2017": {
     "matches": 53,
@@ -491,7 +508,7 @@
     "losses": 15,
     "goals_for": 722,
     "goals_against": 563,
-    "roster_players": 35,
+    "roster_players": 39,
     "roster_names": [
       "adam torda",
       "aki vehtari",
@@ -500,7 +517,9 @@
       "antti-jussi miettinen",
       "aukusti touko väänänen",
       "brunila totti",
+      "eero smeds",
       "elmnäinen johannes",
+      "emil videman",
       "erkka niini",
       "haaramo ville",
       "hotari roni",
@@ -512,6 +531,7 @@
       "jasu vehtari",
       "jesse saastamoinen",
       "joonas myhrberg",
+      "juuso parkkinen",
       "kallio lassi",
       "kalpala karli",
       "kinnunen pekka",
@@ -522,6 +542,7 @@
       "mikko nietosvaara",
       "oskari vuorio",
       "palomäki tommi",
+      "pasi tamminen",
       "patrick potrykus",
       "rautamäki timi",
       "salo santeri",
@@ -529,8 +550,8 @@
       "säilynoja teemu",
       "timo vaskio"
     ],
-    "avg_age": 29.8,
-    "avg_age_known": 30
+    "avg_age": 29.7,
+    "avg_age_known": 34
   },
   "2018": {
     "matches": 50,
@@ -632,7 +653,7 @@
     "losses": 6,
     "goals_for": 154,
     "goals_against": 138,
-    "roster_players": 30,
+    "roster_players": 31,
     "roster_names": [
       "aki vehtari",
       "alexander lehtonen",
@@ -654,6 +675,7 @@
       "jasu vehtari",
       "jesse saastamoinen",
       "joonas myhrberg",
+      "kasperi lahti",
       "kinnunen pekka",
       "koistinen tuukka",
       "kokkonen tatu",
@@ -665,8 +687,8 @@
       "simo soini",
       "säilynoja teemu"
     ],
-    "avg_age": 28.0,
-    "avg_age_known": 26
+    "avg_age": 27.7,
+    "avg_age_known": 27
   },
   "2021": {
     "matches": 27,
@@ -674,8 +696,9 @@
     "losses": 9,
     "goals_for": 373,
     "goals_against": 245,
-    "roster_players": 26,
+    "roster_players": 28,
     "roster_names": [
+      "aki vehtari",
       "antti elonheimo",
       "antti järvi",
       "antti mäkipää",
@@ -688,6 +711,7 @@
       "ilkka vaahtoranta",
       "jarno sihvo",
       "jason keen mc",
+      "jasu vehtari",
       "jesse saastamoinen",
       "jori kuvaja",
       "kaapo peura",
@@ -703,8 +727,8 @@
       "touko väänänen",
       "waltteri wickström"
     ],
-    "avg_age": 28.0,
-    "avg_age_known": 22
+    "avg_age": 28.6,
+    "avg_age_known": 24
   },
   "2022": {
     "matches": 41,

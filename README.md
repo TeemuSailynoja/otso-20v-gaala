@@ -48,6 +48,19 @@ scorer). The scrapers had those two names under swapped keys until 2026-10;
 `migrate_point_fields.py` renames them in the committed dataset and is idempotent, so it is
 safe to re-run after any re-scrape of older data.
 
+Two more repairs live next to it, both idempotent, both applied to the committed dataset:
+
+- `dedupe_point_rows.py` — the gameplay page renders its point-by-point table twice (one copy
+  in `div.page_middle`, one in `div.content`), and the scraper walked every `<tr>` and stored
+  both. 10,793 of 29,270 point rows were phantom, which made the assist bars on a player page
+  read 2× the player's actual assists. `parse_gameplay` now scans only the content copy and
+  dedupes by cell; this script repairs the rows already on disk.
+- `refresh_game_rosters.py` — merges the rosters back out of the archived `data/raw/game_*.html`
+  into `match_results.json`. 132 games stored a roster smaller than their own HTML shows, which
+  dropped 10% of all points from the defense slides and hid players from games they played. It
+  merges rather than replaces, so no stored name is lost. It does not touch points: for a few
+  games the archived page no longer matches what was scraped, so points are left alone.
+
 ## Local Development
 
 ```bash
@@ -100,3 +113,7 @@ fetched, the address is printed in text instead.
 - Birth year data not available in scraped sources
 - Finnish translation deferred (stretch goal)
 - Some player names may appear in multiple formats if not deduplicated
+- Season-card totals and point-by-play totals are separate scrapes and do not fully agree. For
+  82 players the play-by-play holds more goals or assists than their season card (651 points
+  site-wide, 3% of all points), concentrated in tour sub-seasons the card scrape missed. The
+  header stat block follows the card; the assist bars follow the play-by-play.

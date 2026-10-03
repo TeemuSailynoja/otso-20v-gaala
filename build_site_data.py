@@ -254,6 +254,14 @@ def load_raw_data() -> list[dict]:
     return all_data
 
 
+def resolve_season_type(season_id: str, page_mapping: dict, season_type_map: dict) -> str:
+    """Season type for a season ID: page mapping first, then raw ID, then fallback map."""
+    normalized = normalize_season_id(season_id, season_type_map)
+    return (page_mapping.get(normalized, {}).get("type") or
+            page_mapping.get(season_id, {}).get("type") or
+            season_type_map.get(season_id, "unknown"))
+
+
 def load_gameplay() -> list[dict]:
     """Load match_results.json."""
     with open(GAMEPLAY_FILE) as f:
@@ -339,6 +347,10 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 "winter_games": 0,
                 "winter_goals": 0,
                 "winter_assists": 0,
+                # Games are counted per season from two sources so they can be
+                # reconciled instead of added; see the finalisation below.
+                "card_games_by_season": {},
+                "gp_games_by_season": {},
             }
         
         p = players[canonical]
@@ -376,6 +388,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         p["games"] += games
         p["goals"] += goals
         p["assists"] += assists
+        p["card_games_by_season"][season_id] = p["card_games_by_season"].get(season_id, 0) + games
     
     # Phase 1: Build from raw team card data
     for season_data in raw_data:
@@ -433,22 +446,14 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     if canon:
                         otso_canonicals.add(canon)
         
-        # Count games for Otso players who appeared in the roster
+        # Record the appearance per season. It is NOT added to "games" here: a
+        # player on a scraped roster is also on that season's card, and adding
+        # both counted most careers twice (16,424 site-wide against 9,061 card
+        # games). The finalisation below takes the larger of the two per season.
         for canon in otso_canonicals:
             if canon in players:
-                players[canon]["games"] += 1
-                # Increment summer/winter games
-                if season_id in season_type_map:
-                    stype = season_type_map[season_id]
-                else:
-                    normalized_for_lookup = normalize_season_id(season_id, season_type_map)
-                    stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
-                             page_mapping.get(season_id, {}).get("type") or
-                             season_type_map.get(season_id, "unknown"))
-                if stype == "summer":
-                    players[canon]["summer_games"] += 1
-                elif stype == "winter":
-                    players[canon]["winter_games"] += 1
+                by_season = players[canon].setdefault("gp_games_by_season", {})
+                by_season[season_id] = by_season.get(season_id, 0) + 1
                 # Add team if this player appeared for a different team (e.g., Hukka)
                 player_team = ""
                 if home_is_otso:
@@ -492,6 +497,8 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     "winter_games": 1 if stype == "winter" else 0,
                     "winter_goals": 0,
                     "winter_assists": 0,
+                    "card_games_by_season": {},
+                    "gp_games_by_season": {season_id: 1} if season_id else {},
                 }
                 if stype == "summer":
                     p["season_types"]["summer"].add(year if year else 2006)
@@ -527,6 +534,10 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         main["seasons"].extend(aukusti["seasons"])
         main["years"].update(aukusti["years"])
         main["games"] += aukusti["games"]
+        for key in ("card_games_by_season", "gp_games_by_season"):
+            for sid, count in aukusti.get(key, {}).items():
+                merged = main.setdefault(key, {})
+                merged[sid] = merged.get(sid, 0) + count
         main["goals"] += aukusti["goals"]
         main["assists"] += aukusti["assists"]
         main["teams"].update(aukusti["teams"])
@@ -568,6 +579,24 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
         if display is None:
             display = canonical
         
+        # Games per season: the season card (Phase 1) is authoritative where it
+        # has a row; gameplay roster appearances (Phase 2) only fill seasons the
+        # card scrape missed. Adding the two sources counted a career twice —
+        # Simo Soini showed 13 games against a card that says 7, and every
+        # Pts/Game on the site inherited the inflated denominator.
+        games_by_season = {}
+        for sid in set(p["card_games_by_season"]) | set(p["gp_games_by_season"]):
+            games_by_season[sid] = max(p["card_games_by_season"].get(sid, 0),
+                                       p["gp_games_by_season"].get(sid, 0))
+        games = sum(games_by_season.values())
+        summer_games = winter_games = 0
+        for sid, count in games_by_season.items():
+            stype = resolve_season_type(sid, page_mapping, season_type_map)
+            if stype == "summer":
+                summer_games += count
+            elif stype == "winter":
+                winter_games += count
+
         result[display] = {
             "seasons": sorted(p["seasons"]),
             "season_count": len(p["season_types"]["summer"]) + len(p["season_types"]["winter"]),
@@ -575,7 +604,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
             "year_count": len(p["years"]),
             "first_year": p["first_year"],
             "last_year": p["last_year"],
-            "games": p["games"],
+            "games": games,
             "goals": p["goals"],
             "assists": p["assists"],
             "total": p["goals"] + p["assists"],
@@ -586,7 +615,7 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                 "other": sorted(p["season_types"]["other"]),
             },
             # Summer/winter split
-            "summer_games": p["summer_games"],
+            "summer_games": summer_games,
             "summer_goals": p["summer_goals"],
             "summer_assists": p["summer_assists"],
             "winter_games": p["winter_games"],
@@ -628,23 +657,16 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
         home_is_otso = is_otso_team(gp.get("home_team", ""))
         away_is_otso = is_otso_team(gp.get("away_team", ""))
         
-        # Get canonical Otso player names in this game
-        otso_canonicals = set()
-        for p in gp.get("home_players", []):
-            if home_is_otso:
-                name = normalize_name(p.get("name", ""))
-                if name:
-                    canon = canonicalize_name(name)
-                    if canon in canon_to_display:
-                        otso_canonicals.add(canon)
-        for p in gp.get("away_players", []):
-            if away_is_otso:
-                name = normalize_name(p.get("name", ""))
-                if name:
-                    canon = canonicalize_name(name)
-                    if canon in canon_to_display:
-                        otso_canonicals.add(canon)
-        
+        # An Otso game, and both names are Otso players we know. It used to be a
+        # stricter rule — both names also had to appear on this game's roster —
+        # but the archived rosters are incomplete: game 9170 omits Simo Soini
+        # entirely, which dropped 2 of his 5 goals. Measured against the season
+        # card assist totals (10,410 assists), the roster rule counted 9,254
+        # assisted goals (11% short) while the known-player rule counts 10,553
+        # (1.4% over, the excess being Akatemia games the cards do not cover).
+        if not (home_is_otso or away_is_otso):
+            continue
+
         # Process points
         for point in gp.get("points", []):
             if point.get("type") != "point":
@@ -655,8 +677,7 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
             scorer_canon = canonicalize_name(raw_scorer)
             passer_canon = canonicalize_name(raw_passer)
 
-            # Only count if both players are Otso players we know
-            if scorer_canon in otso_canonicals and passer_canon in otso_canonicals:
+            if scorer_canon in canon_to_display and passer_canon in canon_to_display:
                 network[scorer_canon][passer_canon] += 1
     
     # Convert to regular dicts with display names
@@ -1035,14 +1056,16 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
         unique_points = []
         for p in points:
             if p.get('type') == 'point':
-                title = p.get('title', '')
-                # Extract full score like "0 - 1" from title "1.30 0 - 1 Player -> Player"
-                parts = title.split()
-                score = None
-                for i, part in enumerate(parts):
-                    if part == '-' and i > 0 and i < len(parts) - 1:
-                        score = f"{parts[i-1]} - {parts[i+1]}"
-                        break
+                # The score is stored on the point; the title fallback keeps older
+                # rows working and accepts both "0-1" (current pelikone format)
+                # and "0 - 1" (older scrape). The previous whitespace-token scan
+                # matched only the spaced form, so it dropped every point from
+                # the 467 games whose titles read "0-1".
+                score = p.get('score') or ''
+                if not score:
+                    match = re.search(r'(\d+\s*-\s*\d+)', p.get('title', ''))
+                    score = match.group(1) if match else ''
+                score = re.sub(r'\s*', '', score)
                 if score and score not in seen_scores:
                     seen_scores.add(score)
                     unique_points.append(p)
@@ -1235,11 +1258,22 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                 
                 point_index += 1
     
-    # Convert defaultdict to regular dict with display names
+    # Convert defaultdict to regular dict, aggregated by canonical key.
+    # The point table writes names as "Lastname Firstname" while players.json
+    # writes them as they appear on the season card, so keying this by the raw
+    # point name and merging it into players by exact string match dropped about
+    # half of it (214 keys, 102 that matched). The caller resolves the display
+    # name from the canonical key.
     result = {}
     for name, stats in player_stats.items():
-        result[name] = stats
-    
+        key = canonicalize_name(name)
+        if not key:
+            continue
+        if key not in result:
+            result[key] = {field: 0 for field in stats}
+        for field, value in stats.items():
+            result[key][field] += value
+
     return result
 
 
@@ -1584,9 +1618,14 @@ def main():
         "trophies.json": trophies,
     }
     
-    # Merge defense stats into players
-    for display_name, stats in defense_stats.items():
-        if display_name in players:
+    # Merge defense stats into players by canonical key, not by the exact string
+    # the point table happened to write.
+    canon_to_display = {}
+    for name in players:
+        canon_to_display.setdefault(canonicalize_name(name), name)
+    for canon_key, stats in defense_stats.items():
+        display_name = canon_to_display.get(canon_key)
+        if display_name:
             players[display_name]["defense_points"] = stats["defense_points"]
             players[display_name]["defense_goals"] = stats["defense_goals"]
             players[display_name]["defense_assists"] = stats["defense_assists"]

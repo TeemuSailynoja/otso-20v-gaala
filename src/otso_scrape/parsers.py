@@ -805,8 +805,19 @@ def parse_gameplay(html: str) -> Dict:
                     result["away_team"] = away_part
     
     # Parse point-by-point table
-    # The table has a single <tr> with <td> cells
-    for tr in soup.find_all("tr"):
+    # The table has a single <tr> with <td> cells.
+    #
+    # The gameplay page carries the point-by-point table TWICE: once inside
+    # div.page_middle (a site-wide results strip) and once inside div.content
+    # (the game's own table). Scanning every <tr> in the document appends every
+    # goal twice — 467 of the 788 stored games were exactly doubled that way, and
+    # re-parsing the archived HTML today doubles all of them. Scope the scan to
+    # the content copy, and dedupe by cell identity as a backstop in case a
+    # future layout repeats the strip again.
+    content = soup.find("div", class_="content")
+    point_rows = content.find_all("tr") if content else soup.find_all("tr")
+    seen_cells = set()
+    for tr in point_rows:
         tds = tr.find_all("td")
         if len(tds) < 2:
             continue
@@ -815,6 +826,10 @@ def parse_gameplay(html: str) -> Dict:
             td_class = td.get("class", [])
             if "halftime" in td_class:
                 # Halftime marker
+                marker = ("halftime", td.get_text(strip=True))
+                if marker in seen_cells:
+                    continue
+                seen_cells.add(marker)
                 result["points"].append({
                     "type": "halftime",
                     "text": td.get_text(strip=True),
@@ -823,10 +838,15 @@ def parse_gameplay(html: str) -> Dict:
                 # Point cell
                 title = td.get("title", "")
                 if title:
+                    side = "home" if "home" in td_class else "guest"
+                    cell = ("point", side, title)
+                    if cell in seen_cells:
+                        continue
+                    seen_cells.add(cell)
                     # Parse "TIME SCORE SCORER -> ASSISTANT"
                     point = {
                         "type": "point",
-                        "side": "home" if "home" in td_class else "guest",
+                        "side": side,
                         "title": title,
                     }
                     # Parse title: "2.35 1-0 Kantonen Miikka -> Wiklund Antti"
