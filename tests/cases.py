@@ -23,6 +23,12 @@ CASES = [
     ("games_list", parsers.parse_games_list, "games_KESA2026.html", ("KESA2026",)),
     ("gameplay_modern", parsers.parse_gameplay, "gameplay_11049_modern.html", ()),
     ("gameplay_pre2015", parsers.parse_gameplay, "gameplay_2980_pre2015.html", ()),
+    # Otso 2 vs Otso: the case that broke the old caption-matching rule.
+    ("gameplay_otso_derby", parsers.parse_gameplay, "gameplay_6215_otso_derby.html", ()),
+    # "SOS-Terror - Otso 2": a hyphen inside a team name.
+    ("gameplay_hyphen", parsers.parse_gameplay, "gameplay_6923_hyphen.html", ()),
+    ("allplayers", parsers.parse_allplayers, "allplayers_all.html", ()),
+    ("playercard", parsers.parse_playercard, "playercard_27441.html", ("27441",)),
 ]
 
 

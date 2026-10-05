@@ -1,0 +1,279 @@
+{
+  "away_players": [
+    {
+      "assists": 5,
+      "goals": 1,
+      "id": "16382",
+      "name": "Roni Hotari",
+      "total": 6
+    },
+    {
+      "assists": 0,
+      "goals": 4,
+      "id": "16385",
+      "name": "Erkka Niini",
+      "total": 4
+    },
+    {
+      "assists": 0,
+      "goals": 4,
+      "id": "16391",
+      "name": "Pasi Tamminen",
+      "total": 4
+    },
+    {
+      "assists": 2,
+      "goals": 2,
+      "id": "16383",
+      "name": "Lassi Kallio",
+      "total": 4
+    },
+    {
+      "assists": 3,
+      "goals": 1,
+      "id": "16384",
+      "name": "Tommi Lehto",
+      "total": 4
+    },
+    {
+      "assists": 2,
+      "goals": 1,
+      "id": "16390",
+      "name": "Ismo Sutela",
+      "total": 3
+    },
+    {
+      "assists": 3,
+      "goals": 0,
+      "id": "16388",
+      "name": "Tomi Sandberg",
+      "total": 3
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "id": "16389",
+      "name": "Jarno Sihvo",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "id": "16392",
+      "name": "Ilkka Vaahtoranta",
+      "total": 1
+    }
+  ],
+  "away_score": 15,
+  "away_team": "Otso",
+  "home_players": [
+    {
+      "assists": 0,
+      "goals": 1,
+      "id": "16368",
+      "name": "Aki Vehtari",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "id": "16364",
+      "name": "Touko aukusti Väänänen",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "16359",
+      "name": "Adrian Hornsby",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "16489",
+      "name": "Antti Järvi",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "16367",
+      "name": "Tuukka Koistinen",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "16370",
+      "name": "Tommi Palomäki",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "16362",
+      "name": "Teemu Säilynoja",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "16355",
+      "name": "Eero Smeds",
+      "total": 0
+    }
+  ],
+  "home_score": 1,
+  "home_team": "Otso 2",
+  "points": [
+    {
+      "passer": "Kallio Lassi",
+      "score": "0-1",
+      "scorer": "Tamminen Pasi",
+      "side": "guest",
+      "time": "2.40",
+      "title": "2.40 0-1 Kallio Lassi -> Tamminen Pasi",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "0-2",
+      "scorer": "Sihvo Jarno",
+      "side": "guest",
+      "time": "4.10",
+      "title": "4.10 0-2 Hotari Roni -> Sihvo Jarno",
+      "type": "point"
+    },
+    {
+      "passer": "Sandberg Tomi",
+      "score": "0-3",
+      "scorer": "Kallio Lassi",
+      "side": "guest",
+      "time": "5.30",
+      "title": "5.30 0-3 Sandberg Tomi -> Kallio Lassi",
+      "type": "point"
+    },
+    {
+      "passer": "Lehto Tommi",
+      "score": "0-4",
+      "scorer": "Vaahtoranta Ilkka",
+      "side": "guest",
+      "time": "8.55",
+      "title": "8.55 0-4 Lehto Tommi -> Vaahtoranta Ilkka",
+      "type": "point"
+    },
+    {
+      "passer": "Sandberg Tomi",
+      "score": "0-5",
+      "scorer": "Sutela Ismo",
+      "side": "guest",
+      "time": "10.20",
+      "title": "10.20 0-5 Sandberg Tomi -> Sutela Ismo",
+      "type": "point"
+    },
+    {
+      "passer": "Väänänen Touko aukusti",
+      "score": "1-5",
+      "scorer": "Vehtari Aki",
+      "side": "home",
+      "time": "11.45",
+      "title": "11.45 1-5 Väänänen Touko aukusti -> Vehtari Aki",
+      "type": "point"
+    },
+    {
+      "passer": "Kallio Lassi",
+      "score": "1-6",
+      "scorer": "Tamminen Pasi",
+      "side": "guest",
+      "time": "12.40",
+      "title": "12.40 1-6 Kallio Lassi -> Tamminen Pasi",
+      "type": "point"
+    },
+    {
+      "passer": "Lehto Tommi",
+      "score": "1-7",
+      "scorer": "Hotari Roni",
+      "side": "guest",
+      "time": "14.15",
+      "title": "14.15 1-7 Lehto Tommi -> Hotari Roni",
+      "type": "point"
+    },
+    {
+      "passer": "Sutela Ismo",
+      "score": "1-8",
+      "scorer": "Tamminen Pasi",
+      "side": "guest",
+      "time": "16.10",
+      "title": "16.10 1-8 Sutela Ismo -> Tamminen Pasi",
+      "type": "point"
+    },
+    {
+      "text": "",
+      "type": "halftime"
+    },
+    {
+      "passer": "Lehto Tommi",
+      "score": "1-9",
+      "scorer": "Niini Erkka",
+      "side": "guest",
+      "time": "19.15",
+      "title": "19.15 1-9 Lehto Tommi -> Niini Erkka",
+      "type": "point"
+    },
+    {
+      "passer": "Sandberg Tomi",
+      "score": "1-10",
+      "scorer": "Niini Erkka",
+      "side": "guest",
+      "time": "20.40",
+      "title": "20.40 1-10 Sandberg Tomi -> Niini Erkka",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "1-11",
+      "scorer": "Niini Erkka",
+      "side": "guest",
+      "time": "21.35",
+      "title": "21.35 1-11 Hotari Roni -> Niini Erkka",
+      "type": "point"
+    },
+    {
+      "passer": "Sutela Ismo",
+      "score": "1-12",
+      "scorer": "Tamminen Pasi",
+      "side": "guest",
+      "time": "22.35",
+      "title": "22.35 1-12 Sutela Ismo -> Tamminen Pasi",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "1-13",
+      "scorer": "Niini Erkka",
+      "side": "guest",
+      "time": "26.20",
+      "title": "26.20 1-13 Hotari Roni -> Niini Erkka",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "1-14",
+      "scorer": "Kallio Lassi",
+      "side": "guest",
+      "time": "28.15",
+      "title": "28.15 1-14 Hotari Roni -> Kallio Lassi",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "1-15",
+      "scorer": "Lehto Tommi",
+      "side": "guest",
+      "time": "29.50",
+      "title": "29.50 1-15 Hotari Roni -> Lehto Tommi",
+      "type": "point"
+    }
+  ]
+}

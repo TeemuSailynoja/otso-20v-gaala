@@ -3,42 +3,49 @@
     {
       "assists": 0,
       "goals": 2,
+      "id": "6195",
       "name": "Juuso Parkkinen",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "6191",
       "name": "Janne Aittomäki",
       "total": 2
     },
     {
       "assists": 2,
       "goals": 0,
+      "id": "6189",
       "name": "Jukka Mäki",
       "total": 2
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "6190",
       "name": "Chandika Chandrasekeram",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "6188",
       "name": "Jani Honkanen",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "6185",
       "name": "Timo Idänheimo",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "6187",
       "name": "Julius Rissanen",
       "total": 0
     }
@@ -49,78 +56,91 @@
     {
       "assists": 4,
       "goals": 2,
+      "id": "6178",
       "name": "Timo Vaskio",
       "total": 6
     },
     {
       "assists": 3,
       "goals": 2,
+      "id": "6173",
       "name": "Juhana Oivio",
       "total": 5
     },
     {
       "assists": 1,
       "goals": 3,
+      "id": "6170",
       "name": "Heikki Väänänen",
       "total": 4
     },
     {
       "assists": 0,
       "goals": 3,
+      "id": "6165",
       "name": "Antti Niinikoski",
       "total": 3
     },
     {
       "assists": 2,
       "goals": 1,
+      "id": "6176",
       "name": "Sami Holopainen",
       "total": 3
     },
     {
       "assists": 2,
       "goals": 1,
+      "id": "6166",
       "name": "Ari Rantalainen",
       "total": 3
     },
     {
       "assists": 0,
       "goals": 2,
+      "id": "6167",
       "name": "Esa Pensala",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "6175",
       "name": "Markus Nora",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "6180",
       "name": "Ville Rantamaula",
       "total": 2
     },
     {
       "assists": 2,
       "goals": 0,
+      "id": "6169",
       "name": "Hannu Saarinen",
       "total": 2
     },
     {
       "assists": 0,
       "goals": 1,
+      "id": "6174",
       "name": "Kimmo Berg",
       "total": 1
     },
     {
       "assists": 1,
       "goals": 0,
+      "id": "6177",
       "name": "Sebastian Godenhjelm",
       "total": 1
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "6168",
       "name": "Esko Saura",
       "total": 0
     }

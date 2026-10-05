@@ -397,7 +397,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
       playerlist) + golden JSON per parser. This is the safety net for everything after.
 - [x] **Phase 2 — delete the stale copies.** Remove `parse_data.py`; confirm the package parsers
       are the only ones; note in the commit which fixes the deleted copies lacked.
-- [ ] **Phase 3 — cache.** Per-URL content store + one-time manifest import; verify zero
+- [x] **Phase 3 — cache.** Per-URL content store + one-time manifest import; verify zero
       re-fetch of the existing 902 season files and 799 game pages.
 - [ ] **Phase 4 — identity.** `allplayers` fetch+parse, `playercard` fetch+parse, `identify.py`
       with per-game roster resolution; re-parse the 795 archived game HTMLs to recover roster IDs

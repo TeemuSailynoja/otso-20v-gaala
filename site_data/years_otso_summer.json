@@ -277,18 +277,15 @@
     "losses": 0,
     "goals_for": 207,
     "goals_against": 72,
-    "roster_players": 37,
+    "roster_players": 32,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
-      "alexander gorokhov",
-      "alexey zhebel",
       "antti elonheimo",
       "antti järvi",
       "aukusti touko väänänen",
       "aurasmaa pyry",
       "brunila totti",
-      "dmitri podolsky",
       "erkka niini",
       "haaramo ville",
       "heikki tiittanen",
@@ -306,14 +303,12 @@
       "kinnunen pekka",
       "koistinen tuukka",
       "kokkonen tatu",
-      "nikolaev nikolay",
       "ora visuri",
       "oskari vuorio",
       "pasi tamminen",
       "patrick potrykus",
       "salo santeri",
       "sandberg tomi",
-      "smolov viktor",
       "säilynoja teemu",
       "waltteri wickström"
     ],
@@ -326,7 +321,7 @@
     "losses": 1,
     "goals_for": 215,
     "goals_against": 116,
-    "roster_players": 28,
+    "roster_players": 29,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
@@ -348,6 +343,7 @@
       "juuso parkkinen",
       "kallio lassi",
       "kalpala karli",
+      "koistinen tuukka",
       "lehtelä pekka",
       "neuvo pekka",
       "oskari vuorio",
@@ -358,15 +354,15 @@
       "säilynoja teemu"
     ],
     "avg_age": 28.9,
-    "avg_age_known": 26
+    "avg_age_known": 27
   },
   "2016": {
-    "matches": 10,
-    "wins": 10,
+    "matches": 11,
+    "wins": 11,
     "losses": 0,
-    "goals_for": 145,
-    "goals_against": 71,
-    "roster_players": 27,
+    "goals_for": 157,
+    "goals_against": 82,
+    "roster_players": 28,
     "roster_names": [
       "adam torda",
       "aki vehtari",
@@ -377,6 +373,7 @@
       "emil videman",
       "erkka niini",
       "hotari roni",
+      "ilari visuri",
       "ilkka vaahtoranta",
       "ismo sutela",
       "jarno sihvo",
@@ -396,8 +393,8 @@
       "sandberg tomi",
       "säilynoja teemu"
     ],
-    "avg_age": 28.4,
-    "avg_age_known": 25
+    "avg_age": 28.0,
+    "avg_age_known": 26
   },
   "2017": {
     "matches": 14,

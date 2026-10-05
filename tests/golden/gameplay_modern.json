@@ -3,90 +3,105 @@
     {
       "assists": 2,
       "goals": 2,
+      "id": "35424",
       "name": "Jarno Sihvo",
       "total": 4
     },
     {
       "assists": 0,
       "goals": 3,
+      "id": "35462",
       "name": "Oskari Vuorio",
       "total": 3
     },
     {
       "assists": 1,
       "goals": 2,
+      "id": "35415",
       "name": "Mikko Alitalo",
       "total": 3
     },
     {
       "assists": 3,
       "goals": 0,
+      "id": "35421",
       "name": "Santeri Harmaala",
       "total": 3
     },
     {
       "assists": 3,
       "goals": 0,
+      "id": "35422",
       "name": "Roni Hotari",
       "total": 3
     },
     {
       "assists": 0,
       "goals": 2,
+      "id": "35414",
       "name": "Matias Arola",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "35409",
       "name": "Eelis Junnila",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "35417",
       "name": "Pekka Kinnunen",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "35413",
       "name": "Kivi Knuuti",
       "total": 2
     },
     {
       "assists": 1,
       "goals": 1,
+      "id": "35416",
       "name": "Patrick Potrykus",
       "total": 2
     },
     {
       "assists": 2,
       "goals": 0,
+      "id": "35412",
       "name": "Erkka Niini",
       "total": 2
     },
     {
       "assists": 0,
       "goals": 1,
+      "id": "35420",
       "name": "Samuel-visal Roeung",
       "total": 1
     },
     {
       "assists": 0,
       "goals": 1,
+      "id": "35425",
       "name": "Ilkka Vaahtoranta",
       "total": 1
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35408",
       "name": "Aleksi Mustonen",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35418",
       "name": "Phong Tran",
       "total": 0
     }
@@ -97,90 +112,105 @@
     {
       "assists": 0,
       "goals": 3,
+      "id": "35277",
       "name": "Arvi Tuuri",
       "total": 3
     },
     {
       "assists": 3,
       "goals": 0,
+      "id": "35275",
       "name": "Matias Pentikäinen",
       "total": 3
     },
     {
       "assists": 0,
       "goals": 1,
+      "id": "35268",
       "name": "Viljami Kataja",
       "total": 1
     },
     {
       "assists": 0,
       "goals": 1,
+      "id": "35265",
       "name": "Oskari Koikkalainen",
       "total": 1
     },
     {
       "assists": 1,
       "goals": 0,
+      "id": "35269",
       "name": "Jussi Cederlöf",
       "total": 1
     },
     {
       "assists": 1,
       "goals": 0,
+      "id": "35272",
       "name": "Torsti Visuri",
       "total": 1
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35271",
       "name": "Sisu Euramo",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35267",
       "name": "Sanna Jalovaara",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35266",
       "name": "Lauri Koikkalainen",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35281",
       "name": "Vihtori Myrskyranta",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35273",
       "name": "Aatos Nagy",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35276",
       "name": "Jymy Ollila",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35274",
       "name": "Vili Peltoniemi",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35280",
       "name": "Niilo Suontama",
       "total": 0
     },
     {
       "assists": 0,
       "goals": 0,
+      "id": "35278",
       "name": "Valtteri Väätäinen",
       "total": 0
     }

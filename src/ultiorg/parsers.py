@@ -775,34 +775,40 @@ def parse_gameplay(html: str) -> Dict:
     soup = BeautifulSoup(html, "html.parser")
     
     # Parse h1 title: "Team A - Team B    SCORE - SCORE"
+    # Team names and sides come from the two scoreboard CAPTIONS, in document
+    # order: first board = home, second = away. Measured over the 795 archived
+    # games, caption order matches the <h1> order in 792 of them, and the 3
+    # exceptions are <h1> parse failures on hyphenated team names
+    # ("SOS-Terror - Otso 2", "TT-Lätty - Otso 3"), where the captions are right
+    # and the heading is not. Matching captions against an <h1>-derived name is
+    # also unsafe: with home "Otso 2" and away "Otso", the substring test put the
+    # away roster on the home side and left `away_players` empty — 12 games.
+    boards = soup.find_all("div", class_="gameplay-scoreboard")
+    board_teams: List[str] = []
+    for scoreboard in boards:
+        caption = scoreboard.find("caption")
+        board_teams.append(caption.get_text(strip=True) if caption else "")
+
     h1 = soup.find("h1")
     if h1:
         title = h1.get_text(strip=True)
-        # Split by "-" to get teams and scores
-        # Format: "Saints - Otso Akatemia    9 - 12"
-        # or: "Otso - Team B    10 - 8"
-        parts = re.split(r'\s*-\s*', title, maxsplit=1)
-        if len(parts) >= 2:
-            # Find the score part (contains numbers)
-            score_match = re.search(r'(\d+)\s*-\s*(\d+)', parts[1])
-            if score_match:
-                # Home team is everything before the score
-                home_part = parts[0].strip()
-                # Away team is between the first dash and the score
-                away_part = parts[1][:score_match.start()].strip()
-                # The score
-                result["home_score"] = int(score_match.group(1))
-                result["away_score"] = int(score_match.group(2))
-                
-                # Handle cases where home team contains "-"
-                if " - " in home_part:
-                    # First part is home team, rest is away team
-                    home_team_parts = home_part.split(" - ", 1)
-                    result["home_team"] = home_team_parts[0].strip()
-                    result["away_team"] = away_part
-                else:
-                    result["home_team"] = home_part
-                    result["away_team"] = away_part
+        # Score is the trailing "N - M"; take it from the END of the heading so a
+        # hyphen inside a team name cannot be mistaken for the separator.
+        score_match = re.search(r"(\d+)\s*-\s*(\d+)\s*$", title)
+        if score_match:
+            result["home_score"] = int(score_match.group(1))
+            result["away_score"] = int(score_match.group(2))
+            names_part = title[: score_match.start()].strip()
+        else:
+            names_part = title
+        # Only used when the page has no usable captions.
+        heading_teams = [p.strip() for p in re.split(r"\s+-\s+", names_part)]
+        if len(heading_teams) >= 2:
+            result["home_team"] = heading_teams[0]
+            result["away_team"] = " - ".join(heading_teams[1:])
+
+    if len(board_teams) == 2 and all(board_teams):
+        result["home_team"], result["away_team"] = board_teams
     
     # Parse point-by-point table
     # The table has a single <tr> with <td> cells.
@@ -866,10 +872,14 @@ def parse_gameplay(html: str) -> Dict:
                         point["raw_title"] = title
                     result["points"].append(point)
     
-    # Parse player rosters from gameplay-scoreboard tables
-    for scoreboard in soup.find_all("div", class_="gameplay-scoreboard"):
+    # Parse player rosters from gameplay-scoreboard tables, POSITIONALLY: the
+    # first board is the home team, the second is the away team.
+    for index, scoreboard in enumerate(boards):
+        if index > 1:
+            break  # only two teams per game; ignore any extra strip
         caption = scoreboard.find("caption")
         team_name = caption.get_text(strip=True) if caption else ""
+        side = "home_players" if index == 0 else "away_players"
         
         players = []
         for row in scoreboard.find_all("tr")[1:]:  # Skip header
@@ -879,18 +889,28 @@ def parse_gameplay(html: str) -> Dict:
                 name_cell = tds[1]
                 name_link = name_cell.find("a")
                 player_name = name_link.get_text(strip=True) if name_link else name_cell.get_text(strip=True)
-                
+
                 # Remove (C) captain marker
                 player_name = re.sub(r'\s*\(C\)', '', player_name).strip()
-                
+
+                # The roster link is the only place a gameplay page carries a
+                # player ID — point rows are plain text. This is what makes the
+                # archived corpus enough to re-key everything offline.
+                player_id = ""
+                if name_link and "player=" in name_link.get("href", ""):
+                    id_match = re.search(r"player=(\d+)", name_link["href"])
+                    if id_match:
+                        player_id = id_match.group(1)
+
                 try:
                     assists = int(tds[2].get_text(strip=True)) if tds[2].get_text(strip=True) else 0
                     goals = int(tds[3].get_text(strip=True)) if tds[3].get_text(strip=True) else 0
                     total = int(tds[4].get_text(strip=True)) if tds[4].get_text(strip=True) else 0
                 except (ValueError, IndexError):
                     assists = goals = total = 0
-                
+
                 players.append({
+                    "id": player_id,
                     "name": player_name,
                     "assists": assists,
                     "goals": goals,
@@ -898,9 +918,164 @@ def parse_gameplay(html: str) -> Dict:
                 })
         
         if team_name:
-            if team_name == result["home_team"] or (result["home_team"] and team_name in result["home_team"]):
-                result["home_players"] = players
-            else:
-                result["away_players"] = players
+            result[side] = players
     
+    return result
+
+
+# --- player identity views --------------------------------------------------
+
+
+def parse_allplayers(html: str) -> List[Dict]:
+    """Parse `?view=allplayers&list=all` — every registered player, with IDs.
+
+    The default view shows only one letter group; `list=all` is the whole index
+    (2,568 players measured). Names are `First Last` and separated by a plain
+    space here, unlike gameplay rosters (U+00A0).
+
+    Some entries have an **empty name** with a real ID (measured: 3 of 2,568).
+    They are kept, not dropped — an ID with no name is a data-quality fact, and
+    dropping it would silently lose that player's points.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    players: List[Dict] = []
+    seen: set[str] = set()
+    for link in soup.find_all("a", href=True):
+        href = link["href"]
+        if "view=playercard" not in href:
+            continue
+        match = re.search(r"player=(\d+)", href)
+        if not match:
+            continue
+        player_id = match.group(1)
+        if player_id in seen:
+            continue
+        seen.add(player_id)
+        name = " ".join(link.get_text().replace("\xa0", " ").split())
+        players.append({"id": player_id, "name": name})
+    return players
+
+
+_PROFILE_LABELS = {
+    "Lempinimi": "nickname",
+    "Syntymäpaikka": "birthplace",
+    "Kansallisuus": "nationality",
+    "Kätisyys": "handedness",
+    "Pituus": "height",
+    "Paino": "weight",
+}
+
+
+def _int(text: str) -> Optional[int]:
+    text = text.strip()
+    try:
+        return int(text)
+    except ValueError:
+        return None
+
+
+def _float(text: str) -> Optional[float]:
+    text = text.strip().rstrip("%").replace(",", ".")
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def parse_playercard(html: str, player_id: str) -> Dict:
+    """Parse `?view=playercard&series=0&player=<id>` — one player's career.
+
+    Returns:
+
+        player_id, name, jersey, current_team {id, name}, profile {...},
+        totals {gp, assists, goals, total, callahans, wins, win_pct},
+        career_by_type [{type, division, ...}]   (indoor / outdoor / beach)
+        career_by_event [{event, division, team, gp, assists, goals, ...}]
+
+    The card is the cheapest way to get a player's whole career: one request per
+    player instead of one per season. Note it exposes birthplace and nationality
+    but **no birth date** — the birthdays in `data/private/` are not from here.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    result: Dict = {
+        "player_id": player_id,
+        "name": "",
+        "jersey": "",
+        "current_team": None,
+        "profile": {},
+        "totals": {},
+        "career_by_type": [],
+        "career_by_event": [],
+    }
+
+    h1 = soup.find("h1")
+    if h1:
+        title = " ".join(h1.get_text().replace("\xa0", " ").split())
+        jersey_match = re.match(r"#(\d+)\s+(.*)$", title)
+        if jersey_match:
+            result["jersey"] = jersey_match.group(1)
+            result["name"] = jersey_match.group(2).strip()
+        else:
+            result["name"] = title
+
+    header = soup.find("p")
+    if header:
+        team_link = header.find("a", href=True)
+        if team_link:
+            team_id = re.search(r"team=(\d+)", team_link["href"])
+            result["current_team"] = {
+                "id": team_id.group(1) if team_id else "",
+                "name": team_link.get_text(strip=True),
+            }
+
+    for row in soup.find_all("tr"):
+        cells = row.find_all("td")
+        if len(cells) == 2:
+            label = cells[0].get_text(strip=True).rstrip(":")
+            if label in _PROFILE_LABELS:
+                value = " ".join(cells[1].get_text().replace("\xa0", " ").split())
+                if value:
+                    result["profile"][_PROFILE_LABELS[label]] = value
+
+    for table in soup.find_all("table", class_="statistics-table"):
+        rows = table.find_all("tr")
+        header_cells = rows[0].find_all("th") if rows else []
+        headers = [c.get_text(strip=True) for c in header_cells]
+        by_event = "Joukkue" in headers
+
+        for row in rows[1:]:
+            cells = row.find_all("td")
+            if not cells:
+                continue
+            texts = [c.get_text(strip=True) for c in cells]
+            # The ten numeric columns are always last: GP A G Tot. A Avg. G Avg.
+            # Tot. Avg. Call. W Voitto-%. Label columns before them vary — the
+            # totals row collapses its two label cells with colspan=2 — so count
+            # from the end instead of assuming an offset.
+            if len(texts) < 11:
+                continue
+            numbers = texts[-10:]
+            labels = texts[:-10]
+            stats = {
+                "gp": _int(numbers[0]),
+                "assists": _int(numbers[1]),
+                "goals": _int(numbers[2]),
+                "total": _int(numbers[3]),
+                "avg_assists": _float(numbers[4]),
+                "avg_goals": _float(numbers[5]),
+                "avg_total": _float(numbers[6]),
+                "callahans": _int(numbers[7]),
+                "wins": _int(numbers[8]),
+                "win_pct": _float(numbers[9]),
+            }
+            if labels and labels[0].startswith("Yhteensä"):
+                result["totals"] = stats
+                continue
+            if by_event and len(labels) >= 3:
+                result["career_by_event"].append(
+                    {"event": labels[0], "division": labels[1], "team": labels[2], **stats}
+                )
+            elif len(labels) >= 2:
+                result["career_by_type"].append({"type": labels[0], "division": labels[1], **stats})
+
     return result

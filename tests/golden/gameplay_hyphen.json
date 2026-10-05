@@ -1,0 +1,416 @@
+{
+  "away_players": [
+    {
+      "assists": 1,
+      "goals": 3,
+      "id": "19272",
+      "name": "Karli Kalpala",
+      "total": 4
+    },
+    {
+      "assists": 4,
+      "goals": 0,
+      "id": "19283",
+      "name": "Aki Vehtari",
+      "total": 4
+    },
+    {
+      "assists": 1,
+      "goals": 2,
+      "id": "19292",
+      "name": "Yrjänä Hynninen",
+      "total": 3
+    },
+    {
+      "assists": 2,
+      "goals": 1,
+      "id": "19271",
+      "name": "Antti Järvi",
+      "total": 3
+    },
+    {
+      "assists": 0,
+      "goals": 2,
+      "id": "19295",
+      "name": "Anttoni Söderlund",
+      "total": 2
+    },
+    {
+      "assists": 1,
+      "goals": 1,
+      "id": "19288",
+      "name": "Ora Visuri",
+      "total": 2
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "id": "19291",
+      "name": "Pekka Neuvo",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "id": "19293",
+      "name": "Ville Antila",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "19294",
+      "name": "Pekka Lehtelä",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "19287",
+      "name": "Jasu Vehtari",
+      "total": 0
+    }
+  ],
+  "away_score": 10,
+  "away_team": "Otso 2",
+  "home_players": [
+    {
+      "assists": 2,
+      "goals": 3,
+      "id": "19335",
+      "name": "Niko Littunen",
+      "total": 5
+    },
+    {
+      "assists": 3,
+      "goals": 2,
+      "id": "19349",
+      "name": "Tuomas Niemi",
+      "total": 5
+    },
+    {
+      "assists": 1,
+      "goals": 2,
+      "id": "19339",
+      "name": "Santtu Lehto",
+      "total": 3
+    },
+    {
+      "assists": 1,
+      "goals": 2,
+      "id": "19342",
+      "name": "Patrick Potrykus",
+      "total": 3
+    },
+    {
+      "assists": 2,
+      "goals": 1,
+      "id": "19340",
+      "name": "Pekka Kinnunen",
+      "total": 3
+    },
+    {
+      "assists": 0,
+      "goals": 2,
+      "id": "19332",
+      "name": "Eetu Tiihonen",
+      "total": 2
+    },
+    {
+      "assists": 0,
+      "goals": 2,
+      "id": "19346",
+      "name": "Mikael Vitikainen",
+      "total": 2
+    },
+    {
+      "assists": 2,
+      "goals": 0,
+      "id": "19338",
+      "name": "Saska Karpansalo",
+      "total": 2
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "id": "19331",
+      "name": "Mikael Piippo",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "id": "19344",
+      "name": "Kimmo Kinnunen",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "id": "19343",
+      "name": "Ville Mykkänen",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "id": "19336",
+      "name": "Atte Skogberg",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "id": "19329",
+      "name": "Miitrei Sorsa",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "19347",
+      "name": "Jani Kärkkäinen",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "id": "19371",
+      "name": "Anton Ylä-Autio",
+      "total": 0
+    }
+  ],
+  "home_score": 15,
+  "home_team": "SOS-Terror",
+  "points": [
+    {
+      "passer": "Littunen Niko",
+      "score": "1-0",
+      "scorer": "Niemi Tuomas",
+      "side": "home",
+      "time": "2.05",
+      "title": "2.05 1-0 Littunen Niko -> Niemi Tuomas",
+      "type": "point"
+    },
+    {
+      "passer": "Visuri Ora",
+      "score": "1-1",
+      "scorer": "Söderlund Anttoni",
+      "side": "guest",
+      "time": "3.45",
+      "title": "3.45 1-1 Visuri Ora -> Söderlund Anttoni",
+      "type": "point"
+    },
+    {
+      "passer": "Karpansalo Saska",
+      "score": "2-1",
+      "scorer": "Littunen Niko",
+      "side": "home",
+      "time": "6.00",
+      "title": "6.00 2-1 Karpansalo Saska -> Littunen Niko",
+      "type": "point"
+    },
+    {
+      "passer": "Järvi Antti",
+      "score": "2-2",
+      "scorer": "Visuri Ora",
+      "side": "guest",
+      "time": "10.25",
+      "title": "10.25 2-2 Järvi Antti -> Visuri Ora",
+      "type": "point"
+    },
+    {
+      "passer": "Lehto Santtu",
+      "score": "3-2",
+      "scorer": "Niemi Tuomas",
+      "side": "home",
+      "time": "12.02",
+      "title": "12.02 3-2 Lehto Santtu -> Niemi Tuomas",
+      "type": "point"
+    },
+    {
+      "passer": "Kalpala Karli",
+      "score": "3-3",
+      "scorer": "Hynninen Yrjänä",
+      "side": "guest",
+      "time": "14.21",
+      "title": "14.21 3-3 Kalpala Karli -> Hynninen Yrjänä",
+      "type": "point"
+    },
+    {
+      "passer": "Karpansalo Saska",
+      "score": "4-3",
+      "scorer": "Tiihonen Eetu",
+      "side": "home",
+      "time": "16.50",
+      "title": "16.50 4-3 Karpansalo Saska -> Tiihonen Eetu",
+      "type": "point"
+    },
+    {
+      "passer": "Kinnunen Pekka",
+      "score": "5-3",
+      "scorer": "Potrykus Patrick",
+      "side": "home",
+      "time": "19.54",
+      "title": "19.54 5-3 Kinnunen Pekka -> Potrykus Patrick",
+      "type": "point"
+    },
+    {
+      "passer": "Skogberg Atte",
+      "score": "6-3",
+      "scorer": "Lehto Santtu",
+      "side": "home",
+      "time": "24.11",
+      "title": "24.11 6-3 Skogberg Atte -> Lehto Santtu",
+      "type": "point"
+    },
+    {
+      "passer": "Vehtari Aki",
+      "score": "6-4",
+      "scorer": "Järvi Antti",
+      "side": "guest",
+      "time": "26.00",
+      "title": "26.00 6-4 Vehtari Aki -> Järvi Antti",
+      "type": "point"
+    },
+    {
+      "passer": "Littunen Niko",
+      "score": "7-4",
+      "scorer": "Tiihonen Eetu",
+      "side": "home",
+      "time": "29.20",
+      "title": "29.20 7-4 Littunen Niko -> Tiihonen Eetu",
+      "type": "point"
+    },
+    {
+      "passer": "Mykkänen Ville",
+      "score": "8-4",
+      "scorer": "Potrykus Patrick",
+      "side": "home",
+      "time": "32.11",
+      "title": "32.11 8-4 Mykkänen Ville -> Potrykus Patrick",
+      "type": "point"
+    },
+    {
+      "text": "",
+      "type": "halftime"
+    },
+    {
+      "passer": "Hynninen Yrjänä",
+      "score": "8-5",
+      "scorer": "Söderlund Anttoni",
+      "side": "guest",
+      "time": "37.39",
+      "title": "37.39 8-5 Hynninen Yrjänä -> Söderlund Anttoni",
+      "type": "point"
+    },
+    {
+      "passer": "Potrykus Patrick",
+      "score": "9-5",
+      "scorer": "Vitikainen Mikael",
+      "side": "home",
+      "time": "40.15",
+      "title": "40.15 9-5 Potrykus Patrick -> Vitikainen Mikael",
+      "type": "point"
+    },
+    {
+      "passer": "Vehtari Aki",
+      "score": "9-6",
+      "scorer": "Kalpala Karli",
+      "side": "guest",
+      "time": "43.15",
+      "title": "43.15 9-6 Vehtari Aki -> Kalpala Karli",
+      "type": "point"
+    },
+    {
+      "passer": "Kinnunen Pekka",
+      "score": "10-6",
+      "scorer": "Vitikainen Mikael",
+      "side": "home",
+      "time": "45.31",
+      "title": "45.31 10-6 Kinnunen Pekka -> Vitikainen Mikael",
+      "type": "point"
+    },
+    {
+      "passer": "Antila Ville",
+      "score": "10-7",
+      "scorer": "Kalpala Karli",
+      "side": "guest",
+      "time": "47.09",
+      "title": "47.09 10-7 Antila Ville -> Kalpala Karli",
+      "type": "point"
+    },
+    {
+      "passer": "Kinnunen Kimmo",
+      "score": "11-7",
+      "scorer": "Kinnunen Pekka",
+      "side": "home",
+      "time": "49.19",
+      "title": "49.19 11-7 Kinnunen Kimmo -> Kinnunen Pekka",
+      "type": "point"
+    },
+    {
+      "passer": "Niemi Tuomas",
+      "score": "12-7",
+      "scorer": "Piippo Mikael",
+      "side": "home",
+      "time": "51.23",
+      "title": "51.23 12-7 Niemi Tuomas -> Piippo Mikael",
+      "type": "point"
+    },
+    {
+      "passer": "Vehtari Aki",
+      "score": "12-8",
+      "scorer": "Kalpala Karli",
+      "side": "guest",
+      "time": "54.46",
+      "title": "54.46 12-8 Vehtari Aki -> Kalpala Karli",
+      "type": "point"
+    },
+    {
+      "passer": "Niemi Tuomas",
+      "score": "13-8",
+      "scorer": "Lehto Santtu",
+      "side": "home",
+      "time": "56.44",
+      "title": "56.44 13-8 Niemi Tuomas -> Lehto Santtu",
+      "type": "point"
+    },
+    {
+      "passer": "Järvi Antti",
+      "score": "13-9",
+      "scorer": "Hynninen Yrjänä",
+      "side": "guest",
+      "time": "59.21",
+      "title": "59.21 13-9 Järvi Antti -> Hynninen Yrjänä",
+      "type": "point"
+    },
+    {
+      "passer": "Sorsa Miitrei",
+      "score": "14-9",
+      "scorer": "Littunen Niko",
+      "side": "home",
+      "time": "61.20",
+      "title": "61.20 14-9 Sorsa Miitrei -> Littunen Niko",
+      "type": "point"
+    },
+    {
+      "passer": "Vehtari Aki",
+      "score": "14-10",
+      "scorer": "Neuvo Pekka",
+      "side": "guest",
+      "time": "63.30",
+      "title": "63.30 14-10 Vehtari Aki -> Neuvo Pekka",
+      "type": "point"
+    },
+    {
+      "passer": "Niemi Tuomas",
+      "score": "15-10",
+      "scorer": "Littunen Niko",
+      "side": "home",
+      "time": "64.57",
+      "title": "64.57 15-10 Niemi Tuomas -> Littunen Niko",
+      "type": "point"
+    }
+  ]
+}

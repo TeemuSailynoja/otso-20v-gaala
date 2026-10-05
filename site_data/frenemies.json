@@ -5,9 +5,9 @@
     "wins": 25,
     "losses": 58,
     "goals": 121,
-    "assists": 190,
-    "total": 311,
-    "ppg": 3.75,
+    "assists": 194,
+    "total": 315,
+    "ppg": 3.8,
     "teams": [
       "Saints",
       "UFO",
@@ -19,13 +19,13 @@
   },
   {
     "name": "Elias Päällysaho",
-    "games": 73,
+    "games": 76,
     "wins": 20,
-    "losses": 53,
-    "goals": 86,
-    "assists": 201,
-    "total": 287,
-    "ppg": 3.93,
+    "losses": 56,
+    "goals": 91,
+    "assists": 209,
+    "total": 300,
+    "ppg": 3.95,
     "teams": [
       "Saints",
       "Vaasa Saints"
@@ -34,13 +34,13 @@
   },
   {
     "name": "Antti Wiklund",
-    "games": 78,
-    "wins": 24,
-    "losses": 54,
-    "goals": 212,
-    "assists": 53,
-    "total": 265,
-    "ppg": 3.4,
+    "games": 92,
+    "wins": 26,
+    "losses": 66,
+    "goals": 232,
+    "assists": 59,
+    "total": 291,
+    "ppg": 3.16,
     "teams": [
       "Saints",
       "Muu Suomi",
@@ -50,13 +50,13 @@
   },
   {
     "name": "Aki Ropo",
-    "games": 70,
+    "games": 71,
     "wins": 23,
-    "losses": 47,
-    "goals": 37,
-    "assists": 178,
-    "total": 215,
-    "ppg": 3.07,
+    "losses": 48,
+    "goals": 38,
+    "assists": 184,
+    "total": 222,
+    "ppg": 3.13,
     "teams": [
       "UFO",
       "PirU",
@@ -68,13 +68,13 @@
   },
   {
     "name": "Juho Pulakka",
-    "games": 89,
+    "games": 92,
     "wins": 35,
-    "losses": 54,
-    "goals": 88,
-    "assists": 103,
-    "total": 191,
-    "ppg": 2.15,
+    "losses": 57,
+    "goals": 97,
+    "assists": 113,
+    "total": 210,
+    "ppg": 2.28,
     "teams": [
       "LeKi",
       "PirU",
@@ -85,52 +85,85 @@
     "rank": 5
   },
   {
-    "name": "Saska Karpansalo",
+    "name": "Jaakko Junttu",
+    "games": 44,
+    "wins": 16,
+    "losses": 28,
+    "goals": 80,
+    "assists": 122,
+    "total": 202,
+    "ppg": 4.59,
+    "teams": [
+      "LeKi",
+      "PirU",
+      "U20"
+    ],
+    "rank": 6
+  },
+  {
+    "name": "Thomas Pfister",
     "games": 84,
-    "wins": 33,
+    "wins": 27,
+    "losses": 57,
+    "goals": 97,
+    "assists": 96,
+    "total": 193,
+    "ppg": 2.3,
+    "teams": [
+      "UFO",
+      "PirU",
+      "Team",
+      "UFO Akatemia",
+      "Muu Suomi"
+    ],
+    "rank": 7
+  },
+  {
+    "name": "Saska Karpansalo",
+    "games": 85,
+    "wins": 34,
     "losses": 51,
     "goals": 122,
-    "assists": 62,
-    "total": 184,
+    "assists": 64,
+    "total": 186,
     "ppg": 2.19,
     "teams": [
       "Helsinki Ultimate 1",
       "Terror",
       "Helsinki Ultimate",
+      "SOS-Terror",
       "Turku Terror",
       "PirU",
-      "SOS-Terror",
       "Team",
-      "Helsinki Ultimate Empire",
-      "SOS"
+      "Helsinki Ultimate Empire"
     ],
-    "rank": 6
+    "rank": 8
   },
   {
-    "name": "Jaakko Junttu",
-    "games": 40,
-    "wins": 16,
-    "losses": 24,
-    "goals": 70,
-    "assists": 114,
-    "total": 184,
-    "ppg": 4.6,
+    "name": "Tuomas Niemi",
+    "games": 44,
+    "wins": 14,
+    "losses": 30,
+    "goals": 96,
+    "assists": 89,
+    "total": 185,
+    "ppg": 4.2,
     "teams": [
-      "PirU",
-      "LeKi",
-      "U20"
+      "Terror",
+      "SOS-Terror",
+      "Turku Terror"
     ],
-    "rank": 7
+    "rank": 9
   },
   {
     "name": "Jyri Saarinen",
     "games": 67,
     "wins": 24,
     "losses": 43,
-    "goals": 65,
-    "assists": 115,
-    "total": 180,
-    "ppg": 2.69,
+    "goals": 67,
+    "assists": 116,
+    "total": 183,
+    "ppg": 2.73,
     "teams": [
       "Helsinki Ultimate 1",
       "UFO",
@@ -145,7 +178,7 @@
       "Team1",
       "UFO Akatemia"
     ],
-    "rank": 8
+    "rank": 10
   },
   {
     "name": "Juha Jokinen",
@@ -161,24 +194,61 @@
       "Karhukopla",
       "SOS-Terror"
     ],
-    "rank": 9
+    "rank": 11
   },
   {
-    "name": "Tuomas Niemi",
-    "games": 43,
-    "wins": 13,
-    "losses": 30,
-    "goals": 94,
-    "assists": 85,
-    "total": 179,
-    "ppg": 4.16,
+    "name": "Eetu Tiihonen",
+    "games": 61,
+    "wins": 23,
+    "losses": 38,
+    "goals": 69,
+    "assists": 108,
+    "total": 177,
+    "ppg": 2.9,
+    "teams": [
+      "Terror",
+      "Turku Terror",
+      "SOS-Terror"
+    ],
+    "rank": 12
+  },
+  {
+    "name": "Antti Kahri",
+    "games": 78,
+    "wins": 26,
+    "losses": 52,
+    "goals": 44,
+    "assists": 131,
+    "total": 175,
+    "ppg": 2.24,
+    "teams": [
+      "Helsinki Ultimate 1",
+      "Team",
+      "Helsinki Ultimate",
+      "Helsinki Ultimate 2",
+      "UFBG",
+      "Helsinki",
+      "Helsinki Ultimate Rebels",
+      "Team 2"
+    ],
+    "rank": 13
+  },
+  {
+    "name": "Santtu Lehto",
+    "games": 47,
+    "wins": 16,
+    "losses": 31,
+    "goals": 110,
+    "assists": 60,
+    "total": 170,
+    "ppg": 3.62,
     "teams": [
       "Terror",
       "Turku Terror",
       "SOS-Terror",
-      "SOS"
+      "Terror 2"
     ],
-    "rank": 10
+    "rank": 14
   },
   {
     "name": "Okko Winqvist",
@@ -200,119 +270,78 @@
       "Team 2",
       "ViRHe"
     ],
-    "rank": 11
-  },
-  {
-    "name": "Antti Kahri",
-    "games": 77,
-    "wins": 26,
-    "losses": 51,
-    "goals": 42,
-    "assists": 126,
-    "total": 168,
-    "ppg": 2.18,
-    "teams": [
-      "Helsinki Ultimate 1",
-      "Team",
-      "Helsinki Ultimate",
-      "Helsinki Ultimate 2",
-      "UFBG",
-      "Helsinki",
-      "Team 2",
-      "Helsinki Ultimate Rebels"
-    ],
-    "rank": 12
-  },
-  {
-    "name": "Eetu Tiihonen",
-    "games": 59,
-    "wins": 22,
-    "losses": 37,
-    "goals": 65,
-    "assists": 103,
-    "total": 168,
-    "ppg": 2.85,
-    "teams": [
-      "Terror",
-      "Turku Terror",
-      "SOS-Terror",
-      "SOS"
-    ],
-    "rank": 13
-  },
-  {
-    "name": "Thomas Pfister",
-    "games": 76,
-    "wins": 25,
-    "losses": 51,
-    "goals": 80,
-    "assists": 87,
-    "total": 167,
-    "ppg": 2.2,
-    "teams": [
-      "UFO",
-      "PirU",
-      "Team",
-      "UFO Akatemia",
-      "Muu Suomi"
-    ],
-    "rank": 14
-  },
-  {
-    "name": "Santtu Lehto",
-    "games": 46,
-    "wins": 15,
-    "losses": 31,
-    "goals": 107,
-    "assists": 58,
-    "total": 165,
-    "ppg": 3.59,
-    "teams": [
-      "Terror",
-      "Turku Terror",
-      "SOS-Terror",
-      "SOS",
-      "Terror 2"
-    ],
     "rank": 15
+  },
+  {
+    "name": "Juho Rantalaiho",
+    "games": 50,
+    "wins": 21,
+    "losses": 29,
+    "goals": 83,
+    "assists": 86,
+    "total": 169,
+    "ppg": 3.38,
+    "teams": [
+      "Terror",
+      "Turku Terror",
+      "SOS-Terror"
+    ],
+    "rank": 16
   },
   {
     "name": "Aleksi Pelto",
     "games": 48,
     "wins": 21,
     "losses": 27,
-    "goals": 55,
+    "goals": 56,
     "assists": 109,
-    "total": 164,
-    "ppg": 3.42,
+    "total": 165,
+    "ppg": 3.44,
     "teams": [
       "LeKi",
       "PirU",
       "U20"
     ],
-    "rank": 16
+    "rank": 17
+  },
+  {
+    "name": "Juho Lehtimäki",
+    "games": 69,
+    "wins": 20,
+    "losses": 49,
+    "goals": 71,
+    "assists": 92,
+    "total": 163,
+    "ppg": 2.36,
+    "teams": [
+      "UFO",
+      "PirU",
+      "UFO Akatemia",
+      "LeKi"
+    ],
+    "rank": 18
   },
   {
     "name": "Ilja Winqvist",
-    "games": 50,
-    "wins": 24,
-    "losses": 26,
-    "goals": 76,
-    "assists": 83,
-    "total": 159,
-    "ppg": 3.18,
+    "games": 52,
+    "wins": 25,
+    "losses": 27,
+    "goals": 78,
+    "assists": 84,
+    "total": 162,
+    "ppg": 3.12,
     "teams": [
       "Helsinki Ultimate 1",
       "Helsinki Ultimate",
       "Team 2",
       "Team",
+      "U20",
       "Helsinki 2",
       "Helsinki Ultimate Rebels",
       "Salko All Stars",
-      "U20",
       "ViRHe"
     ],
-    "rank": 17
+    "rank": 19
   },
   {
     "name": "Lauri Saksa",
@@ -333,17 +362,17 @@
       "Helsinki",
       "Team 2"
     ],
-    "rank": 18
+    "rank": 20
   },
   {
     "name": "Aarni Nagy",
     "games": 47,
     "wins": 14,
     "losses": 33,
-    "goals": 55,
-    "assists": 97,
-    "total": 152,
-    "ppg": 3.23,
+    "goals": 56,
+    "assists": 98,
+    "total": 154,
+    "ppg": 3.28,
     "teams": [
       "Sleepwalkers",
       "LeKi",
@@ -353,39 +382,6 @@
       "JSW 2",
       "LeKi 2",
       "U20"
-    ],
-    "rank": 19
-  },
-  {
-    "name": "Juho Lehtimäki",
-    "games": 64,
-    "wins": 20,
-    "losses": 44,
-    "goals": 65,
-    "assists": 85,
-    "total": 150,
-    "ppg": 2.34,
-    "teams": [
-      "UFO",
-      "PirU",
-      "LeKi",
-      "UFO Akatemia"
-    ],
-    "rank": 20
-  },
-  {
-    "name": "Juho Rantalaiho",
-    "games": 41,
-    "wins": 18,
-    "losses": 23,
-    "goals": 74,
-    "assists": 67,
-    "total": 141,
-    "ppg": 3.44,
-    "teams": [
-      "Terror",
-      "Turku Terror",
-      "SOS"
     ],
     "rank": 21
   }

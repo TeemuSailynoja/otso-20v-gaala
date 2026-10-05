@@ -302,18 +302,15 @@
     "losses": 2,
     "goals_for": 407,
     "goals_against": 226,
-    "roster_players": 39,
+    "roster_players": 34,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
-      "alexander gorokhov",
-      "alexey zhebel",
       "antti elonheimo",
       "antti järvi",
       "aukusti touko väänänen",
       "aurasmaa pyry",
       "brunila totti",
-      "dmitri podolsky",
       "erkka niini",
       "haaramo ville",
       "heikki tiittanen",
@@ -332,14 +329,12 @@
       "kinnunen pekka",
       "koistinen tuukka",
       "kokkonen tatu",
-      "nikolaev nikolay",
       "ora visuri",
       "oskari vuorio",
       "pasi tamminen",
       "patrick potrykus",
       "salo santeri",
       "sandberg tomi",
-      "smolov viktor",
       "säilynoja teemu",
       "timo vaskio",
       "waltteri wickström"
@@ -353,7 +348,7 @@
     "losses": 2,
     "goals_for": 406,
     "goals_against": 245,
-    "roster_players": 30,
+    "roster_players": 31,
     "roster_names": [
       "adrian hornsby",
       "aki vehtari",
@@ -375,6 +370,7 @@
       "juuso parkkinen",
       "kallio lassi",
       "kalpala karli",
+      "koistinen tuukka",
       "lehtelä pekka",
       "lehto tommi",
       "neuvo pekka",
@@ -387,15 +383,15 @@
       "timo vaskio"
     ],
     "avg_age": 30.0,
-    "avg_age_known": 28
+    "avg_age_known": 29
   },
   "2016": {
-    "matches": 26,
-    "wins": 24,
+    "matches": 27,
+    "wins": 25,
     "losses": 2,
-    "goals_for": 372,
-    "goals_against": 221,
-    "roster_players": 29,
+    "goals_for": 384,
+    "goals_against": 232,
+    "roster_players": 30,
     "roster_names": [
       "adam torda",
       "aki vehtari",
@@ -407,6 +403,7 @@
       "erkka niini",
       "hotari roni",
       "hynninen yrjänä",
+      "ilari visuri",
       "ilkka rämö",
       "ilkka vaahtoranta",
       "ismo sutela",
@@ -427,8 +424,8 @@
       "sandberg tomi",
       "säilynoja teemu"
     ],
-    "avg_age": 28.7,
-    "avg_age_known": 27
+    "avg_age": 28.4,
+    "avg_age_known": 28
   },
   "2017": {
     "matches": 29,

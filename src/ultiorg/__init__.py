@@ -25,6 +25,8 @@ from .parsers import (
     parse_player_list,
     parse_games_list,
     parse_gameplay,
+    parse_allplayers,
+    parse_playercard,
     parse_csv_teams,
     parse_csv_players,
     parse_csv_games,
@@ -54,6 +56,14 @@ from .fetcher import (
     fetch_csv_export,
 )
 from .http import Fetcher, FetchStats, configure, get_fetcher
+from .identify import (
+    DataQuality,
+    PlayerIndex,
+    Resolution,
+    canon,
+    pseudo_key,
+    recover_rosters,
+)
 from .cache import (
     Cache,
     CachedPage,
@@ -78,6 +88,8 @@ __all__ = [
     "parse_player_list",
     "parse_games_list",
     "parse_gameplay",
+    "parse_allplayers",
+    "parse_playercard",
     "parse_csv_teams",
     "parse_csv_players",
     "parse_csv_games",
@@ -108,6 +120,13 @@ __all__ = [
     "FetchStats",
     "configure",
     "get_fetcher",
+    # Identity
+    "DataQuality",
+    "PlayerIndex",
+    "Resolution",
+    "canon",
+    "pseudo_key",
+    "recover_rosters",
     # Cache
     "Cache",
     "CachedPage",
