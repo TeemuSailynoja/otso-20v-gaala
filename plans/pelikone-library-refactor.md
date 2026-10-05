@@ -395,7 +395,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
 - [x] **Phase 1 — characterization tests first.** Commit ~10 fixtures from `data/raw/` (a modern
       gameplay page, a pre-2015 gameplay page, season list, teams, standings, teamcard,
       playerlist) + golden JSON per parser. This is the safety net for everything after.
-- [ ] **Phase 2 — delete the stale copies.** Remove `parse_data.py`; confirm the package parsers
+- [x] **Phase 2 — delete the stale copies.** Remove `parse_data.py`; confirm the package parsers
       are the only ones; note in the commit which fixes the deleted copies lacked.
 - [ ] **Phase 3 — cache.** Per-URL content store + one-time manifest import; verify zero
       re-fetch of the existing 902 season files and 799 game pages.

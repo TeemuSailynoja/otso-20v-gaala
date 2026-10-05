@@ -14,7 +14,11 @@ import json
 from pathlib import Path
 
 from ultiorg.fetcher import fetch_gameplay
+from ultiorg.http import configure
 from ultiorg.config import BASE_URL, RAW_DIR
+
+# Set in main(): one fetcher, one politeness budget, one request counter.
+FETCHER = None
 
 def get_all_game_ids():
     """Get all game IDs from match_results.json."""
@@ -39,7 +43,7 @@ def scrape_game(game_id: str, force: bool = False) -> bool:
     
     Returns True if successful.
     """
-    html = fetch_gameplay(game_id, data_dir=Path("data"))
+    html = fetch_gameplay(game_id, FETCHER)
     
     if html is None:
         print(f"  [FAILED] {game_id}")
@@ -55,10 +59,12 @@ def scrape_game(game_id: str, force: bool = False) -> bool:
 
 
 def main():
+    global FETCHER
     parser = argparse.ArgumentParser(description="Scrape all Otso game HTML pages")
     parser.add_argument("--force", action="store_true", help="Force re-download all games")
     parser.add_argument("--list", action="store_true", help="List games to be scraped")
     args = parser.parse_args()
+    FETCHER = configure(data_dir=Path("data"), refresh=args.force)
     
     # Ensure data/raw exists
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -102,6 +108,7 @@ def main():
     
     print(f"\n{'='*60}")
     print(f"Done! {success} games scraped, {failed} failed")
+    print(f"Traffic: {FETCHER.stats.summary()}")
     print(f"{'='*60}")
 
 

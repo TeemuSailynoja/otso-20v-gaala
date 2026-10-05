@@ -229,3 +229,7 @@ data/private/
 
 # Agent working notes (plans, revisions) — local only.
 .pi/
+
+# Rebuildable caches: per-URL page cache and the SQLite fact store.
+data/cache/
+data/store.sqlite

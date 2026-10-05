@@ -6,9 +6,10 @@ import sys
 from pathlib import Path
 from typing import List, Dict
 
-from .config import BASE_URL, DATA_DIR, RAW_DIR, PROCESSED_DIR
-from .cache import get_cache, save_cache, setup_dirs
-from .fetcher import fetch_url, fetch_season_list, fetch_games_page, fetch_gameplay
+from .config import BASE_URL, DATA_DIR, RAW_DIR, PROCESSED_DIR, REQUEST_DELAY
+from .cache import Cache, setup_dirs
+from .http import Fetcher, configure, fetch_url
+from .fetcher import fetch_season_list, fetch_games_page, fetch_gameplay
 from .parsers import parse_season_list, classify_season, parse_games_list, parse_gameplay, is_otso_team
 from .builders import build_team_timeline, build_player_network, build_summary
 
@@ -19,8 +20,7 @@ def parse_season(
     csv_only: bool = False,
     otso_only: bool = False,
     fetch_gameplay_data: bool = False,
-    data_dir: Path = DATA_DIR,
-    refresh: bool = False,
+    fetcher: Fetcher | None = None,
 ) -> Dict:
     """Parse a complete season's data.
 
@@ -30,8 +30,7 @@ def parse_season(
         csv_only: Only use CSV export (current season).
         otso_only: Skip non-Otso teams entirely (saves requests).
         fetch_gameplay_data: Also fetch games list and point-by-point gameplay.
-        data_dir: Directory for cache and output files.
-        refresh: Force re-download even if cached.
+        fetcher: Shared fetcher (cache + politeness + request counter).
 
     Returns:
         Season data dictionary.
@@ -69,13 +68,13 @@ def parse_season(
     # Try CSV export first (current season only)
     if not csv_only:
         # Parse teams page
-        teams_html = fetch_teams_page(season_id, data_dir)
+        teams_html = fetch_teams_page(season_id, fetcher)
         if teams_html:
             season_data["teams"] = parse_teams_page(teams_html, season_id)
             print(f"  Found {len(season_data['teams'])} teams")
 
         # Parse standings page
-        standings_html = fetch_standings_page(season_id, data_dir)
+        standings_html = fetch_standings_page(season_id, fetcher)
         if standings_html:
             season_data["placements"] = parse_standings_page(standings_html, season_id)
             otso_placements = [
@@ -92,7 +91,7 @@ def parse_season(
                 if otso_only:
                     continue
             if team["id"]:
-                team_html = fetch_team_card(team["id"], data_dir)
+                team_html = fetch_team_card(team["id"], fetcher)
                 if team_html:
                     team_data = parse_team_card(team_html, team["id"])
                     team["players"] = team_data["players"]
@@ -109,9 +108,7 @@ def parse_season(
                 if otso_only:
                     continue
             if team.get("player_list_url"):
-                player_html = fetch_url(
-                    team["player_list_url"], data_dir=data_dir, refresh=refresh
-                )
+                player_html = fetch_url(team["player_list_url"], fetcher=fetcher)
                 if player_html:
                     all_time_players = parse_player_list(player_html, team["id"])
                     team["all_time_players"] = all_time_players
@@ -123,7 +120,7 @@ def parse_season(
     # Fetch games list and gameplay data (optional)
     if fetch_gameplay_data and not csv_only:
         print(f"  Fetching games list...")
-        games_html = fetch_games_page(season_id, data_dir)
+        games_html = fetch_games_page(season_id, fetcher)
         if games_html:
             season_games = parse_games_list(games_html, season_id)
             season_data["games"] = season_games
@@ -133,7 +130,7 @@ def parse_season(
             for game in season_games:
                 game_id = game["game_id"]
                 print(f"    Fetching gameplay for {game['home_team']} vs {game['away_team']}...")
-                gameplay_html = fetch_gameplay(game_id, data_dir)
+                gameplay_html = fetch_gameplay(game_id, fetcher)
                 if gameplay_html:
                     game["gameplay"] = parse_gameplay(gameplay_html)
                     points = game["gameplay"].get("points", [])
@@ -144,7 +141,7 @@ def parse_season(
                     print(f"      Failed to fetch gameplay")
 
     # Try CSV export
-    csv_html = fetch_csv_export(data_dir)
+    csv_html = fetch_csv_export(fetcher)
     if csv_html and "CSV-tiedostot" in csv_html:
         print(f"  CSV export available")
     else:
@@ -153,17 +150,17 @@ def parse_season(
     return season_data
 
 
-def get_all_seasons(data_dir: Path = DATA_DIR) -> List[Dict]:
+def get_all_seasons(fetcher: Fetcher | None = None) -> List[Dict]:
     """Get all available seasons from the season list page.
 
     Args:
-        data_dir: Directory for cache file.
+        fetcher: Shared fetcher.
 
     Returns:
         List of season dictionaries.
     """
     print("Fetching season list...")
-    html = fetch_season_list(data_dir)
+    html = fetch_season_list(fetcher)
     if not html:
         return []
     return parse_season_list(html)
@@ -189,6 +186,25 @@ def main() -> None:
         "--refresh", action="store_true", help="Force re-download all data"
     )
     parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Report what would be fetched; make no requests",
+    )
+    parser.add_argument(
+        "--delay",
+        type=float,
+        default=REQUEST_DELAY,
+        help=f"Seconds between network requests (default {REQUEST_DELAY})",
+    )
+    parser.add_argument(
+        "--import-cache",
+        action="store_true",
+        help="One-time import of the legacy cache manifest and data/raw HTML into data/cache/",
+    )
+    parser.add_argument(
+        "--cache-stats", action="store_true", help="Report cache contents and exit"
+    )
+    parser.add_argument(
         "--output",
         type=str,
         default="processed",
@@ -198,14 +214,29 @@ def main() -> None:
 
     # Setup directories
     setup_dirs(DATA_DIR)
-
+    fetcher = configure(
+        data_dir=DATA_DIR,
+        refresh=args.refresh,
+        dry_run=args.dry_run,
+        delay=args.delay,
+    )
     if args.refresh:
         print("Cache refresh enabled - all data will be re-downloaded")
+    if args.dry_run:
+        print("Dry run - no requests will be made")
 
-    cache = get_cache(DATA_DIR)
-    if args.refresh:
-        cache = {"last_updated": None, "seasons": {}, "teams": {}, "players": {}}
-        save_cache(cache, DATA_DIR)
+    cache = Cache(DATA_DIR)
+    if args.cache_stats:
+        print(f"cache: {cache.counts()}")
+        return
+
+    if args.import_cache:
+        from_manifest = cache.import_manifest(dry_run=args.dry_run)
+        from_raw = cache.import_raw_html(dry_run=args.dry_run)
+        print(f"manifest import: {from_manifest}")
+        print(f"raw HTML import: {from_raw}")
+        print(f"cache: {Cache(DATA_DIR).counts()}")
+        return
 
     # Get all seasons
     if args.season:
@@ -217,7 +248,7 @@ def main() -> None:
             }
         ]
     else:
-        seasons = get_all_seasons(DATA_DIR)
+        seasons = get_all_seasons(fetcher)
 
     print(f"\nFound {len(seasons)} seasons")
 
@@ -230,8 +261,7 @@ def main() -> None:
             csv_only=args.csv_only,
             otso_only=args.otso_only,
             fetch_gameplay_data=args.gameplay,
-            data_dir=DATA_DIR,
-            refresh=args.refresh,
+            fetcher=fetcher,
         )
         all_seasons_data.append(season_data)
 
@@ -291,6 +321,8 @@ def main() -> None:
 
     print(f"\n{'='*60}")
     print("Done! Data saved to data/processed/")
+    print(f"  traffic: {fetcher.stats.summary()}")
+    print(f"  cache:   {Cache(DATA_DIR).counts()}")
     print(f"{'='*60}")
 
 

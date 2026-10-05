@@ -37,6 +37,7 @@ from .builders import (
 )
 from .fetcher import (
     fetch_url,
+    fetch_view,
     fetch_season_list,
     fetch_teams_page,
     fetch_standings_page,
@@ -44,11 +45,22 @@ from .fetcher import (
     fetch_player_list,
     fetch_games_page,
     fetch_gameplay,
+    fetch_allplayers,
+    fetch_playercard,
+    fetch_scorestatus,
+    fetch_statistics,
+    fetch_allteams,
+    fetch_allclubs,
     fetch_csv_export,
 )
+from .http import Fetcher, FetchStats, configure, get_fetcher
 from .cache import (
-    get_cache,
-    save_cache,
+    Cache,
+    CachedPage,
+    POLICY_SECONDS,
+    cache_key,
+    kind_for_url,
+    is_current_season_id,
     setup_dirs,
 )
 
@@ -76,6 +88,7 @@ __all__ = [
     "build_summary",
     # Fetchers
     "fetch_url",
+    "fetch_view",
     "fetch_season_list",
     "fetch_teams_page",
     "fetch_standings_page",
@@ -83,9 +96,24 @@ __all__ = [
     "fetch_player_list",
     "fetch_games_page",
     "fetch_gameplay",
+    "fetch_allplayers",
+    "fetch_playercard",
+    "fetch_scorestatus",
+    "fetch_statistics",
+    "fetch_allteams",
+    "fetch_allclubs",
     "fetch_csv_export",
+    # HTTP / politeness
+    "Fetcher",
+    "FetchStats",
+    "configure",
+    "get_fetcher",
     # Cache
-    "get_cache",
-    "save_cache",
+    "Cache",
+    "CachedPage",
+    "POLICY_SECONDS",
+    "cache_key",
+    "kind_for_url",
+    "is_current_season_id",
     "setup_dirs",
 ]
