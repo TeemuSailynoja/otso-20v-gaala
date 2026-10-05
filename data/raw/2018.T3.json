@@ -1,0 +1,424 @@
+{
+  "id": "2018.T3",
+  "name": "Kesä 2018: Tour 3",
+  "classified": {
+    "year": 2018,
+    "type": "tour3",
+    "id": "2018.T3",
+    "name": "Kesä 2018: Tour 3"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "2541",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Aki Vehtari",
+          "id": "26026",
+          "jersey": "12",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "26027",
+          "jersey": "80",
+          "games": "5",
+          "assists": "3",
+          "goals": "4",
+          "total": "7"
+        },
+        {
+          "name": "Antti Järvi",
+          "id": "26044",
+          "jersey": "15",
+          "games": "5",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Antti-Jussi Miettinen",
+          "id": "26028",
+          "jersey": "73",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Emil Videman",
+          "id": "26047",
+          "jersey": "22",
+          "games": "5",
+          "assists": "4",
+          "goals": "6",
+          "total": "10"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "26029",
+          "jersey": "11",
+          "games": "5",
+          "assists": "8",
+          "goals": "3",
+          "total": "11"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "26030",
+          "jersey": "32",
+          "games": "5",
+          "assists": "5",
+          "goals": "1",
+          "total": "6"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "26031",
+          "jersey": "25",
+          "games": "5",
+          "assists": "0",
+          "goals": "2",
+          "total": "2"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "26043",
+          "jersey": "19",
+          "games": "2",
+          "assists": "1",
+          "goals": "2",
+          "total": "3"
+        },
+        {
+          "name": "Karli Kalpala",
+          "id": "26045",
+          "jersey": "23",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Kasperi Lahti",
+          "id": "26032",
+          "jersey": "71",
+          "games": "5",
+          "assists": "2",
+          "goals": "11",
+          "total": "13"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "26033",
+          "jersey": "22",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Mikko Paanasalo",
+          "id": "26034",
+          "jersey": "7",
+          "games": "5",
+          "assists": "6",
+          "goals": "7",
+          "total": "13"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "26035",
+          "jersey": "21",
+          "games": "5",
+          "assists": "2",
+          "goals": "7",
+          "total": "9"
+        },
+        {
+          "name": "Patrick Potrykus",
+          "id": "26036",
+          "jersey": "77",
+          "games": "5",
+          "assists": "11",
+          "goals": "7",
+          "total": "18"
+        },
+        {
+          "name": "Pekka Kinnunen",
+          "id": "26037",
+          "jersey": "40",
+          "games": "5",
+          "assists": "4",
+          "goals": "2",
+          "total": "6"
+        },
+        {
+          "name": "Pekka Lehtelä",
+          "id": "26254",
+          "jersey": "8",
+          "games": "2",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "26038",
+          "jersey": "34",
+          "games": "5",
+          "assists": "10",
+          "goals": "6",
+          "total": "16"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "26039",
+          "jersey": "29",
+          "games": "5",
+          "assists": "0",
+          "goals": "1",
+          "total": "1"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "26040",
+          "jersey": "72",
+          "games": "5",
+          "assists": "1",
+          "goals": "2",
+          "total": "3"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "26041",
+          "jersey": "17",
+          "games": "5",
+          "assists": "5",
+          "goals": "4",
+          "total": "9"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "26042",
+          "jersey": "27",
+          "games": "5",
+          "assists": "5",
+          "goals": "3",
+          "total": "8"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "26046",
+          "jersey": "81",
+          "games": "3",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        }
+      ],
+      "games": [
+        {
+          "home": "Team 2",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 4
+        },
+        {
+          "home": "Turku Terror",
+          "away": "Otso",
+          "home_score": 6,
+          "away_score": 15
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 7
+        },
+        {
+          "home": "Otso",
+          "away": "Saints",
+          "home_score": 10,
+          "away_score": 13
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 14,
+          "away_score": 8
+        }
+      ],
+      "all_time_players": []
+    },
+    {
+      "name": "PirU",
+      "id": "2542",
+      "club": "Lempäälän Kisa ry",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Saints",
+      "id": "2543",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Team",
+      "id": "2544",
+      "club": "Liitokiekkoseura Team",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Team 2",
+      "id": "2545",
+      "club": "Liitokiekkoseura Team",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Turku Terror",
+      "id": "2546",
+      "club": "Turku Terror Ultimate ry",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "UFO",
+      "id": "2548",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Avoin",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Atletico",
+      "id": "2549",
+      "club": "Atletico",
+      "division": "Naiset",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2550",
+      "club": "Liitokiekkoseura Team",
+      "division": "Naiset",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "UFO",
+      "id": "2551",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Naiset",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Vaasa Saints",
+      "id": "2552",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Naiset",
+      "season_id": "2018.T3",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "PirU",
+      "team_id": "2542",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "Kulta",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2550",
+      "division": "Naiset",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Saints",
+      "team_id": "2543",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Atletico",
+      "team_id": "2549",
+      "division": "Naiset",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "Otso",
+      "team_id": "2541",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "UFO",
+      "team_id": "2551",
+      "division": "Naiset",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "4.",
+      "team_name": "Team",
+      "team_id": "2544",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "4.",
+      "team_name": "Vaasa Saints",
+      "team_id": "2552",
+      "division": "Naiset",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Turku Terror",
+      "team_id": "2546",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "6.",
+      "team_name": "Team 2",
+      "team_id": "2545",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    },
+    {
+      "placement": "7.",
+      "team_name": "UFO",
+      "team_id": "2548",
+      "division": "Avoin",
+      "season_id": "2018.T3"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

@@ -149,7 +149,7 @@ class Cache:
         Freshness decides whether a request may reuse a page; this answers the
         other question — do we already hold the bytes. A `live` page past its
         six hours is still archived content, which is what the corpus gate and
-        `--cache-stats` ask.
+        `ultiorg cache stats` ask.
         """
         self.load()
         entry = self._index.get(cache_key(url))

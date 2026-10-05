@@ -218,8 +218,12 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Otso 20v Gaala - Data
-# Raw scraped data (exclude from git)
-data/raw/
+# The season parses (data/raw/*.json, 3.3 MB) ARE tracked: they are the only record
+# of season-card data — standings, placements, season totals — so a fresh clone can
+# rebuild site_data/ without crawling. The archived game HTML (20 MB) is not: the
+# tracked corpus already carries what was parsed out of it.
+data/raw/*
+!data/raw/*.json
 data/cache_manifest.json
 # Processed data is committed (include data/processed/)
 

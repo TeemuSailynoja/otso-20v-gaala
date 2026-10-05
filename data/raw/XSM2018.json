@@ -1,0 +1,107 @@
+{
+  "id": "XSM2018",
+  "name": "Mixed SM 2018",
+  "classified": {
+    "year": 2018,
+    "type": "championship",
+    "id": "XSM2018",
+    "name": "Mixed SM 2018"
+  },
+  "teams": [
+    {
+      "name": "Disquitos",
+      "id": "2509",
+      "club": "Disquitos ry",
+      "division": "Mixed",
+      "season_id": "XSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2509"
+    },
+    {
+      "name": "ERHe",
+      "id": "2517",
+      "club": "Espoon Rennot Heittelijät ry",
+      "division": "Mixed",
+      "season_id": "XSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2517"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2512",
+      "club": "Helsinki ultimate",
+      "division": "Mixed",
+      "season_id": "XSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2512"
+    },
+    {
+      "name": "Saints",
+      "id": "2513",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Mixed",
+      "season_id": "XSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2513"
+    },
+    {
+      "name": "UFO",
+      "id": "2515",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Mixed",
+      "season_id": "XSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2515"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2516",
+      "club": "Vihdin Rennot Heitteijät",
+      "division": "Mixed",
+      "season_id": "XSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2516"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2512",
+      "division": "Mixed",
+      "season_id": "XSM2018"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Saints",
+      "team_id": "2513",
+      "division": "Mixed",
+      "season_id": "XSM2018"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "UFO",
+      "team_id": "2515",
+      "division": "Mixed",
+      "season_id": "XSM2018"
+    },
+    {
+      "placement": "4.",
+      "team_name": "ViRHe",
+      "team_id": "2516",
+      "division": "Mixed",
+      "season_id": "XSM2018"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Disquitos",
+      "team_id": "2509",
+      "division": "Mixed",
+      "season_id": "XSM2018"
+    },
+    {
+      "placement": "6.",
+      "team_name": "ERHe",
+      "team_id": "2517",
+      "division": "Mixed",
+      "season_id": "XSM2018"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

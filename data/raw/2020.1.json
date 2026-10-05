@@ -1,0 +1,1314 @@
+{
+  "id": "2020.1",
+  "name": "Kesä 2020",
+  "classified": {
+    "year": 2020,
+    "type": "unknown",
+    "id": "2020.1",
+    "name": "Kesä 2020"
+  },
+  "teams": [
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2781",
+      "club": "Liitokiekkoseura Team",
+      "division": "Avoin",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2781"
+    },
+    {
+      "name": "Otso Grizzly",
+      "id": "2777",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2777",
+      "players": [
+        {
+          "name": "Antti Elonheimo",
+          "id": "29188",
+          "jersey": "80",
+          "games": "5",
+          "assists": "3",
+          "goals": "2",
+          "total": "5"
+        },
+        {
+          "name": "Antti Järvi",
+          "id": "29190",
+          "jersey": "15",
+          "games": "7",
+          "assists": "9",
+          "goals": "2",
+          "total": "11"
+        },
+        {
+          "name": "Eero Metso",
+          "id": "29197",
+          "jersey": "61",
+          "games": "7",
+          "assists": "0",
+          "goals": "10",
+          "total": "10"
+        },
+        {
+          "name": "Emil Videman",
+          "id": "29208",
+          "jersey": "79",
+          "games": "7",
+          "assists": "1",
+          "goals": "10",
+          "total": "11"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "29198",
+          "jersey": "11",
+          "games": "7",
+          "assists": "10",
+          "goals": "17",
+          "total": "27"
+        },
+        {
+          "name": "George Kuvaja",
+          "id": "29195",
+          "jersey": "85",
+          "games": "7",
+          "assists": "0",
+          "goals": "5",
+          "total": "5"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "29203",
+          "jersey": "32",
+          "games": "7",
+          "assists": "8",
+          "goals": "4",
+          "total": "12"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "29200",
+          "jersey": "19",
+          "games": "7",
+          "assists": "1",
+          "goals": "9",
+          "total": "10"
+        },
+        {
+          "name": "Patrick Potrykus",
+          "id": "29199",
+          "jersey": "77",
+          "games": "5",
+          "assists": "9",
+          "goals": "5",
+          "total": "14"
+        },
+        {
+          "name": "Pekka Kinnunen",
+          "id": "29193",
+          "jersey": "40",
+          "games": "7",
+          "assists": "6",
+          "goals": "3",
+          "total": "9"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "29189",
+          "jersey": "34",
+          "games": "7",
+          "assists": "22",
+          "goals": "4",
+          "total": "26"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "29201",
+          "jersey": "29",
+          "games": "7",
+          "assists": "3",
+          "goals": "4",
+          "total": "7"
+        },
+        {
+          "name": "Tatu Kokkonen",
+          "id": "29210",
+          "jersey": "45",
+          "games": "6",
+          "assists": "5",
+          "goals": "0",
+          "total": "5"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "29202",
+          "jersey": "17",
+          "games": "7",
+          "assists": "22",
+          "goals": "10",
+          "total": "32"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "29205",
+          "jersey": "27",
+          "games": "7",
+          "assists": "4",
+          "goals": "18",
+          "total": "22"
+        }
+      ],
+      "games": [
+        {
+          "home": "Helsinki Ultimate",
+          "away": "Otso Grizzly",
+          "home_score": 5,
+          "away_score": 15
+        },
+        {
+          "home": "Otso Polar",
+          "away": "Otso Grizzly",
+          "home_score": 9,
+          "away_score": 15
+        },
+        {
+          "home": "PirU",
+          "away": "Otso Grizzly",
+          "home_score": 15,
+          "away_score": 11
+        },
+        {
+          "home": "UFO",
+          "away": "Otso Grizzly",
+          "home_score": 15,
+          "away_score": 3
+        },
+        {
+          "home": "Saints",
+          "away": "Otso Grizzly",
+          "home_score": 15,
+          "away_score": 11
+        },
+        {
+          "home": "Helsinki Ultimate",
+          "away": "Otso Grizzly",
+          "home_score": 15,
+          "away_score": 6
+        },
+        {
+          "home": "Otso Grizzly",
+          "away": "PirU",
+          "home_score": 13,
+          "away_score": 14
+        }
+      ],
+      "all_time_players": [
+        {
+          "name": "Antti Elonheimo",
+          "id": "29188",
+          "jersey": "88",
+          "events": "607",
+          "games": "909",
+          "assists": "863",
+          "total": "1772"
+        },
+        {
+          "name": "Antti Järvi",
+          "id": "29190",
+          "jersey": "67",
+          "events": "412",
+          "games": "329",
+          "assists": "276",
+          "total": "605"
+        },
+        {
+          "name": "Eero Metso",
+          "id": "29197",
+          "jersey": "33",
+          "events": "233",
+          "games": "169",
+          "assists": "387",
+          "total": "556"
+        },
+        {
+          "name": "Emil Videman",
+          "id": "29208",
+          "jersey": "43",
+          "events": "241",
+          "games": "290",
+          "assists": "314",
+          "total": "604"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "29198",
+          "jersey": "72",
+          "events": "433",
+          "games": "486",
+          "assists": "896",
+          "total": "1382"
+        },
+        {
+          "name": "George Kuvaja",
+          "id": "29195",
+          "jersey": "34",
+          "events": "214",
+          "games": "220",
+          "assists": "383",
+          "total": "603"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "29203",
+          "jersey": "76",
+          "events": "443",
+          "games": "560",
+          "assists": "398",
+          "total": "958"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "29200",
+          "jersey": "50",
+          "events": "301",
+          "games": "311",
+          "assists": "435",
+          "total": "746"
+        },
+        {
+          "name": "Patrick Potrykus",
+          "id": "29199",
+          "jersey": "73",
+          "events": "419",
+          "games": "593",
+          "assists": "674",
+          "total": "1267"
+        },
+        {
+          "name": "Pekka Kinnunen",
+          "id": "29193",
+          "jersey": "63",
+          "events": "380",
+          "games": "503",
+          "assists": "353",
+          "total": "856"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "29189",
+          "jersey": "89",
+          "events": "510",
+          "games": "1352",
+          "assists": "926",
+          "total": "2278"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "29201",
+          "jersey": "49",
+          "events": "263",
+          "games": "273",
+          "assists": "370",
+          "total": "643"
+        },
+        {
+          "name": "Tatu Kokkonen",
+          "id": "29210",
+          "jersey": "45",
+          "events": "224",
+          "games": "304",
+          "assists": "213",
+          "total": "517"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "29202",
+          "jersey": "78",
+          "events": "491",
+          "games": "1144",
+          "assists": "768",
+          "total": "1912"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "29205",
+          "jersey": "50",
+          "events": "275",
+          "games": "251",
+          "assists": "582",
+          "total": "833"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "29188",
+          "jersey": "88",
+          "events": "607",
+          "games": "909",
+          "assists": "863",
+          "total": "1772"
+        },
+        {
+          "name": "Antti Järvi",
+          "id": "29190",
+          "jersey": "67",
+          "events": "412",
+          "games": "329",
+          "assists": "276",
+          "total": "605"
+        },
+        {
+          "name": "Eero Metso",
+          "id": "29197",
+          "jersey": "33",
+          "events": "233",
+          "games": "169",
+          "assists": "387",
+          "total": "556"
+        },
+        {
+          "name": "Emil Videman",
+          "id": "29208",
+          "jersey": "43",
+          "events": "241",
+          "games": "290",
+          "assists": "314",
+          "total": "604"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "29198",
+          "jersey": "72",
+          "events": "433",
+          "games": "486",
+          "assists": "896",
+          "total": "1382"
+        },
+        {
+          "name": "George Kuvaja",
+          "id": "29195",
+          "jersey": "34",
+          "events": "214",
+          "games": "220",
+          "assists": "383",
+          "total": "603"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "29203",
+          "jersey": "76",
+          "events": "443",
+          "games": "560",
+          "assists": "398",
+          "total": "958"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "29200",
+          "jersey": "50",
+          "events": "301",
+          "games": "311",
+          "assists": "435",
+          "total": "746"
+        },
+        {
+          "name": "Patrick Potrykus",
+          "id": "29199",
+          "jersey": "73",
+          "events": "419",
+          "games": "593",
+          "assists": "674",
+          "total": "1267"
+        },
+        {
+          "name": "Pekka Kinnunen",
+          "id": "29193",
+          "jersey": "63",
+          "events": "380",
+          "games": "503",
+          "assists": "353",
+          "total": "856"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "29189",
+          "jersey": "89",
+          "events": "510",
+          "games": "1352",
+          "assists": "926",
+          "total": "2278"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "29201",
+          "jersey": "49",
+          "events": "263",
+          "games": "273",
+          "assists": "370",
+          "total": "643"
+        },
+        {
+          "name": "Tatu Kokkonen",
+          "id": "29210",
+          "jersey": "45",
+          "events": "224",
+          "games": "304",
+          "assists": "213",
+          "total": "517"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "29202",
+          "jersey": "78",
+          "events": "491",
+          "games": "1144",
+          "assists": "768",
+          "total": "1912"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "29205",
+          "jersey": "50",
+          "events": "275",
+          "games": "251",
+          "assists": "582",
+          "total": "833"
+        }
+      ]
+    },
+    {
+      "name": "Otso Polar",
+      "id": "2778",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2778",
+      "players": [
+        {
+          "name": "Aki Vehtari",
+          "id": "29220",
+          "jersey": "12",
+          "games": "4",
+          "assists": "3",
+          "goals": "0",
+          "total": "3"
+        },
+        {
+          "name": "Alexander Lehtonen",
+          "id": "29243",
+          "jersey": "8",
+          "games": "6",
+          "assists": "3",
+          "goals": "5",
+          "total": "8"
+        },
+        {
+          "name": "Antti Mäkipää",
+          "id": "29248",
+          "jersey": "93",
+          "games": "7",
+          "assists": "1",
+          "goals": "4",
+          "total": "5"
+        },
+        {
+          "name": "Artur Vaskio",
+          "id": "29239",
+          "jersey": "28",
+          "games": "7",
+          "assists": "2",
+          "goals": "5",
+          "total": "7"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "29219",
+          "jersey": "5",
+          "games": "7",
+          "assists": "9",
+          "goals": "2",
+          "total": "11"
+        },
+        {
+          "name": "Jali Veranen",
+          "id": "29241",
+          "jersey": "88",
+          "games": "7",
+          "assists": "7",
+          "goals": "3",
+          "total": "10"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "29238",
+          "jersey": "25",
+          "games": "7",
+          "assists": "3",
+          "goals": "6",
+          "total": "9"
+        },
+        {
+          "name": "Joonas Myhrberg",
+          "id": "29246",
+          "jersey": "42",
+          "games": "3",
+          "assists": "1",
+          "goals": "0",
+          "total": "1"
+        },
+        {
+          "name": "Juho Hiekkanen",
+          "id": "29245",
+          "jersey": "88",
+          "games": "4",
+          "assists": "0",
+          "goals": "4",
+          "total": "4"
+        },
+        {
+          "name": "Kasperi Lahti",
+          "id": "29215",
+          "jersey": "71",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "29222",
+          "jersey": "21",
+          "games": "7",
+          "assists": "7",
+          "goals": "11",
+          "total": "18"
+        },
+        {
+          "name": "Simo Soini",
+          "id": "29247",
+          "jersey": "63",
+          "games": "7",
+          "assists": "1",
+          "goals": "5",
+          "total": "6"
+        },
+        {
+          "name": "Teemu Granqvist",
+          "id": "29244",
+          "jersey": "40",
+          "games": "4",
+          "assists": "5",
+          "goals": "7",
+          "total": "12"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "29233",
+          "jersey": "72",
+          "games": "7",
+          "assists": "2",
+          "goals": "1",
+          "total": "3"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "29242",
+          "jersey": "26",
+          "games": "7",
+          "assists": "11",
+          "goals": "7",
+          "total": "18"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "29240",
+          "jersey": "81",
+          "games": "4",
+          "assists": "5",
+          "goals": "0",
+          "total": "5"
+        }
+      ],
+      "games": [
+        {
+          "home": "Otso Polar",
+          "away": "PirU",
+          "home_score": 4,
+          "away_score": 15
+        },
+        {
+          "home": "Otso Polar",
+          "away": "Otso Grizzly",
+          "home_score": 9,
+          "away_score": 15
+        },
+        {
+          "home": "Otso Polar",
+          "away": "Saints",
+          "home_score": 12,
+          "away_score": 7
+        },
+        {
+          "home": "Otso Polar",
+          "away": "Helsinki Ultimate",
+          "home_score": 14,
+          "away_score": 13
+        },
+        {
+          "home": "Otso Polar",
+          "away": "UFO",
+          "home_score": 9,
+          "away_score": 15
+        },
+        {
+          "home": "Otso Polar",
+          "away": "Saints",
+          "home_score": 15,
+          "away_score": 5
+        },
+        {
+          "home": "UFO",
+          "away": "Otso Polar",
+          "home_score": 13,
+          "away_score": 8
+        }
+      ],
+      "all_time_players": [
+        {
+          "name": "Aki Vehtari",
+          "id": "29220",
+          "jersey": "67",
+          "events": "324",
+          "games": "272",
+          "assists": "110",
+          "total": "382"
+        },
+        {
+          "name": "Alexander Lehtonen",
+          "id": "29243",
+          "jersey": "40",
+          "events": "207",
+          "games": "167",
+          "assists": "214",
+          "total": "381"
+        },
+        {
+          "name": "Antti Mäkipää",
+          "id": "29248",
+          "jersey": "7",
+          "events": "43",
+          "games": "18",
+          "assists": "28",
+          "total": "46"
+        },
+        {
+          "name": "Artur Vaskio",
+          "id": "29239",
+          "jersey": "6",
+          "events": "52",
+          "games": "51",
+          "assists": "53",
+          "total": "104"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "29219",
+          "jersey": "68",
+          "events": "390",
+          "games": "725",
+          "assists": "424",
+          "total": "1149"
+        },
+        {
+          "name": "Jali Veranen",
+          "id": "29241",
+          "jersey": "11",
+          "events": "57",
+          "games": "51",
+          "assists": "16",
+          "total": "67"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "29238",
+          "jersey": "52",
+          "events": "233",
+          "games": "304",
+          "assists": "160",
+          "total": "464"
+        },
+        {
+          "name": "Joonas Myhrberg",
+          "id": "29246",
+          "jersey": "18",
+          "events": "73",
+          "games": "32",
+          "assists": "107",
+          "total": "139"
+        },
+        {
+          "name": "Juho Hiekkanen",
+          "id": "29245",
+          "jersey": "9",
+          "events": "51",
+          "games": "37",
+          "assists": "88",
+          "total": "125"
+        },
+        {
+          "name": "Kasperi Lahti",
+          "id": "29215",
+          "jersey": "22",
+          "events": "111",
+          "games": "119",
+          "assists": "116",
+          "total": "235"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "29222",
+          "jersey": "53",
+          "events": "319",
+          "games": "300",
+          "assists": "469",
+          "total": "769"
+        },
+        {
+          "name": "Simo Soini",
+          "id": "29247",
+          "jersey": "20",
+          "events": "123",
+          "games": "76",
+          "assists": "91",
+          "total": "167"
+        },
+        {
+          "name": "Teemu Granqvist",
+          "id": "29244",
+          "jersey": "4",
+          "events": "21",
+          "games": "25",
+          "assists": "40",
+          "total": "65"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "29233",
+          "jersey": "40",
+          "events": "231",
+          "games": "149",
+          "assists": "171",
+          "total": "320"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "29242",
+          "jersey": "29",
+          "events": "130",
+          "games": "125",
+          "assists": "122",
+          "total": "247"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "29240",
+          "jersey": "50",
+          "events": "271",
+          "games": "168",
+          "assists": "266",
+          "total": "434"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "29220",
+          "jersey": "67",
+          "events": "324",
+          "games": "272",
+          "assists": "110",
+          "total": "382"
+        },
+        {
+          "name": "Alexander Lehtonen",
+          "id": "29243",
+          "jersey": "40",
+          "events": "207",
+          "games": "167",
+          "assists": "214",
+          "total": "381"
+        },
+        {
+          "name": "Antti Mäkipää",
+          "id": "29248",
+          "jersey": "7",
+          "events": "43",
+          "games": "18",
+          "assists": "28",
+          "total": "46"
+        },
+        {
+          "name": "Artur Vaskio",
+          "id": "29239",
+          "jersey": "6",
+          "events": "52",
+          "games": "51",
+          "assists": "53",
+          "total": "104"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "29219",
+          "jersey": "68",
+          "events": "390",
+          "games": "725",
+          "assists": "424",
+          "total": "1149"
+        },
+        {
+          "name": "Jali Veranen",
+          "id": "29241",
+          "jersey": "11",
+          "events": "57",
+          "games": "51",
+          "assists": "16",
+          "total": "67"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "29238",
+          "jersey": "52",
+          "events": "233",
+          "games": "304",
+          "assists": "160",
+          "total": "464"
+        },
+        {
+          "name": "Joonas Myhrberg",
+          "id": "29246",
+          "jersey": "18",
+          "events": "73",
+          "games": "32",
+          "assists": "107",
+          "total": "139"
+        },
+        {
+          "name": "Juho Hiekkanen",
+          "id": "29245",
+          "jersey": "9",
+          "events": "51",
+          "games": "37",
+          "assists": "88",
+          "total": "125"
+        },
+        {
+          "name": "Kasperi Lahti",
+          "id": "29215",
+          "jersey": "22",
+          "events": "111",
+          "games": "119",
+          "assists": "116",
+          "total": "235"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "29222",
+          "jersey": "53",
+          "events": "319",
+          "games": "300",
+          "assists": "469",
+          "total": "769"
+        },
+        {
+          "name": "Simo Soini",
+          "id": "29247",
+          "jersey": "20",
+          "events": "123",
+          "games": "76",
+          "assists": "91",
+          "total": "167"
+        },
+        {
+          "name": "Teemu Granqvist",
+          "id": "29244",
+          "jersey": "4",
+          "events": "21",
+          "games": "25",
+          "assists": "40",
+          "total": "65"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "29233",
+          "jersey": "40",
+          "events": "231",
+          "games": "149",
+          "assists": "171",
+          "total": "320"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "29242",
+          "jersey": "29",
+          "events": "130",
+          "games": "125",
+          "assists": "122",
+          "total": "247"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "29240",
+          "jersey": "50",
+          "events": "271",
+          "games": "168",
+          "assists": "266",
+          "total": "434"
+        }
+      ]
+    },
+    {
+      "name": "PirU",
+      "id": "2779",
+      "club": "Lempäälän Kisa ry",
+      "division": "Avoin",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2779"
+    },
+    {
+      "name": "Saints",
+      "id": "2780",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Avoin",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2780"
+    },
+    {
+      "name": "UFO",
+      "id": "2784",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Avoin",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2784"
+    },
+    {
+      "name": "Atletico",
+      "id": "2770",
+      "club": "Atletico",
+      "division": "Naiset",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2770"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2771",
+      "club": "Liitokiekkoseura Team",
+      "division": "Naiset",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2771"
+    },
+    {
+      "name": "JSW",
+      "id": "2773",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Naiset",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2773"
+    },
+    {
+      "name": "Saints",
+      "id": "2795",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Naiset",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2795"
+    },
+    {
+      "name": "UFO",
+      "id": "2774",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Naiset",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2774"
+    },
+    {
+      "name": "Viima",
+      "id": "2775",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Naiset",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2775"
+    },
+    {
+      "name": "Easy Peasy Lemon Squeecy",
+      "id": "2788",
+      "club": "Lempäälän Kisa",
+      "division": "SM Ranta",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2788"
+    },
+    {
+      "name": "EUC",
+      "id": "2792",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "SM Ranta",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2792"
+    },
+    {
+      "name": "Force Majeure",
+      "id": "2794",
+      "club": "Force Majeure",
+      "division": "SM Ranta",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2794"
+    },
+    {
+      "name": "PuTi",
+      "id": "2793",
+      "club": "Pussin Tiristajat",
+      "division": "SM Ranta",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2793"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2789",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "SM Ranta",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2789"
+    },
+    {
+      "name": "Turku Terror",
+      "id": "2791",
+      "club": "Turku Terror Ultimate ry",
+      "division": "SM Ranta",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2791"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2797",
+      "club": "Liitokiekkoseura Team",
+      "division": "Juniorit",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2797"
+    },
+    {
+      "name": "JSW",
+      "id": "2799",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Juniorit",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2799"
+    },
+    {
+      "name": "LeKi U20",
+      "id": "2798",
+      "club": "Lempäälän Kisa ry",
+      "division": "Juniorit",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2798"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2796",
+      "club": "VirHe",
+      "division": "Juniorit",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2796"
+    },
+    {
+      "name": "Disquitos",
+      "id": "2803",
+      "club": "Disquitos ry",
+      "division": "Mixed",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2803"
+    },
+    {
+      "name": "ERHe",
+      "id": "2804",
+      "club": "Espoon Rennot Heittelijät ry",
+      "division": "Mixed",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2804"
+    },
+    {
+      "name": "LeKi",
+      "id": "2805",
+      "club": "Lempäälän Kisa ry",
+      "division": "Mixed",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2805"
+    },
+    {
+      "name": "PuTi",
+      "id": "2800",
+      "club": "Pussin Tiristajat",
+      "division": "Mixed",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2800"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2801",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Mixed",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2801"
+    },
+    {
+      "name": "Turku Terror",
+      "id": "2802",
+      "club": "Turku Terror",
+      "division": "Mixed",
+      "season_id": "2020.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2802"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "PirU",
+      "team_id": "2779",
+      "division": "Avoin",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Kulta",
+      "team_name": "Atletico",
+      "team_id": "2770",
+      "division": "Naiset",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Kulta",
+      "team_name": "PuTi",
+      "team_id": "2793",
+      "division": "SM Ranta",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Kulta",
+      "team_name": "PuTi",
+      "team_id": "2800",
+      "division": "Mixed",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Otso Grizzly",
+      "team_id": "2777",
+      "division": "Avoin",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2771",
+      "division": "Naiset",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Easy Peasy Lemon Squeecy",
+      "team_id": "2788",
+      "division": "SM Ranta",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "LeKi",
+      "team_id": "2805",
+      "division": "Mixed",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2781",
+      "division": "Avoin",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "Turku Terror",
+      "team_id": "2791",
+      "division": "SM Ranta",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "Sleepwalkers",
+      "team_id": "2801",
+      "division": "Mixed",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "4.",
+      "team_name": "Saints",
+      "team_id": "2780",
+      "division": "Avoin",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "4.",
+      "team_name": "Sleepwalkers",
+      "team_id": "2789",
+      "division": "SM Ranta",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "4.",
+      "team_name": "Turku Terror",
+      "team_id": "2802",
+      "division": "Mixed",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Otso Polar",
+      "team_id": "2778",
+      "division": "Avoin",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Force Majeure",
+      "team_id": "2794",
+      "division": "SM Ranta",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "5.",
+      "team_name": "ERHe",
+      "team_id": "2804",
+      "division": "Mixed",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "6.",
+      "team_name": "UFO",
+      "team_id": "2784",
+      "division": "Avoin",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "6.",
+      "team_name": "EUC",
+      "team_id": "2792",
+      "division": "SM Ranta",
+      "season_id": "2020.1"
+    },
+    {
+      "placement": "6.",
+      "team_name": "Disquitos",
+      "team_id": "2803",
+      "division": "Mixed",
+      "season_id": "2020.1"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

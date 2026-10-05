@@ -1,0 +1,107 @@
+{
+  "id": "2019.MXD",
+  "name": "Mixed-SM 2019",
+  "classified": {
+    "year": 2019,
+    "type": "unknown",
+    "id": "2019.MXD",
+    "name": "Mixed-SM 2019"
+  },
+  "teams": [
+    {
+      "name": "ERHe",
+      "id": "2710",
+      "club": "Espoon Rennot Heittelijät ry",
+      "division": "Mixed",
+      "season_id": "2019.MXD",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Estonian Mixed",
+      "id": "2717",
+      "club": "Tallinn, Saku, Tartu Frisbeeclubs",
+      "division": "Mixed",
+      "season_id": "2019.MXD",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1061"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2711",
+      "club": "Helsinki ultimate",
+      "division": "Mixed",
+      "season_id": "2019.MXD",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "LeKEasy Peasy",
+      "id": "2716",
+      "club": "Lempäälän Kisa",
+      "division": "Mixed",
+      "season_id": "2019.MXD",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2715",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Mixed",
+      "season_id": "2019.MXD",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    },
+    {
+      "name": "UFO",
+      "id": "2713",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Mixed",
+      "season_id": "2019.MXD",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2711",
+      "division": "Mixed",
+      "season_id": "2019.MXD"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "LeKEasy Peasy",
+      "team_id": "2716",
+      "division": "Mixed",
+      "season_id": "2019.MXD"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "Sleepwalkers",
+      "team_id": "2715",
+      "division": "Mixed",
+      "season_id": "2019.MXD"
+    },
+    {
+      "placement": "4.",
+      "team_name": "ERHe",
+      "team_id": "2710",
+      "division": "Mixed",
+      "season_id": "2019.MXD"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Estonian Mixed",
+      "team_id": "2717",
+      "division": "Mixed",
+      "season_id": "2019.MXD"
+    },
+    {
+      "placement": "6.",
+      "team_name": "UFO",
+      "team_id": "2713",
+      "division": "Mixed",
+      "season_id": "2019.MXD"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

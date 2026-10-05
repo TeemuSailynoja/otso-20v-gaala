@@ -25,6 +25,7 @@ from typing import Dict, Iterable, List, Optional, Tuple
 
 from .identify import PlayerIndex, canon
 from .aliases import PersonKeys
+from .parsers import classify_season
 
 SCHEMA_VERSION = 2
 
@@ -183,6 +184,8 @@ def build_store(
     conn = open_store(path)
     stats = StoreStats()
     person_keys = persons or PersonKeys()
+    # iterated more than once below, so a generator would silently yield nothing twice
+    players, teams, seasons, placements = list(players), list(teams), list(seasons), list(placements)
 
     conn.execute("BEGIN")
     for table in ("players", "teams", "seasons", "games", "appearances", "points", "placements"):
@@ -221,6 +224,23 @@ def build_store(
             (season["season_id"], season.get("year"), season.get("type"), season.get("name"), season.get("division")),
         )
 
+    # A game's season_id is enough to register the season: the year is the four
+    # digits inside the ID (`KESA2026`, `2018.1`, `Talvi2016`), which is what makes
+    # `since=2022` a filter instead of a guess. `type` still comes from
+    # classify_season and is `unknown` for the numeric summer IDs — Phase 8 closes
+    # that in the library rather than in the site layer.
+    season_seen = {s["season_id"] for s in seasons}
+
+    def register_season(season_id: Optional[str]) -> None:
+        if not season_id or season_id in season_seen:
+            return
+        season_seen.add(season_id)
+        info = classify_season(season_id, "")
+        conn.execute(
+            "INSERT OR REPLACE INTO seasons(season_id, year, type, name, division) VALUES (?,?,?,?,?)",
+            (season_id, info.get("year"), info.get("type"), season_id, None),
+        )
+
     for placement in placements:
         conn.execute(
             "INSERT OR REPLACE INTO placements(season_id, team, division, placement) VALUES (?,?,?,?)",
@@ -242,6 +262,7 @@ def build_store(
 
     for game in games:
         gameplay = game.get("gameplay") or {}
+        register_season(game.get("season_id"))
         home = gameplay.get("home_team") or game.get("home_team", "")
         away = gameplay.get("away_team") or game.get("away_team", "")
         points = [p for p in gameplay.get("points", []) if p.get("type") == "point"]

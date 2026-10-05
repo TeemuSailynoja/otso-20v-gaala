@@ -1,0 +1,896 @@
+{
+  "id": "2011.2",
+  "name": "Talvi 2011",
+  "classified": {
+    "year": 2011,
+    "type": "winter",
+    "id": "2011.2",
+    "name": "Talvi 2011"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "1535",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2011.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=1535",
+      "players": [
+        {
+          "name": "Antti Järvi",
+          "id": "12397",
+          "jersey": "23",
+          "games": "8",
+          "assists": "2",
+          "goals": "5",
+          "total": "7"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "12390",
+          "jersey": "49",
+          "games": "8",
+          "assists": "5",
+          "goals": "18",
+          "total": "23"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "12393",
+          "jersey": "5",
+          "games": "7",
+          "assists": "10",
+          "goals": "19",
+          "total": "29"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "12392",
+          "jersey": "11",
+          "games": "8",
+          "assists": "18",
+          "goals": "3",
+          "total": "21"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "12389",
+          "jersey": "16",
+          "games": "8",
+          "assists": "7",
+          "goals": "6",
+          "total": "13"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "12384",
+          "jersey": "32",
+          "games": "8",
+          "assists": "4",
+          "goals": "9",
+          "total": "13"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "12385",
+          "jersey": "7",
+          "games": "8",
+          "assists": "24",
+          "goals": "14",
+          "total": "38"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "12387",
+          "jersey": "34",
+          "games": "8",
+          "assists": "11",
+          "goals": "17",
+          "total": "28"
+        },
+        {
+          "name": "Simo Siitonen",
+          "id": "12395",
+          "jersey": "3",
+          "games": "6",
+          "assists": "5",
+          "goals": "4",
+          "total": "9"
+        },
+        {
+          "name": "Timo Vaskio",
+          "id": "12394",
+          "jersey": "9",
+          "games": "7",
+          "assists": "17",
+          "goals": "6",
+          "total": "23"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "12391",
+          "jersey": "2",
+          "games": "5",
+          "assists": "5",
+          "goals": "7",
+          "total": "12"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "12388",
+          "jersey": "20",
+          "games": "6",
+          "assists": "11",
+          "goals": "12",
+          "total": "23"
+        }
+      ],
+      "games": [
+        {
+          "home": "Terror",
+          "away": "Otso",
+          "home_score": 11,
+          "away_score": 15
+        },
+        {
+          "home": "SOS",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 6
+        },
+        {
+          "home": "Karhukopla",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 9
+        },
+        {
+          "home": "UFO",
+          "away": "Otso",
+          "home_score": 9,
+          "away_score": 15
+        },
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 6,
+          "away_score": 15
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 6
+        },
+        {
+          "home": "Karhukopla",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 9
+        },
+        {
+          "home": "UFO Masters",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 11
+        }
+      ],
+      "all_time_players": [
+        {
+          "name": "Antti Järvi",
+          "id": "12397",
+          "jersey": "67",
+          "events": "412",
+          "games": "329",
+          "assists": "276",
+          "total": "605"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "12390",
+          "jersey": "72",
+          "events": "433",
+          "games": "486",
+          "assists": "896",
+          "total": "1382"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "12393",
+          "jersey": "51",
+          "events": "404",
+          "games": "891",
+          "assists": "608",
+          "total": "1499"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "12392",
+          "jersey": "68",
+          "events": "390",
+          "games": "725",
+          "assists": "424",
+          "total": "1149"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "12389",
+          "jersey": "42",
+          "events": "260",
+          "games": "407",
+          "assists": "276",
+          "total": "683"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "12384",
+          "jersey": "76",
+          "events": "443",
+          "games": "560",
+          "assists": "398",
+          "total": "958"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "12385",
+          "jersey": "51",
+          "events": "312",
+          "games": "857",
+          "assists": "631",
+          "total": "1488"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "12387",
+          "jersey": "89",
+          "events": "510",
+          "games": "1352",
+          "assists": "926",
+          "total": "2278"
+        },
+        {
+          "name": "Simo Siitonen",
+          "id": "12395",
+          "jersey": "31",
+          "events": "213",
+          "games": "168",
+          "assists": "233",
+          "total": "401"
+        },
+        {
+          "name": "Timo Vaskio",
+          "id": "12394",
+          "jersey": "34",
+          "events": "232",
+          "games": "751",
+          "assists": "278",
+          "total": "1029"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "12391",
+          "jersey": "78",
+          "events": "491",
+          "games": "1144",
+          "assists": "768",
+          "total": "1912"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "12388",
+          "jersey": "37",
+          "events": "302",
+          "games": "664",
+          "assists": "651",
+          "total": "1315"
+        },
+        {
+          "name": "Antti Järvi",
+          "id": "12397",
+          "jersey": "67",
+          "events": "412",
+          "games": "329",
+          "assists": "276",
+          "total": "605"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "12390",
+          "jersey": "72",
+          "events": "433",
+          "games": "486",
+          "assists": "896",
+          "total": "1382"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "12393",
+          "jersey": "51",
+          "events": "404",
+          "games": "891",
+          "assists": "608",
+          "total": "1499"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "12392",
+          "jersey": "68",
+          "events": "390",
+          "games": "725",
+          "assists": "424",
+          "total": "1149"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "12389",
+          "jersey": "42",
+          "events": "260",
+          "games": "407",
+          "assists": "276",
+          "total": "683"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "12384",
+          "jersey": "76",
+          "events": "443",
+          "games": "560",
+          "assists": "398",
+          "total": "958"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "12385",
+          "jersey": "51",
+          "events": "312",
+          "games": "857",
+          "assists": "631",
+          "total": "1488"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "12387",
+          "jersey": "89",
+          "events": "510",
+          "games": "1352",
+          "assists": "926",
+          "total": "2278"
+        },
+        {
+          "name": "Simo Siitonen",
+          "id": "12395",
+          "jersey": "31",
+          "events": "213",
+          "games": "168",
+          "assists": "233",
+          "total": "401"
+        },
+        {
+          "name": "Timo Vaskio",
+          "id": "12394",
+          "jersey": "34",
+          "events": "232",
+          "games": "751",
+          "assists": "278",
+          "total": "1029"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "12391",
+          "jersey": "78",
+          "events": "491",
+          "games": "1144",
+          "assists": "768",
+          "total": "1912"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "12388",
+          "jersey": "37",
+          "events": "302",
+          "games": "664",
+          "assists": "651",
+          "total": "1315"
+        }
+      ]
+    },
+    {
+      "name": "Otso2",
+      "id": "1536",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2011.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=1536",
+      "players": [
+        {
+          "name": "Aki Vehtari",
+          "id": "12409",
+          "jersey": "12",
+          "games": "6",
+          "assists": "9",
+          "goals": "5",
+          "total": "14"
+        },
+        {
+          "name": "Antti Niinikoski",
+          "id": "12404",
+          "jersey": "33",
+          "games": "5",
+          "assists": "7",
+          "goals": "10",
+          "total": "17"
+        },
+        {
+          "name": "Ari Rantalainen",
+          "id": "12403",
+          "jersey": "6",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Damijan Marin",
+          "id": "12511",
+          "jersey": "10",
+          "games": "9",
+          "assists": "38",
+          "goals": "16",
+          "total": "54"
+        },
+        {
+          "name": "Ekku Rytkönen",
+          "id": "12398",
+          "jersey": "22",
+          "games": "9",
+          "assists": "3",
+          "goals": "14",
+          "total": "17"
+        },
+        {
+          "name": "Esko Saura",
+          "id": "12400",
+          "jersey": "31",
+          "games": "6",
+          "assists": "5",
+          "goals": "3",
+          "total": "8"
+        },
+        {
+          "name": "Heikki Väänänen",
+          "id": "12407",
+          "jersey": "6",
+          "games": "10",
+          "assists": "21",
+          "goals": "22",
+          "total": "43"
+        },
+        {
+          "name": "Julius Rissanen",
+          "id": "12399",
+          "jersey": "26",
+          "games": "3",
+          "assists": "2",
+          "goals": "2",
+          "total": "4"
+        },
+        {
+          "name": "Kerkko Visuri",
+          "id": "12406",
+          "jersey": "15",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Lauri Hiivala",
+          "id": "12411",
+          "jersey": "24",
+          "games": "10",
+          "assists": "2",
+          "goals": "16",
+          "total": "18"
+        },
+        {
+          "name": "Ora Visuri",
+          "id": "12408",
+          "jersey": "86",
+          "games": "1",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "12401",
+          "jersey": "29",
+          "games": "10",
+          "assists": "11",
+          "goals": "19",
+          "total": "30"
+        },
+        {
+          "name": "Sebastian Sala",
+          "id": "12405",
+          "jersey": "",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Timo Idänheimo",
+          "id": "12412",
+          "jersey": "13",
+          "games": "8",
+          "assists": "16",
+          "goals": "11",
+          "total": "27"
+        },
+        {
+          "name": "Viljami Aittomäki",
+          "id": "12410",
+          "jersey": "21",
+          "games": "3",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        }
+      ],
+      "games": [
+        {
+          "home": "JSW",
+          "away": "Otso2",
+          "home_score": 15,
+          "away_score": 4
+        },
+        {
+          "home": "Otso2",
+          "away": "UFO Masters",
+          "home_score": 7,
+          "away_score": 15
+        },
+        {
+          "home": "Otso2",
+          "away": "Team",
+          "home_score": 15,
+          "away_score": 10
+        },
+        {
+          "home": "LättyBees",
+          "away": "Otso2",
+          "home_score": 11,
+          "away_score": 15
+        },
+        {
+          "home": "Disquitos",
+          "away": "Otso2",
+          "home_score": 10,
+          "away_score": 15
+        },
+        {
+          "home": "Otso2",
+          "away": "UFBG",
+          "home_score": 15,
+          "away_score": 12
+        },
+        {
+          "home": "Otso2",
+          "away": "LeKi",
+          "home_score": 8,
+          "away_score": 15
+        },
+        {
+          "home": "PUTI",
+          "away": "Otso2",
+          "home_score": 13,
+          "away_score": 8
+        },
+        {
+          "home": "Otso2",
+          "away": "LeKi",
+          "home_score": 15,
+          "away_score": 12
+        },
+        {
+          "home": "Otso2",
+          "away": "UFBG",
+          "home_score": 15,
+          "away_score": 11
+        }
+      ],
+      "all_time_players": [
+        {
+          "name": "Aki Vehtari",
+          "id": "12409",
+          "jersey": "67",
+          "events": "324",
+          "games": "272",
+          "assists": "110",
+          "total": "382"
+        },
+        {
+          "name": "Antti Niinikoski",
+          "id": "12404",
+          "jersey": "19",
+          "events": "111",
+          "games": "94",
+          "assists": "165",
+          "total": "259"
+        },
+        {
+          "name": "Ari Rantalainen",
+          "id": "12403",
+          "jersey": "22",
+          "events": "192",
+          "games": "576",
+          "assists": "235",
+          "total": "811"
+        },
+        {
+          "name": "Damijan Marin",
+          "id": "12511",
+          "jersey": "7",
+          "events": "55",
+          "games": "165",
+          "assists": "42",
+          "total": "207"
+        },
+        {
+          "name": "Ekku Rytkönen",
+          "id": "12398",
+          "jersey": "4",
+          "events": "18",
+          "games": "3",
+          "assists": "19",
+          "total": "22"
+        },
+        {
+          "name": "Esko Saura",
+          "id": "12400",
+          "jersey": "13",
+          "events": "80",
+          "games": "36",
+          "assists": "52",
+          "total": "88"
+        },
+        {
+          "name": "Heikki Väänänen",
+          "id": "12407",
+          "jersey": "27",
+          "events": "219",
+          "games": "293",
+          "assists": "299",
+          "total": "592"
+        },
+        {
+          "name": "Julius Rissanen",
+          "id": "12399",
+          "jersey": "13",
+          "events": "90",
+          "games": "42",
+          "assists": "99",
+          "total": "141"
+        },
+        {
+          "name": "Kerkko Visuri",
+          "id": "12406",
+          "jersey": "26",
+          "events": "82",
+          "games": "68",
+          "assists": "72",
+          "total": "140"
+        },
+        {
+          "name": "Lauri Hiivala",
+          "id": "12411",
+          "jersey": "25",
+          "events": "137",
+          "games": "99",
+          "assists": "130",
+          "total": "229"
+        },
+        {
+          "name": "Ora Visuri",
+          "id": "12408",
+          "jersey": "24",
+          "events": "104",
+          "games": "82",
+          "assists": "108",
+          "total": "190"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "12401",
+          "jersey": "49",
+          "events": "263",
+          "games": "273",
+          "assists": "370",
+          "total": "643"
+        },
+        {
+          "name": "Sebastian Sala",
+          "id": "12405",
+          "jersey": "0",
+          "events": "0",
+          "games": "0",
+          "assists": "0",
+          "total": "0"
+        },
+        {
+          "name": "Timo Idänheimo",
+          "id": "12412",
+          "jersey": "22",
+          "events": "122",
+          "games": "65",
+          "assists": "83",
+          "total": "148"
+        },
+        {
+          "name": "Viljami Aittomäki",
+          "id": "12410",
+          "jersey": "15",
+          "events": "73",
+          "games": "8",
+          "assists": "34",
+          "total": "42"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "12409",
+          "jersey": "67",
+          "events": "324",
+          "games": "272",
+          "assists": "110",
+          "total": "382"
+        },
+        {
+          "name": "Antti Niinikoski",
+          "id": "12404",
+          "jersey": "19",
+          "events": "111",
+          "games": "94",
+          "assists": "165",
+          "total": "259"
+        },
+        {
+          "name": "Ari Rantalainen",
+          "id": "12403",
+          "jersey": "22",
+          "events": "192",
+          "games": "576",
+          "assists": "235",
+          "total": "811"
+        },
+        {
+          "name": "Damijan Marin",
+          "id": "12511",
+          "jersey": "7",
+          "events": "55",
+          "games": "165",
+          "assists": "42",
+          "total": "207"
+        },
+        {
+          "name": "Ekku Rytkönen",
+          "id": "12398",
+          "jersey": "4",
+          "events": "18",
+          "games": "3",
+          "assists": "19",
+          "total": "22"
+        },
+        {
+          "name": "Esko Saura",
+          "id": "12400",
+          "jersey": "13",
+          "events": "80",
+          "games": "36",
+          "assists": "52",
+          "total": "88"
+        },
+        {
+          "name": "Heikki Väänänen",
+          "id": "12407",
+          "jersey": "27",
+          "events": "219",
+          "games": "293",
+          "assists": "299",
+          "total": "592"
+        },
+        {
+          "name": "Julius Rissanen",
+          "id": "12399",
+          "jersey": "13",
+          "events": "90",
+          "games": "42",
+          "assists": "99",
+          "total": "141"
+        },
+        {
+          "name": "Kerkko Visuri",
+          "id": "12406",
+          "jersey": "26",
+          "events": "82",
+          "games": "68",
+          "assists": "72",
+          "total": "140"
+        },
+        {
+          "name": "Lauri Hiivala",
+          "id": "12411",
+          "jersey": "25",
+          "events": "137",
+          "games": "99",
+          "assists": "130",
+          "total": "229"
+        },
+        {
+          "name": "Ora Visuri",
+          "id": "12408",
+          "jersey": "24",
+          "events": "104",
+          "games": "82",
+          "assists": "108",
+          "total": "190"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "12401",
+          "jersey": "49",
+          "events": "263",
+          "games": "273",
+          "assists": "370",
+          "total": "643"
+        },
+        {
+          "name": "Sebastian Sala",
+          "id": "12405",
+          "jersey": "0",
+          "events": "0",
+          "games": "0",
+          "assists": "0",
+          "total": "0"
+        },
+        {
+          "name": "Timo Idänheimo",
+          "id": "12412",
+          "jersey": "22",
+          "events": "122",
+          "games": "65",
+          "assists": "83",
+          "total": "148"
+        },
+        {
+          "name": "Viljami Aittomäki",
+          "id": "12410",
+          "jersey": "15",
+          "events": "73",
+          "games": "8",
+          "assists": "34",
+          "total": "42"
+        }
+      ]
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Otso",
+      "team_id": "1535",
+      "division": "Avoin",
+      "season_id": "2011.2"
+    },
+    {
+      "placement": "12.",
+      "team_name": "Otso2",
+      "team_id": "1536",
+      "division": "Avoin",
+      "season_id": "2011.2"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

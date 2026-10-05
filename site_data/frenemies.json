@@ -251,6 +251,22 @@
     "rank": 14
   },
   {
+    "name": "Juho Rantalaiho",
+    "games": 50,
+    "wins": 21,
+    "losses": 29,
+    "goals": 83,
+    "assists": 86,
+    "total": 169,
+    "ppg": 3.38,
+    "teams": [
+      "Terror",
+      "Turku Terror",
+      "SOS-Terror"
+    ],
+    "rank": 15
+  },
+  {
     "name": "Okko Winqvist",
     "games": 49,
     "wins": 22,
@@ -269,22 +285,6 @@
       "Salko All Stars",
       "Team 2",
       "ViRHe"
-    ],
-    "rank": 15
-  },
-  {
-    "name": "Juho Rantalaiho",
-    "games": 50,
-    "wins": 21,
-    "losses": 29,
-    "goals": 83,
-    "assists": 86,
-    "total": 169,
-    "ppg": 3.38,
-    "teams": [
-      "Terror",
-      "Turku Terror",
-      "SOS-Terror"
     ],
     "rank": 16
   },

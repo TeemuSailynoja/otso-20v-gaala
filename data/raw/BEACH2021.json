@@ -1,0 +1,92 @@
+{
+  "id": "BEACH2021",
+  "name": "Ranta SM 2021",
+  "classified": {
+    "year": 2021,
+    "type": "beach",
+    "id": "BEACH2021",
+    "name": "Ranta SM 2021"
+  },
+  "teams": [
+    {
+      "name": "EUC",
+      "id": "2849",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2849"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2848",
+      "club": "Helsinki ultimate",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2848"
+    },
+    {
+      "name": "PuTi",
+      "id": "2851",
+      "club": "PuTi Ry",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2851"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2850",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2850"
+    },
+    {
+      "name": "TiPu",
+      "id": "2852",
+      "club": "PuTi Ry",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2852"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "TiPu",
+      "team_id": "2852",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "PuTi",
+      "team_id": "2851",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "Sleepwalkers",
+      "team_id": "2850",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021"
+    },
+    {
+      "placement": "4.",
+      "team_name": "EUC",
+      "team_id": "2849",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2848",
+      "division": "Mixed SM",
+      "season_id": "BEACH2021"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

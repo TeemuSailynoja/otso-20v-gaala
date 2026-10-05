@@ -1,0 +1,107 @@
+{
+  "id": "JSM2019",
+  "name": "Juniori SM 2019",
+  "classified": {
+    "year": 2019,
+    "type": "championship",
+    "id": "JSM2019",
+    "name": "Juniori SM 2019"
+  },
+  "teams": [
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2650",
+      "club": "Liitokiekkoseura Team",
+      "division": "Avoin U20",
+      "season_id": "JSM2019",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2650"
+    },
+    {
+      "name": "JSW",
+      "id": "2674",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Avoin U20",
+      "season_id": "JSM2019",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2674"
+    },
+    {
+      "name": "Leki U20",
+      "id": "2649",
+      "club": "Lempäälän Kisa ry",
+      "division": "Avoin U20",
+      "season_id": "JSM2019",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2649"
+    },
+    {
+      "name": "T.U.F.F.",
+      "id": "2652",
+      "club": "T.U.F.F.",
+      "division": "Avoin U20",
+      "season_id": "JSM2019",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2652"
+    },
+    {
+      "name": "ViRHe I",
+      "id": "2651",
+      "club": "VirHe",
+      "division": "Avoin U20",
+      "season_id": "JSM2019",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2651"
+    },
+    {
+      "name": "ViRHe II",
+      "id": "2653",
+      "club": "VirHe",
+      "division": "Avoin U20",
+      "season_id": "JSM2019",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2653"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "JSW",
+      "team_id": "2674",
+      "division": "Avoin U20",
+      "season_id": "JSM2019"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "Leki U20",
+      "team_id": "2649",
+      "division": "Avoin U20",
+      "season_id": "JSM2019"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "T.U.F.F.",
+      "team_id": "2652",
+      "division": "Avoin U20",
+      "season_id": "JSM2019"
+    },
+    {
+      "placement": "4.",
+      "team_name": "ViRHe I",
+      "team_id": "2651",
+      "division": "Avoin U20",
+      "season_id": "JSM2019"
+    },
+    {
+      "placement": "5.",
+      "team_name": "ViRHe II",
+      "team_id": "2653",
+      "division": "Avoin U20",
+      "season_id": "JSM2019"
+    },
+    {
+      "placement": "6.",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2650",
+      "division": "Avoin U20",
+      "season_id": "JSM2019"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

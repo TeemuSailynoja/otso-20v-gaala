@@ -1,0 +1,62 @@
+{
+  "id": "2024.123",
+  "name": "Ranta SM 2024",
+  "classified": {
+    "year": 2024,
+    "type": "beach",
+    "id": "2024.123",
+    "name": "Ranta SM 2024"
+  },
+  "teams": [
+    {
+      "name": "GGM",
+      "id": "3166",
+      "club": "Finland",
+      "division": "Mixed",
+      "season_id": "2024.123",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3166"
+    },
+    {
+      "name": "LoHi",
+      "id": "3165",
+      "club": "Loputon Hiki ry",
+      "division": "Mixed",
+      "season_id": "2024.123",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3165"
+    },
+    {
+      "name": "PuTi",
+      "id": "3167",
+      "club": "PuTi",
+      "division": "Mixed",
+      "season_id": "2024.123",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3167"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "PuTi",
+      "team_id": "3167",
+      "division": "Mixed",
+      "season_id": "2024.123"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "GGM",
+      "team_id": "3166",
+      "division": "Mixed",
+      "season_id": "2024.123"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "LoHi",
+      "team_id": "3165",
+      "division": "Mixed",
+      "season_id": "2024.123"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

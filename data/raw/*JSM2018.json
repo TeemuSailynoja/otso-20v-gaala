@@ -1,0 +1,80 @@
+{
+  "id": "*JSM2018",
+  "name": "Juniori SM 2018",
+  "classified": {
+    "year": 2018,
+    "type": "championship",
+    "id": "*JSM2018",
+    "name": "Juniori SM 2018"
+  },
+  "teams": [
+    {
+      "name": "Leki U20",
+      "id": "2476",
+      "club": "Lempäälän Kisa ry",
+      "division": "U20",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2476"
+    },
+    {
+      "name": "Nallet",
+      "id": "2477",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "U20",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2477"
+    },
+    {
+      "name": "ViRHe U20",
+      "id": "2479",
+      "club": "VirHe",
+      "division": "U20",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2479"
+    },
+    {
+      "name": "Helsinki",
+      "id": "2482",
+      "club": "Liitokiekkoseura Team",
+      "division": "U16",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2482"
+    },
+    {
+      "name": "JSW",
+      "id": "2480",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "U16",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2480"
+    },
+    {
+      "name": "TUFF",
+      "id": "2481",
+      "club": "TUFF",
+      "division": "U16",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2481"
+    },
+    {
+      "name": "Vaasa",
+      "id": "2553",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "U16",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2553"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2483",
+      "club": "VirHe",
+      "division": "U16",
+      "season_id": "*JSM2018",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2483"
+    }
+  ],
+  "placements": [],
+  "players": [],
+  "games": [],
+  "results": []
+}

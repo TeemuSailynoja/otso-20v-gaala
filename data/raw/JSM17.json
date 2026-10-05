@@ -1,0 +1,123 @@
+{
+  "id": "JSM17",
+  "name": "Juniori SM 2017",
+  "classified": {
+    "year": 2017,
+    "type": "championship",
+    "id": "JSM17",
+    "name": "Juniori SM 2017"
+  },
+  "teams": [
+    {
+      "name": "Leki U20",
+      "id": "2356",
+      "club": "Lempäälän Kisa ry",
+      "division": "Juniorit U20",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2356"
+    },
+    {
+      "name": "Nallet",
+      "id": "2364",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Juniorit U20",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2364"
+    },
+    {
+      "name": "SOS",
+      "id": "2358",
+      "club": "SOS",
+      "division": "Juniorit U20",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2358"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2359",
+      "club": "VirHe",
+      "division": "Juniorit U20",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2359"
+    },
+    {
+      "name": "JSW",
+      "id": "2360",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Juniorit U17",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2360"
+    },
+    {
+      "name": "T.U.F.F. X",
+      "id": "2361",
+      "club": "TUFF",
+      "division": "Juniorit U17",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2361"
+    },
+    {
+      "name": "T.U.F.F. Y",
+      "id": "2362",
+      "club": "TUFF",
+      "division": "Juniorit U17",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2362"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2363",
+      "club": "VirHe",
+      "division": "Juniorit U17",
+      "season_id": "JSM17",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2363"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Leki U20",
+      "team_id": "2356",
+      "division": "Juniorit U20",
+      "season_id": "JSM17"
+    },
+    {
+      "placement": "Kulta",
+      "team_name": "T.U.F.F. Y",
+      "team_id": "2362",
+      "division": "Juniorit U17",
+      "season_id": "JSM17"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "ViRHe",
+      "team_id": "2359",
+      "division": "Juniorit U20",
+      "season_id": "JSM17"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "T.U.F.F. X",
+      "team_id": "2361",
+      "division": "Juniorit U17",
+      "season_id": "JSM17"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "ViRHe",
+      "team_id": "2363",
+      "division": "Juniorit U17",
+      "season_id": "JSM17"
+    },
+    {
+      "placement": "4.",
+      "team_name": "JSW",
+      "team_id": "2360",
+      "division": "Juniorit U17",
+      "season_id": "JSM17"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

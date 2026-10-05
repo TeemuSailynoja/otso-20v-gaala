@@ -1,0 +1,3261 @@
+{
+  "id": "2016.1",
+  "name": "Kesä 2016: Tour 1",
+  "classified": {
+    "year": 2016,
+    "type": "unknown",
+    "id": "2016.1",
+    "name": "Kesä 2016: Tour 1"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "2160",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2016.1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Adam Torda",
+          "id": "21682",
+          "jersey": "4",
+          "games": "4",
+          "assists": "3",
+          "goals": "3",
+          "total": "6"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "21657",
+          "jersey": "80",
+          "games": "5",
+          "assists": "7",
+          "goals": "2",
+          "total": "9"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "21662",
+          "jersey": "11",
+          "games": "5",
+          "assists": "8",
+          "goals": "9",
+          "total": "17"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "21672",
+          "jersey": "5",
+          "games": "2",
+          "assists": "2",
+          "goals": "2",
+          "total": "4"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "21670",
+          "jersey": "50",
+          "games": "2",
+          "assists": "5",
+          "goals": "0",
+          "total": "5"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "21668",
+          "jersey": "32",
+          "games": "5",
+          "assists": "5",
+          "goals": "0",
+          "total": "5"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "21679",
+          "jersey": "25",
+          "games": "4",
+          "assists": "0",
+          "goals": "2",
+          "total": "2"
+        },
+        {
+          "name": "Jussi Kitusuo",
+          "id": "21683",
+          "jersey": "36",
+          "games": "5",
+          "assists": "6",
+          "goals": "3",
+          "total": "9"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "21663",
+          "jersey": "16",
+          "games": "4",
+          "assists": "2",
+          "goals": "7",
+          "total": "9"
+        },
+        {
+          "name": "Karli Kalpala",
+          "id": "21675",
+          "jersey": "23",
+          "games": "5",
+          "assists": "1",
+          "goals": "0",
+          "total": "1"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "21660",
+          "jersey": "22",
+          "games": "4",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "21673",
+          "jersey": "21",
+          "games": "5",
+          "assists": "4",
+          "goals": "3",
+          "total": "7"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "21671",
+          "jersey": "7",
+          "games": "5",
+          "assists": "9",
+          "goals": "2",
+          "total": "11"
+        },
+        {
+          "name": "Pekka Lehtelä",
+          "id": "21678",
+          "jersey": "40",
+          "games": "5",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "21659",
+          "jersey": "34",
+          "games": "3",
+          "assists": "4",
+          "goals": "4",
+          "total": "8"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "21666",
+          "jersey": "29",
+          "games": "5",
+          "assists": "3",
+          "goals": "8",
+          "total": "11"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "21676",
+          "jersey": "72",
+          "games": "5",
+          "assists": "0",
+          "goals": "5",
+          "total": "5"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "21667",
+          "jersey": "17",
+          "games": "5",
+          "assists": "11",
+          "goals": "7",
+          "total": "18"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "21688",
+          "jersey": "26",
+          "games": "3",
+          "assists": "1",
+          "goals": "4",
+          "total": "5"
+        },
+        {
+          "name": "Totti Brunila",
+          "id": "21681",
+          "jersey": "55",
+          "games": "5",
+          "assists": "2",
+          "goals": "5",
+          "total": "7"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "21674",
+          "jersey": "27",
+          "games": "5",
+          "assists": "0",
+          "goals": "9",
+          "total": "9"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "21661",
+          "jersey": "81",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        }
+      ],
+      "games": [
+        {
+          "home": "Sleepwalkers",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 4
+        },
+        {
+          "home": "Flying Steps",
+          "away": "Otso",
+          "home_score": 6,
+          "away_score": 15
+        },
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 5
+        },
+        {
+          "home": "PirU",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 9
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 6
+        }
+      ],
+      "all_time_players": []
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Otso",
+      "team_id": "2160",
+      "division": "Avoin",
+      "season_id": "2016.1"
+    }
+  ],
+  "players": [],
+  "games": [
+    {
+      "game_id": "7349",
+      "time": "11:30",
+      "venue": "Kenttä 1",
+      "home_team": "Otso",
+      "away_team": "Sleepwalkers",
+      "home_score": 15,
+      "away_score": 4,
+      "division": "",
+      "season_id": "2016.1",
+      "gameplay": {
+        "home_team": "Otso",
+        "away_team": "Sleepwalkers",
+        "home_score": 15,
+        "away_score": 4,
+        "points": [
+          {
+            "type": "point",
+            "side": "home",
+            "title": "1.25 1-0 Niini Erkka -> Parkkinen Juuso",
+            "time": "1.25",
+            "score": "1-0",
+            "scorer": "Niini Erkka",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "2.58 2-0 Niini Erkka -> Torda Adam",
+            "time": "2.58",
+            "score": "2-0",
+            "scorer": "Niini Erkka",
+            "assist": "Torda Adam"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "4.42 2-1 Lehikoinen Topi -> Saksola Esa",
+            "time": "4.42",
+            "score": "2-1",
+            "scorer": "Lehikoinen Topi",
+            "assist": "Saksola Esa"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "6.31 3-1 Sutela Ismo -> Brunila Totti",
+            "time": "6.31",
+            "score": "3-1",
+            "scorer": "Sutela Ismo",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "9.33 4-1 Elonheimo Antti -> Tamminen Pasi",
+            "time": "9.33",
+            "score": "4-1",
+            "scorer": "Elonheimo Antti",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "13.45 5-1 Niini Erkka -> Väänänen Touko aukusti",
+            "time": "13.45",
+            "score": "5-1",
+            "scorer": "Niini Erkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "17.44 6-1 Vuorio Oskari -> Salo Santeri",
+            "time": "17.44",
+            "score": "6-1",
+            "scorer": "Vuorio Oskari",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "21.12 7-1 Elonheimo Antti -> Sandberg Tomi",
+            "time": "21.12",
+            "score": "7-1",
+            "scorer": "Elonheimo Antti",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "22.13 7-2 Heikkinen Antero -> Nagy Aarni",
+            "time": "22.13",
+            "score": "7-2",
+            "scorer": "Heikkinen Antero",
+            "assist": "Nagy Aarni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "24.05 8-2 Kitusuo Jussi -> Väänänen Touko aukusti",
+            "time": "24.05",
+            "score": "8-2",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "30.51 8-3 Kim Dong jo -> Metso Eero",
+            "time": "30.51",
+            "score": "8-3",
+            "scorer": "Kim Dong jo",
+            "assist": "Metso Eero"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "33.35 9-3 Sutela Ismo -> Salo Santeri",
+            "time": "33.35",
+            "score": "9-3",
+            "scorer": "Sutela Ismo",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "37.13 10-3 Niini Erkka -> Säilynoja Teemu",
+            "time": "37.13",
+            "score": "10-3",
+            "scorer": "Niini Erkka",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "38.46 10-4 Nagy Aarni -> Lehikoinen Topi",
+            "time": "38.46",
+            "score": "10-4",
+            "scorer": "Nagy Aarni",
+            "assist": "Lehikoinen Topi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "41.15 11-4 Sutela Ismo -> Vuorio Oskari",
+            "time": "41.15",
+            "score": "11-4",
+            "scorer": "Sutela Ismo",
+            "assist": "Vuorio Oskari"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "43.55 12-4 Sandberg Tomi -> Brunila Totti",
+            "time": "43.55",
+            "score": "12-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "45.55 13-4 Elonheimo Antti -> Niini Erkka",
+            "time": "45.55",
+            "score": "13-4",
+            "scorer": "Elonheimo Antti",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "49.49 14-4 Sandberg Tomi -> Parkkinen Juuso",
+            "time": "49.49",
+            "score": "14-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "51.16 15-4 Niini Erkka -> Tamminen Pasi",
+            "time": "51.16",
+            "score": "15-4",
+            "scorer": "Niini Erkka",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "halftime",
+            "text": "Puoliaika"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "1.25 1-0 Niini Erkka -> Parkkinen Juuso",
+            "time": "1.25",
+            "score": "1-0",
+            "scorer": "Niini Erkka",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "2.58 2-0 Niini Erkka -> Torda Adam",
+            "time": "2.58",
+            "score": "2-0",
+            "scorer": "Niini Erkka",
+            "assist": "Torda Adam"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "4.42 2-1 Lehikoinen Topi -> Saksola Esa",
+            "time": "4.42",
+            "score": "2-1",
+            "scorer": "Lehikoinen Topi",
+            "assist": "Saksola Esa"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "6.31 3-1 Sutela Ismo -> Brunila Totti",
+            "time": "6.31",
+            "score": "3-1",
+            "scorer": "Sutela Ismo",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "9.33 4-1 Elonheimo Antti -> Tamminen Pasi",
+            "time": "9.33",
+            "score": "4-1",
+            "scorer": "Elonheimo Antti",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "13.45 5-1 Niini Erkka -> Väänänen Touko aukusti",
+            "time": "13.45",
+            "score": "5-1",
+            "scorer": "Niini Erkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "17.44 6-1 Vuorio Oskari -> Salo Santeri",
+            "time": "17.44",
+            "score": "6-1",
+            "scorer": "Vuorio Oskari",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "21.12 7-1 Elonheimo Antti -> Sandberg Tomi",
+            "time": "21.12",
+            "score": "7-1",
+            "scorer": "Elonheimo Antti",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "22.13 7-2 Heikkinen Antero -> Nagy Aarni",
+            "time": "22.13",
+            "score": "7-2",
+            "scorer": "Heikkinen Antero",
+            "assist": "Nagy Aarni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "24.05 8-2 Kitusuo Jussi -> Väänänen Touko aukusti",
+            "time": "24.05",
+            "score": "8-2",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "30.51 8-3 Kim Dong jo -> Metso Eero",
+            "time": "30.51",
+            "score": "8-3",
+            "scorer": "Kim Dong jo",
+            "assist": "Metso Eero"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "33.35 9-3 Sutela Ismo -> Salo Santeri",
+            "time": "33.35",
+            "score": "9-3",
+            "scorer": "Sutela Ismo",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "37.13 10-3 Niini Erkka -> Säilynoja Teemu",
+            "time": "37.13",
+            "score": "10-3",
+            "scorer": "Niini Erkka",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "38.46 10-4 Nagy Aarni -> Lehikoinen Topi",
+            "time": "38.46",
+            "score": "10-4",
+            "scorer": "Nagy Aarni",
+            "assist": "Lehikoinen Topi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "41.15 11-4 Sutela Ismo -> Vuorio Oskari",
+            "time": "41.15",
+            "score": "11-4",
+            "scorer": "Sutela Ismo",
+            "assist": "Vuorio Oskari"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "43.55 12-4 Sandberg Tomi -> Brunila Totti",
+            "time": "43.55",
+            "score": "12-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "45.55 13-4 Elonheimo Antti -> Niini Erkka",
+            "time": "45.55",
+            "score": "13-4",
+            "scorer": "Elonheimo Antti",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "49.49 14-4 Sandberg Tomi -> Parkkinen Juuso",
+            "time": "49.49",
+            "score": "14-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "51.16 15-4 Niini Erkka -> Tamminen Pasi",
+            "time": "51.16",
+            "score": "15-4",
+            "scorer": "Niini Erkka",
+            "assist": "Tamminen Pasi"
+          }
+        ],
+        "home_players": [
+          {
+            "name": "Erkka Niini",
+            "assists": 5,
+            "goals": 1,
+            "total": 6
+          },
+          {
+            "name": "Tomi Sandberg",
+            "assists": 2,
+            "goals": 1,
+            "total": 3
+          },
+          {
+            "name": "Antti Elonheimo",
+            "assists": 3,
+            "goals": 0,
+            "total": 3
+          },
+          {
+            "name": "Ismo Sutela",
+            "assists": 3,
+            "goals": 0,
+            "total": 3
+          },
+          {
+            "name": "Totti Brunila",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Juuso Parkkinen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Santeri Salo",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Pasi Tamminen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Touko aukusti Väänänen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Oskari Vuorio",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Teemu Säilynoja",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Adam Torda",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jussi Kitusuo",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Karli Kalpala",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Tuukka Koistinen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Pekka Lehtelä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Jarno Sihvo",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Jasu Vehtari",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ],
+        "away_players": [
+          {
+            "name": "Topi Lehikoinen",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Aarni Nagy",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Eero Metso",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Esa Saksola",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Antero Heikkinen",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Dong jo Kim",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Juha Julkunen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Ville-valtteri Kangasmäki",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ]
+      }
+    },
+    {
+      "game_id": "7348",
+      "time": "14:30",
+      "venue": "Kenttä 1",
+      "home_team": "Flying Steps",
+      "away_team": "Otso",
+      "home_score": 6,
+      "away_score": 15,
+      "division": "",
+      "season_id": "2016.1",
+      "gameplay": {
+        "home_team": "Flying Steps",
+        "away_team": "Otso",
+        "home_score": 6,
+        "away_score": 15,
+        "points": [
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "1.31 0-1 Kitusuo Jussi -> Säilynoja Teemu",
+            "time": "1.31",
+            "score": "0-1",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "3.12 0-2 Salo Santeri -> Parkkinen Juuso",
+            "time": "3.12",
+            "score": "0-2",
+            "scorer": "Salo Santeri",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "5.30 1-2 Barinov Vladimir -> Sedov Yuriy",
+            "time": "5.30",
+            "score": "1-2",
+            "scorer": "Barinov Vladimir",
+            "assist": "Sedov Yuriy"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "7.00 1-3 Sihvo Jarno -> Parkkinen Juuso",
+            "time": "7.00",
+            "score": "1-3",
+            "scorer": "Sihvo Jarno",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "10.25 1-4 Torda Adam -> Väänänen Touko aukusti",
+            "time": "10.25",
+            "score": "1-4",
+            "scorer": "Torda Adam",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "12.17 2-4 Rovda Yuriy -> Ekimov Pavel",
+            "time": "12.17",
+            "score": "2-4",
+            "scorer": "Rovda Yuriy",
+            "assist": "Ekimov Pavel"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "14.40 2-5 Tamminen Pasi -> Niini Erkka",
+            "time": "14.40",
+            "score": "2-5",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "17.00 3-5 Rovda Yuriy ->  Rano",
+            "time": "17.00",
+            "score": "3-5",
+            "scorer": "Rovda Yuriy",
+            "assist": "Rano"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "20.15 3-6 Torda Adam -> Elonheimo Antti",
+            "time": "20.15",
+            "score": "3-6",
+            "scorer": "Torda Adam",
+            "assist": "Elonheimo Antti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "22.40 3-7 Brunila Totti -> Salo Santeri",
+            "time": "22.40",
+            "score": "3-7",
+            "scorer": "Brunila Totti",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "24.40 3-8 Tamminen Pasi -> Niini Erkka",
+            "time": "24.40",
+            "score": "3-8",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "34.04 4-8 Rovda Yuriy -> Davydov Artyom",
+            "time": "34.04",
+            "score": "4-8",
+            "scorer": "Rovda Yuriy",
+            "assist": "Davydov Artyom"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "35.57 4-9 Kitusuo Jussi -> Niini Erkka",
+            "time": "35.57",
+            "score": "4-9",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "37.57 5-9 Rovda Yuriy -> Pozinsky Anton",
+            "time": "37.57",
+            "score": "5-9",
+            "scorer": "Rovda Yuriy",
+            "assist": "Pozinsky Anton"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "39.57 5-10 Kitusuo Jussi -> Väänänen Touko aukusti",
+            "time": "39.57",
+            "score": "5-10",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "41.39 5-11 Kallio Lassi -> Sandberg Tomi",
+            "time": "41.39",
+            "score": "5-11",
+            "scorer": "Kallio Lassi",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "44.20 6-11 Rogushkin Kirill -> Rovda Yuriy",
+            "time": "44.20",
+            "score": "6-11",
+            "scorer": "Rogushkin Kirill",
+            "assist": "Rovda Yuriy"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "46.10 6-12 Kallio Lassi -> Sandberg Tomi",
+            "time": "46.10",
+            "score": "6-12",
+            "scorer": "Kallio Lassi",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "48.57 6-13 Kitusuo Jussi -> Vehtari Jasu",
+            "time": "48.57",
+            "score": "6-13",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Vehtari Jasu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "51.20 6-14 Sihvo Jarno -> Sandberg Tomi",
+            "time": "51.20",
+            "score": "6-14",
+            "scorer": "Sihvo Jarno",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "53.50 6-15 Kalpala Karli -> Niini Erkka",
+            "time": "53.50",
+            "score": "6-15",
+            "scorer": "Kalpala Karli",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "halftime",
+            "text": "Puoliaika"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "1.31 0-1 Kitusuo Jussi -> Säilynoja Teemu",
+            "time": "1.31",
+            "score": "0-1",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "3.12 0-2 Salo Santeri -> Parkkinen Juuso",
+            "time": "3.12",
+            "score": "0-2",
+            "scorer": "Salo Santeri",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "5.30 1-2 Barinov Vladimir -> Sedov Yuriy",
+            "time": "5.30",
+            "score": "1-2",
+            "scorer": "Barinov Vladimir",
+            "assist": "Sedov Yuriy"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "7.00 1-3 Sihvo Jarno -> Parkkinen Juuso",
+            "time": "7.00",
+            "score": "1-3",
+            "scorer": "Sihvo Jarno",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "10.25 1-4 Torda Adam -> Väänänen Touko aukusti",
+            "time": "10.25",
+            "score": "1-4",
+            "scorer": "Torda Adam",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "12.17 2-4 Rovda Yuriy -> Ekimov Pavel",
+            "time": "12.17",
+            "score": "2-4",
+            "scorer": "Rovda Yuriy",
+            "assist": "Ekimov Pavel"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "14.40 2-5 Tamminen Pasi -> Niini Erkka",
+            "time": "14.40",
+            "score": "2-5",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "17.00 3-5 Rovda Yuriy ->  Rano",
+            "time": "17.00",
+            "score": "3-5",
+            "scorer": "Rovda Yuriy",
+            "assist": "Rano"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "20.15 3-6 Torda Adam -> Elonheimo Antti",
+            "time": "20.15",
+            "score": "3-6",
+            "scorer": "Torda Adam",
+            "assist": "Elonheimo Antti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "22.40 3-7 Brunila Totti -> Salo Santeri",
+            "time": "22.40",
+            "score": "3-7",
+            "scorer": "Brunila Totti",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "24.40 3-8 Tamminen Pasi -> Niini Erkka",
+            "time": "24.40",
+            "score": "3-8",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "34.04 4-8 Rovda Yuriy -> Davydov Artyom",
+            "time": "34.04",
+            "score": "4-8",
+            "scorer": "Rovda Yuriy",
+            "assist": "Davydov Artyom"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "35.57 4-9 Kitusuo Jussi -> Niini Erkka",
+            "time": "35.57",
+            "score": "4-9",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "37.57 5-9 Rovda Yuriy -> Pozinsky Anton",
+            "time": "37.57",
+            "score": "5-9",
+            "scorer": "Rovda Yuriy",
+            "assist": "Pozinsky Anton"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "39.57 5-10 Kitusuo Jussi -> Väänänen Touko aukusti",
+            "time": "39.57",
+            "score": "5-10",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "41.39 5-11 Kallio Lassi -> Sandberg Tomi",
+            "time": "41.39",
+            "score": "5-11",
+            "scorer": "Kallio Lassi",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "44.20 6-11 Rogushkin Kirill -> Rovda Yuriy",
+            "time": "44.20",
+            "score": "6-11",
+            "scorer": "Rogushkin Kirill",
+            "assist": "Rovda Yuriy"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "46.10 6-12 Kallio Lassi -> Sandberg Tomi",
+            "time": "46.10",
+            "score": "6-12",
+            "scorer": "Kallio Lassi",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "48.57 6-13 Kitusuo Jussi -> Vehtari Jasu",
+            "time": "48.57",
+            "score": "6-13",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Vehtari Jasu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "51.20 6-14 Sihvo Jarno -> Sandberg Tomi",
+            "time": "51.20",
+            "score": "6-14",
+            "scorer": "Sihvo Jarno",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "53.50 6-15 Kalpala Karli -> Niini Erkka",
+            "time": "53.50",
+            "score": "6-15",
+            "scorer": "Kalpala Karli",
+            "assist": "Niini Erkka"
+          }
+        ],
+        "home_players": [
+          {
+            "name": "Yuriy Rovda",
+            "assists": 4,
+            "goals": 1,
+            "total": 5
+          },
+          {
+            "name": "Rano",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Artyom Davydov",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Pavel Ekimov",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Anton Pozinsky",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Yuriy Sedov",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Vladimir Barinov",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Kirill Rogushkin",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Pavel Ignatenko",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Kirill Savenkov",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Anton Schukin",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Nikolay Terehin",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ],
+        "away_players": [
+          {
+            "name": "Erkka Niini",
+            "assists": 0,
+            "goals": 4,
+            "total": 4
+          },
+          {
+            "name": "Jussi Kitusuo",
+            "assists": 4,
+            "goals": 0,
+            "total": 4
+          },
+          {
+            "name": "Tomi Sandberg",
+            "assists": 0,
+            "goals": 3,
+            "total": 3
+          },
+          {
+            "name": "Juuso Parkkinen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Touko aukusti Väänänen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Santeri Salo",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Lassi Kallio",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Jarno Sihvo",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Pasi Tamminen",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Adam Torda",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Antti Elonheimo",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Teemu Säilynoja",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jasu Vehtari",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Totti Brunila",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Karli Kalpala",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Pekka Lehtelä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Oskari Vuorio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ]
+      }
+    },
+    {
+      "game_id": "7360",
+      "time": "09:00",
+      "venue": "Kenttä 1",
+      "home_team": "Otso",
+      "away_team": "Saints",
+      "home_score": 15,
+      "away_score": 5,
+      "division": "",
+      "season_id": "2016.1",
+      "gameplay": {
+        "home_team": "Otso",
+        "away_team": "Saints",
+        "home_score": 15,
+        "away_score": 5,
+        "points": [
+          {
+            "type": "point",
+            "side": "home",
+            "title": "2.20 1-0 Parkkinen Juuso -> Brunila Totti",
+            "time": "2.20",
+            "score": "1-0",
+            "scorer": "Parkkinen Juuso",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "5.05 2-0 Tamminen Pasi -> Säilynoja Teemu",
+            "time": "5.05",
+            "score": "2-0",
+            "scorer": "Tamminen Pasi",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "6.50 3-0 Salo Santeri -> Parkkinen Juuso",
+            "time": "6.50",
+            "score": "3-0",
+            "scorer": "Salo Santeri",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "9.35 4-0 Tamminen Pasi -> Väänänen Touko aukusti",
+            "time": "9.35",
+            "score": "4-0",
+            "scorer": "Tamminen Pasi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "12.15 5-0 Elonheimo Antti -> Hotari Roni",
+            "time": "12.15",
+            "score": "5-0",
+            "scorer": "Elonheimo Antti",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "25.55 6-0 Sihvo Jarno -> Brunila Totti",
+            "time": "25.55",
+            "score": "6-0",
+            "scorer": "Sihvo Jarno",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "27.50 6-1 Päällysaho Elias -> Suutari Timo",
+            "time": "27.50",
+            "score": "6-1",
+            "scorer": "Päällysaho Elias",
+            "assist": "Suutari Timo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "29.50 7-1 Hotari Roni -> Niini Erkka",
+            "time": "29.50",
+            "score": "7-1",
+            "scorer": "Hotari Roni",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "32.50 7-2 Päällysaho Elias -> Siitonen Ari",
+            "time": "32.50",
+            "score": "7-2",
+            "scorer": "Päällysaho Elias",
+            "assist": "Siitonen Ari"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "35.40 8-2 Kitusuo Jussi -> Väänänen Touko aukusti",
+            "time": "35.40",
+            "score": "8-2",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "42.40 8-3 Santtila Juha -> Wiklund Antti",
+            "time": "42.40",
+            "score": "8-3",
+            "scorer": "Santtila Juha",
+            "assist": "Wiklund Antti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "45.20 9-3 Brunila Totti -> Salo Santeri",
+            "time": "45.20",
+            "score": "9-3",
+            "scorer": "Brunila Totti",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "47.05 10-3 Sandberg Tomi -> Palomäki Tommi",
+            "time": "47.05",
+            "score": "10-3",
+            "scorer": "Sandberg Tomi",
+            "assist": "Palomäki Tommi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "52.00 11-3 Vuorio Oskari -> Salo Santeri",
+            "time": "52.00",
+            "score": "11-3",
+            "scorer": "Vuorio Oskari",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "54.40 12-3 Elonheimo Antti -> Säilynoja Teemu",
+            "time": "54.40",
+            "score": "12-3",
+            "scorer": "Elonheimo Antti",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "57.20 12-4 Päällysaho Elias -> Siitonen Ari",
+            "time": "57.20",
+            "score": "12-4",
+            "scorer": "Päällysaho Elias",
+            "assist": "Siitonen Ari"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "59.40 13-4 Sandberg Tomi -> Parkkinen Juuso",
+            "time": "59.40",
+            "score": "13-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "61.40 13-5 Päällysaho Elias -> Ratilainen Mickey",
+            "time": "61.40",
+            "score": "13-5",
+            "scorer": "Päällysaho Elias",
+            "assist": "Ratilainen Mickey"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "64.10 14-5 Hotari Roni -> Säilynoja Teemu",
+            "time": "64.10",
+            "score": "14-5",
+            "scorer": "Hotari Roni",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "67.10 15-5 Sandberg Tomi -> Palomäki Tommi",
+            "time": "67.10",
+            "score": "15-5",
+            "scorer": "Sandberg Tomi",
+            "assist": "Palomäki Tommi"
+          },
+          {
+            "type": "halftime",
+            "text": "Puoliaika"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "2.20 1-0 Parkkinen Juuso -> Brunila Totti",
+            "time": "2.20",
+            "score": "1-0",
+            "scorer": "Parkkinen Juuso",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "5.05 2-0 Tamminen Pasi -> Säilynoja Teemu",
+            "time": "5.05",
+            "score": "2-0",
+            "scorer": "Tamminen Pasi",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "6.50 3-0 Salo Santeri -> Parkkinen Juuso",
+            "time": "6.50",
+            "score": "3-0",
+            "scorer": "Salo Santeri",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "9.35 4-0 Tamminen Pasi -> Väänänen Touko aukusti",
+            "time": "9.35",
+            "score": "4-0",
+            "scorer": "Tamminen Pasi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "12.15 5-0 Elonheimo Antti -> Hotari Roni",
+            "time": "12.15",
+            "score": "5-0",
+            "scorer": "Elonheimo Antti",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "25.55 6-0 Sihvo Jarno -> Brunila Totti",
+            "time": "25.55",
+            "score": "6-0",
+            "scorer": "Sihvo Jarno",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "27.50 6-1 Päällysaho Elias -> Suutari Timo",
+            "time": "27.50",
+            "score": "6-1",
+            "scorer": "Päällysaho Elias",
+            "assist": "Suutari Timo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "29.50 7-1 Hotari Roni -> Niini Erkka",
+            "time": "29.50",
+            "score": "7-1",
+            "scorer": "Hotari Roni",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "32.50 7-2 Päällysaho Elias -> Siitonen Ari",
+            "time": "32.50",
+            "score": "7-2",
+            "scorer": "Päällysaho Elias",
+            "assist": "Siitonen Ari"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "35.40 8-2 Kitusuo Jussi -> Väänänen Touko aukusti",
+            "time": "35.40",
+            "score": "8-2",
+            "scorer": "Kitusuo Jussi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "42.40 8-3 Santtila Juha -> Wiklund Antti",
+            "time": "42.40",
+            "score": "8-3",
+            "scorer": "Santtila Juha",
+            "assist": "Wiklund Antti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "45.20 9-3 Brunila Totti -> Salo Santeri",
+            "time": "45.20",
+            "score": "9-3",
+            "scorer": "Brunila Totti",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "47.05 10-3 Sandberg Tomi -> Palomäki Tommi",
+            "time": "47.05",
+            "score": "10-3",
+            "scorer": "Sandberg Tomi",
+            "assist": "Palomäki Tommi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "52.00 11-3 Vuorio Oskari -> Salo Santeri",
+            "time": "52.00",
+            "score": "11-3",
+            "scorer": "Vuorio Oskari",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "54.40 12-3 Elonheimo Antti -> Säilynoja Teemu",
+            "time": "54.40",
+            "score": "12-3",
+            "scorer": "Elonheimo Antti",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "57.20 12-4 Päällysaho Elias -> Siitonen Ari",
+            "time": "57.20",
+            "score": "12-4",
+            "scorer": "Päällysaho Elias",
+            "assist": "Siitonen Ari"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "59.40 13-4 Sandberg Tomi -> Parkkinen Juuso",
+            "time": "59.40",
+            "score": "13-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "61.40 13-5 Päällysaho Elias -> Ratilainen Mickey",
+            "time": "61.40",
+            "score": "13-5",
+            "scorer": "Päällysaho Elias",
+            "assist": "Ratilainen Mickey"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "64.10 14-5 Hotari Roni -> Säilynoja Teemu",
+            "time": "64.10",
+            "score": "14-5",
+            "scorer": "Hotari Roni",
+            "assist": "Säilynoja Teemu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "67.10 15-5 Sandberg Tomi -> Palomäki Tommi",
+            "time": "67.10",
+            "score": "15-5",
+            "scorer": "Sandberg Tomi",
+            "assist": "Palomäki Tommi"
+          }
+        ],
+        "home_players": [
+          {
+            "name": "Teemu Säilynoja",
+            "assists": 0,
+            "goals": 3,
+            "total": 3
+          },
+          {
+            "name": "Totti Brunila",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Juuso Parkkinen",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Santeri Salo",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Roni Hotari",
+            "assists": 2,
+            "goals": 1,
+            "total": 3
+          },
+          {
+            "name": "Tomi Sandberg",
+            "assists": 3,
+            "goals": 0,
+            "total": 3
+          },
+          {
+            "name": "Tommi Palomäki",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Touko aukusti Väänänen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Antti Elonheimo",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Pasi Tamminen",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Erkka Niini",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jussi Kitusuo",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Jarno Sihvo",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Oskari Vuorio",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Lassi Kallio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Karli Kalpala",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Pekka Lehtelä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ],
+        "away_players": [
+          {
+            "name": "Elias Päällysaho",
+            "assists": 4,
+            "goals": 0,
+            "total": 4
+          },
+          {
+            "name": "Ari Siitonen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Mickey Ratilainen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Timo Suutari",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Antti Wiklund",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Juha Santtila",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Jimi Airistola",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Petrus valtteri Hurtig",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Markus Järvi",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Teemu Kalliokoski",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Miikka Kantonen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Mikko Lehtola",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Vesa Leskinen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Mikael Metsälä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Eemil Wallenius",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ]
+      }
+    },
+    {
+      "game_id": "7364",
+      "time": "12:00",
+      "venue": "Kenttä 1",
+      "home_team": "Otso",
+      "away_team": "PirU",
+      "home_score": 15,
+      "away_score": 9,
+      "division": "",
+      "season_id": "2016.1",
+      "gameplay": {
+        "home_team": "Otso",
+        "away_team": "PirU",
+        "home_score": 15,
+        "away_score": 9,
+        "points": [
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "3.10 0-1 Ropo Aki -> Salo Veli-matti",
+            "time": "3.10",
+            "score": "0-1",
+            "scorer": "Ropo Aki",
+            "assist": "Salo Veli-matti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "4.20 1-1 Sandberg Tomi -> Vaahtoranta Ilkka",
+            "time": "4.20",
+            "score": "1-1",
+            "scorer": "Sandberg Tomi",
+            "assist": "Vaahtoranta Ilkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "6.05 2-1 Tamminen Pasi -> Niini Erkka",
+            "time": "6.05",
+            "score": "2-1",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "9.00 3-1 Sandberg Tomi -> Parkkinen Juuso",
+            "time": "9.00",
+            "score": "3-1",
+            "scorer": "Sandberg Tomi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "14.55 3-2 Kumpulainen Kasper -> Pitkänen Eemeli",
+            "time": "14.55",
+            "score": "3-2",
+            "scorer": "Kumpulainen Kasper",
+            "assist": "Pitkänen Eemeli"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "16.58 4-2 Parkkinen Juuso -> Vuorio Oskari",
+            "time": "16.58",
+            "score": "4-2",
+            "scorer": "Parkkinen Juuso",
+            "assist": "Vuorio Oskari"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "18.30 4-3 Saarinen Jyri -> Pulakka Juho",
+            "time": "18.30",
+            "score": "4-3",
+            "scorer": "Saarinen Jyri",
+            "assist": "Pulakka Juho"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "21.55 5-3 Sandberg Tomi -> Salo Santeri",
+            "time": "21.55",
+            "score": "5-3",
+            "scorer": "Sandberg Tomi",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "24.55 6-3 Tamminen Pasi -> Niini Erkka",
+            "time": "24.55",
+            "score": "6-3",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "29.10 6-4 Pulakka Juho -> Cederlöf Leevi",
+            "time": "29.10",
+            "score": "6-4",
+            "scorer": "Pulakka Juho",
+            "assist": "Cederlöf Leevi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "30.35 7-4 Sandberg Tomi -> Vaahtoranta Ilkka",
+            "time": "30.35",
+            "score": "7-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Vaahtoranta Ilkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "33.10 7-5 Ropo Aki -> Pulakka Juho",
+            "time": "33.10",
+            "score": "7-5",
+            "scorer": "Ropo Aki",
+            "assist": "Pulakka Juho"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "34.55 8-5 Niini Erkka -> Väänänen Touko aukusti",
+            "time": "34.55",
+            "score": "8-5",
+            "scorer": "Niini Erkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "43.40 9-5 Vuorio Oskari -> Salo Santeri",
+            "time": "43.40",
+            "score": "9-5",
+            "scorer": "Vuorio Oskari",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "49.40 10-5 Elonheimo Antti -> Niini Erkka",
+            "time": "49.40",
+            "score": "10-5",
+            "scorer": "Elonheimo Antti",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "54.45 10-6 Saarinen Jyri -> Mansikkala Sami",
+            "time": "54.45",
+            "score": "10-6",
+            "scorer": "Saarinen Jyri",
+            "assist": "Mansikkala Sami"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "56.45 10-7 Ropo Aki -> Pulakka Juho",
+            "time": "56.45",
+            "score": "10-7",
+            "scorer": "Ropo Aki",
+            "assist": "Pulakka Juho"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "58.31 11-7 Tamminen Pasi -> Kitusuo Jussi",
+            "time": "58.31",
+            "score": "11-7",
+            "scorer": "Tamminen Pasi",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "60.40 11-8 Isojärvi Henry -> Ropo Aki",
+            "time": "60.40",
+            "score": "11-8",
+            "scorer": "Isojärvi Henry",
+            "assist": "Ropo Aki"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "63.05 12-8 Tamminen Pasi -> Hotari Roni",
+            "time": "63.05",
+            "score": "12-8",
+            "scorer": "Tamminen Pasi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "65.35 13-8 Sihvo Jarno -> Sandberg Tomi",
+            "time": "65.35",
+            "score": "13-8",
+            "scorer": "Sihvo Jarno",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "70.25 14-8 Torda Adam -> Vehtari Jasu",
+            "time": "70.25",
+            "score": "14-8",
+            "scorer": "Torda Adam",
+            "assist": "Vehtari Jasu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "73.10 14-9 Pulakka Juho -> Salo Veli-matti",
+            "time": "73.10",
+            "score": "14-9",
+            "scorer": "Pulakka Juho",
+            "assist": "Salo Veli-matti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "74.38 15-9 Sandberg Tomi -> Vuorio Oskari",
+            "time": "74.38",
+            "score": "15-9",
+            "scorer": "Sandberg Tomi",
+            "assist": "Vuorio Oskari"
+          },
+          {
+            "type": "halftime",
+            "text": "Puoliaika"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "3.10 0-1 Ropo Aki -> Salo Veli-matti",
+            "time": "3.10",
+            "score": "0-1",
+            "scorer": "Ropo Aki",
+            "assist": "Salo Veli-matti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "4.20 1-1 Sandberg Tomi -> Vaahtoranta Ilkka",
+            "time": "4.20",
+            "score": "1-1",
+            "scorer": "Sandberg Tomi",
+            "assist": "Vaahtoranta Ilkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "6.05 2-1 Tamminen Pasi -> Niini Erkka",
+            "time": "6.05",
+            "score": "2-1",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "9.00 3-1 Sandberg Tomi -> Parkkinen Juuso",
+            "time": "9.00",
+            "score": "3-1",
+            "scorer": "Sandberg Tomi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "14.55 3-2 Kumpulainen Kasper -> Pitkänen Eemeli",
+            "time": "14.55",
+            "score": "3-2",
+            "scorer": "Kumpulainen Kasper",
+            "assist": "Pitkänen Eemeli"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "16.58 4-2 Parkkinen Juuso -> Vuorio Oskari",
+            "time": "16.58",
+            "score": "4-2",
+            "scorer": "Parkkinen Juuso",
+            "assist": "Vuorio Oskari"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "18.30 4-3 Saarinen Jyri -> Pulakka Juho",
+            "time": "18.30",
+            "score": "4-3",
+            "scorer": "Saarinen Jyri",
+            "assist": "Pulakka Juho"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "21.55 5-3 Sandberg Tomi -> Salo Santeri",
+            "time": "21.55",
+            "score": "5-3",
+            "scorer": "Sandberg Tomi",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "24.55 6-3 Tamminen Pasi -> Niini Erkka",
+            "time": "24.55",
+            "score": "6-3",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "29.10 6-4 Pulakka Juho -> Cederlöf Leevi",
+            "time": "29.10",
+            "score": "6-4",
+            "scorer": "Pulakka Juho",
+            "assist": "Cederlöf Leevi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "30.35 7-4 Sandberg Tomi -> Vaahtoranta Ilkka",
+            "time": "30.35",
+            "score": "7-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Vaahtoranta Ilkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "33.10 7-5 Ropo Aki -> Pulakka Juho",
+            "time": "33.10",
+            "score": "7-5",
+            "scorer": "Ropo Aki",
+            "assist": "Pulakka Juho"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "34.55 8-5 Niini Erkka -> Väänänen Touko aukusti",
+            "time": "34.55",
+            "score": "8-5",
+            "scorer": "Niini Erkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "43.40 9-5 Vuorio Oskari -> Salo Santeri",
+            "time": "43.40",
+            "score": "9-5",
+            "scorer": "Vuorio Oskari",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "49.40 10-5 Elonheimo Antti -> Niini Erkka",
+            "time": "49.40",
+            "score": "10-5",
+            "scorer": "Elonheimo Antti",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "54.45 10-6 Saarinen Jyri -> Mansikkala Sami",
+            "time": "54.45",
+            "score": "10-6",
+            "scorer": "Saarinen Jyri",
+            "assist": "Mansikkala Sami"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "56.45 10-7 Ropo Aki -> Pulakka Juho",
+            "time": "56.45",
+            "score": "10-7",
+            "scorer": "Ropo Aki",
+            "assist": "Pulakka Juho"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "58.31 11-7 Tamminen Pasi -> Kitusuo Jussi",
+            "time": "58.31",
+            "score": "11-7",
+            "scorer": "Tamminen Pasi",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "60.40 11-8 Isojärvi Henry -> Ropo Aki",
+            "time": "60.40",
+            "score": "11-8",
+            "scorer": "Isojärvi Henry",
+            "assist": "Ropo Aki"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "63.05 12-8 Tamminen Pasi -> Hotari Roni",
+            "time": "63.05",
+            "score": "12-8",
+            "scorer": "Tamminen Pasi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "65.35 13-8 Sihvo Jarno -> Sandberg Tomi",
+            "time": "65.35",
+            "score": "13-8",
+            "scorer": "Sihvo Jarno",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "70.25 14-8 Torda Adam -> Vehtari Jasu",
+            "time": "70.25",
+            "score": "14-8",
+            "scorer": "Torda Adam",
+            "assist": "Vehtari Jasu"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "73.10 14-9 Pulakka Juho -> Salo Veli-matti",
+            "time": "73.10",
+            "score": "14-9",
+            "scorer": "Pulakka Juho",
+            "assist": "Salo Veli-matti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "74.38 15-9 Sandberg Tomi -> Vuorio Oskari",
+            "time": "74.38",
+            "score": "15-9",
+            "scorer": "Sandberg Tomi",
+            "assist": "Vuorio Oskari"
+          }
+        ],
+        "home_players": [
+          {
+            "name": "Tomi Sandberg",
+            "assists": 5,
+            "goals": 1,
+            "total": 6
+          },
+          {
+            "name": "Erkka Niini",
+            "assists": 1,
+            "goals": 3,
+            "total": 4
+          },
+          {
+            "name": "Pasi Tamminen",
+            "assists": 4,
+            "goals": 0,
+            "total": 4
+          },
+          {
+            "name": "Oskari Vuorio",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Santeri Salo",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Ilkka Vaahtoranta",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Juuso Parkkinen",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Roni Hotari",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jussi Kitusuo",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Touko aukusti Väänänen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jasu Vehtari",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Antti Elonheimo",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Jarno Sihvo",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Adam Torda",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Totti Brunila",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Lassi Kallio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Karli Kalpala",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Pekka Lehtelä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Tommi Palomäki",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Teemu Säilynoja",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ],
+        "away_players": [
+          {
+            "name": "Juho Pulakka",
+            "assists": 2,
+            "goals": 3,
+            "total": 5
+          },
+          {
+            "name": "Aki Ropo",
+            "assists": 3,
+            "goals": 1,
+            "total": 4
+          },
+          {
+            "name": "Veli-matti Salo",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Jyri Saarinen",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Leevi Cederlöf",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Sami Mansikkala",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Eemeli Pitkänen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Henry Isojärvi",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Kasper Kumpulainen",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Thomas Pfister",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Valtteri Tarvus",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ]
+      }
+    },
+    {
+      "game_id": "7368",
+      "time": "15:00",
+      "venue": "Kenttä 1",
+      "home_team": "Otso",
+      "away_team": "Team",
+      "home_score": 15,
+      "away_score": 6,
+      "division": "",
+      "season_id": "2016.1",
+      "gameplay": {
+        "home_team": "Otso",
+        "away_team": "Team",
+        "home_score": 15,
+        "away_score": 6,
+        "points": [
+          {
+            "type": "point",
+            "side": "home",
+            "title": "1.55 1-0 Sandberg Tomi -> Salo Santeri",
+            "time": "1.55",
+            "score": "1-0",
+            "scorer": "Sandberg Tomi",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "4.00 2-0 Tamminen Pasi -> Hotari Roni",
+            "time": "4.00",
+            "score": "2-0",
+            "scorer": "Tamminen Pasi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "6.55 2-1 Saksa Lauri -> Joukainen Eetu",
+            "time": "6.55",
+            "score": "2-1",
+            "scorer": "Saksa Lauri",
+            "assist": "Joukainen Eetu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "8.40 3-1 Hotari Roni -> Kitusuo Jussi",
+            "time": "8.40",
+            "score": "3-1",
+            "scorer": "Hotari Roni",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "12.48 3-2 Joukainen Eetu -> Tarvainen Timo",
+            "time": "12.48",
+            "score": "3-2",
+            "scorer": "Joukainen Eetu",
+            "assist": "Tarvainen Timo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "14.42 4-2 Sutela Ismo -> Hotari Roni",
+            "time": "14.42",
+            "score": "4-2",
+            "scorer": "Sutela Ismo",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "17.58 5-2 Sihvo Jarno -> Brunila Totti",
+            "time": "17.58",
+            "score": "5-2",
+            "scorer": "Sihvo Jarno",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "23.50 5-3 Kozlov Evgeni -> Lehtonen Alexander",
+            "time": "23.50",
+            "score": "5-3",
+            "scorer": "Kozlov Evgeni",
+            "assist": "Lehtonen Alexander"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "25.45 6-3 Salo Santeri -> Sandberg Tomi",
+            "time": "25.45",
+            "score": "6-3",
+            "scorer": "Salo Santeri",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "27.45 7-3 Elonheimo Antti -> Väänänen Touko aukusti",
+            "time": "27.45",
+            "score": "7-3",
+            "scorer": "Elonheimo Antti",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "31.50 8-3 Vaahtoranta Ilkka -> Sandberg Tomi",
+            "time": "31.50",
+            "score": "8-3",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "38.10 9-3 Niini Erkka -> Väänänen Touko aukusti",
+            "time": "38.10",
+            "score": "9-3",
+            "scorer": "Niini Erkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "41.00 10-3 Hotari Roni -> Torda Adam",
+            "time": "41.00",
+            "score": "10-3",
+            "scorer": "Hotari Roni",
+            "assist": "Torda Adam"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "43.55 11-3 Sutela Ismo -> Palomäki Tommi",
+            "time": "43.55",
+            "score": "11-3",
+            "scorer": "Sutela Ismo",
+            "assist": "Palomäki Tommi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "49.20 11-4 Valminen Teemu -> Chen Jim",
+            "time": "49.20",
+            "score": "11-4",
+            "scorer": "Valminen Teemu",
+            "assist": "Chen Jim"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "52.35 11-5 Kahri Antti -> Borgström Iikka peter patrick",
+            "time": "52.35",
+            "score": "11-5",
+            "scorer": "Kahri Antti",
+            "assist": "Borgström Iikka peter patrick"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "54.45 12-5 Vuorio Oskari -> Elonheimo Antti",
+            "time": "54.45",
+            "score": "12-5",
+            "scorer": "Vuorio Oskari",
+            "assist": "Elonheimo Antti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "57.05 12-6 Kozlov Evgeni -> Lintilä Janne",
+            "time": "57.05",
+            "score": "12-6",
+            "scorer": "Kozlov Evgeni",
+            "assist": "Lintilä Janne"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "68.15 13-6 Niini Erkka -> Kitusuo Jussi",
+            "time": "68.15",
+            "score": "13-6",
+            "scorer": "Niini Erkka",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "70.25 14-6 Palomäki Tommi -> Torda Adam",
+            "time": "70.25",
+            "score": "14-6",
+            "scorer": "Palomäki Tommi",
+            "assist": "Torda Adam"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "72.25 15-6 Vaahtoranta Ilkka -> Palomäki Tommi",
+            "time": "72.25",
+            "score": "15-6",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Palomäki Tommi"
+          },
+          {
+            "type": "halftime",
+            "text": "Puoliaika"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "1.55 1-0 Sandberg Tomi -> Salo Santeri",
+            "time": "1.55",
+            "score": "1-0",
+            "scorer": "Sandberg Tomi",
+            "assist": "Salo Santeri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "4.00 2-0 Tamminen Pasi -> Hotari Roni",
+            "time": "4.00",
+            "score": "2-0",
+            "scorer": "Tamminen Pasi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "6.55 2-1 Saksa Lauri -> Joukainen Eetu",
+            "time": "6.55",
+            "score": "2-1",
+            "scorer": "Saksa Lauri",
+            "assist": "Joukainen Eetu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "8.40 3-1 Hotari Roni -> Kitusuo Jussi",
+            "time": "8.40",
+            "score": "3-1",
+            "scorer": "Hotari Roni",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "12.48 3-2 Joukainen Eetu -> Tarvainen Timo",
+            "time": "12.48",
+            "score": "3-2",
+            "scorer": "Joukainen Eetu",
+            "assist": "Tarvainen Timo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "14.42 4-2 Sutela Ismo -> Hotari Roni",
+            "time": "14.42",
+            "score": "4-2",
+            "scorer": "Sutela Ismo",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "17.58 5-2 Sihvo Jarno -> Brunila Totti",
+            "time": "17.58",
+            "score": "5-2",
+            "scorer": "Sihvo Jarno",
+            "assist": "Brunila Totti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "23.50 5-3 Kozlov Evgeni -> Lehtonen Alexander",
+            "time": "23.50",
+            "score": "5-3",
+            "scorer": "Kozlov Evgeni",
+            "assist": "Lehtonen Alexander"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "25.45 6-3 Salo Santeri -> Sandberg Tomi",
+            "time": "25.45",
+            "score": "6-3",
+            "scorer": "Salo Santeri",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "27.45 7-3 Elonheimo Antti -> Väänänen Touko aukusti",
+            "time": "27.45",
+            "score": "7-3",
+            "scorer": "Elonheimo Antti",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "31.50 8-3 Vaahtoranta Ilkka -> Sandberg Tomi",
+            "time": "31.50",
+            "score": "8-3",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Sandberg Tomi"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "38.10 9-3 Niini Erkka -> Väänänen Touko aukusti",
+            "time": "38.10",
+            "score": "9-3",
+            "scorer": "Niini Erkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "41.00 10-3 Hotari Roni -> Torda Adam",
+            "time": "41.00",
+            "score": "10-3",
+            "scorer": "Hotari Roni",
+            "assist": "Torda Adam"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "43.55 11-3 Sutela Ismo -> Palomäki Tommi",
+            "time": "43.55",
+            "score": "11-3",
+            "scorer": "Sutela Ismo",
+            "assist": "Palomäki Tommi"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "49.20 11-4 Valminen Teemu -> Chen Jim",
+            "time": "49.20",
+            "score": "11-4",
+            "scorer": "Valminen Teemu",
+            "assist": "Chen Jim"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "52.35 11-5 Kahri Antti -> Borgström Iikka peter patrick",
+            "time": "52.35",
+            "score": "11-5",
+            "scorer": "Kahri Antti",
+            "assist": "Borgström Iikka peter patrick"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "54.45 12-5 Vuorio Oskari -> Elonheimo Antti",
+            "time": "54.45",
+            "score": "12-5",
+            "scorer": "Vuorio Oskari",
+            "assist": "Elonheimo Antti"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "57.05 12-6 Kozlov Evgeni -> Lintilä Janne",
+            "time": "57.05",
+            "score": "12-6",
+            "scorer": "Kozlov Evgeni",
+            "assist": "Lintilä Janne"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "68.15 13-6 Niini Erkka -> Kitusuo Jussi",
+            "time": "68.15",
+            "score": "13-6",
+            "scorer": "Niini Erkka",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "70.25 14-6 Palomäki Tommi -> Torda Adam",
+            "time": "70.25",
+            "score": "14-6",
+            "scorer": "Palomäki Tommi",
+            "assist": "Torda Adam"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "72.25 15-6 Vaahtoranta Ilkka -> Palomäki Tommi",
+            "time": "72.25",
+            "score": "15-6",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Palomäki Tommi"
+          }
+        ],
+        "home_players": [
+          {
+            "name": "Roni Hotari",
+            "assists": 2,
+            "goals": 2,
+            "total": 4
+          },
+          {
+            "name": "Tommi Palomäki",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Tomi Sandberg",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Jussi Kitusuo",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Adam Torda",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Touko aukusti Väänänen",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Antti Elonheimo",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Santeri Salo",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Erkka Niini",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Ismo Sutela",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Ilkka Vaahtoranta",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Totti Brunila",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jarno Sihvo",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Pasi Tamminen",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Oskari Vuorio",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Lassi Kallio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Karli Kalpala",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Pekka Lehtelä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Teemu Säilynoja",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Jasu Vehtari",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ],
+        "away_players": [
+          {
+            "name": "Eetu Joukainen",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Evgeni Kozlov",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Iikka peter patrick Borgström",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Jim Chen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Alexander Lehtonen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Janne Lintilä",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Timo Tarvainen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Antti Kahri",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Lauri Saksa",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Teemu Valminen",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Janne Aittolahti",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Juhana Oivio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Ari Ojanperä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Pekka Ranta",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Mikko Saloila",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Miiro Tähti",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Mikael Vitikainen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ]
+      }
+    }
+  ],
+  "results": []
+}

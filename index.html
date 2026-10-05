@@ -1372,7 +1372,7 @@
     // so browsers get fresh JSON whenever the data changes but can still cache
     // aggressively between rebuilds. Do not edit by hand.
     // BUILD_VERSION_START
-    const DATA_VERSION = 'f6686f1db435';
+    const DATA_VERSION = 'e84a94329949';
     // BUILD_VERSION_END
 
     async function loadData() {
@@ -1682,7 +1682,7 @@
 
         // ===== THE PAIR LINKS — a link X → Y counts when X's #1 assist target is Y, and Y's
         // #1 assist source is X: the feeder and the finisher chose each other. Directional on
-        // purpose. Before the pass-network field fix (migrate_point_fields.py) this rule was
+        // purpose. Before the pass-network field fix (ultiorg repair point-fields) this rule was
         // measured on transposed maps and returned four unrelated pairs; with the direction
         // corrected it returns 13, and the heaviest is the pair the club is known for.
         const mutualLinks = [];

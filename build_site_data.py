@@ -706,7 +706,7 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
     """Build directed pass network from gameplay points.
 
     A point carries "passer" (pelikone column Syöttäjä) and "scorer" (column
-    Maali); see migrate_point_fields.py for why those names were swapped in the
+    Maali); see `ultiorg repair point-fields` for why those names were swapped in the
     scraped data before 2026-10. network[scorer][passer] = times passer fed
     scorer.
 
@@ -783,7 +783,13 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
                         given[other_display] = {}
                     given[other_display][display_name] = given[other_display].get(display_name, 0) + count
     
-    return {"received": received, "given": given}
+    # Sorted on write: the adjacency dicts are built in corpus order, so an
+    # unsorted pass_network.json reorders wholesale whenever the corpus is
+    # recomposed — 4,288 lines of churn that is not a data change.
+    def by_name(d: dict) -> dict:
+        return {k: {o: c for o, c in sorted(v.items())} for k, v in sorted(d.items())}
+
+    return {"received": by_name(received), "given": by_name(given)}
 
 
 def build_cooccurrence(gameplay: list[dict], players: dict) -> dict:
@@ -1351,7 +1357,9 @@ def build_frenemies(gameplay: list[dict], top_n: int = 21) -> list[dict]:
                 'teams': [t for t, _ in sorted(p['teams'].items(), key=lambda kv: (-kv[1], kv[0]))],
             })
     
-    scored.sort(key=lambda x: -x['total'])
+    # ties broken by name: a stable sort over insertion order made rank 15/16 swap
+    # when the corpus was re-sorted, which is churn, not a data change
+    scored.sort(key=lambda x: (-x['total'], x['name']))
     
     # Add rank
     for i, entry in enumerate(scored[:top_n], 1):

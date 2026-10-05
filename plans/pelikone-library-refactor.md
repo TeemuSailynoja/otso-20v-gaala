@@ -406,16 +406,22 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
       from `build_defense_stats` into the gameplay parser and store `possession` +
       `possession_known` per point. Gate: point counts and defense totals match today's numbers.
 - [x] **Phase 6 — new views.** `scorestatus`, `statistics`, `allteams`/`allclubs`.
-- [ ] **Phase 7 — composition API + CLI.** `player()/connections()/scoring()/games()`, the fetch
+- [x] **Phase 7 — composition API + CLI.** `player()/connections()/scoring()/games()`, the fetch
       verbs, and `ultiorg sql`; delete the four one-off scripts and fold the three repairs in.
       Verify a fresh clone + `ultiorg fetch all-seasons --gameplay` + `python build_site_data.py`
       reproduces `site_data/`.
+      → Done (`1c98fa3`). Deviations: the CLI uses subcommands, not the legacy flags; `data/raw/*.json`
+      is now tracked (3.3 MB) because the season parses are the only record of standings/placements
+      and a clone could not rebuild `site_data/` without them. Gate passed: corpus byte-identical,
+      `site_data/` identical except `avg_age*`, which comes from the gitignored private CSV.
+      `extract_birthdays.py` stays in the repo — it parses a PDF and handles personal data.
 - [ ] **Phase 8 — analytics to the library.** Move the six builders out of `build_site_data.py`
       behind a focus-team predicate; `teams.yaml` supplies the Otso config. Gate: regenerated
       `site_data/*.json` matches the committed files except for intended fixes.
 - [ ] **Phase 9 — re-key the site data.** `site_data/*.json` keyed by `player_id`, plus
       `names.json` and `data_quality.json`. Gate: totals unchanged from the name-keyed build
-      (163 players, 483 games, 23 gold) and every unresolved name is listed, not dropped.
+      (171 players, 795 games, 23 gold — the post-Phase-5 numbers, not the 163/483 written when
+      this plan was drafted) and every unresolved name is listed, not dropped.
 - [ ] **Phase 10 — contract.** `manifest.json` + `schema.json`; validate in Python (build) and JS
       (load); remove the `BUILD_VERSION` comment stamp.
 - [ ] **Phase 11 — split the page.** `index.html` → shell + `css/` + `js/` ES modules, one page per

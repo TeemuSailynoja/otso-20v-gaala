@@ -1,0 +1,256 @@
+{
+  "id": "2011.1.T2",
+  "name": "Kesä 2011: Tour 2",
+  "classified": {
+    "year": 2011,
+    "type": "tour2",
+    "id": "2011.1.T2",
+    "name": "Kesä 2011: Tour 2"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "1481",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2011.1.T2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Antti Elonheimo",
+          "id": "11249",
+          "jersey": "5",
+          "games": "5",
+          "assists": "7",
+          "goals": "1",
+          "total": "8"
+        },
+        {
+          "name": "Antti Niinikoski",
+          "id": "11250",
+          "jersey": "33",
+          "games": "5",
+          "assists": "0",
+          "goals": "9",
+          "total": "9"
+        },
+        {
+          "name": "Eero Smeds",
+          "id": "11251",
+          "jersey": "23",
+          "games": "5",
+          "assists": "1",
+          "goals": "8",
+          "total": "9"
+        },
+        {
+          "name": "Ekku Rytkönen",
+          "id": "11564",
+          "jersey": "22",
+          "games": "4",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "11252",
+          "jersey": "49",
+          "games": "5",
+          "assists": "5",
+          "goals": "3",
+          "total": "8"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "11253",
+          "jersey": "11",
+          "games": "5",
+          "assists": "9",
+          "goals": "2",
+          "total": "11"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "11254",
+          "jersey": "32",
+          "games": "5",
+          "assists": "6",
+          "goals": "3",
+          "total": "9"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "11255",
+          "jersey": "66",
+          "games": "5",
+          "assists": "3",
+          "goals": "7",
+          "total": "10"
+        },
+        {
+          "name": "Kerkko Visuri",
+          "id": "11256",
+          "jersey": "15",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Kimmo Berg",
+          "id": "11257",
+          "jersey": "8",
+          "games": "5",
+          "assists": "4",
+          "goals": "3",
+          "total": "7"
+        },
+        {
+          "name": "Lauri Hiivala",
+          "id": "11258",
+          "jersey": "24",
+          "games": "5",
+          "assists": "0",
+          "goals": "8",
+          "total": "8"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "11259",
+          "jersey": "6",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Pekka Neuvo",
+          "id": "11411",
+          "jersey": "26",
+          "games": "5",
+          "assists": "1",
+          "goals": "7",
+          "total": "8"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "11260",
+          "jersey": "34",
+          "games": "5",
+          "assists": "11",
+          "goals": "7",
+          "total": "18"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "11261",
+          "jersey": "29",
+          "games": "5",
+          "assists": "1",
+          "goals": "5",
+          "total": "6"
+        },
+        {
+          "name": "Simo Siitonen",
+          "id": "11410",
+          "jersey": "28",
+          "games": "5",
+          "assists": "7",
+          "goals": "4",
+          "total": "11"
+        },
+        {
+          "name": "Timo Idänheimo",
+          "id": "11414",
+          "jersey": "13",
+          "games": "5",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Timo Vaskio",
+          "id": "11412",
+          "jersey": "9",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "11262",
+          "jersey": "20",
+          "games": "5",
+          "assists": "10",
+          "goals": "1",
+          "total": "11"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "11263",
+          "jersey": "50",
+          "games": "5",
+          "assists": "9",
+          "goals": "5",
+          "total": "14"
+        },
+        {
+          "name": "Viljami Aittomäki",
+          "id": "11264",
+          "jersey": "21",
+          "games": "5",
+          "assists": "0",
+          "goals": "1",
+          "total": "1"
+        }
+      ],
+      "games": [
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 9
+        },
+        {
+          "home": "SOS",
+          "away": "Otso",
+          "home_score": 14,
+          "away_score": 16
+        },
+        {
+          "home": "JUPITER",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 6
+        },
+        {
+          "home": "UFO",
+          "away": "Otso",
+          "home_score": 13,
+          "away_score": 10
+        },
+        {
+          "home": "SOS",
+          "away": "Otso",
+          "home_score": 12,
+          "away_score": 15
+        }
+      ],
+      "all_time_players": []
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Otso",
+      "team_id": "1481",
+      "division": "Avoin",
+      "season_id": "2011.1.T2"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

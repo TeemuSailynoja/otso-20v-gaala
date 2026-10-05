@@ -194,7 +194,7 @@ def allplayers_index() -> PlayerIndex:
 
     html = Cache().read(f"{BASE_URL}/?view=allplayers&list=all")
     if not html:
-        pytest.skip("needs the cached allplayers index; run ultiorg --import-cache")
+        pytest.skip("needs the cached allplayers index; run `ultiorg cache import`")
     return PlayerIndex(parse_allplayers(html))
 
 

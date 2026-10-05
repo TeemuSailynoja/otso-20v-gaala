@@ -3,8 +3,8 @@
 Point-by-point rows write `"Potrykus Patrick"` (Last First); rosters and the
 `allplayers` index write `"Patrick Potrykus"` separated by U+00A0. Folding NBSP
 and sorting the lowercased parts makes both orders produce the same key, which
-is the rule `refresh_game_rosters.py` used in production and the rule
-`build_site_data.canonicalize_name` implements. It lives here so the parser,
+is the rule the roster repair used in production (now `ultiorg repair rosters`)
+and the rule `build_site_data.canonicalize_name` implements. It lives here so the parser,
 the identity layer and the store cannot drift apart.
 """
 

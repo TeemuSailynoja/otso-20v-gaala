@@ -7,9 +7,9 @@ rosters and the player index are `First Last` separated by U+00A0. The only
 join between a point and a player is a name, so the name rule has to be
 explicit, order-insensitive, and honest about ambiguity.
 
-The rule is the one `refresh_game_rosters.py` used in production: fold NBSP to
-a space, drop captain markers, lowercase, and sort the name parts — which makes
-`Last First` and `First Last` the same key.
+The rule is the one the roster repair used in production (now
+`ultiorg repair rosters`): fold NBSP to a space, drop captain markers, lowercase,
+and sort the name parts — which makes `Last First` and `First Last` the same key.
 """
 
 from __future__ import annotations

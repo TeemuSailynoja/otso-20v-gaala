@@ -46,6 +46,9 @@ from .builders import (
     build_player_network,
     build_summary,
 )
+from .corpus import CorpusStats, build_corpus, gameplay_source, write_corpus
+from .query import AmbiguousPlayer, Player, Store, UnknownPlayer
+from .repair import RepairReport, dedupe_point_rows, migrate_point_fields, refresh_rosters
 from .fetcher import (
     fetch_url,
     fetch_view,
@@ -167,4 +170,19 @@ __all__ = [
     "build_store",
     "defense_totals",
     "open_store",
+    # Corpus
+    "CorpusStats",
+    "build_corpus",
+    "gameplay_source",
+    "write_corpus",
+    # Composition API
+    "AmbiguousPlayer",
+    "Player",
+    "Store",
+    "UnknownPlayer",
+    # Repairs
+    "RepairReport",
+    "dedupe_point_rows",
+    "migrate_point_fields",
+    "refresh_rosters",
 ]

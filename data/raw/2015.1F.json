@@ -1,0 +1,1454 @@
+{
+  "id": "2015.1F",
+  "name": "Kesä 2015 Finaali",
+  "classified": {
+    "year": 2015,
+    "type": "finals",
+    "id": "2015.1F",
+    "name": "Kesä 2015 Finaali"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "2091",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2015.1F",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2091",
+      "players": [
+        {
+          "name": "Adrian Hornsby",
+          "id": "20508",
+          "jersey": "66",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "20517",
+          "jersey": "12",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "20491",
+          "jersey": "80",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "20496",
+          "jersey": "11",
+          "games": "1",
+          "assists": "1",
+          "goals": "1",
+          "total": "2"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "20498",
+          "jersey": "6",
+          "games": "1",
+          "assists": "1",
+          "goals": "0",
+          "total": "1"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "20506",
+          "jersey": "5",
+          "games": "1",
+          "assists": "3",
+          "goals": "1",
+          "total": "4"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "20504",
+          "jersey": "50",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "20502",
+          "jersey": "32",
+          "games": "1",
+          "assists": "1",
+          "goals": "1",
+          "total": "2"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "20509",
+          "jersey": "25",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "20499",
+          "jersey": "19",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Jussi Kitusuo",
+          "id": "20510",
+          "jersey": "36",
+          "games": "1",
+          "assists": "0",
+          "goals": "2",
+          "total": "2"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "20497",
+          "jersey": "16",
+          "games": "1",
+          "assists": "0",
+          "goals": "1",
+          "total": "1"
+        },
+        {
+          "name": "Karli Kalpala",
+          "id": "20511",
+          "jersey": "23",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "20494",
+          "jersey": "22",
+          "games": "1",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "20507",
+          "jersey": "21",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "20505",
+          "jersey": "7",
+          "games": "1",
+          "assists": "3",
+          "goals": "2",
+          "total": "5"
+        },
+        {
+          "name": "Pekka Lehtelä",
+          "id": "20516",
+          "jersey": "8",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "20493",
+          "jersey": "34",
+          "games": "1",
+          "assists": "0",
+          "goals": "2",
+          "total": "2"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "20500",
+          "jersey": "29",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "20512",
+          "jersey": "72",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "20501",
+          "jersey": "17",
+          "games": "1",
+          "assists": "3",
+          "goals": "0",
+          "total": "3"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "20513",
+          "jersey": "26",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "20514",
+          "jersey": "27",
+          "games": "1",
+          "assists": "1",
+          "goals": "2",
+          "total": "3"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "20495",
+          "jersey": "81",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Ville Haaramo",
+          "id": "20492",
+          "jersey": "30",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Yrjänä Hynninen",
+          "id": "20515",
+          "jersey": "91",
+          "games": "1",
+          "assists": "0",
+          "goals": "3",
+          "total": "3"
+        }
+      ],
+      "games": [
+        {
+          "home": "SOS-Terror",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 8
+        }
+      ],
+      "all_time_players": [
+        {
+          "name": "Adrian Hornsby",
+          "id": "20508",
+          "jersey": "30",
+          "events": "162",
+          "games": "216",
+          "assists": "245",
+          "total": "461"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "20517",
+          "jersey": "67",
+          "events": "324",
+          "games": "272",
+          "assists": "110",
+          "total": "382"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "20491",
+          "jersey": "88",
+          "events": "607",
+          "games": "909",
+          "assists": "863",
+          "total": "1772"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "20496",
+          "jersey": "72",
+          "events": "433",
+          "games": "486",
+          "assists": "896",
+          "total": "1382"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "20498",
+          "jersey": "51",
+          "events": "404",
+          "games": "891",
+          "assists": "608",
+          "total": "1499"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "20506",
+          "jersey": "68",
+          "events": "390",
+          "games": "725",
+          "assists": "424",
+          "total": "1149"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "20504",
+          "jersey": "42",
+          "events": "260",
+          "games": "407",
+          "assists": "276",
+          "total": "683"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "20502",
+          "jersey": "76",
+          "events": "443",
+          "games": "560",
+          "assists": "398",
+          "total": "958"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "20509",
+          "jersey": "52",
+          "events": "233",
+          "games": "304",
+          "assists": "160",
+          "total": "464"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "20499",
+          "jersey": "50",
+          "events": "301",
+          "games": "311",
+          "assists": "435",
+          "total": "746"
+        },
+        {
+          "name": "Jussi Kitusuo",
+          "id": "20510",
+          "jersey": "39",
+          "events": "223",
+          "games": "95",
+          "assists": "342",
+          "total": "437"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "20497",
+          "jersey": "38",
+          "events": "187",
+          "games": "181",
+          "assists": "263",
+          "total": "444"
+        },
+        {
+          "name": "Karli Kalpala",
+          "id": "20511",
+          "jersey": "35",
+          "events": "176",
+          "games": "121",
+          "assists": "137",
+          "total": "258"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "20494",
+          "jersey": "61",
+          "events": "395",
+          "games": "802",
+          "assists": "433",
+          "total": "1235"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "20507",
+          "jersey": "53",
+          "events": "319",
+          "games": "300",
+          "assists": "469",
+          "total": "769"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "20505",
+          "jersey": "51",
+          "events": "312",
+          "games": "857",
+          "assists": "631",
+          "total": "1488"
+        },
+        {
+          "name": "Pekka Lehtelä",
+          "id": "20516",
+          "jersey": "20",
+          "events": "104",
+          "games": "25",
+          "assists": "84",
+          "total": "109"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "20493",
+          "jersey": "89",
+          "events": "510",
+          "games": "1352",
+          "assists": "926",
+          "total": "2278"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "20500",
+          "jersey": "49",
+          "events": "263",
+          "games": "273",
+          "assists": "370",
+          "total": "643"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "20512",
+          "jersey": "40",
+          "events": "231",
+          "games": "149",
+          "assists": "171",
+          "total": "320"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "20501",
+          "jersey": "78",
+          "events": "491",
+          "games": "1144",
+          "assists": "768",
+          "total": "1912"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "20513",
+          "jersey": "29",
+          "events": "130",
+          "games": "125",
+          "assists": "122",
+          "total": "247"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "20514",
+          "jersey": "50",
+          "events": "275",
+          "games": "251",
+          "assists": "582",
+          "total": "833"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "20495",
+          "jersey": "50",
+          "events": "271",
+          "games": "168",
+          "assists": "266",
+          "total": "434"
+        },
+        {
+          "name": "Ville Haaramo",
+          "id": "20492",
+          "jersey": "39",
+          "events": "269",
+          "games": "527",
+          "assists": "211",
+          "total": "738"
+        },
+        {
+          "name": "Yrjänä Hynninen",
+          "id": "20515",
+          "jersey": "17",
+          "events": "115",
+          "games": "94",
+          "assists": "343",
+          "total": "437"
+        },
+        {
+          "name": "Adrian Hornsby",
+          "id": "20508",
+          "jersey": "30",
+          "events": "162",
+          "games": "216",
+          "assists": "245",
+          "total": "461"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "20517",
+          "jersey": "67",
+          "events": "324",
+          "games": "272",
+          "assists": "110",
+          "total": "382"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "20491",
+          "jersey": "88",
+          "events": "607",
+          "games": "909",
+          "assists": "863",
+          "total": "1772"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "20496",
+          "jersey": "72",
+          "events": "433",
+          "games": "486",
+          "assists": "896",
+          "total": "1382"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "20498",
+          "jersey": "51",
+          "events": "404",
+          "games": "891",
+          "assists": "608",
+          "total": "1499"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "20506",
+          "jersey": "68",
+          "events": "390",
+          "games": "725",
+          "assists": "424",
+          "total": "1149"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "20504",
+          "jersey": "42",
+          "events": "260",
+          "games": "407",
+          "assists": "276",
+          "total": "683"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "20502",
+          "jersey": "76",
+          "events": "443",
+          "games": "560",
+          "assists": "398",
+          "total": "958"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "20509",
+          "jersey": "52",
+          "events": "233",
+          "games": "304",
+          "assists": "160",
+          "total": "464"
+        },
+        {
+          "name": "Jesse Saastamoinen",
+          "id": "20499",
+          "jersey": "50",
+          "events": "301",
+          "games": "311",
+          "assists": "435",
+          "total": "746"
+        },
+        {
+          "name": "Jussi Kitusuo",
+          "id": "20510",
+          "jersey": "39",
+          "events": "223",
+          "games": "95",
+          "assists": "342",
+          "total": "437"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "20497",
+          "jersey": "38",
+          "events": "187",
+          "games": "181",
+          "assists": "263",
+          "total": "444"
+        },
+        {
+          "name": "Karli Kalpala",
+          "id": "20511",
+          "jersey": "35",
+          "events": "176",
+          "games": "121",
+          "assists": "137",
+          "total": "258"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "20494",
+          "jersey": "61",
+          "events": "395",
+          "games": "802",
+          "assists": "433",
+          "total": "1235"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "20507",
+          "jersey": "53",
+          "events": "319",
+          "games": "300",
+          "assists": "469",
+          "total": "769"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "20505",
+          "jersey": "51",
+          "events": "312",
+          "games": "857",
+          "assists": "631",
+          "total": "1488"
+        },
+        {
+          "name": "Pekka Lehtelä",
+          "id": "20516",
+          "jersey": "20",
+          "events": "104",
+          "games": "25",
+          "assists": "84",
+          "total": "109"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "20493",
+          "jersey": "89",
+          "events": "510",
+          "games": "1352",
+          "assists": "926",
+          "total": "2278"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "20500",
+          "jersey": "49",
+          "events": "263",
+          "games": "273",
+          "assists": "370",
+          "total": "643"
+        },
+        {
+          "name": "Teemu Säilynoja",
+          "id": "20512",
+          "jersey": "40",
+          "events": "231",
+          "games": "149",
+          "assists": "171",
+          "total": "320"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "20501",
+          "jersey": "78",
+          "events": "491",
+          "games": "1144",
+          "assists": "768",
+          "total": "1912"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "20513",
+          "jersey": "29",
+          "events": "130",
+          "games": "125",
+          "assists": "122",
+          "total": "247"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "20514",
+          "jersey": "50",
+          "events": "275",
+          "games": "251",
+          "assists": "582",
+          "total": "833"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "20495",
+          "jersey": "50",
+          "events": "271",
+          "games": "168",
+          "assists": "266",
+          "total": "434"
+        },
+        {
+          "name": "Ville Haaramo",
+          "id": "20492",
+          "jersey": "39",
+          "events": "269",
+          "games": "527",
+          "assists": "211",
+          "total": "738"
+        },
+        {
+          "name": "Yrjänä Hynninen",
+          "id": "20515",
+          "jersey": "17",
+          "events": "115",
+          "games": "94",
+          "assists": "343",
+          "total": "437"
+        }
+      ]
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Otso",
+      "team_id": "2091",
+      "division": "Avoin",
+      "season_id": "2015.1F"
+    }
+  ],
+  "players": [],
+  "games": [
+    {
+      "game_id": "7063",
+      "time": "17:00",
+      "venue": "Kenttä 1",
+      "home_team": "Otso",
+      "away_team": "SOS-Terror",
+      "home_score": 15,
+      "away_score": 8,
+      "division": "",
+      "season_id": "2015.1F",
+      "gameplay": {
+        "home_team": "Otso",
+        "away_team": "SOS-Terror",
+        "home_score": 15,
+        "away_score": 8,
+        "points": [
+          {
+            "type": "point",
+            "side": "home",
+            "title": "1.25 1-0 Vaahtoranta Ilkka -> Hynninen Yrjänä",
+            "time": "1.25",
+            "score": "1-0",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Hynninen Yrjänä"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "3.40 2-0 Rämö Ilkka -> Kitusuo Jussi",
+            "time": "3.40",
+            "score": "2-0",
+            "scorer": "Rämö Ilkka",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "5.55 3-0 Sandberg Tomi -> Hotari Roni",
+            "time": "5.55",
+            "score": "3-0",
+            "scorer": "Sandberg Tomi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "9.45 3-1 Potrykus Patrick -> Paunonen Petteri",
+            "time": "9.45",
+            "score": "3-1",
+            "scorer": "Potrykus Patrick",
+            "assist": "Paunonen Petteri"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "11.40 3-2 Tiihonen Eetu -> Vallila Markus",
+            "time": "11.40",
+            "score": "3-2",
+            "scorer": "Tiihonen Eetu",
+            "assist": "Vallila Markus"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "14.30 3-3 Kinnunen Kimmo -> Paunonen Petteri",
+            "time": "14.30",
+            "score": "3-3",
+            "scorer": "Kinnunen Kimmo",
+            "assist": "Paunonen Petteri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "18.00 4-3 Kallio Lassi -> Hotari Roni",
+            "time": "18.00",
+            "score": "4-3",
+            "scorer": "Kallio Lassi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "21.05 4-4 Niemi Tuomas -> Kinnunen Kimmo",
+            "time": "21.05",
+            "score": "4-4",
+            "scorer": "Niemi Tuomas",
+            "assist": "Kinnunen Kimmo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "23.40 5-4 Kallio Lassi -> Vaahtoranta Ilkka",
+            "time": "23.40",
+            "score": "5-4",
+            "scorer": "Kallio Lassi",
+            "assist": "Vaahtoranta Ilkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "26.25 6-4 Tamminen Pasi -> Kitusuo Jussi",
+            "time": "26.25",
+            "score": "6-4",
+            "scorer": "Tamminen Pasi",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "28.20 7-4 Sandberg Tomi -> Väänänen Touko aukusti",
+            "time": "28.20",
+            "score": "7-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "30.20 8-4 Sihvo Jarno -> Tamminen Pasi",
+            "time": "30.20",
+            "score": "8-4",
+            "scorer": "Sihvo Jarno",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "40.50 8-5 Potrykus Patrick -> Lehto Santtu",
+            "time": "40.50",
+            "score": "8-5",
+            "scorer": "Potrykus Patrick",
+            "assist": "Lehto Santtu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "42.30 9-5 Vaahtoranta Ilkka -> Sihvo Jarno",
+            "time": "42.30",
+            "score": "9-5",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Sihvo Jarno"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "44.40 9-6 Mykkänen Ville -> Kinnunen Kimmo",
+            "time": "44.40",
+            "score": "9-6",
+            "scorer": "Mykkänen Ville",
+            "assist": "Kinnunen Kimmo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "46.40 10-6 Vaahtoranta Ilkka -> Väänänen Touko aukusti",
+            "time": "46.40",
+            "score": "10-6",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "49.45 11-6 Niini Erkka -> Tamminen Pasi",
+            "time": "49.45",
+            "score": "11-6",
+            "scorer": "Niini Erkka",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "53.30 12-6 Väänänen Touko aukusti -> Hynninen Yrjänä",
+            "time": "53.30",
+            "score": "12-6",
+            "scorer": "Väänänen Touko aukusti",
+            "assist": "Hynninen Yrjänä"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "60.10 12-7 Häkkilä Antti -> Paunonen Petteri",
+            "time": "60.10",
+            "score": "12-7",
+            "scorer": "Häkkilä Antti",
+            "assist": "Paunonen Petteri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "62.15 13-7 Sandberg Tomi -> Hynninen Yrjänä",
+            "time": "62.15",
+            "score": "13-7",
+            "scorer": "Sandberg Tomi",
+            "assist": "Hynninen Yrjänä"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "64.10 14-7 Tamminen Pasi -> Parkkinen Juuso",
+            "time": "64.10",
+            "score": "14-7",
+            "scorer": "Tamminen Pasi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "65.50 14-8 Niemi Tuomas -> Karpansalo Saska",
+            "time": "65.50",
+            "score": "14-8",
+            "scorer": "Niemi Tuomas",
+            "assist": "Karpansalo Saska"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "67.35 15-8 Tamminen Pasi -> Niini Erkka",
+            "time": "67.35",
+            "score": "15-8",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          },
+          {
+            "type": "halftime",
+            "text": "Puoliaika"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "1.25 1-0 Vaahtoranta Ilkka -> Hynninen Yrjänä",
+            "time": "1.25",
+            "score": "1-0",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Hynninen Yrjänä"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "3.40 2-0 Rämö Ilkka -> Kitusuo Jussi",
+            "time": "3.40",
+            "score": "2-0",
+            "scorer": "Rämö Ilkka",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "5.55 3-0 Sandberg Tomi -> Hotari Roni",
+            "time": "5.55",
+            "score": "3-0",
+            "scorer": "Sandberg Tomi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "9.45 3-1 Potrykus Patrick -> Paunonen Petteri",
+            "time": "9.45",
+            "score": "3-1",
+            "scorer": "Potrykus Patrick",
+            "assist": "Paunonen Petteri"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "11.40 3-2 Tiihonen Eetu -> Vallila Markus",
+            "time": "11.40",
+            "score": "3-2",
+            "scorer": "Tiihonen Eetu",
+            "assist": "Vallila Markus"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "14.30 3-3 Kinnunen Kimmo -> Paunonen Petteri",
+            "time": "14.30",
+            "score": "3-3",
+            "scorer": "Kinnunen Kimmo",
+            "assist": "Paunonen Petteri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "18.00 4-3 Kallio Lassi -> Hotari Roni",
+            "time": "18.00",
+            "score": "4-3",
+            "scorer": "Kallio Lassi",
+            "assist": "Hotari Roni"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "21.05 4-4 Niemi Tuomas -> Kinnunen Kimmo",
+            "time": "21.05",
+            "score": "4-4",
+            "scorer": "Niemi Tuomas",
+            "assist": "Kinnunen Kimmo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "23.40 5-4 Kallio Lassi -> Vaahtoranta Ilkka",
+            "time": "23.40",
+            "score": "5-4",
+            "scorer": "Kallio Lassi",
+            "assist": "Vaahtoranta Ilkka"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "26.25 6-4 Tamminen Pasi -> Kitusuo Jussi",
+            "time": "26.25",
+            "score": "6-4",
+            "scorer": "Tamminen Pasi",
+            "assist": "Kitusuo Jussi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "28.20 7-4 Sandberg Tomi -> Väänänen Touko aukusti",
+            "time": "28.20",
+            "score": "7-4",
+            "scorer": "Sandberg Tomi",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "30.20 8-4 Sihvo Jarno -> Tamminen Pasi",
+            "time": "30.20",
+            "score": "8-4",
+            "scorer": "Sihvo Jarno",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "halftime",
+            "text": ""
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "40.50 8-5 Potrykus Patrick -> Lehto Santtu",
+            "time": "40.50",
+            "score": "8-5",
+            "scorer": "Potrykus Patrick",
+            "assist": "Lehto Santtu"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "42.30 9-5 Vaahtoranta Ilkka -> Sihvo Jarno",
+            "time": "42.30",
+            "score": "9-5",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Sihvo Jarno"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "44.40 9-6 Mykkänen Ville -> Kinnunen Kimmo",
+            "time": "44.40",
+            "score": "9-6",
+            "scorer": "Mykkänen Ville",
+            "assist": "Kinnunen Kimmo"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "46.40 10-6 Vaahtoranta Ilkka -> Väänänen Touko aukusti",
+            "time": "46.40",
+            "score": "10-6",
+            "scorer": "Vaahtoranta Ilkka",
+            "assist": "Väänänen Touko aukusti"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "49.45 11-6 Niini Erkka -> Tamminen Pasi",
+            "time": "49.45",
+            "score": "11-6",
+            "scorer": "Niini Erkka",
+            "assist": "Tamminen Pasi"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "53.30 12-6 Väänänen Touko aukusti -> Hynninen Yrjänä",
+            "time": "53.30",
+            "score": "12-6",
+            "scorer": "Väänänen Touko aukusti",
+            "assist": "Hynninen Yrjänä"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "60.10 12-7 Häkkilä Antti -> Paunonen Petteri",
+            "time": "60.10",
+            "score": "12-7",
+            "scorer": "Häkkilä Antti",
+            "assist": "Paunonen Petteri"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "62.15 13-7 Sandberg Tomi -> Hynninen Yrjänä",
+            "time": "62.15",
+            "score": "13-7",
+            "scorer": "Sandberg Tomi",
+            "assist": "Hynninen Yrjänä"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "64.10 14-7 Tamminen Pasi -> Parkkinen Juuso",
+            "time": "64.10",
+            "score": "14-7",
+            "scorer": "Tamminen Pasi",
+            "assist": "Parkkinen Juuso"
+          },
+          {
+            "type": "point",
+            "side": "guest",
+            "title": "65.50 14-8 Niemi Tuomas -> Karpansalo Saska",
+            "time": "65.50",
+            "score": "14-8",
+            "scorer": "Niemi Tuomas",
+            "assist": "Karpansalo Saska"
+          },
+          {
+            "type": "point",
+            "side": "home",
+            "title": "67.35 15-8 Tamminen Pasi -> Niini Erkka",
+            "time": "67.35",
+            "score": "15-8",
+            "scorer": "Tamminen Pasi",
+            "assist": "Niini Erkka"
+          }
+        ],
+        "home_players": [
+          {
+            "name": "Pasi Tamminen",
+            "assists": 3,
+            "goals": 2,
+            "total": 5
+          },
+          {
+            "name": "Ilkka Vaahtoranta",
+            "assists": 3,
+            "goals": 1,
+            "total": 4
+          },
+          {
+            "name": "Yrjänä Hynninen",
+            "assists": 0,
+            "goals": 3,
+            "total": 3
+          },
+          {
+            "name": "Touko aukusti Väänänen",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Tomi Sandberg",
+            "assists": 3,
+            "goals": 0,
+            "total": 3
+          },
+          {
+            "name": "Roni Hotari",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Jussi Kitusuo",
+            "assists": 0,
+            "goals": 2,
+            "total": 2
+          },
+          {
+            "name": "Erkka Niini",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Jarno Sihvo",
+            "assists": 1,
+            "goals": 1,
+            "total": 2
+          },
+          {
+            "name": "Lassi Kallio",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Juuso Parkkinen",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Ilkka Rämö",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Antti Elonheimo",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Ville Haaramo",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Adrian Hornsby",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Tuukka Koistinen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Pekka Lehtelä",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Tommi Palomäki",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Jesse Saastamoinen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Teemu Säilynoja",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Santeri Salo",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Ismo Sutela",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Aki Vehtari",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Jasu Vehtari",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Oskari Vuorio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ],
+        "away_players": [
+          {
+            "name": "Petteri Paunonen",
+            "assists": 0,
+            "goals": 3,
+            "total": 3
+          },
+          {
+            "name": "Kimmo Kinnunen",
+            "assists": 1,
+            "goals": 2,
+            "total": 3
+          },
+          {
+            "name": "Tuomas Niemi",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Patrick Potrykus",
+            "assists": 2,
+            "goals": 0,
+            "total": 2
+          },
+          {
+            "name": "Saska Karpansalo",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Santtu Lehto",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Markus Vallila",
+            "assists": 0,
+            "goals": 1,
+            "total": 1
+          },
+          {
+            "name": "Antti Häkkilä",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Ville Mykkänen",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Eetu Tiihonen",
+            "assists": 1,
+            "goals": 0,
+            "total": 1
+          },
+          {
+            "name": "Petri Jääskeläinen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Juha Jokinen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Tatu Kokkonen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Mikael Piippo",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Atte Skogberg",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Miitrei Sorsa",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Iiro Tainio",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          },
+          {
+            "name": "Mikael Vitikainen",
+            "assists": 0,
+            "goals": 0,
+            "total": 0
+          }
+        ]
+      }
+    }
+  ],
+  "results": []
+}

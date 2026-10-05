@@ -1,0 +1,217 @@
+{
+  "id": "2011.1.T1",
+  "name": "Kesä 2011: Tour 1",
+  "classified": {
+    "year": 2011,
+    "type": "tour1",
+    "id": "2011.1.T1",
+    "name": "Kesä 2011: Tour 1"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "1467",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2011.1.T1",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Antti Elonheimo",
+          "id": "11036",
+          "jersey": "5",
+          "games": "6",
+          "assists": "9",
+          "goals": "5",
+          "total": "14"
+        },
+        {
+          "name": "Antti Niinikoski",
+          "id": "11040",
+          "jersey": "33",
+          "games": "6",
+          "assists": "3",
+          "goals": "14",
+          "total": "17"
+        },
+        {
+          "name": "Eero Smeds",
+          "id": "11180",
+          "jersey": "23",
+          "games": "6",
+          "assists": "1",
+          "goals": "5",
+          "total": "6"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "11044",
+          "jersey": "49",
+          "games": "5",
+          "assists": "7",
+          "goals": "5",
+          "total": "12"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "11037",
+          "jersey": "11",
+          "games": "6",
+          "assists": "14",
+          "goals": "1",
+          "total": "15"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "11050",
+          "jersey": "32",
+          "games": "6",
+          "assists": "3",
+          "goals": "5",
+          "total": "8"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "11042",
+          "jersey": "66",
+          "games": "6",
+          "assists": "5",
+          "goals": "8",
+          "total": "13"
+        },
+        {
+          "name": "Kerkko Visuri",
+          "id": "11049",
+          "jersey": "15",
+          "games": "6",
+          "assists": "0",
+          "goals": "4",
+          "total": "4"
+        },
+        {
+          "name": "Kimmo Berg",
+          "id": "11045",
+          "jersey": "8",
+          "games": "6",
+          "assists": "3",
+          "goals": "7",
+          "total": "10"
+        },
+        {
+          "name": "Lauri Hiivala",
+          "id": "11047",
+          "jersey": "24",
+          "games": "6",
+          "assists": "2",
+          "goals": "6",
+          "total": "8"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "11041",
+          "jersey": "6",
+          "games": "2",
+          "assists": "4",
+          "goals": "2",
+          "total": "6"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "11039",
+          "jersey": "34",
+          "games": "6",
+          "assists": "12",
+          "goals": "8",
+          "total": "20"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "11046",
+          "jersey": "29",
+          "games": "6",
+          "assists": "1",
+          "goals": "8",
+          "total": "9"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "11038",
+          "jersey": "20",
+          "games": "6",
+          "assists": "12",
+          "goals": "1",
+          "total": "13"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "11043",
+          "jersey": "50",
+          "games": "6",
+          "assists": "8",
+          "goals": "3",
+          "total": "11"
+        },
+        {
+          "name": "Viljami Aittomäki",
+          "id": "11048",
+          "jersey": "21",
+          "games": "6",
+          "assists": "0",
+          "goals": "4",
+          "total": "4"
+        }
+      ],
+      "games": [
+        {
+          "home": "Flying Steps Open",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 1
+        },
+        {
+          "home": "Turku Terror",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 5
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 11,
+          "away_score": 15
+        },
+        {
+          "home": "Jupiter",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 12
+        },
+        {
+          "home": "Otso",
+          "away": "UFO",
+          "home_score": 15,
+          "away_score": 11
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 13,
+          "away_score": 15
+        }
+      ],
+      "all_time_players": []
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Pronssi",
+      "team_name": "Otso",
+      "team_id": "1467",
+      "division": "Avoin",
+      "season_id": "2011.1.T1"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

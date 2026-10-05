@@ -1,0 +1,626 @@
+{
+  "id": "Hallitour2",
+  "name": "Talvi 2014",
+  "classified": {
+    "year": 2014,
+    "type": "winter",
+    "id": "Hallitour2",
+    "name": "Talvi 2014"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "1956",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "Hallitour2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Antti Elonheimo",
+          "id": "19001",
+          "jersey": "80",
+          "games": "4",
+          "assists": "8",
+          "goals": "7",
+          "total": "15"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "18863",
+          "jersey": "11",
+          "games": "9",
+          "assists": "15",
+          "goals": "35",
+          "total": "50"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "18865",
+          "jersey": "6",
+          "games": "9",
+          "assists": "29",
+          "goals": "14",
+          "total": "43"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "18864",
+          "jersey": "5",
+          "games": "7",
+          "assists": "16",
+          "goals": "15",
+          "total": "31"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "18755",
+          "jersey": "50",
+          "games": "9",
+          "assists": "20",
+          "goals": "13",
+          "total": "33"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "18396",
+          "jersey": "32",
+          "games": "13",
+          "assists": "16",
+          "goals": "12",
+          "total": "28"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "18399",
+          "jersey": "22",
+          "games": "5",
+          "assists": "8",
+          "goals": "10",
+          "total": "18"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "18402",
+          "jersey": "21",
+          "games": "5",
+          "assists": "1",
+          "goals": "6",
+          "total": "7"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "18400",
+          "jersey": "34",
+          "games": "5",
+          "assists": "19",
+          "goals": "13",
+          "total": "32"
+        },
+        {
+          "name": "Timo Vaskio",
+          "id": "18866",
+          "jersey": "47",
+          "games": "7",
+          "assists": "20",
+          "goals": "3",
+          "total": "23"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "18401",
+          "jersey": "17",
+          "games": "5",
+          "assists": "19",
+          "goals": "13",
+          "total": "32"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "18403",
+          "jersey": "27",
+          "games": "13",
+          "assists": "1",
+          "goals": "32",
+          "total": "33"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "18397",
+          "jersey": "81",
+          "games": "13",
+          "assists": "14",
+          "goals": "13",
+          "total": "27"
+        }
+      ],
+      "games": [
+        {
+          "home": "UFO",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 8
+        },
+        {
+          "home": "LeKi",
+          "away": "Otso",
+          "home_score": 6,
+          "away_score": 15
+        },
+        {
+          "home": "Karhukopla",
+          "away": "Otso",
+          "home_score": 12,
+          "away_score": 15
+        },
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 13
+        },
+        {
+          "home": "UFO",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 7
+        },
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 8,
+          "away_score": 15
+        },
+        {
+          "home": "Terror",
+          "away": "Otso",
+          "home_score": 11,
+          "away_score": 15
+        },
+        {
+          "home": "LeKi",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 12
+        },
+        {
+          "home": "Otso 2",
+          "away": "Otso",
+          "home_score": 12,
+          "away_score": 14
+        },
+        {
+          "home": "Otso",
+          "away": "UFO",
+          "home_score": 13,
+          "away_score": 15
+        },
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 11,
+          "away_score": 15
+        },
+        {
+          "home": "Terror",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 12
+        },
+        {
+          "home": "Otso",
+          "away": "Saints",
+          "home_score": 9,
+          "away_score": 15
+        }
+      ],
+      "all_time_players": []
+    },
+    {
+      "name": "Otso 2",
+      "id": "1957",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "Hallitour2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Adrian Hornsby",
+          "id": "18878",
+          "jersey": "66",
+          "games": "4",
+          "assists": "2",
+          "goals": "10",
+          "total": "12"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "18883",
+          "jersey": "12",
+          "games": "6",
+          "assists": "4",
+          "goals": "2",
+          "total": "6"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "18758",
+          "jersey": "80",
+          "games": "8",
+          "assists": "19",
+          "goals": "10",
+          "total": "29"
+        },
+        {
+          "name": "Antti Järvi",
+          "id": "18761",
+          "jersey": "51",
+          "games": "8",
+          "assists": "12",
+          "goals": "4",
+          "total": "16"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "18757",
+          "jersey": "11",
+          "games": "4",
+          "assists": "9",
+          "goals": "14",
+          "total": "23"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "18759",
+          "jersey": "6",
+          "games": "4",
+          "assists": "21",
+          "goals": "10",
+          "total": "31"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "18762",
+          "jersey": "5",
+          "games": "4",
+          "assists": "10",
+          "goals": "9",
+          "total": "19"
+        },
+        {
+          "name": "Jussi Kitusuo",
+          "id": "18760",
+          "jersey": "36",
+          "games": "12",
+          "assists": "4",
+          "goals": "29",
+          "total": "33"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "18763",
+          "jersey": "16",
+          "games": "2",
+          "assists": "3",
+          "goals": "1",
+          "total": "4"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "18882",
+          "jersey": "22",
+          "games": "8",
+          "assists": "30",
+          "goals": "20",
+          "total": "50"
+        },
+        {
+          "name": "Ora Visuri",
+          "id": "18998",
+          "jersey": "86",
+          "games": "4",
+          "assists": "0",
+          "goals": "6",
+          "total": "6"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "18999",
+          "jersey": "21",
+          "games": "4",
+          "assists": "1",
+          "goals": "8",
+          "total": "9"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "18879",
+          "jersey": "34",
+          "games": "6",
+          "assists": "32",
+          "goals": "15",
+          "total": "47"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "18881",
+          "jersey": "17",
+          "games": "8",
+          "assists": "19",
+          "goals": "31",
+          "total": "50"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "19000",
+          "jersey": "20",
+          "games": "3",
+          "assists": "6",
+          "goals": "4",
+          "total": "10"
+        }
+      ],
+      "games": [
+        {
+          "home": "Otso 3",
+          "away": "Otso 2",
+          "home_score": 15,
+          "away_score": 5
+        },
+        {
+          "home": "Otso 2",
+          "away": "Terror",
+          "home_score": 15,
+          "away_score": 13
+        },
+        {
+          "home": "Disquitos",
+          "away": "Otso 2",
+          "home_score": 9,
+          "away_score": 15
+        },
+        {
+          "home": "UFBG",
+          "away": "Otso 2",
+          "home_score": 15,
+          "away_score": 11
+        },
+        {
+          "home": "UFBG",
+          "away": "Otso 2",
+          "home_score": 15,
+          "away_score": 9
+        },
+        {
+          "home": "Team",
+          "away": "Otso 2",
+          "home_score": 15,
+          "away_score": 7
+        },
+        {
+          "home": "Disquitos",
+          "away": "Otso 2",
+          "home_score": 6,
+          "away_score": 15
+        },
+        {
+          "home": "Karhukopla",
+          "away": "Otso 2",
+          "home_score": 5,
+          "away_score": 15
+        },
+        {
+          "home": "Otso 2",
+          "away": "Otso",
+          "home_score": 12,
+          "away_score": 14
+        },
+        {
+          "home": "Otso 2",
+          "away": "Terror",
+          "home_score": 15,
+          "away_score": 13
+        },
+        {
+          "home": "Saints",
+          "away": "Otso 2",
+          "home_score": 15,
+          "away_score": 12
+        },
+        {
+          "home": "UFO",
+          "away": "Otso 2",
+          "home_score": 13,
+          "away_score": 15
+        }
+      ],
+      "all_time_players": []
+    },
+    {
+      "name": "Otso 3",
+      "id": "1958",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "Hallitour2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Aki Vehtari",
+          "id": "18768",
+          "jersey": "12",
+          "games": "4",
+          "assists": "5",
+          "goals": "3",
+          "total": "8"
+        },
+        {
+          "name": "Ilari Visuri",
+          "id": "18771",
+          "jersey": "15",
+          "games": "8",
+          "assists": "9",
+          "goals": "9",
+          "total": "18"
+        },
+        {
+          "name": "Jasu Vehtari",
+          "id": "18770",
+          "jersey": "25",
+          "games": "8",
+          "assists": "5",
+          "goals": "2",
+          "total": "7"
+        },
+        {
+          "name": "Jesper Pettersson",
+          "id": "18774",
+          "jersey": "40",
+          "games": "2",
+          "assists": "3",
+          "goals": "5",
+          "total": "8"
+        },
+        {
+          "name": "Joonas Myhrberg",
+          "id": "18892",
+          "jersey": "86",
+          "games": "4",
+          "assists": "2",
+          "goals": "4",
+          "total": "6"
+        },
+        {
+          "name": "Joonatan Bergholm",
+          "id": "18894",
+          "jersey": "12",
+          "games": "4",
+          "assists": "5",
+          "goals": "7",
+          "total": "12"
+        },
+        {
+          "name": "Karli Kalpala",
+          "id": "18767",
+          "jersey": "23",
+          "games": "4",
+          "assists": "12",
+          "goals": "7",
+          "total": "19"
+        },
+        {
+          "name": "Ora Visuri",
+          "id": "18769",
+          "jersey": "86",
+          "games": "4",
+          "assists": "9",
+          "goals": "13",
+          "total": "22"
+        },
+        {
+          "name": "Pekka Lehtelä",
+          "id": "18772",
+          "jersey": "1",
+          "games": "8",
+          "assists": "3",
+          "goals": "4",
+          "total": "7"
+        },
+        {
+          "name": "Pyry Aurasmaa",
+          "id": "18773",
+          "jersey": "1",
+          "games": "2",
+          "assists": "1",
+          "goals": "0",
+          "total": "1"
+        },
+        {
+          "name": "Topi Hintukainen",
+          "id": "18893",
+          "jersey": "11",
+          "games": "4",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        }
+      ],
+      "games": [
+        {
+          "home": "Otso 3",
+          "away": "Otso 2",
+          "home_score": 15,
+          "away_score": 5
+        },
+        {
+          "home": "Otso 3",
+          "away": "UFBG",
+          "home_score": 7,
+          "away_score": 15
+        },
+        {
+          "home": "Otso 3",
+          "away": "Terror",
+          "home_score": 7,
+          "away_score": 15
+        },
+        {
+          "home": "Otso 3",
+          "away": "Disquitos",
+          "home_score": 15,
+          "away_score": 10
+        },
+        {
+          "home": "Otso 3",
+          "away": "JSW2",
+          "home_score": 15,
+          "away_score": 3
+        },
+        {
+          "home": "Otso 3",
+          "away": "Tallinn Thunder",
+          "home_score": 2,
+          "away_score": 15
+        },
+        {
+          "home": "Otso 3",
+          "away": "Haudat",
+          "home_score": 6,
+          "away_score": 15
+        },
+        {
+          "home": "Salko",
+          "away": "Otso 3",
+          "home_score": 13,
+          "away_score": 14
+        }
+      ],
+      "all_time_players": []
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Hopea",
+      "team_name": "Otso",
+      "team_id": "1956",
+      "division": "Avoin",
+      "season_id": "Hallitour2"
+    },
+    {
+      "placement": "6.",
+      "team_name": "Otso 2",
+      "team_id": "1957",
+      "division": "Avoin",
+      "season_id": "Hallitour2"
+    },
+    {
+      "placement": "23.",
+      "team_name": "Otso 3",
+      "team_id": "1958",
+      "division": "Avoin",
+      "season_id": "Hallitour2"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

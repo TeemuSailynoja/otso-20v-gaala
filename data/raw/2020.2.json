@@ -1,0 +1,86 @@
+{
+  "id": "2020.2",
+  "name": "Talvi 2020",
+  "classified": {
+    "year": 2020,
+    "type": "winter",
+    "id": "2020.2",
+    "name": "Talvi 2020"
+  },
+  "teams": [
+    {
+      "name": "Helsinki Ultimate 1",
+      "id": "2809",
+      "club": "Liitokiekkoseura Team",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2809"
+    },
+    {
+      "name": "LeKi",
+      "id": "2814",
+      "club": "Lempäälän Kisa ry",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2814"
+    },
+    {
+      "name": "Otso",
+      "id": "2815",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2815",
+      "players": [],
+      "games": [],
+      "all_time_players": []
+    },
+    {
+      "name": "Otso 2",
+      "id": "2816",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2816",
+      "players": [],
+      "games": [],
+      "all_time_players": []
+    },
+    {
+      "name": "Saints",
+      "id": "2818",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2818"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2820",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2820"
+    },
+    {
+      "name": "Terror",
+      "id": "2822",
+      "club": "Turku Terror",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2822"
+    },
+    {
+      "name": "UFO",
+      "id": "2825",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Avoin",
+      "season_id": "2020.2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2825"
+    }
+  ],
+  "placements": [],
+  "players": [],
+  "games": [],
+  "results": []
+}

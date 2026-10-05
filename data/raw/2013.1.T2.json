@@ -1,0 +1,370 @@
+{
+  "id": "2013.1.T2",
+  "name": "Kesä 2013: Tour 2",
+  "classified": {
+    "year": 2013,
+    "type": "tour2",
+    "id": "2013.1.T2",
+    "name": "Kesä 2013: Tour 2"
+  },
+  "teams": [
+    {
+      "name": "Otso",
+      "id": "1711",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Avoin",
+      "season_id": "2013.1.T2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=countrycard&country=1064",
+      "players": [
+        {
+          "name": "Adrian Hornsby",
+          "id": "15377",
+          "jersey": "30",
+          "games": "5",
+          "assists": "3",
+          "goals": "5",
+          "total": "8"
+        },
+        {
+          "name": "Aki Vehtari",
+          "id": "15395",
+          "jersey": "12",
+          "games": "5",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Antti Elonheimo",
+          "id": "15375",
+          "jersey": "80",
+          "games": "5",
+          "assists": "4",
+          "goals": "4",
+          "total": "8"
+        },
+        {
+          "name": "Damijan Marin",
+          "id": "15398",
+          "jersey": "15",
+          "games": "6",
+          "assists": "2",
+          "goals": "1",
+          "total": "3"
+        },
+        {
+          "name": "Eero Smeds",
+          "id": "15390",
+          "jersey": "0",
+          "games": "5",
+          "assists": "2",
+          "goals": "3",
+          "total": "5"
+        },
+        {
+          "name": "Erkka Niini",
+          "id": "15383",
+          "jersey": "49",
+          "games": "3",
+          "assists": "2",
+          "goals": "9",
+          "total": "11"
+        },
+        {
+          "name": "Ilkka Rämö",
+          "id": "15385",
+          "jersey": "5",
+          "games": "5",
+          "assists": "11",
+          "goals": "4",
+          "total": "15"
+        },
+        {
+          "name": "Ilkka Vaahtoranta",
+          "id": "15396",
+          "jersey": "11",
+          "games": "4",
+          "assists": "9",
+          "goals": "1",
+          "total": "10"
+        },
+        {
+          "name": "Ismo Sutela",
+          "id": "15391",
+          "jersey": "16",
+          "games": "6",
+          "assists": "4",
+          "goals": "4",
+          "total": "8"
+        },
+        {
+          "name": "István Prán",
+          "id": "15400",
+          "jersey": "",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Jarno Sihvo",
+          "id": "15387",
+          "jersey": "32",
+          "games": "5",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Juha Jokinen",
+          "id": "15379",
+          "jersey": "18",
+          "games": "3",
+          "assists": "3",
+          "goals": "0",
+          "total": "3"
+        },
+        {
+          "name": "Juho Siitonen",
+          "id": "15388",
+          "jersey": "8",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Juuso Parkkinen",
+          "id": "15384",
+          "jersey": "38",
+          "games": "1",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Kerkko Visuri",
+          "id": "15394",
+          "jersey": "15",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Konsta Kokkonen",
+          "id": "15382",
+          "jersey": "89",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Lassi Kallio",
+          "id": "15380",
+          "jersey": "12",
+          "games": "6",
+          "assists": "11",
+          "goals": "5",
+          "total": "16"
+        },
+        {
+          "name": "Lauri Hiivala",
+          "id": "15405",
+          "jersey": "24",
+          "games": "6",
+          "assists": "0",
+          "goals": "1",
+          "total": "1"
+        },
+        {
+          "name": "Ora Visuri",
+          "id": "15403",
+          "jersey": "86",
+          "games": "6",
+          "assists": "0",
+          "goals": "6",
+          "total": "6"
+        },
+        {
+          "name": "Oskari Vuorio",
+          "id": "15397",
+          "jersey": "28",
+          "games": "6",
+          "assists": "2",
+          "goals": "3",
+          "total": "5"
+        },
+        {
+          "name": "Pasi Tamminen",
+          "id": "15392",
+          "jersey": "7",
+          "games": "5",
+          "assists": "9",
+          "goals": "8",
+          "total": "17"
+        },
+        {
+          "name": "Roni Hotari",
+          "id": "15378",
+          "jersey": "34",
+          "games": "5",
+          "assists": "6",
+          "goals": "8",
+          "total": "14"
+        },
+        {
+          "name": "Sami Koivisto",
+          "id": "15401",
+          "jersey": "33",
+          "games": "5",
+          "assists": "0",
+          "goals": "1",
+          "total": "1"
+        },
+        {
+          "name": "Santeri Salo",
+          "id": "15469",
+          "jersey": "29",
+          "games": "5",
+          "assists": "0",
+          "goals": "2",
+          "total": "2"
+        },
+        {
+          "name": "Simo Siitonen",
+          "id": "15389",
+          "jersey": "3",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Timo Idänheimo",
+          "id": "15404",
+          "jersey": "13",
+          "games": "6",
+          "assists": "1",
+          "goals": "1",
+          "total": "2"
+        },
+        {
+          "name": "Tomi Sandberg",
+          "id": "15386",
+          "jersey": "2",
+          "games": "5",
+          "assists": "1",
+          "goals": "4",
+          "total": "5"
+        },
+        {
+          "name": "Tommi Lehto",
+          "id": "15402",
+          "jersey": "20",
+          "games": "5",
+          "assists": "6",
+          "goals": "4",
+          "total": "10"
+        },
+        {
+          "name": "Tommi Palomäki",
+          "id": "15406",
+          "jersey": "50",
+          "games": "3",
+          "assists": "1",
+          "goals": "0",
+          "total": "1"
+        },
+        {
+          "name": "Touko aukusti Väänänen",
+          "id": "15393",
+          "jersey": "18",
+          "games": "0",
+          "assists": "0",
+          "goals": "0",
+          "total": "0"
+        },
+        {
+          "name": "Tuukka Koistinen",
+          "id": "15381",
+          "jersey": "81",
+          "games": "6",
+          "assists": "0",
+          "goals": "7",
+          "total": "7"
+        },
+        {
+          "name": "Ville Haaramo",
+          "id": "15376",
+          "jersey": "70",
+          "games": "2",
+          "assists": "2",
+          "goals": "0",
+          "total": "2"
+        },
+        {
+          "name": "Yrjänä Hynninen",
+          "id": "15407",
+          "jersey": "11",
+          "games": "6",
+          "assists": "1",
+          "goals": "4",
+          "total": "5"
+        }
+      ],
+      "games": [
+        {
+          "home": "Shadows",
+          "away": "Otso",
+          "home_score": 13,
+          "away_score": 15
+        },
+        {
+          "home": "Disquitos",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 6
+        },
+        {
+          "home": "Otso",
+          "away": "UFO",
+          "home_score": 10,
+          "away_score": 12
+        },
+        {
+          "home": "Saints",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 8
+        },
+        {
+          "home": "Team",
+          "away": "Otso",
+          "home_score": 12,
+          "away_score": 15
+        },
+        {
+          "home": "UFO",
+          "away": "Otso",
+          "home_score": 15,
+          "away_score": 11
+        }
+      ],
+      "all_time_players": []
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "Otso",
+      "team_id": "1711",
+      "division": "Avoin",
+      "season_id": "2013.1.T2"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

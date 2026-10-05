@@ -1,0 +1,71 @@
+{
+  "id": "BMSM2",
+  "name": "Ranta SM 2019",
+  "classified": {
+    "year": 2019,
+    "type": "beach",
+    "id": "BMSM2",
+    "name": "Ranta SM 2019"
+  },
+  "teams": [
+    {
+      "name": "ÄssäMix",
+      "id": "2655",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Mixed",
+      "season_id": "BMSM2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2655"
+    },
+    {
+      "name": "EUC",
+      "id": "2656",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Mixed",
+      "season_id": "BMSM2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2656"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2657",
+      "club": "Helsinki ultimate",
+      "division": "Mixed",
+      "season_id": "BMSM2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2657"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2654",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Mixed",
+      "season_id": "BMSM2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2654"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2658",
+      "club": "VirHe",
+      "division": "Mixed",
+      "season_id": "BMSM2",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2658"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "ÄssäMix",
+      "team_id": "2655",
+      "division": "Mixed",
+      "season_id": "BMSM2"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "EUC",
+      "team_id": "2656",
+      "division": "Mixed",
+      "season_id": "BMSM2"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}

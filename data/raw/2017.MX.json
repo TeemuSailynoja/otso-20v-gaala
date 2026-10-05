@@ -1,0 +1,137 @@
+{
+  "id": "2017.MX",
+  "name": "Mixed SM 2017",
+  "classified": {
+    "year": 2017,
+    "type": "unknown",
+    "id": "2017.MX",
+    "name": "Mixed SM 2017"
+  },
+  "teams": [
+    {
+      "name": "Disquitos",
+      "id": "2368",
+      "club": "Disquitos ry",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2368"
+    },
+    {
+      "name": "EUC Sour",
+      "id": "2372",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2372"
+    },
+    {
+      "name": "EUC Sweet",
+      "id": "2366",
+      "club": "Espoo Ultimate Club r.y.",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2366"
+    },
+    {
+      "name": "Helsinki Ultimate",
+      "id": "2370",
+      "club": "Helsinki ultimate",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2370"
+    },
+    {
+      "name": "Saints",
+      "id": "2367",
+      "club": "Vaasa Saints Ultimate Team ry",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2367"
+    },
+    {
+      "name": "Sleepwalkers",
+      "id": "2369",
+      "club": "Jyväskylän liitokiekkoilijat ry",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2369"
+    },
+    {
+      "name": "UFO",
+      "id": "2365",
+      "club": "Unlimited Frisbee Organization ry",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2365"
+    },
+    {
+      "name": "ViRHe",
+      "id": "2371",
+      "club": "Vihdin Rennot Heitteijät",
+      "division": "Mixed",
+      "season_id": "2017.MX",
+      "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=2371"
+    }
+  ],
+  "placements": [
+    {
+      "placement": "Kulta",
+      "team_name": "EUC Sour",
+      "team_id": "2372",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "Hopea",
+      "team_name": "EUC Sweet",
+      "team_id": "2366",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "Pronssi",
+      "team_name": "UFO",
+      "team_id": "2365",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "4.",
+      "team_name": "Saints",
+      "team_id": "2367",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "5.",
+      "team_name": "Helsinki Ultimate",
+      "team_id": "2370",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "6.",
+      "team_name": "ViRHe",
+      "team_id": "2371",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "7.",
+      "team_name": "Sleepwalkers",
+      "team_id": "2369",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    },
+    {
+      "placement": "8.",
+      "team_name": "Disquitos",
+      "team_id": "2368",
+      "division": "Mixed",
+      "season_id": "2017.MX"
+    }
+  ],
+  "players": [],
+  "games": [],
+  "results": []
+}
