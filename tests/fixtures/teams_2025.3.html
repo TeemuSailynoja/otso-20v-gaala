@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+		<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='fi' lang='fi'>
+<head>
+		<meta http-equiv="Content-Style-Type" content="text/css"/>
+		<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="-1"/><link rel='icon' type='image/png' href='cust/slkl/favicon.png' />
+		<title>Ultimate pelikone - Joukkueet</title>
+		<link rel="stylesheet" href="cust/default/ultiorganizer.css" type="text/css" />
+		<link rel="stylesheet" href="cust/slkl/ultiorganizer.css" type="text/css" />
+<script type="text/javascript">
+<!--
+/* exported checkAll, clearAll, setId, changeseason, confirmLeave, menu_toggle, navigateBack */
+function checkAll(field)
+{
+  var form = document.getElementById(field);
+
+  for (var i=1; i < form.elements.length; i++)
+  {
+    form.elements[i].checked = !form.elements[i].checked;
+  }
+}
+
+function clearAll(field)
+{
+  var form = document.getElementById(field);
+
+  for (var i=1; i < form.elements.length; i++)
+  {
+    form.elements[i].checked = false;
+  }
+}
+
+function setId(id)
+{
+  var input = document.getElementById("hiddenDeleteId");
+  input.value = id;
+}
+
+function changeseason(id){
+  var sid = encodeURIComponent(id);
+  window.location.href = "index.php?view=games&season=" + sid + "&selseason=" + sid;
+}
+
+/* Navigate to the URL held in the element's data-href attribute. The URL is read
+   via getAttribute (already HTML-decoded by the browser) and is never parsed as
+   JavaScript, so it cannot inject script. Block non-http(s) schemes (e.g.
+   javascript:) so a crafted return URL cannot execute. */
+function navigateBack(el)
+{
+  var url = el.getAttribute("data-href") || "";
+  var scheme = url.match(/^\s*([a-z][a-z0-9+.-]*):/i);
+  if (scheme && !/^https?$/i.test(scheme[1])) {
+    return;
+  }
+  window.location.href = url;
+}
+
+function confirmLeave(element, confirm, text) {
+  if (element) {
+    if (!element.classList.contains("highlight"))
+      element.classList.add("highlight");
+  }
+  if (confirm)
+    window.onbeforeunload = function() {
+      return text==null?"":text;
+    }
+  else
+    window.onbeforeunload = null;
+}
+
+function menu_toggle() {
+  var x = document.getElementById('menu_left') || document.querySelector('.menu_left');
+  if (!x) {
+    return;
+  }
+  x.style.display = '';
+  if (x.classList.contains('menu_open')) {
+    x.classList.remove('menu_open');
+  } else {
+    x.classList.add('menu_open');
+  }
+}
+
+//-->
+</script>
+<script type="text/javascript" src="script/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="script/yui/container/container-min.js"></script> 
+<script type="text/javascript">
+<!--
+YAHOO.namespace("help.container");
+
+YAHOO.util.Event.onDOMReady(function () {
+
+  // Remove progressively enhanced content class, just before creating the module
+  YAHOO.util.Dom.removeClass("helptext", "yui-pe-content");
+
+  YAHOO.help.container.helptext = new YAHOO.widget.Module("helptext", { visible: false });
+  YAHOO.help.container.helptext.render();
+
+  YAHOO.util.Event.addListener("helpbutton", "click", handleHelpButton);
+});
+
+
+function handleHelpButton(e) {
+  var containerDiv = YAHOO.util.Dom.get("helptext");
+
+  if(containerDiv.style.display == "none"){
+    YAHOO.help.container.helptext.show();
+  }else{
+    YAHOO.help.container.helptext.hide();
+  }
+}
+//-->
+</script></head><body style='overflow-y:scroll;' >
+<div class='page'>
+<div class='page_top'>
+<div class='top_banner_space'></div>
+<form action='?view=teams&amp;season=2025.3&amp;list=allteams' method='post'>
+<table border='0' cellpadding='0' cellspacing='0' style='width:100%;white-space: nowrap;'><tr>
+<td class='topheader_left'>
+<a href='https://www.ultimate.fi/pelikone' class='header_text'>Ultimate Pelikone</a><span style='color: #0bc5e0;font-size: 14pt;'> Suomen Liitokiekkoliitto</span>
+<span class='menu_button_row'><img class='menu_button' onclick='menu_toggle()' src='images/menu-bars.svg' alt='menu'></span></td><!--topheader_left--><td class='topheader_right'><table border='0' cellpadding='0' cellspacing='0' style='width:95%;white-space: nowrap;'>
+<tr><td class='right' style='vertical-align:top;'><a href='?view=teams&amp;season=2025.3&amp;list=allteams&amp;locale=de_DE.utf8'><img class='localeselection' src='locale/de_DE.utf8/flag.png' alt='Deutsch'/></a>
+<a href='?view=teams&amp;season=2025.3&amp;list=allteams&amp;locale=en_GB.utf8'><img class='localeselection' src='locale/en_GB.utf8/flag.png' alt='English'/></a>
+<a href='?view=teams&amp;season=2025.3&amp;list=allteams&amp;locale=es_ES.utf8'><img class='localeselection' src='locale/es_ES.utf8/flag.png' alt='Espa&ntilde;ol'/></a>
+<a href='?view=teams&amp;season=2025.3&amp;list=allteams&amp;locale=fi_FI.utf8'><img class='localeselection' src='locale/fi_FI.utf8/flag.png' alt='Suomi'/></a>
+</td></tr><tr>
+<td class='right' style='padding-top:5px'><span class='topheader_auth_inline'><input class='input' type='text' id='myusername' name='myusername' size='10' style='border:1px solid #555555'/>&nbsp;<input class='input' type='password' id='mypassword' name='mypassword' size='10' style='border:1px solid #555555'/>&nbsp;<input class='button' type='submit' name='login' value='Kirjaudu sis&auml;&auml;n' style='border:1px solid #000000'/>&nbsp;<span class='topheadertext'><a class='topheaderlink' href='?view=register'>Uusi k&auml;ytt&auml;j&auml;?</a></span></span><span class='topheader_auth_mobile'><a class='topheaderlink' href='?view=login'>Kirjaudu sis&auml;&auml;n</a></span></td></tr>
+</table></td></tr></table></form>
+</div><!--page_top-->
+<div class='page_middle'>
+<table style='border:1px solid #fff;background-color: #ffffff;'>
+<colgroup><col class='menu_column'/><col/></colgroup>
+<tr>
+<td id='menu_left' class='menu_left'><button type='button' class='menu_close_button' onclick='menu_toggle()' aria-label='Sulje'>x</button><table><tr><td><form action='?view=index' method='get' id='seasonsels'><div><select class='seasondropdown' name='selseason'
+			onchange='changeseason(selseason.options[selseason.options.selectedIndex].value);'><option class='dropdown'  value='KESA2026'>Kesä 2026</option><option class='dropdown'  value='2025.3'>Talvi 2025</option></select><noscript><div><input type='submit' value='Ok' name='selectseason'/></div></noscript></div></form></td></tr></table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'><a class='seasonnav' style='text-align:center;' href='?view=teams&amp;season=KESA2026&amp;list=bystandings'>Kes&auml; 2026</a></td></tr>
+<tr><td><a class='nav' href='?view=teams&amp;season=KESA2026&amp;list=bystandings'>Sijoitukset</a></td></tr>
+<tr><td><a class='nav' href='?view=games&amp;season=KESA2026&amp;filter=tournaments&amp;group=all'>Pelit</a></td></tr>
+<tr><td><a class='nav' href='?view=teams&amp;season=KESA2026&amp;list=allteams'>Joukkueet</a></td></tr>
+<tr><td class='menuseparator'></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3300'>Avoin</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3300'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1819'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1832'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1834'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3300'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3301'>Naiset</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3301'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1820'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1833'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1835'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3301'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3302'>Mixed</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3302'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1818'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1821'>&raquo; Tour 1: Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1822'>&raquo; Tour 1: Pronssi</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1824'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1825'>&raquo; Tour 2: Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1826'>&raquo; Tour 2: Pronssi</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1836'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3302'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3303'>Juniorit U17</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3303'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1823'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1827'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1828'>&raquo; Tour 2: Lohko B</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1829'>&raquo; Tour 2: Sij. 1.-2.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1830'>&raquo; Tour 2: Sij. 3.-4.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1831'>&raquo; Tour 2: Sij. 5.-6.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1837'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3303'>Spirit-pisteet</a></td></tr>
+</table>
+<table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Tapahtuman linkit</td></tr>
+<tr><td></td></tr>
+<tr><td><a class='subnav' style='background: url(./images/linkicons/feed_14x14.png) no-repeat 0 50%; padding: 0 0 0 19px;' href='./ext/rss.php?feed=all'>Tulossy&ouml;te</a>
+</td></tr>
+</table>
+<table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Tilastot</td></tr>
+<tr><td><a class='subnav' href="?view=seasonlist">&raquo; Tapahtumat</a>
+<a class='subnav' href="?view=allplayers">&raquo; Pelaajat</a>
+<a class='subnav' href="?view=allteams">&raquo; Joukkueet</a>
+<a class='subnav' href="?view=allclubs">&raquo; Seurat</a>
+<a class='subnav' href="?view=allcountries">&raquo; Maat</a>
+<a class='subnav' href="?view=statistics&amp;list=teamstandings">&raquo; Yhteenveto</a></td></tr>
+</table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Asiakasyhteydet</td></tr>
+<tr><td><a class='subnav' href='?view=ext/index'>&raquo; Pelikone linkit</a>
+<a class='subnav' href='?view=ext/export'>&raquo; Tiedon vienti</a>
+<a class='subnav' href='./scorekeeper/'>&raquo; Scorekeeper</a>
+<a class='subnav' href='./spiritkeeper/?view=home'>&raquo; Spiritkeeper</a>
+<a class='subnav' href='./timekeeper/'>&raquo; Timekeeper</a>
+</td></tr>
+</table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Linkit</td></tr>
+<tr><td><a class='subnav' href='https://www.ultimate.fi/pelikone/images/uploads/player-network.html'>&raquo; Pelaajakartta</a>
+<a class='subnav' href='https://www.ultimate.fi/ultimate/site/wp-content/uploads/2018/05/SLKL-TIETOSUOJASELOSTE.pdf'>&raquo; Tietosuojaseloste</a>
+<a class='subnav' href='https://ultimate.fi/events/'>&raquo; Kalenteri</a>
+<a class='subnav' href='https://www.ultimate.fi/liitto/'>&raquo; Suomen Liitokiekkoliitto</a>
+<a class='subnav' href='https://github.com/ktolonen/ultiorganizer'>&raquo; Powered by Ultiorganizer</a>
+<a class='subnav' href='mailto:sarjavastaava@liitokiekkoliitto.fi'>@ Sarjavastaavat</a>
+<a class='subnav' href='mailto:pelikone@liitokiekkoliitto.fi'>@ Pelikoneen ylläpito</a>
+</td></tr>
+</table><table class='leftmenulinks_plain'>
+<tr><td class='guides'><div><a href='http://www.ultimate.fi/'><img class='logo' src='cust/slkl/logo.png' alt='Ultimate.fi'/></a></div></td></tr></table><table class='leftmenulinks_plain'>
+<tr><td class='guides'><a href='?view=user_guide'>K&auml;ytt&ouml;opas</a> | 
+<a href='?view=privacy'>Yksityisyydensuoja</a>
+</td></tr></table></td>
+
+<td align='left' valign='top' class='tdcontent'><div class='content'>
+
+<!-- on page menu -->
+<div class='pagemenu_container'>
+<table id='pagemenu'><tr>
+<th><a class='current' href='?view=teams&amp;season=2025.3&amp;list=allteams'>Sarjat</a></th>
+<td> - </td><th><a href='?view=teams&amp;season=2025.3&amp;list=byseeding'>Rankkaus</a></th>
+<td> - </td><th><a href='?view=teams&amp;season=2025.3&amp;list=seasonpoints'>Pisteet</a></th>
+<td> - </td><th><a href='?view=teams&amp;season=2025.3&amp;list=bystandings'>Sijoitukset</a></th>
+<td> - </td><th><a href='?view=teams&amp;season=2025.3&amp;list=byspirit'>Spirit-pisteet</a></th>
+</tr></table></div>
+<p style='clear:both'></p>
+<h1>Joukkueet</h1><table class='teams-table' border='0' cellspacing='0' cellpadding='2' width='100%'>
+<tr><th colspan='3'>Avoin</th>
+</tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3200'>Disquitos</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=48'>Disquitos ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3200'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3200'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3200&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3201'>ERHe</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=181'>Espoon Rennot Heittelij&auml;t ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3201'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3201'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3201&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3202'>Espoon Kopsu</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=192'>Espoon Kopsu Frisbeegolf &amp; Ultimate ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3202'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3202'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3202&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3203'>Frisbee Klubben K&aring;ppi</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=206'>Frisbee Klubben K&aring;ppi rf</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3203'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3203'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3203&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3204'>Helsinki Ultimate 1</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=21'>Liitokiekkoseura Team</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3204'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3204'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3204&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3205'>Helsinki Ultimate 2</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=21'>Liitokiekkoseura Team</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3205'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3205'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3205&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3208'>LeKi</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=113'>Lemp&auml;&auml;l&auml;n Kisa ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3208'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3208'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3208&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3209'>LeKi 2</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=113'>Lemp&auml;&auml;l&auml;n Kisa ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3209'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3209'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3209&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3210'>OTSO</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3210'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3210'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3210&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3211'>OTSO 2</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3211'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3211'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3211&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3229'>OTSO 3</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3229'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3229'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3229&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3212'>Otso Akatemia</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3212'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3212'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3212&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3206'>Pohkeet</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=21'>Liitokiekkoseura Team</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3206'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3206'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3206&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3213'>PolLo</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=114'>Loputon Hiki ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3213'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3213'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3213&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3214'>Saints</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=90'>Vaasa Saints Ultimate Team ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3214'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3214'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3214&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3215'>Sleepy Team</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=58'>Jyv&auml;skyl&auml;n liitokiekkoilijat ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3215'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3215'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3215&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3216'>The ExPorience</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=175'>The Experience ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3216'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3216'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3216&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3217'>Turku Terror</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=161'>Turku Terror Ultimate ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3217'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3217'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3217&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3220'>Turku Terror 2</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=161'>Turku Terror Ultimate ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3220'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3220'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3220&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3218'>UFO</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=11'>Unlimited Frisbee Organization ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3218'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3218'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3218&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3219'>UFO Akatemia</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=11'>Unlimited Frisbee Organization ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3219'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3219'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3219&amp;singleview=1'>Pelit</a></td></tr>
+</table>
+<table class='teams-table' border='0' cellspacing='0' cellpadding='2' width='100%'>
+<tr><th colspan='3'>Naiset</th>
+</tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3221'>Atletico</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=19'>Atletico</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3221'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3221'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3221&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3223'>Helsinki Ultimate</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=186'>Helsinki Ultimate Team</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3223'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3223'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3223&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3224'>Saints</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=90'>Vaasa Saints Ultimate Team ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3224'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3224'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3224&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3225'>Turku Terror</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=17'>Turku Terror</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3225'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3225'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3225&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3226'>UFO</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=11'>Unlimited Frisbee Organization ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3226'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3226'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3226&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3227'>Viima</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3227'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3227'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3227&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3228'>Viima Vintage</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3228'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3228'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3228&amp;singleview=1'>Pelit</a></td></tr>
+</table>
+<table class='teams-table' border='0' cellspacing='0' cellpadding='2' width='100%'>
+<tr><th colspan='3'>Mixed</th>
+</tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3232'>ERHe Fast</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=181'>Espoon Rennot Heittelij&auml;t ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3232'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3232'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3232&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3233'>ERHe Furious</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=181'>Espoon Rennot Heittelij&auml;t ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3233'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3233'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3233&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3236'>Frisbee Klubben K&aring;ppi</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=206'>Frisbee Klubben K&aring;ppi rf</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3236'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3236'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3236&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3237'>Helsinki Ultimate</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=82'>Helsinki ultimate</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3237'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3237'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3237&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3243'>La PolLo</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=114'>Loputon Hiki ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3243'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3243'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3243&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3239'>Sakun Shakkinappulat</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=113'>Lemp&auml;&auml;l&auml;n Kisa ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3239'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3239'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3239&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3230'>Sleepwalkers</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=58'>Jyv&auml;skyl&auml;n liitokiekkoilijat ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3230'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3230'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3230&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3240'>Turku Terror</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=17'>Turku Terror</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3240'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3240'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3240&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3242'>UFO</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=11'>Unlimited Frisbee Organization ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3242'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3242'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3242&amp;singleview=1'>Pelit</a></td></tr>
+</table>
+<table class='teams-table' border='0' cellspacing='0' cellpadding='2' width='100%'>
+<tr><th colspan='3'>Juniorit (U17)</th>
+</tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3244'>EUC</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=5'>Espoo Ultimate Club r.y.</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3244'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3244'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3244&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3245'>Helsinki Ultimate</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=21'>Liitokiekkoseura Team</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3245'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3245'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3245&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3246'>LeKi 1</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=113'>Lemp&auml;&auml;l&auml;n Kisa ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3246'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3246'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3246&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3247'>LeKi 2</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=113'>Lemp&auml;&auml;l&auml;n Kisa ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3247'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3247'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3247&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3249'>ViRHe</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=117'>VirHe</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3249'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3249'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3249&amp;singleview=1'>Pelit</a></td></tr>
+</table>
+<table class='teams-table' border='0' cellspacing='0' cellpadding='2' width='100%'>
+<tr><th colspan='3'>Master Mixed</th>
+</tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3250'>Saints Musta</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=90'>Vaasa Saints Ultimate Team ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3250'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3250'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3250&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3251'>Saints Valkoinen</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=90'>Vaasa Saints Ultimate Team ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3251'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3251'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3251&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3252'>Sleepwalkers</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=58'>Jyv&auml;skyl&auml;n liitokiekkoilijat ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3252'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3252'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3252&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3253'>Turku Terror</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=17'>Turku Terror</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3253'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3253'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3253&amp;singleview=1'>Pelit</a></td></tr>
+<tr><td style='width:150px'><a href='?view=teamcard&amp;team=3254'>UFO</a></td><td style='width:150px'><a href='?view=clubcard&amp;club=11'>Unlimited Frisbee Organization ry</a></td><td class='right' style='white-space: nowrap;width:15%'>
+<a href='?view=playerlist&amp;team=3254'>Pelaajalista</a>&nbsp;&nbsp;<a href='?view=scorestatus&amp;team=3254'>Pistepörssi</a>&nbsp;&nbsp;<a href='?view=games&amp;team=3254&amp;singleview=1'>Pelit</a></td></tr>
+</table>
+
+</div><!--content--></td></tr></table></div><!--page_middle-->
+<div class='page_bottom'></div></div></body></html>

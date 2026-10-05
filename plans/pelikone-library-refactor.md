@@ -390,7 +390,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
 
 ## Steps
 
-- [ ] **Phase 0 — make it real.** Rename to `ultiorg`, add build-system to `pyproject.toml`,
+- [x] **Phase 0 — make it real.** Rename to `ultiorg`, add build-system to `pyproject.toml`,
       editable-install it, delete both `sys.path.insert` hacks, export the gameplay API.
 - [ ] **Phase 1 — characterization tests first.** Commit ~10 fixtures from `data/raw/` (a modern
       gameplay page, a pre-2015 gameplay page, season list, teams, standings, teamcard,

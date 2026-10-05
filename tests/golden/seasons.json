@@ -1,0 +1,507 @@
+[
+  {
+    "id": "2025.3",
+    "name": "Talvi 2025",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2025.3"
+  },
+  {
+    "id": "2025.1",
+    "name": "Kesä 2025",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2025.1"
+  },
+  {
+    "id": "2024.123",
+    "name": "Ranta SM 2024",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2024.123"
+  },
+  {
+    "id": "2024.2",
+    "name": "Talvi 2024",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2024.2"
+  },
+  {
+    "id": "2024.1",
+    "name": "Kesä 2024",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2024.1"
+  },
+  {
+    "id": "2023.2",
+    "name": "Talvi 2023",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2023.2"
+  },
+  {
+    "id": "2023.1",
+    "name": "Kesä 2023",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2023.1"
+  },
+  {
+    "id": "2022.3",
+    "name": "Talvi 2022",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2022.3"
+  },
+  {
+    "id": "SM2022K",
+    "name": "Kesä 2022",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=SM2022K"
+  },
+  {
+    "id": "2021.2",
+    "name": "Talvi 2021",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2021.2"
+  },
+  {
+    "id": "2021.1",
+    "name": "Kesä 2021",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2021.1"
+  },
+  {
+    "id": "BEACH2021",
+    "name": "Ranta SM 2021",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=BEACH2021"
+  },
+  {
+    "id": "2020.2",
+    "name": "Talvi 2020",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2020.2"
+  },
+  {
+    "id": "2020.1",
+    "name": "Kesä 2020",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2020.1"
+  },
+  {
+    "id": "2019.1",
+    "name": "Talvi 2019",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2019.1"
+  },
+  {
+    "id": "2019.MXD",
+    "name": "Mixed-SM 2019",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2019.MXD"
+  },
+  {
+    "id": "2019.Finaa",
+    "name": "Kesä 2019: Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2019.Finaa"
+  },
+  {
+    "id": "2019.T3",
+    "name": "Kesä 2019: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2019.T3"
+  },
+  {
+    "id": "2019.T2",
+    "name": "Kesä 2019: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2019.T2"
+  },
+  {
+    "id": "BMSM2",
+    "name": "Ranta SM 2019",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=BMSM2"
+  },
+  {
+    "id": "JSM2019",
+    "name": "Juniori SM 2019",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM2019"
+  },
+  {
+    "id": "2019.T1",
+    "name": "Kesä 2019: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2019.T1"
+  },
+  {
+    "id": "2018.1",
+    "name": "Talvi 2018",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2018.1"
+  },
+  {
+    "id": "2018.F",
+    "name": "Kesä 2018 Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2018.F"
+  },
+  {
+    "id": "2018.T3",
+    "name": "Kesä 2018: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2018.T3"
+  },
+  {
+    "id": "2018.T2",
+    "name": "Kesä 2018: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2018.T2"
+  },
+  {
+    "id": "XSM2018",
+    "name": "Mixed SM 2018",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=XSM2018"
+  },
+  {
+    "id": "2018.T1",
+    "name": "Kesä 2018: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2018.T1"
+  },
+  {
+    "id": "*JSM2018",
+    "name": "Juniori SM 2018",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=*JSM2018"
+  },
+  {
+    "id": "2017.1",
+    "name": "Talvi 2017",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2017.1"
+  },
+  {
+    "id": "2017F",
+    "name": "Kesä 2017 Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2017F"
+  },
+  {
+    "id": "2017.T3",
+    "name": "Kesä 2017: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2017.T3"
+  },
+  {
+    "id": "2017.T2",
+    "name": "Kesä 2017: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2017.T2"
+  },
+  {
+    "id": "2017.MX",
+    "name": "Mixed SM 2017",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2017.MX"
+  },
+  {
+    "id": "JSM17",
+    "name": "Juniori SM 2017",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM17"
+  },
+  {
+    "id": "2017.T1",
+    "name": "Kesä 2017: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2017.T1"
+  },
+  {
+    "id": "Talvi2016",
+    "name": "Talvi 2016",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=Talvi2016"
+  },
+  {
+    "id": "2016.1.F",
+    "name": "Kesä 2016 Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2016.1.F"
+  },
+  {
+    "id": "JSM2016",
+    "name": "Juniori SM 2016",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM2016"
+  },
+  {
+    "id": "2016.1.T3",
+    "name": "Kesä 2016: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2016.1.T3"
+  },
+  {
+    "id": "2016.1.T2",
+    "name": "Kesä 2016: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2016.1.T2"
+  },
+  {
+    "id": "2016.1",
+    "name": "Kesä 2016: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2016.1"
+  },
+  {
+    "id": "2015.4",
+    "name": "Talvi 2015",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2015.4"
+  },
+  {
+    "id": "2015.1F",
+    "name": "Kesä 2015 Finaali",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2015.1F"
+  },
+  {
+    "id": "JSM2015",
+    "name": "Juniori SM 2015",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM2015"
+  },
+  {
+    "id": "2015.3",
+    "name": "Kesä 2015: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2015.3"
+  },
+  {
+    "id": "2015.2",
+    "name": "Kesä 2015: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2015.2"
+  },
+  {
+    "id": "2015.1",
+    "name": "Kesä 2015: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2015.1"
+  },
+  {
+    "id": "MSM2015",
+    "name": "Mixed SM 2015",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=MSM2015"
+  },
+  {
+    "id": "OSM2015",
+    "name": "OSM 2015",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=OSM2015"
+  },
+  {
+    "id": "Hallitour2",
+    "name": "Talvi 2014",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=Hallitour2"
+  },
+  {
+    "id": "2014.1F",
+    "name": "Kesä 2014: Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2014.1F"
+  },
+  {
+    "id": "2014.3",
+    "name": "Kesä 2014: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2014.3"
+  },
+  {
+    "id": "JSM2014",
+    "name": "Juniori SM 2014",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM2014"
+  },
+  {
+    "id": "2014.2",
+    "name": "Kesä 2014: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2014.2"
+  },
+  {
+    "id": "2014.1",
+    "name": "Kesä 2014: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2014.1"
+  },
+  {
+    "id": "2014.x",
+    "name": "Mixed SM 2014",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2014.x"
+  },
+  {
+    "id": "2013.2",
+    "name": "Talvi 2013",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2013.2"
+  },
+  {
+    "id": "2013.1",
+    "name": "Kesä 2013: Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2013.1"
+  },
+  {
+    "id": "2013.1.T3",
+    "name": "Kesä 2013: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2013.1.T3"
+  },
+  {
+    "id": "JSM2013",
+    "name": "Juniori SM 2013",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM2013"
+  },
+  {
+    "id": "2013.1.T2",
+    "name": "Kesä 2013: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2013.1.T2"
+  },
+  {
+    "id": "2013.1.T1",
+    "name": "Kesä 2013: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2013.1.T1"
+  },
+  {
+    "id": "2013.3",
+    "name": "Mixed SM 2013",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2013.3"
+  },
+  {
+    "id": "2012.2",
+    "name": "Talvi 2012",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2012.2"
+  },
+  {
+    "id": "2012.T4",
+    "name": "Kesä 2012: Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2012.T4"
+  },
+  {
+    "id": "2012.1.T3",
+    "name": "Kesä 2012: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2012.1.T3"
+  },
+  {
+    "id": "2012.1.T2",
+    "name": "Kesä 2012: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2012.1.T2"
+  },
+  {
+    "id": "JSM2012",
+    "name": "Juniori SM 2012",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=JSM2012"
+  },
+  {
+    "id": "2012.1.T1",
+    "name": "Kesä 2012: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2012.1.T1"
+  },
+  {
+    "id": "2012.3",
+    "name": "Mixed SM 2012",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2012.3"
+  },
+  {
+    "id": "2011.2",
+    "name": "Talvi 2011",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2011.2"
+  },
+  {
+    "id": "2011.4",
+    "name": "Kesä 2011: Finaalit",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2011.4"
+  },
+  {
+    "id": "2011.1.T3",
+    "name": "Kesä 2011: Tour 3",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2011.1.T3"
+  },
+  {
+    "id": "2011.1.T2",
+    "name": "Kesä 2011: Tour 2",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2011.1.T2"
+  },
+  {
+    "id": "2011.1.T1",
+    "name": "Kesä 2011: Tour 1",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2011.1.T1"
+  },
+  {
+    "id": "2011.3",
+    "name": "Mixed SM 2011",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2011.3"
+  },
+  {
+    "id": "2010.2",
+    "name": "Talvi 2010",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2010.2"
+  },
+  {
+    "id": "2010.1",
+    "name": "Kesä 2010",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2010.1"
+  },
+  {
+    "id": "2009.2",
+    "name": "Talvi 2009",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2009.2"
+  },
+  {
+    "id": "2009.1",
+    "name": "Kesä 2009",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2009.1"
+  },
+  {
+    "id": "2008.2",
+    "name": "Talvi 2008",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2008.2"
+  },
+  {
+    "id": "2008.1",
+    "name": "Kesä 2008",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2008.1"
+  },
+  {
+    "id": "2008.3",
+    "name": "Mixed SM 2008",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2008.3"
+  },
+  {
+    "id": "2007.2",
+    "name": "Talvi 2007",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2007.2"
+  },
+  {
+    "id": "2007.1",
+    "name": "Kesä 2007",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2007.1"
+  },
+  {
+    "id": "2006.2",
+    "name": "Talvi 2006",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2006.2"
+  },
+  {
+    "id": "2006.1",
+    "name": "Kesä 2006",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2006.1"
+  },
+  {
+    "id": "2005.2",
+    "name": "Talvi 2005",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2005.2"
+  },
+  {
+    "id": "2005.1",
+    "name": "Kesä 2005",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2005.1"
+  },
+  {
+    "id": "2004.2",
+    "name": "Talvi 2004",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2004.2"
+  },
+  {
+    "id": "2004.1",
+    "name": "Kesä 2004",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2004.1"
+  },
+  {
+    "id": "2003.2",
+    "name": "Talvi 2003",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2003.2"
+  },
+  {
+    "id": "2003.1",
+    "name": "Kesä 2003",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2003.1"
+  },
+  {
+    "id": "2002.2",
+    "name": "Talvi 2002",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2002.2"
+  },
+  {
+    "id": "2002.1",
+    "name": "Kesä 2002",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2002.1"
+  },
+  {
+    "id": "2001.2",
+    "name": "Talvi 2001",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2001.2"
+  },
+  {
+    "id": "2001.1",
+    "name": "Kesä 2001",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2001.1"
+  },
+  {
+    "id": "2000.2",
+    "name": "Talvi 2000",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2000.2"
+  },
+  {
+    "id": "2000.1",
+    "name": "Kesä 2000",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=2000.1"
+  },
+  {
+    "id": "1999.2",
+    "name": "Talvi 1999",
+    "url": "https://ultimate.fi/pelikone/?view=teams&season=1999.2"
+  }
+]

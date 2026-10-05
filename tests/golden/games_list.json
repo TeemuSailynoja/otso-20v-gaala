@@ -1,0 +1,112 @@
+[
+  {
+    "away_score": 15,
+    "away_team": "Otso",
+    "division": "",
+    "game_id": "11049",
+    "home_score": 5,
+    "home_team": "Suomi U20",
+    "season_id": "KESA2026",
+    "time": "10:45",
+    "venue": "Kenttä 2"
+  },
+  {
+    "away_score": 5,
+    "away_team": "UFO",
+    "division": "",
+    "game_id": "11050",
+    "home_score": 15,
+    "home_team": "Otso",
+    "season_id": "KESA2026",
+    "time": "13:30",
+    "venue": "Kenttä 2"
+  },
+  {
+    "away_score": 8,
+    "away_team": "Helsinki Ultimate Rebels",
+    "division": "",
+    "game_id": "11048",
+    "home_score": 15,
+    "home_team": "Otso",
+    "season_id": "KESA2026",
+    "time": "12:30",
+    "venue": "Kenttä 2"
+  },
+  {
+    "away_score": 15,
+    "away_team": "Otso",
+    "division": "",
+    "game_id": "11047",
+    "home_score": 5,
+    "home_team": "Helsinki Ultimate Empire",
+    "season_id": "KESA2026",
+    "time": "15:30",
+    "venue": "Kenttä 1"
+  },
+  {
+    "away_score": 15,
+    "away_team": "Otso",
+    "division": "",
+    "game_id": "11084",
+    "home_score": 5,
+    "home_team": "LeKi",
+    "season_id": "KESA2026",
+    "time": "09:30",
+    "venue": "Kenttä 1"
+  },
+  {
+    "away_score": 5,
+    "away_team": "Muu Suomi",
+    "division": "",
+    "game_id": "11083",
+    "home_score": 15,
+    "home_team": "Otso",
+    "season_id": "KESA2026",
+    "time": "13:45",
+    "venue": "Kenttä 1"
+  },
+  {
+    "away_score": 3,
+    "away_team": "UFO",
+    "division": "",
+    "game_id": "11085",
+    "home_score": 15,
+    "home_team": "Otso",
+    "season_id": "KESA2026",
+    "time": "16:30",
+    "venue": "Kenttä 2"
+  },
+  {
+    "away_score": 15,
+    "away_team": "Otso",
+    "division": "",
+    "game_id": "11086",
+    "home_score": 9,
+    "home_team": "Helsinki Ultimate Rebels",
+    "season_id": "KESA2026",
+    "time": "12:45",
+    "venue": "Kenttä 1"
+  },
+  {
+    "away_score": 1,
+    "away_team": "Helsinki Ultimate Empire",
+    "division": "",
+    "game_id": "11087",
+    "home_score": 15,
+    "home_team": "Otso",
+    "season_id": "KESA2026",
+    "time": "15:30",
+    "venue": "Kenttä 2"
+  },
+  {
+    "away_score": 10,
+    "away_team": "Helsinki Ultimate Rebels",
+    "division": "",
+    "game_id": "11111",
+    "home_score": 15,
+    "home_team": "Otso",
+    "season_id": "KESA2026",
+    "time": "12:00",
+    "venue": "Kenttä 1"
+  }
+]

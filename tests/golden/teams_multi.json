@@ -1,0 +1,26 @@
+[
+  {
+    "club": "Espoo Ultimate Club r.y.",
+    "division": "Avoin",
+    "id": "3210",
+    "name": "OTSO",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3210",
+    "season_id": "2025.3"
+  },
+  {
+    "club": "Espoo Ultimate Club r.y.",
+    "division": "Avoin",
+    "id": "3211",
+    "name": "OTSO 2",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3211",
+    "season_id": "2025.3"
+  },
+  {
+    "club": "Espoo Ultimate Club r.y.",
+    "division": "Avoin",
+    "id": "3229",
+    "name": "OTSO 3",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3229",
+    "season_id": "2025.3"
+  }
+]

@@ -1,0 +1,376 @@
+{
+  "away_players": [
+    {
+      "assists": 2,
+      "goals": 2,
+      "name": "Jarno Sihvo",
+      "total": 4
+    },
+    {
+      "assists": 0,
+      "goals": 3,
+      "name": "Oskari Vuorio",
+      "total": 3
+    },
+    {
+      "assists": 1,
+      "goals": 2,
+      "name": "Mikko Alitalo",
+      "total": 3
+    },
+    {
+      "assists": 3,
+      "goals": 0,
+      "name": "Santeri Harmaala",
+      "total": 3
+    },
+    {
+      "assists": 3,
+      "goals": 0,
+      "name": "Roni Hotari",
+      "total": 3
+    },
+    {
+      "assists": 0,
+      "goals": 2,
+      "name": "Matias Arola",
+      "total": 2
+    },
+    {
+      "assists": 1,
+      "goals": 1,
+      "name": "Eelis Junnila",
+      "total": 2
+    },
+    {
+      "assists": 1,
+      "goals": 1,
+      "name": "Pekka Kinnunen",
+      "total": 2
+    },
+    {
+      "assists": 1,
+      "goals": 1,
+      "name": "Kivi Knuuti",
+      "total": 2
+    },
+    {
+      "assists": 1,
+      "goals": 1,
+      "name": "Patrick Potrykus",
+      "total": 2
+    },
+    {
+      "assists": 2,
+      "goals": 0,
+      "name": "Erkka Niini",
+      "total": 2
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "name": "Samuel-visal Roeung",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "name": "Ilkka Vaahtoranta",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Aleksi Mustonen",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Phong Tran",
+      "total": 0
+    }
+  ],
+  "away_score": 15,
+  "away_team": "Otso",
+  "home_players": [
+    {
+      "assists": 0,
+      "goals": 3,
+      "name": "Arvi Tuuri",
+      "total": 3
+    },
+    {
+      "assists": 3,
+      "goals": 0,
+      "name": "Matias Pentikäinen",
+      "total": 3
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "name": "Viljami Kataja",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 1,
+      "name": "Oskari Koikkalainen",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "name": "Jussi Cederlöf",
+      "total": 1
+    },
+    {
+      "assists": 1,
+      "goals": 0,
+      "name": "Torsti Visuri",
+      "total": 1
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Sisu Euramo",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Sanna Jalovaara",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Lauri Koikkalainen",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Vihtori Myrskyranta",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Aatos Nagy",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Jymy Ollila",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Vili Peltoniemi",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Niilo Suontama",
+      "total": 0
+    },
+    {
+      "assists": 0,
+      "goals": 0,
+      "name": "Valtteri Väätäinen",
+      "total": 0
+    }
+  ],
+  "home_score": 5,
+  "home_team": "Suomi U20",
+  "points": [
+    {
+      "passer": "Potrykus Patrick",
+      "score": "0-1",
+      "scorer": "Arola Matias",
+      "side": "guest",
+      "time": "5.00",
+      "title": "5.00 0-1 Potrykus Patrick -> Arola Matias",
+      "type": "point"
+    },
+    {
+      "passer": "Harmaala Santeri",
+      "score": "0-2",
+      "scorer": "Sihvo Jarno",
+      "side": "guest",
+      "time": "6.55",
+      "title": "6.55 0-2 Harmaala Santeri -> Sihvo Jarno",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "0-3",
+      "scorer": "Vaahtoranta Ilkka",
+      "side": "guest",
+      "time": "10.10",
+      "title": "10.10 0-3 Hotari Roni -> Vaahtoranta Ilkka",
+      "type": "point"
+    },
+    {
+      "passer": "Alitalo Mikko",
+      "score": "0-4",
+      "scorer": "Sihvo Jarno",
+      "side": "guest",
+      "time": "12.05",
+      "title": "12.05 0-4 Alitalo Mikko -> Sihvo Jarno",
+      "type": "point"
+    },
+    {
+      "passer": "Visuri Torsti",
+      "score": "1-4",
+      "scorer": "Tuuri Arvi",
+      "side": "home",
+      "time": "13.50",
+      "title": "13.50 1-4 Visuri Torsti -> Tuuri Arvi",
+      "type": "point"
+    },
+    {
+      "passer": "Niini Erkka",
+      "score": "1-5",
+      "scorer": "Vuorio Oskari",
+      "side": "guest",
+      "time": "15.10",
+      "title": "15.10 1-5 Niini Erkka -> Vuorio Oskari",
+      "type": "point"
+    },
+    {
+      "passer": "Pentikäinen Matias",
+      "score": "2-5",
+      "scorer": "Tuuri Arvi",
+      "side": "home",
+      "time": "16.50",
+      "title": "16.50 2-5 Pentikäinen Matias -> Tuuri Arvi",
+      "type": "point"
+    },
+    {
+      "passer": "Sihvo Jarno",
+      "score": "2-6",
+      "scorer": "Junnila Eelis",
+      "side": "guest",
+      "time": "18.15",
+      "title": "18.15 2-6 Sihvo Jarno -> Junnila Eelis",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "2-7",
+      "scorer": "Arola Matias",
+      "side": "guest",
+      "time": "20.45",
+      "title": "20.45 2-7 Hotari Roni -> Arola Matias",
+      "type": "point"
+    },
+    {
+      "passer": "Harmaala Santeri",
+      "score": "2-8",
+      "scorer": "Vuorio Oskari",
+      "side": "guest",
+      "time": "22.25",
+      "title": "22.25 2-8 Harmaala Santeri -> Vuorio Oskari",
+      "type": "point"
+    },
+    {
+      "text": "",
+      "type": "halftime"
+    },
+    {
+      "passer": "Sihvo Jarno",
+      "score": "2-9",
+      "scorer": "Vuorio Oskari",
+      "side": "guest",
+      "time": "28.10",
+      "title": "28.10 2-9 Sihvo Jarno -> Vuorio Oskari",
+      "type": "point"
+    },
+    {
+      "passer": "Cederlöf Jussi",
+      "score": "3-9",
+      "scorer": "Koikkalainen Oskari",
+      "side": "home",
+      "time": "30.50",
+      "title": "30.50 3-9 Cederlöf Jussi -> Koikkalainen Oskari",
+      "type": "point"
+    },
+    {
+      "passer": "Junnila Eelis",
+      "score": "3-10",
+      "scorer": "Alitalo Mikko",
+      "side": "guest",
+      "time": "34.45",
+      "title": "34.45 3-10 Junnila Eelis -> Alitalo Mikko",
+      "type": "point"
+    },
+    {
+      "passer": "Knuuti Kivi",
+      "score": "3-11",
+      "scorer": "Potrykus Patrick",
+      "side": "guest",
+      "time": "37.00",
+      "title": "37.00 3-11 Knuuti Kivi -> Potrykus Patrick",
+      "type": "point"
+    },
+    {
+      "passer": "Pentikäinen Matias",
+      "score": "4-11",
+      "scorer": "Tuuri Arvi",
+      "side": "home",
+      "time": "41.15",
+      "title": "41.15 4-11 Pentikäinen Matias -> Tuuri Arvi",
+      "type": "point"
+    },
+    {
+      "passer": "Kinnunen Pekka",
+      "score": "4-12",
+      "scorer": "Knuuti Kivi",
+      "side": "guest",
+      "time": "43.00",
+      "title": "43.00 4-12 Kinnunen Pekka -> Knuuti Kivi",
+      "type": "point"
+    },
+    {
+      "passer": "Pentikäinen Matias",
+      "score": "5-12",
+      "scorer": "Kataja Viljami",
+      "side": "home",
+      "time": "45.25",
+      "title": "45.25 5-12 Pentikäinen Matias -> Kataja Viljami",
+      "type": "point"
+    },
+    {
+      "passer": "Niini Erkka",
+      "score": "5-13",
+      "scorer": "Alitalo Mikko",
+      "side": "guest",
+      "time": "47.05",
+      "title": "47.05 5-13 Niini Erkka -> Alitalo Mikko",
+      "type": "point"
+    },
+    {
+      "passer": "Hotari Roni",
+      "score": "5-14",
+      "scorer": "Kinnunen Pekka",
+      "side": "guest",
+      "time": "49.50",
+      "title": "49.50 5-14 Hotari Roni -> Kinnunen Pekka",
+      "type": "point"
+    },
+    {
+      "passer": "Harmaala Santeri",
+      "score": "5-15",
+      "scorer": "Roeung Samuel-visal",
+      "side": "guest",
+      "time": "53.10",
+      "title": "53.10 5-15 Harmaala Santeri -> Roeung Samuel-visal",
+      "type": "point"
+    }
+  ]
+}

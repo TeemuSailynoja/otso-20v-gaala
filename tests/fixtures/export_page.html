@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+		<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='fi' lang='fi'>
+<head>
+		<meta http-equiv="Content-Style-Type" content="text/css"/>
+		<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="-1"/><link rel='icon' type='image/png' href='cust/slkl/favicon.png' />
+		<title>Ultimate pelikone - Tiedon vienti</title>
+		<link rel="stylesheet" href="cust/default/ultiorganizer.css" type="text/css" />
+		<link rel="stylesheet" href="cust/slkl/ultiorganizer.css" type="text/css" />
+<script type="text/javascript">
+<!--
+/* exported checkAll, clearAll, setId, changeseason, confirmLeave, menu_toggle, navigateBack */
+function checkAll(field)
+{
+  var form = document.getElementById(field);
+
+  for (var i=1; i < form.elements.length; i++)
+  {
+    form.elements[i].checked = !form.elements[i].checked;
+  }
+}
+
+function clearAll(field)
+{
+  var form = document.getElementById(field);
+
+  for (var i=1; i < form.elements.length; i++)
+  {
+    form.elements[i].checked = false;
+  }
+}
+
+function setId(id)
+{
+  var input = document.getElementById("hiddenDeleteId");
+  input.value = id;
+}
+
+function changeseason(id){
+  var sid = encodeURIComponent(id);
+  window.location.href = "index.php?view=games&season=" + sid + "&selseason=" + sid;
+}
+
+/* Navigate to the URL held in the element's data-href attribute. The URL is read
+   via getAttribute (already HTML-decoded by the browser) and is never parsed as
+   JavaScript, so it cannot inject script. Block non-http(s) schemes (e.g.
+   javascript:) so a crafted return URL cannot execute. */
+function navigateBack(el)
+{
+  var url = el.getAttribute("data-href") || "";
+  var scheme = url.match(/^\s*([a-z][a-z0-9+.-]*):/i);
+  if (scheme && !/^https?$/i.test(scheme[1])) {
+    return;
+  }
+  window.location.href = url;
+}
+
+function confirmLeave(element, confirm, text) {
+  if (element) {
+    if (!element.classList.contains("highlight"))
+      element.classList.add("highlight");
+  }
+  if (confirm)
+    window.onbeforeunload = function() {
+      return text==null?"":text;
+    }
+  else
+    window.onbeforeunload = null;
+}
+
+function menu_toggle() {
+  var x = document.getElementById('menu_left') || document.querySelector('.menu_left');
+  if (!x) {
+    return;
+  }
+  x.style.display = '';
+  if (x.classList.contains('menu_open')) {
+    x.classList.remove('menu_open');
+  } else {
+    x.classList.add('menu_open');
+  }
+}
+
+//-->
+</script>
+<script type="text/javascript" src="script/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="script/yui/container/container-min.js"></script> 
+<script type="text/javascript">
+<!--
+YAHOO.namespace("help.container");
+
+YAHOO.util.Event.onDOMReady(function () {
+
+  // Remove progressively enhanced content class, just before creating the module
+  YAHOO.util.Dom.removeClass("helptext", "yui-pe-content");
+
+  YAHOO.help.container.helptext = new YAHOO.widget.Module("helptext", { visible: false });
+  YAHOO.help.container.helptext.render();
+
+  YAHOO.util.Event.addListener("helpbutton", "click", handleHelpButton);
+});
+
+
+function handleHelpButton(e) {
+  var containerDiv = YAHOO.util.Dom.get("helptext");
+
+  if(containerDiv.style.display == "none"){
+    YAHOO.help.container.helptext.show();
+  }else{
+    YAHOO.help.container.helptext.hide();
+  }
+}
+//-->
+</script></head><body style='overflow-y:scroll;' >
+<div class='page'>
+<div class='page_top'>
+<div class='top_banner_space'></div>
+<form action='?view=ext/export' method='post'>
+<table border='0' cellpadding='0' cellspacing='0' style='width:100%;white-space: nowrap;'><tr>
+<td class='topheader_left'>
+<a href='https://www.ultimate.fi/pelikone' class='header_text'>Ultimate Pelikone</a><span style='color: #0bc5e0;font-size: 14pt;'> Suomen Liitokiekkoliitto</span>
+<span class='menu_button_row'><img class='menu_button' onclick='menu_toggle()' src='images/menu-bars.svg' alt='menu'></span></td><!--topheader_left--><td class='topheader_right'><table border='0' cellpadding='0' cellspacing='0' style='width:95%;white-space: nowrap;'>
+<tr><td class='right' style='vertical-align:top;'><a href='?view=ext%2Fexport&amp;locale=de_DE.utf8'><img class='localeselection' src='locale/de_DE.utf8/flag.png' alt='Deutsch'/></a>
+<a href='?view=ext%2Fexport&amp;locale=en_GB.utf8'><img class='localeselection' src='locale/en_GB.utf8/flag.png' alt='English'/></a>
+<a href='?view=ext%2Fexport&amp;locale=es_ES.utf8'><img class='localeselection' src='locale/es_ES.utf8/flag.png' alt='Espa&ntilde;ol'/></a>
+<a href='?view=ext%2Fexport&amp;locale=fi_FI.utf8'><img class='localeselection' src='locale/fi_FI.utf8/flag.png' alt='Suomi'/></a>
+</td></tr><tr>
+<td class='right' style='padding-top:5px'><span class='topheader_auth_inline'><input class='input' type='text' id='myusername' name='myusername' size='10' style='border:1px solid #555555'/>&nbsp;<input class='input' type='password' id='mypassword' name='mypassword' size='10' style='border:1px solid #555555'/>&nbsp;<input class='button' type='submit' name='login' value='Kirjaudu sis&auml;&auml;n' style='border:1px solid #000000'/>&nbsp;<span class='topheadertext'><a class='topheaderlink' href='?view=register'>Uusi k&auml;ytt&auml;j&auml;?</a></span></span><span class='topheader_auth_mobile'><a class='topheaderlink' href='?view=login'>Kirjaudu sis&auml;&auml;n</a></span></td></tr>
+</table></td></tr></table></form>
+</div><!--page_top-->
+<div class='page_middle'>
+<table style='border:1px solid #fff;background-color: #ffffff;'>
+<colgroup><col class='menu_column'/><col/></colgroup>
+<tr>
+<td id='menu_left' class='menu_left'><button type='button' class='menu_close_button' onclick='menu_toggle()' aria-label='Sulje'>x</button><table><tr><td><form action='?view=index' method='get' id='seasonsels'><div><select class='seasondropdown' name='selseason'
+			onchange='changeseason(selseason.options[selseason.options.selectedIndex].value);'><option class='dropdown'  value='KESA2026'>Kesä 2026</option><option class='dropdown'  value='2025.3'>Talvi 2025</option></select><noscript><div><input type='submit' value='Ok' name='selectseason'/></div></noscript></div></form></td></tr></table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'><a class='seasonnav' style='text-align:center;' href='?view=teams&amp;season=KESA2026&amp;list=bystandings'>Kes&auml; 2026</a></td></tr>
+<tr><td><a class='nav' href='?view=teams&amp;season=KESA2026&amp;list=bystandings'>Sijoitukset</a></td></tr>
+<tr><td><a class='nav' href='?view=games&amp;season=KESA2026&amp;filter=tournaments&amp;group=all'>Pelit</a></td></tr>
+<tr><td><a class='nav' href='?view=teams&amp;season=KESA2026&amp;list=allteams'>Joukkueet</a></td></tr>
+<tr><td class='menuseparator'></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3300'>Avoin</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3300'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1819'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1832'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1834'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3300'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3301'>Naiset</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3301'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1820'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1833'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1835'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3301'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3302'>Mixed</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3302'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1818'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1821'>&raquo; Tour 1: Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1822'>&raquo; Tour 1: Pronssi</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1824'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1825'>&raquo; Tour 2: Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1826'>&raquo; Tour 2: Pronssi</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1836'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3302'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3303'>Juniorit U17</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3303'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1823'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1827'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1828'>&raquo; Tour 2: Lohko B</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1829'>&raquo; Tour 2: Sij. 1.-2.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1830'>&raquo; Tour 2: Sij. 3.-4.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1831'>&raquo; Tour 2: Sij. 5.-6.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1837'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3303'>Spirit-pisteet</a></td></tr>
+</table>
+<table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Tapahtuman linkit</td></tr>
+<tr><td></td></tr>
+<tr><td><a class='subnav' style='background: url(./images/linkicons/feed_14x14.png) no-repeat 0 50%; padding: 0 0 0 19px;' href='./ext/rss.php?feed=all'>Tulossy&ouml;te</a>
+</td></tr>
+</table>
+<table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Tilastot</td></tr>
+<tr><td><a class='subnav' href="?view=seasonlist">&raquo; Tapahtumat</a>
+<a class='subnav' href="?view=allplayers">&raquo; Pelaajat</a>
+<a class='subnav' href="?view=allteams">&raquo; Joukkueet</a>
+<a class='subnav' href="?view=allclubs">&raquo; Seurat</a>
+<a class='subnav' href="?view=allcountries">&raquo; Maat</a>
+<a class='subnav' href="?view=statistics&amp;list=teamstandings">&raquo; Yhteenveto</a></td></tr>
+</table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Asiakasyhteydet</td></tr>
+<tr><td><a class='subnav' href='?view=ext/index'>&raquo; Pelikone linkit</a>
+<a class='subnav' href='?view=ext/export'>&raquo; Tiedon vienti</a>
+<a class='subnav' href='./scorekeeper/'>&raquo; Scorekeeper</a>
+<a class='subnav' href='./spiritkeeper/?view=home'>&raquo; Spiritkeeper</a>
+<a class='subnav' href='./timekeeper/'>&raquo; Timekeeper</a>
+</td></tr>
+</table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Linkit</td></tr>
+<tr><td><a class='subnav' href='https://www.ultimate.fi/pelikone/images/uploads/player-network.html'>&raquo; Pelaajakartta</a>
+<a class='subnav' href='https://www.ultimate.fi/ultimate/site/wp-content/uploads/2018/05/SLKL-TIETOSUOJASELOSTE.pdf'>&raquo; Tietosuojaseloste</a>
+<a class='subnav' href='https://ultimate.fi/events/'>&raquo; Kalenteri</a>
+<a class='subnav' href='https://www.ultimate.fi/liitto/'>&raquo; Suomen Liitokiekkoliitto</a>
+<a class='subnav' href='https://github.com/ktolonen/ultiorganizer'>&raquo; Powered by Ultiorganizer</a>
+<a class='subnav' href='mailto:sarjavastaava@liitokiekkoliitto.fi'>@ Sarjavastaavat</a>
+<a class='subnav' href='mailto:pelikone@liitokiekkoliitto.fi'>@ Pelikoneen ylläpito</a>
+</td></tr>
+</table><table class='leftmenulinks_plain'>
+<tr><td class='guides'><div><a href='http://www.ultimate.fi/'><img class='logo' src='cust/slkl/logo.png' alt='Ultimate.fi'/></a></div></td></tr></table><table class='leftmenulinks_plain'>
+<tr><td class='guides'><a href='?view=user_guide'>K&auml;ytt&ouml;opas</a> | 
+<a href='?view=privacy'>Yksityisyydensuoja</a>
+</td></tr></table></td>
+
+<td align='left' valign='top' class='tdcontent'><div class='content'>
+<h2>CSV-tiedostot</h2>
+<p>Lataa pilkulla erotetut UTF-8-koodatut tiedostot klikkaamalla alla olevia linkkejä. Voit myös vaihtaa merkkien koodausta ja erotinmerkkiä.</p>
+<p>Kesä 2026<br/><a href='ext/gamescsv.php?season=KESA2026&amp;enc=UTF-8&amp;sep=,'>&raquo; Kaikki aikataulutetut pelit</a><br/><a href='ext/resultscsv.php?season=KESA2026&amp;enc=UTF-8&amp;sep=,'>&raquo; Kaikki tulokset</a><br/><a href='ext/playerscsv.php?season=KESA2026&amp;enc=UTF-8&amp;sep=,'>&raquo; Pelaajatilastot</a><br/><a href='ext/teamscsv.php?season=KESA2026&amp;enc=UTF-8&amp;sep=,'>&raquo; Joukkuetilastot</a><br/><a href='ext/poolscsv.php?season=KESA2026&amp;enc=UTF-8&amp;sep=,'>&raquo; Lohkotilanne</a><br/><a href='ext/spiritcsv.php?season=KESA2026&amp;enc=UTF-8&amp;sep=,'>&raquo; Spirit-pisteet</a><br/></p><form method='post' action='?view=ext/export'>
+<p>Valitse turnaus:	<select class='dropdown' name='season'>
+<option class='dropdown' selected='selected' value='KESA2026'>Kes&auml; 2026</option><option class='dropdown' value='2025.3'>Talvi 2025</option></select></p>
+<p>Valitse merkistökoodaus: <select class='dropdown' name='encoding'>
+<option class='dropdown' selected='selected' value='UTF-8'>UTF-8</option><option class='dropdown' value='ISO-8859-15'>ISO-8859-15</option><option class='dropdown' value='Windows-1251'>Windows-1251</option><option class='dropdown' value='Windows-1252'>Windows-1252</option></select></p>
+<p>CSV-erotin: <input class='input' maxlength='1' size='1' name='separator' value=','/></p>
+<p><input class='button' type='submit' name='change' value='Muuta'/></p></form>
+</div><!--content--></td></tr></table></div><!--page_middle-->
+<div class='page_bottom'></div></div></body></html>

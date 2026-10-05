@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+		<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='fi' lang='fi'>
+<head>
+		<meta http-equiv="Content-Style-Type" content="text/css"/>
+		<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="-1"/><link rel='icon' type='image/png' href='cust/slkl/favicon.png' />
+		<title>Ultimate pelikone - Vanhat tapahtumat</title>
+		<link rel="stylesheet" href="cust/default/ultiorganizer.css" type="text/css" />
+		<link rel="stylesheet" href="cust/slkl/ultiorganizer.css" type="text/css" />
+<script type="text/javascript">
+<!--
+/* exported checkAll, clearAll, setId, changeseason, confirmLeave, menu_toggle, navigateBack */
+function checkAll(field)
+{
+  var form = document.getElementById(field);
+
+  for (var i=1; i < form.elements.length; i++)
+  {
+    form.elements[i].checked = !form.elements[i].checked;
+  }
+}
+
+function clearAll(field)
+{
+  var form = document.getElementById(field);
+
+  for (var i=1; i < form.elements.length; i++)
+  {
+    form.elements[i].checked = false;
+  }
+}
+
+function setId(id)
+{
+  var input = document.getElementById("hiddenDeleteId");
+  input.value = id;
+}
+
+function changeseason(id){
+  var sid = encodeURIComponent(id);
+  window.location.href = "index.php?view=games&season=" + sid + "&selseason=" + sid;
+}
+
+/* Navigate to the URL held in the element's data-href attribute. The URL is read
+   via getAttribute (already HTML-decoded by the browser) and is never parsed as
+   JavaScript, so it cannot inject script. Block non-http(s) schemes (e.g.
+   javascript:) so a crafted return URL cannot execute. */
+function navigateBack(el)
+{
+  var url = el.getAttribute("data-href") || "";
+  var scheme = url.match(/^\s*([a-z][a-z0-9+.-]*):/i);
+  if (scheme && !/^https?$/i.test(scheme[1])) {
+    return;
+  }
+  window.location.href = url;
+}
+
+function confirmLeave(element, confirm, text) {
+  if (element) {
+    if (!element.classList.contains("highlight"))
+      element.classList.add("highlight");
+  }
+  if (confirm)
+    window.onbeforeunload = function() {
+      return text==null?"":text;
+    }
+  else
+    window.onbeforeunload = null;
+}
+
+function menu_toggle() {
+  var x = document.getElementById('menu_left') || document.querySelector('.menu_left');
+  if (!x) {
+    return;
+  }
+  x.style.display = '';
+  if (x.classList.contains('menu_open')) {
+    x.classList.remove('menu_open');
+  } else {
+    x.classList.add('menu_open');
+  }
+}
+
+//-->
+</script>
+<script type="text/javascript" src="script/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="script/yui/container/container-min.js"></script> 
+<script type="text/javascript">
+<!--
+YAHOO.namespace("help.container");
+
+YAHOO.util.Event.onDOMReady(function () {
+
+  // Remove progressively enhanced content class, just before creating the module
+  YAHOO.util.Dom.removeClass("helptext", "yui-pe-content");
+
+  YAHOO.help.container.helptext = new YAHOO.widget.Module("helptext", { visible: false });
+  YAHOO.help.container.helptext.render();
+
+  YAHOO.util.Event.addListener("helpbutton", "click", handleHelpButton);
+});
+
+
+function handleHelpButton(e) {
+  var containerDiv = YAHOO.util.Dom.get("helptext");
+
+  if(containerDiv.style.display == "none"){
+    YAHOO.help.container.helptext.show();
+  }else{
+    YAHOO.help.container.helptext.hide();
+  }
+}
+//-->
+</script></head><body style='overflow-y:scroll;' >
+<div class='page'>
+<div class='page_top'>
+<div class='top_banner_space'></div>
+<form action='?view=seasonlist' method='post'>
+<table border='0' cellpadding='0' cellspacing='0' style='width:100%;white-space: nowrap;'><tr>
+<td class='topheader_left'>
+<a href='https://www.ultimate.fi/pelikone' class='header_text'>Ultimate Pelikone</a><span style='color: #0bc5e0;font-size: 14pt;'> Suomen Liitokiekkoliitto</span>
+<span class='menu_button_row'><img class='menu_button' onclick='menu_toggle()' src='images/menu-bars.svg' alt='menu'></span></td><!--topheader_left--><td class='topheader_right'><table border='0' cellpadding='0' cellspacing='0' style='width:95%;white-space: nowrap;'>
+<tr><td class='right' style='vertical-align:top;'><a href='?view=seasonlist&amp;locale=de_DE.utf8'><img class='localeselection' src='locale/de_DE.utf8/flag.png' alt='Deutsch'/></a>
+<a href='?view=seasonlist&amp;locale=en_GB.utf8'><img class='localeselection' src='locale/en_GB.utf8/flag.png' alt='English'/></a>
+<a href='?view=seasonlist&amp;locale=es_ES.utf8'><img class='localeselection' src='locale/es_ES.utf8/flag.png' alt='Espa&ntilde;ol'/></a>
+<a href='?view=seasonlist&amp;locale=fi_FI.utf8'><img class='localeselection' src='locale/fi_FI.utf8/flag.png' alt='Suomi'/></a>
+</td></tr><tr>
+<td class='right' style='padding-top:5px'><span class='topheader_auth_inline'><input class='input' type='text' id='myusername' name='myusername' size='10' style='border:1px solid #555555'/>&nbsp;<input class='input' type='password' id='mypassword' name='mypassword' size='10' style='border:1px solid #555555'/>&nbsp;<input class='button' type='submit' name='login' value='Kirjaudu sis&auml;&auml;n' style='border:1px solid #000000'/>&nbsp;<span class='topheadertext'><a class='topheaderlink' href='?view=register'>Uusi k&auml;ytt&auml;j&auml;?</a></span></span><span class='topheader_auth_mobile'><a class='topheaderlink' href='?view=login'>Kirjaudu sis&auml;&auml;n</a></span></td></tr>
+</table></td></tr></table></form>
+</div><!--page_top-->
+<div class='page_middle'>
+<table style='border:1px solid #fff;background-color: #ffffff;'>
+<colgroup><col class='menu_column'/><col/></colgroup>
+<tr>
+<td id='menu_left' class='menu_left'><button type='button' class='menu_close_button' onclick='menu_toggle()' aria-label='Sulje'>x</button><table><tr><td><form action='?view=index' method='get' id='seasonsels'><div><select class='seasondropdown' name='selseason'
+			onchange='changeseason(selseason.options[selseason.options.selectedIndex].value);'><option class='dropdown'  value='KESA2026'>Kesä 2026</option><option class='dropdown'  value='2025.3'>Talvi 2025</option></select><noscript><div><input type='submit' value='Ok' name='selectseason'/></div></noscript></div></form></td></tr></table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'><a class='seasonnav' style='text-align:center;' href='?view=teams&amp;season=KESA2026&amp;list=bystandings'>Kes&auml; 2026</a></td></tr>
+<tr><td><a class='nav' href='?view=teams&amp;season=KESA2026&amp;list=bystandings'>Sijoitukset</a></td></tr>
+<tr><td><a class='nav' href='?view=games&amp;season=KESA2026&amp;filter=tournaments&amp;group=all'>Pelit</a></td></tr>
+<tr><td><a class='nav' href='?view=teams&amp;season=KESA2026&amp;list=allteams'>Joukkueet</a></td></tr>
+<tr><td class='menuseparator'></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3300'>Avoin</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3300'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1819'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1832'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1834'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3300'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3301'>Naiset</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3301'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1820'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1833'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1835'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3301'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3302'>Mixed</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3302'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1818'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1821'>&raquo; Tour 1: Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1822'>&raquo; Tour 1: Pronssi</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1824'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1825'>&raquo; Tour 2: Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1826'>&raquo; Tour 2: Pronssi</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1836'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3302'>Spirit-pisteet</a></td></tr>
+<tr><td class='menuserieslevel'><a class='subnav' href='?view=seriesstatus&amp;series=3303'>Juniorit U17</a></td></tr>
+<tr><td class='navpoollink'>
+<a class='subnav' href='?view=poolstatus&amp;series=3303'>&raquo; N&auml;yt&auml; lohkot</a></td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1823'>&raquo; Tour 1: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1827'>&raquo; Tour 2: Lohko A</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1828'>&raquo; Tour 2: Lohko B</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1829'>&raquo; Tour 2: Sij. 1.-2.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1830'>&raquo; Tour 2: Sij. 3.-4.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1831'>&raquo; Tour 2: Sij. 5.-6.</a>
+</td></tr>
+<tr><td class='menupoollevel'>
+<a class='navpoollink' href='?view=poolstatus&amp;pool=1837'>&raquo; Finaali</a>
+</td></tr>
+<tr><td class='menupoollevel'><a class='navpoollink' href='?view=spiritstatus&amp;series=3303'>Spirit-pisteet</a></td></tr>
+</table>
+<table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Tapahtuman linkit</td></tr>
+<tr><td></td></tr>
+<tr><td><a class='subnav' style='background: url(./images/linkicons/feed_14x14.png) no-repeat 0 50%; padding: 0 0 0 19px;' href='./ext/rss.php?feed=all'>Tulossy&ouml;te</a>
+</td></tr>
+</table>
+<table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Tilastot</td></tr>
+<tr><td><a class='subnav' href="?view=seasonlist">&raquo; Tapahtumat</a>
+<a class='subnav' href="?view=allplayers">&raquo; Pelaajat</a>
+<a class='subnav' href="?view=allteams">&raquo; Joukkueet</a>
+<a class='subnav' href="?view=allclubs">&raquo; Seurat</a>
+<a class='subnav' href="?view=allcountries">&raquo; Maat</a>
+<a class='subnav' href="?view=statistics&amp;list=teamstandings">&raquo; Yhteenveto</a></td></tr>
+</table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Asiakasyhteydet</td></tr>
+<tr><td><a class='subnav' href='?view=ext/index'>&raquo; Pelikone linkit</a>
+<a class='subnav' href='?view=ext/export'>&raquo; Tiedon vienti</a>
+<a class='subnav' href='./scorekeeper/'>&raquo; Scorekeeper</a>
+<a class='subnav' href='./spiritkeeper/?view=home'>&raquo; Spiritkeeper</a>
+<a class='subnav' href='./timekeeper/'>&raquo; Timekeeper</a>
+</td></tr>
+</table><table class='leftmenulinks'>
+<tr><td class='menuseasonlevel'>Linkit</td></tr>
+<tr><td><a class='subnav' href='https://www.ultimate.fi/pelikone/images/uploads/player-network.html'>&raquo; Pelaajakartta</a>
+<a class='subnav' href='https://www.ultimate.fi/ultimate/site/wp-content/uploads/2018/05/SLKL-TIETOSUOJASELOSTE.pdf'>&raquo; Tietosuojaseloste</a>
+<a class='subnav' href='https://ultimate.fi/events/'>&raquo; Kalenteri</a>
+<a class='subnav' href='https://www.ultimate.fi/liitto/'>&raquo; Suomen Liitokiekkoliitto</a>
+<a class='subnav' href='https://github.com/ktolonen/ultiorganizer'>&raquo; Powered by Ultiorganizer</a>
+<a class='subnav' href='mailto:sarjavastaava@liitokiekkoliitto.fi'>@ Sarjavastaavat</a>
+<a class='subnav' href='mailto:pelikone@liitokiekkoliitto.fi'>@ Pelikoneen ylläpito</a>
+</td></tr>
+</table><table class='leftmenulinks_plain'>
+<tr><td class='guides'><div><a href='http://www.ultimate.fi/'><img class='logo' src='cust/slkl/logo.png' alt='Ultimate.fi'/></a></div></td></tr></table><table class='leftmenulinks_plain'>
+<tr><td class='guides'><a href='?view=user_guide'>K&auml;ytt&ouml;opas</a> | 
+<a href='?view=privacy'>Yksityisyydensuoja</a>
+</td></tr></table></td>
+
+<td align='left' valign='top' class='tdcontent'><div class='content'>
+
+<h1>Vanhat tapahtumat</h1>
+<table width='100%' border='0' cellspacing='0' cellpadding='2'>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2025</h3><div><a href='?view=teams&amp;season=2025.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2025.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2025.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3295
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3296
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3297
+				'>Mixed sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3298
+				'>Juniorit (U17) sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3299
+				'>Master Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2025</h3><div><a href='?view=teams&amp;season=2025.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2025.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2025.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3292
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3293
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3294
+				'>Mixed sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3291
+				'>Juniorit U17 sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Ranta SM 2024</h3><div><a href='?view=teams&amp;season=2024.123'>Joukkueet</a><br/><a href='?view=games&amp;season=2024.123'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2024.123&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3290
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2024</h3><div><a href='?view=teams&amp;season=2024.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2024.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2024.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3286
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3287
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3284
+				'>Mixed sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3285
+				'>Juniorit (U17) sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3288
+				'>Master Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2024</h3><div><a href='?view=teams&amp;season=2024.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2024.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2024.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3280
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3281
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3282
+				'>Juniorit (U17) sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3283
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2023</h3><div><a href='?view=teams&amp;season=2023.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2023.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2023.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3276
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3278
+				'>Naiset SM sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3277
+				'>Naiset harrastesarja sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3274
+				'>Mixed sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3275
+				'>Juniorit U17 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3279
+				'>Master Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2023</h3><div><a href='?view=teams&amp;season=2023.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2023.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2023.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3269
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3271
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3272
+				'>U17 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3273
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2022</h3><div><a href='?view=teams&amp;season=2022.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2022.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2022.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3267
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3268
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3265
+				'>Mixed sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3266
+				'>Juniorit U17 sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2022</h3><div><a href='?view=teams&amp;season=SM2022K'>Joukkueet</a><br/><a href='?view=games&amp;season=SM2022K'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=SM2022K&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3260
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3261
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3262
+				'>Mixed sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3263
+				'>Juniorit U17 sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2021</h3><div><a href='?view=teams&amp;season=2021.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2021.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2021.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3257
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3258
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3256
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2021</h3><div><a href='?view=teams&amp;season=2021.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2021.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2021.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3253
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3254
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3255
+				'>Juniorit U-20 sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Ranta SM 2021</h3><div><a href='?view=teams&amp;season=BEACH2021'>Joukkueet</a><br/><a href='?view=games&amp;season=BEACH2021'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=BEACH2021&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3252
+				'>Mixed SM sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2020</h3><div><a href='?view=teams&amp;season=2020.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2020.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2020.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3249
+				'>Avoin sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2020</h3><div><a href='?view=teams&amp;season=2020.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2020.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2020.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3244
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3245
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3246
+				'>SM Ranta sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3247
+				'>Juniorit sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3248
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2019</h3><div><a href='?view=teams&amp;season=2019.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2019.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2019.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3240
+				'> Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3241
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3242
+				'>Juniorit U20 sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Mixed-SM 2019</h3><div><a href='?view=teams&amp;season=2019.MXD'>Joukkueet</a><br/><a href='?view=games&amp;season=2019.MXD'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2019.MXD&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3239
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2019: Finaalit</h3><div><a href='?view=teams&amp;season=2019.Finaa'>Joukkueet</a><br/><a href='?view=games&amp;season=2019.Finaa'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2019.Finaa&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3236
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3237
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3238
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2019: Tour 3</h3><div><a href='?view=teams&amp;season=2019.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2019.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2019.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3234
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3235
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2019: Tour 2</h3><div><a href='?view=teams&amp;season=2019.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2019.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2019.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3232
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3233
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Ranta SM 2019</h3><div><a href='?view=teams&amp;season=BMSM2'>Joukkueet</a><br/><a href='?view=games&amp;season=BMSM2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=BMSM2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3231
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2019</h3><div><a href='?view=teams&amp;season=JSM2019'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM2019'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM2019&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3230
+				'>Avoin U20 sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2019: Tour 1</h3><div><a href='?view=teams&amp;season=2019.T1'>Joukkueet</a><br/><a href='?view=games&amp;season=2019.T1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2019.T1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3228
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3229
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2018</h3><div><a href='?view=teams&amp;season=2018.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2018.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2018.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3222
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3223
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3224
+				'>Juniorit U20 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3225
+				'>Juniorit U17 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3226
+				'>Masters (avoin) sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3227
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2018 Finaalit</h3><div><a href='?view=teams&amp;season=2018.F'>Joukkueet</a><br/><a href='?view=games&amp;season=2018.F'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2018.F&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3219
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3220
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3221
+				'>U20 sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2018: Tour 3</h3><div><a href='?view=teams&amp;season=2018.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2018.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2018.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3217
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3218
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2018: Tour 2</h3><div><a href='?view=teams&amp;season=2018.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2018.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2018.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3215
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3216
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Mixed SM 2018</h3><div><a href='?view=teams&amp;season=XSM2018'>Joukkueet</a><br/><a href='?view=games&amp;season=XSM2018'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=XSM2018&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3214
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2018: Tour 1</h3><div><a href='?view=teams&amp;season=2018.T1'>Joukkueet</a><br/><a href='?view=games&amp;season=2018.T1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2018.T1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3211
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3212
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3213
+				'>B-Tour sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2018</h3><div><a href='?view=teams&amp;season=*JSM2018'>Joukkueet</a><br/><a href='?view=games&amp;season=*JSM2018'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=*JSM2018&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3209
+				'>U20 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3210
+				'>U16 sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2017</h3><div><a href='?view=teams&amp;season=2017.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2017.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2017.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3204
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3205
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3206
+				'>Juniorit U20 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3207
+				'>Juniorit U16 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3208
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2017 Finaalit</h3><div><a href='?view=teams&amp;season=2017F'>Joukkueet</a><br/><a href='?view=games&amp;season=2017F'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2017F&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3201
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3202
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2017: Tour 3</h3><div><a href='?view=teams&amp;season=2017.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2017.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2017.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3199
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3200
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2017: Tour 2</h3><div><a href='?view=teams&amp;season=2017.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2017.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2017.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3197
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3198
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Mixed SM 2017</h3><div><a href='?view=teams&amp;season=2017.MX'>Joukkueet</a><br/><a href='?view=games&amp;season=2017.MX'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2017.MX&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3196
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2017</h3><div><a href='?view=teams&amp;season=JSM17'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM17'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM17&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3194
+				'>Juniorit U20 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3195
+				'>Juniorit U17 sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2017: Tour 1</h3><div><a href='?view=teams&amp;season=2017.T1'>Joukkueet</a><br/><a href='?view=games&amp;season=2017.T1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2017.T1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3192
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3193
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2016</h3><div><a href='?view=teams&amp;season=Talvi2016'>Joukkueet</a><br/><a href='?view=games&amp;season=Talvi2016'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=Talvi2016&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3186
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3187
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3188
+				'>Juniorit U20 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3189
+				'>Juniorit U17 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3191
+				'>Juniorit U15 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3190
+				'>Mixed Masters sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2016 Finaalit</h3><div><a href='?view=teams&amp;season=2016.1.F'>Joukkueet</a><br/><a href='?view=games&amp;season=2016.1.F'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2016.1.F&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3184
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3185
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2016</h3><div><a href='?view=teams&amp;season=JSM2016'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM2016'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM2016&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3181
+				'>Juniorit U20 sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3183
+				'>Juniorit U17 sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2016: Tour 3</h3><div><a href='?view=teams&amp;season=2016.1.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2016.1.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2016.1.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3179
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3180
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2016: Tour 2</h3><div><a href='?view=teams&amp;season=2016.1.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2016.1.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2016.1.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3177
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3178
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2016: Tour 1</h3><div><a href='?view=teams&amp;season=2016.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2016.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2016.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3174
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3175
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2015</h3><div><a href='?view=teams&amp;season=2015.4'>Joukkueet</a><br/><a href='?view=games&amp;season=2015.4'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2015.4&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3171
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3172
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3173
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2015 Finaali</h3><div><a href='?view=teams&amp;season=2015.1F'>Joukkueet</a><br/><a href='?view=games&amp;season=2015.1F'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2015.1F&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3169
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3170
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2015</h3><div><a href='?view=teams&amp;season=JSM2015'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM2015'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM2015&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3168
+				'>Avoin sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2015: Tour 3</h3><div><a href='?view=teams&amp;season=2015.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2015.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2015.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3166
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3167
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2015: Tour 2</h3><div><a href='?view=teams&amp;season=2015.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2015.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2015.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3164
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3165
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2015: Tour 1</h3><div><a href='?view=teams&amp;season=2015.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2015.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2015.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3162
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3163
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Mixed SM 2015</h3><div><a href='?view=teams&amp;season=MSM2015'>Joukkueet</a><br/><a href='?view=games&amp;season=MSM2015'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=MSM2015&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3161
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>OSM 2015</h3><div><a href='?view=teams&amp;season=OSM2015'>Joukkueet</a><br/><a href='?view=games&amp;season=OSM2015'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=OSM2015&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3160
+				'>Avoin sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2014</h3><div><a href='?view=teams&amp;season=Hallitour2'>Joukkueet</a><br/><a href='?view=games&amp;season=Hallitour2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=Hallitour2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3157
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3158
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3159
+				'>Juniorit sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2014: Finaalit</h3><div><a href='?view=teams&amp;season=2014.1F'>Joukkueet</a><br/><a href='?view=games&amp;season=2014.1F'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2014.1F&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3153
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3154
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3156
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2014: Tour 3</h3><div><a href='?view=teams&amp;season=2014.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2014.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2014.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3150
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3151
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2014</h3><div><a href='?view=teams&amp;season=JSM2014'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM2014'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM2014&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3149
+				'>Avoin sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2014: Tour 2</h3><div><a href='?view=teams&amp;season=2014.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2014.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2014.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3147
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3148
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2014: Tour 1</h3><div><a href='?view=teams&amp;season=2014.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2014.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2014.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3144
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3145
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3146
+				'>Harrastetour sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Mixed SM 2014</h3><div><a href='?view=teams&amp;season=2014.x'>Joukkueet</a><br/><a href='?view=games&amp;season=2014.x'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2014.x&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3143
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2013</h3><div><a href='?view=teams&amp;season=2013.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2013.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2013.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3138
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3139
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3141
+				'>Juniorit SM-sarja sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3142
+				'>Masters sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2013: Finaalit</h3><div><a href='?view=teams&amp;season=2013.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2013.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2013.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3134
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3135
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3136
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2013: Tour 3</h3><div><a href='?view=teams&amp;season=2013.1.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2013.1.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2013.1.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3132
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3133
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Juniori SM 2013</h3><div><a href='?view=teams&amp;season=JSM2013'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM2013'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM2013&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3137
+				'>Avoin sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2013: Tour 2</h3><div><a href='?view=teams&amp;season=2013.1.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2013.1.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2013.1.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3130
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3131
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2013: Tour 1</h3><div><a href='?view=teams&amp;season=2013.1.T1'>Joukkueet</a><br/><a href='?view=games&amp;season=2013.1.T1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2013.1.T1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3127
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3128
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3129
+				'>B-Tour sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Mixed SM 2013</h3><div><a href='?view=teams&amp;season=2013.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2013.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2013.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3126
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2012</h3><div><a href='?view=teams&amp;season=2012.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2012.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2012.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3122
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3123
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3125
+				'>Juniorit SM-sarja sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3124
+				'>Juniorit talvisarja sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2012: Finaalit</h3><div><a href='?view=teams&amp;season=2012.T4'>Joukkueet</a><br/><a href='?view=games&amp;season=2012.T4'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2012.T4&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3119
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3120
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3121
+				'>Juniorit sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2012: Tour 3</h3><div><a href='?view=teams&amp;season=2012.1.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2012.1.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2012.1.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3117
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3118
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2012: Tour 2</h3><div><a href='?view=teams&amp;season=2012.1.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2012.1.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2012.1.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3115
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3116
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Juniori SM 2012</h3><div><a href='?view=teams&amp;season=JSM2012'>Joukkueet</a><br/><a href='?view=games&amp;season=JSM2012'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=JSM2012&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3114
+				'>Avoin sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2012: Tour 1</h3><div><a href='?view=teams&amp;season=2012.1.T1'>Joukkueet</a><br/><a href='?view=games&amp;season=2012.1.T1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2012.1.T1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3111
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3112
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3113
+				'>B-Tour Avoin sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Mixed SM 2012</h3><div><a href='?view=teams&amp;season=2012.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2012.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2012.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3110
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2011</h3><div><a href='?view=teams&amp;season=2011.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2011.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2011.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3106
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3107
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3109
+				'>Juniorit SM sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3108
+				'>Juniorit Talvisarja sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2011: Finaalit</h3><div><a href='?view=teams&amp;season=2011.4'>Joukkueet</a><br/><a href='?view=games&amp;season=2011.4'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2011.4&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3103
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3104
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3105
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2011: Tour 3</h3><div><a href='?view=teams&amp;season=2011.1.T3'>Joukkueet</a><br/><a href='?view=games&amp;season=2011.1.T3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2011.1.T3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3101
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3102
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2011: Tour 2</h3><div><a href='?view=teams&amp;season=2011.1.T2'>Joukkueet</a><br/><a href='?view=games&amp;season=2011.1.T2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2011.1.T2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3099
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3100
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2011: Tour 1</h3><div><a href='?view=teams&amp;season=2011.1.T1'>Joukkueet</a><br/><a href='?view=games&amp;season=2011.1.T1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2011.1.T1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3097
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3098
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Mixed SM 2011</h3><div><a href='?view=teams&amp;season=2011.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2011.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2011.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3096
+				'>Mixed sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2010</h3><div><a href='?view=teams&amp;season=2010.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2010.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2010.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3094
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3095
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2010</h3><div><a href='?view=teams&amp;season=2010.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2010.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2010.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3085
+				'>Avoin SM sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3086
+				'>Naisten SM sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3093
+				'>Juniorit Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3088
+				'>Mixed SM sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2009</h3><div><a href='?view=teams&amp;season=2009.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2009.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2009.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3079
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3080
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3084
+				'>U20 sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2009</h3><div><a href='?view=teams&amp;season=2009.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2009.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2009.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3046
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3066
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3069
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2008</h3><div><a href='?view=teams&amp;season=2008.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2008.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2008.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3045
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3065
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2008</h3><div><a href='?view=teams&amp;season=2008.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2008.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2008.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3044
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3064
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Mixed SM 2008</h3><div><a href='?view=teams&amp;season=2008.3'>Joukkueet</a><br/><a href='?view=games&amp;season=2008.3'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2008.3&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3068
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2007</h3><div><a href='?view=teams&amp;season=2007.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2007.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2007.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3043
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3063
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3078
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2007</h3><div><a href='?view=teams&amp;season=2007.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2007.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2007.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3042
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3062
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2006</h3><div><a href='?view=teams&amp;season=2006.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2006.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2006.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3041
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3061
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2006</h3><div><a href='?view=teams&amp;season=2006.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2006.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2006.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3040
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3060
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2005</h3><div><a href='?view=teams&amp;season=2005.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2005.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2005.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3039
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3059
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2005</h3><div><a href='?view=teams&amp;season=2005.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2005.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2005.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3038
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3058
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3067
+				'>Mixed sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2004</h3><div><a href='?view=teams&amp;season=2004.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2004.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2004.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3037
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3057
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3077
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2004</h3><div><a href='?view=teams&amp;season=2004.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2004.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2004.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3036
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3056
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3076
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2003</h3><div><a href='?view=teams&amp;season=2003.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2003.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2003.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3035
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3055
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3075
+				'>Juniorit sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2003</h3><div><a href='?view=teams&amp;season=2003.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2003.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2003.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3034
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3054
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3074
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2002</h3><div><a href='?view=teams&amp;season=2002.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2002.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2002.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3033
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3053
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3073
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2002</h3><div><a href='?view=teams&amp;season=2002.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2002.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2002.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3032
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3052
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3072
+				'>Juniorit sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Talvi 2001</h3><div><a href='?view=teams&amp;season=2001.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2001.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2001.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3031
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3051
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3071
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Kes&auml; 2001</h3><div><a href='?view=teams&amp;season=2001.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2001.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2001.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3030
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3050
+				'>Naiset sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 2000</h3><div><a href='?view=teams&amp;season=2000.2'>Joukkueet</a><br/><a href='?view=games&amp;season=2000.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2000.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3029
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3049
+				'>Naiset sarja</a></td></tr></table></td></tr>
+<tr>
+<td style='vertical-align:text-top;'><h3>Kes&auml; 2000</h3><div><a href='?view=teams&amp;season=2000.1'>Joukkueet</a><br/><a href='?view=games&amp;season=2000.1'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=2000.1&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3028
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3048
+				'>Naiset sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3070
+				'>Juniorit sarja</a></td></tr></table></td><td style='vertical-align:text-top;'><h3>Talvi 1999</h3><div><a href='?view=teams&amp;season=1999.2'>Joukkueet</a><br/><a href='?view=games&amp;season=1999.2'>Pelatut pelit</a><br/><a href='?view=teams&amp;season=1999.2&amp;list=bystandings'>Sijoitukset</a></div><table cellpadding='0'><tr><td><a href='?view=seriesstatus&amp;series=3027
+				'>Avoin sarja</a></td></tr><tr><td><a href='?view=seriesstatus&amp;series=3047
+				'>Naiset sarja</a></td></tr></table></td></tr>
+</table>
+
+</div><!--content--></td></tr></table></div><!--page_middle-->
+<div class='page_bottom'></div></div></body></html>

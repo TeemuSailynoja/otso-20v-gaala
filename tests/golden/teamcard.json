@@ -1,0 +1,229 @@
+{
+  "games": [
+    {
+      "away": "OTSO",
+      "away_score": 3,
+      "home": "OTSO 2",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 15,
+      "home": "Saints",
+      "home_score": 10
+    },
+    {
+      "away": "OTSO",
+      "away_score": 7,
+      "home": "Helsinki Ultimate 1",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 8,
+      "home": "Turku Terror",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 12,
+      "home": "LeKi",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 15,
+      "home": "Sleepwalkers",
+      "home_score": 6
+    },
+    {
+      "away": "OTSO",
+      "away_score": 14,
+      "home": "Helsinki Ultimate 1",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 8,
+      "home": "Helsinki Ultimate 2",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 9,
+      "home": "UFO",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 14,
+      "home": "LeKi",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 5,
+      "home": "OTSO 2",
+      "home_score": 15
+    },
+    {
+      "away": "OTSO",
+      "away_score": 15,
+      "home": "Saints",
+      "home_score": 8
+    },
+    {
+      "away": "Helsinki Ultimate 1",
+      "away_score": 15,
+      "home": "OTSO",
+      "home_score": 14
+    },
+    {
+      "away": "OTSO",
+      "away_score": 15,
+      "home": "LeKi",
+      "home_score": 13
+    },
+    {
+      "away": "OTSO",
+      "away_score": 15,
+      "home": "Helsinki Ultimate 1",
+      "home_score": 13
+    },
+    {
+      "away": "OTSO",
+      "away_score": 11,
+      "home": "LeKi",
+      "home_score": 15
+    }
+  ],
+  "players": [
+    {
+      "assists": "18",
+      "games": "16",
+      "goals": "25",
+      "id": "33509",
+      "jersey": "80",
+      "name": "Antti Elonheimo",
+      "total": "43"
+    },
+    {
+      "assists": "12",
+      "games": "9",
+      "goals": "6",
+      "id": "33505",
+      "jersey": "5",
+      "name": "Ilkka Vaahtoranta",
+      "total": "18"
+    },
+    {
+      "assists": "16",
+      "games": "11",
+      "goals": "20",
+      "id": "33502",
+      "jersey": "32",
+      "name": "Jarno Sihvo",
+      "total": "36"
+    },
+    {
+      "assists": "20",
+      "games": "16",
+      "goals": "17",
+      "id": "33508",
+      "jersey": "19",
+      "name": "Jesse Saastamoinen",
+      "total": "37"
+    },
+    {
+      "assists": "3",
+      "games": "6",
+      "goals": "2",
+      "id": "33620",
+      "jersey": "44",
+      "name": "Kaapo Peura",
+      "total": "5"
+    },
+    {
+      "assists": "7",
+      "games": "11",
+      "goals": "6",
+      "id": "33619",
+      "jersey": "31",
+      "name": "Kivi Knuuti",
+      "total": "13"
+    },
+    {
+      "assists": "22",
+      "games": "12",
+      "goals": "12",
+      "id": "33504",
+      "jersey": "22",
+      "name": "Lassi Kallio",
+      "total": "34"
+    },
+    {
+      "assists": "4",
+      "games": "6",
+      "goals": "6",
+      "id": "33737",
+      "jersey": "16",
+      "name": "Matias Pentikäinen",
+      "total": "10"
+    },
+    {
+      "assists": "6",
+      "games": "5",
+      "goals": "11",
+      "id": "33511",
+      "jersey": "21",
+      "name": "Oskari Vuorio",
+      "total": "17"
+    },
+    {
+      "assists": "12",
+      "games": "12",
+      "goals": "21",
+      "id": "33506",
+      "jersey": "77",
+      "name": "Patrick Potrykus",
+      "total": "33"
+    },
+    {
+      "assists": "18",
+      "games": "16",
+      "goals": "20",
+      "id": "33503",
+      "jersey": "40",
+      "name": "Pekka Kinnunen",
+      "total": "38"
+    },
+    {
+      "assists": "38",
+      "games": "15",
+      "goals": "35",
+      "id": "33501",
+      "jersey": "34",
+      "name": "Roni Hotari",
+      "total": "73"
+    },
+    {
+      "assists": "52",
+      "games": "14",
+      "goals": "35",
+      "id": "33507",
+      "jersey": "17",
+      "name": "Tomi Sandberg",
+      "total": "87"
+    },
+    {
+      "assists": "11",
+      "games": "6",
+      "goals": "23",
+      "id": "33510",
+      "jersey": "27",
+      "name": "Touko Väänänen",
+      "total": "34"
+    }
+  ],
+  "team_id": "3130"
+}
