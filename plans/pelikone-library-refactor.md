@@ -392,7 +392,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
 
 - [x] **Phase 0 — make it real.** Rename to `ultiorg`, add build-system to `pyproject.toml`,
       editable-install it, delete both `sys.path.insert` hacks, export the gameplay API.
-- [ ] **Phase 1 — characterization tests first.** Commit ~10 fixtures from `data/raw/` (a modern
+- [x] **Phase 1 — characterization tests first.** Commit ~10 fixtures from `data/raw/` (a modern
       gameplay page, a pre-2015 gameplay page, season list, teams, standings, teamcard,
       playerlist) + golden JSON per parser. This is the safety net for everything after.
 - [ ] **Phase 2 — delete the stale copies.** Remove `parse_data.py`; confirm the package parsers
