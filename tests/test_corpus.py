@@ -17,6 +17,9 @@ import pytest
 from conftest import FIXTURES
 
 from ultiorg.corpus import build_corpus, write_corpus
+from ultiorg.teams import load_focus_team
+
+ROOT = Path(__file__).resolve().parent.parent
 
 CORPUS = pytest.mark.skipif(
     not Path("data/processed/match_results.json").exists(),
@@ -172,8 +175,13 @@ def test_metadata_from_a_season_file_fills_what_the_corpus_lacks(tmp_path):
 @CORPUS
 def test_the_committed_corpus_is_what_the_archive_produces():
     """Full-size gate against the real archive: 795 games, 61 seasons, and every
-    point the archived pages hold."""
-    games, stats = build_corpus(Path("data"))
+    point the archived pages hold.
+
+    Built with the gala's focus team, as the CLI builds it: a cached games page
+    lists the whole season — 80 fixtures in KESA2026 — so without a focus team the
+    corpus would enumerate every club's game and count 75 of them as unarchived.
+    """
+    games, stats = build_corpus(Path("data"), focus=load_focus_team(str(ROOT / "teams.yaml")))
     assert stats.games == 795
     assert stats.seasons == 61
     assert stats.gameplay_attached == 795

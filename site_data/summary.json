@@ -9,24 +9,24 @@
   "top_scorers": [
     {
       "name": "Roni Hotari",
-      "total": 3277,
-      "goals": 1394,
-      "assists": 1883,
-      "games": 403
+      "total": 3283,
+      "goals": 1395,
+      "assists": 1888,
+      "games": 404
     },
     {
       "name": "Tomi Sandberg",
-      "total": 2691,
-      "goals": 1099,
-      "assists": 1592,
-      "games": 338
+      "total": 2694,
+      "goals": 1100,
+      "assists": 1594,
+      "games": 339
     },
     {
       "name": "Erkka Niini",
-      "total": 1925,
-      "goals": 1198,
+      "total": 1928,
+      "goals": 1201,
       "assists": 727,
-      "games": 317
+      "games": 318
     },
     {
       "name": "Ilkka Vaahtoranta",
@@ -40,35 +40,35 @@
       "total": 1572,
       "goals": 1098,
       "assists": 474,
-      "games": 258
+      "games": 259
     },
     {
       "name": "Antti Elonheimo",
-      "total": 1495,
-      "goals": 728,
+      "total": 1496,
+      "goals": 729,
       "assists": 767,
-      "games": 309
+      "games": 310
     },
     {
       "name": "Jarno Sihvo",
-      "total": 1451,
+      "total": 1452,
       "goals": 620,
-      "assists": 831,
-      "games": 385
+      "assists": 832,
+      "games": 386
     },
     {
       "name": "Oskari Vuorio",
-      "total": 1368,
-      "goals": 861,
-      "assists": 507,
-      "games": 293
+      "total": 1370,
+      "goals": 862,
+      "assists": 508,
+      "games": 294
     },
     {
       "name": "Lassi Kallio",
-      "total": 1271,
-      "goals": 494,
+      "total": 1273,
+      "goals": 496,
       "assists": 777,
-      "games": 232
+      "games": 233
     },
     {
       "name": "Tommi Lehto",
@@ -86,24 +86,24 @@
     },
     {
       "name": "Santeri Salo",
-      "total": 918,
-      "goals": 514,
-      "assists": 404,
-      "games": 210
+      "total": 921,
+      "goals": 516,
+      "assists": 405,
+      "games": 211
     },
     {
       "name": "Jesse Saastamoinen",
       "total": 876,
       "goals": 541,
       "assists": 335,
-      "games": 234
+      "games": 235
     },
     {
       "name": "Patrick Potrykus",
-      "total": 864,
+      "total": 866,
       "goals": 439,
-      "assists": 425,
-      "games": 162
+      "assists": 427,
+      "games": 163
     },
     {
       "name": "Pasi Tamminen",
@@ -116,17 +116,17 @@
   "top_assists": [
     {
       "name": "Roni Hotari",
-      "assists": 1883,
-      "goals": 1394,
-      "total": 3277,
-      "games": 403
+      "assists": 1888,
+      "goals": 1395,
+      "total": 3283,
+      "games": 404
     },
     {
       "name": "Tomi Sandberg",
-      "assists": 1592,
-      "goals": 1099,
-      "total": 2691,
-      "games": 338
+      "assists": 1594,
+      "goals": 1100,
+      "total": 2694,
+      "games": 339
     },
     {
       "name": "Ilkka Vaahtoranta",
@@ -137,31 +137,31 @@
     },
     {
       "name": "Jarno Sihvo",
-      "assists": 831,
+      "assists": 832,
       "goals": 620,
-      "total": 1451,
-      "games": 385
+      "total": 1452,
+      "games": 386
     },
     {
       "name": "Lassi Kallio",
       "assists": 777,
-      "goals": 494,
-      "total": 1271,
-      "games": 232
+      "goals": 496,
+      "total": 1273,
+      "games": 233
     },
     {
       "name": "Antti Elonheimo",
       "assists": 767,
-      "goals": 728,
-      "total": 1495,
-      "games": 309
+      "goals": 729,
+      "total": 1496,
+      "games": 310
     },
     {
       "name": "Erkka Niini",
       "assists": 727,
-      "goals": 1198,
-      "total": 1925,
-      "games": 317
+      "goals": 1201,
+      "total": 1928,
+      "games": 318
     },
     {
       "name": "Ilkka Rämö",
@@ -186,10 +186,10 @@
     },
     {
       "name": "Oskari Vuorio",
-      "assists": 507,
-      "goals": 861,
-      "total": 1368,
-      "games": 293
+      "assists": 508,
+      "goals": 862,
+      "total": 1370,
+      "games": 294
     },
     {
       "name": "Pasi Tamminen",
@@ -203,14 +203,14 @@
       "assists": 474,
       "goals": 1098,
       "total": 1572,
-      "games": 258
+      "games": 259
     },
     {
       "name": "Ismo Sutela",
       "assists": 452,
       "goals": 228,
       "total": 680,
-      "games": 131
+      "games": 132
     },
     {
       "name": "Aki Vehtari",
@@ -223,21 +223,21 @@
   "longest_careers": [
     {
       "name": "Roni Hotari",
-      "seasons": 37,
-      "years": "2007-2025",
-      "games": 403
+      "seasons": 38,
+      "years": "2007-2026",
+      "games": 404
     },
     {
       "name": "Ilkka Vaahtoranta",
-      "seasons": 36,
-      "years": "2006-2025",
+      "seasons": 37,
+      "years": "2006-2026",
       "games": 329
     },
     {
       "name": "Jarno Sihvo",
-      "seasons": 36,
-      "years": "2007-2025",
-      "games": 385
+      "seasons": 37,
+      "years": "2007-2026",
+      "games": 386
     },
     {
       "name": "Aki Vehtari",
@@ -247,49 +247,81 @@
     },
     {
       "name": "Tomi Sandberg",
-      "seasons": 29,
-      "years": "2010-2025",
-      "games": 338
+      "seasons": 30,
+      "years": "2010-2026",
+      "games": 339
     },
     {
       "name": "Antti Elonheimo",
-      "seasons": 27,
+      "seasons": 28,
       "years": "2011-2025",
-      "games": 309
+      "games": 310
     },
     {
       "name": "Erkka Niini",
-      "seasons": 27,
-      "years": "2011-2025",
-      "games": 317
+      "seasons": 28,
+      "years": "2011-2026",
+      "games": 318
     },
     {
       "name": "Oskari Vuorio",
-      "seasons": 25,
-      "years": "2012-2025",
-      "games": 293
+      "seasons": 27,
+      "years": "2012-2026",
+      "games": 294
+    },
+    {
+      "name": "Touko Väänänen",
+      "seasons": 26,
+      "years": "2012-2026",
+      "games": 259
     },
     {
       "name": "Jesse Saastamoinen",
-      "seasons": 24,
+      "seasons": 25,
       "years": "2012-2025",
-      "games": 234
-    },
-    {
-      "name": "Antti Järvi",
-      "seasons": 22,
-      "years": "2011-2025",
-      "games": 268
+      "games": 235
     }
   ],
   "most_connected": [
     {
-      "name": "received",
-      "connections": 150
+      "name": "Oskari Vuorio",
+      "connections": 61
     },
     {
-      "name": "given",
-      "connections": 138
+      "name": "Roni Hotari",
+      "connections": 55
+    },
+    {
+      "name": "Ilkka Vaahtoranta",
+      "connections": 53
+    },
+    {
+      "name": "Antti Järvi",
+      "connections": 48
+    },
+    {
+      "name": "Touko Väänänen",
+      "connections": 47
+    },
+    {
+      "name": "Antti Elonheimo",
+      "connections": 44
+    },
+    {
+      "name": "Jarno Sihvo",
+      "connections": 44
+    },
+    {
+      "name": "Jesse Saastamoinen",
+      "connections": 44
+    },
+    {
+      "name": "Juuso Parkkinen",
+      "connections": 44
+    },
+    {
+      "name": "Teemu Säilynoja",
+      "connections": 43
     }
   ],
   "most_teammates": [
@@ -326,12 +358,12 @@
       "teammates": 110
     },
     {
-      "name": "Antti Elonheimo",
-      "teammates": 106
+      "name": "Touko Väänänen",
+      "teammates": 107
     },
     {
-      "name": "Antti Järvi",
-      "teammates": 105
+      "name": "Antti Elonheimo",
+      "teammates": 106
     }
   ],
   "goals_per_match": [
@@ -344,14 +376,14 @@
     {
       "name": "Roni Hotari",
       "goals_per_match": 8.13,
-      "total": 3277,
-      "games": 403
+      "total": 3283,
+      "games": 404
     },
     {
       "name": "Tomi Sandberg",
-      "goals_per_match": 7.96,
-      "total": 2691,
-      "games": 338
+      "goals_per_match": 7.95,
+      "total": 2694,
+      "games": 339
     },
     {
       "name": "Esa Pensala",

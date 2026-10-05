@@ -1,14 +1,16 @@
 {
   "Aapo Kaijanmäki": {
     "seasons": [
+      "2023.2",
       "2024.1"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
+      2023,
       2024
     ],
-    "year_count": 1,
-    "first_year": 2024,
+    "year_count": 2,
+    "first_year": 2023,
     "last_year": 2024,
     "games": 11,
     "goals": 2,
@@ -22,13 +24,15 @@
       "summer": [
         2024
       ],
-      "winter": [],
+      "winter": [
+        2023
+      ],
       "other": []
     },
     "summer_games": 5,
     "summer_goals": 2,
     "summer_assists": 0,
-    "winter_games": 0,
+    "winter_games": 6,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
@@ -41,14 +45,16 @@
   },
   "Aapo Putkonen": {
     "seasons": [
+      "2023.2",
       "2024.1"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
+      2023,
       2024
     ],
-    "year_count": 1,
-    "first_year": 2024,
+    "year_count": 2,
+    "first_year": 2023,
     "last_year": 2024,
     "games": 13,
     "goals": 8,
@@ -62,13 +68,15 @@
       "summer": [
         2024
       ],
-      "winter": [],
+      "winter": [
+        2023
+      ],
       "other": []
     },
     "summer_games": 5,
     "summer_goals": 8,
     "summer_assists": 4,
-    "winter_games": 0,
+    "winter_games": 8,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 2,
@@ -123,7 +131,8 @@
       "2015.4",
       "2016.1",
       "2017.1",
-      "2017.T3"
+      "2017.T3",
+      "2017F"
     ],
     "season_count": 4,
     "years": [
@@ -134,7 +143,7 @@
     "year_count": 3,
     "first_year": 2015,
     "last_year": 2017,
-    "games": 25,
+    "games": 26,
     "goals": 72,
     "assists": 44,
     "total": 116,
@@ -154,7 +163,7 @@
       ],
       "other": []
     },
-    "summer_games": 9,
+    "summer_games": 10,
     "summer_goals": 6,
     "summer_assists": 6,
     "winter_games": 16,
@@ -233,14 +242,17 @@
   },
   "Janne Aittomäki": {
     "seasons": [
+      "2006.1",
+      "2006.2",
       "2007.1"
     ],
-    "season_count": 1,
+    "season_count": 3,
     "years": [
+      2006,
       2007
     ],
-    "year_count": 1,
-    "first_year": 2007,
+    "year_count": 2,
+    "first_year": 2006,
     "last_year": 2007,
     "games": 6,
     "goals": 1,
@@ -251,15 +263,18 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007
       ],
-      "winter": [],
+      "winter": [
+        2006
+      ],
       "other": []
     },
     "summer_games": 5,
     "summer_goals": 1,
     "summer_assists": 3,
-    "winter_games": 0,
+    "winter_games": 1,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
@@ -357,6 +372,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -550,17 +566,19 @@
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 6,
+    "season_count": 7,
     "years": [
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 3,
+    "year_count": 4,
     "first_year": 2023,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 66,
     "goals": 56,
     "assists": 10,
@@ -574,7 +592,8 @@
       "summer": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2023,
@@ -648,18 +667,20 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 8,
+    "season_count": 9,
     "years": [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 4,
+    "year_count": 5,
     "first_year": 2022,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 99,
     "goals": 89,
     "assists": 416,
@@ -674,7 +695,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2022,
@@ -853,6 +875,7 @@
       "2013.1",
       "2013.1.T1",
       "2013.1.T2",
+      "2013.2",
       "2014.1",
       "2014.1F",
       "2014.2",
@@ -868,6 +891,7 @@
       "2017.1",
       "2017.T1",
       "2017.T2",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -890,7 +914,7 @@
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 27,
+    "season_count": 28,
     "years": [
       2011,
       2012,
@@ -911,10 +935,10 @@
     "year_count": 15,
     "first_year": 2011,
     "last_year": 2025,
-    "games": 309,
-    "goals": 728,
+    "games": 310,
+    "goals": 729,
     "assists": 767,
-    "total": 1495,
+    "total": 1496,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -943,6 +967,7 @@
       ],
       "winter": [
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -957,10 +982,10 @@
       ],
       "other": []
     },
-    "summer_games": 154,
-    "summer_goals": 264,
+    "summer_games": 155,
+    "summer_goals": 265,
     "summer_assists": 398,
-    "winter_games": 150,
+    "winter_games": 155,
     "winter_goals": 464,
     "winter_assists": 369,
     "defense_points": 137,
@@ -985,6 +1010,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -1005,10 +1031,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 22,
+    "season_count": 23,
     "years": [
       2011,
       2013,
@@ -1023,12 +1050,13 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 14,
+    "year_count": 15,
     "first_year": 2011,
-    "last_year": 2025,
-    "games": 268,
+    "last_year": 2026,
+    "games": 269,
     "goals": 347,
     "assists": 420,
     "total": 767,
@@ -1053,7 +1081,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2011,
@@ -1070,10 +1099,10 @@
       ],
       "other": []
     },
-    "summer_games": 124,
+    "summer_games": 125,
     "summer_goals": 141,
     "summer_assists": 132,
-    "winter_games": 132,
+    "winter_games": 144,
     "winter_goals": 206,
     "winter_assists": 288,
     "defense_points": 83,
@@ -1206,6 +1235,7 @@
       "2017.1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.T3",
       "2019.T1",
       "2021.1",
@@ -1233,7 +1263,7 @@
     "year_count": 9,
     "first_year": 2016,
     "last_year": 2025,
-    "games": 101,
+    "games": 102,
     "goals": 138,
     "assists": 118,
     "total": 256,
@@ -1264,7 +1294,7 @@
       ],
       "other": []
     },
-    "summer_games": 51,
+    "summer_games": 52,
     "summer_goals": 46,
     "summer_assists": 42,
     "winter_games": 50,
@@ -1454,15 +1484,17 @@
   },
   "Matias Arola": {
     "seasons": [
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
-      2025
+      2025,
+      2026
     ],
-    "year_count": 1,
+    "year_count": 2,
     "first_year": 2025,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 13,
     "goals": 38,
     "assists": 19,
@@ -1472,7 +1504,9 @@
       "Otso 3"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2026
+      ],
       "winter": [
         2025
       ],
@@ -1542,17 +1576,20 @@
   },
   "Arttu Rautamäki": {
     "seasons": [
+      "2023.2",
       "2024.1",
+      "2024.2",
       "2025.1",
       "2025.3"
     ],
-    "season_count": 3,
+    "season_count": 5,
     "years": [
+      2023,
       2024,
       2025
     ],
-    "year_count": 2,
-    "first_year": 2024,
+    "year_count": 3,
+    "first_year": 2023,
     "last_year": 2025,
     "games": 56,
     "goals": 16,
@@ -1569,6 +1606,8 @@
         2025
       ],
       "winter": [
+        2023,
+        2024,
         2025
       ],
       "other": []
@@ -1576,7 +1615,7 @@
     "summer_games": 10,
     "summer_goals": 10,
     "summer_assists": 0,
-    "winter_games": 5,
+    "winter_games": 46,
     "winter_goals": 6,
     "winter_assists": 4,
     "defense_points": 19,
@@ -1634,14 +1673,19 @@
   },
   "Arvi Tuuri": {
     "seasons": [
-      "2025.1"
+      "2023.2",
+      "2024.2",
+      "2025.1",
+      "2025.3"
     ],
-    "season_count": 1,
+    "season_count": 4,
     "years": [
+      2023,
+      2024,
       2025
     ],
-    "year_count": 1,
-    "first_year": 2025,
+    "year_count": 3,
+    "first_year": 2023,
     "last_year": 2025,
     "games": 40,
     "goals": 14,
@@ -1656,13 +1700,17 @@
       "summer": [
         2025
       ],
-      "winter": [],
+      "winter": [
+        2023,
+        2024,
+        2025
+      ],
       "other": []
     },
     "summer_games": 4,
     "summer_goals": 14,
     "summer_assists": 0,
-    "winter_games": 0,
+    "winter_games": 36,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 36,
@@ -1846,6 +1894,7 @@
       "2017.1",
       "2017.T1",
       "2017.T2",
+      "2017F",
       "Talvi2016"
     ],
     "season_count": 5,
@@ -1857,7 +1906,7 @@
     "year_count": 3,
     "first_year": 2014,
     "last_year": 2017,
-    "games": 45,
+    "games": 46,
     "goals": 69,
     "assists": 22,
     "total": 91,
@@ -1877,7 +1926,7 @@
       ],
       "other": []
     },
-    "summer_games": 29,
+    "summer_games": 30,
     "summer_goals": 53,
     "summer_assists": 16,
     "winter_games": 16,
@@ -1891,7 +1940,7 @@
     "offense_goals": 14,
     "offense_assists": 14
   },
-  "chandika chandrasekeram": {
+  "Chandika Chandrasekeram": {
     "seasons": [
       "2006.1"
     ],
@@ -2064,15 +2113,17 @@
   },
   "Eelis Junnila": {
     "seasons": [
-      "2023.1"
+      "2023.1",
+      "KESA2026"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
-      2023
+      2023,
+      2026
     ],
-    "year_count": 1,
+    "year_count": 2,
     "first_year": 2023,
-    "last_year": 2023,
+    "last_year": 2026,
     "games": 13,
     "goals": 3,
     "assists": 8,
@@ -2083,7 +2134,8 @@
     ],
     "season_types": {
       "summer": [
-        2023
+        2023,
+        2026
       ],
       "winter": [],
       "other": []
@@ -2195,7 +2247,7 @@
     "offense_goals": 4,
     "offense_assists": 4
   },
-  "eerikki mäki": {
+  "Eerikki Mäki": {
     "seasons": [
       "2006.1"
     ],
@@ -2230,7 +2282,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "eero lunden": {
+  "Eero Lunden": {
     "seasons": [
       "2013.2"
     ],
@@ -2260,7 +2312,7 @@
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 1,
+    "winter_games": 4,
     "winter_goals": 1,
     "winter_assists": 0,
     "defense_points": 0,
@@ -2335,11 +2387,12 @@
       "2014.2",
       "2015.1",
       "2015.2",
+      "2015.4",
       "2016.1.T2",
       "2017.T1",
       "Talvi2016"
     ],
-    "season_count": 9,
+    "season_count": 10,
     "years": [
       2011,
       2012,
@@ -2374,6 +2427,7 @@
       ],
       "winter": [
         2013,
+        2015,
         2016
       ],
       "other": []
@@ -2381,7 +2435,7 @@
     "summer_games": 69,
     "summer_goals": 143,
     "summer_assists": 13,
-    "winter_games": 19,
+    "winter_games": 21,
     "winter_goals": 112,
     "winter_assists": 25,
     "defense_points": 55,
@@ -2556,6 +2610,7 @@
       "2015.4",
       "2016.1.T2",
       "2017.T3",
+      "2017F",
       "2018.F",
       "2018.T3",
       "2019.Finaa",
@@ -2570,9 +2625,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 14,
+    "season_count": 15,
     "years": [
       2015,
       2016,
@@ -2584,12 +2640,13 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 11,
+    "year_count": 12,
     "first_year": 2015,
-    "last_year": 2025,
-    "games": 117,
+    "last_year": 2026,
+    "games": 118,
     "goals": 304,
     "assists": 179,
     "total": 483,
@@ -2611,7 +2668,8 @@
         2021,
         2022,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2015,
@@ -2622,7 +2680,7 @@
       ],
       "other": []
     },
-    "summer_games": 67,
+    "summer_games": 68,
     "summer_goals": 152,
     "summer_assists": 53,
     "winter_games": 50,
@@ -2710,6 +2768,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -2729,10 +2788,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 27,
+    "season_count": 28,
     "years": [
       2011,
       2012,
@@ -2748,15 +2808,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 15,
+    "year_count": 16,
     "first_year": 2011,
-    "last_year": 2025,
-    "games": 317,
-    "goals": 1198,
+    "last_year": 2026,
+    "games": 318,
+    "goals": 1201,
     "assists": 727,
-    "total": 1925,
+    "total": 1928,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -2780,7 +2841,8 @@
         2021,
         2022,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2011,
@@ -2799,8 +2861,8 @@
       ],
       "other": []
     },
-    "summer_games": 164,
-    "summer_goals": 482,
+    "summer_games": 165,
+    "summer_goals": 485,
     "summer_assists": 357,
     "winter_games": 153,
     "winter_goals": 716,
@@ -2815,14 +2877,18 @@
   },
   "Erno Kerman": {
     "seasons": [
+      "2023.2",
+      "2024.2",
       "2025.3"
     ],
-    "season_count": 1,
+    "season_count": 3,
     "years": [
+      2023,
+      2024,
       2025
     ],
-    "year_count": 1,
-    "first_year": 2025,
+    "year_count": 3,
+    "first_year": 2023,
     "last_year": 2025,
     "games": 27,
     "goals": 0,
@@ -2836,6 +2902,8 @@
     "season_types": {
       "summer": [],
       "winter": [
+        2023,
+        2024,
         2025
       ],
       "other": []
@@ -2843,7 +2911,7 @@
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 0,
+    "winter_games": 27,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 6,
@@ -2899,6 +2967,7 @@
   "Esko Saura": {
     "seasons": [
       "2006.1",
+      "2006.2",
       "2008.1",
       "2009.1",
       "2010.1",
@@ -2906,7 +2975,7 @@
       "2012.2",
       "2013.1.T1"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
       2006,
       2008,
@@ -2936,6 +3005,7 @@
         2013
       ],
       "winter": [
+        2006,
         2011,
         2012
       ],
@@ -2944,7 +3014,7 @@
     "summer_games": 18,
     "summer_goals": 20,
     "summer_assists": 2,
-    "winter_games": 6,
+    "winter_games": 7,
     "winter_goals": 7,
     "winter_assists": 11,
     "defense_points": 8,
@@ -2957,15 +3027,17 @@
   },
   "Euramo Sisu": {
     "seasons": [
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
-      2025
+      2025,
+      2026
     ],
-    "year_count": 1,
+    "year_count": 2,
     "first_year": 2025,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 14,
     "goals": 6,
     "assists": 0,
@@ -2975,7 +3047,9 @@
       "Otso 3"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2026
+      ],
       "winter": [
         2025
       ],
@@ -2984,7 +3058,7 @@
     "summer_games": 5,
     "summer_goals": 6,
     "summer_assists": 0,
-    "winter_games": 1,
+    "winter_games": 9,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 4,
@@ -3036,17 +3110,19 @@
       "2023.2",
       "2024.1",
       "2024.2",
-      "2025.1"
+      "2025.1",
+      "KESA2026"
     ],
-    "season_count": 5,
+    "season_count": 6,
     "years": [
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 3,
+    "year_count": 4,
     "first_year": 2023,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 44,
     "goals": 139,
     "assists": 59,
@@ -3059,7 +3135,8 @@
       "summer": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2023,
@@ -3255,6 +3332,7 @@
       "2013.1",
       "2013.1.T1",
       "2013.1.T2",
+      "2013.2",
       "2014.1",
       "2014.1F",
       "2015.1",
@@ -3263,7 +3341,7 @@
       "2017.1",
       "2018.1"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
       2011,
       2013,
@@ -3292,6 +3370,7 @@
         2015
       ],
       "winter": [
+        2013,
         2015,
         2017,
         2018
@@ -3301,7 +3380,7 @@
     "summer_games": 22,
     "summer_goals": 6,
     "summer_assists": 28,
-    "winter_games": 14,
+    "winter_games": 16,
     "winter_goals": 3,
     "winter_assists": 53,
     "defense_points": 2,
@@ -3409,15 +3488,17 @@
   "Santeri Harmaala": {
     "seasons": [
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 2,
+    "season_count": 3,
     "years": [
-      2025
+      2025,
+      2026
     ],
-    "year_count": 1,
+    "year_count": 2,
     "first_year": 2025,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 26,
     "goals": 68,
     "assists": 43,
@@ -3428,7 +3509,8 @@
     ],
     "season_types": {
       "summer": [
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2025
@@ -3451,14 +3533,16 @@
   },
   "Heikki Härkönen": {
     "seasons": [
+      "2006.1",
       "2007.1"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
+      2006,
       2007
     ],
-    "year_count": 1,
-    "first_year": 2007,
+    "year_count": 2,
+    "first_year": 2006,
     "last_year": 2007,
     "games": 1,
     "goals": 0,
@@ -3469,6 +3553,7 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007
       ],
       "winter": [],
@@ -3525,16 +3610,18 @@
   },
   "Heikki Tiittanen": {
     "seasons": [
+      "2013.2",
       "2014.1",
       "2014.1F",
       "2014.2"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
+      2013,
       2014
     ],
-    "year_count": 1,
-    "first_year": 2014,
+    "year_count": 2,
+    "first_year": 2013,
     "last_year": 2014,
     "games": 13,
     "goals": 20,
@@ -3549,13 +3636,15 @@
       "summer": [
         2014
       ],
-      "winter": [],
+      "winter": [
+        2013
+      ],
       "other": []
     },
     "summer_games": 9,
     "summer_goals": 13,
     "summer_assists": 18,
-    "winter_games": 0,
+    "winter_games": 4,
     "winter_goals": 7,
     "winter_assists": 7,
     "defense_points": 5,
@@ -3834,18 +3923,20 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 8,
+    "season_count": 9,
     "years": [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 4,
+    "year_count": 5,
     "first_year": 2022,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 72,
     "goals": 104,
     "assists": 137,
@@ -3859,7 +3950,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2022,
@@ -3935,14 +4027,16 @@
   },
   "Jani Honkanen": {
     "seasons": [
+      "2006.1",
       "2007.1"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
+      2006,
       2007
     ],
-    "year_count": 1,
-    "first_year": 2007,
+    "year_count": 2,
+    "first_year": 2006,
     "last_year": 2007,
     "games": 2,
     "goals": 0,
@@ -3953,6 +4047,7 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007
       ],
       "winter": [],
@@ -4010,6 +4105,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -4031,10 +4127,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 37,
+    "season_count": 38,
     "years": [
       2007,
       2008,
@@ -4054,15 +4151,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 19,
+    "year_count": 20,
     "first_year": 2007,
-    "last_year": 2025,
-    "games": 403,
-    "goals": 1394,
-    "assists": 1883,
-    "total": 3277,
+    "last_year": 2026,
+    "games": 404,
+    "goals": 1395,
+    "assists": 1888,
+    "total": 3283,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -4091,7 +4189,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2007,
@@ -4115,10 +4214,10 @@
       ],
       "other": []
     },
-    "summer_games": 210,
-    "summer_goals": 455,
-    "summer_assists": 920,
-    "winter_games": 192,
+    "summer_games": 211,
+    "summer_goals": 456,
+    "summer_assists": 925,
+    "winter_games": 193,
     "winter_goals": 939,
     "winter_assists": 963,
     "defense_points": 339,
@@ -4237,6 +4336,7 @@
   },
   "Timo Idänheimo": {
     "seasons": [
+      "2006.1",
       "2007.1",
       "2008.1",
       "2008.2",
@@ -4258,8 +4358,9 @@
       "2013.2",
       "2014.2"
     ],
-    "season_count": 12,
+    "season_count": 13,
     "years": [
+      2006,
       2007,
       2008,
       2009,
@@ -4268,8 +4369,8 @@
       2013,
       2014
     ],
-    "year_count": 7,
-    "first_year": 2007,
+    "year_count": 8,
+    "first_year": 2006,
     "last_year": 2014,
     "games": 97,
     "goals": 113,
@@ -4282,6 +4383,7 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007,
         2008,
         2009,
@@ -4341,7 +4443,7 @@
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 1,
+    "winter_games": 10,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
@@ -4408,6 +4510,7 @@
       "2013.1",
       "2013.1.T1",
       "2013.1.T2",
+      "2013.2",
       "2015.1",
       "2015.1F",
       "2015.2",
@@ -4422,7 +4525,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 15,
+    "season_count": 16,
     "years": [
       2011,
       2012,
@@ -4460,6 +4563,7 @@
       "winter": [
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -4475,7 +4579,7 @@
     "summer_games": 35,
     "summer_goals": 30,
     "summer_assists": 137,
-    "winter_games": 119,
+    "winter_games": 122,
     "winter_goals": 311,
     "winter_assists": 553,
     "defense_points": 75,
@@ -4523,6 +4627,7 @@
       "2016.1.T3",
       "2017.T1",
       "2017.T2",
+      "2017F",
       "2018.F",
       "2018.T1",
       "2019.1",
@@ -4539,10 +4644,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 36,
+    "season_count": 37,
     "years": [
       2006,
       2007,
@@ -4563,11 +4669,12 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 20,
+    "year_count": 21,
     "first_year": 2006,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 329,
     "goals": 606,
     "assists": 1252,
@@ -4601,7 +4708,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2006,
@@ -4700,6 +4808,7 @@
       "2017.1",
       "2017.T1",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.T1",
       "Hallitour2",
@@ -4719,7 +4828,7 @@
     "year_count": 8,
     "first_year": 2011,
     "last_year": 2018,
-    "games": 131,
+    "games": 132,
     "goals": 228,
     "assists": 452,
     "total": 680,
@@ -4751,10 +4860,10 @@
       ],
       "other": []
     },
-    "summer_games": 44,
+    "summer_games": 45,
     "summer_goals": 44,
     "summer_assists": 108,
-    "winter_games": 86,
+    "winter_games": 87,
     "winter_goals": 184,
     "winter_assists": 344,
     "defense_points": 44,
@@ -4989,6 +5098,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -5008,10 +5118,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 36,
+    "season_count": 37,
     "years": [
       2007,
       2008,
@@ -5031,15 +5142,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 19,
+    "year_count": 20,
     "first_year": 2007,
-    "last_year": 2025,
-    "games": 385,
+    "last_year": 2026,
+    "games": 386,
     "goals": 620,
-    "assists": 831,
-    "total": 1451,
+    "assists": 832,
+    "total": 1452,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -5068,7 +5180,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2008,
@@ -5091,9 +5204,9 @@
       ],
       "other": []
     },
-    "summer_games": 223,
+    "summer_games": 224,
     "summer_goals": 267,
-    "summer_assists": 399,
+    "summer_assists": 400,
     "winter_games": 162,
     "winter_goals": 353,
     "winter_assists": 432,
@@ -5163,6 +5276,7 @@
       "2017.1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.F",
       "2018.T3",
       "2019.1",
@@ -5196,7 +5310,7 @@
     "year_count": 11,
     "first_year": 2014,
     "last_year": 2025,
-    "games": 114,
+    "games": 115,
     "goals": 95,
     "assists": 144,
     "total": 239,
@@ -5230,7 +5344,7 @@
       ],
       "other": []
     },
-    "summer_games": 64,
+    "summer_games": 65,
     "summer_goals": 45,
     "summer_assists": 28,
     "winter_games": 50,
@@ -5344,6 +5458,7 @@
       "2017.1",
       "2017.T1",
       "2017.T2",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -5358,6 +5473,7 @@
       "2021.2",
       "2022.3",
       "2023.1",
+      "2023.2",
       "2024.1",
       "2024.2",
       "2025.1",
@@ -5365,7 +5481,7 @@
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 24,
+    "season_count": 25,
     "years": [
       2012,
       2013,
@@ -5385,7 +5501,7 @@
     "year_count": 14,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 234,
+    "games": 235,
     "goals": 541,
     "assists": 335,
     "total": 876,
@@ -5423,15 +5539,16 @@
         2019,
         2021,
         2022,
+        2023,
         2024,
         2025
       ],
       "other": []
     },
-    "summer_games": 108,
+    "summer_games": 109,
     "summer_goals": 257,
     "summer_assists": 131,
-    "winter_games": 106,
+    "winter_games": 126,
     "winter_goals": 284,
     "winter_assists": 204,
     "defense_points": 173,
@@ -5446,9 +5563,10 @@
     "seasons": [
       "2013.1",
       "2013.1.T1",
-      "2013.1.T2"
+      "2013.1.T2",
+      "2013.2"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
       2013
     ],
@@ -5468,13 +5586,15 @@
       "summer": [
         2013
       ],
-      "winter": [],
+      "winter": [
+        2013
+      ],
       "other": []
     },
     "summer_games": 10,
     "summer_goals": 0,
     "summer_assists": 27,
-    "winter_games": 0,
+    "winter_games": 2,
     "winter_goals": 3,
     "winter_assists": 8,
     "defense_points": 1,
@@ -5491,6 +5611,7 @@
       "2017.1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2019.T1",
       "2020.1",
       "Hallitour2"
@@ -5506,7 +5627,7 @@
     "year_count": 5,
     "first_year": 2014,
     "last_year": 2020,
-    "games": 24,
+    "games": 25,
     "goals": 58,
     "assists": 8,
     "total": 66,
@@ -5529,7 +5650,7 @@
       ],
       "other": []
     },
-    "summer_games": 10,
+    "summer_games": 11,
     "summer_goals": 4,
     "summer_assists": 2,
     "winter_games": 14,
@@ -5604,14 +5725,17 @@
   },
   "Juha Mertanen": {
     "seasons": [
+      "2006.1",
+      "2006.2",
       "2007.1"
     ],
-    "season_count": 1,
+    "season_count": 3,
     "years": [
+      2006,
       2007
     ],
-    "year_count": 1,
-    "first_year": 2007,
+    "year_count": 2,
+    "first_year": 2006,
     "last_year": 2007,
     "games": 10,
     "goals": 22,
@@ -5622,15 +5746,18 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007
       ],
-      "winter": [],
+      "winter": [
+        2006
+      ],
       "other": []
     },
     "summer_games": 9,
     "summer_goals": 22,
     "summer_assists": 0,
-    "winter_games": 0,
+    "winter_games": 1,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 5,
@@ -5800,9 +5927,10 @@
   "Juho Siitonen": {
     "seasons": [
       "2013.1.T1",
-      "2013.1.T2"
+      "2013.1.T2",
+      "2013.2"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
       2013
     ],
@@ -5822,13 +5950,15 @@
       "summer": [
         2013
       ],
-      "winter": [],
+      "winter": [
+        2013
+      ],
       "other": []
     },
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 0,
+    "winter_games": 4,
     "winter_goals": 3,
     "winter_assists": 5,
     "defense_points": 0,
@@ -5841,11 +5971,12 @@
   },
   "Jukka Mäki": {
     "seasons": [
+      "2006.1",
       "2006.2",
       "2007.1",
       "2007.2"
     ],
-    "season_count": 3,
+    "season_count": 4,
     "years": [
       2006,
       2007
@@ -5862,6 +5993,7 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007
       ],
       "winter": [
@@ -5886,20 +6018,23 @@
   },
   "Julius Rissanen": {
     "seasons": [
+      "2006.1",
+      "2006.2",
       "2007.1",
       "2008.1",
       "2010.1",
       "2011.2"
     ],
-    "season_count": 4,
+    "season_count": 6,
     "years": [
+      2006,
       2007,
       2008,
       2010,
       2011
     ],
-    "year_count": 4,
-    "first_year": 2007,
+    "year_count": 5,
+    "first_year": 2006,
     "last_year": 2011,
     "games": 17,
     "goals": 17,
@@ -5911,11 +6046,13 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007,
         2008,
         2010
       ],
       "winter": [
+        2006,
         2011
       ],
       "other": []
@@ -5923,7 +6060,7 @@
     "summer_games": 13,
     "summer_goals": 11,
     "summer_assists": 2,
-    "winter_games": 3,
+    "winter_games": 4,
     "winter_goals": 6,
     "winter_assists": 4,
     "defense_points": 4,
@@ -5944,6 +6081,7 @@
       "2015.1F",
       "2015.2",
       "2015.3",
+      "2015.4",
       "2016.1",
       "2016.1.F",
       "2016.1.T2",
@@ -5954,7 +6092,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 9,
+    "season_count": 10,
     "years": [
       2013,
       2014,
@@ -5990,6 +6128,7 @@
       "winter": [
         2013,
         2014,
+        2015,
         2016,
         2018
       ],
@@ -5998,7 +6137,7 @@
     "summer_games": 45,
     "summer_goals": 69,
     "summer_assists": 26,
-    "winter_games": 55,
+    "winter_games": 57,
     "winter_goals": 182,
     "winter_assists": 80,
     "defense_points": 63,
@@ -6011,6 +6150,7 @@
   },
   "Juuso Parkkinen": {
     "seasons": [
+      "2006.1",
       "2006.2",
       "2007.1",
       "2008.2",
@@ -6046,7 +6186,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 19,
+    "season_count": 20,
     "years": [
       2006,
       2007,
@@ -6079,6 +6219,7 @@
     ],
     "season_types": {
       "summer": [
+        2006,
         2007,
         2009,
         2010,
@@ -6162,7 +6303,7 @@
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 43,
+    "winter_games": 78,
     "winter_goals": 108,
     "winter_assists": 22,
     "defense_points": 28,
@@ -6238,6 +6379,7 @@
       "2017.1",
       "2017.T1",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -6274,10 +6416,10 @@
     "year_count": 13,
     "first_year": 2010,
     "last_year": 2025,
-    "games": 232,
-    "goals": 494,
+    "games": 233,
+    "goals": 496,
     "assists": 777,
-    "total": 1271,
+    "total": 1273,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -6314,10 +6456,10 @@
       ],
       "other": []
     },
-    "summer_games": 79,
-    "summer_goals": 58,
+    "summer_games": 80,
+    "summer_goals": 60,
     "summer_assists": 193,
-    "winter_games": 152,
+    "winter_games": 153,
     "winter_goals": 436,
     "winter_assists": 584,
     "defense_points": 65,
@@ -6349,6 +6491,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.T1",
       "2018.T3",
@@ -6375,7 +6518,7 @@
     "year_count": 9,
     "first_year": 2012,
     "last_year": 2021,
-    "games": 148,
+    "games": 149,
     "goals": 243,
     "assists": 212,
     "total": 455,
@@ -6410,7 +6553,7 @@
       ],
       "other": []
     },
-    "summer_games": 72,
+    "summer_games": 73,
     "summer_goals": 49,
     "summer_assists": 40,
     "winter_games": 76,
@@ -6582,10 +6725,11 @@
     "seasons": [
       "2023.1",
       "2024.1",
+      "2024.2",
       "2025.1",
       "2025.3"
     ],
-    "season_count": 4,
+    "season_count": 5,
     "years": [
       2023,
       2024,
@@ -6610,6 +6754,7 @@
         2025
       ],
       "winter": [
+        2024,
         2025
       ],
       "other": []
@@ -6617,7 +6762,7 @@
     "summer_games": 20,
     "summer_goals": 48,
     "summer_assists": 42,
-    "winter_games": 3,
+    "winter_games": 20,
     "winter_goals": 20,
     "winter_assists": 10,
     "defense_points": 19,
@@ -6677,6 +6822,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.F",
       "2018.T1",
       "2018.T3",
@@ -6695,9 +6841,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 16,
+    "season_count": 17,
     "years": [
       2014,
       2017,
@@ -6708,15 +6855,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 10,
+    "year_count": 11,
     "first_year": 2014,
-    "last_year": 2025,
-    "games": 167,
+    "last_year": 2026,
+    "games": 168,
     "goals": 205,
-    "assists": 350,
-    "total": 555,
+    "assists": 351,
+    "total": 556,
     "teams": [
       "Otso",
       "Otso 1",
@@ -6735,7 +6883,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2019,
@@ -6747,9 +6896,9 @@
       ],
       "other": []
     },
-    "summer_games": 101,
+    "summer_games": 102,
     "summer_goals": 89,
-    "summer_assists": 175,
+    "summer_assists": 176,
     "winter_games": 66,
     "winter_goals": 116,
     "winter_assists": 175,
@@ -6771,19 +6920,21 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 9,
+    "season_count": 10,
     "years": [
       2021,
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 5,
+    "year_count": 6,
     "first_year": 2021,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 91,
     "goals": 236,
     "assists": 190,
@@ -6798,7 +6949,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2021,
@@ -6845,6 +6997,7 @@
       "2014.3",
       "2015.1",
       "2015.1F",
+      "2015.4",
       "2016.1",
       "2016.1.F",
       "2016.1.T2",
@@ -6852,6 +7005,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -6864,7 +7018,7 @@
       "Hallitour2",
       "Talvi2016"
     ],
-    "season_count": 20,
+    "season_count": 21,
     "years": [
       2008,
       2009,
@@ -6884,10 +7038,10 @@
     "year_count": 14,
     "first_year": 2008,
     "last_year": 2021,
-    "games": 172,
+    "games": 173,
     "goals": 197,
-    "assists": 173,
-    "total": 370,
+    "assists": 174,
+    "total": 371,
     "teams": [
       "Hukka",
       "Otso",
@@ -6917,16 +7071,17 @@
         2008,
         2013,
         2014,
+        2015,
         2016,
         2017,
         2018
       ],
       "other": []
     },
-    "summer_games": 108,
+    "summer_games": 109,
     "summer_goals": 124,
-    "summer_assists": 73,
-    "winter_games": 62,
+    "summer_assists": 74,
+    "winter_games": 64,
     "winter_goals": 73,
     "winter_assists": 100,
     "defense_points": 24,
@@ -7035,6 +7190,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.F",
       "2018.T1",
       "2018.T2",
@@ -7056,10 +7212,10 @@
     "year_count": 7,
     "first_year": 2014,
     "last_year": 2022,
-    "games": 52,
-    "goals": 22,
+    "games": 53,
+    "goals": 24,
     "assists": 104,
-    "total": 126,
+    "total": 128,
     "teams": [
       "Otso",
       "Otso 2",
@@ -7079,8 +7235,8 @@
       "winter": [],
       "other": []
     },
-    "summer_games": 52,
-    "summer_goals": 22,
+    "summer_games": 53,
+    "summer_goals": 24,
     "summer_assists": 104,
     "winter_games": 0,
     "winter_goals": 0,
@@ -7093,7 +7249,7 @@
     "offense_goals": 4,
     "offense_assists": 4
   },
-  "konstantin laakkonen": {
+  "Konstantin Laakkonen": {
     "seasons": [
       "2013.2"
     ],
@@ -7122,7 +7278,7 @@
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 1,
+    "winter_games": 2,
     "winter_goals": 5,
     "winter_assists": 3,
     "defense_points": 1,
@@ -7203,7 +7359,7 @@
     "summer_games": 0,
     "summer_goals": 0,
     "summer_assists": 0,
-    "winter_games": 1,
+    "winter_games": 9,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 2,
@@ -7228,6 +7384,7 @@
       "2017.1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.T1",
       "2018.T3",
       "Hallitour2",
@@ -7244,7 +7401,7 @@
     "year_count": 5,
     "first_year": 2014,
     "last_year": 2018,
-    "games": 91,
+    "games": 92,
     "goals": 124,
     "assists": 28,
     "total": 152,
@@ -7269,7 +7426,7 @@
       ],
       "other": []
     },
-    "summer_games": 47,
+    "summer_games": 48,
     "summer_goals": 16,
     "summer_assists": 4,
     "winter_games": 44,
@@ -7416,7 +7573,7 @@
     "offense_goals": 171,
     "offense_assists": 171
   },
-  "leinikka taavi": {
+  "Taavi Leinikka": {
     "seasons": [
       "2006.1"
     ],
@@ -7451,7 +7608,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "luhtala roope": {
+  "Roope Luhtala": {
     "seasons": [
       "2006.1"
     ],
@@ -7567,20 +7724,23 @@
   "Matias Pentikäinen": {
     "seasons": [
       "2023.1",
+      "2023.2",
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 5,
+    "season_count": 7,
     "years": [
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 3,
+    "year_count": 4,
     "first_year": 2023,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 67,
     "goals": 63,
     "assists": 38,
@@ -7594,9 +7754,11 @@
       "summer": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
+        2023,
         2024,
         2025
       ],
@@ -7605,7 +7767,7 @@
     "summer_games": 16,
     "summer_goals": 11,
     "summer_assists": 10,
-    "winter_games": 16,
+    "winter_games": 51,
     "winter_goals": 52,
     "winter_assists": 28,
     "defense_points": 26,
@@ -7735,6 +7897,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.T1",
       "Talvi2016"
     ],
@@ -7747,10 +7910,10 @@
     "year_count": 3,
     "first_year": 2016,
     "last_year": 2018,
-    "games": 25,
-    "goals": 84,
+    "games": 26,
+    "goals": 85,
     "assists": 10,
-    "total": 94,
+    "total": 95,
     "teams": [
       "Otso",
       "Otso 2",
@@ -7766,8 +7929,8 @@
       ],
       "other": []
     },
-    "summer_games": 20,
-    "summer_goals": 32,
+    "summer_games": 21,
+    "summer_goals": 33,
     "summer_assists": 8,
     "winter_games": 5,
     "winter_goals": 52,
@@ -7838,17 +8001,19 @@
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 6,
+    "season_count": 7,
     "years": [
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 3,
+    "year_count": 4,
     "first_year": 2023,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 64,
     "goals": 253,
     "assists": 62,
@@ -7862,7 +8027,8 @@
       "summer": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2023,
@@ -7890,20 +8056,23 @@
       "2011.1.T2",
       "2011.1.T3",
       "2011.4",
+      "2013.2",
       "2015.1",
       "2015.2",
+      "2015.4",
       "2016.1.T2",
       "2019.1",
       "Talvi2016"
     ],
-    "season_count": 5,
+    "season_count": 7,
     "years": [
       2011,
+      2013,
       2015,
       2016,
       2019
     ],
-    "year_count": 4,
+    "year_count": 5,
     "first_year": 2011,
     "last_year": 2019,
     "games": 38,
@@ -7923,6 +8092,8 @@
         2016
       ],
       "winter": [
+        2013,
+        2015,
         2016,
         2019
       ],
@@ -7931,7 +8102,7 @@
     "summer_games": 22,
     "summer_goals": 39,
     "summer_assists": 14,
-    "winter_games": 11,
+    "winter_games": 16,
     "winter_goals": 39,
     "winter_assists": 6,
     "defense_points": 15,
@@ -7944,15 +8115,17 @@
   },
   "Niilo Suontama": {
     "seasons": [
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 1,
+    "season_count": 2,
     "years": [
-      2025
+      2025,
+      2026
     ],
-    "year_count": 1,
+    "year_count": 2,
     "first_year": 2025,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 21,
     "goals": 39,
     "assists": 9,
@@ -7962,7 +8135,9 @@
       "Otso 3"
     ],
     "season_types": {
-      "summer": [],
+      "summer": [
+        2026
+      ],
       "winter": [
         2025
       ],
@@ -7971,7 +8146,7 @@
     "summer_games": 6,
     "summer_goals": 9,
     "summer_assists": 3,
-    "winter_games": 11,
+    "winter_games": 15,
     "winter_goals": 30,
     "winter_assists": 6,
     "defense_points": 17,
@@ -8072,6 +8247,7 @@
       "2015.1F",
       "2015.2",
       "2015.3",
+      "2015.4",
       "2016.1",
       "2016.1.F",
       "2016.1.T2",
@@ -8079,6 +8255,7 @@
       "2017.1",
       "2017.T1",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -8099,10 +8276,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 25,
+    "season_count": 27,
     "years": [
       2012,
       2013,
@@ -8117,15 +8295,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 14,
+    "year_count": 15,
     "first_year": 2012,
-    "last_year": 2025,
-    "games": 293,
-    "goals": 861,
-    "assists": 507,
-    "total": 1368,
+    "last_year": 2026,
+    "games": 294,
+    "goals": 862,
+    "assists": 508,
+    "total": 1370,
     "teams": [
       "Hukka",
       "Otso",
@@ -8149,12 +8328,14 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2012,
         2013,
         2014,
+        2015,
         2016,
         2017,
         2018,
@@ -8167,10 +8348,10 @@
       ],
       "other": []
     },
-    "summer_games": 153,
-    "summer_goals": 349,
-    "summer_assists": 132,
-    "winter_games": 138,
+    "summer_games": 154,
+    "summer_goals": 350,
+    "summer_assists": 133,
+    "winter_games": 140,
     "winter_goals": 512,
     "winter_assists": 375,
     "defense_points": 183,
@@ -8206,6 +8387,7 @@
       "2016.1.T2",
       "2017.1",
       "2017.T1",
+      "2017F",
       "2018.F",
       "2018.T1",
       "2019.T1",
@@ -8230,7 +8412,7 @@
     "year_count": 13,
     "first_year": 2007,
     "last_year": 2020,
-    "games": 115,
+    "games": 116,
     "goals": 216,
     "assists": 220,
     "total": 436,
@@ -8266,7 +8448,7 @@
       ],
       "other": []
     },
-    "summer_games": 83,
+    "summer_games": 84,
     "summer_goals": 124,
     "summer_assists": 134,
     "winter_games": 32,
@@ -8375,6 +8557,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.F",
       "2018.T1",
       "2018.T2",
@@ -8393,9 +8576,10 @@
       "2024.2",
       "2025.1",
       "2025.3",
+      "KESA2026",
       "SM2022K"
     ],
-    "season_count": 15,
+    "season_count": 16,
     "years": [
       2014,
       2017,
@@ -8406,15 +8590,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 10,
+    "year_count": 11,
     "first_year": 2014,
-    "last_year": 2025,
-    "games": 162,
+    "last_year": 2026,
+    "games": 163,
     "goals": 439,
-    "assists": 425,
-    "total": 864,
+    "assists": 427,
+    "total": 866,
     "teams": [
       "Otso",
       "Otso 1",
@@ -8433,7 +8618,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2021,
@@ -8444,9 +8630,9 @@
       ],
       "other": []
     },
-    "summer_games": 114,
+    "summer_games": 115,
     "summer_goals": 274,
-    "summer_assists": 329,
+    "summer_assists": 331,
     "winter_games": 48,
     "winter_goals": 165,
     "winter_assists": 96,
@@ -8493,7 +8679,7 @@
     "offense_points": 0,
     "total_points": 0
   },
-  "pekka sääskilahti": {
+  "Pekka Sääskilahti": {
     "seasons": [
       "2006.1"
     ],
@@ -8531,15 +8717,17 @@
   "Phong Tran": {
     "seasons": [
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 2,
+    "season_count": 3,
     "years": [
-      2025
+      2025,
+      2026
     ],
-    "year_count": 1,
+    "year_count": 2,
     "first_year": 2025,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 12,
     "goals": 12,
     "assists": 0,
@@ -8551,7 +8739,8 @@
     ],
     "season_types": {
       "summer": [
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2025
@@ -8579,18 +8768,21 @@
       "2023.1",
       "2023.2",
       "2024.1",
+      "2024.2",
+      "2025.3",
       "SM2022K"
     ],
-    "season_count": 6,
+    "season_count": 8,
     "years": [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
-    "year_count": 4,
+    "year_count": 5,
     "first_year": 2021,
-    "last_year": 2024,
+    "last_year": 2025,
     "games": 70,
     "goals": 42,
     "assists": 22,
@@ -8609,14 +8801,16 @@
       "winter": [
         2021,
         2022,
-        2023
+        2023,
+        2024,
+        2025
       ],
       "other": []
     },
     "summer_games": 23,
     "summer_goals": 16,
     "summer_assists": 6,
-    "winter_games": 21,
+    "winter_games": 47,
     "winter_goals": 26,
     "winter_assists": 16,
     "defense_points": 27,
@@ -8726,18 +8920,20 @@
       "2024.1",
       "2024.2",
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 7,
+    "season_count": 8,
     "years": [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 4,
+    "year_count": 5,
     "first_year": 2022,
-    "last_year": 2025,
+    "last_year": 2026,
     "games": 113,
     "goals": 256,
     "assists": 157,
@@ -8751,7 +8947,8 @@
       "summer": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2022,
@@ -8764,7 +8961,7 @@
     "summer_games": 34,
     "summer_goals": 74,
     "summer_assists": 37,
-    "winter_games": 64,
+    "winter_games": 79,
     "winter_goals": 182,
     "winter_assists": 120,
     "defense_points": 60,
@@ -8836,6 +9033,7 @@
       "2015.1F",
       "2015.2",
       "2015.3",
+      "2015.4",
       "2016.1",
       "2016.1.F",
       "2016.1.T2",
@@ -8844,6 +9042,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -8855,7 +9054,7 @@
       "2020.1",
       "Talvi2016"
     ],
-    "season_count": 19,
+    "season_count": 20,
     "years": [
       2008,
       2009,
@@ -8874,10 +9073,10 @@
     "year_count": 13,
     "first_year": 2008,
     "last_year": 2020,
-    "games": 210,
-    "goals": 514,
-    "assists": 404,
-    "total": 918,
+    "games": 211,
+    "goals": 516,
+    "assists": 405,
+    "total": 921,
     "teams": [
       "Hukka",
       "Otso",
@@ -8905,6 +9104,7 @@
       "winter": [
         2011,
         2013,
+        2015,
         2016,
         2017,
         2018,
@@ -8912,10 +9112,10 @@
       ],
       "other": []
     },
-    "summer_games": 137,
-    "summer_goals": 242,
-    "summer_assists": 146,
-    "winter_games": 71,
+    "summer_games": 138,
+    "summer_goals": 244,
+    "summer_assists": 147,
+    "winter_games": 73,
     "winter_goals": 272,
     "winter_assists": 258,
     "defense_points": 83,
@@ -8926,7 +9126,7 @@
     "offense_goals": 157,
     "offense_assists": 157
   },
-  "sampo smeds": {
+  "Sampo Smeds": {
     "seasons": [
       "2006.1"
     ],
@@ -8990,6 +9190,7 @@
       "2017.1",
       "2017.T1",
       "2017.T2",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -9011,10 +9212,11 @@
       "2025.1",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 29,
+    "season_count": 30,
     "years": [
       2010,
       2011,
@@ -9031,15 +9233,16 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 16,
+    "year_count": 17,
     "first_year": 2010,
-    "last_year": 2025,
-    "games": 338,
-    "goals": 1099,
-    "assists": 1592,
-    "total": 2691,
+    "last_year": 2026,
+    "games": 339,
+    "goals": 1100,
+    "assists": 1594,
+    "total": 2694,
     "teams": [
       "Karhuvaarit",
       "Otso",
@@ -9063,7 +9266,8 @@
         2022,
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "winter": [
         2010,
@@ -9084,9 +9288,9 @@
       ],
       "other": []
     },
-    "summer_games": 161,
-    "summer_goals": 362,
-    "summer_assists": 616,
+    "summer_games": 162,
+    "summer_goals": 363,
+    "summer_assists": 618,
     "winter_games": 177,
     "winter_goals": 737,
     "winter_assists": 976,
@@ -9110,12 +9314,13 @@
       "2012.T4",
       "2013.1.T1",
       "2013.1.T2",
+      "2013.2",
       "2014.2",
       "2018.1",
       "2019.1",
       "2019.T1"
     ],
-    "season_count": 8,
+    "season_count": 9,
     "years": [
       2011,
       2012,
@@ -9147,6 +9352,7 @@
       ],
       "winter": [
         2011,
+        2013,
         2018,
         2019
       ],
@@ -9155,7 +9361,7 @@
     "summer_games": 23,
     "summer_goals": 39,
     "summer_assists": 27,
-    "winter_games": 21,
+    "winter_games": 25,
     "winter_goals": 40,
     "winter_assists": 21,
     "defense_points": 16,
@@ -9208,12 +9414,13 @@
   "Tuomo Sirkka": {
     "seasons": [
       "2006.1",
+      "2006.2",
       "2007.1",
       "2007.2",
       "2008.1",
       "2008.2"
     ],
-    "season_count": 5,
+    "season_count": 6,
     "years": [
       2006,
       2007,
@@ -9236,6 +9443,7 @@
         2008
       ],
       "winter": [
+        2006,
         2007,
         2008
       ],
@@ -9244,7 +9452,7 @@
     "summer_games": 17,
     "summer_goals": 34,
     "summer_assists": 52,
-    "winter_games": 22,
+    "winter_games": 23,
     "winter_goals": 39,
     "winter_assists": 55,
     "defense_points": 14,
@@ -9269,12 +9477,14 @@
       "2015.1F",
       "2015.2",
       "2015.3",
+      "2015.4",
       "2016.1",
       "2016.1.F",
       "2016.1.T2",
       "2017.1",
       "2017.T1",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -9290,7 +9500,7 @@
       "2025.1",
       "Talvi2016"
     ],
-    "season_count": 18,
+    "season_count": 19,
     "years": [
       2012,
       2013,
@@ -9308,7 +9518,7 @@
     "year_count": 12,
     "first_year": 2012,
     "last_year": 2025,
-    "games": 197,
+    "games": 198,
     "goals": 262,
     "assists": 247,
     "total": 509,
@@ -9336,6 +9546,7 @@
       "winter": [
         2012,
         2013,
+        2015,
         2016,
         2017,
         2018,
@@ -9345,10 +9556,10 @@
       ],
       "other": []
     },
-    "summer_games": 95,
+    "summer_games": 96,
     "summer_goals": 82,
     "summer_assists": 48,
-    "winter_games": 100,
+    "winter_games": 102,
     "winter_goals": 180,
     "winter_assists": 199,
     "defense_points": 62,
@@ -9401,18 +9612,22 @@
   },
   "Tapio Tiihonen": {
     "seasons": [
+      "2023.2",
       "2024.2",
       "2025.1",
-      "2025.3"
+      "2025.3",
+      "KESA2026"
     ],
-    "season_count": 3,
+    "season_count": 5,
     "years": [
+      2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 2,
-    "first_year": 2024,
-    "last_year": 2025,
+    "year_count": 4,
+    "first_year": 2023,
+    "last_year": 2026,
     "games": 55,
     "goals": 26,
     "assists": 4,
@@ -9423,9 +9638,11 @@
     ],
     "season_types": {
       "summer": [
-        2025
+        2025,
+        2026
       ],
       "winter": [
+        2023,
         2024,
         2025
       ],
@@ -9434,7 +9651,7 @@
     "summer_games": 8,
     "summer_goals": 8,
     "summer_assists": 2,
-    "winter_games": 10,
+    "winter_games": 47,
     "winter_goals": 18,
     "winter_assists": 2,
     "defense_points": 24,
@@ -9579,14 +9796,18 @@
   "Torsti Visuri": {
     "seasons": [
       "2023.1",
-      "2025.1"
+      "2023.2",
+      "2024.2",
+      "2025.1",
+      "2025.3"
     ],
-    "season_count": 2,
+    "season_count": 5,
     "years": [
       2023,
+      2024,
       2025
     ],
-    "year_count": 2,
+    "year_count": 3,
     "first_year": 2023,
     "last_year": 2025,
     "games": 31,
@@ -9603,13 +9824,17 @@
         2023,
         2025
       ],
-      "winter": [],
+      "winter": [
+        2023,
+        2024,
+        2025
+      ],
       "other": []
     },
     "summer_games": 9,
     "summer_goals": 8,
     "summer_assists": 0,
-    "winter_games": 0,
+    "winter_games": 22,
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 4,
@@ -9643,6 +9868,7 @@
       "2017.T1",
       "2017.T2",
       "2017.T3",
+      "2017F",
       "2018.1",
       "2018.F",
       "2018.T1",
@@ -9663,10 +9889,11 @@
       "2024.2",
       "2025.3",
       "Hallitour2",
+      "KESA2026",
       "SM2022K",
       "Talvi2016"
     ],
-    "season_count": 8,
+    "season_count": 26,
     "years": [
       2012,
       2013,
@@ -9681,12 +9908,13 @@
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
-    "year_count": 14,
+    "year_count": 15,
     "first_year": 2012,
-    "last_year": 2025,
-    "games": 258,
+    "last_year": 2026,
+    "games": 259,
     "goals": 1098,
     "assists": 474,
     "total": 1572,
@@ -9701,11 +9929,29 @@
     ],
     "season_types": {
       "summer": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
         2022,
         2023,
-        2024
+        2024,
+        2026
       ],
       "winter": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
         2021,
         2022,
         2023,
@@ -9714,19 +9960,19 @@
       ],
       "other": []
     },
-    "summer_games": 133,
-    "summer_goals": 78,
-    "summer_assists": 57,
-    "winter_games": 48,
-    "winter_goals": 220,
-    "winter_assists": 151,
-    "defense_points": 65,
-    "offense_points": 86,
-    "total_points": 151,
-    "defense_goals": 65,
-    "defense_assists": 65,
-    "offense_goals": 86,
-    "offense_assists": 86
+    "summer_games": 134,
+    "summer_goals": 459,
+    "summer_assists": 174,
+    "winter_games": 125,
+    "winter_goals": 639,
+    "winter_assists": 300,
+    "defense_points": 180,
+    "offense_points": 350,
+    "total_points": 530,
+    "defense_goals": 180,
+    "defense_assists": 179,
+    "offense_goals": 350,
+    "offense_assists": 350
   },
   "Waltteri Wickström": {
     "seasons": [

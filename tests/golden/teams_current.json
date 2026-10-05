@@ -1,10 +1,178 @@
 [
   {
+    "club": "Liitokiekkoseura Team",
+    "division": "Avoin",
+    "id": "3255",
+    "name": "Helsinki Ultimate Empire",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3255",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Liitokiekkoseura Team",
+    "division": "Avoin",
+    "id": "3262",
+    "name": "Helsinki Ultimate Rebels",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3262",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Lempäälän Kisa ry",
+    "division": "Avoin",
+    "id": "3283",
+    "name": "LeKi",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3283",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "",
+    "division": "Avoin",
+    "id": "3284",
+    "name": "Muu Suomi",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3284",
+    "season_id": "KESA2026"
+  },
+  {
     "club": "Espoo Ultimate Club r.y.",
     "division": "Avoin",
     "id": "3258",
     "name": "Otso",
     "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3258",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "",
+    "division": "Avoin",
+    "id": "3260",
+    "name": "Suomi U20",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3260",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Unlimited Frisbee Organization ry",
+    "division": "Avoin",
+    "id": "3261",
+    "name": "UFO",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3261",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Atletico",
+    "division": "Naiset",
+    "id": "3270",
+    "name": "Atletico",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3270",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Liitokiekkoseura Team",
+    "division": "Naiset",
+    "id": "3276",
+    "name": "Helsinki Ultimate Tontut",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3276",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Liitokiekkoseura Team",
+    "division": "Naiset",
+    "id": "3272",
+    "name": "Helsinki Ultimate Tornit",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3272",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Unlimited Frisbee Organization ry",
+    "division": "Naiset",
+    "id": "3285",
+    "name": "UFO",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3285",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Espoo Ultimate Club r.y.",
+    "division": "Naiset",
+    "id": "3275",
+    "name": "Viima",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3275",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Espoon Rennot Heittelijät ry",
+    "division": "Mixed",
+    "id": "3263",
+    "name": "ERHe",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3263",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Helsinki Ultimate Team Ry",
+    "division": "Mixed",
+    "id": "3265",
+    "name": "Helsinki Ultimate",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3265",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Lempäälän Kisa ry",
+    "division": "Mixed",
+    "id": "3267",
+    "name": "Sakun Shakkinappulat",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3267",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Unlimited Frisbee Organization ry",
+    "division": "Mixed",
+    "id": "3269",
+    "name": "UFO",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3269",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Espoo Ultimate Club r.y.",
+    "division": "Juniorit U17",
+    "id": "3277",
+    "name": "EUC",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3277",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Liitokiekkoseura Team",
+    "division": "Juniorit U17",
+    "id": "3278",
+    "name": "Helsinki Ultimate",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3278",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Lempäälän Kisa ry",
+    "division": "Juniorit U17",
+    "id": "3279",
+    "name": "LeKi 1",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3279",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Lempäälän Kisa ry",
+    "division": "Juniorit U17",
+    "id": "3280",
+    "name": "LeKi 2",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3280",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "Unlimited Frisbee Organization ry",
+    "division": "Juniorit U17",
+    "id": "3282",
+    "name": "UFO",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3282",
+    "season_id": "KESA2026"
+  },
+  {
+    "club": "VirHe",
+    "division": "Juniorit U17",
+    "id": "3281",
+    "name": "ViRHe",
+    "player_list_url": "https://ultimate.fi/pelikone/?view=playerlist&team=3281",
     "season_id": "KESA2026"
   }
 ]

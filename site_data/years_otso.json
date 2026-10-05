@@ -261,7 +261,6 @@
       "aki vehtari",
       "antti elonheimo",
       "antti järvi",
-      "aukusti touko väänänen",
       "damijan marin",
       "eero smeds",
       "erkka niini",
@@ -291,10 +290,11 @@
       "siitonen simo",
       "säilynoja teemu",
       "timo vaskio",
+      "touko väänänen",
       "waltteri wickström"
     ],
-    "avg_age": 28.3,
-    "avg_age_known": 33
+    "avg_age": 28.1,
+    "avg_age_known": 34
   },
   "2014": {
     "matches": 27,
@@ -308,7 +308,6 @@
       "aki vehtari",
       "antti elonheimo",
       "antti järvi",
-      "aukusti touko väänänen",
       "aurasmaa pyry",
       "brunila totti",
       "erkka niini",
@@ -337,10 +336,11 @@
       "sandberg tomi",
       "säilynoja teemu",
       "timo vaskio",
+      "touko väänänen",
       "waltteri wickström"
     ],
-    "avg_age": 27.8,
-    "avg_age_known": 31
+    "avg_age": 27.7,
+    "avg_age_known": 32
   },
   "2015": {
     "matches": 28,
@@ -354,7 +354,6 @@
       "aki vehtari",
       "antti elonheimo",
       "antti järvi",
-      "aukusti touko väänänen",
       "eero smeds",
       "erkka niini",
       "haaramo ville",
@@ -380,10 +379,11 @@
       "salo santeri",
       "sandberg tomi",
       "säilynoja teemu",
-      "timo vaskio"
+      "timo vaskio",
+      "touko väänänen"
     ],
-    "avg_age": 30.0,
-    "avg_age_known": 29
+    "avg_age": 29.8,
+    "avg_age_known": 30
   },
   "2016": {
     "matches": 27,
@@ -396,7 +396,6 @@
       "adam torda",
       "aki vehtari",
       "antti elonheimo",
-      "aukusti touko väänänen",
       "brunila totti",
       "eero smeds",
       "emil videman",
@@ -422,10 +421,11 @@
       "pasi tamminen",
       "salo santeri",
       "sandberg tomi",
-      "säilynoja teemu"
+      "säilynoja teemu",
+      "touko väänänen"
     ],
-    "avg_age": 28.4,
-    "avg_age_known": 28
+    "avg_age": 28.2,
+    "avg_age_known": 29
   },
   "2017": {
     "matches": 29,
@@ -440,7 +440,6 @@
       "antti elonheimo",
       "antti järvi",
       "antti-jussi miettinen",
-      "aukusti touko väänänen",
       "brunila totti",
       "eero smeds",
       "emil videman",
@@ -469,10 +468,11 @@
       "rautamäki timi",
       "salo santeri",
       "sandberg tomi",
-      "säilynoja teemu"
+      "säilynoja teemu",
+      "touko väänänen"
     ],
     "avg_age": 28.6,
-    "avg_age_known": 31
+    "avg_age_known": 32
   },
   "2018": {
     "matches": 32,
@@ -485,7 +485,6 @@
       "aki vehtari",
       "antti elonheimo",
       "antti järvi",
-      "aukusti touko väänänen",
       "emil videman",
       "erkka niini",
       "hotari roni",
@@ -511,10 +510,11 @@
       "salo santeri",
       "sandberg tomi",
       "siitonen simo",
-      "säilynoja teemu"
+      "säilynoja teemu",
+      "touko väänänen"
     ],
-    "avg_age": 29.2,
-    "avg_age_known": 28
+    "avg_age": 29.1,
+    "avg_age_known": 29
   },
   "2019": {
     "matches": 38,
@@ -528,7 +528,6 @@
       "antti elonheimo",
       "antti järvi",
       "antti-jussi miettinen",
-      "aukusti touko väänänen",
       "eero metso",
       "emil videman",
       "erkka niini",
@@ -554,10 +553,11 @@
       "sandberg tomi",
       "siitonen simo",
       "säilynoja teemu",
-      "timo vaskio"
+      "timo vaskio",
+      "touko väänänen"
     ],
-    "avg_age": 31.3,
-    "avg_age_known": 28
+    "avg_age": 31.2,
+    "avg_age_known": 29
   },
   "2020": {
     "matches": 13,
@@ -573,7 +573,6 @@
       "antti järvi",
       "antti mäkipää",
       "artur vaskio",
-      "aukusti touko väänänen",
       "eero metso",
       "emil videman",
       "erkka niini",
@@ -597,10 +596,11 @@
       "salo santeri",
       "sandberg tomi",
       "simo soini",
-      "säilynoja teemu"
+      "säilynoja teemu",
+      "touko väänänen"
     ],
-    "avg_age": 27.7,
-    "avg_age_known": 27
+    "avg_age": 27.8,
+    "avg_age_known": 28
   },
   "2021": {
     "matches": 18,
@@ -615,7 +615,6 @@
       "antti järvi",
       "antti mäkipää",
       "antti-jussi miettinen",
-      "aukusti touko väänänen",
       "emil videman",
       "eric hytönen",
       "erkka niini",
@@ -632,10 +631,11 @@
       "kokkonen tatu",
       "oskari vuorio",
       "patrick potrykus",
-      "sandberg tomi"
+      "sandberg tomi",
+      "touko väänänen"
     ],
-    "avg_age": 30.4,
-    "avg_age_known": 20
+    "avg_age": 30.3,
+    "avg_age_known": 21
   },
   "2022": {
     "matches": 26,

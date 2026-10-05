@@ -1,0 +1,74 @@
+# Which teams count as "ours" — the gala's focus-team config.
+#
+# The library knows nothing about Otso: every analytics view takes a
+# `FocusTeam` loaded from this file. Point it at another club and the same
+# views (frenemies, defense, pass network, co-occurrence, years, trophies)
+# answer for that club.
+#
+# Matching is substring, case-insensitive, on the raw pelikone team name.
+
+focus:
+  name: Otso
+
+  # Any team whose name contains one of these is a focus-team squad.
+  # Grizzly / Polar / Hukka / Karhuvaarit are Otso squads under other names.
+  include:
+    - otso
+    - grizzly
+    - polar
+    - hukka
+    - karhuvaarit
+
+  # …unless it contains one of these. Akatemia is a separate development squad:
+  # its players are not counted in the main career stats, but its games are
+  # still Otso games (see `akatemia` below).
+  exclude:
+    - akatemia
+
+  # The Akatemia squad of *this* club. "UFO Akatemia" is another club's team and
+  # must not match, so the club's own name has to appear too.
+  akatemia:
+    - otso
+
+  # The flagship squad(s): what `years_otso.json` counts, as opposed to
+  # `years_all_bears.json`. Compared after stripping spaces, dashes and case,
+  # so "Otso 1", "Otso-1" and "Otso1" are the same squad.
+  # Excludes Otso 2, Otso 3, Hukka, Karhuvaarit and Akatemia.
+  main:
+    - otso
+    - otso1
+    - otsogrizzly
+    - otsog
+    - otsopolar
+    - otsop
+
+  # Scraped team-name variants -> the label the site prints. Keys are compared
+  # with spaces, dashes and case removed. Without this the same squad appears
+  # as "OTSO 2", "Otso2" and "Terror - Otso 2" in one table.
+  canonical:
+    otso: Otso
+    otso1: "Otso 1"
+    otso2: "Otso 2"
+    otso3: "Otso 3"
+    otsoakatemia: "Otso Akatemia"
+    otsogrizzly: "Otso Grizzly"
+    otsog: "Otso Grizzly"
+    otsopolar: "Otso Polar"
+    otsop: "Otso Polar"
+    grizzly: "Otso Grizzly"
+    polar: "Otso Polar"
+    hukka: Hukka
+    karhuvaarit: Karhuvaarit
+
+  # Fallback when no key matches exactly: first substring wins, in this order.
+  # Catches "Otso Polar B" and a bare "Hukka" in a standings table.
+  canonical_substring:
+    grizzly: "Otso Grizzly"
+    polar: "Otso Polar"
+    hukka: Hukka
+    karhuvaarit: Karhuvaarit
+
+  # A scrape artifact: some season cards write the away team as
+  # "Terror - Otso 2" (opponent - our squad). The part after " - otso" is looked
+  # up in `canonical` with "otso" prepended, so " - Otso 2" -> "otso2" -> "Otso 2".
+  name_artifact: " - otso"

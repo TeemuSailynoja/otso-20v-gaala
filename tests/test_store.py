@@ -18,8 +18,11 @@ from ultiorg import parse_allplayers, parse_gameplay
 from ultiorg.aliases import PersonKeys
 from ultiorg.identify import PlayerIndex
 from ultiorg.names import canon
-from ultiorg.parsers import is_otso_akatemia, is_otso_team
 from ultiorg.store import build_store, defense_totals, open_store
+from ultiorg.teams import load_focus_team
+
+ROOT = Path(__file__).resolve().parent.parent
+FOCUS = load_focus_team(str(ROOT / "teams.yaml"))
 
 CORPUS = pytest.mark.skipif(
     not Path("data/processed/match_results.json").exists(),
@@ -135,34 +138,33 @@ def test_schema_change_rebuilds_instead_of_failing(tmp_path):
 
 
 def _otso_side(home, away):
-    """Which side is an Otso-family team, by the library's predicate.
+    """Which side is a focus-team squad, by the library's predicate.
 
-    `build_site_data` keeps its own copy of this predicate today. Both lists must
-    match — measured: with the library's older three-pattern list (`otso`,
-    `grizzly`, `polar`) the two disagree for 13 players, because the site has
-    always also counted "Hukka" and "Karhuvaarit". Phase 8 replaces both with one
-    `teams.yaml` predicate; `test_otso_predicate_covers_every_squad_name` pins the
-    list until then.
+    Before Phase 8 the library and `build_site_data` each kept a copy of this
+    rule. Both had to agree — measured: with the library's older three-pattern
+    list (`otso`, `grizzly`, `polar`) the two disagreed for 13 players, because
+    the site has always also counted "Hukka" and "Karhuvaarit". Phase 8 replaced
+    both with the one `teams.yaml` predicate, asserted below.
     """
-    if is_otso_team(home) or is_otso_akatemia(home):
+    if FOCUS.is_family(home):
         return home
-    if is_otso_team(away) or is_otso_akatemia(away):
+    if FOCUS.is_family(away):
         return away
     return None
 
 
-def test_otso_predicate_covers_every_squad_name():
+def test_focus_predicate_covers_every_squad_name():
     """The library predicate must match the set the gala has always counted.
 
     A pattern list that quietly loses a squad name loses that squad's games, and
     the players who only ever played in them disappear from every aggregate.
     """
     for name in ("Otso", "Otso 2", "Otso Grizzly", "Otso Polar", "Otso Hukka", "Karhuvaarit"):
-        assert is_otso_team(name), name
-    assert not is_otso_team("Otso Akatemia")
-    assert not is_otso_team("UFO Akatemia")
-    assert is_otso_akatemia("Otso Akatemia")
-    assert not is_otso_akatemia("UFO Akatemia")
+        assert FOCUS.matches(name), name
+    assert not FOCUS.matches("Otso Akatemia")
+    assert not FOCUS.matches("UFO Akatemia")
+    assert FOCUS.is_akatemia("Otso Akatemia")
+    assert not FOCUS.is_akatemia("UFO Akatemia")
 
 
 @CORPUS
@@ -172,13 +174,20 @@ def test_store_matches_the_published_site_numbers():
     Both read the same corpus and the same name rule; the store keeps the facts,
     `build_defense_stats` publishes them. If they disagree, one of them is wrong,
     and the disagreement is a player's published stat on the gala page.
+
+    The corpus is read through the gala script's own loader, so "the same input"
+    is measured rather than assumed.
     """
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from build_site_data import build_defense_stats, load_gameplay
+    from build_site_data import load_corpus
+    from ultiorg.analytics import build_defense_stats
 
-    corpus = load_gameplay()
+    corpus = load_corpus()
     index = PlayerIndex(parse_allplayers(read_fixture("allplayers_all.html")))
-    conn, stats = build_store(_tmp_path(), corpus, index)
+    # the same alias file the CLI and the site build use: the store and the
+    # builder must key people identically, or they cannot be compared
+    persons = PersonKeys.from_file(ROOT / "config" / "aliases.json")
+    conn, stats = build_store(_tmp_path(), corpus, index, persons=persons)
 
     assert stats.games == 795
     assert stats.points == 18681
@@ -193,30 +202,32 @@ def test_store_matches_the_published_site_numbers():
             continue
         if row["scorer_team"] != otso_team:
             continue
-        key = canon(row["scorer_name"] or "")
+        key = row["scorer_person"] or canon(row["scorer_name"] or "")
         if key:
             by_person[key] = by_person.get(key, 0) + 1
     conn.close()
 
-    builder = {k: v["defense_points"] for k, v in build_defense_stats(corpus).items()}
+    builder = {k: v["defense_points"] for k, v in build_defense_stats(corpus, FOCUS, persons).items()}
     assert sum(builder.values()) == 4443
     assert sum(by_person.values()) == sum(builder.values())
     # the builder also carries players with zero defense points (offense-only
     # scorers); the store only ever produces rows for points that exist
     assert {k: v for k, v in builder.items() if v} == by_person
-    # What the *page* shows is a third number, and it is smaller. players.json is
-    # keyed by season-card rosters, so a scorer whose point-row spelling never
-    # joins a roster entry loses his stats: "Aukusti Touko Väänänen" (point rows)
-    # vs "Touko Väänänen" (rosters) — 115 defense points that exist in the data
-    # and do not exist on the site. Phase 9 (person keys) closes this; until then
-    # the gap is asserted here rather than discovered in production.
+    # What the page shows is the same number now. It used to be smaller: players.json
+    # is keyed by season-card rosters, so a scorer whose point-row spelling never
+    # joined a roster entry lost his stats — "Aukusti Touko Väänänen" (point rows)
+    # vs "Touko Väänänen" (rosters), 115 defense points that existed in the data and
+    # did not exist on the site. `config/aliases.json` closes it: one asserted merge,
+    # and the published total now equals the store's.
     site = json.loads(Path("site_data/players.json").read_text(encoding="utf-8"))
     site_defense: dict[str, int] = {}
     for name, player in site.items():
         site_defense[canon(name)] = site_defense.get(canon(name), 0) + player.get("defense_points", 0)
-    missing = {k: builder[k] for k in builder if k not in site_defense}
-    assert missing == {"aukusti touko väänänen": 115}
-    assert sum(site_defense.values()) == 4328
+    assert {k: v for k, v in builder.items() if k not in site_defense} == {}
+    assert sum(site_defense.values()) == 4443
+    # the merged player carries both spellings' points under one key
+    assert site_defense["touko väänänen"] == 180
+    assert "aukusti touko väänänen" not in site_defense
 
 
 def _tmp_path():

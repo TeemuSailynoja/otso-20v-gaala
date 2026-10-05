@@ -29,6 +29,16 @@ def canon(name: str) -> str:
     return " ".join(sorted(parts))
 
 
+def plain(name: str) -> str:
+    """Display form of a scraped name: NBSP folded, captain marks dropped.
+
+    Roster cells write `"Patrick\xa0Potrykus"` and point cells write
+    `"Potrykus Patrick (c)"`. This keeps the order and the spelling — it only
+    makes the string safe to print and to compare.
+    """
+    return " ".join(_CAPTION_RE.sub(" ", (name or "").replace("\xa0", " ")).split())
+
+
 def pseudo_key(name: str) -> str:
     """Key for a name that never resolved to a player ID.
 

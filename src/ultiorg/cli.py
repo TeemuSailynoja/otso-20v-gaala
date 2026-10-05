@@ -73,6 +73,7 @@ from .parsers import (
 from .query import AmbiguousPlayer, Store, UnknownPlayer
 from .repair import dedupe_point_rows, migrate_point_fields, refresh_rosters
 from .store import build_store, defense_totals
+from .teams import FocusTeam, load_focus_team
 
 CORPUS = PROCESSED_DIR / "match_results.json"
 
@@ -128,12 +129,17 @@ def _fetch_season_data(
     fetcher: Fetcher,
     *,
     gameplay: bool = False,
-    otso_only: bool = False,
+    focus: FocusTeam | None = None,
+    focus_only: bool = False,
     csv_only: bool = False,
 ) -> Dict:
-    """One season -> the raw season file shape `corpus.build_corpus` reads."""
+    """One season -> the raw season file shape `corpus.build_corpus` reads.
+
+    `focus` narrows teams, placements and games to one club. Without it the
+    season file holds the whole season — every club's squads, the full podium.
+    """
     from .fetcher import fetch_player_list, fetch_standings_page, fetch_team_card, fetch_teams_page
-    from .parsers import is_otso_team, parse_player_list, parse_standings_page, parse_team_card, parse_teams_page
+    from .parsers import parse_player_list, parse_standings_page, parse_team_card, parse_teams_page
 
     print(f"\nseason {season_name} ({season_id})")
     data: Dict = {
@@ -150,17 +156,16 @@ def _fetch_season_data(
     if not csv_only:
         teams_html = fetch_teams_page(season_id, fetcher)
         if teams_html:
-            data["teams"] = parse_teams_page(teams_html, season_id)
+            data["teams"] = parse_teams_page(teams_html, season_id, focus=focus)
             print(f"  teams: {len(data['teams'])}")
 
         standings_html = fetch_standings_page(season_id, fetcher)
         if standings_html:
-            data["placements"] = parse_standings_page(standings_html, season_id)
-            otso = [p for p in data["placements"] if is_otso_team(p["team_name"])]
-            print(f"  placements: {len(data['placements'])} ({len(otso)} Otso)")
+            data["placements"] = parse_standings_page(standings_html, season_id, focus=focus)
+            print(f"  placements: {len(data['placements'])}")
 
         for team in data["teams"]:
-            if otso_only and not is_otso_team(team["name"]):
+            if focus_only and focus is not None and not focus.matches(team["name"]):
                 continue
             if team["id"]:
                 team_html = fetch_team_card(team["id"], fetcher)
@@ -178,7 +183,7 @@ def _fetch_season_data(
     if gameplay and not csv_only:
         games_html = fetch_games_page(season_id, fetcher)
         if games_html:
-            data["games"] = parse_games_list(games_html, season_id)
+            data["games"] = parse_games_list(games_html, season_id, focus=focus)
             print(f"  games: {len(data['games'])}")
             for game in data["games"]:
                 gameplay_html = fetch_gameplay(game["game_id"], fetcher)
@@ -201,6 +206,18 @@ def _write_season_file(data_dir: Path, data: Dict) -> Path:
     return path
 
 
+def _focus(args) -> FocusTeam | None:
+    """The club the fetch is about, from `teams.yaml` in the working directory.
+
+    `None` (no file) means club-agnostic: fetch and parse everything. The gala
+    repo ships a `teams.yaml`, so its fetches stay Otso-shaped by default.
+    """
+    focus = load_focus_team(Path(args.teams))
+    if focus is None and args.verbose_focus:
+        print(f"no focus team in {args.teams}: fetching every club")
+    return focus
+
+
 def cmd_fetch(args, fetcher: Fetcher) -> int:
     data_dir = Path(args.data_dir)
     what = args.what
@@ -220,24 +237,25 @@ def cmd_fetch(args, fetcher: Fetcher) -> int:
         for season in seasons:
             _write_season_file(data_dir, _fetch_season_data(
                 season["id"], season["name"], fetcher,
-                gameplay=args.gameplay, otso_only=args.otso_only, csv_only=args.csv_only,
+                focus=_focus(args), focus_only=args.focus_only, csv_only=args.csv_only,
             ))
         if not args.no_merge:
-            _merge(data_dir, require_gameplay=args.gameplay)
+            _merge(data_dir, require_gameplay=args.gameplay, focus=_focus(args))
         return 0
 
     if what == "season":
         _write_season_file(data_dir, _fetch_season_data(
             args.season_id, args.name or args.season_id, fetcher,
-            gameplay=args.gameplay, otso_only=args.otso_only, csv_only=args.csv_only,
+            gameplay=args.gameplay, focus=_focus(args), focus_only=args.focus_only,
+            csv_only=args.csv_only,
         ))
         if not args.no_merge:
-            _merge(data_dir, require_gameplay=args.gameplay)
+            _merge(data_dir, require_gameplay=args.gameplay, focus=_focus(args))
         return 0
 
     if what == "games":
         html = fetch_games_page(args.season_id, fetcher)
-        games = parse_games_list(html or "", args.season_id)
+        games = parse_games_list(html or "", args.season_id, focus=_focus(args))
         for game in games:
             print(f"{game['game_id']}\t{game['home_team']} {game['home_score']}-{game['away_score']} {game['away_team']}")
         print(f"{len(games)} games")
@@ -306,16 +324,16 @@ def cmd_fetch(args, fetcher: Fetcher) -> int:
 # --- merge / store -----------------------------------------------------------
 
 
-def _merge(data_dir: Path, *, require_gameplay: bool = True) -> None:
+def _merge(data_dir: Path, *, require_gameplay: bool = True, focus: FocusTeam | None = None) -> None:
     path = data_dir / "processed" / "match_results.json"
-    games, stats = build_corpus(data_dir, require_gameplay=require_gameplay)
+    games, stats = build_corpus(data_dir, require_gameplay=require_gameplay, focus=focus)
     write_corpus(path, games)
     print(f"corpus: {stats.summary()} -> {path}")
     print("  sources: " + ", ".join(f"{k}={v}" for k, v in stats.sources.items()))
 
 
 def cmd_merge(args) -> int:
-    _merge(Path(args.data_dir), require_gameplay=not args.no_gameplay)
+    _merge(Path(args.data_dir), require_gameplay=not args.no_gameplay, focus=_focus(args))
     return 0
 
 
@@ -475,6 +493,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--refresh", action="store_true", help="ignore cache freshness and re-download")
     parser.add_argument("--dry-run", action="store_true", help="report what would be fetched; make no requests")
     parser.add_argument("--store", help="fact store path (default <data-dir>/store.sqlite)")
+    parser.add_argument("--teams", default="teams.yaml",
+                        help="focus-team config; absent means every club (default %(default)s)")
+    parser.add_argument("--verbose-focus", action="store_true",
+                        help="say when no focus team was found")
 
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -507,7 +529,7 @@ def build_parser() -> argparse.ArgumentParser:
             target.add_argument("season_id")
         if name in ("season", "all-seasons"):
             target.add_argument("--gameplay", action="store_true", help="also fetch point-by-point for every game")
-            target.add_argument("--otso-only", action="store_true", help="skip other clubs' team cards (fewer requests)")
+            target.add_argument("--focus-only", action="store_true", help="skip other clubs' team cards (fewer requests)")
             target.add_argument("--csv-only", action="store_true", help="CSV exports only (current season)")
             target.add_argument("--no-merge", action="store_true", help="do not recompose the corpus afterwards")
         if name == "season":

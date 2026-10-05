@@ -7,8 +7,9 @@ from typing import List, Dict, Optional, Tuple
 
 from bs4 import BeautifulSoup
 
-from .config import BASE_URL, OTSO_PATTERNS
+from .config import BASE_URL
 from .names import canon
+from .seasons import classify, season_stage, season_type, season_year
 
 
 def extract_season_id(href: str) -> Optional[str]:
@@ -28,66 +29,27 @@ def extract_season_id(href: str) -> Optional[str]:
 
 
 def extract_year_from_season(season_id: str, season_name: str) -> Optional[int]:
-    """Extract year from season ID or name.
-    
-    Args:
-        season_id: Season identifier.
-        season_name: Season name.
-        
-    Returns:
-        Year as integer, or None if not found.
+    """Year a season ID belongs to — see `ultiorg.seasons.season_year`.
+
+    Any four-digit year counts, so `1999.2` reads as 1999 and `2017F` as 2017.
     """
-    # Try season ID first
-    year_match = re.search(r"(20\d{2})", season_id)
-    if year_match:
-        return int(year_match.group(1))
-    
-    # Try season name
-    year_match = re.search(r"(20\d{2})", season_name)
-    if year_match:
-        return int(year_match.group(1))
-    
-    return None
+    return season_year(season_id, season_name)
 
 
 def classify_season(season_id: str, season_name: str) -> Dict:
-    """Classify a season into type and year.
-    
-    Args:
-        season_id: Season identifier.
-        season_name: Season name.
-        
-    Returns:
-        Dictionary with year, type, id, and name.
+    """Classify a season: year, summer/winter, and where it sits in that season.
+
+    Returns `{year, season_type, stage, id, name}`. Two axes, because they are
+    two questions: `season_type` is summer / winter / beach / other, and `stage`
+    is whether this id is the season itself, a tour stop or a finale
+    (`2019.T3` is tour 3 *of* the 2019 summer season).
+
+    The season type comes from the season **name**, not the numeric suffix:
+    `2018.1` is winter while `2020.1` is summer. Passing the name is what makes
+    `2018.1` classify at all — with no name the numeric ids are `other`, which
+    is reported rather than guessed.
     """
-    year = extract_year_from_season(season_id, season_name)
-    
-    # Determine season type
-    if season_id.startswith("KESA"):
-        season_type = "summer"
-    elif "T1" in season_id:
-        season_type = "tour1"
-    elif "T2" in season_id:
-        season_type = "tour2"
-    elif "T3" in season_id:
-        season_type = "tour3"
-    elif "Finaa" in season_id or season_id.endswith("F"):
-        season_type = "finals"
-    elif "Talvi" in season_name or "Talvi" in season_id:
-        season_type = "winter"
-    elif "BEACH" in season_id or "Ranta" in season_name:
-        season_type = "beach"
-    elif "SM" in season_id:
-        season_type = "championship"
-    else:
-        season_type = "unknown"
-    
-    return {
-        "year": year,
-        "type": season_type,
-        "id": season_id,
-        "name": season_name,
-    }
+    return classify(season_id, season_name)
 
 
 def parse_season_list(html: str) -> List[Dict]:
@@ -121,31 +83,25 @@ def parse_season_list(html: str) -> List[Dict]:
     return seasons
 
 
-def parse_teams_page(html: str, season_id: str) -> List[Dict]:
-    """Parse the teams list page, filtering to Otso teams only.
-    
-    Handles two HTML formats:
-    1. New format (KESA2026+): tables with class='teams-table'
-    2. Old format (pre-2026): single large table with teams embedded as text
-    
-    Args:
-        html: HTML content of the teams page.
-        season_id: Season identifier.
-        
-    Returns:
-        List of Otso team dictionaries.
+def parse_teams_page(html: str, season_id: str, focus=None) -> List[Dict]:
+    """Parse a season's teams page.
+
+    `focus` is a `FocusTeam` (see `teams.py`): when given, only that club's
+    squads come back. Left `None`, every team in the season does - the library
+    has no default club, so filtering is always the caller's decision.
+
+    One HTML format. There used to be a second branch for a "pre-2026" layout no
+    page in the archive uses: 73/73 cached teams pages, spanning 2006 to 2026,
+    carry `teams-table`. Dead code for a format nobody has ever observed.
     """
     teams = []
     soup = BeautifulSoup(html, "html.parser")
 
-    # Format 1: New format with teams-table class
     for table in soup.find_all("table", class_="teams-table"):
         division = ""
-        # Get division from the table header
         th = table.find("th", colspan=True)
         if th:
             division = th.get_text(strip=True)
-        # Also check for division in first row
         first_row = table.find("tr")
         if first_row and not division:
             first_td = first_row.find("td")
@@ -154,132 +110,56 @@ def parse_teams_page(html: str, season_id: str) -> List[Dict]:
 
         for row in table.find_all("tr")[1:]:  # Skip header
             tds = row.find_all("td")
-            if len(tds) >= 3:
-                team_link = tds[0].find("a")
-                club_link = tds[1].find("a")
-                player_link = tds[2].find("a", href=True)
+            if len(tds) < 3:
+                continue
+            team_link = tds[0].find("a")
+            if not team_link:
+                continue
+            team_name = team_link.get_text(strip=True)
+            if focus is not None and not focus.matches(team_name):
+                continue
 
-                if team_link:
-                    team_name = team_link.get_text(strip=True)
-                    # Filter: only keep Otso teams
-                    if not is_otso_team(team_name):
-                        continue
-                    
-                    team_id = None
-                    if "team=" in team_link["href"]:
-                        for part in team_link["href"].split("&"):
-                            if part.startswith("team="):
-                                team_id = part.split("=")[1]
+            team_id = None
+            for part in team_link["href"].split("&"):
+                if part.startswith("team="):
+                    team_id = part.split("=")[1]
 
-                    teams.append({
-                        "name": team_name,
-                        "id": team_id,
-                        "club": club_link.get_text(strip=True) if club_link else "",
-                        "division": division,
-                        "season_id": season_id,
-                        "player_list_url": f"{BASE_URL}/{player_link['href']}" if player_link else None,
-                    })
-
-    # Format 2: Old format - single large table with all data
-    if not teams:
-        teams = _parse_teams_old_format(html, season_id)
+            club_link = tds[1].find("a")
+            player_link = tds[2].find("a", href=True)
+            teams.append({
+                "name": team_name,
+                "id": team_id,
+                "club": club_link.get_text(strip=True) if club_link else "",
+                "division": division,
+                "season_id": season_id,
+                "player_list_url": f"{BASE_URL}/{player_link['href']}" if player_link else None,
+            })
 
     return teams
 
 
-def _parse_teams_old_format(html: str, season_id: str) -> List[Dict]:
-    """Parse teams from old-format HTML (pre-2026 pelikone), filtered to Otso teams.
-    
-    Args:
-        html: HTML content of the teams page.
-        season_id: Season identifier.
-        
-    Returns:
-        List of Otso team dictionaries.
-    """
-    teams = []
-    soup = BeautifulSoup(html, "html.parser")
-    
-    # Teams appear as links with "Pelaajalista" nearby
-    team_links = soup.find_all("a", href=True, string=re.compile(r"^\w"))
-    
-    # Build a list of potential team names
-    seen_teams = set()
-    for link in team_links:
-        name = link.get_text(strip=True)
-        # Filter: only keep Otso teams
-        if not is_otso_team(name):
-            continue
-        if (len(name) > 2 and len(name) < 40 and 
-            name not in ["Pelaajalista", "Pistep\u00f6rssi", "Pelit",
-                        "Sijoitukset", "Pelit", "Joukkueet", "Avoin",
-                        "Naiset", "Mixed", "Juniorit"] and
-            name not in seen_teams and
-            not name.startswith("\u00bb") and
-            not name.startswith("Talvi") and
-            not name.startswith("Kes\u00e4") and
-            not name.startswith("Ranta")):
-            seen_teams.add(name)
-            
-            team_id = None
-            if "team=" in link["href"]:
-                for part in link["href"].split("&"):
-                    if part.startswith("team="):
-                        team_id = part.split("=")[1]
-            
-            teams.append({
-                "name": name,
-                "id": team_id,
-                "club": "",
-                "division": "",
-                "season_id": season_id,
-                "player_list_url": None,
-            })
-    
-    # Deduplicate by name
-    seen = set()
-    unique_teams = []
-    for t in teams:
-        if t["name"] not in seen:
-            seen.add(t["name"])
-            unique_teams.append(t)
-    
-    return unique_teams
+def parse_standings_page(html: str, season_id: str, focus=None) -> List[Dict]:
+    """Parse a season's standings/placements page.
 
+    `focus` narrows the result to one club's squads; left `None` the whole
+    podium comes back, which is what the trophy view needs in order to see who
+    beat whom.
 
-def parse_standings_page(html: str, season_id: str) -> List[Dict]:
-    """Parse the standings page to get placements.
-    
-    Handles two HTML formats:
-    1. New format: tables with proper placement structure
-    2. Old format (pre-2026): placements embedded in text
-    
-    Args:
-        html: HTML content of the standings page.
-        season_id: Season identifier.
-        
-    Returns:
-        List of placement dictionaries.
+    One HTML format, as for teams: every one of the 717 placements in the
+    archive carries a `team_id`, which only the table parser produces, so the
+    old text-scraping branch had never run on a single page. It is gone.
     """
     soup = BeautifulSoup(html, "html.parser")
-
-    # Try new format first
-    table = soup.find("table", class_="placements-table")
-    if table:
-        return _parse_standings_new_format(html, season_id)
-    else:
-        return _parse_standings_old_format(html, season_id)
+    if soup.find("table", class_="placements-table") is None:
+        return []
+    return _parse_standings_new_format(html, season_id, focus)
 
 
-def _parse_standings_new_format(html: str, season_id: str) -> List[Dict]:
-    """Parse placements from new-format HTML.
-    
-    Args:
-        html: HTML content of the standings page.
-        season_id: Season identifier.
-        
-    Returns:
-        List of placement dictionaries.
+def _parse_standings_new_format(html: str, season_id: str, focus=None) -> List[Dict]:
+    """Scrape the placements table: one row per placement, one column per division.
+
+    Columns are divisions, rows are placement numbers; a team link gives the name
+    and the pelikone team id. `focus` narrows to one club when given.
     """
     placements = []
     soup = BeautifulSoup(html, "html.parser")
@@ -313,8 +193,8 @@ def _parse_standings_new_format(html: str, season_id: str) -> List[Dict]:
                 team_link = team_cell.find("a")
                 if team_link:
                     team_name = team_link.get_text(strip=True)
-                    # Filter: only keep Otso teams
-                    if not is_otso_team(team_name):
+                    # `focus` narrows to one club; None keeps every team on the podium.
+                    if focus is not None and not focus.matches(team_name):
                         continue
                     
                     team_id = None
@@ -331,81 +211,6 @@ def _parse_standings_new_format(html: str, season_id: str) -> List[Dict]:
                         "season_id": season_id,
                     })
 
-    return placements
-
-
-def _parse_standings_old_format(html: str, season_id: str) -> List[Dict]:
-    """Parse placements from old-format HTML (pre-2026 pelikone).
-    
-    In old format, placements are embedded in the page text:
-    Kulta/Hopea/Pronssi followed by team names, or numbered positions (4., 5., etc.)
-    
-    Args:
-        html: HTML content of the standings page.
-        season_id: Season identifier.
-        
-    Returns:
-        List of placement dictionaries.
-    """
-    placements = []
-    soup = BeautifulSoup(html, "html.parser")
-    
-    # Get all text
-    text = soup.get_text()
-    
-    # Find placement patterns
-    placement_pattern = re.compile(
-        r"(Kulta|Hopea|Pronssi|(\d+)\.)\s+([^\n]{2,200}?)",
-        re.MULTILINE,
-    )
-    
-    divisions = ["Avoin", "Naiset", "Mixed", "Juniorit"]
-    
-    # Split text by division headers
-    for division in divisions:
-        # Find this division's section
-        div_match = re.search(
-            rf"{division}\s*\n(.*?)(?:\n\s*(?:Avoin|Naiset|Mixed|Juniorit)|\n\s*$)",
-            text,
-            re.DOTALL,
-        )
-        if not div_match:
-            continue
-        
-        div_text = div_match.group(1)
-        
-        # Find all placements in this division
-        for match in placement_pattern.finditer(div_text):
-            placement_type = match.group(1)
-            team_names_str = match.group(3).strip()
-            
-            # Parse team names from the string
-            team_names = re.split(r"[\n\xa0]+", team_names_str)
-            
-            # Determine placement number
-            if placement_type == "Kulta":
-                placement_num = "1." if len(team_names) > 1 else "Kulta"
-            elif placement_type == "Hopea":
-                placement_num = "2." if len(team_names) > 1 else "Hopea"
-            elif placement_type == "Pronssi":
-                placement_num = "3." if len(team_names) > 1 else "Pronssi"
-            else:
-                placement_num = placement_type
-            
-            for team_name in team_names:
-                team_name = team_name.strip()
-                # Filter: only keep Otso teams
-                if not is_otso_team(team_name):
-                    continue
-                if team_name and len(team_name) > 1 and team_name not in ["Kulta", "Hopea", "Pronssi"]:
-                    placements.append({
-                        "placement": placement_num,
-                        "team_name": team_name,
-                        "team_id": None,
-                        "division": division,
-                        "season_id": season_id,
-                    })
-    
     return placements
 
 
@@ -727,42 +532,7 @@ def parse_csv_spirit(text: str, season_id: str) -> List[Dict]:
     return evaluations
 
 
-def is_otso_team(team_name: str) -> bool:
-    """Check if a team name matches Otso patterns.
-
-    The patterns are `OTSO_PATTERNS` in `config.py` — otso, grizzly, polar,
-    hukka, karhuvaarit — and Akatemia is excluded by `is_otso_akatemia`, not
-    here. "Otso 3" is **not** excluded: it matches `otso` and is included.
-    
-    Args:
-        team_name: Team name to check.
-        
-    Returns:
-        True if the team is an Otso team.
-    """
-    name_lower = team_name.lower()
-    # Exclude Akatemia teams (separate club)
-    if "akatemia" in name_lower:
-        return False
-    for pattern in OTSO_PATTERNS:
-        if pattern in name_lower:
-            return True
-    return False
-
-
-def is_otso_akatemia(team_name: str) -> bool:
-    """True for Otso Akatemia specifically, not for Akatemia teams in general.
-
-    `is_otso_team` excludes every Akatemia team because Akatemia is a separate
-    club; the gala still wants to know when the opponent (or the other side of a
-    fixture) is Otso's Akatemia squad. `build_site_data.is_otso_akatemia` is the
-    same rule; Phase 8 folds both into the `teams.yaml` predicate.
-    """
-    lower = team_name.lower()
-    return "akatemia" in lower and "otso" in lower
-
-
-def parse_games_list(html: str, season_id: str) -> List[Dict]:
+def parse_games_list(html: str, season_id: str, focus=None) -> List[Dict]:
     """Parse the games list page.
     
     Row structure (verified from KESA2026):
@@ -829,8 +599,8 @@ def parse_games_list(html: str, season_id: str) -> List[Dict]:
                 division = text
                 break
         
-        # Only include games where at least one team is Otso
-        if is_otso_team(home_team) or is_otso_team(away_team):
+        # `focus` narrows the list to one club; without it, every game in the season.
+        if focus is None or focus.matches(home_team) or focus.matches(away_team):
             games.append({
                 "game_id": game_id,
                 "time": time_str,

@@ -21,15 +21,21 @@ Interactive visualization for the 20th anniversary of Otso Ultimate Frisbee club
 ```
 index.html          — SPA frontend (47 KB)
 build_site_data.py  — turns the corpus into the JSON the page reads
-src/ultiorg/        — the library: fetch, cache, parse, repair, query Ultiorganizer data
+teams.yaml          — which club this site is about: squad names, which is the flagship,
+                      how each is printed. The library has no club baked in.
+src/ultiorg/        — the library: fetch, cache, parse, repair, analyse, query Ultiorganizer data
 site_data/          — generated JSON the SPA fetches
-  players.json      — per-player stats (81 KB)
-  pass_network.json — directed pass connections (40 KB); `given[X][Y]` = X assisted Y,
+  players.json      — per-player stats (170 KB)
+  pass_network.json — directed pass connections (129 KB); `given[X][Y]` = X assisted Y,
                       `received[X][Y]` = X was assisted by Y
-  cooccurrence.json — co-occurrence matrix (123 KB)
-  summary.json      — aggregate stats (7.5 KB)
-  years.json        — year-by-year evolution (1.7 KB)
-  trophies.json     — season-level gold/silver/bronze record (7 KB)
+  cooccurrence.json — co-occurrence matrix (187 KB)
+  summary.json      — aggregate stats (7.6 KB)
+  trophies.json     — season-level gold/silver/bronze record (15 KB)
+  years_otso.json   — year-by-year for the flagship squad; `_summer` / `_winter` variants, and
+                      `years_all_bears*` for every squad of the club
+  years.json, players.csv, player_names.txt, season_mapping.json — orphans: the page fetches
+                      none of them and the build no longer writes `years.json`. Phase 11 deletes
+                      the lot (see `plans/pelikone-library-refactor.md`).
 data/
   raw/              — season parses (tracked) + archived game HTML (gitignored)
   cache/            — per-URL HTTP cache with a freshness policy (excluded from git)
@@ -144,7 +150,10 @@ fetched, the address is printed in text instead.
 
 - **ultimate.fi/pelikone**: Season team cards, match results, point-by-point gameplay. The backend
   is [Ultiorganizer](https://github.com/ktolonen/ultiorganizer), open-source PHP; `ultiorg` is
-  written against that backend, not against Otso, so another instance is a `--base-url`.
+  written against that backend, not against Otso, so another instance is a `--base-url` and another
+  club is a `teams.yaml`. Every parser and analytics builder takes a `FocusTeam` and filters only
+  when given one; `build_site_data.py` passes this repo's `teams.yaml`, and `ultiorg --teams PATH`
+  picks it up.
 - **104 season files**: 2006–2026 (including SM, XSM, Beach, Hallitour, Kesa, Talvi)
 - **795 games**: With full point-by-point gameplay data (18,681 points)
 - **171 unique players**: Across 20 years (main Otso teams only, excludes Akatemia)
@@ -156,7 +165,7 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 134 tests, offline; network-marked tests are deselected by default
+uv run pytest            # 219 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
 ```
 

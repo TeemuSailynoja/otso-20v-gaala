@@ -1,4 +1,8 @@
-"""Configuration constants for the Otso scraper."""
+"""Where the data lives, and how politely to ask the server for it.
+
+Nothing here names a club: which team the analytics are about comes from
+`teams.yaml` in the consuming repo (`ultiorg.teams.load_focus_team`).
+"""
 
 from pathlib import Path
 
@@ -9,7 +13,6 @@ BASE_URL = "https://ultimate.fi/pelikone"
 DATA_DIR = Path("data")
 RAW_DIR = DATA_DIR / "raw"
 PROCESSED_DIR = DATA_DIR / "processed"
-CACHE_FILE = DATA_DIR / "cache_manifest.json"
 STORE_PATH = DATA_DIR / "store.sqlite"
 
 # Human-asserted identity merges (canonical name -> canonical name). The library
@@ -20,37 +23,9 @@ ALIASES_PATH = Path("config") / "aliases.json"
 # Request configuration
 REQUEST_DELAY = 1.5  # seconds between requests to be respectful
 
-# User agent for polite scraping
-USER_AGENT = "Otso20v-Gaala-DataBot/1.0 (educational project, please be gentle)"
+# Identify yourself. A generic default so a library consumer is not pretending
+# to be the gala project; the gala CLI overrides it.
+USER_AGENT = "ultiorg/0.1 (polite data fetch for a Finnish ultimate database)"
 
-# Otso club-family team name patterns. Akatemia is a separate club, not Otso.
-# Measured against the 795-game corpus: the gala site has always also counted
-# "Hukka" and "Karhuvaarit" (Otso's other squad names). A pattern list without
-# them silently drops those games — 13 players and their defense points move
-# depending on which list is used. Phase 8 replaces this constant with the
-# `teams.yaml` focus-team config; until then the two must stay equal.
-OTSO_PATTERNS = [
-    "otso",
-    "grizzly",
-    "polar",
-    "hukka",
-    "karhuvaarit",
-]
-
-# Division filter — only scrape Avoin/miehet division
-OTSO_DIVISIONS = [
-    "avoin",
-    "miehet",
-]
-
-# Season classification
-SEASON_TYPES = {
-    "Kesä": "summer",
-    "Talvi": "winter",
-    "Tour 1": "tour",
-    "Tour 2": "tour",
-    "Tour 3": "tour",
-    "Finaalit": "finals",
-    "Finaali": "finals",
-    "Ranta": "beach",
-}
+# The instance is multi-lingual; season names are Finnish. Classification lives
+# in `ultiorg.seasons`, not here.

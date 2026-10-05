@@ -202,7 +202,6 @@
     "roster_players": 13,
     "roster_names": [
       "antti elonheimo",
-      "aukusti touko väänänen",
       "erkka niini",
       "hotari roni",
       "ilkka rämö",
@@ -213,10 +212,11 @@
       "koistinen tuukka",
       "oskari vuorio",
       "sandberg tomi",
-      "timo vaskio"
+      "timo vaskio",
+      "touko väänänen"
     ],
-    "avg_age": 28.2,
-    "avg_age_known": 12
+    "avg_age": 27.8,
+    "avg_age_known": 13
   },
   "2015": {
     "matches": 13,
@@ -227,7 +227,6 @@
     "roster_players": 14,
     "roster_names": [
       "antti elonheimo",
-      "aukusti touko väänänen",
       "erkka niini",
       "haaramo ville",
       "hotari roni",
@@ -239,10 +238,11 @@
       "lehto tommi",
       "pasi tamminen",
       "sandberg tomi",
-      "timo vaskio"
+      "timo vaskio",
+      "touko väänänen"
     ],
-    "avg_age": 32.0,
-    "avg_age_known": 13
+    "avg_age": 31.4,
+    "avg_age_known": 14
   },
   "2016": {
     "matches": 16,

@@ -5,11 +5,7 @@ only HTML views. This package fetches those views politely, caches them, and
 parses them into ID-keyed data:
 
     from ultiorg import fetch_gameplay, parse_gameplay, parse_allplayers
-    from ultiorg.parsers import is_otso_team, classify_season
-    from ultiorg.builders import build_team_timeline
-
-The public API below is complete: every parser and fetcher in the package is
-re-exported, including the gameplay and player-identity paths.
+    from ultiorg import load_focus_team, build_defense_stats, build_store
 """
 
 
@@ -17,8 +13,6 @@ from .parsers import (
     classify_season,
     extract_year_from_season,
     extract_season_id,
-    is_otso_team,
-    is_otso_akatemia,
     parse_season_list,
     parse_teams_page,
     parse_standings_page,
@@ -41,10 +35,15 @@ from .parsers import (
     parse_csv_spirit,
     NotCsvError,
 )
-from .builders import (
-    build_team_timeline,
-    build_player_network,
-    build_summary,
+from .analytics import (
+    CHAMPIONSHIP_EVENTS,
+    build_career_stats,
+    build_cooccurrence,
+    build_defense_stats,
+    build_frenemies,
+    build_pass_network,
+    build_trophies,
+    build_years,
 )
 from .corpus import CorpusStats, build_corpus, gameplay_source, write_corpus
 from .query import AmbiguousPlayer, Player, Store, UnknownPlayer
@@ -87,8 +86,10 @@ from .cache import (
     is_current_season_id,
     setup_dirs,
 )
-from .names import canon as _canon, pseudo_key as _pseudo_key
+from .names import canon as _canon, plain, pseudo_key as _pseudo_key
 from .aliases import PersonKeys, load_aliases
+from .seasons import season_stage, season_type, season_year
+from .teams import FocusTeam, load_focus_team
 from .store import StoreStats, build_store, defense_totals, open_store
 
 __all__ = [
@@ -96,8 +97,6 @@ __all__ = [
     "classify_season",
     "extract_year_from_season",
     "extract_season_id",
-    "is_otso_team",
-    "is_otso_akatemia",
     "parse_season_list",
     "parse_teams_page",
     "parse_standings_page",
@@ -119,10 +118,22 @@ __all__ = [
     "parse_csv_pools",
     "parse_csv_spirit",
     "NotCsvError",
-    # Builders
-    "build_team_timeline",
-    "build_player_network",
-    "build_summary",
+    # Focus team (which club the analytics are about)
+    "FocusTeam",
+    "load_focus_team",
+    # Season classification
+    "season_year",
+    "season_type",
+    "season_stage",
+    # Analytics views
+    "CHAMPIONSHIP_EVENTS",
+    "build_career_stats",
+    "build_cooccurrence",
+    "build_defense_stats",
+    "build_frenemies",
+    "build_pass_network",
+    "build_trophies",
+    "build_years",
     # Fetchers
     "fetch_url",
     "fetch_view",
@@ -152,6 +163,7 @@ __all__ = [
     "PlayerIndex",
     "Resolution",
     "canon",
+    "plain",
     "pseudo_key",
     "recover_rosters",
     # Cache

@@ -415,7 +415,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
       and a clone could not rebuild `site_data/` without them. Gate passed: corpus byte-identical,
       `site_data/` identical except `avg_age*`, which comes from the gitignored private CSV.
       `extract_birthdays.py` stays in the repo — it parses a PDF and handles personal data.
-- [ ] **Phase 8 — analytics to the library.** Move the six builders out of `build_site_data.py`
+- [x] **Phase 8 — analytics to the library.** Move the six builders out of `build_site_data.py`
       behind a focus-team predicate; `teams.yaml` supplies the Otso config. Gate: regenerated
       `site_data/*.json` matches the committed files except for intended fixes.
 - [ ] **Phase 9 — re-key the site data.** `site_data/*.json` keyed by `player_id`, plus

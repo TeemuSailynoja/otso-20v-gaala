@@ -142,7 +142,7 @@ def _from_season_files(raw_dir: Path) -> Dict[str, Dict]:
     return out
 
 
-def _from_cached_games_pages(cache: Cache) -> Dict[str, Dict]:
+def _from_cached_games_pages(cache: Cache, focus=None) -> Dict[str, Dict]:
     out: Dict[str, Dict] = {}
     for entry in cache.entries():
         url = entry.get("url", "")
@@ -155,7 +155,8 @@ def _from_cached_games_pages(cache: Cache) -> Dict[str, Dict]:
         path = Path(entry["path"])
         if not path.exists():
             continue
-        for game in parse_games_list(path.read_text(encoding="utf-8", errors="replace"), season_id):
+        html = path.read_text(encoding="utf-8", errors="replace")
+        for game in parse_games_list(html, season_id, focus=focus):
             out.setdefault(_game_id_of(game), _record(game, season_id))
     return out
 
@@ -173,8 +174,15 @@ def build_corpus(
     data_dir: Path = Path("data"),
     *,
     require_gameplay: bool = True,
+    focus=None,
 ) -> Tuple[List[Dict], CorpusStats]:
     """Recompose the game corpus from every source that knows about a game.
+
+    `focus` narrows the games-list pages that get parsed. A cached games page
+    lists the whole season — every club — so without a focus team `merge` would
+    pull other clubs' fixtures into the corpus. Season files on disk are already
+    filtered (they were written with one), which is why this only affects pages
+    parsed fresh.
 
     `require_gameplay` keeps the corpus the *point-by-point* corpus: a game listed
     on a games page but not archived does not enter it, so fetching a season's
@@ -195,7 +203,7 @@ def build_corpus(
     oldest_first = (
         ("corpus", corpus_records),
         ("season files", _from_season_files(raw_dir)),
-        ("cached games pages", _from_cached_games_pages(Cache(data_dir))),
+        ("cached games pages", _from_cached_games_pages(Cache(data_dir), focus)),
     )
     merged: Dict[str, Dict] = {}
     for name, source in oldest_first:

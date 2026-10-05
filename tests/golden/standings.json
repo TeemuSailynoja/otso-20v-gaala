@@ -7,10 +7,374 @@
     "team_name": "Otso"
   },
   {
+    "division": "Naiset",
+    "placement": "Kulta",
+    "season_id": "2018.1",
+    "team_id": "2589",
+    "team_name": "Atletico"
+  },
+  {
+    "division": "Juniorit U20",
+    "placement": "Kulta",
+    "season_id": "2018.1",
+    "team_id": "2603",
+    "team_name": "Helsinki Ultimate"
+  },
+  {
+    "division": "Juniorit U17",
+    "placement": "Kulta",
+    "season_id": "2018.1",
+    "team_id": "2606",
+    "team_name": "Helsinki Ultimate"
+  },
+  {
+    "division": "Masters (avoin)",
+    "placement": "Kulta",
+    "season_id": "2018.1",
+    "team_id": "2613",
+    "team_name": "UFO Masters"
+  },
+  {
+    "division": "Mixed",
+    "placement": "Kulta",
+    "season_id": "2018.1",
+    "team_id": "2620",
+    "team_name": "Raksun synttärit"
+  },
+  {
+    "division": "Avoin",
+    "placement": "Hopea",
+    "season_id": "2018.1",
+    "team_id": "2582",
+    "team_name": "Terror"
+  },
+  {
+    "division": "Naiset",
+    "placement": "Hopea",
+    "season_id": "2018.1",
+    "team_id": "2601",
+    "team_name": "Viima Vintage"
+  },
+  {
+    "division": "Juniorit U20",
+    "placement": "Hopea",
+    "season_id": "2018.1",
+    "team_id": "2602",
+    "team_name": "Leki U20"
+  },
+  {
+    "division": "Juniorit U17",
+    "placement": "Hopea",
+    "season_id": "2018.1",
+    "team_id": "2609",
+    "team_name": "ViRHe"
+  },
+  {
+    "division": "Masters (avoin)",
+    "placement": "Hopea",
+    "season_id": "2018.1",
+    "team_id": "2612",
+    "team_name": "WWW"
+  },
+  {
+    "division": "Mixed",
+    "placement": "Hopea",
+    "season_id": "2018.1",
+    "team_id": "2625",
+    "team_name": "LeKi"
+  },
+  {
+    "division": "Avoin",
+    "placement": "Pronssi",
+    "season_id": "2018.1",
+    "team_id": "2586",
+    "team_name": "UFO"
+  },
+  {
+    "division": "Naiset",
+    "placement": "Pronssi",
+    "season_id": "2018.1",
+    "team_id": "2599",
+    "team_name": "UFO Moro"
+  },
+  {
+    "division": "Juniorit U20",
+    "placement": "Pronssi",
+    "season_id": "2018.1",
+    "team_id": "2604",
+    "team_name": "T.U.F.F."
+  },
+  {
+    "division": "Juniorit U17",
+    "placement": "Pronssi",
+    "season_id": "2018.1",
+    "team_id": "2607",
+    "team_name": "JSW"
+  },
+  {
+    "division": "Masters (avoin)",
+    "placement": "Pronssi",
+    "season_id": "2018.1",
+    "team_id": "2610",
+    "team_name": "JSW"
+  },
+  {
+    "division": "Mixed",
+    "placement": "Pronssi",
+    "season_id": "2018.1",
+    "team_id": "2621",
+    "team_name": "Sleepwalkers"
+  },
+  {
+    "division": "Avoin",
+    "placement": "4.",
+    "season_id": "2018.1",
+    "team_id": "2577",
+    "team_name": "Saints"
+  },
+  {
+    "division": "Naiset",
+    "placement": "4.",
+    "season_id": "2018.1",
+    "team_id": "2593",
+    "team_name": "Helsinki Moves"
+  },
+  {
+    "division": "Juniorit U20",
+    "placement": "4.",
+    "season_id": "2018.1",
+    "team_id": "2605",
+    "team_name": "ViRHe"
+  },
+  {
+    "division": "Masters (avoin)",
+    "placement": "4.",
+    "season_id": "2018.1",
+    "team_id": "2611",
+    "team_name": "LaRe"
+  },
+  {
+    "division": "Mixed",
+    "placement": "4.",
+    "season_id": "2018.1",
+    "team_id": "2619",
+    "team_name": "Helsinki Ultimate"
+  },
+  {
+    "division": "Avoin",
+    "placement": "5.",
+    "season_id": "2018.1",
+    "team_id": "2571",
+    "team_name": "LeKi"
+  },
+  {
+    "division": "Naiset",
+    "placement": "5.",
+    "season_id": "2018.1",
+    "team_id": "2591",
+    "team_name": "Disquitos"
+  },
+  {
+    "division": "Mixed",
+    "placement": "5.",
+    "season_id": "2018.1",
+    "team_id": "2623",
+    "team_name": "UFO 1"
+  },
+  {
     "division": "Avoin",
     "placement": "6.",
     "season_id": "2018.1",
     "team_id": "2574",
     "team_name": "Otso 2"
+  },
+  {
+    "division": "Naiset",
+    "placement": "6.",
+    "season_id": "2018.1",
+    "team_id": "2600",
+    "team_name": "UFO Nääs"
+  },
+  {
+    "division": "Mixed",
+    "placement": "6.",
+    "season_id": "2018.1",
+    "team_id": "2628",
+    "team_name": "UFO 2"
+  },
+  {
+    "division": "Avoin",
+    "placement": "7.",
+    "season_id": "2018.1",
+    "team_id": "2578",
+    "team_name": "Sleepwalkers"
+  },
+  {
+    "division": "Naiset",
+    "placement": "7.",
+    "season_id": "2018.1",
+    "team_id": "2595",
+    "team_name": "Viima"
+  },
+  {
+    "division": "Mixed",
+    "placement": "7.",
+    "season_id": "2018.1",
+    "team_id": "2626",
+    "team_name": "PolLo"
+  },
+  {
+    "division": "Avoin",
+    "placement": "8.",
+    "season_id": "2018.1",
+    "team_id": "2579",
+    "team_name": "Team"
+  },
+  {
+    "division": "Naiset",
+    "placement": "8.",
+    "season_id": "2018.1",
+    "team_id": "2594",
+    "team_name": "Sleepwalkers"
+  },
+  {
+    "division": "Mixed",
+    "placement": "8.",
+    "season_id": "2018.1",
+    "team_id": "2627",
+    "team_name": "Helsinki Ultimate 2"
+  },
+  {
+    "division": "Avoin",
+    "placement": "9.",
+    "season_id": "2018.1",
+    "team_id": "2580",
+    "team_name": "Team 2"
+  },
+  {
+    "division": "Naiset",
+    "placement": "9.",
+    "season_id": "2018.1",
+    "team_id": "2592",
+    "team_name": "Helsinki Grooves"
+  },
+  {
+    "division": "Mixed",
+    "placement": "9.",
+    "season_id": "2018.1",
+    "team_id": "2629",
+    "team_name": "Sleepwalkers 2"
+  },
+  {
+    "division": "Avoin",
+    "placement": "10.",
+    "season_id": "2018.1",
+    "team_id": "2568",
+    "team_name": "Alakoirat"
+  },
+  {
+    "division": "Naiset",
+    "placement": "10.",
+    "season_id": "2018.1",
+    "team_id": "2596",
+    "team_name": "Saints"
+  },
+  {
+    "division": "Mixed",
+    "placement": "10.",
+    "season_id": "2018.1",
+    "team_id": "2618",
+    "team_name": "Disquitos"
+  },
+  {
+    "division": "Avoin",
+    "placement": "11.",
+    "season_id": "2018.1",
+    "team_id": "2588",
+    "team_name": "ViRHe"
+  },
+  {
+    "division": "Naiset",
+    "placement": "11.",
+    "season_id": "2018.1",
+    "team_id": "2615",
+    "team_name": "Atletico 2"
+  },
+  {
+    "division": "Avoin",
+    "placement": "12.",
+    "season_id": "2018.1",
+    "team_id": "2569",
+    "team_name": "Disquitos"
+  },
+  {
+    "division": "Naiset",
+    "placement": "12.",
+    "season_id": "2018.1",
+    "team_id": "2614",
+    "team_name": "JSW 2"
+  },
+  {
+    "division": "Avoin",
+    "placement": "13.",
+    "season_id": "2018.1",
+    "team_id": "2583",
+    "team_name": "The FreezeBeerience"
+  },
+  {
+    "division": "Avoin",
+    "placement": "14.",
+    "season_id": "2018.1",
+    "team_id": "2576",
+    "team_name": "Pollo"
+  },
+  {
+    "division": "Avoin",
+    "placement": "15.",
+    "season_id": "2018.1",
+    "team_id": "2572",
+    "team_name": "OFF Season"
+  },
+  {
+    "division": "Avoin",
+    "placement": "16.",
+    "season_id": "2018.1",
+    "team_id": "2587",
+    "team_name": "UFO Akatemia"
+  },
+  {
+    "division": "Avoin",
+    "placement": "17.",
+    "season_id": "2018.1",
+    "team_id": "2581",
+    "team_name": "Team 3"
+  },
+  {
+    "division": "Avoin",
+    "placement": "18.",
+    "season_id": "2018.1",
+    "team_id": "2570",
+    "team_name": "Sleepwalkers II"
+  },
+  {
+    "division": "Avoin",
+    "placement": "19.",
+    "season_id": "2018.1",
+    "team_id": "2584",
+    "team_name": "TT-Lätty"
+  },
+  {
+    "division": "Avoin",
+    "placement": "20.",
+    "season_id": "2018.1",
+    "team_id": "2616",
+    "team_name": "T.U.F.F"
+  },
+  {
+    "division": "Avoin",
+    "placement": "21.",
+    "season_id": "2018.1",
+    "team_id": "2617",
+    "team_name": "ERHe"
   }
 ]

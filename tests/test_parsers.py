@@ -16,6 +16,10 @@ from cases import CASES, to_jsonable  # noqa: E402
 from conftest import GOLDEN, read_fixture  # noqa: E402
 
 from ultiorg import parsers  # noqa: E402
+from ultiorg.teams import load_focus_team  # noqa: E402
+
+# The gala's own club config, used where a test asks for the filtered view.
+FOCUS = load_focus_team(str(Path(__file__).resolve().parent.parent / "teams.yaml"))
 
 
 def golden_name(name: str) -> Path:
@@ -56,40 +60,59 @@ def test_season_list_is_the_season_universe():
     assert {"2018.1", "2025.3", "1999.2", "Talvi2016", "Hallitour2", "*JSM2018"} <= ids
 
 
-def test_teams_pages_are_parsed_and_otso_filtered():
+def test_teams_pages_are_parsed_and_focus_filtered():
     """Both fixtures use tables.teams-table; 2025.3 has three Otso teams.
 
-    Name case differs between seasons (`Otso` vs `OTSO`), so the Otso predicate
-    must stay case-insensitive. Phase 8 replaces it with a focus-team predicate
-    from the gala config.
+    Name case differs between seasons (`Otso` vs `OTSO`), so the predicate must
+    stay case-insensitive. Filtering is the caller's decision: the library has no
+    default club, so `focus=None` returns the whole season.
     """
-    current = parsers.parse_teams_page(read_fixture("teams_KESA2026.html"), "KESA2026")
-    multi = parsers.parse_teams_page(read_fixture("teams_2025.3.html"), "2025.3")
+    current = parsers.parse_teams_page(read_fixture("teams_KESA2026.html"), "KESA2026", FOCUS)
+    multi = parsers.parse_teams_page(read_fixture("teams_2025.3.html"), "2025.3", FOCUS)
     assert [r["name"] for r in current] == ["Otso"]
     assert [r["name"] for r in multi] == ["OTSO", "OTSO 2", "OTSO 3"]
     for row in current + multi:
         assert row["id"], row
         assert row["season_id"]
-        assert parsers.is_otso_team(row["name"])
+        assert FOCUS.matches(row["name"])
+
+    everyone = parsers.parse_teams_page(read_fixture("teams_2025.3.html"), "2025.3")
+    assert len(everyone) == 47, "the whole season, every club"
+    assert {"OTSO", "OTSO 2", "OTSO 3", "Otso Akatemia", "UFO", "UFO Akatemia"} <= {
+        r["name"] for r in everyone
+    }
 
 
-def test_old_format_teams_fallback_has_no_example_left():
-    """`_parse_teams_old_format` is unreachable with the archived corpus.
+def test_the_old_format_teams_fallback_is_gone():
+    """`_parse_teams_old_format` was unreachable, so it is deleted.
 
-    Measured: 0 of 73 cached teams pages lack `teams-table` — the site renders
-    every season, including 2018.1, in the new format. The fallback was for
-    pages scraped before the redesign, and the cache has since been re-fetched.
-    Phase 8 decides whether to delete it; do not write a synthetic fixture for
-    HTML nobody has seen.
+    Measured before deletion: 0 of 73 cached teams pages lacked `teams-table` —
+    the site renders every season, 2006 to 2026, in the new format. The fallback
+    was written for a layout nobody had in the archive, and dead parsing code is
+    a liability: it is untested against real HTML and it hides format drift by
+    quietly succeeding. Do not write a synthetic fixture for HTML nobody has seen.
     """
+    assert not hasattr(parsers, "_parse_teams_old_format")
+    assert not hasattr(parsers, "_parse_standings_old_format")
     for fixture in ("teams_KESA2026.html", "teams_2025.3.html"):
         assert "teams-table" in read_fixture(fixture)
 
 
 def test_standings_carry_placement_and_team_id():
-    rows = parsers.parse_standings_page(read_fixture("standings_2018.1.html"), "2018.1")
-    assert {"Kulta", "6."} == {r["placement"] for r in rows}
-    assert {r["team_id"] for r in rows} == {"2573", "2574"}
+    """Placements come back for the whole podium unless a focus team narrows them.
+
+    The unfiltered page is what the trophy view needs — who beat whom — while the
+    gala's own rows are the focus club's.
+    """
+    fixture, season = read_fixture("standings_2018.1.html"), "2018.1"
+    everyone = parsers.parse_standings_page(fixture, season)
+    ours = parsers.parse_standings_page(fixture, season, FOCUS)
+    assert {r["placement"] for r in ours} == {"Kulta", "6."}
+    assert {r["team_id"] for r in ours} == {"2573", "2574"}
+    assert all(FOCUS.matches(r["team_name"]) for r in ours)
+    assert len(everyone) > len(ours)
+    assert {r["placement"] for r in everyone} >= {"Kulta", "Hopea", "Pronssi"}
+    assert all(r["division"] and r["team_id"] for r in everyone), "717/717 carry a team_id"
 
 
 def test_teamcard_and_playerlist_carry_player_ids():
@@ -103,28 +126,34 @@ def test_teamcard_and_playerlist_carry_player_ids():
 
 
 def test_games_list_yields_numeric_game_ids():
-    games = parsers.parse_games_list(read_fixture("games_KESA2026.html"), "KESA2026")
+    """A season's games page lists every club's fixture; the focus team narrows it."""
+    fixture = read_fixture("games_KESA2026.html")
+    games = parsers.parse_games_list(fixture, "KESA2026", FOCUS)
     assert len(games) == 10
     assert all(g["game_id"].isdigit() for g in games)
     assert {"game_id", "time", "venue", "home_team", "away_team"} <= set(games[0])
+    assert len(parsers.parse_games_list(fixture, "KESA2026")) == 80
 
 
 def test_season_id_helpers_classify_the_real_id_space():
     """Season IDs are not one format: `2018.1`, `KESA2026`, `Talvi 2025`.
 
-    Pinned as-is, including the gap: a numeric summer ID (`2018.1`, "Kesä 2018")
-    classifies as **unknown**, while `KESA2026` is `summer`. That gap is why
-    `build_site_data.py` carries its own `season_type_map`. Phase 8 closes it in
-    the library instead of working around it in the site layer.
+    Two axes, because they are two questions: `season_type` is which half of the
+    year (read from the **name** first — the numeric suffix lies, `2018.1` was
+    "Kesä 2018"), `stage` is where in the season the event sits. The old helper
+    mixed them into one `type` and classified `2018.1`/"Kesä 2018" as **unknown**,
+    which is why the site layer carried its own season map.
     """
     assert parsers.extract_season_id("?view=teams&season=2018.1") == "2018.1"
-    assert parsers.classify_season("2018.1", "Kesä 2018")["type"] == "unknown"
-    assert parsers.classify_season("KESA2026", "Kesä 2026")["type"] == "summer"
-    assert parsers.classify_season("2018.3", "Talvi 2018")["type"] == "winter"
-    assert parsers.classify_season("2018.1.T2", "Tour 2")["type"] == "tour2"
-    assert parsers.classify_season("2018.1F", "Finaalit")["type"] == "finals"
+    assert parsers.classify_season("2018.1", "Kesä 2018")["season_type"] == "summer"
+    assert parsers.classify_season("KESA2026", "Kesä 2026")["season_type"] == "summer"
+    assert parsers.classify_season("2018.3", "Talvi 2018")["season_type"] == "winter"
+    assert parsers.classify_season("2018.1.T2", "Tour 2")["stage"] == "tour2"
+    assert parsers.classify_season("2018.1F", "Finaalit")["stage"] == "finals"
     assert parsers.classify_season("2018.1", "Kesä 2018")["year"] == 2018
     assert parsers.classify_season("KESA2026", "Kesä 2026")["year"] == 2026
+    # a bare numeric ID carries no season word: `other`, not a guess
+    assert parsers.classify_season("2018.1", "")["season_type"] == "other"
 
 
 @pytest.mark.parametrize(

@@ -25,9 +25,9 @@ from typing import Dict, Iterable, List, Optional, Tuple
 
 from .identify import PlayerIndex, canon
 from .aliases import PersonKeys
-from .parsers import classify_season
+from .seasons import season_type, season_year
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS players (
@@ -173,6 +173,7 @@ def build_store(
     placements: Iterable[Dict] = (),
     players: Iterable[Dict] = (),
     teams: Iterable[Dict] = (),
+    season_names: Dict[str, str] | None = None,
 ) -> Tuple[sqlite3.Connection, StoreStats]:
     """(Re)build the fact store at `path` from parsed game records.
 
@@ -225,20 +226,29 @@ def build_store(
         )
 
     # A game's season_id is enough to register the season: the year is the four
-    # digits inside the ID (`KESA2026`, `2018.1`, `Talvi2016`), which is what makes
-    # `since=2022` a filter instead of a guess. `type` still comes from
-    # classify_season and is `unknown` for the numeric summer IDs — Phase 8 closes
-    # that in the library rather than in the site layer.
+    # digits inside the ID (`KESA2026`, `2018.1`, `Talvi2016`, `2017F`). Whether it
+    # was a summer or a winter season is **not** in the ID — `2018.1` is winter and
+    # `2020.1` is summer — so it comes from the season name when the caller has
+    # one (`season_names`, read from the scraped season files) and is `other`
+    # when it does not. Guessing from the numeric suffix is what used to make
+    # every numeric season `unknown`.
     season_seen = {s["season_id"] for s in seasons}
+    names_by_season = season_names or {}
 
     def register_season(season_id: Optional[str]) -> None:
         if not season_id or season_id in season_seen:
             return
         season_seen.add(season_id)
-        info = classify_season(season_id, "")
+        name = names_by_season.get(season_id, "")
         conn.execute(
             "INSERT OR REPLACE INTO seasons(season_id, year, type, name, division) VALUES (?,?,?,?,?)",
-            (season_id, info.get("year"), info.get("type"), season_id, None),
+            (
+                season_id,
+                season_year(season_id, name),
+                season_type(season_id, name),
+                name or season_id,
+                None,
+            ),
         )
 
     for placement in placements:
