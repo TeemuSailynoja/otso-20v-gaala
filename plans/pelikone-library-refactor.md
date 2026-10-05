@@ -418,7 +418,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
 - [x] **Phase 8 — analytics to the library.** Move the six builders out of `build_site_data.py`
       behind a focus-team predicate; `teams.yaml` supplies the Otso config. Gate: regenerated
       `site_data/*.json` matches the committed files except for intended fixes.
-- [ ] **Phase 9 — re-key the site data.** `site_data/*.json` keyed by `player_id`, plus
+- [x] **Phase 9 — re-key the site data.** `site_data/*.json` keyed by `player_id`, plus
       `names.json` and `data_quality.json`. Gate: totals unchanged from the name-keyed build
       (171 players, 795 games, 23 gold — the post-Phase-5 numbers, not the 163/483 written when
       this plan was drafted) and every unresolved name is listed, not dropped.

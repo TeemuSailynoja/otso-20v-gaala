@@ -1,0 +1,89 @@
+{
+  "keys": {
+    "explained": "A site key is the lowest pelikone player id in a person's id cluster, or name:<canon> when no roster ever carried an id for that name. pelikone mints a new id per registration, so one person has many ids; names.json maps every key used in site_data back to a printable name.",
+    "keys_used_in_site_data": 188,
+    "named": 188,
+    "in_the_player_table": 171,
+    "pseudo_keyed": 0
+  },
+  "id_clusters": {
+    "persons_seen_in_rosters": 907,
+    "persons_with_multiple_ids": 578,
+    "max_ids_for_one_person": 69,
+    "largest": [
+      {
+        "site_key": "6890",
+        "ids": 69,
+        "person_key": "hotari roni"
+      },
+      {
+        "site_key": "6096",
+        "ids": 65,
+        "person_key": "sandberg tomi"
+      },
+      {
+        "site_key": "7180",
+        "ids": 62,
+        "person_key": "jarno sihvo"
+      },
+      {
+        "site_key": "5898",
+        "ids": 61,
+        "person_key": "antti elonheimo"
+      },
+      {
+        "site_key": "5894",
+        "ids": 59,
+        "person_key": "erkka niini"
+      },
+      {
+        "site_key": "6799",
+        "ids": 58,
+        "person_key": "ilkka vaahtoranta"
+      },
+      {
+        "site_key": "6884",
+        "ids": 58,
+        "person_key": "aki vehtari"
+      },
+      {
+        "site_key": "6555",
+        "ids": 52,
+        "person_key": "kallio lassi"
+      },
+      {
+        "site_key": "8938",
+        "ids": 52,
+        "person_key": "antti järvi"
+      },
+      {
+        "site_key": "13862",
+        "ids": 50,
+        "person_key": "oskari vuorio"
+      }
+    ]
+  },
+  "aliases_asserted": {
+    "aukusti touko väänänen": "touko väänänen"
+  },
+  "points": {
+    "total": 18681,
+    "no_scorer_named": 73,
+    "possession_unknown": 287,
+    "possession_note": "Points whose starting possession cannot be read from the page are counted as offense-initiated in the published defense totals."
+  },
+  "non_person_markers": [
+    {
+      "value": "Callahan-maali",
+      "scorer": 0,
+      "passer": 67,
+      "note": "a scoring event label in the point table, not a player"
+    }
+  ],
+  "unresolved_names": [],
+  "unresolved_note": "A name in the point table that joins no roster anywhere in the archive. It is still counted, under a name:<canon> key, and listed here. The fact store applies a stricter test — a name must also appear in the pelikone player index, which covers the current season only — so its count of `name:` keys is larger than this one by design.",
+  "keys_outside_the_player_table": {
+    "count": 17,
+    "note": "Expected: frenemies names rivals, who are not in players.json. A rise here that is not matched by a rise in rivals is a leak."
+  }
+}

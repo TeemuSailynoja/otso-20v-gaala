@@ -214,19 +214,35 @@ def test_defense_never_credits_an_opponent():
 
 # --- passes and teammates ---------------------------------------------------
 def test_pass_network_is_directed_and_mirrored():
-    net = build_pass_network(GAMES, FOCUS, ["Aki Vehtari", "Roni Hotari"])
-    assert net["received"]["Aki Vehtari"] == {"Roni Hotari": 1}
-    assert net["given"]["Roni Hotari"] == {"Aki Vehtari": 1}
-    assert "Roni Hotari" not in net["received"], "Roni's point had no passer"
+    # `only` filters by person key and the map is keyed by person key: the library
+    # never prints a display name, because a name is not a stable key.
+    net = build_pass_network(GAMES, FOCUS, ["aki vehtari", "hotari roni"])
+    assert net["received"]["aki vehtari"] == {"hotari roni": 1}
+    assert net["given"]["hotari roni"] == {"aki vehtari": 1}
+    assert "hotari roni" not in net["received"], "Roni's point had no passer"
+
+
+def test_pass_network_only_filter_uses_person_keys():
+    """A display name in `only` selects nobody — the filter is person keys."""
+    net = build_pass_network(GAMES, FOCUS, ["Aki Vehtari"])
+    assert net["received"] == {} and net["given"] == {}
 
 
 def test_cooccurrence_counts_pairs_on_a_squad_together():
-    cooc = build_cooccurrence(GAMES, FOCUS, ["Aki Vehtari", "Roni Hotari"])
+    cooc = build_cooccurrence(GAMES, FOCUS, ["aki vehtari", "hotari roni"])
     # once in the derby, once more where they lined up on opposite Otso squads:
     # both sides are the club, so they were teammates in the game
-    assert cooc["Aki Vehtari"]["Roni Hotari"] == 2
-    assert cooc["Roni Hotari"]["Aki Vehtari"] == 2
-    assert "Ufo Uno" not in cooc
+    assert cooc["aki vehtari"]["hotari roni"] == 2
+    assert cooc["hotari roni"]["aki vehtari"] == 2
+    assert "ufo uno" not in cooc
+
+
+def test_frenemies_records_carry_the_person_key():
+    """Two spellings of one opponent are one rival, so the record must carry the
+    key it was counted under, not just a spelling."""
+    ranked = build_frenemies(GAMES, FOCUS)
+    assert [e["id"] for e in ranked] == ["ufo uno"]
+    assert ranked[0]["name"] == "Ufo Uno"
 
 
 def test_frenemies_skips_intra_club_games_and_counts_the_opponent():
@@ -271,7 +287,8 @@ def test_years_season_type_filter_uses_the_season_name():
 def test_years_roster_is_person_keys_not_display_names():
     """The page resolves keys to names; the library does not print names."""
     years = build_years(GAMES, FOCUS, season_names=SEASON_NAMES)
-    assert years["2024"]["roster_names"] == ["aki vehtari", "hotari roni"]
+    assert years["2024"]["roster"] == ["aki vehtari", "hotari roni"]
+    assert "roster_names" not in years["2024"]
 
 
 # --- trophies ---------------------------------------------------------------

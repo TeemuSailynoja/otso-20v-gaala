@@ -1372,11 +1372,11 @@
     // so browsers get fresh JSON whenever the data changes but can still cache
     // aggressively between rebuilds. Do not edit by hand.
     // BUILD_VERSION_START
-    const DATA_VERSION = '2c99fda2099e';
+    const DATA_VERSION = 'bfb7dc7e0d1e';
     // BUILD_VERSION_END
 
     async function loadData() {
-        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies', 'trophies'];
+        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies', 'trophies', 'names'];
         const results = await Promise.all(files.map(f =>
             fetch(`site_data/${f}.json?v=${DATA_VERSION}`).then(r => r.json())
         ));
@@ -1386,6 +1386,26 @@
         DATA.summary = results[3];
         DATA.frenemies = results[4];
         DATA.trophies = results[5];
+        DATA.names = results[6];
+
+        // TEMPORARY (Phase 9): site_data is keyed by player id, because a name is
+        // not a stable key — pelikone mints a new id per registration, and one
+        // person can be spelled two ways. names.json maps every key back to a
+        // printable name. The page still looks players up by display name, so the
+        // id-keyed maps are re-expanded here and nothing else changes. Phase 11
+        // moves the lookups to ids and deletes this block.
+        const names = DATA.names;
+        const named = (key) => names[key] || key;
+        const renameOuter = (map) => Object.fromEntries(
+            Object.entries(map).map(([k, v]) => [named(k), v]));
+        const renameBoth = (map) => Object.fromEntries(
+            Object.entries(map).map(([k, v]) => [named(k), renameOuter(v)]));
+        DATA.players = renameOuter(DATA.players);
+        DATA.passNetwork = {
+            received: renameBoth(DATA.passNetwork.received),
+            given: renameBoth(DATA.passNetwork.given),
+        };
+        DATA.cooccurrence = renameBoth(DATA.cooccurrence);
         
         // Otso year datasets: the stream reads the full year, the HUD split line
         // reads the summer/winter breakdown. The all-bears variants had a single
@@ -1399,6 +1419,12 @@
         DATA.yearsOtsoSummer = yearsOtsoSummer;
         DATA.yearsOtsoWinter = yearsOtsoWinter;
         DATA.years = yearsOtso; // Default to Otso full year
+        // Same stopgap: the year rosters are id lists; the page wants names.
+        for (const years of [DATA.yearsOtso, DATA.yearsOtsoSummer, DATA.yearsOtsoWinter]) {
+            for (const row of Object.values(years)) {
+                if (row.roster) row.roster_names = row.roster.map(named);
+            }
+        }
     }
 
     // ==================== ROUTING ====================

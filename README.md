@@ -24,13 +24,16 @@ build_site_data.py  — turns the corpus into the JSON the page reads
 teams.yaml          — which club this site is about: squad names, which is the flagship,
                       how each is printed. The library has no club baked in.
 src/ultiorg/        — the library: fetch, cache, parse, repair, analyse, query Ultiorganizer data
-site_data/          — generated JSON the SPA fetches
-  players.json      — per-player stats (170 KB)
-  pass_network.json — directed pass connections (129 KB); `given[X][Y]` = X assisted Y,
+site_data/          — generated JSON the SPA fetches, keyed by player id
+  names.json        — every key used below -> the name to print. The only decoder.
+  players.json      — per-player stats (168 KB)
+  pass_network.json — directed pass connections (84 KB); `given[X][Y]` = X assisted Y,
                       `received[X][Y]` = X was assisted by Y
-  cooccurrence.json — co-occurrence matrix (187 KB)
-  summary.json      — aggregate stats (7.6 KB)
+  cooccurrence.json — co-occurrence matrix (117 KB)
+  summary.json      — aggregate stats (9.0 KB)
   trophies.json     — season-level gold/silver/bronze record (15 KB)
+  data_quality.json — what the numbers do not know: how keys were minted, id clusters,
+                      points with no scorer, points of unknown possession (2.6 KB)
   years_otso.json   — year-by-year for the flagship squad; `_summer` / `_winter` variants, and
                       `years_all_bears*` for every squad of the club
   years.json, players.csv, player_names.txt, season_mapping.json — orphans: the page fetches
@@ -91,6 +94,30 @@ Names work in either word order (point rows write `Last First`, rosters write `F
 person is a cluster of pelikone player IDs — the site mints a new ID per registration, so 904
 roster names carry 6,175 IDs — and the store joins them by person key. `--json` makes any of these
 an agent's input. `ultiorg sql` is the escape hatch for questions the helpers do not cover.
+
+## Identity and keys
+
+Nothing in this repo is keyed by a name, because a name is not a key. The point table writes
+`Last First`, rosters write `First Last`, diacritics drift, and pelikone issues a **new player id
+for every registration** — measured on the archived corpus, 907 people carry 6,175 ids, and one
+long-career player holds 69 of them. So:
+
+- **person key** — `canon(name)`: lowercase, accents kept, tokens sorted, so `Santtu Lehto` and
+  `Lehto Santtu` collide. This is what the library and the fact store use.
+- **alias** — `config/aliases.json` is the only place two spellings become one person, and every
+  entry is a human assertion. Nothing merges on similarity.
+- **site key** — the lowest pelikone id in the person's id cluster, or `name:<canon>` when no
+  roster ever carried an id for that name. Deterministic across rebuilds, clickable through to a
+  pelikone player card, and the `name:` prefix says out loud that it is not an id.
+
+`site_data/names.json` maps every site key to the name to print; the build refuses to write a file
+whose keys it cannot name. `site_data/data_quality.json` is the honesty report: how keys were
+minted, how big the id clusters are, which points name no scorer (73), which have unknown opening
+possession (287), and which names join no roster at all.
+
+The page still looks players up by display name. `loadData()` in `index.html` re-expands the
+id-keyed maps with `names.json` before rendering — a labelled stopgap that Phase 11 removes when
+the SPA itself moves to id lookups.
 
 ## Repairs
 

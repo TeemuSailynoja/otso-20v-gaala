@@ -1,6 +1,7 @@
 [
   {
-    "name": "Teemu Kalliokoski",
+    "id": "6549",
+    "name": "Teemu Kalliokoski",
     "games": 83,
     "wins": 25,
     "losses": 58,
@@ -18,7 +19,8 @@
     "rank": 1
   },
   {
-    "name": "Elias Päällysaho",
+    "id": "7161",
+    "name": "Elias Päällysaho",
     "games": 76,
     "wins": 20,
     "losses": 56,
@@ -33,7 +35,8 @@
     "rank": 2
   },
   {
-    "name": "Antti Wiklund",
+    "id": "6094",
+    "name": "Antti Wiklund",
     "games": 92,
     "wins": 26,
     "losses": 66,
@@ -49,7 +52,8 @@
     "rank": 3
   },
   {
-    "name": "Aki Ropo",
+    "id": "16242",
+    "name": "Aki Ropo",
     "games": 71,
     "wins": 23,
     "losses": 48,
@@ -67,7 +71,8 @@
     "rank": 4
   },
   {
-    "name": "Juho Pulakka",
+    "id": "6789",
+    "name": "Juho Pulakka",
     "games": 92,
     "wins": 35,
     "losses": 57,
@@ -85,7 +90,8 @@
     "rank": 5
   },
   {
-    "name": "Jaakko Junttu",
+    "id": "14152",
+    "name": "Jaakko Junttu",
     "games": 44,
     "wins": 16,
     "losses": 28,
@@ -101,7 +107,8 @@
     "rank": 6
   },
   {
-    "name": "Thomas Pfister",
+    "id": "8866",
+    "name": "Thomas Pfister",
     "games": 84,
     "wins": 27,
     "losses": 57,
@@ -119,7 +126,8 @@
     "rank": 7
   },
   {
-    "name": "Saska Karpansalo",
+    "id": "18746",
+    "name": "Saska Karpansalo",
     "games": 85,
     "wins": 34,
     "losses": 51,
@@ -140,7 +148,8 @@
     "rank": 8
   },
   {
-    "name": "Tuomas Niemi",
+    "id": "7109",
+    "name": "Tuomas Niemi",
     "games": 44,
     "wins": 14,
     "losses": 30,
@@ -156,7 +165,8 @@
     "rank": 9
   },
   {
-    "name": "Jyri Saarinen",
+    "id": "7917",
+    "name": "Jyri Saarinen",
     "games": 67,
     "wins": 24,
     "losses": 43,
@@ -181,7 +191,8 @@
     "rank": 10
   },
   {
-    "name": "Juha Jokinen",
+    "id": "6196",
+    "name": "Juha Jokinen",
     "games": 37,
     "wins": 15,
     "losses": 22,
@@ -197,7 +208,8 @@
     "rank": 11
   },
   {
-    "name": "Eetu Tiihonen",
+    "id": "5914",
+    "name": "Eetu Tiihonen",
     "games": 61,
     "wins": 23,
     "losses": 38,
@@ -213,7 +225,8 @@
     "rank": 12
   },
   {
-    "name": "Antti Kahri",
+    "id": "13732",
+    "name": "Antti Kahri",
     "games": 78,
     "wins": 26,
     "losses": 52,
@@ -234,7 +247,8 @@
     "rank": 13
   },
   {
-    "name": "Santtu Lehto",
+    "id": "16272",
+    "name": "Santtu Lehto",
     "games": 47,
     "wins": 16,
     "losses": 31,
@@ -251,7 +265,8 @@
     "rank": 14
   },
   {
-    "name": "Juho Rantalaiho",
+    "id": "5911",
+    "name": "Juho Rantalaiho",
     "games": 50,
     "wins": 21,
     "losses": 29,
@@ -267,7 +282,8 @@
     "rank": 15
   },
   {
-    "name": "Okko Winqvist",
+    "id": "22476",
+    "name": "Okko Winqvist",
     "games": 49,
     "wins": 22,
     "losses": 27,
@@ -289,7 +305,8 @@
     "rank": 16
   },
   {
-    "name": "Aleksi Pelto",
+    "id": "17229",
+    "name": "Aleksi Pelto",
     "games": 48,
     "wins": 21,
     "losses": 27,
@@ -305,7 +322,8 @@
     "rank": 17
   },
   {
-    "name": "Juho Lehtimäki",
+    "id": "10144",
+    "name": "Juho Lehtimäki",
     "games": 69,
     "wins": 20,
     "losses": 49,
@@ -322,7 +340,8 @@
     "rank": 18
   },
   {
-    "name": "Ilja Winqvist",
+    "id": "22477",
+    "name": "Ilja Winqvist",
     "games": 52,
     "wins": 25,
     "losses": 27,
@@ -344,7 +363,8 @@
     "rank": 19
   },
   {
-    "name": "Aarni Nagy",
+    "id": "16316",
+    "name": "Aarni Nagy",
     "games": 47,
     "wins": 14,
     "losses": 33,
@@ -365,7 +385,8 @@
     "rank": 20
   },
   {
-    "name": "Lauri Saksa",
+    "id": "7929",
+    "name": "Lauri Saksa",
     "games": 64,
     "wins": 22,
     "losses": 42,

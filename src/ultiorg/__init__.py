@@ -88,6 +88,7 @@ from .cache import (
 )
 from .names import canon as _canon, plain, pseudo_key as _pseudo_key
 from .aliases import PersonKeys, load_aliases
+from .persons import PersonIds, collect_id_clusters, is_person
 from .seasons import season_stage, season_type, season_year
 from .teams import FocusTeam, load_focus_team
 from .store import StoreStats, build_store, defense_totals, open_store
@@ -177,6 +178,9 @@ __all__ = [
     # Person identity
     "PersonKeys",
     "load_aliases",
+    "PersonIds",
+    "collect_id_clusters",
+    "is_person",
     # Fact store
     "StoreStats",
     "build_store",

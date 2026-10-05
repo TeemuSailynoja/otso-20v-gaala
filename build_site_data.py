@@ -4,17 +4,27 @@
 This is a **consumer** of the `ultiorg` library, not a second implementation of
 it. It loads the corpus and the scraped season files, asks the library for the
 analytics views — which are parameterised by the focus team in `teams.yaml` and
-keyed by person (canonical name plus the merges in `config/aliases.json`) — puts
-a display name on each person, adds the aggregate age from the private birthdays
-file, and writes `site_data/`.
+keyed by person (canonical name plus the merges in `config/aliases.json`) — turns
+those person keys into **site keys**, puts a display name on each person, adds
+the aggregate age from the private birthdays file, and writes `site_data/`.
 
-  site_data/players.json      — per-player career + defense, keyed by display name
+  site_data/players.json      — per-player career + defense, keyed by site key
+  site_data/names.json        — site key -> display name, for every person the
+                                other files mention (the page renders from this)
+  site_data/data_quality.json — what the data cannot say: names with no pelikone
+                                id, points with no scorer, markers that are not
+                                people, and the id clusters behind the keys
   site_data/pass_network.json — directed pass connections
   site_data/cooccurrence.json — undirected teammate matrix
   site_data/summary.json      — aggregate stats for the landing page
   site_data/years*.json       — year-by-year evolution, per scope and season type
   site_data/frenemies.json    — the rivals
   site_data/trophies.json     — season-level medal record
+
+A **site key** is one key per person: the lowest pelikone player id in that
+person's id cluster, or `name:<canon>` when pelikone never registered them. It is
+not a pelikone id as such, because pelikone mints a new id per registration — the
+longest career on record holds 69 of them. See `src/ultiorg/persons.py`.
 
 Personal data: birthdays live in a gitignored file (see extract_birthdays.py) and
 only ever leave here as an aggregate — the mean age of a year's roster. Never
@@ -31,6 +41,7 @@ from datetime import date
 from pathlib import Path
 
 from ultiorg import (
+    PersonIds,
     PersonKeys,
     build_career_stats,
     build_cooccurrence,
@@ -40,6 +51,8 @@ from ultiorg import (
     build_trophies,
     build_years,
     canon,
+    collect_id_clusters,
+    is_person,
     load_focus_team,
     plain,
 )
@@ -201,7 +214,7 @@ def add_ages(years: dict, season_type: str, birthdays: dict) -> None:
     ref_month, ref_day = SEASON_AGE_REF.get(season_type, (6, 30))
     for year, row in years.items():
         ages = [age_at(birthdays[k], int(year), ref_month, ref_day)
-                for k in map(name_key, row["roster_names"]) if k in birthdays]
+                for k in map(name_key, row["roster"]) if k in birthdays]
         if ages:
             row["avg_age"] = round(sum(ages) / len(ages), 1)
             row["avg_age_known"] = len(ages)
@@ -209,13 +222,14 @@ def add_ages(years: dict, season_type: str, birthdays: dict) -> None:
 
 # --- landing page -----------------------------------------------------------
 def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
-                  years: dict, games: list[dict], focus) -> dict:
+                  years: dict, games: list[dict], focus, display_of: dict) -> dict:
     """The aggregate cards on the landing page.
 
-    `players` is display-keyed, `pass_network` is `{"received": …, "given": …}`,
-    so the connection counts read `received` — reading the outer dict itself used
-    to publish the two words "received" and "given" as the most connected
-    players.
+    Every entry carries both the site key (`id`) and the name to print (`name`):
+    the page links by id and renders from `names.json`, so a rename never breaks a
+    link. `pass_network` is `{"received": …, "given": …}`, so the connection counts
+    read `received` — reading the outer dict itself used to publish the two words
+    "received" and "given" as the most connected players.
     """
     games_with_play = sum(1 for g in games if g.get("gameplay"))
 
@@ -241,31 +255,38 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
         ranked = sorted(items, key=lambda kv: -key(kv[1]))[:n]
         return [{"name": name, **{f: stats[f] for f in fields}} for name, stats in ranked]
 
+    def named(key: str) -> str:
+        return display_of.get(key, key)
+
     top_scorers = [
-        {"name": n, "total": p["total"], "goals": p["goals"], "assists": p["assists"], "games": p["games"]}
+        {"id": n, "name": named(n), "total": p["total"], "goals": p["goals"],
+         "assists": p["assists"], "games": p["games"]}
         for n, p in sorted(players.items(), key=lambda x: x[1]["total"], reverse=True)[:15]
     ]
     top_assists = [
-        {"name": n, "assists": p["assists"], "goals": p["goals"], "total": p["total"], "games": p["games"]}
+        {"id": n, "name": named(n), "assists": p["assists"], "goals": p["goals"],
+         "total": p["total"], "games": p["games"]}
         for n, p in sorted(players.items(), key=lambda x: x[1]["assists"], reverse=True)[:15]
     ]
     longest_careers = [
-        {"name": n, "seasons": p["season_count"], "years": f"{p['first_year']}-{p['last_year']}", "games": p["games"]}
+        {"id": n, "name": named(n), "seasons": p["season_count"],
+         "years": f"{p['first_year']}-{p['last_year']}", "games": p["games"]}
         for n, p in sorted(players.items(), key=lambda x: x[1]["season_count"], reverse=True)[:10]
     ]
     most_connected = [
-        {"name": n, "connections": len(partners)}
+        {"id": n, "name": named(n), "connections": len(partners)}
         for n, partners in sorted(pass_network["received"].items(), key=lambda kv: -len(kv[1]))[:10]
         if partners
     ]
     most_teammates = [
-        {"name": n, "teammates": len(partners)}
+        {"id": n, "name": named(n), "teammates": len(partners)}
         for n, partners in sorted(cooccurrence.items(), key=lambda kv: -len(kv[1]))[:10]
         if partners
     ]
     scored = [(n, p) for n, p in players.items() if p["games"] >= 10 and p["total"] > 0]
     goals_per_match = [
-        {"name": n, "goals_per_match": round(p["total"] / p["games"], 2), "total": p["total"], "games": p["games"]}
+        {"id": n, "name": named(n), "goals_per_match": round(p["total"] / p["games"], 2),
+         "total": p["total"], "games": p["games"]}
         for n, p in sorted(scored, key=lambda x: x[1]["total"] / x[1]["games"], reverse=True)[:10]
     ]
 
@@ -296,6 +317,108 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
     }
 
 
+# --- what the data cannot say ----------------------------------------------
+def build_quality_report(games: list[dict], ids: PersonIds, persons: PersonKeys,
+                         player_ids: set, names: dict, used_keys: set) -> dict:
+    """`data_quality.json` — the gaps, written down instead of quietly averaged away.
+
+    The site's totals are only as good as the name→person matching, and that
+    matching fails in three different ways. Each one is counted here so a reader
+    of `players.json` can tell a zero from an unknown.
+    """
+    slots: dict[str, dict[str, int]] = defaultdict(lambda: {"scorer": 0, "passer": 0})
+    markers: dict[str, dict[str, int]] = defaultdict(lambda: {"scorer": 0, "passer": 0})
+    points = no_scorer = possession_unknown = 0
+
+    for game in games:
+        gp = game.get("gameplay") or {}
+        for point in gp.get("points", []):
+            if point.get("type") != "point":
+                continue
+            points += 1
+            scorer = plain(point.get("scorer", ""))
+            passer = plain(point.get("passer", ""))
+            if not scorer:
+                no_scorer += 1
+            if not point.get("possession_known"):
+                possession_unknown += 1
+            for field, value in (("scorer", scorer), ("passer", passer)):
+                if not value:
+                    continue
+                if not is_person(value):
+                    markers[value][field] += 1
+                    continue
+                slots[persons.resolve(value)][field] += 1
+
+    # A name in the point table that joins no roster: counted, not dropped, and
+    # keyed as `name:<canon>` everywhere it appears.
+    unresolved = [
+        {"person_key": key, "site_key": ids.site_key(key), **counts}
+        for key, counts in sorted(slots.items(), key=lambda kv: (-sum(kv[1].values()), kv[0]))
+        if key and not ids.clusters.get(key)
+    ]
+    # Keys the site data references that are not in the site's own player table —
+    # the rivals in frenemies, mostly, which is expected. The count is the check
+    # that the key space is not leaking strangers into players.json.
+    outside = sorted(key for key in used_keys if key not in player_ids)
+
+    clusters = sorted(((len(v), k) for k, v in ids.clusters.items()), reverse=True)
+    return {
+        "keys": {
+            "explained": (
+                "A site key is the lowest pelikone player id in a person's id cluster, "
+                "or name:<canon> when no roster ever carried an id for that name. "
+                "pelikone mints a new id per registration, so one person has many ids; "
+                "names.json maps every key used in site_data back to a printable name."
+            ),
+            "keys_used_in_site_data": len(used_keys),
+            "named": len(names),
+            "in_the_player_table": len(player_ids),
+            "pseudo_keyed": sum(1 for key in used_keys if key.startswith("name:")),
+        },
+        "id_clusters": {
+            "persons_seen_in_rosters": len(ids.clusters),
+            "persons_with_multiple_ids": len(ids.multi_id),
+            "max_ids_for_one_person": clusters[0][0] if clusters else 0,
+            "largest": [
+                {"site_key": ids.site_key(person), "ids": count, "person_key": person}
+                for count, person in clusters[:10] if count > 1
+            ],
+        },
+        "aliases_asserted": dict(sorted(persons.aliases.items())),
+        "points": {
+            "total": points,
+            "no_scorer_named": no_scorer,
+            "possession_unknown": possession_unknown,
+            "possession_note": (
+                "Points whose starting possession cannot be read from the page are "
+                "counted as offense-initiated in the published defense totals."
+            ),
+        },
+        "non_person_markers": [
+            {"value": value, **counts,
+             "note": "a scoring event label in the point table, not a player"}
+            for value, counts in sorted(markers.items(),
+                                        key=lambda kv: -(kv[1]["scorer"] + kv[1]["passer"]))
+        ],
+        "unresolved_names": unresolved,
+        "unresolved_note": (
+            "A name in the point table that joins no roster anywhere in the archive. "
+            "It is still counted, under a name:<canon> key, and listed here. The fact "
+            "store applies a stricter test — a name must also appear in the pelikone "
+            "player index, which covers the current season only — so its count of "
+            "`name:` keys is larger than this one by design."
+        ),
+        "keys_outside_the_player_table": {
+            "count": len(outside),
+            "note": (
+                "Expected: frenemies names rivals, who are not in players.json. "
+                "A rise here that is not matched by a rise in rivals is a leak."
+            ),
+        },
+    }
+
+
 def main() -> None:
     focus = load_focus_team(TEAMS_FILE)
     if focus is None:
@@ -317,24 +440,14 @@ def main() -> None:
     defense = build_defense_stats(games, focus, persons)
     print(f"  {len(defense)} players with defense stats")
 
-    print("Resolving display names...")
-    spellings = collect_spellings(seasons, games, persons)
-    display = display_names(career, spellings)
-    players = {display[key]: stats for key, stats in career.items()}
-    for key, stats in defense.items():
-        shown = display.get(key)
-        if shown in players:
-            players[shown].update(stats)
-
-    names_for_views = list(players)
     print("Building pass network...")
-    pass_network = build_pass_network(games, focus, names_for_views, persons)
+    pass_network = build_pass_network(games, focus, career.keys(), persons)
     received, given = pass_network["received"], pass_network["given"]
     print(f"  {len(received)} received, {len(given)} gave, "
           f"{sum(len(v) for v in received.values())} directed edges")
 
     print("Building co-occurrence...")
-    cooccurrence = build_cooccurrence(games, focus, names_for_views, persons)
+    cooccurrence = build_cooccurrence(games, focus, career.keys(), persons)
     print(f"  {len(cooccurrence)} players, {sum(len(v) for v in cooccurrence.values()) // 2} edges")
 
     print("Building years...")
@@ -361,8 +474,64 @@ def main() -> None:
     frenemies = build_frenemies(games, focus, persons=persons)
     print(f"  {len(frenemies)} rivals")
 
+    # --- identity: person key -> site key, and the name each key prints -------
+    #
+    # Every person mentioned by any view gets a key, not only the ones in the
+    # career table: a rival in frenemies and a name in a year's roster are people
+    # the page has to be able to print and, where it can, link.
+    clusters = collect_id_clusters(games, seasons, persons)
+    mentioned = set(career) | set(defense)
+    for partners in list(received.values()) + list(given.values()) + list(cooccurrence.values()):
+        mentioned |= set(partners)
+    for row in years["years_all_bears.json"].values():
+        mentioned |= set(row["roster"])
+    mentioned |= {entry["id"] for entry in frenemies}
+    mentioned.discard("")
+    for person in mentioned:
+        clusters.setdefault(person, set())
+    ids = PersonIds.build(clusters, {})
+    print(f"Identity: {len(ids.key_of)} people seen in rosters, {len(ids.multi_id)} with "
+          f"more than one pelikone id")
+
+    spellings = collect_spellings(seasons, games, persons)
+    display = display_names(mentioned, spellings)
+    names = {ids.site_key(person): display[person] for person in sorted(mentioned)}
+
+    # Re-key every view. After this point nothing in site_data is keyed by a name.
+    players = {ids.site_key(key): stats for key, stats in career.items()}
+    for key, stats in defense.items():
+        site_key = ids.site_key(key)
+        if site_key in players:
+            players[site_key].update(stats)
+    pass_network = {axis: {ids.site_key(me): ids.rekey(them) for me, them in partners.items()}
+                    for axis, partners in pass_network.items()}
+    cooccurrence = {ids.site_key(me): ids.rekey(them) for me, them in cooccurrence.items()}
+    for rows in years.values():
+        for row in rows.values():
+            row["roster"] = [ids.site_key(person) for person in row["roster"]]
+    for entry in frenemies:
+        entry["id"] = ids.site_key(entry["id"])
+        # Print the resolved display name, not whichever spelling the first game
+        # happened to use; the id is what links, so this cannot break a URL.
+        entry["name"] = names.get(entry["id"], entry["name"])
+
+    # Every key any file references, so the quality report can prove that nothing
+    # in site_data is keyed by something names.json cannot name.
+    used: set = set(players)
+    for partners in list(pass_network["received"].values()) + list(pass_network["given"].values()) \
+            + list(cooccurrence.values()):
+        used |= set(partners)
+    for axis in ("received", "given"):
+        used |= set(pass_network[axis])
+    used |= set(cooccurrence)
+    used |= {entry["id"] for entry in frenemies}
+    for rows in years.values():
+        for row in rows.values():
+            used |= set(row["roster"])
+
     print("Building summary...")
-    summary = build_summary(players, pass_network, cooccurrence, years["years_otso.json"], games, focus)
+    summary = build_summary(players, pass_network, cooccurrence,
+                            years["years_otso.json"], games, focus, names)
 
     print("Building trophies...")
     trophies = build_trophies(seasons, focus)
@@ -374,8 +543,27 @@ def main() -> None:
     print(f"  {totals['gold']} gold, {totals['silver']} silver, {totals['bronze']} bronze "
           f"= {totals['podiums']} podiums in {totals['contested']} seasons contested")
 
+    # The invariant that makes ID keys usable: every key any file references is a
+    # key names.json can name. This is what catches a half-rekeyed view — a person
+    # key left in a site-keyed map is invisible to the page and silently renders
+    # as a raw canonical name.
+    unnamed = sorted(key for key in used if key not in names)
+    if unnamed:
+        raise SystemExit(
+            f"{len(unnamed)} site keys have no entry in names.json, "
+            f"e.g. {unnamed[:5]} — a view was not re-keyed"
+        )
+
+    quality = build_quality_report(games, ids, persons, set(players), names, used)
+    print(f"Quality: {len(used)} keys in site_data, "
+          f"{quality['points']['no_scorer_named']} points with no scorer, "
+          f"{len(quality['unresolved_names'])} unresolved names, "
+          f"{quality['points']['possession_unknown']} points of unknown possession")
+
     files = {
         "players.json": players,
+        "names.json": names,
+        "data_quality.json": quality,
         "pass_network.json": pass_network,
         "cooccurrence.json": cooccurrence,
         "summary.json": summary,

@@ -220,9 +220,12 @@ def test_store_matches_the_published_site_numbers():
     # did not exist on the site. `config/aliases.json` closes it: one asserted merge,
     # and the published total now equals the store's.
     site = json.loads(Path("site_data/players.json").read_text(encoding="utf-8"))
+    names = json.loads(Path("site_data/names.json").read_text(encoding="utf-8"))
     site_defense: dict[str, int] = {}
-    for name, player in site.items():
-        site_defense[canon(name)] = site_defense.get(canon(name), 0) + player.get("defense_points", 0)
+    for key, player in site.items():
+        # players.json is keyed by person id; names.json says who that is.
+        person = canon(names.get(key, key))
+        site_defense[person] = site_defense.get(person, 0) + player.get("defense_points", 0)
     assert {k: v for k, v in builder.items() if k not in site_defense} == {}
     assert sum(site_defense.values()) == 4443
     # the merged player carries both spellings' points under one key

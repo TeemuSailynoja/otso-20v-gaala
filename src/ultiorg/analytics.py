@@ -382,19 +382,10 @@ def build_defense_stats(
 
 
 # --- pass network -----------------------------------------------------------
-def _display_map(display_names: Iterable[str], persons: PersonKeys | None) -> Dict[str, str]:
-    """person key -> the display name the site prints (first spelling wins)."""
-    key = _keyer(persons)
-    out: Dict[str, str] = {}
-    for name in display_names:
-        out.setdefault(key(name), name)
-    return out
-
-
 def build_pass_network(
     games: Iterable[Dict],
     focus: FocusTeam,
-    display_names: Iterable[str],
+    only: Optional[Iterable[str]] = None,
     persons: PersonKeys | None = None,
 ) -> Dict[str, Dict]:
     """Directed pass edges: `received[scorer][passer] = times passer fed scorer`.
@@ -404,9 +395,16 @@ def build_pass_network(
     passer is on that team's roster — the same rule as the career table, so the
     two views agree on a player's assist total instead of disagreeing by the
     card-vs-play-by-play gap.
+
+    Keys are **person keys**, not display names: the library never prints a name,
+    it identifies a person, and the caller decides how to render them (the site
+    maps person key -> site key via `persons.PersonIds` and keeps the names in
+    `names.json`). `only` restricts the graph to a set of person keys — the site
+    passes its career table, so an opponent who was fed by our passer appears in
+    the pass graph only if he is one of ours.
     """
     key = _keyer(persons)
-    display_for = _display_map(display_names, persons)
+    keep = None if only is None else {key(name) for name in only}
 
     network = defaultdict(lambda: defaultdict(int))
     for game in games:
@@ -435,14 +433,13 @@ def build_pass_network(
     received: Dict[str, Dict[str, int]] = defaultdict(dict)
     given: Dict[str, Dict[str, int]] = defaultdict(dict)
     for person, partners in network.items():
-        if person not in display_for:
+        if keep is not None and person not in keep:
             continue
         for other, count in partners.items():
-            if other not in display_for:
+            if keep is not None and other not in keep:
                 continue
-            me, them = display_for[person], display_for[other]
-            received[me][them] = received[me].get(them, 0) + count
-            given[them][me] = given[them].get(me, 0) + count
+            received[person][other] = received[person].get(other, 0) + count
+            given[other][person] = given[other].get(person, 0) + count
 
     # Sorted on write: the adjacency dicts are built in corpus order, so an
     # unsorted file reorders wholesale whenever the corpus is recomposed —
@@ -457,12 +454,15 @@ def build_pass_network(
 def build_cooccurrence(
     games: Iterable[Dict],
     focus: FocusTeam,
-    display_names: Iterable[str],
+    only: Optional[Iterable[str]] = None,
     persons: PersonKeys | None = None,
 ) -> Dict[str, Dict[str, int]]:
-    """Undirected teammate counts: every pair on a focus-team roster in a game."""
+    """Undirected teammate counts: every pair on a focus-team roster in a game.
+
+    Person keys in, person keys out — see `build_pass_network`.
+    """
     key = _keyer(persons)
-    display_for = _display_map(display_names, persons)
+    keep = None if only is None else {key(name) for name in only}
 
     cooc = defaultdict(lambda: defaultdict(int))
     for game in games:
@@ -478,8 +478,9 @@ def build_cooccurrence(
                 continue
             for row in gp.get(cells, []):
                 person = key(row.get("name", ""))
-                if person and person in display_for:
-                    people.add(person)
+                if not person or (keep is not None and person not in keep):
+                    continue
+                people.add(person)
         ordered = sorted(people)
         for i, a in enumerate(ordered):
             for b in ordered[i + 1:]:
@@ -487,16 +488,16 @@ def build_cooccurrence(
                 cooc[b][a] += 1
 
     result: Dict[str, Dict[str, int]] = {}
-    for person, partners in sorted(cooc.items(), key=lambda kv: display_for.get(kv[0], kv[0])):
-        if person not in display_for:
+    for person, partners in sorted(cooc.items()):
+        if keep is not None and person not in keep:
             continue
         inner = {
-            display_for[other]: count
+            other: count
             for other, count in partners.items()
-            if other in display_for
+            if keep is None or other in keep
         }
         if inner:
-            result[display_for[person]] = dict(sorted(inner.items(), key=lambda kv: (-kv[1], kv[0])))
+            result[person] = dict(sorted(inner.items(), key=lambda kv: (-kv[1], kv[0])))
     return result
 
 
@@ -514,7 +515,9 @@ def build_frenemies(
     external opponent when both sides are ours.
     """
     key = _keyer(persons)
-    players = defaultdict(lambda: {"games": 0, "wins": 0, "goals": 0, "assists": 0, "teams": Counter()})
+    players = defaultdict(
+        lambda: {"name": "", "games": 0, "wins": 0, "goals": 0, "assists": 0, "teams": Counter()}
+    )
 
     for game in games:
         gp = game.get("gameplay")
@@ -550,11 +553,13 @@ def build_frenemies(
             our_score, opp_score, opp_team = away_score, home_score, home
 
         for person in set(everyone) - ours:
-            name = everyone[person]
-            players[name]["games"] += 1
+            entry = players[person]
+            # First spelling seen wins; the display name is the caller's business.
+            entry["name"] = entry["name"] or everyone[person]
+            entry["games"] += 1
             if opp_score > our_score:
-                players[name]["wins"] += 1
-            players[name]["teams"][opp_team] += 1
+                entry["wins"] += 1
+            entry["teams"][opp_team] += 1
 
         for point in gp.get("points", []):
             if point.get("type") != "point":
@@ -562,15 +567,18 @@ def build_frenemies(
             for field in ("scorer", "passer"):
                 person = key(point.get(field, ""))
                 if person in everyone and person not in ours:
-                    players[everyone[person]]["goals" if field == "scorer" else "assists"] += 1
+                    players[person]["goals" if field == "scorer" else "assists"] += 1
 
     scored = []
-    for name, p in players.items():
+    for person, p in players.items():
         total = p["goals"] + p["assists"]
         if total <= 0:
             continue
         scored.append({
-            "name": name,
+            # Person key, not the spelling: the same opponent registered under
+            # two spellings used to be counted as two rivals.
+            "id": person,
+            "name": p["name"],
             "games": p["games"],
             "wins": p["wins"],
             "losses": p["games"] - p["wins"],
@@ -604,8 +612,8 @@ def build_years(
     `scope="all"` counts every squad of the club, development teams included.
     `season_type_filter` restricts the row to summer or winter seasons.
 
-    Returns person keys in `roster_names`; the gala script turns those into
-    display names and adds the average age from the private birthdays file.
+    Returns person keys in `roster`; the gala script turns those into site keys
+    and display names, and adds the average age from the private birthdays file.
     """
     names = dict(season_names or {})
     key = _keyer(persons)
@@ -667,7 +675,7 @@ def build_years(
             "roster_players": len(roster),
             # The timeline HUD cloud is seeded from exactly this roster, so it
             # must match roster_players rather than the career table's years.
-            "roster_names": roster,
+            "roster": roster,
         }
     return result
 
