@@ -11,15 +11,10 @@ Respects the page: 1.5s delay between requests, polite user-agent, caching.
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
-
-from otso_scrape.fetcher import fetch_gameplay
-from otso_scrape.config import BASE_URL, RAW_DIR
-
+from ultiorg.fetcher import fetch_gameplay
+from ultiorg.config import BASE_URL, RAW_DIR
 
 def get_all_game_ids():
     """Get all game IDs from match_results.json."""

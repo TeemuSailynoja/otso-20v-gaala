@@ -28,7 +28,7 @@ markers are keyed by their text. The migration is idempotent — a second run
 removes 0 rows.
 
 The parser no longer produces the duplicates (see parse_gameplay in
-src/otso_scrape/parsers.py); this repairs the data already on disk.
+src/ultiorg/parsers.py); this repairs the data already on disk.
 """
 
 import json

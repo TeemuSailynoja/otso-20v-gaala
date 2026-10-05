@@ -1,10 +1,15 @@
-"""Otso 20-vuotisgaala data scraper and parser.
+"""ultiorg — a cached client for Ultiorganizer league data.
 
-Re-exports the main public API for programmatic use:
+Ultiorganizer (the backend behind ultimate.fi/pelikone) exposes no database API,
+only HTML views. This package fetches those views politely, caches them, and
+parses them into ID-keyed data:
 
-    from otso_scrape import run_pipeline, get_all_seasons, parse_season
-    from otso_scrape.parsers import is_otso_team, classify_season
-    from otso_scrape.builders import build_team_timeline, build_player_network
+    from ultiorg import fetch_gameplay, parse_gameplay, parse_allplayers
+    from ultiorg.parsers import is_otso_team, classify_season
+    from ultiorg.builders import build_team_timeline
+
+The public API below is complete: every parser and fetcher in the package is
+re-exported, including the gameplay and player-identity paths.
 """
 
 
@@ -18,6 +23,8 @@ from .parsers import (
     parse_standings_page,
     parse_team_card,
     parse_player_list,
+    parse_games_list,
+    parse_gameplay,
     parse_csv_teams,
     parse_csv_players,
     parse_csv_games,
@@ -35,6 +42,8 @@ from .fetcher import (
     fetch_standings_page,
     fetch_team_card,
     fetch_player_list,
+    fetch_games_page,
+    fetch_gameplay,
     fetch_csv_export,
 )
 from .cache import (
@@ -55,6 +64,8 @@ __all__ = [
     "parse_standings_page",
     "parse_team_card",
     "parse_player_list",
+    "parse_games_list",
+    "parse_gameplay",
     "parse_csv_teams",
     "parse_csv_players",
     "parse_csv_games",
@@ -70,6 +81,8 @@ __all__ = [
     "fetch_standings_page",
     "fetch_team_card",
     "fetch_player_list",
+    "fetch_games_page",
+    "fetch_gameplay",
     "fetch_csv_export",
     # Cache
     "get_cache",

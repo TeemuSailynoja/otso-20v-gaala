@@ -173,7 +173,7 @@ def main() -> None:
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
         description="Parse Otso data from Pelikone",
-        prog="otso-scrape",
+        prog="ultiorg",
     )
     parser.add_argument("--season", type=str, help="Parse specific season ID")
     parser.add_argument(

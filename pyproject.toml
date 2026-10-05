@@ -1,7 +1,11 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "otso-scrape"
+name = "ultiorg"
 version = "0.1.0"
-description = "Data scraper and parser for Otso 20-vuotisgaala visualization project"
+description = "Cached client for Ultiorganizer (pelikone): players, matches, and point-by-point gameplay for any Finnish ultimate team"
 requires-python = ">=3.11"
 dependencies = [
     "requests>=2.31.0",
@@ -9,7 +13,22 @@ dependencies = [
 ]
 
 [project.scripts]
-otso-scrape = "otso_scrape.cli:main"
+ultiorg = "ultiorg.cli:main"
 
-[tool.uv]
-dev-dependencies = []
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "network: hits the live Ultiorganizer instance (deselected by default)",
+]
+addopts = "-m 'not network'"

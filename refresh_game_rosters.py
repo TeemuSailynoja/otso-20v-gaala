@@ -29,13 +29,11 @@ Idempotent: a second run adds 0 names.
 
 import json
 import re
-import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-sys.path.insert(0, str(BASE_DIR / "src"))
 
-from otso_scrape.parsers import parse_gameplay  # noqa: E402
+from ultiorg.parsers import parse_gameplay  # noqa: E402
 
 MATCH_RESULTS = BASE_DIR / "data" / "processed" / "match_results.json"
 RAW_DIR = BASE_DIR / "data" / "raw"
