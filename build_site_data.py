@@ -523,6 +523,78 @@ def build_players(raw_data: list[dict], gameplay: list[dict]) -> dict:
                     else:
                         p["season_types"]["other"].add(year)
     
+    # Phase 3: Enrich goals/assists from gameplay (PBP) where card data is
+    # missing. The card scrape only covers ~11 seasons; PBP covers all 77.
+    # We use card stats where available (more reliable), falling back to
+    # Otso-filtered PBP for seasons the card missed.
+    #
+    # Uses roster-based filtering: only count points where the scorer/passer
+    # actually appears on an Otso team's roster for that game. This avoids
+    # counting goals from games where the player was on the opposing team.
+    
+    pbp_by_player_season = defaultdict(lambda: defaultdict(lambda: {"goals": 0, "assists": 0}))
+    for game in gameplay:
+        gp = game.get("gameplay")
+        if not gp:
+            continue
+        season_id = game.get("season_id", "")
+        if not season_id:
+            continue
+        
+        home_is_otso = is_otso_team(gp.get("home_team", ""))
+        away_is_otso = is_otso_team(gp.get("away_team", ""))
+        if not home_is_otso and not away_is_otso:
+            continue
+        
+        # Build set of Otso players in this game's roster
+        otso_in_game = set()
+        if home_is_otso:
+            for p in gp.get("home_players", []):
+                canon = canonicalize_name(p.get("name", ""))
+                if canon:
+                    otso_in_game.add(canon)
+        if away_is_otso:
+            for p in gp.get("away_players", []):
+                canon = canonicalize_name(p.get("name", ""))
+                if canon:
+                    otso_in_game.add(canon)
+        
+        # Count points only for Otso players in this game
+        for p in gp.get("points", []):
+            if p.get("type") != "point":
+                continue
+            scorer = canonicalize_name(p.get("scorer", ""))
+            passer = canonicalize_name(p.get("passer", ""))
+            if scorer and scorer in otso_in_game:
+                pbp_by_player_season[scorer][season_id]["goals"] += 1
+            if passer and passer in otso_in_game:
+                pbp_by_player_season[passer][season_id]["assists"] += 1
+    
+    # Merge PBP into player stats: use PBP for ALL seasons.
+    # This ensures the pass network (which counts all PBP assists) matches
+    # the player stat totals. Card data lacks per-pair breakdown, so we
+    # cannot merge it into the pass network — using PBP-primary avoids
+    # the card-vs-PBP mismatch that caused Juha Jokinen to show 23A in the
+    # header but 0A in the bar chart.
+    for canon, seasons_pb in pbp_by_player_season.items():
+        if canon not in players:
+            continue
+        p = players[canon]
+        for season_id, stats in seasons_pb.items():
+            p["goals"] += stats["goals"]
+            p["assists"] += stats["assists"]
+            # Track summer/winter split
+            normalized_for_lookup = normalize_season_id(season_id, season_type_map)
+            stype = (page_mapping.get(normalized_for_lookup, {}).get("type") or
+                     page_mapping.get(season_id, {}).get("type") or
+                     season_type_map.get(season_id, "unknown"))
+            if stype == "summer":
+                p["summer_goals"] += stats["goals"]
+                p["summer_assists"] += stats["assists"]
+            elif stype == "winter":
+                p["winter_goals"] += stats["goals"]
+                p["winter_assists"] += stats["assists"]
+    
     # Merge known name duplicates (case-insensitive dedup already handles most)
     # Touko Väänänen / Touko aukusti Väänänen — same person, different middle name
     touko_canon = canonicalize_name("Touko Väänänen")
@@ -638,6 +710,11 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
     scraped data before 2026-10. network[scorer][passer] = times passer fed
     scorer.
 
+    Uses the same PBP-as-primary logic as Phase 3 player stats: count assists
+    from all PBP data for games involving Otso teams. This ensures the pass
+    network matches the player stat totals (e.g., Juha Jokinen 35A in both
+    header and bar chart).
+
     Returns: {player: {other: count, ...}, ...}
     """
     # Build reverse map: canonical_key → display_name
@@ -657,17 +734,25 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
         home_is_otso = is_otso_team(gp.get("home_team", ""))
         away_is_otso = is_otso_team(gp.get("away_team", ""))
         
-        # An Otso game, and both names are Otso players we know. It used to be a
-        # stricter rule — both names also had to appear on this game's roster —
-        # but the archived rosters are incomplete: game 9170 omits Simo Soini
-        # entirely, which dropped 2 of his 5 goals. Measured against the season
-        # card assist totals (10,410 assists), the roster rule counted 9,254
-        # assisted goals (11% short) while the known-player rule counts 10,553
-        # (1.4% over, the excess being Akatemia games the cards do not cover).
         if not (home_is_otso or away_is_otso):
             continue
 
-        # Process points
+        # Build set of Otso players in this game's roster (same logic as
+        # Phase 3 merge).
+        otso_in_game = set()
+        if home_is_otso:
+            for p in gp.get("home_players", []):
+                canon = canonicalize_name(p.get("name", ""))
+                if canon:
+                    otso_in_game.add(canon)
+        if away_is_otso:
+            for p in gp.get("away_players", []):
+                canon = canonicalize_name(p.get("name", ""))
+                if canon:
+                    otso_in_game.add(canon)
+
+        # Count assists where the passer is in the Otso roster for this game.
+        # This matches the Phase 3 merge logic exactly.
         for point in gp.get("points", []):
             if point.get("type") != "point":
                 continue
@@ -677,7 +762,9 @@ def build_pass_network(gameplay: list[dict], players: dict) -> dict:
             scorer_canon = canonicalize_name(raw_scorer)
             passer_canon = canonicalize_name(raw_passer)
 
-            if scorer_canon in canon_to_display and passer_canon in canon_to_display:
+            # Count assists where the passer is on the Otso roster.
+            # This matches the Phase 3 merge logic exactly.
+            if passer_canon in otso_in_game:
                 network[scorer_canon][passer_canon] += 1
     
     # Convert to regular dicts with display names
