@@ -522,18 +522,45 @@ def parse_player_list(html: str, team_id: str) -> List[Dict]:
     return players
 
 
-def parse_csv_teams(html: str, season_id: str) -> List[Dict]:
+class NotCsvError(ValueError):
+    """Raised when a CSV parser is handed something that is not CSV.
+
+    `?view=ext/export` is an HTML page that *links* the CSVs; feeding it to a CSV
+    parser used to produce one row of empty strings per line, silently. The
+    headers are the cheapest thing that distinguishes the two, so check them.
+    """
+
+
+def _read_csv(text: str, required_column: str):
+    """`csv.DictReader` over `text`, refusing input that is not that CSV."""
+    if text.lstrip().startswith("<"):
+        raise NotCsvError(
+            "got HTML, not CSV — the CSVs are at ext/<kind>csv.php, "
+            "while ?view=ext/export is the page that links them"
+        )
+    reader = csv.DictReader(StringIO(text))
+    if not reader.fieldnames:
+        raise NotCsvError("empty CSV input")
+    if required_column not in reader.fieldnames:
+        raise NotCsvError(
+            f"not the expected CSV: no {required_column!r} column, "
+            f"headers are {reader.fieldnames}"
+        )
+    return reader
+
+
+def parse_csv_teams(text: str, season_id: str) -> List[Dict]:
     """Parse the teams CSV export.
     
     Args:
-        html: CSV content as string.
+        text: CSV text from `ext/<kind>csv.php` — not the export page.
         season_id: Season identifier.
         
     Returns:
         List of team dictionaries.
     """
     teams = []
-    reader = csv.DictReader(StringIO(html))
+    reader = _read_csv(text, "Team")
     for row in reader:
         teams.append({
             "name": row.get("Team", ""),
@@ -552,18 +579,18 @@ def parse_csv_teams(html: str, season_id: str) -> List[Dict]:
     return teams
 
 
-def parse_csv_players(html: str, season_id: str) -> List[Dict]:
+def parse_csv_players(text: str, season_id: str) -> List[Dict]:
     """Parse the players CSV export.
     
     Args:
-        html: CSV content as string.
+        text: CSV text from `ext/<kind>csv.php` — not the export page.
         season_id: Season identifier.
         
     Returns:
         List of player dictionaries.
     """
     players = []
-    reader = csv.DictReader(StringIO(html))
+    reader = _read_csv(text, "LastName")
     for row in reader:
         players.append({
             "first_name": row.get("FirstName", ""),
@@ -585,18 +612,18 @@ def parse_csv_players(html: str, season_id: str) -> List[Dict]:
     return players
 
 
-def parse_csv_games(html: str, season_id: str) -> List[Dict]:
+def parse_csv_games(text: str, season_id: str) -> List[Dict]:
     """Parse the games CSV export.
     
     Args:
-        html: CSV content as string.
+        text: CSV text from `ext/<kind>csv.php` — not the export page.
         season_id: Season identifier.
         
     Returns:
         List of game dictionaries.
     """
     games = []
-    reader = csv.DictReader(StringIO(html))
+    reader = _read_csv(text, "HomeTeam")
     for row in reader:
         games.append({
             "time": row.get("Time", ""),
@@ -615,18 +642,18 @@ def parse_csv_games(html: str, season_id: str) -> List[Dict]:
     return games
 
 
-def parse_csv_results(html: str, season_id: str) -> List[Dict]:
+def parse_csv_results(text: str, season_id: str) -> List[Dict]:
     """Parse the results CSV export.
     
     Args:
-        html: CSV content as string.
+        text: CSV text from `ext/<kind>csv.php` — not the export page.
         season_id: Season identifier.
         
     Returns:
         List of result dictionaries.
     """
     results = []
-    reader = csv.DictReader(StringIO(html))
+    reader = _read_csv(text, "Home")
     for row in reader:
         results.append({
             "home": row.get("Home", ""),
@@ -640,10 +667,72 @@ def parse_csv_results(html: str, season_id: str) -> List[Dict]:
     return results
 
 
+def parse_csv_pools(text: str, season_id: str) -> List[Dict]:
+    """Parse the pools CSV export — standings per pool.
+
+    Args:
+        text: CSV text from `ext/<kind>csv.php` — not the export page.
+        season_id: Season identifier.
+
+    Returns:
+        List of pool-standing dictionaries.
+    """
+    standings = []
+    reader = _read_csv(text, "Pool")
+    for row in reader:
+        standings.append({
+            "division": row.get("Division", ""),
+            "pool": row.get("Pool", ""),
+            "standing": _int(row.get("Standing", "")),
+            "team": row.get("Team", ""),
+            "games": _int(row.get("Games", "")),
+            "wins": _int(row.get("Wins", "")),
+            "losses": _int(row.get("Losses", "")),
+            "goals_for": _int(row.get("GoalsFor", "")),
+            "goals_against": _int(row.get("GoalsAgainst", "")),
+            "goals_diff": _int(row.get("GoalsDiff", "")),
+            "season_id": season_id,
+        })
+    return standings
+
+
+def parse_csv_spirit(text: str, season_id: str) -> List[Dict]:
+    """Parse the spirit CSV export — one row per evaluation.
+
+    Spirit is the self-refereeing score: each team rates the other on Rules,
+    Fouls, Fair, Positive and Communication. `team` is the team being rated,
+    `by_team` the rater.
+    """
+    evaluations = []
+    reader = _read_csv(text, "TeamEvaluated")
+    for row in reader:
+        evaluations.append({
+            "division": row.get("Division", ""),
+            "field_group": row.get("FieldGroup", ""),
+            "date": row.get("Date", ""),
+            "field": row.get("Field", ""),
+            "time": row.get("Time", ""),
+            "pool": row.get("Pool", ""),
+            "team": row.get("TeamEvaluated", ""),
+            "by_team": row.get("ByTeam", ""),
+            "rules": _int(row.get("Rules", "")),
+            "fouls": _int(row.get("Fouls", "")),
+            "fair": _int(row.get("Fair", "")),
+            "positive": _int(row.get("Positive", "")),
+            "communication": _int(row.get("Com", "")),
+            "total": _int(row.get("Total", "")),
+            "comments": row.get("Comments", ""),
+            "season_id": season_id,
+        })
+    return evaluations
+
+
 def is_otso_team(team_name: str) -> bool:
     """Check if a team name matches Otso patterns.
-    
-    Excludes Akatemia teams (separate club) and "Otso 3" (often youth/mixed).
+
+    The patterns are `OTSO_PATTERNS` in `config.py` — otso, grizzly, polar,
+    hukka, karhuvaarit — and Akatemia is excluded by `is_otso_akatemia`, not
+    here. "Otso 3" is **not** excluded: it matches `otso` and is included.
     
     Args:
         team_name: Team name to check.
@@ -1177,3 +1266,217 @@ def parse_playercard(html: str, player_id: str) -> Dict:
                 result["career_by_type"].append({"type": labels[0], "division": labels[1], **stats})
 
     return result
+
+
+# --- event-level views ------------------------------------------------------
+
+def parse_series_menu(html: str) -> List[Dict]:
+    """The series (one per division) of the event a page belongs to.
+
+    The left menu lists `?view=seriesstatus&series=NNNN` links. `series` is the
+    ID `scorestatus` takes, and it is a **different ID space from `season`**:
+    KESA2026 has series 3300 (Avoin), 3301 (Naiset), 3302 (Mixed), 3303
+    (Juniorit U17). Nothing else on the page exposes them, so this menu is how
+    you enumerate a season's scoreboards.
+    """
+    series: List[Dict] = []
+    seen: set[str] = set()
+    for link in BeautifulSoup(html, "html.parser").find_all("a", href=True):
+        href = link["href"]
+        if "view=seriesstatus" not in href:
+            continue
+        match = re.search(r"series=(\d+)", href)
+        if not match or match.group(1) in seen:
+            continue
+        seen.add(match.group(1))
+        series.append({
+            "series_id": match.group(1),
+            "name": " ".join(link.get_text().replace("\xa0", " ").split()),
+        })
+    return series
+
+
+_SCORESTATUS_HEADERS = ["#", "Pelaaja", "Joukkue", "GP", "A", "G", "Tot.", "A Avg.", "G Avg.", "Tot. Avg.", "Call."]
+
+
+def parse_scorestatus(html: str, series_id: str) -> List[Dict]:
+    """Parse `?view=scorestatus&series=<seriesID>` — one event's whole scoreboard.
+
+    One row per player who played in that series, **with player IDs**: rank,
+    name, team, GP, A, G, Tot., the three averages, Callahans. This is the
+    cheapest bulk source of ID-keyed per-event scoring: 123 players for KESA2026
+    Avoin in one request, versus one request per player.
+
+    Unlike `playercard` this is scoped to one series, so a player who played two
+    divisions of the same event appears on two scoreboards.
+
+    The page renders this table **twice** — once inside `div.page_middle` (with
+    the event menu) and once inside `div.content`. Same 123 players both times;
+    scanning the document would double every row, so scope to `content`.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    content = soup.find("div", class_="content") or soup
+    players: List[Dict] = []
+    for table in content.find_all("table"):
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+        headers = [c.get_text(strip=True) for c in rows[0].find_all("th")]
+        if headers[:11] != _SCORESTATUS_HEADERS:
+            continue
+        for row in rows[1:]:
+            cells = row.find_all("td")
+            if len(cells) < 11:
+                continue
+            link = cells[1].find("a", href=True)
+            player_id = ""
+            if link:
+                match = re.search(r"player=(\d+)", link["href"])
+                player_id = match.group(1) if match else ""
+            players.append({
+                "series_id": series_id,
+                "rank": _int(cells[0].get_text(strip=True)),
+                "player_id": player_id,
+                "name": " ".join(cells[1].get_text().replace("\xa0", " ").split()),
+                "team": " ".join(cells[2].get_text().replace("\xa0", " ").split()),
+                "gp": _int(cells[3].get_text(strip=True)),
+                "assists": _int(cells[4].get_text(strip=True)),
+                "goals": _int(cells[5].get_text(strip=True)),
+                "total": _int(cells[6].get_text(strip=True)),
+                "avg_assists": _float(cells[7].get_text(strip=True)),
+                "avg_goals": _float(cells[8].get_text(strip=True)),
+                "avg_total": _float(cells[9].get_text(strip=True)),
+                "callahans": _int(cells[10].get_text(strip=True)),
+            })
+    return players
+
+
+_TOP_STAT_RE = re.compile(r"A\s+(\d+)\s*\+\s*G\s+(\d+)\s*=\s*Tot\.\s*(\d+)")
+
+
+def parse_statistics(html: str) -> List[Dict]:
+    """Parse `?view=statistics&list=playerscoreboard` — top three per event.
+
+    The page is grouped by `<h2>` (Sisä / Ulko / Ranta — indoor, outdoor, beach)
+    and `<h3>` (division), then one table per division listing every event with
+    its three leading scorers. Each event cell links its `scorestatus` series and
+    each player cell links their `playercard`, so this one page is a map from
+    event name to series ID **and** a shortcut to the top scorers' IDs.
+
+    Returns one dict per event:
+
+        {section, division, event, series_id, top: [{rank, player_id, name,
+         team, assists, goals, total}]}
+
+    The `season=` parameter does not scope this list — the page shows every
+    event the instance has, which is why it is worth caching as an index.
+    """
+    content = BeautifulSoup(html, "html.parser").find("div", class_="content")
+    if content is None:
+        return []
+
+    events: List[Dict] = []
+    section = division = ""
+    for element in content.find_all(["h2", "h3", "table"], recursive=False):
+        if element.name == "h2":
+            section = " ".join(element.get_text().replace("\xa0", " ").split())
+            division = ""
+            continue
+        if element.name == "h3":
+            division = " ".join(element.get_text().replace("\xa0", " ").split())
+            continue
+
+        rows = element.find_all("tr")
+        if not rows or "Tapahtuma" not in rows[0].get_text():
+            continue
+        for row in rows[1:]:
+            cells = row.find_all("td")
+            if len(cells) < 4:
+                continue
+            event_link = cells[0].find("a", href=True)
+            if not event_link:
+                continue
+            series_match = re.search(r"series=(\d+)", event_link["href"])
+            top: List[Dict] = []
+            for rank, cell in enumerate(cells[1:4], start=1):
+                player_link = cell.find("a", href=True)
+                if not player_link:
+                    continue
+                player_match = re.search(r"player=(\d+)", player_link["href"])
+                lines = [" ".join(part.replace("\xa0", " ").split())
+                         for part in cell.get_text("\n").split("\n")]
+                lines = [line for line in lines if line]
+                stats = _TOP_STAT_RE.search(cell.get_text(" ", strip=True))
+                top.append({
+                    "rank": rank,
+                    "player_id": player_match.group(1) if player_match else "",
+                    "name": " ".join(player_link.get_text().replace("\xa0", " ").split()),
+                    "team": lines[1] if len(lines) > 1 else "",
+                    "assists": _int(stats.group(1)) if stats else None,
+                    "goals": _int(stats.group(2)) if stats else None,
+                    "total": _int(stats.group(3)) if stats else None,
+                })
+            events.append({
+                "section": section,
+                "division": division,
+                "event": " ".join(event_link.get_text().replace("\xa0", " ").split()),
+                "series_id": series_match.group(1) if series_match else "",
+                "top": top,
+            })
+    return events
+
+
+def parse_allteams(html: str) -> List[Dict]:
+    """Parse `?view=allteams&list=all` — every team, with ID, name, division.
+
+    `list=all` is required: the default renders one letter group. The grid pads
+    its last row with **empty cells** (`teamcard&team=` with no ID and a bare
+    `[]`); those are skipped, not returned as nameless teams.
+    """
+    teams: List[Dict] = []
+    seen: set[str] = set()
+    for link in BeautifulSoup(html, "html.parser").find_all("a", href=True):
+        href = link["href"]
+        if "view=teamcard" not in href:
+            continue
+        match = re.search(r"team=(\d+)", href)
+        if not match:
+            continue
+        team_id = match.group(1)
+        if team_id in seen:
+            continue
+        seen.add(team_id)
+        cell = link.find_parent("td") or link
+        text = " ".join(cell.get_text().replace("\xa0", " ").split())
+        division_match = re.search(r"\[([^\]]+)\]", text)
+        teams.append({
+            "id": team_id,
+            "name": " ".join(link.get_text().replace("\xa0", " ").split()),
+            "division": division_match.group(1) if division_match else "",
+        })
+    return teams
+
+
+def parse_allclubs(html: str) -> List[Dict]:
+    """Parse `?view=allclubs&list=all` — every club, with ID and name.
+
+    Same letter-group trap as `allteams`: without `list=all` you get one group.
+    """
+    clubs: List[Dict] = []
+    seen: set[str] = set()
+    for link in BeautifulSoup(html, "html.parser").find_all("a", href=True):
+        href = link["href"]
+        if "view=clubcard" not in href:
+            continue
+        match = re.search(r"club=(\d+)", href)
+        if not match:
+            continue
+        club_id = match.group(1)
+        if club_id in seen:
+            continue
+        seen.add(club_id)
+        clubs.append({
+            "id": club_id,
+            "name": " ".join(link.get_text().replace("\xa0", " ").split()),
+        })
+    return clubs

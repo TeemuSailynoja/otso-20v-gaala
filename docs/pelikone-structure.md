@@ -53,6 +53,61 @@ https://ultimate.fi/pelikone/?view=VIEW&season=SEASON_ID[&additional_params]
 - **Purpose**: Detailed game log with disc-by-disc scoring
 - **Data extracted**: Point-by-point scoring, throws, scores, team rosters for that game
 
+### All Players (A–Z index)
+- **URL**: `?view=allplayers&list=all`
+- **Purpose**: every registered player on the instance
+- **Data extracted**: player ID, `First Last` display name (2,568 measured)
+- **Trap**: without `list=all` the view renders **one letter group**. Three of the
+  2,568 entries have an ID and an empty name — kept, and reported as data quality.
+
+### All Teams / All Clubs
+- **URL**: `?view=allteams&list=all`, `?view=allclubs&list=all`
+- **Data extracted**: team ID, name, division (from the `[Avoin]` suffix) /
+  club ID, name. Measured: 317 teams, 106 clubs.
+- **Trap**: same letter-group default as `allplayers`; the grid also pads its last
+  row with a `teamcard&team=` cell that has no ID and reads `[]`.
+
+### Score Status (one event's whole scoreboard)
+- **URL**: `?view=scorestatus&series=SERIES_ID`
+- **Data extracted**: rank, **player ID**, name, team, GP, A, G, Tot., the three
+  averages, Callahans — one row per player in that series (123 for KESA2026 Avoin)
+- **Why it matters**: the cheapest bulk source of ID-keyed per-event scoring — one
+  request per event instead of one per player.
+- **Trap**: the page renders this table **twice** (`div.page_middle` and
+  `div.content`). Scanning the document gives 246 rows for 123 players.
+
+### Statistics (top three per event, every event)
+- **URL**: `?view=statistics&season=SEASON_ID&list=playerscoreboard`
+- **Data extracted**: grouped by `<h2>` (Sisä / Ulko / Ranta — indoor, outdoor,
+  beach) and `<h3>` (division); one table per division listing every event, its
+  `series` ID, and the three leading scorers with player IDs and `A + G = Tot.`
+- **Note**: `season=` does **not** scope this list — the page covers every event
+  the instance has (231 measured). `list=playerscoresall` is the all-time variant.
+
+## The ID spaces are not interchangeable
+
+| Space | Example | Where it comes from |
+|---|---|---|
+| `season` | `KESA2026`, `2018.1`, `*JSM2018` | `?view=seasonlist` |
+| `series` | `3300` | **only** the left menu of a season page (`?view=seriesstatus&series=NNNN`), one per division of one event — `parse_series_menu` |
+| `pool` | `1819` | the menu under a series |
+| `team` | `3130` | `allteams`, `teamcard`, game scoreboards |
+| `club` | `159` | `allclubs`, `clubcard` |
+| `player` | `35304` | `allplayers`, game rosters, `scorestatus` |
+
+> [!WARNING]
+> **A player ID is a registration, not a person.** Measured across the 795 archived
+> games: 904 distinct roster names map to **6,175** distinct player IDs — pelikone
+> re-issues an ID per registration/season. One human can hold a dozen. Any query
+> about a *person* goes through the person key (`config/aliases.json`), never
+> through a single player ID.
+
+> [!WARNING]
+> **Point-by-point rows carry no player IDs, ever.** They are plain text in the
+> point table (`#NN First Last`), while the rosters on the same page carry IDs.
+> IDs attach to points by matching the point name against **that game's roster**,
+> order-insensitively (`ultiorg.canon`).
+
 ## CSV Export (Current Season Only)
 
 Available for the **current season only** via:
@@ -71,6 +126,20 @@ https://ultimate.fi/pelikone/ext/VIEWcsv.php?season=SEASON_ID&enc=UTF-8&sep=,
 | `teamscsv.php` | Team stats (team name, short name, club, country, division, games, wins, goals for/against, spirit) |
 | `poolscsv.php` | Pool standings |
 | `spiritcsv.php` | Spirit scores |
+
+A **past** season returns `403 Event is not available for external access` —
+measured: `playerscsv.php?season=KESA2026` → 200, `?season=KESA2025` → 403. CSV is
+therefore a current-season convenience and never a bulk-history path; history comes
+from the HTML views.
+
+`playerscsv.php` has **no player ID column** — it splits `FirstName`/`LastName`. The
+six exports join to the rest of the data only by team name and player name.
+
+> [!WARNING]
+> `?view=ext/export` is the HTML page that *links* these files; it is not a CSV.
+> Feeding it to a CSV parser used to yield 250 rows of empty strings, silently. The
+> parsers now raise `NotCsvError`, and `ultiorg.fetch_csv("players", "KESA2026")`
+> returns the file.
 
 ## Season ID Patterns
 

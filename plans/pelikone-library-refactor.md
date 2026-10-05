@@ -405,7 +405,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
 - [x] **Phase 5 — the fact store.** `store.py` with the section-4 tables; move the possession rule
       from `build_defense_stats` into the gameplay parser and store `possession` +
       `possession_known` per point. Gate: point counts and defense totals match today's numbers.
-- [ ] **Phase 6 — new views.** `scorestatus`, `statistics`, `allteams`/`allclubs`.
+- [x] **Phase 6 — new views.** `scorestatus`, `statistics`, `allteams`/`allclubs`.
 - [ ] **Phase 7 — composition API + CLI.** `player()/connections()/scoring()/games()`, the fetch
       verbs, and `ultiorg sql`; delete the four one-off scripts and fold the three repairs in.
       Verify a fresh clone + `ultiorg fetch all-seasons --gameplay` + `python build_site_data.py`

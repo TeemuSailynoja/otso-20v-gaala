@@ -237,21 +237,12 @@ def test_hyokkausys_marker_is_present_in_both_archived_games():
 
 
 # --- a bug, recorded rather than pinned -------------------------------------
-
-
-def test_ext_export_is_html_not_csv():
-    """`?view=ext/export` returns the "Tiedon vienti" HTML page, not CSV.
-
-    parse_csv_* feed it to csv.DictReader and get 250 rows whose fields are all
-    empty — silently. The real endpoints are ext/playerscsv.php and friends,
-    which are current-season only (403 for past seasons). Phase 6 rebuilds the
-    CSV path; until then nothing may treat these parsers as working.
-    """
-    page = read_fixture("export_page.html")
-    assert "<!DOCTYPE html" in page
-    rows = parsers.parse_csv_teams(page, "KESA2026")
-    assert len(rows) == 250
-    assert sum(1 for r in rows if r["name"]) == 0, "if this changes, the CSV path was fixed"
+#
+# `?view=ext/export` is the "Tiedon vienti" HTML page, not CSV. Feeding it to a
+# CSV parser used to yield 250 rows of empty strings, silently. Phase 6 fixed
+# the path: the real endpoints are `ext/<kind>csv.php` (current season only —
+# 403 for past seasons), and `tests/test_views.py` now asserts that the export
+# page raises `NotCsvError` instead of parsing to nothing.
 
 
 # --- live smoke test (opt-in) -----------------------------------------------

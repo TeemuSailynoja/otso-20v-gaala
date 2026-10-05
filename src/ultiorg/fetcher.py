@@ -79,21 +79,46 @@ def fetch_statistics(season_id: str, list_kind: str = "playerscoreboard", fetche
 
 
 def fetch_allteams(fetcher: Optional[Fetcher] = None) -> Optional[str]:
-    return fetch_view("allteams", fetcher)
+    """Every team on the instance, with division.
+
+    `list=all` is required — the default renders one letter group (measured: 317
+    teams with it, a fraction without).
+    """
+    return fetch_view("allteams", fetcher, list="all", kind="index")
 
 
 def fetch_allclubs(fetcher: Optional[Fetcher] = None) -> Optional[str]:
-    return fetch_view("allclubs", fetcher)
+    """Every club on the instance. Same `list=all` trap as `allteams` (106)."""
+    return fetch_view("allclubs", fetcher, list="all", kind="index")
 
 
 def fetch_csv_export(fetcher: Optional[Fetcher] = None) -> Optional[str]:
     """The "Tiedon vienti" page — HTML links to CSV, not CSV itself.
 
     Kept because the export page lists which CSVs exist. The CSVs themselves are
-    `ext/playerscsv.php?season=<ID>` and friends, current season only (403 for
-    past seasons). See `test_ext_export_is_html_not_csv`.
+    `fetch_csv` below, current season only (403 for past seasons). See
+    `tests/test_views.py::test_csv_parsers_reject_the_export_page...`.
     """
     return fetch_view("ext/export", fetcher)
+
+
+# The six exports the export page links. All take `season=` and all are
+# **current-season only**: `playerscsv.php?season=KESA2026` returns 200, the same
+# call for KESA2025 returns 403 "Event is not available for external access".
+# They also carry no player ID — `playerscsv` splits FirstName/LastName.
+CSV_KINDS = ("players", "teams", "games", "pools", "results", "spirit")
+
+
+def fetch_csv(kind: str, season_id: str, fetcher: Optional[Fetcher] = None) -> Optional[str]:
+    """One of the six season CSV exports — actual CSV text, not a page.
+
+    `fetch_csv_export` is the HTML page that links these; this is the file. The
+    current season only (403 otherwise, which `Fetcher.get` reports as None).
+    """
+    if kind not in CSV_KINDS:
+        raise ValueError(f"unknown CSV kind {kind!r}; expected one of {CSV_KINDS}")
+    url = f"{BASE_URL}/ext/{kind}csv.php?season={season_id}&enc=UTF-8&sep=,"
+    return _f(fetcher).get(url, kind="live")
 
 
 __all__ = [
@@ -113,4 +138,6 @@ __all__ = [
     "fetch_allteams",
     "fetch_allclubs",
     "fetch_csv_export",
+    "fetch_csv",
+    "CSV_KINDS",
 ]

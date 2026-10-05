@@ -136,26 +136,35 @@ class Cache:
 
     def lookup(self, url: str, refresh: bool = False, now: Optional[datetime] = None) -> Optional[CachedPage]:
         """Return a fresh cached page, or None if it must be fetched."""
+        page = self.stored(url)
+        if page is None or refresh:
+            return None
+        if not page.is_fresh(now):
+            return None
+        return page
+
+    def stored(self, url: str) -> Optional[CachedPage]:
+        """The cached page for `url`, fresh or not.
+
+        Freshness decides whether a request may reuse a page; this answers the
+        other question — do we already hold the bytes. A `live` page past its
+        six hours is still archived content, which is what the corpus gate and
+        `--cache-stats` ask.
+        """
         self.load()
-        key = cache_key(url)
-        entry = self._index.get(key)
+        entry = self._index.get(cache_key(url))
         if not entry:
             return None
         path = Path(entry["path"])
         if not path.exists():
             return None
-        page = CachedPage(
+        return CachedPage(
             url=entry["url"],
             kind=entry["kind"],
             fetched_at=entry["fetched_at"],
             expires=entry.get("expires"),
             path=path,
         )
-        if refresh:
-            return None
-        if not page.is_fresh(now):
-            return None
-        return page
 
     def read(self, url: str, refresh: bool = False) -> Optional[str]:
         page = self.lookup(url, refresh=refresh)

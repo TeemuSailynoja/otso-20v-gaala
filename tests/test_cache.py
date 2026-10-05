@@ -70,6 +70,18 @@ def test_live_pages_expire_and_refresh_bypasses_the_cache(tmp_path):
     assert cache.lookup(url, refresh=True) is None
 
 
+def test_stored_reports_bytes_on_disk_even_when_expired(tmp_path):
+    """`stored` answers "do we have it"; `lookup` answers "may we reuse it"."""
+    cache = Cache(tmp_path)
+    url = f"{PELIKONE}/?view=teams&season=KESA2026&list=allteams"
+    cache.store(url, "old", fetched_at=datetime.now() - timedelta(hours=7))
+    assert cache.lookup(url) is None
+    page = cache.stored(url)
+    assert page is not None and page.kind == "live"
+    assert page.path.read_text(encoding="utf-8") == "old"
+    assert cache.stored(f"{PELIKONE}/?view=gameplay&game=999999") is None
+
+
 def test_index_pages_survive_six_hours_but_not_a_month(tmp_path):
     cache = Cache(tmp_path)
     url = f"{PELIKONE}/?view=allplayers"
@@ -177,8 +189,10 @@ REAL_INDEX = DATA_DIR / "cache" / "index.jsonl"
 def test_every_archived_game_page_is_a_cache_hit():
     """The Phase 3 gate: rebuilding the site must cost zero requests.
 
-    Every `data/raw/game_<id>.html` and every URL in the legacy manifest resolves
-    to a fresh cached file, so `fetch_gameplay` for any archived game is a hit.
+    Every `data/raw/game_<id>.html` is `immutable`, so it stays a hit forever.
+    Manifest pages are checked for **bytes on disk**, not freshness: a page from
+    the season currently being played is `live` and re-fetches after six hours
+    by design, which is politeness, not a lost corpus.
     """
     cache = Cache(DATA_DIR)
     game_ids = {p.stem.replace("game_", "") for p in (DATA_DIR / "raw").glob("game_*.html")}
@@ -189,8 +203,11 @@ def test_every_archived_game_page_is_a_cache_hit():
     manifest = DATA_DIR / "cache_manifest.json"
     if manifest.exists():
         urls = [e["url"] for e in json.loads(manifest.read_text(encoding="utf-8"))["urls"].values() if e.get("content")]
-        stale = [u for u in urls if cache.read(u) is None]
-        assert stale == [], f"{len(stale)} of {len(urls)} manifest pages would be re-fetched"
+        missing = [u for u in urls if cache.stored(u) is None]
+        assert missing == [], f"{len(missing)} of {len(urls)} manifest pages are not on disk"
+        expired = [u for u in urls if cache.lookup(u) is None]
+        kinds = {cache.stored(u).kind for u in expired}
+        assert kinds <= {"live", "index"}, "an immutable page expired"
 
 
 @pytest.mark.skipif(not REAL_INDEX.exists(), reason="cache not imported yet")

@@ -28,10 +28,18 @@ from .parsers import (
     parse_gameplay,
     parse_allplayers,
     parse_playercard,
+    parse_series_menu,
+    parse_scorestatus,
+    parse_statistics,
+    parse_allteams,
+    parse_allclubs,
     parse_csv_teams,
     parse_csv_players,
     parse_csv_games,
     parse_csv_results,
+    parse_csv_pools,
+    parse_csv_spirit,
+    NotCsvError,
 )
 from .builders import (
     build_team_timeline,
@@ -55,6 +63,8 @@ from .fetcher import (
     fetch_allteams,
     fetch_allclubs,
     fetch_csv_export,
+    fetch_csv,
+    CSV_KINDS,
 )
 from .http import Fetcher, FetchStats, configure, get_fetcher
 from .identify import (
@@ -94,10 +104,18 @@ __all__ = [
     "parse_gameplay",
     "parse_allplayers",
     "parse_playercard",
+    "parse_series_menu",
+    "parse_scorestatus",
+    "parse_statistics",
+    "parse_allteams",
+    "parse_allclubs",
     "parse_csv_teams",
     "parse_csv_players",
     "parse_csv_games",
     "parse_csv_results",
+    "parse_csv_pools",
+    "parse_csv_spirit",
+    "NotCsvError",
     # Builders
     "build_team_timeline",
     "build_player_network",
@@ -119,6 +137,8 @@ __all__ = [
     "fetch_allteams",
     "fetch_allclubs",
     "fetch_csv_export",
+    "fetch_csv",
+    "CSV_KINDS",
     # HTTP / politeness
     "Fetcher",
     "FetchStats",
