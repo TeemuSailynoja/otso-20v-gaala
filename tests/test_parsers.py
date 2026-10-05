@@ -145,7 +145,7 @@ def test_gameplay_fixture_shapes(fixture, home, away, home_score, away_score):
 
 
 def test_point_rows_carry_no_player_ids_and_never_will():
-    """The constraint that forces identify.py: points are plain text `Last First`.
+    """The constraint that forces identify.py: points are plain text names.
 
     Rosters on the same page carry IDs; point rows do not. If a future parser
     ever starts emitting IDs here, this test fires and identify.py can shrink.
@@ -155,9 +155,66 @@ def test_point_rows_carry_no_player_ids_and_never_will():
         for point in gp["points"]:
             if point["type"] != "point":
                 continue
-            assert set(point) == {"type", "side", "title", "time", "score", "passer", "scorer"}
-            # points are "Last First", rosters are "First Last"
-            assert " -> " in point["title"]
+            assert set(point) <= {
+                "type", "side", "score", "time", "passer", "scorer",
+                "offense_marker", "possession", "possession_known",
+            }
+            for name in (point.get("passer"), point.get("scorer")):
+                if name:
+                    # point rows are plain text; rosters on the same page are links
+                    assert "#" not in name and "http" not in name
+
+
+def test_possession_is_a_fact_on_every_point():
+    """Every point says who started it on defense, or admits it cannot know.
+
+    The rule lives in the parser now (it used to be re-derived inside
+    `build_defense_stats`), so the site and the fact store read one answer.
+    """
+    modern = parsers.parse_gameplay(read_fixture("gameplay_11049_modern.html"))
+    points = [p for p in modern["points"] if p["type"] == "point"]
+    assert all("possession" in p and "possession_known" in p for p in points)
+    # this page carries the Hyökkäys marker, so every point is attributed
+    assert all(p["possession_known"] == 1 for p in points)
+    assert points[0]["possession"] == "guest"  # the marker says home attacked first
+
+    # the pre-2015 page has no events column: the first point of each half is
+    # unknown, every later point follows from the previous scorer
+    old = parsers.parse_gameplay(read_fixture("gameplay_2980_pre2015.html"))
+    assert not any(p.get("offense_marker") for p in old["points"] if p["type"] == "point")
+    halves = sum(1 for p in old["points"] if p["type"] == "halftime")
+    scored = [p for p in old["points"] if p["type"] == "point"]
+    assert halves == 1
+    assert {i for i, p in enumerate(scored) if p["possession_known"] == 0} == {0, 11}
+
+
+def test_scorer_starts_the_next_point_on_defense():
+    """The possession rule, on a hand-built game rather than a scraped one."""
+    gameplay = {
+        "home_players": [{"id": "1", "name": "A One"}, {"id": "2", "name": "B Two"}],
+        "away_players": [{"id": "3", "name": "C Three"}],
+        "points": [
+            {"type": "point", "side": "guest", "scorer": "C Three"},
+            {"type": "point", "side": "home", "scorer": "A One"},
+            {"type": "halftime", "text": "Puoliaika"},
+            {"type": "point", "side": "guest", "scorer": "C Three"},
+        ],
+    }
+    parsers.apply_possession(gameplay)
+    first_half = [p for p in gameplay["points"] if p["type"] == "point"][:2]
+    # no marker: point 1 unknown, point 2 defended by the point-1 scorer's side
+    assert first_half[0]["possession_known"] == 0
+    assert first_half[1]["possession"] == "guest"
+    # halftime clears the chain: the first point after it is unknown again
+    after_half = gameplay["points"][-1]
+    assert after_half["possession_known"] == 0
+
+    gameplay["points"][0]["offense_marker"] = "home"
+    parsers.apply_possession(gameplay)
+    points = [p for p in gameplay["points"] if p["type"] == "point"]
+    assert points[0]["possession"] == "guest"      # home attacked first
+    assert points[1]["possession"] == "guest"      # guest scored, so guest defends
+    assert points[2]["possession"] == "home"       # halftime flips the starter
 
 
 def test_roster_names_use_a_non_breaking_space():

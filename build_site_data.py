@@ -1176,47 +1176,16 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
         else:
             continue
         
-        # Determine which team started on offense for the first point
-        # Try to load HTML file using game_id
-        game_id = game.get('game_id', '')
-        html_file = RAW_DIR / f'game_{game_id}.html'
-        
-        first_offense_side = None
-        
-        if html_file.exists():
-            with open(html_file) as f:
-                raw_html = f.read()
-            
-            if 'Hyökkäys' in raw_html:
-                # Parse HTML to find Hyökkäys marker class
-                soup = BeautifulSoup(raw_html, 'html.parser')
-                tables = soup.find_all('table')
-                
-                # Find the point table (headers: Pisteet, Syöttäjä, Maali, Aika, Kesto, Pelitapahtumat)
-                point_table = None
-                for table in tables:
-                    headers = [th.get_text(strip=True) for th in table.find_all('th')]
-                    if 'Pelitapahtumat' in headers:
-                        point_table = table
-                        break
-                
-                if point_table:
-                    rows = point_table.find_all('tr')
-                    for row in rows:
-                        cells = [td.get_text(strip=True) for td in row.find_all('td')]
-                        if cells and len(cells) >= 2 and ' - ' in cells[0]:
-                            # Found first data row
-                            last_cell = row.find_all('td')[-1]
-                            div = last_cell.find('div')
-                            if div and div.get('class'):
-                                hyökk_class = div.get('class')[0]
-                                # The team with matching class started on offense
-                                first_offense_side = hyökk_class
-                            break
-        
-        # Build roster map: canonical name → team side (home/guest)
-        # This is needed because the `side` field in points data is unreliable
-        # and doesn't always match the player's actual team
+        # Possession is a fact about the game, not about Otso. `parse_gameplay`
+        # now decides which side started each point on defense (the Hyökkäys
+        # marker for the first point of a half, then "the scorer starts the next
+        # point on defense", reset at halftime) and stores it on every point.
+        # This builder used to re-derive it by re-reading raw HTML — a second
+        # implementation that could, and did, disagree with the parser.
+        #
+        # Build roster map: canonical name -> team side (home/guest). The `side`
+        # field on a point is the scoring cell's class, which does not reliably
+        # identify the scorer's team.
         roster_map = {}
         for p in gp.get('home_players', []):
             name = p.get('name', '')
@@ -1230,121 +1199,31 @@ def build_defense_stats(gameplay: list[dict]) -> dict:
                 canon = canonicalize_name(name)
                 if canon:
                     roster_map[canon] = 'guest'
-        
-        if first_offense_side is not None:
-            # HTML file with Hyökkäys marker: use it for the first point
-            first_defense_side = 'home' if first_offense_side == 'guest' else 'guest'
-            first_half_defense_side = first_defense_side
-            current_offense_side = first_offense_side
-            current_defense_side = first_defense_side
-            
-            for point in point_entries:
-                if point.get('type') == 'halftime':
-                    # Halftime: team that started on defense starts on offense
-                    current_offense_side = first_half_defense_side
-                    current_defense_side = 'home' if first_half_defense_side == 'guest' else 'guest'
-                    continue
-                
-                scorer_name = point.get('scorer', '')
-                
-                # Determine scorer's team from roster
-                scorer_canon = canonicalize_name(scorer_name) if scorer_name else None
-                scorer_side = roster_map.get(scorer_canon) if scorer_canon else None
-                
-                if scorer_side is None:
-                    continue
-                
-                otso_is_scorer = (scorer_side == otso_side)
-                otso_on_defense = (current_defense_side == otso_side)
-                
-                if otso_is_scorer and scorer_name:
-                    is_defense = otso_on_defense
-                    player_stats[scorer_name]['defense_points' if is_defense else 'offense_points'] += 1
-                    player_stats[scorer_name]['defense_goals' if is_defense else 'offense_goals'] += 1
-                    player_stats[scorer_name]['total_points'] += 1
-                    
-                    # Track assist on defense/offense
-                    assist_name = point.get('passer', '')
-                    if assist_name:
-                        assist_canon = canonicalize_name(assist_name)
-                        if assist_canon:
-                            player_stats[assist_name]['defense_assists' if is_defense else 'offense_assists'] += 1
-                
-                # Next point: scorer starts on defense
-                current_defense_side = scorer_side
-                current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
-        else:
-            # No HTML file: can't know who started on offense for point 1
-            # Use alternating logic from point 2 onward
-            # Skip defensive attribution for point 1 only
-            point_index = 0
-            
-            for point in point_entries:
-                if point.get('type') == 'halftime':
-                    # Halftime: team that was on defense starts on offense
-                    # But we don't know who was on defense at halftime without HTML
-                    # Reset: alternate from the point after halftime
-                    point_index += 1
-                    continue
-                
-                scorer_name = point.get('scorer', '')
-                
-                # Determine scorer's team from roster
-                scorer_canon = canonicalize_name(scorer_name) if scorer_name else None
-                scorer_side = roster_map.get(scorer_canon) if scorer_canon else None
-                
-                if scorer_side is None:
-                    point_index += 1
-                    continue
-                
-                otso_is_scorer = (scorer_side == otso_side)
-                
-                # For point 1 (index 0), we don't know who was on defense
-                # So we can't attribute defensive points
-                # For point 2+ (index >= 1), we can use alternating logic
-                if point_index == 0:
-                    # First point: only count offensive points for Otso
-                    # (we don't know who was on defense)
-                    if otso_is_scorer and scorer_name:
-                        player_stats[scorer_name]['offense_points'] += 1
-                        player_stats[scorer_name]['offense_goals'] += 1
-                        player_stats[scorer_name]['total_points'] += 1
-                        
-                        # Track assist
-                        assist_name = point.get('passer', '')
-                        if assist_name:
-                            assist_canon = canonicalize_name(assist_name)
-                            if assist_canon:
-                                player_stats[assist_name]['offense_assists'] += 1
-                    
-                    # Initialize alternating state for next point
-                    # If Otso scored, they start on defense next
-                    # If opponent scored, they start on defense next
-                    current_defense_side = scorer_side
-                    current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
-                else:
-                    # Points 2+: use alternating logic
-                    otso_on_defense = (current_defense_side == otso_side)
-                    
-                    if otso_is_scorer and scorer_name:
-                        is_defense = otso_on_defense
-                        player_stats[scorer_name]['defense_points' if is_defense else 'offense_points'] += 1
-                        player_stats[scorer_name]['defense_goals' if is_defense else 'offense_goals'] += 1
-                        player_stats[scorer_name]['total_points'] += 1
-                        
-                        # Track assist on defense/offense
-                        assist_name = point.get('passer', '')
-                        if assist_name:
-                            assist_canon = canonicalize_name(assist_name)
-                            if assist_canon:
-                                player_stats[assist_name]['defense_assists' if is_defense else 'offense_assists'] += 1
-                    
-                    # Next point: scorer starts on defense
-                    current_defense_side = scorer_side
-                    current_offense_side = 'home' if scorer_side == 'guest' else 'guest'
-                
-                point_index += 1
-    
+
+        for point in point_entries:
+            scorer_name = point.get('scorer', '')
+            if not scorer_name:
+                continue
+            if roster_map.get(canonicalize_name(scorer_name)) != otso_side:
+                continue
+
+            # When a half's first point has no Hyökkäys marker the defense side
+            # is unknown. The site has always counted those as offense points;
+            # the fact store keeps `possession_known` so the honest variant
+            # (leave them unbucketed) stays computable. Measured: 287 of 18,770
+            # points, 1.5%.
+            is_defense = bool(point.get('possession_known')) and point.get('possession') == otso_side
+            bucket = 'defense' if is_defense else 'offense'
+
+            stats = player_stats[scorer_name]
+            stats[f'{bucket}_points'] += 1
+            stats[f'{bucket}_goals'] += 1
+            stats['total_points'] += 1
+
+            assist_name = point.get('passer', '')
+            if assist_name and canonicalize_name(assist_name):
+                stats[f'{bucket}_assists'] += 1
+
     # Convert defaultdict to regular dict, aggregated by canonical key.
     # The point table writes names as "Lastname Firstname" while players.json
     # writes them as they appear on the season card, so keying this by the raw

@@ -18,6 +18,7 @@ from .parsers import (
     extract_year_from_season,
     extract_season_id,
     is_otso_team,
+    is_otso_akatemia,
     parse_season_list,
     parse_teams_page,
     parse_standings_page,
@@ -73,14 +74,17 @@ from .cache import (
     is_current_season_id,
     setup_dirs,
 )
+from .names import canon as _canon, pseudo_key as _pseudo_key
+from .aliases import PersonKeys, load_aliases
+from .store import StoreStats, build_store, defense_totals, open_store
 
 __all__ = [
-
     # Parsers
     "classify_season",
     "extract_year_from_season",
     "extract_season_id",
     "is_otso_team",
+    "is_otso_akatemia",
     "parse_season_list",
     "parse_teams_page",
     "parse_standings_page",
@@ -135,4 +139,12 @@ __all__ = [
     "kind_for_url",
     "is_current_season_id",
     "setup_dirs",
+    # Person identity
+    "PersonKeys",
+    "load_aliases",
+    # Fact store
+    "StoreStats",
+    "build_store",
+    "defense_totals",
+    "open_store",
 ]

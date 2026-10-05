@@ -15,36 +15,15 @@ a space, drop captain markers, lowercase, and sort the name parts — which make
 from __future__ import annotations
 
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
 
+from .names import canon, pseudo_key
 from .parsers import parse_gameplay
 
-_CAPTION_RE = re.compile(r"\((?:c|C)\)")
-
-
-def canon(name: str) -> str:
-    """Canonical name key: NBSP folded, captain marks dropped, parts sorted.
-
-    Sorting the parts is what makes the rule order-insensitive: point rows write
-    `Last First`, rosters and the player index write `First Last`.
-    """
-    if not name:
-        return ""
-    cleaned = _CAPTION_RE.sub(" ", name.replace("\xa0", " "))
-    parts = [p.lower() for p in cleaned.split() if p]
-    return " ".join(sorted(parts))
-
-
-def pseudo_key(name: str) -> str:
-    """Key for a name that never resolved to a player ID.
-
-    Points keyed this way are still counted — they just are not attributable to
-    a person. They show up in `data_quality.json` instead of vanishing.
-    """
-    return f"name:{canon(name)}"
+__all__ = ["canon", "pseudo_key", "Resolution", "PlayerIndex", "DataQuality", "recover_rosters"]
 
 
 @dataclass
@@ -57,6 +36,9 @@ class Resolution:
     @property
     def resolved(self) -> bool:
         return self.player_id is not None
+
+
+from collections import defaultdict
 
 
 class PlayerIndex:
@@ -103,6 +85,15 @@ class PlayerIndex:
 
     def resolve_all(self, names: Iterable[str]) -> Dict[str, Resolution]:
         return {name: self.resolve(name) for name in names}
+
+    def key_for(self, name: str) -> str:
+        """The player ID when the name resolves to exactly one, else a pseudo-key.
+
+        Facts are stored under this key, so an unresolvable name still counts —
+        it just is not attributable to a person.
+        """
+        resolution = self.resolve(name)
+        return resolution.player_id if resolution.player_id else pseudo_key(name)
 
 
 @dataclass

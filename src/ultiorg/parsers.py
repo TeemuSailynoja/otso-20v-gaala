@@ -8,6 +8,7 @@ from typing import List, Dict, Optional, Tuple
 from bs4 import BeautifulSoup
 
 from .config import BASE_URL, OTSO_PATTERNS
+from .names import canon
 
 
 def extract_season_id(href: str) -> Optional[str]:
@@ -660,6 +661,18 @@ def is_otso_team(team_name: str) -> bool:
     return False
 
 
+def is_otso_akatemia(team_name: str) -> bool:
+    """True for Otso Akatemia specifically, not for Akatemia teams in general.
+
+    `is_otso_team` excludes every Akatemia team because Akatemia is a separate
+    club; the gala still wants to know when the opponent (or the other side of a
+    fixture) is Otso's Akatemia squad. `build_site_data.is_otso_akatemia` is the
+    same rule; Phase 8 folds both into the `teams.yaml` predicate.
+    """
+    lower = team_name.lower()
+    return "akatemia" in lower and "otso" in lower
+
+
 def parse_games_list(html: str, season_id: str) -> List[Dict]:
     """Parse the games list page.
     
@@ -744,23 +757,22 @@ def parse_games_list(html: str, season_id: str) -> List[Dict]:
     return games
 
 
+def _player_cell(td) -> Optional[str]:
+    """`#77 Patrick Potrykus` -> `Patrick Potrykus`; empty or `-` -> None."""
+    text = td.get_text(" ", strip=True)
+    text = re.sub(r"^#\d*\s*", "", text).strip()
+    return text if text and text != "-" else None
+
+
 def parse_gameplay(html: str) -> Dict:
-    """Parse a gameplay (point-by-point) page.
-    
-    Data structure (verified from actual gameplay pages):
-    - <h1> title: "Team A - Team B    SCORE - SCORE"
-    - Two <div class="gameplay-scoreboard"> tables with player rosters
-    - Point-by-point table: single <tr> with <td> cells
-      - class="home" / class="guest" per point
-      - class="halftime" for halftime marker
-      - title = "TIME SCORE SCORER -> ASSISTANT"
-    
-    Args:
-        html: HTML content of the gameplay page.
-        
-    Returns:
-        Dictionary with home_team, away_team, home_score, away_score,
-        points (list), home_players, away_players.
+    """Parse a gameplay (point-by-point) page: `?view=gameplay&game=ID`.
+
+    Returns `home_team`, `away_team`, `home_score`, `away_score`, `points`,
+    `home_players`, `away_players`. Sides are positional (first scoreboard =
+    home). Each point carries `side` (the scoring team), `score`, `time`,
+    `passer`, `scorer`, and — after `apply_possession` — `possession` (the side
+    that started the point on defense) plus `possession_known`. Roster entries
+    carry the pelikone player `id`, the only place a gameplay page gives one.
     """
     result = {
         "home_team": "",
@@ -813,65 +825,83 @@ def parse_gameplay(html: str) -> Dict:
     # Parse point-by-point table
     # The table has a single <tr> with <td> cells.
     #
-    # The gameplay page carries the point-by-point table TWICE: once inside
-    # div.page_middle (a site-wide results strip) and once inside div.content
-    # (the game's own table). Scanning every <tr> in the document appends every
-    # goal twice — 467 of the 788 stored games were exactly doubled that way, and
-    # re-parsing the archived HTML today doubles all of them. Scope the scan to
-    # the content copy, and dedupe by cell identity as a backstop in case a
-    # future layout repeats the strip again.
+    # The point-by-point table is a <table> whose <th> headers include Pisteet
+    # and Maali, inside div.content:
+    #
+    #   Pisteet | Syöttäjä | Maali | Aika | Kesto [| Pelitapahtumat]
+    #     0 - 1   #77 Potrykus  #88 Arola  5.00   5.00    Hyökkäys 0.00
+    #
+    # The first cell carries class `home` or `guest` — the team that SCORED. The
+    # Syöttäjä column is the passer, Maali the scorer (the column order is the
+    # opposite of what the old `title` string implied). Older pages have no
+    # Pelitapahtumat column, so the Hyökkäys marker is missing there.
+    #
+    # The same table is also rendered in a site-wide results strip in
+    # div.page_middle, where each cell carries a `title` like
+    # "5.00 0-1 Potrykus Patrick -> Arola Matias". The old parser scanned <tr>s
+    # document-wide and read those titles: that appends every goal twice (467 of
+    # the 788 stored games were exactly doubled), and because the point table sits
+    # inside layout tables the scan flattens unrelated cells into one row — a
+    # "point row" with 21 cells whose last cell is a score cell, not the events
+    # column, which is why the Hyökkäys marker was never seen. Cells are taken as
+    # direct children of the row of the content copy, and deduped as a backstop.
+    point_tables = [
+        table
+        for table in soup.find_all("table")
+        if {"Pisteet", "Maali"} <= {th.get_text(strip=True) for th in table.find_all("th")}
+    ]
     content = soup.find("div", class_="content")
-    point_rows = content.find_all("tr") if content else soup.find_all("tr")
-    seen_cells = set()
-    for tr in point_rows:
-        tds = tr.find_all("td")
-        if len(tds) < 2:
-            continue
-        
-        for td in tds:
-            td_class = td.get("class", [])
-            if "halftime" in td_class:
-                # Halftime marker
-                marker = ("halftime", td.get_text(strip=True))
-                if marker in seen_cells:
-                    continue
-                seen_cells.add(marker)
-                result["points"].append({
-                    "type": "halftime",
-                    "text": td.get_text(strip=True),
-                })
-            elif "home" in td_class or "guest" in td_class:
-                # Point cell
-                title = td.get("title", "")
-                if title:
-                    side = "home" if "home" in td_class else "guest"
-                    cell = ("point", side, title)
-                    if cell in seen_cells:
+    if content:
+        inside = [t for t in point_tables if t.find_parent("div", class_="content")]
+        point_tables = inside or point_tables
+
+    seen: set = set()
+    for table in point_tables:
+        for tr in table.find_all("tr"):
+            tds = tr.find_all("td", recursive=False)
+            if not tds:
+                continue
+
+            for td in tds:
+                if "halftime" in (td.get("class") or []):
+                    text = td.get_text(strip=True)
+                    if ("halftime", text) in seen:
                         continue
-                    seen_cells.add(cell)
-                    # Parse "TIME SCORE SCORER -> ASSISTANT"
-                    point = {
-                        "type": "point",
-                        "side": side,
-                        "title": title,
-                    }
-                    # Parse title: "2.35 1-0 Kantonen Miikka -> Wiklund Antti"
-                    # Time uses dots (2.35), not colons. The pelikone points table
-                    # columns are Pisteet | Syöttäjä | Maali | Aika, so the name
-                    # before the arrow is the PASSER and the one after is the scorer.
-                    title_match = re.match(
-                        r'(\d+\.\d+)\s+(\d+-\d+)\s+(.+?)\s*->\s*(.+)',
-                        title.strip()
-                    )
-                    if title_match:
-                        point["time"] = title_match.group(1)
-                        point["score"] = title_match.group(2)
-                        point["passer"] = title_match.group(3).strip()
-                        point["scorer"] = title_match.group(4).strip() if title_match.group(4).strip() != "-" else None
-                    else:
-                        point["raw_title"] = title
-                    result["points"].append(point)
-    
+                    seen.add(("halftime", text))
+                    result["points"].append({"type": "halftime", "text": text})
+                    break
+
+            classes = tds[0].get("class") or []
+            if "home" not in classes and "guest" not in classes:
+                continue
+            side = "home" if "home" in classes else "guest"
+            score = tds[0].get_text(strip=True).replace(" ", "")
+            passer = _player_cell(tds[1]) if len(tds) >= 3 else None
+            scorer = _player_cell(tds[2]) if len(tds) >= 3 else None
+            clock = tds[3].get_text(strip=True) if len(tds) >= 4 else ""
+            if ("point", side, score, passer, scorer, clock) in seen:
+                continue
+            seen.add(("point", side, score, passer, scorer, clock))
+
+            point = {"type": "point", "side": side, "score": score}
+            if clock:
+                point["time"] = clock
+            if passer:
+                point["passer"] = passer
+            if scorer:
+                point["scorer"] = scorer
+
+            # The events column carries `<div class='home'>Hyökkäys&nbsp;0.00</div>`:
+            # the team whose class it is started that point on OFFENSE. Only the
+            # very first point needs it — after that the scorer decides the next
+            # possession — but it is captured wherever it appears.
+            for div in tds[-1].find_all("div", class_=True):
+                if "Hyökkäys" in div.get_text():
+                    point["offense_marker"] = "home" if "home" in div["class"] else "guest"
+                    break
+
+            result["points"].append(point)
+
     # Parse player rosters from gameplay-scoreboard tables, POSITIONALLY: the
     # first board is the home team, the second is the away team.
     for index, scoreboard in enumerate(boards):
@@ -919,8 +949,76 @@ def parse_gameplay(html: str) -> Dict:
         
         if team_name:
             result[side] = players
-    
+
+    apply_possession(result)
     return result
+
+
+def apply_possession(gameplay: Dict) -> None:
+    """Store which side started each point on defense, in place.
+
+    The rule was `build_site_data.build_defense_stats` (line 1107), which
+    re-derived it from raw HTML at analytics time. It is a property of the game,
+    not of Otso, so it belongs in the parser and in the fact store:
+
+    1. the first point's offense side comes from the `Hyökkäys` marker;
+    2. after each point **the scorer starts the next point on defense**;
+    3. at halftime the team that started the half on defense starts on offense;
+    4. a scorer's side comes from **that game's roster map**, because the point
+       cell's `side` class is not reliable for identifying the scorer's team;
+    5. with no marker, point 1 is left unattributed and `possession_known = 0`
+       — rates stay honest instead of guessing.
+
+    Each point gains `possession` ('home' | 'guest' | None) and
+    `possession_known` (1 | 0).
+    """
+    roster_side: Dict[str, str] = {}
+    for side, key in (("home", "home_players"), ("guest", "away_players")):
+        for player in gameplay.get(key, []):
+            key_name = canon(player.get("name", ""))
+            if key_name:
+                roster_side[key_name] = side
+
+    def opposite(side: str) -> str:
+        return "guest" if side == "home" else "home"
+
+    def scorer_side(point: Dict) -> Optional[str]:
+        name = canon(point.get("scorer") or "")
+        return roster_side.get(name) if name else None
+
+    points = gameplay.get("points", [])
+    markers = [p.get("offense_marker") for p in points if p.get("offense_marker")]
+    first_offense = markers[0] if markers else None
+
+    if first_offense:
+        first_half_defense = opposite(first_offense)
+        defense = first_half_defense
+        for point in points:
+            if point.get("type") == "halftime":
+                defense = opposite(first_half_defense)
+                continue
+            point["possession"] = defense
+            point["possession_known"] = 1
+            side = scorer_side(point)
+            if side:
+                defense = side
+        return
+
+    # No marker anywhere: the first point of each half cannot be attributed.
+    defense: Optional[str] = None
+    for point in points:
+        if point.get("type") == "halftime":
+            defense = None
+            continue
+        if defense is None:
+            point["possession"] = None
+            point["possession_known"] = 0
+        else:
+            point["possession"] = defense
+            point["possession_known"] = 1
+        side = scorer_side(point)
+        if side:
+            defense = side
 
 
 # --- player identity views --------------------------------------------------

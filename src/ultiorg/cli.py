@@ -6,11 +6,18 @@ import sys
 from pathlib import Path
 from typing import List, Dict
 
-from .config import BASE_URL, DATA_DIR, RAW_DIR, PROCESSED_DIR, REQUEST_DELAY
+from .config import BASE_URL, DATA_DIR, RAW_DIR, PROCESSED_DIR, REQUEST_DELAY, STORE_PATH, ALIASES_PATH
 from .cache import Cache, setup_dirs
 from .http import Fetcher, configure, fetch_url
-from .fetcher import fetch_season_list, fetch_games_page, fetch_gameplay
-from .parsers import parse_season_list, classify_season, parse_games_list, parse_gameplay, is_otso_team
+from .fetcher import fetch_season_list, fetch_games_page, fetch_gameplay, fetch_allplayers
+from .parsers import (
+    parse_season_list,
+    classify_season,
+    parse_games_list,
+    parse_gameplay,
+    parse_allplayers,
+    is_otso_team,
+)
 from .builders import build_team_timeline, build_player_network, build_summary
 
 
@@ -205,6 +212,22 @@ def main() -> None:
         "--cache-stats", action="store_true", help="Report cache contents and exit"
     )
     parser.add_argument(
+        "--reparse",
+        action="store_true",
+        help="Re-parse gameplay in data/processed/match_results.json from archived HTML in data/raw; makes no requests",
+    )
+    parser.add_argument(
+        "--build-store",
+        action="store_true",
+        help="Build the SQLite fact store (data/store.sqlite) from the parsed corpus",
+    )
+    parser.add_argument(
+        "--aliases",
+        type=str,
+        default=str(ALIASES_PATH),
+        help=f"Human-asserted identity merges (JSON: canonical name -> canonical name), default {ALIASES_PATH}",
+    )
+    parser.add_argument(
         "--output",
         type=str,
         default="processed",
@@ -228,6 +251,44 @@ def main() -> None:
     cache = Cache(DATA_DIR)
     if args.cache_stats:
         print(f"cache: {cache.counts()}")
+        return
+
+    if args.reparse:
+        path = PROCESSED_DIR / "match_results.json"
+        games = json.loads(path.read_text(encoding="utf-8"))
+        reparsed = missing = 0
+        for game in games:
+            html_path = RAW_DIR / f"game_{game['game_id']}.html"
+            if not html_path.exists():
+                missing += 1
+                continue
+            game["gameplay"] = parse_gameplay(html_path.read_text(encoding="utf-8", errors="replace"))
+            reparsed += 1
+        path.write_text(json.dumps(games, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"re-parsed {reparsed} games from archived HTML ({missing} without HTML) -> {path}")
+        return
+
+    if args.build_store:
+        from .aliases import PersonKeys
+        from .identify import PlayerIndex
+        from .store import build_store
+
+        html = fetch_allplayers(fetcher)
+        players = parse_allplayers(html) if html else []
+        if not players:
+            raise SystemExit("player index empty: no cached allplayers page, run a fetch first")
+        index = PlayerIndex(players)
+        games = json.loads((PROCESSED_DIR / "match_results.json").read_text(encoding="utf-8"))
+        conn, stats = build_store(
+            STORE_PATH, games, index, persons=PersonKeys.from_file(Path(args.aliases))
+        )
+        conn.close()
+        print(
+            f"store: {stats.players} player IDs / {stats.persons} persons, {stats.games} games, "
+            f"{stats.appearances} appearances, {stats.points} points "
+            f"({stats.points_with_possession} with possession, "
+            f"{stats.points_pseudo_keyed} pseudo-keyed scorers) -> {STORE_PATH}"
+        )
         return
 
     if args.import_cache:

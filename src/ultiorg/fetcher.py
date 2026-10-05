@@ -56,8 +56,12 @@ def fetch_gameplay(game_id: str, fetcher: Optional[Fetcher] = None) -> Optional[
 
 
 def fetch_allplayers(fetcher: Optional[Fetcher] = None) -> Optional[str]:
-    """A–Z index of every registered player, with IDs."""
-    return fetch_view("allplayers", fetcher)
+    """A–Z index of every registered player, with IDs.
+
+    `list=all` is required: the default view renders one letter group only
+    (measured: 2,568 players with it, a fraction without).
+    """
+    return fetch_view("allplayers", fetcher, list="all", kind="index")
 
 
 def fetch_playercard(player_id: str, series: str = "0", fetcher: Optional[Fetcher] = None) -> Optional[str]:

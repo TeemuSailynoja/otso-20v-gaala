@@ -250,11 +250,11 @@
     "avg_age_known": 28
   },
   "2013": {
-    "matches": 28,
-    "wins": 26,
+    "matches": 27,
+    "wins": 25,
     "losses": 2,
-    "goals_for": 408,
-    "goals_against": 236,
+    "goals_for": 393,
+    "goals_against": 235,
     "roster_players": 35,
     "roster_names": [
       "adrian hornsby",
@@ -297,11 +297,11 @@
     "avg_age_known": 33
   },
   "2014": {
-    "matches": 28,
-    "wins": 26,
+    "matches": 27,
+    "wins": 25,
     "losses": 2,
-    "goals_for": 407,
-    "goals_against": 226,
+    "goals_for": 393,
+    "goals_against": 214,
     "roster_players": 34,
     "roster_names": [
       "adrian hornsby",

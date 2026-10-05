@@ -171,11 +171,11 @@
     "avg_age_known": 13
   },
   "2013": {
-    "matches": 14,
-    "wins": 14,
+    "matches": 13,
+    "wins": 13,
     "losses": 0,
-    "goals_for": 210,
-    "goals_against": 101,
+    "goals_for": 195,
+    "goals_against": 100,
     "roster_players": 11,
     "roster_names": [
       "antti järvi",
@@ -194,11 +194,11 @@
     "avg_age_known": 11
   },
   "2014": {
-    "matches": 14,
-    "wins": 12,
+    "matches": 13,
+    "wins": 11,
     "losses": 2,
-    "goals_for": 200,
-    "goals_against": 154,
+    "goals_for": 186,
+    "goals_against": 142,
     "roster_players": 13,
     "roster_names": [
       "antti elonheimo",

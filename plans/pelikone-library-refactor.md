@@ -399,10 +399,10 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
       are the only ones; note in the commit which fixes the deleted copies lacked.
 - [x] **Phase 3 — cache.** Per-URL content store + one-time manifest import; verify zero
       re-fetch of the existing 902 season files and 799 game pages.
-- [ ] **Phase 4 — identity.** `allplayers` fetch+parse, `playercard` fetch+parse, `identify.py`
+- [x] **Phase 4 — identity.** `allplayers` fetch+parse, `playercard` fetch+parse, `identify.py`
       with per-game roster resolution; re-parse the 795 archived game HTMLs to recover roster IDs
       **offline**; report unresolved names rather than guessing.
-- [ ] **Phase 5 — the fact store.** `store.py` with the section-4 tables; move the possession rule
+- [x] **Phase 5 — the fact store.** `store.py` with the section-4 tables; move the possession rule
       from `build_defense_stats` into the gameplay parser and store `possession` +
       `possession_known` per point. Gate: point counts and defense totals match today's numbers.
 - [ ] **Phase 6 — new views.** `scorestatus`, `statistics`, `allteams`/`allclubs`.

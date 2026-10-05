@@ -54,9 +54,9 @@
     "wins": 23,
     "losses": 48,
     "goals": 38,
-    "assists": 184,
-    "total": 222,
-    "ppg": 3.13,
+    "assists": 186,
+    "total": 224,
+    "ppg": 3.15,
     "teams": [
       "UFO",
       "PirU",
@@ -89,10 +89,10 @@
     "games": 44,
     "wins": 16,
     "losses": 28,
-    "goals": 80,
-    "assists": 122,
-    "total": 202,
-    "ppg": 4.59,
+    "goals": 81,
+    "assists": 126,
+    "total": 207,
+    "ppg": 4.7,
     "teams": [
       "LeKi",
       "PirU",
@@ -239,9 +239,9 @@
     "wins": 16,
     "losses": 31,
     "goals": 110,
-    "assists": 60,
-    "total": 170,
-    "ppg": 3.62,
+    "assists": 61,
+    "total": 171,
+    "ppg": 3.64,
     "teams": [
       "Terror",
       "Turku Terror",
@@ -309,10 +309,10 @@
     "games": 69,
     "wins": 20,
     "losses": 49,
-    "goals": 71,
+    "goals": 72,
     "assists": 92,
-    "total": 163,
-    "ppg": 2.36,
+    "total": 164,
+    "ppg": 2.38,
     "teams": [
       "UFO",
       "PirU",
@@ -344,6 +344,27 @@
     "rank": 19
   },
   {
+    "name": "Aarni Nagy",
+    "games": 47,
+    "wins": 14,
+    "losses": 33,
+    "goals": 57,
+    "assists": 101,
+    "total": 158,
+    "ppg": 3.36,
+    "teams": [
+      "Sleepwalkers",
+      "LeKi",
+      "Saints",
+      "PirU",
+      "Vaasa Saints",
+      "JSW 2",
+      "LeKi 2",
+      "U20"
+    ],
+    "rank": 20
+  },
+  {
     "name": "Lauri Saksa",
     "games": 64,
     "wins": 22,
@@ -361,27 +382,6 @@
       "Helsinki Ultimate Rebels",
       "Helsinki",
       "Team 2"
-    ],
-    "rank": 20
-  },
-  {
-    "name": "Aarni Nagy",
-    "games": 47,
-    "wins": 14,
-    "losses": 33,
-    "goals": 56,
-    "assists": 98,
-    "total": 154,
-    "ppg": 3.28,
-    "teams": [
-      "Sleepwalkers",
-      "LeKi",
-      "Saints",
-      "PirU",
-      "Vaasa Saints",
-      "JSW 2",
-      "LeKi 2",
-      "U20"
     ],
     "rank": 21
   }
