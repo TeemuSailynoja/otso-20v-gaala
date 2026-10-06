@@ -11,7 +11,10 @@ Interactive visualization for the 20th anniversary of Otso Ultimate Frisbee club
 
 ## Tech Stack
 
-- **Static site**: Single `index.html` with client-side hash routing (`#/`, `#/players`, `#/player/Name`, `#/timeline`)
+- **Static site**: `index.html` is a shell — markup, the route containers, one module script.
+  The rendering lives in `js/` as ES modules the browser loads directly: no bundler, no build
+  step, so GitHub Pages serves exactly the files in this repo (client-side hash routing:
+  `#/`, `#/players`, `#/player/Name`, `#/timeline`, `#/frenemies`)
 - **Charts**: Chart.js 4 (loaded from CDN)
 - **Styling**: CSS Grid/Flexbox, CSS custom properties, dark theme
 - **Data processing**: Python 3.12+ (`build_site_data.py`)
@@ -19,16 +22,25 @@ Interactive visualization for the 20th anniversary of Otso Ultimate Frisbee club
 ## Project Structure
 
 ```
-index.html          — SPA frontend (47 KB)
+index.html          — the SPA shell: markup, the page containers, one module script (172 lines)
+css/site.css        — every rule the page uses, in one file the browser caches
 build_site_data.py  — turns the corpus into the JSON the page reads
 site_contract.py    — what site_data/ must contain: the shape of every file, the manifest, the
                       version. Checked at build time, and again by the page on load
 teams.yaml          — which club this site is about: squad names, which is the flagship,
                       how each is printed. The library has no club baked in.
 js/                 — ES modules the page imports, no build step:
+  main.js           — entry point: load the data, wire the pages, start the router
+  state.js          — DATA, and the one place it is loaded
+  router.js         — which page is active, and what renders for it
   data.js           — fetches through the manifest, validates against the schema, hands the page DATA
   contract.js       — the browser half of the shape check (pure; also runnable under node)
   check_load.mjs    — the same loader under node, with fetch() reading the files on disk
+  format.js         — era colours, stat bars, medals, season words, the canonical name key
+  badges.js         — highlight badges and the season stories they quote
+  qr.js             — the `?qr` badge and overlay
+  pages/            — home, players, player detail, frenemies
+  timeline/         — the year stream, the sticky year HUD, the team cloud
 src/ultiorg/        — the library: fetch, cache, parse, repair, analyse, query Ultiorganizer data
 site_data/          — generated JSON the SPA fetches, keyed by player id
   manifest.json     — what the build published, at which version, and which files the page reads
@@ -176,10 +188,22 @@ one-off scripts. All three are idempotent — a no-op on current data — and al
 
 ## Local Development
 
+The page sets `<base href="/otso-20v-gaala/">`, because that is the path GitHub Pages serves it
+under. So every relative URL — `js/main.js`, `site_data/manifest.json` — resolves against
+`/otso-20v-gaala/`, and serving the repo at `/` 404s the whole module graph: you get the shell
+with no data and no error in the page itself. Serve the **parent** directory and visit the repo
+name:
+
 ```bash
-python -m http.server 8000
-# Visit http://localhost:8000
+cd .. && python -m http.server 8000
+# Visit http://localhost:8000/otso-20v-gaala/
 ```
+
+`tools/render_gate.sh <outdir>` does that for you and dumps the rendered DOM of seven routes with
+headless Chromium; `tools/dump_diff.py A B` compares two dumps with the `<style>`/`<script>`
+elements reduced to their attributes. That pair is the Phase 11 gate: a refactor of the frontend
+is only proven not to have changed the page if the rendered DOM is byte-identical, because the
+page is built at runtime and no Python test can see it.
 
 ## GitHub Pages Deployment
 

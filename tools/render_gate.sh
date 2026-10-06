@@ -40,6 +40,17 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ROUTES=('#/' '#/players' '#/player/Roni%20Hotari' '#/player/Simo%20Soini'
         '#/player/NoSuch%20Person' '#/frenemies' '#/timeline')
 PAGES=(home players player player player frenemies timeline)
+# What each route must contain, and how many times. The active-page check proves the
+# router ran; it does not prove the data arrived — a page can go active and render an
+# empty container, which after the module split is exactly how a failed import or a
+# late first fetch looks. The floors are the element counts of the baseline dumps,
+# rounded down hard: they exist to catch a page that rendered nothing, not to pin the
+# counts (the diff does that). The `class="` prefix keeps CSS selectors out of the
+# count — and note the old inline script's own source text counted too, which is why
+# the player route's floor is 10 and not the 25 the pre-split dumps appeared to have.
+MARKERS=('class="category-slide|10' 'class="player-card|400' 'class="player-|10'
+         'class="player-|10' 'Player not found.|1' 'class="frenemy|100'
+         'class="year-block|20')
 
 # Route list note: `#/player/...` covers a long career, a short one, and a name
 # that is not in the table, so the not-found branch is in the gate. After the id
@@ -71,8 +82,21 @@ if ! curl -sf -o /dev/null "$BASE/index.html"; then
   exit 1
 fi
 
+# Warm the server before the first dump. One page load pulls the module graph and
+# eight JSON files through a single-threaded server, and a request served late leaves
+# the page active with nothing rendered — which reads like a regression in the diff
+# and is really a race with the server starting.
+for path in index.html js/main.js js/state.js js/pages/home.js \
+            site_data/manifest.json site_data/players.json site_data/summary.json; do
+  curl -sf -o /dev/null "${BASE}/${path}" || true
+done
+
 dump() {
-  timeout 90 chromium --headless=new --no-sandbox --disable-gpu \
+  # --enable-logging=stderr is what makes the console check below real: without it
+  # chromium emits no CONSOLE lines at all, and the gate's "a module that fails to
+  # load" check was reading an empty file and passing. With it, a broken import shows
+  # up as the uncaught error it is instead of as a page that renders nothing.
+  timeout 90 chromium --headless=new --no-sandbox --disable-gpu --enable-logging=stderr \
     --virtual-time-budget=25000 --timeout=60000 --dump-dom \
     "${BASE}/index.html$1" 2>"$OUT/$2.err"
 }
@@ -81,22 +105,35 @@ fail=0
 for i in "${!ROUTES[@]}"; do
   route="${ROUTES[$i]}"; page="${PAGES[$i]}"; name=$(printf 'route%02d' $((i + 1)))
   want="id=\"page-${page}\" class=\"page active\""
+  marker="${MARKERS[$i]%%|*}"; mincount="${MARKERS[$i]##*|}"; count=0
   for attempt in 1 2 3; do
-    dump "$route" "$name" > "$OUT/$name.html"
-    # A dump byte-identical to index.html is the unexecuted page: the parser got
-    # the whole document and the script at the end of <body> never ran. Checking
-    # for the script's own source text would not do — dump-dom keeps that element
-    # whether or not it executed, and after Phase 11 there is no inline script at
-    # all to look for.
-    if grep -q 'main-frame-error' "$OUT/$name.html"; then
+    # `if !` rather than a bare call: under `set -e` a chromium that exits non-zero
+    # (its own timeout, a crash) ended the whole gate silently after the first route,
+    # leaving a directory with one dump in it and no explanation. A bad dump is a
+    # retry reason, not a reason to stop.
+    if ! dump "$route" "$name" > "$OUT/$name.html"; then
+      reason="chromium exited non-zero — see ${name}.err"
+    elif grep -q 'main-frame-error' "$OUT/$name.html"; then
       reason="chromium error page: nothing was served"
     elif cmp -s "$OUT/$name.html" "$HERE/index.html"; then
+      # A dump byte-identical to index.html is the unexecuted page: the parser got the
+      # whole document and the script never ran. Checking for the script's own source
+      # text would not do — dump-dom keeps that element whether or not it executed,
+      # and after Phase 11 there is no inline script at all to look for.
       reason="dump is the raw file: the script never ran"
     elif ! grep -q "$want" "$OUT/$name.html"; then
       reason="expected ${page} to be the active page"
     else
-      reason=""
-      break
+      # Count the data-derived elements. The `|| true` is load-bearing: with
+      # `set -euo pipefail` a grep that finds nothing made the assignment fail, which
+      # ended the gate instead of reporting an empty page and retrying.
+      count=$({ grep -o "$marker" "$OUT/$name.html" || true; } | wc -l)
+      if [ "$count" -lt "$mincount" ]; then
+        reason="only ${count} '${marker}' in the rendered DOM, want >= ${mincount}"
+      else
+        reason=""
+        break
+      fi
     fi
     echo "  retry $name ($route): $reason"
   done
@@ -105,7 +142,8 @@ for i in "${!ROUTES[@]}"; do
     fail=1
     continue
   fi
-  printf '%-9s %-26s %-10s %8d bytes\n' "$name" "$route" "$page" "$(wc -c < "$OUT/$name.html")"
+  printf '%-9s %-26s %-10s %8d bytes  %4d markers\n' \
+    "$name" "$route" "$page" "$(wc -c < "$OUT/$name.html")" "$count"
 done
 
 # Console messages from the page are part of the gate: a module that fails to load
