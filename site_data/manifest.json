@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "135bbf1c13c9",
+  "version": "36b4dd1b1625",
   "files": [
     {
       "name": "cooccurrence.json",
@@ -9,7 +9,7 @@
     },
     {
       "name": "data_quality.json",
-      "bytes": 11454,
+      "bytes": 12816,
       "fetched_by_page": false
     },
     {
@@ -29,7 +29,7 @@
     },
     {
       "name": "players.json",
-      "bytes": 172520,
+      "bytes": 174420,
       "fetched_by_page": true
     },
     {

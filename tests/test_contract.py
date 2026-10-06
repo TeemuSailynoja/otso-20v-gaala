@@ -8,7 +8,8 @@ and who reads it) and `schema.json` (what each file looks like).
 
 These tests hold three things together:
   * the files on disk fit the shape the build claims,
-  * the manifest describes the directory exactly, so a stale file cannot survive,
+  * the manifest accounts for every file in the directory, so a stale file is
+    named rather than silently served or silently deleted,
   * the JS validator reaches the same verdict as the Python one, because the page
     checks with the JS half and nothing else keeps the two honest.
 """
@@ -111,10 +112,78 @@ def test_the_manifest_describes_the_directory_exactly(manifest):
     """No file in site_data/ is unaccounted for.
 
     A file the build stopped writing but nobody deleted keeps being served and
-    keeps being cached, and nothing in the page would ever notice.
+    keeps being cached, and nothing in the page would ever notice. The build
+    reports such files on every run and removes them only with ``--prune`` — while
+    the site is being restructured, an unwritten file may be one the next phase
+    wants back, so it is flagged rather than forgotten or destroyed. This set is
+    the current answer; if it grows, the build said so on stdout.
     """
     on_disk = {p.name for p in SITE.iterdir() if p.is_file()}
-    assert set(_published(manifest)) | {"manifest.json", "schema.json"} == on_disk
+    published = set(_published(manifest)) | {"manifest.json", "schema.json"}
+    assert published <= on_disk
+    assert on_disk - published == {
+        "years.json", "players.csv", "player_names.txt", "season_mapping.json",
+    }
+
+
+def test_the_build_deletes_nothing_unless_told_to():
+    """Pruning site_data/ is opt-in, and the flag that opts in is named here.
+
+    Deleting a file the build stopped writing is a decision, not a cleanup: the
+    owner asked for flagging while the site is being restructured. The guard is
+    one line in build_site_data.py; this pins that it is a guard.
+    """
+    source = (ROOT / "build_site_data.py").read_text(encoding="utf-8")
+    assert '"--prune" in sys.argv' in source
+    assert source.count("unlink()") == 1
+
+
+# --- what a zero means -------------------------------------------------------
+# A player row answers seven defense questions. They used to be answered with
+# three zeros and four absences, which read as "we know the total but not the
+# split" — and the schema had to call four fields optional to match. The
+# invariant below is what makes the zeros honest: every credited point increments
+# exactly one bucket and exactly one goal, so total_points 0 *is* the statement
+# that the other four are zero. Where a zero is instead a coverage gap, that is
+# written down in data_quality.json rather than left for the reader to suspect.
+
+DEFENSE_FIELDS = ("defense_points", "defense_goals", "defense_assists",
+                  "offense_points", "offense_goals", "offense_assists", "total_points")
+
+
+def test_every_player_row_answers_all_seven_defense_questions():
+    players = _load("players.json")
+    missing = {k for k, v in players.items() if not all(f in v for f in DEFENSE_FIELDS)}
+    assert missing == set()
+
+
+def test_the_defense_fields_add_up_on_every_row():
+    players = _load("players.json")
+    for key, row in players.items():
+        assert row["defense_goals"] + row["offense_goals"] == row["total_points"], key
+        assert row["defense_points"] + row["offense_points"] == row["total_points"], key
+        # An assist is recorded on the scorer's row, so it cannot exceed the points
+        # that row was credited with. The passer side lives in pass_network.json.
+        assert row["defense_assists"] + row["offense_assists"] <= row["total_points"], key
+
+
+def test_the_rows_where_zero_is_coverage_not_fact_are_named():
+    """19 rows have `total_points: 0`. For 16 the season card agrees they scored
+    nothing in every Otso squad-season they appear in, so "never scored" is
+    corroborated by both sources. For the other 3 the goals come from the card and
+    the play-by-play never named them — and that difference is published.
+    """
+    players = _load("players.json")
+    coverage = _load("data_quality.json")["point_table_coverage"]
+    zero = {k for k, v in players.items() if v["total_points"] == 0}
+    assert coverage["total_points_zero"] == len(zero) == 19
+    unseen = {row["site_key"] for row in coverage["goals_the_point_table_never_saw"]}
+    assert unseen == {k for k in zero if players[k]["goals"]}
+    for row in coverage["goals_the_point_table_never_saw"]:
+        assert players[row["site_key"]]["goals"] == row["goals"] > 0
+    # An assist belongs to the scorer's row, so published assists with no points
+    # are not a gap. The schema test above would fail if this note went missing.
+    assert "pass_network.json" in coverage["assists_note"]
 
 
 def test_the_manifest_version_is_the_data_it_ships(manifest):

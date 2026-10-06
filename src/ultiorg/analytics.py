@@ -318,9 +318,22 @@ def build_career_stats(
             "winter_games": winter_games,
             "winter_goals": winter_goals,
             "winter_assists": winter_assists,
-            # Defense is a separate view; the caller merges it in.
+            # Defense is a separate view; the caller merges it in. All seven
+            # fields are defaulted, not three of them: a row that says
+            # `total_points: 0` has already said the other four are zero, because
+            # every credited point increments exactly one bucket and exactly one
+            # goal. Defaulting only the point fields made the four goal/assist
+            # fields absent for 19 players and forced the contract to call them
+            # optional, which hid a fact the row was already publishing.
+            # `data_quality.json -> point_table_coverage` is where the honest
+            # caveat lives: for a few players the career goals come from the
+            # season card while the point table never named them at all.
             "defense_points": 0,
+            "defense_goals": 0,
+            "defense_assists": 0,
             "offense_points": 0,
+            "offense_goals": 0,
+            "offense_assists": 0,
             "total_points": 0,
         }
     return result

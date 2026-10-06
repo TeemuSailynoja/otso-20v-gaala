@@ -34,6 +34,7 @@ write a birthday, a birth year, or a per-player age into site_data/.
 import csv
 import json
 import re
+import sys
 import unicodedata
 from collections import defaultdict
 from datetime import date
@@ -320,9 +321,50 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
 
 
 # --- what the data cannot say ----------------------------------------------
+def point_table_coverage(players: dict) -> dict:
+    """Rows whose published goals come from the season card alone.
+
+    The career table takes the larger of the season card and the play-by-play, so a
+    row can carry goals while the point table never named that person as a scorer on
+    an Otso side — `total_points: 0`. For those rows the seven defense zeros describe
+    what the point table saw, not what the player did: the card says they scored and
+    the play-by-play never recorded it. Measured: 19 of 171 rows have
+    `total_points: 0`; for 16 of them the season card also says 0 goals in every Otso
+    squad-season they appear in, so "never scored" is corroborated by both sources.
+    The other 3 are listed here.
+    """
+    rows = [
+        {"site_key": key, "games": row["games"], "goals": row["goals"],
+         "assists": row["assists"]}
+        for key, row in sorted(players.items())
+        if row["total_points"] == 0 and row["goals"]
+    ]
+    return {
+        "total_points_zero": sum(1 for row in players.values() if row["total_points"] == 0),
+        "goals_the_point_table_never_saw": rows,
+        "assists_note": (
+            "defense_assists counts the assists that arrived on this player's own "
+            "goals — how many of their defense-initiated goals were fed to them — not "
+            "assists they made. A player who only ever feeds others has defense_assists "
+            "0 and a full row in pass_network.json, which is where the passer side "
+            "lives. So a nonzero published assists with total_points 0 is not a gap: "
+            "the point table saw the passes, it just never named them as a scorer."
+        ),
+        "note": (
+            "These players have published goals that the point table never credited "
+            "them with: the figure comes from the season card, and the play-by-play of "
+            "those seasons never names them as a scorer on an Otso side. Their seven "
+            "defense fields are therefore zero because the point table has no record "
+            "of them scoring, not because they are known never to have scored. Every "
+            "other row with total_points 0 is corroborated by the season card too, and "
+            "for those the zero is a fact."
+        ),
+    }
+
+
 def build_quality_report(games: list[dict], ids: PersonIds, persons: PersonKeys,
                          player_ids: set, names: dict, used_keys: set,
-                         sources: dict) -> dict:
+                         sources: dict, coverage: dict) -> dict:
     """`data_quality.json` — the gaps, written down instead of quietly averaged away.
 
     The site's totals are only as good as the name→person matching, and that
@@ -405,6 +447,7 @@ def build_quality_report(games: list[dict], ids: PersonIds, persons: PersonKeys,
             ],
         },
         "aliases_asserted": dict(sorted(persons.aliases.items())),
+        "point_table_coverage": coverage,
         "points": {
             "total": points,
             "no_scorer_named": no_scorer,
@@ -575,7 +618,7 @@ def main() -> None:
         )
 
     quality = build_quality_report(games, ids, persons, set(players), names, used,
-                                   career_sources)
+                                   career_sources, point_table_coverage(players))
     print(f"Quality: {len(used)} keys in site_data, "
           f"{quality['points']['no_scorer_named']} points with no scorer, "
           f"{len(quality['unresolved_names'])} unresolved names, "
@@ -621,11 +664,21 @@ def main() -> None:
     # served, still cached by the CDN, and invisible to the manifest. Four such
     # files had accumulated (players.csv, player_names.txt, season_mapping.json,
     # years.json) — nothing fetched them, and the code that wrote them is gone.
+    # They are reported, not deleted: while the site is being restructured, a file
+    # this build stops writing may be one the next phase wants back, and a stale
+    # file costs nothing. `--prune` deletes them once the owner has decided.
     published = {entry["name"] for entry in manifest["files"]} | {"manifest.json", "schema.json"}
-    for stale in sorted(SITE_DATA_DIR.iterdir()):
-        if stale.is_file() and stale.name not in published:
-            stale.unlink()
-            print(f"  Removed stale {stale.name} (not written by this build)")
+    stale = sorted(p.name for p in SITE_DATA_DIR.iterdir()
+                   if p.is_file() and p.name not in published)
+    if stale:
+        print(f"  STALE in site_data/ (written by no build, read by nothing): "
+              f"{', '.join(stale)}")
+        if "--prune" in sys.argv:
+            for name in stale:
+                (SITE_DATA_DIR / name).unlink()
+                print(f"  Removed {name} (--prune)")
+        else:
+            print("  Left in place. Delete with: python build_site_data.py --prune")
 
     print("\nDone! Site data ready in site_data/")
 

@@ -53,18 +53,10 @@
           "defense_points": "int",
           "offense_points": "int",
           "total_points": "int",
-          "defense_goals": {
-            "optional": "int"
-          },
-          "defense_assists": {
-            "optional": "int"
-          },
-          "offense_goals": {
-            "optional": "int"
-          },
-          "offense_assists": {
-            "optional": "int"
-          }
+          "defense_goals": "int",
+          "defense_assists": "int",
+          "offense_goals": "int",
+          "offense_assists": "int"
         }
       }
     },
@@ -500,6 +492,23 @@
         },
         "aliases_asserted": {
           "map": "str"
+        },
+        "point_table_coverage": {
+          "obj": {
+            "total_points_zero": "int",
+            "goals_the_point_table_never_saw": {
+              "list": {
+                "obj": {
+                  "site_key": "str",
+                  "games": "int",
+                  "goals": "int",
+                  "assists": "int"
+                }
+              }
+            },
+            "assists_note": "str",
+            "note": "str"
+          }
         },
         "points": {
           "obj": {

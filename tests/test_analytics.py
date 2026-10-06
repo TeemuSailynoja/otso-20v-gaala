@@ -190,6 +190,28 @@ def test_the_point_table_wins_where_it_saw_more_than_the_card():
     assert sum(net["given"]["hotari roni"].values()) == stats["hotari roni"]["assists"]
 
 
+def test_a_career_row_states_all_seven_defense_fields_even_with_no_points():
+    """The career table does not answer three of the seven defense questions and
+    stay silent on the other four.
+
+    It used to: `total_points: 0` was published while `defense_goals` was absent,
+    which made the row look like it knew the total but not the split. Every
+    credited point increments exactly one bucket and exactly one goal, so a row
+    that says `total_points: 0` has already said the other four are zero. The
+    honest caveat — that for a few players the goals come from the season card and
+    the point table never saw them at all — belongs in `data_quality.json`, not in
+    a field the page has to guess about.
+    """
+    fields = {"defense_points", "defense_goals", "defense_assists",
+              "offense_points", "offense_goals", "offense_assists", "total_points"}
+    stats = build_career_stats(SEASONS, [], FOCUS, season_names=SEASON_NAMES)
+    assert stats, "the fixture should produce rows"
+    for person, row in stats.items():
+        assert fields <= set(row), person
+        assert row["total_points"] == 0, person
+        assert all(row[f] == 0 for f in fields), person
+
+
 def test_the_pass_network_never_credits_more_than_the_career_table():
     """A gap is allowed — the card may record points the scrape never got — an
     overshoot is not: it would mean the two views count different events."""

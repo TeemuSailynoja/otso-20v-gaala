@@ -37,12 +37,12 @@
     "winter_goals": 4,
     "winter_assists": 1,
     "defense_points": 1,
-    "offense_points": 3,
-    "total_points": 4,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 4
   },
   "32392": {
     "seasons": [
@@ -82,12 +82,12 @@
     "winter_goals": 2,
     "winter_assists": 3,
     "defense_points": 2,
-    "offense_points": 3,
-    "total_points": 5,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 5
   },
   "33593": {
     "seasons": [
@@ -121,12 +121,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 1
   },
   "21007": {
     "seasons": [
@@ -172,12 +172,12 @@
     "winter_goals": 33,
     "winter_assists": 19,
     "defense_points": 17,
-    "offense_points": 18,
-    "total_points": 35,
     "defense_goals": 17,
     "defense_assists": 17,
+    "offense_points": 18,
     "offense_goals": 18,
-    "offense_assists": 18
+    "offense_assists": 18,
+    "total_points": 35
   },
   "7858": {
     "seasons": [
@@ -235,12 +235,12 @@
     "winter_goals": 16,
     "winter_assists": 10,
     "defense_points": 19,
-    "offense_points": 22,
-    "total_points": 41,
     "defense_goals": 19,
     "defense_assists": 19,
+    "offense_points": 22,
     "offense_goals": 22,
-    "offense_assists": 22
+    "offense_assists": 22,
+    "total_points": 41
   },
   "6191": {
     "seasons": [
@@ -280,7 +280,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "8119": {
@@ -331,12 +335,12 @@
     "winter_goals": 0,
     "winter_assists": 2,
     "defense_points": 6,
-    "offense_points": 9,
-    "total_points": 15,
     "defense_goals": 6,
     "defense_assists": 6,
+    "offense_points": 9,
     "offense_goals": 9,
-    "offense_assists": 9
+    "offense_assists": 9,
+    "total_points": 15
   },
   "6884": {
     "seasons": [
@@ -479,12 +483,12 @@
     "winter_goals": 58,
     "winter_assists": 161,
     "defense_points": 43,
-    "offense_points": 41,
-    "total_points": 84,
     "defense_goals": 43,
     "defense_assists": 43,
+    "offense_points": 41,
     "offense_goals": 41,
-    "offense_assists": 41
+    "offense_assists": 41,
+    "total_points": 84
   },
   "32508": {
     "seasons": [
@@ -518,12 +522,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 0,
-    "total_points": 1,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 1
   },
   "31841": {
     "seasons": [
@@ -558,7 +562,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "31581": {
@@ -612,12 +620,12 @@
     "winter_goals": 23,
     "winter_assists": 4,
     "defense_points": 12,
-    "offense_points": 16,
-    "total_points": 28,
     "defense_goals": 12,
     "defense_assists": 12,
+    "offense_points": 16,
     "offense_goals": 16,
-    "offense_assists": 16
+    "offense_assists": 16,
+    "total_points": 28
   },
   "7930": {
     "seasons": [
@@ -654,12 +662,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 4,
-    "total_points": 5,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 4,
     "offense_goals": 4,
-    "offense_assists": 4
+    "offense_assists": 4,
+    "total_points": 5
   },
   "12437": {
     "seasons": [
@@ -717,12 +725,12 @@
     "winter_goals": 30,
     "winter_assists": 168,
     "defense_points": 19,
-    "offense_points": 24,
-    "total_points": 43,
     "defense_goals": 19,
     "defense_assists": 19,
+    "offense_points": 24,
     "offense_goals": 24,
-    "offense_assists": 24
+    "offense_assists": 24,
+    "total_points": 43
   },
   "31122": {
     "seasons": [
@@ -772,12 +780,12 @@
     "winter_goals": 42,
     "winter_assists": 18,
     "defense_points": 18,
-    "offense_points": 29,
-    "total_points": 47,
     "defense_goals": 18,
     "defense_assists": 18,
+    "offense_points": 29,
     "offense_goals": 29,
-    "offense_assists": 29
+    "offense_assists": 29,
+    "total_points": 47
   },
   "15044": {
     "seasons": [
@@ -815,12 +823,12 @@
     "winter_goals": 2,
     "winter_assists": 0,
     "defense_points": 2,
-    "offense_points": 1,
-    "total_points": 3,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 3
   },
   "11644": {
     "seasons": [
@@ -858,12 +866,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 4,
-    "offense_points": 6,
-    "total_points": 10,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 6,
     "offense_goals": 6,
-    "offense_assists": 6
+    "offense_assists": 6,
+    "total_points": 10
   },
   "5898": {
     "seasons": [
@@ -993,12 +1001,12 @@
     "winter_goals": 236,
     "winter_assists": 188,
     "defense_points": 137,
-    "offense_points": 199,
-    "total_points": 336,
     "defense_goals": 137,
     "defense_assists": 137,
+    "offense_points": 199,
     "offense_goals": 199,
-    "offense_assists": 199
+    "offense_assists": 199,
+    "total_points": 336
   },
   "8938": {
     "seasons": [
@@ -1111,12 +1119,12 @@
     "winter_goals": 107,
     "winter_assists": 164,
     "defense_points": 83,
-    "offense_points": 89,
-    "total_points": 172,
     "defense_goals": 83,
     "defense_assists": 83,
+    "offense_points": 89,
     "offense_goals": 89,
-    "offense_assists": 89
+    "offense_assists": 89,
+    "total_points": 172
   },
   "29248": {
     "seasons": [
@@ -1158,12 +1166,12 @@
     "winter_goals": 12,
     "winter_assists": 11,
     "defense_points": 7,
-    "offense_points": 12,
-    "total_points": 19,
     "defense_goals": 7,
     "defense_assists": 7,
+    "offense_points": 12,
     "offense_goals": 12,
-    "offense_assists": 12
+    "offense_assists": 12,
+    "total_points": 19
   },
   "6165": {
     "seasons": [
@@ -1228,12 +1236,12 @@
     "winter_goals": 23,
     "winter_assists": 13,
     "defense_points": 49,
-    "offense_points": 60,
-    "total_points": 109,
     "defense_goals": 49,
     "defense_assists": 47,
+    "offense_points": 60,
     "offense_goals": 60,
-    "offense_assists": 56
+    "offense_assists": 56,
+    "total_points": 109
   },
   "22734": {
     "seasons": [
@@ -1306,12 +1314,12 @@
     "winter_goals": 46,
     "winter_assists": 38,
     "defense_points": 25,
-    "offense_points": 42,
-    "total_points": 67,
     "defense_goals": 25,
     "defense_assists": 25,
+    "offense_points": 42,
     "offense_goals": 42,
-    "offense_assists": 42
+    "offense_assists": 42,
+    "total_points": 67
   },
   "19295": {
     "seasons": [
@@ -1349,12 +1357,12 @@
     "winter_goals": 7,
     "winter_assists": 3,
     "defense_points": 8,
-    "offense_points": 11,
-    "total_points": 19,
     "defense_goals": 8,
     "defense_assists": 8,
+    "offense_points": 11,
     "offense_goals": 11,
-    "offense_assists": 11
+    "offense_assists": 11,
+    "total_points": 19
   },
   "8819": {
     "seasons": [
@@ -1388,7 +1396,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6166": {
@@ -1441,12 +1453,12 @@
     "winter_goals": 73,
     "winter_assists": 85,
     "defense_points": 16,
-    "offense_points": 73,
-    "total_points": 89,
     "defense_goals": 16,
     "defense_assists": 13,
+    "offense_points": 73,
     "offense_goals": 73,
-    "offense_assists": 56
+    "offense_assists": 56,
+    "total_points": 89
   },
   "13255": {
     "seasons": [
@@ -1480,12 +1492,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 3,
-    "total_points": 3,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 3
   },
   "26208": {
     "seasons": [
@@ -1525,12 +1537,12 @@
     "winter_goals": 16,
     "winter_assists": 9,
     "defense_points": 10,
-    "offense_points": 8,
-    "total_points": 18,
     "defense_goals": 10,
     "defense_assists": 10,
+    "offense_points": 8,
     "offense_goals": 8,
-    "offense_assists": 8
+    "offense_assists": 8,
+    "total_points": 18
   },
   "7834": {
     "seasons": [
@@ -1573,12 +1585,12 @@
     "winter_goals": 32,
     "winter_assists": 30,
     "defense_points": 12,
-    "offense_points": 24,
-    "total_points": 36,
     "defense_goals": 12,
     "defense_assists": 12,
+    "offense_points": 24,
     "offense_goals": 24,
-    "offense_assists": 24
+    "offense_assists": 24,
+    "total_points": 36
   },
   "32393": {
     "seasons": [
@@ -1626,12 +1638,12 @@
     "winter_goals": 51,
     "winter_assists": 27,
     "defense_points": 19,
-    "offense_points": 36,
-    "total_points": 55,
     "defense_goals": 19,
     "defense_assists": 19,
+    "offense_points": 36,
     "offense_goals": 36,
-    "offense_assists": 36
+    "offense_assists": 36,
+    "total_points": 55
   },
   "28544": {
     "seasons": [
@@ -1671,12 +1683,12 @@
     "winter_goals": 8,
     "winter_assists": 2,
     "defense_points": 6,
-    "offense_points": 7,
-    "total_points": 13,
     "defense_goals": 6,
     "defense_assists": 6,
+    "offense_points": 7,
     "offense_goals": 7,
-    "offense_assists": 7
+    "offense_assists": 7,
+    "total_points": 13
   },
   "32394": {
     "seasons": [
@@ -1721,12 +1733,12 @@
     "winter_goals": 96,
     "winter_assists": 23,
     "defense_points": 36,
-    "offense_points": 62,
-    "total_points": 98,
     "defense_goals": 36,
     "defense_assists": 36,
+    "offense_points": 62,
     "offense_goals": 62,
-    "offense_assists": 62
+    "offense_assists": 62,
+    "total_points": 98
   },
   "12042": {
     "seasons": [
@@ -1769,12 +1781,12 @@
     "winter_goals": 14,
     "winter_assists": 17,
     "defense_points": 7,
-    "offense_points": 7,
-    "total_points": 14,
     "defense_goals": 7,
     "defense_assists": 7,
+    "offense_points": 7,
     "offense_goals": 7,
-    "offense_assists": 7
+    "offense_assists": 7,
+    "total_points": 14
   },
   "6174": {
     "seasons": [
@@ -1843,12 +1855,12 @@
     "winter_goals": 101,
     "winter_assists": 39,
     "defense_points": 77,
-    "offense_points": 124,
-    "total_points": 201,
     "defense_goals": 77,
     "defense_assists": 73,
+    "offense_points": 124,
     "offense_goals": 124,
-    "offense_assists": 112
+    "offense_assists": 112,
+    "total_points": 201
   },
   "18894": {
     "seasons": [
@@ -1882,12 +1894,12 @@
     "winter_goals": 7,
     "winter_assists": 5,
     "defense_points": 0,
-    "offense_points": 7,
-    "total_points": 7,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 7,
     "offense_goals": 7,
-    "offense_assists": 7
+    "offense_assists": 7,
+    "total_points": 7
   },
   "6092": {
     "seasons": [
@@ -1940,12 +1952,12 @@
     "winter_goals": 8,
     "winter_assists": 3,
     "defense_points": 18,
-    "offense_points": 14,
-    "total_points": 32,
     "defense_goals": 18,
     "defense_assists": 18,
+    "offense_points": 14,
     "offense_goals": 14,
-    "offense_assists": 14
+    "offense_assists": 14,
+    "total_points": 32
   },
   "6190": {
     "seasons": [
@@ -1979,7 +1991,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "32455": {
@@ -2015,12 +2031,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 2,
-    "offense_points": 0,
-    "total_points": 2,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 2
   },
   "12511": {
     "seasons": [
@@ -2072,12 +2088,12 @@
     "winter_goals": 38,
     "winter_assists": 147,
     "defense_points": 17,
-    "offense_points": 25,
-    "total_points": 42,
     "defense_goals": 17,
     "defense_assists": 17,
+    "offense_points": 25,
     "offense_goals": 25,
-    "offense_assists": 25
+    "offense_assists": 25,
+    "total_points": 42
   },
   "12352": {
     "seasons": [
@@ -2111,12 +2127,12 @@
     "winter_goals": 9,
     "winter_assists": 6,
     "defense_points": 4,
-    "offense_points": 5,
-    "total_points": 9,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 9
   },
   "31579": {
     "seasons": [
@@ -2154,12 +2170,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 3,
-    "total_points": 3,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 3
   },
   "30581": {
     "seasons": [
@@ -2204,12 +2220,12 @@
     "winter_goals": 4,
     "winter_assists": 4,
     "defense_points": 9,
-    "offense_points": 10,
-    "total_points": 19,
     "defense_goals": 9,
     "defense_assists": 9,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 19
   },
   "31583": {
     "seasons": [
@@ -2247,12 +2263,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 5,
-    "offense_points": 4,
-    "total_points": 9,
     "defense_goals": 5,
     "defense_assists": 5,
+    "offense_points": 4,
     "offense_goals": 4,
-    "offense_assists": 4
+    "offense_assists": 4,
+    "total_points": 9
   },
   "6280": {
     "seasons": [
@@ -2286,7 +2302,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6689": {
@@ -2323,12 +2343,12 @@
     "winter_goals": 1,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 1
   },
   "18525": {
     "seasons": [
@@ -2369,12 +2389,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 15,
-    "offense_points": 10,
-    "total_points": 25,
     "defense_goals": 15,
     "defense_assists": 15,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 25
   },
   "5892": {
     "seasons": [
@@ -2446,12 +2466,12 @@
     "winter_goals": 58,
     "winter_assists": 13,
     "defense_points": 55,
-    "offense_points": 67,
-    "total_points": 122,
     "defense_goals": 55,
     "defense_assists": 55,
+    "offense_points": 67,
     "offense_goals": 67,
-    "offense_assists": 67
+    "offense_assists": 67,
+    "total_points": 122
   },
   "5914": {
     "seasons": [
@@ -2485,7 +2505,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "11564": {
@@ -2526,12 +2550,12 @@
     "winter_goals": 14,
     "winter_assists": 3,
     "defense_points": 3,
-    "offense_points": 11,
-    "total_points": 14,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 11,
     "offense_goals": 11,
-    "offense_assists": 11
+    "offense_assists": 11,
+    "total_points": 14
   },
   "34168": {
     "seasons": [
@@ -2566,12 +2590,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 2,
     "offense_goals": 2,
-    "offense_assists": 2
+    "offense_assists": 2,
+    "total_points": 3
   },
   "24883": {
     "seasons": [
@@ -2605,12 +2629,12 @@
     "winter_goals": 14,
     "winter_assists": 10,
     "defense_points": 8,
-    "offense_points": 6,
-    "total_points": 14,
     "defense_goals": 8,
     "defense_assists": 8,
+    "offense_points": 6,
     "offense_goals": 6,
-    "offense_assists": 6
+    "offense_assists": 6,
+    "total_points": 14
   },
   "21274": {
     "seasons": [
@@ -2694,12 +2718,12 @@
     "winter_goals": 76,
     "winter_assists": 63,
     "defense_points": 64,
-    "offense_points": 89,
-    "total_points": 153,
     "defense_goals": 64,
     "defense_assists": 64,
+    "offense_points": 89,
     "offense_goals": 89,
-    "offense_assists": 89
+    "offense_assists": 89,
+    "total_points": 153
   },
   "29772": {
     "seasons": [
@@ -2737,12 +2761,12 @@
     "winter_goals": 10,
     "winter_assists": 17,
     "defense_points": 17,
-    "offense_points": 9,
-    "total_points": 26,
     "defense_goals": 17,
     "defense_assists": 17,
+    "offense_points": 9,
     "offense_goals": 9,
-    "offense_assists": 9
+    "offense_assists": 9,
+    "total_points": 26
   },
   "5894": {
     "seasons": [
@@ -2875,12 +2899,12 @@
     "winter_goals": 362,
     "winter_assists": 186,
     "defense_points": 262,
-    "offense_points": 294,
-    "total_points": 556,
     "defense_goals": 262,
     "defense_assists": 262,
+    "offense_points": 294,
     "offense_goals": 294,
-    "offense_assists": 294
+    "offense_assists": 294,
+    "total_points": 556
   },
   "32385": {
     "seasons": [
@@ -2923,12 +2947,12 @@
     "winter_goals": 13,
     "winter_assists": 21,
     "defense_points": 6,
-    "offense_points": 5,
-    "total_points": 11,
     "defense_goals": 6,
     "defense_assists": 6,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 11
   },
   "6167": {
     "seasons": [
@@ -2965,12 +2989,12 @@
     "winter_goals": 36,
     "winter_assists": 10,
     "defense_points": 22,
-    "offense_points": 41,
-    "total_points": 63,
     "defense_goals": 22,
     "defense_assists": 22,
+    "offense_points": 41,
     "offense_goals": 41,
-    "offense_assists": 41
+    "offense_assists": 41,
+    "total_points": 63
   },
   "6168": {
     "seasons": [
@@ -3026,12 +3050,12 @@
     "winter_goals": 4,
     "winter_assists": 6,
     "defense_points": 8,
-    "offense_points": 5,
-    "total_points": 13,
     "defense_goals": 8,
     "defense_assists": 8,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 13
   },
   "34521": {
     "seasons": [
@@ -3070,12 +3094,12 @@
     "winter_goals": 4,
     "winter_assists": 0,
     "defense_points": 4,
-    "offense_points": 6,
-    "total_points": 10,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 6,
     "offense_goals": 6,
-    "offense_assists": 6
+    "offense_assists": 6,
+    "total_points": 10
   },
   "6979": {
     "seasons": [
@@ -3109,7 +3133,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "31571": {
@@ -3159,12 +3187,12 @@
     "winter_goals": 23,
     "winter_assists": 18,
     "defense_points": 32,
-    "offense_points": 35,
-    "total_points": 67,
     "defense_goals": 32,
     "defense_assists": 32,
+    "offense_points": 35,
     "offense_goals": 35,
-    "offense_assists": 35
+    "offense_assists": 35,
+    "total_points": 67
   },
   "32132": {
     "seasons": [
@@ -3199,12 +3227,12 @@
     "winter_goals": 3,
     "winter_assists": 5,
     "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 1
   },
   "26100": {
     "seasons": [
@@ -3249,12 +3277,12 @@
     "winter_goals": 12,
     "winter_assists": 8,
     "defense_points": 21,
-    "offense_points": 10,
-    "total_points": 31,
     "defense_goals": 21,
     "defense_assists": 21,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 31
   },
   "6177": {
     "seasons": [
@@ -3288,12 +3316,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 3,
-    "offense_points": 1,
-    "total_points": 4,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 4
   },
   "29244": {
     "seasons": [
@@ -3327,12 +3355,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 3,
-    "offense_points": 4,
-    "total_points": 7,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 4,
     "offense_goals": 4,
-    "offense_assists": 4
+    "offense_assists": 4,
+    "total_points": 7
   },
   "7503": {
     "seasons": [
@@ -3393,12 +3421,12 @@
     "winter_goals": 2,
     "winter_assists": 28,
     "defense_points": 2,
-    "offense_points": 2,
-    "total_points": 4,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 2,
     "offense_goals": 2,
-    "offense_assists": 2
+    "offense_assists": 2,
+    "total_points": 4
   },
   "6169": {
     "seasons": [
@@ -3443,12 +3471,12 @@
     "winter_goals": 22,
     "winter_assists": 39,
     "defense_points": 5,
-    "offense_points": 24,
-    "total_points": 29,
     "defense_goals": 5,
     "defense_assists": 5,
+    "offense_points": 24,
     "offense_goals": 24,
-    "offense_assists": 24
+    "offense_assists": 24,
+    "total_points": 29
   },
   "32081": {
     "seasons": [
@@ -3488,12 +3516,12 @@
     "winter_goals": 3,
     "winter_assists": 3,
     "defense_points": 2,
-    "offense_points": 8,
-    "total_points": 10,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 8,
     "offense_goals": 8,
-    "offense_assists": 8
+    "offense_assists": 8,
+    "total_points": 10
   },
   "27360": {
     "seasons": [
@@ -3534,12 +3562,12 @@
     "winter_goals": 16,
     "winter_assists": 11,
     "defense_points": 11,
-    "offense_points": 25,
-    "total_points": 36,
     "defense_goals": 11,
     "defense_assists": 11,
+    "offense_points": 25,
     "offense_goals": 25,
-    "offense_assists": 25
+    "offense_assists": 25,
+    "total_points": 36
   },
   "6282": {
     "seasons": [
@@ -3576,7 +3604,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6883": {
@@ -3611,12 +3643,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 12,
-    "offense_points": 15,
-    "total_points": 27,
     "defense_goals": 12,
     "defense_assists": 12,
+    "offense_points": 15,
     "offense_goals": 15,
-    "offense_assists": 15
+    "offense_assists": 15,
+    "total_points": 27
   },
   "7090": {
     "seasons": [
@@ -3658,12 +3690,12 @@
     "winter_goals": 7,
     "winter_assists": 7,
     "defense_points": 5,
-    "offense_points": 6,
-    "total_points": 11,
     "defense_goals": 5,
     "defense_assists": 5,
+    "offense_points": 6,
     "offense_goals": 6,
-    "offense_assists": 6
+    "offense_assists": 6,
+    "total_points": 11
   },
   "6170": {
     "seasons": [
@@ -3731,12 +3763,12 @@
     "winter_goals": 59,
     "winter_assists": 81,
     "defense_points": 33,
-    "offense_points": 45,
-    "total_points": 78,
     "defense_goals": 33,
     "defense_assists": 32,
+    "offense_points": 45,
     "offense_goals": 45,
-    "offense_assists": 38
+    "offense_assists": 38,
+    "total_points": 78
   },
   "6969": {
     "seasons": [
@@ -3774,12 +3806,12 @@
     "winter_goals": 17,
     "winter_assists": 4,
     "defense_points": 13,
-    "offense_points": 7,
-    "total_points": 20,
     "defense_goals": 13,
     "defense_assists": 13,
+    "offense_points": 7,
     "offense_goals": 7,
-    "offense_assists": 7
+    "offense_assists": 7,
+    "total_points": 20
   },
   "29245": {
     "seasons": [
@@ -3813,12 +3845,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 4,
-    "total_points": 4,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 4,
     "offense_goals": 4,
-    "offense_assists": 4
+    "offense_assists": 4,
+    "total_points": 4
   },
   "10138": {
     "seasons": [
@@ -3882,12 +3914,12 @@
     "winter_goals": 34,
     "winter_assists": 35,
     "defense_points": 25,
-    "offense_points": 33,
-    "total_points": 58,
     "defense_goals": 25,
     "defense_assists": 25,
+    "offense_points": 33,
     "offense_goals": 33,
-    "offense_assists": 33
+    "offense_assists": 33,
+    "total_points": 58
   },
   "18893": {
     "seasons": [
@@ -3921,7 +3953,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "30583": {
@@ -3978,12 +4014,12 @@
     "winter_goals": 31,
     "winter_assists": 46,
     "defense_points": 23,
-    "offense_points": 28,
-    "total_points": 51,
     "defense_goals": 23,
     "defense_assists": 23,
+    "offense_points": 28,
     "offense_goals": 28,
-    "offense_assists": 28
+    "offense_assists": 28,
+    "total_points": 51
   },
   "6176": {
     "seasons": [
@@ -4028,12 +4064,12 @@
     "winter_goals": 31,
     "winter_assists": 28,
     "defense_points": 6,
-    "offense_points": 33,
-    "total_points": 39,
     "defense_goals": 6,
     "defense_assists": 6,
+    "offense_points": 33,
     "offense_goals": 33,
-    "offense_assists": 33
+    "offense_assists": 33,
+    "total_points": 39
   },
   "6188": {
     "seasons": [
@@ -4070,7 +4106,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6890": {
@@ -4231,12 +4271,12 @@
     "winter_goals": 474,
     "winter_assists": 489,
     "defense_points": 339,
-    "offense_points": 304,
-    "total_points": 643,
     "defense_goals": 339,
     "defense_assists": 339,
+    "offense_points": 304,
     "offense_goals": 304,
-    "offense_assists": 304
+    "offense_assists": 304,
+    "total_points": 643
   },
   "8151": {
     "seasons": [
@@ -4274,12 +4314,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 3,
-    "offense_points": 11,
-    "total_points": 14,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 11,
     "offense_goals": 11,
-    "offense_assists": 11
+    "offense_assists": 11,
+    "total_points": 14
   },
   "12044": {
     "seasons": [
@@ -4337,12 +4377,12 @@
     "winter_goals": 172,
     "winter_assists": 28,
     "defense_points": 68,
-    "offense_points": 135,
-    "total_points": 203,
     "defense_goals": 68,
     "defense_assists": 68,
+    "offense_points": 135,
     "offense_goals": 135,
-    "offense_assists": 135
+    "offense_assists": 135,
+    "total_points": 203
   },
   "6185": {
     "seasons": [
@@ -4418,12 +4458,12 @@
     "winter_goals": 21,
     "winter_assists": 32,
     "defense_points": 24,
-    "offense_points": 32,
-    "total_points": 56,
     "defense_goals": 24,
     "defense_assists": 24,
+    "offense_points": 32,
     "offense_goals": 32,
-    "offense_assists": 32
+    "offense_assists": 32,
+    "total_points": 56
   },
   "34520": {
     "seasons": [
@@ -4458,12 +4498,12 @@
     "winter_goals": 3,
     "winter_assists": 7,
     "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 2,
     "offense_goals": 2,
-    "offense_assists": 2
+    "offense_assists": 2,
+    "total_points": 3
   },
   "18771": {
     "seasons": [
@@ -4503,12 +4543,12 @@
     "winter_goals": 9,
     "winter_assists": 9,
     "defense_points": 3,
-    "offense_points": 5,
-    "total_points": 8,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 8
   },
   "5884": {
     "seasons": [
@@ -4594,12 +4634,12 @@
     "winter_goals": 160,
     "winter_assists": 285,
     "defense_points": 75,
-    "offense_points": 88,
-    "total_points": 163,
     "defense_goals": 75,
     "defense_assists": 75,
+    "offense_points": 88,
     "offense_goals": 88,
-    "offense_assists": 88
+    "offense_assists": 88,
+    "total_points": 163
   },
   "6799": {
     "seasons": [
@@ -4751,12 +4791,12 @@
     "winter_goals": 208,
     "winter_assists": 364,
     "defense_points": 101,
-    "offense_points": 189,
-    "total_points": 290,
     "defense_goals": 101,
     "defense_assists": 99,
+    "offense_points": 189,
     "offense_goals": 189,
-    "offense_assists": 175
+    "offense_assists": 175,
+    "total_points": 290
   },
   "31580": {
     "seasons": [
@@ -4791,12 +4831,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 2,
-    "offense_points": 0,
-    "total_points": 2,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 2
   },
   "5893": {
     "seasons": [
@@ -4879,12 +4919,12 @@
     "winter_goals": 92,
     "winter_assists": 173,
     "defense_points": 44,
-    "offense_points": 62,
-    "total_points": 106,
     "defense_goals": 44,
     "defense_assists": 44,
+    "offense_points": 62,
     "offense_goals": 62,
-    "offense_assists": 62
+    "offense_assists": 62,
+    "total_points": 106
   },
   "15198": {
     "seasons": [
@@ -4935,12 +4975,12 @@
     "winter_goals": 14,
     "winter_assists": 33,
     "defense_points": 11,
-    "offense_points": 7,
-    "total_points": 18,
     "defense_goals": 11,
     "defense_assists": 11,
+    "offense_points": 7,
     "offense_goals": 7,
-    "offense_assists": 7
+    "offense_assists": 7,
+    "total_points": 18
   },
   "14152": {
     "seasons": [
@@ -4974,12 +5014,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 4,
-    "offense_points": 10,
-    "total_points": 14,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 14
   },
   "26198": {
     "seasons": [
@@ -5013,12 +5053,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 2,
-    "offense_points": 1,
-    "total_points": 3,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 3
   },
   "6725": {
     "seasons": [
@@ -5062,12 +5102,12 @@
     "winter_goals": 4,
     "winter_assists": 14,
     "defense_points": 1,
-    "offense_points": 3,
-    "total_points": 4,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 4
   },
   "7180": {
     "seasons": [
@@ -5223,12 +5263,12 @@
     "winter_goals": 178,
     "winter_assists": 219,
     "defense_points": 113,
-    "offense_points": 183,
-    "total_points": 296,
     "defense_goals": 113,
     "defense_assists": 113,
+    "offense_points": 183,
     "offense_goals": 183,
-    "offense_assists": 183
+    "offense_assists": 183,
+    "total_points": 296
   },
   "29758": {
     "seasons": [
@@ -5268,12 +5308,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 12,
-    "offense_points": 9,
-    "total_points": 21,
     "defense_goals": 12,
     "defense_assists": 12,
+    "offense_points": 9,
     "offense_goals": 9,
-    "offense_assists": 9
+    "offense_assists": 9,
+    "total_points": 21
   },
   "18770": {
     "seasons": [
@@ -5363,12 +5403,12 @@
     "winter_goals": 25,
     "winter_assists": 58,
     "defense_points": 25,
-    "offense_points": 18,
-    "total_points": 43,
     "defense_goals": 25,
     "defense_assists": 25,
+    "offense_points": 18,
     "offense_goals": 18,
-    "offense_assists": 18
+    "offense_assists": 18,
+    "total_points": 43
   },
   "10294": {
     "seasons": [
@@ -5407,12 +5447,12 @@
     "winter_goals": 17,
     "winter_assists": 4,
     "defense_points": 9,
-    "offense_points": 11,
-    "total_points": 20,
     "defense_goals": 9,
     "defense_assists": 9,
+    "offense_points": 11,
     "offense_goals": 11,
-    "offense_assists": 11
+    "offense_assists": 11,
+    "total_points": 20
   },
   "18774": {
     "seasons": [
@@ -5446,12 +5486,12 @@
     "winter_goals": 5,
     "winter_assists": 3,
     "defense_points": 4,
-    "offense_points": 1,
-    "total_points": 5,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 5
   },
   "14625": {
     "seasons": [
@@ -5565,12 +5605,12 @@
     "winter_goals": 165,
     "winter_assists": 162,
     "defense_points": 173,
-    "offense_points": 104,
-    "total_points": 277,
     "defense_goals": 173,
     "defense_assists": 173,
+    "offense_points": 104,
     "offense_goals": 104,
-    "offense_assists": 104
+    "offense_assists": 104,
+    "total_points": 277
   },
   "6196": {
     "seasons": [
@@ -5611,12 +5651,12 @@
     "winter_goals": 3,
     "winter_assists": 8,
     "defense_points": 1,
-    "offense_points": 0,
-    "total_points": 1,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 1
   },
   "18892": {
     "seasons": [
@@ -5670,12 +5710,12 @@
     "winter_goals": 27,
     "winter_assists": 3,
     "defense_points": 12,
-    "offense_points": 17,
-    "total_points": 29,
     "defense_goals": 12,
     "defense_assists": 12,
+    "offense_points": 17,
     "offense_goals": 17,
-    "offense_assists": 17
+    "offense_assists": 17,
+    "total_points": 29
   },
   "25504": {
     "seasons": [
@@ -5729,12 +5769,12 @@
     "winter_goals": 47,
     "winter_assists": 32,
     "defense_points": 21,
-    "offense_points": 64,
-    "total_points": 85,
     "defense_goals": 21,
     "defense_assists": 21,
+    "offense_points": 64,
     "offense_goals": 64,
-    "offense_assists": 64
+    "offense_assists": 64,
+    "total_points": 85
   },
   "6251": {
     "seasons": [
@@ -5774,12 +5814,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 5,
-    "offense_points": 6,
-    "total_points": 11,
     "defense_goals": 5,
     "defense_assists": 5,
+    "offense_points": 6,
     "offense_goals": 6,
-    "offense_assists": 6
+    "offense_assists": 6,
+    "total_points": 11
   },
   "6171": {
     "seasons": [
@@ -5813,12 +5853,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
-    "offense_points": 4,
-    "total_points": 4,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 4,
     "offense_goals": 4,
-    "offense_assists": 4
+    "offense_assists": 4,
+    "total_points": 4
   },
   "6254": {
     "seasons": [
@@ -5852,12 +5892,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 0,
-    "total_points": 1,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 1
   },
   "6173": {
     "seasons": [
@@ -5894,12 +5934,12 @@
     "winter_goals": 18,
     "winter_assists": 17,
     "defense_points": 3,
-    "offense_points": 25,
-    "total_points": 28,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 25,
     "offense_goals": 25,
-    "offense_assists": 25
+    "offense_assists": 25,
+    "total_points": 28
   },
   "10141": {
     "seasons": [
@@ -5934,7 +5974,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "5882": {
@@ -5975,12 +6019,12 @@
     "winter_goals": 3,
     "winter_assists": 5,
     "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 1
   },
   "6189": {
     "seasons": [
@@ -6022,12 +6066,12 @@
     "winter_goals": 10,
     "winter_assists": 8,
     "defense_points": 11,
-    "offense_points": 9,
-    "total_points": 20,
     "defense_goals": 11,
     "defense_assists": 11,
+    "offense_points": 9,
     "offense_goals": 9,
-    "offense_assists": 9
+    "offense_assists": 9,
+    "total_points": 20
   },
   "6187": {
     "seasons": [
@@ -6077,12 +6121,12 @@
     "winter_goals": 4,
     "winter_assists": 2,
     "defense_points": 4,
-    "offense_points": 3,
-    "total_points": 7,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 7
   },
   "10227": {
     "seasons": [
@@ -6154,12 +6198,12 @@
     "winter_goals": 93,
     "winter_assists": 41,
     "defense_points": 63,
-    "offense_points": 60,
-    "total_points": 123,
     "defense_goals": 63,
     "defense_assists": 63,
+    "offense_points": 60,
     "offense_goals": 60,
-    "offense_assists": 60
+    "offense_assists": 60,
+    "total_points": 123
   },
   "6195": {
     "seasons": [
@@ -6264,12 +6308,12 @@
     "winter_goals": 71,
     "winter_assists": 57,
     "defense_points": 101,
-    "offense_points": 83,
-    "total_points": 184,
     "defense_goals": 101,
     "defense_assists": 101,
+    "offense_points": 83,
     "offense_goals": 83,
-    "offense_assists": 83
+    "offense_assists": 83,
+    "total_points": 184
   },
   "30359": {
     "seasons": [
@@ -6320,12 +6364,12 @@
     "winter_goals": 88,
     "winter_assists": 77,
     "defense_points": 28,
-    "offense_points": 60,
-    "total_points": 88,
     "defense_goals": 28,
     "defense_assists": 28,
+    "offense_points": 60,
     "offense_goals": 60,
-    "offense_assists": 60
+    "offense_assists": 60,
+    "total_points": 88
   },
   "26838": {
     "seasons": [
@@ -6359,12 +6403,12 @@
     "winter_goals": 6,
     "winter_assists": 0,
     "defense_points": 5,
-    "offense_points": 1,
-    "total_points": 6,
     "defense_goals": 5,
     "defense_assists": 5,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 6
   },
   "6555": {
     "seasons": [
@@ -6476,12 +6520,12 @@
     "winter_goals": 221,
     "winter_assists": 294,
     "defense_points": 65,
-    "offense_points": 160,
-    "total_points": 225,
     "defense_goals": 65,
     "defense_assists": 65,
+    "offense_points": 160,
     "offense_goals": 160,
-    "offense_assists": 160
+    "offense_assists": 160,
+    "total_points": 225
   },
   "8630": {
     "seasons": [
@@ -6573,12 +6617,12 @@
     "winter_goals": 97,
     "winter_assists": 86,
     "defense_points": 55,
-    "offense_points": 60,
-    "total_points": 115,
     "defense_goals": 55,
     "defense_assists": 55,
+    "offense_points": 60,
     "offense_goals": 60,
-    "offense_assists": 60
+    "offense_assists": 60,
+    "total_points": 115
   },
   "6991": {
     "seasons": [
@@ -6612,7 +6656,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "23765": {
@@ -6661,12 +6709,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 16,
-    "offense_points": 9,
-    "total_points": 25,
     "defense_goals": 16,
     "defense_assists": 16,
+    "offense_points": 9,
     "offense_goals": 9,
-    "offense_assists": 9
+    "offense_assists": 9,
+    "total_points": 25
   },
   "10279": {
     "seasons": [
@@ -6727,12 +6775,12 @@
     "winter_goals": 3,
     "winter_assists": 6,
     "defense_points": 12,
-    "offense_points": 10,
-    "total_points": 22,
     "defense_goals": 12,
     "defense_assists": 12,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 22
   },
   "31573": {
     "seasons": [
@@ -6780,12 +6828,12 @@
     "winter_goals": 28,
     "winter_assists": 46,
     "defense_points": 19,
-    "offense_points": 27,
-    "total_points": 46,
     "defense_goals": 19,
     "defense_assists": 19,
+    "offense_points": 27,
     "offense_goals": 27,
-    "offense_assists": 27
+    "offense_assists": 27,
+    "total_points": 46
   },
   "21273": {
     "seasons": [
@@ -6820,12 +6868,12 @@
     "winter_goals": 5,
     "winter_assists": 4,
     "defense_points": 0,
-    "offense_points": 5,
-    "total_points": 5,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 5
   },
   "6466": {
     "seasons": [
@@ -6917,12 +6965,12 @@
     "winter_goals": 58,
     "winter_assists": 88,
     "defense_points": 70,
-    "offense_points": 31,
-    "total_points": 101,
     "defense_goals": 70,
     "defense_assists": 70,
+    "offense_points": 31,
     "offense_goals": 31,
-    "offense_assists": 31
+    "offense_assists": 31,
+    "total_points": 101
   },
   "30199": {
     "seasons": [
@@ -6982,12 +7030,12 @@
     "winter_goals": 82,
     "winter_assists": 72,
     "defense_points": 59,
-    "offense_points": 61,
-    "total_points": 120,
     "defense_goals": 59,
     "defense_assists": 59,
+    "offense_points": 61,
     "offense_goals": 61,
-    "offense_assists": 61
+    "offense_assists": 61,
+    "total_points": 120
   },
   "8125": {
     "seasons": [
@@ -7099,12 +7147,12 @@
     "winter_goals": 37,
     "winter_assists": 51,
     "defense_points": 24,
-    "offense_points": 68,
-    "total_points": 92,
     "defense_goals": 24,
     "defense_assists": 24,
+    "offense_points": 68,
     "offense_goals": 68,
-    "offense_assists": 68
+    "offense_assists": 68,
+    "total_points": 92
   },
   "14280": {
     "seasons": [
@@ -7148,12 +7196,12 @@
     "winter_goals": 10,
     "winter_assists": 6,
     "defense_points": 1,
-    "offense_points": 10,
-    "total_points": 11,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 11
   },
   "6371": {
     "seasons": [
@@ -7189,12 +7237,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 1,
-    "total_points": 2,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 2
   },
   "9723": {
     "seasons": [
@@ -7256,12 +7304,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 6,
-    "offense_points": 4,
-    "total_points": 10,
     "defense_goals": 6,
     "defense_assists": 6,
+    "offense_points": 4,
     "offense_goals": 4,
-    "offense_assists": 4
+    "offense_assists": 4,
+    "total_points": 10
   },
   "6197": {
     "seasons": [
@@ -7296,12 +7344,12 @@
     "winter_goals": 5,
     "winter_assists": 3,
     "defense_points": 1,
-    "offense_points": 2,
-    "total_points": 3,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 2,
     "offense_goals": 2,
-    "offense_assists": 2
+    "offense_assists": 2,
+    "total_points": 3
   },
   "6255": {
     "seasons": [
@@ -7338,12 +7386,12 @@
     "winter_goals": 0,
     "winter_assists": 4,
     "defense_points": 0,
-    "offense_points": 1,
-    "total_points": 1,
     "defense_goals": 0,
     "defense_assists": 0,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 1
   },
   "34522": {
     "seasons": [
@@ -7378,12 +7426,12 @@
     "winter_goals": 10,
     "winter_assists": 3,
     "defense_points": 2,
-    "offense_points": 8,
-    "total_points": 10,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 8,
     "offense_goals": 8,
-    "offense_assists": 8
+    "offense_assists": 8,
+    "total_points": 10
   },
   "18772": {
     "seasons": [
@@ -7448,12 +7496,12 @@
     "winter_goals": 54,
     "winter_assists": 12,
     "defense_points": 26,
-    "offense_points": 36,
-    "total_points": 62,
     "defense_goals": 26,
     "defense_assists": 26,
+    "offense_points": 36,
     "offense_goals": 36,
-    "offense_assists": 36
+    "offense_assists": 36,
+    "total_points": 62
   },
   "16272": {
     "seasons": [
@@ -7487,12 +7535,12 @@
     "winter_goals": 7,
     "winter_assists": 2,
     "defense_points": 7,
-    "offense_points": 0,
-    "total_points": 7,
     "defense_goals": 7,
     "defense_assists": 7,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 7
   },
   "8508": {
     "seasons": [
@@ -7581,12 +7629,12 @@
     "winter_goals": 254,
     "winter_assists": 209,
     "defense_points": 86,
-    "offense_points": 171,
-    "total_points": 257,
     "defense_goals": 86,
     "defense_assists": 86,
+    "offense_points": 171,
     "offense_goals": 171,
-    "offense_assists": 171
+    "offense_assists": 171,
+    "total_points": 257
   },
   "6252": {
     "seasons": [
@@ -7620,7 +7668,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6186": {
@@ -7655,7 +7707,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "21011": {
@@ -7690,12 +7746,12 @@
     "winter_goals": 5,
     "winter_assists": 12,
     "defense_points": 2,
-    "offense_points": 3,
-    "total_points": 5,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 5
   },
   "6175": {
     "seasons": [
@@ -7729,12 +7785,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 5,
-    "offense_points": 2,
-    "total_points": 7,
     "defense_goals": 5,
     "defense_assists": 5,
+    "offense_points": 2,
     "offense_goals": 2,
-    "offense_assists": 2
+    "offense_assists": 2,
+    "total_points": 7
   },
   "31651": {
     "seasons": [
@@ -7786,12 +7842,12 @@
     "winter_goals": 82,
     "winter_assists": 63,
     "defense_points": 26,
-    "offense_points": 61,
-    "total_points": 87,
     "defense_goals": 26,
     "defense_assists": 26,
+    "offense_points": 61,
     "offense_goals": 61,
-    "offense_assists": 61
+    "offense_assists": 61,
+    "total_points": 87
   },
   "32725": {
     "seasons": [
@@ -7826,12 +7882,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 1,
-    "offense_points": 1,
-    "total_points": 2,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 1,
     "offense_goals": 1,
-    "offense_assists": 1
+    "offense_assists": 1,
+    "total_points": 2
   },
   "6886": {
     "seasons": [
@@ -7865,7 +7921,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "14260": {
@@ -7900,12 +7960,12 @@
     "winter_goals": 7,
     "winter_assists": 1,
     "defense_points": 2,
-    "offense_points": 5,
-    "total_points": 7,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 7
   },
   "22725": {
     "seasons": [
@@ -7951,12 +8011,12 @@
     "winter_goals": 26,
     "winter_assists": 1,
     "defense_points": 24,
-    "offense_points": 17,
-    "total_points": 41,
     "defense_goals": 24,
     "defense_assists": 24,
+    "offense_points": 17,
     "offense_goals": 17,
-    "offense_assists": 17
+    "offense_assists": 17,
+    "total_points": 41
   },
   "6216": {
     "seasons": [
@@ -8002,12 +8062,12 @@
     "winter_goals": 26,
     "winter_assists": 11,
     "defense_points": 20,
-    "offense_points": 33,
-    "total_points": 53,
     "defense_goals": 20,
     "defense_assists": 20,
+    "offense_points": 33,
     "offense_goals": 33,
-    "offense_assists": 33
+    "offense_assists": 33,
+    "total_points": 53
   },
   "31585": {
     "seasons": [
@@ -8060,12 +8120,12 @@
     "winter_goals": 100,
     "winter_assists": 23,
     "defense_points": 39,
-    "offense_points": 83,
-    "total_points": 122,
     "defense_goals": 39,
     "defense_assists": 39,
+    "offense_points": 83,
     "offense_goals": 83,
-    "offense_assists": 83
+    "offense_assists": 83,
+    "total_points": 122
   },
   "7092": {
     "seasons": [
@@ -8122,12 +8182,12 @@
     "winter_goals": 23,
     "winter_assists": 3,
     "defense_points": 15,
-    "offense_points": 22,
-    "total_points": 37,
     "defense_goals": 15,
     "defense_assists": 15,
+    "offense_points": 22,
     "offense_goals": 22,
-    "offense_assists": 22
+    "offense_assists": 22,
+    "total_points": 37
   },
   "34981": {
     "seasons": [
@@ -8166,12 +8226,12 @@
     "winter_goals": 18,
     "winter_assists": 4,
     "defense_points": 17,
-    "offense_points": 10,
-    "total_points": 27,
     "defense_goals": 17,
     "defense_assists": 17,
+    "offense_points": 10,
     "offense_goals": 10,
-    "offense_assists": 10
+    "offense_assists": 10,
+    "total_points": 27
   },
   "8115": {
     "seasons": [
@@ -8238,12 +8298,12 @@
     "winter_goals": 19,
     "winter_assists": 11,
     "defense_points": 18,
-    "offense_points": 36,
-    "total_points": 54,
     "defense_goals": 18,
     "defense_assists": 18,
+    "offense_points": 36,
     "offense_goals": 36,
-    "offense_assists": 36
+    "offense_assists": 36,
+    "total_points": 54
   },
   "13862": {
     "seasons": [
@@ -8371,12 +8431,12 @@
     "winter_goals": 259,
     "winter_assists": 191,
     "defense_points": 183,
-    "offense_points": 228,
-    "total_points": 411,
     "defense_goals": 183,
     "defense_assists": 183,
+    "offense_points": 228,
     "offense_goals": 228,
-    "offense_assists": 228
+    "offense_assists": 228,
+    "total_points": 411
   },
   "6879": {
     "seasons": [
@@ -8471,12 +8531,12 @@
     "winter_goals": 46,
     "winter_assists": 43,
     "defense_points": 48,
-    "offense_points": 56,
-    "total_points": 104,
     "defense_goals": 48,
     "defense_assists": 48,
+    "offense_points": 56,
     "offense_goals": 56,
-    "offense_assists": 56
+    "offense_assists": 56,
+    "total_points": 104
   },
   "5897": {
     "seasons": [
@@ -8557,12 +8617,12 @@
     "winter_goals": 86,
     "winter_assists": 111,
     "defense_points": 71,
-    "offense_points": 76,
-    "total_points": 147,
     "defense_goals": 71,
     "defense_assists": 71,
+    "offense_points": 76,
     "offense_goals": 76,
-    "offense_assists": 76
+    "offense_assists": 76,
+    "total_points": 147
   },
   "8204": {
     "seasons": [
@@ -8653,12 +8713,12 @@
     "winter_goals": 84,
     "winter_assists": 48,
     "defense_points": 119,
-    "offense_points": 96,
-    "total_points": 215,
     "defense_goals": 119,
     "defense_assists": 119,
+    "offense_points": 96,
     "offense_goals": 96,
-    "offense_assists": 96
+    "offense_assists": 96,
+    "total_points": 215
   },
   "8122": {
     "seasons": [
@@ -8692,7 +8752,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6272": {
@@ -8727,7 +8791,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "34181": {
@@ -8771,12 +8839,12 @@
     "winter_goals": 4,
     "winter_assists": 0,
     "defense_points": 4,
-    "offense_points": 3,
-    "total_points": 7,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 7
   },
   "30197": {
     "seasons": [
@@ -8831,12 +8899,12 @@
     "winter_goals": 48,
     "winter_assists": 42,
     "defense_points": 27,
-    "offense_points": 29,
-    "total_points": 56,
     "defense_goals": 27,
     "defense_assists": 27,
+    "offense_points": 29,
     "offense_goals": 29,
-    "offense_assists": 29
+    "offense_assists": 29,
+    "total_points": 56
   },
   "6180": {
     "seasons": [
@@ -8873,12 +8941,12 @@
     "winter_goals": 2,
     "winter_assists": 15,
     "defense_points": 3,
-    "offense_points": 2,
-    "total_points": 5,
     "defense_goals": 3,
     "defense_assists": 3,
+    "offense_points": 2,
     "offense_goals": 2,
-    "offense_assists": 2
+    "offense_assists": 2,
+    "total_points": 5
   },
   "22728": {
     "seasons": [
@@ -8922,12 +8990,12 @@
     "winter_goals": 36,
     "winter_assists": 7,
     "defense_points": 19,
-    "offense_points": 20,
-    "total_points": 39,
     "defense_goals": 19,
     "defense_assists": 19,
+    "offense_points": 20,
     "offense_goals": 20,
-    "offense_assists": 20
+    "offense_assists": 20,
+    "total_points": 39
   },
   "30585": {
     "seasons": [
@@ -8983,12 +9051,12 @@
     "winter_goals": 115,
     "winter_assists": 84,
     "defense_points": 60,
-    "offense_points": 89,
-    "total_points": 149,
     "defense_goals": 60,
     "defense_assists": 60,
+    "offense_points": 89,
     "offense_goals": 89,
-    "offense_assists": 89
+    "offense_assists": 89,
+    "total_points": 149
   },
   "12405": {
     "seasons": [
@@ -9022,7 +9090,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "8157": {
@@ -9137,12 +9209,12 @@
     "winter_goals": 139,
     "winter_assists": 131,
     "defense_points": 83,
-    "offense_points": 157,
-    "total_points": 240,
     "defense_goals": 83,
     "defense_assists": 83,
+    "offense_points": 157,
     "offense_goals": 157,
-    "offense_assists": 157
+    "offense_assists": 157,
+    "total_points": 240
   },
   "6281": {
     "seasons": [
@@ -9176,7 +9248,11 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 0,
+    "defense_goals": 0,
+    "defense_assists": 0,
     "offense_points": 0,
+    "offense_goals": 0,
+    "offense_assists": 0,
     "total_points": 0
   },
   "6096": {
@@ -9313,12 +9389,12 @@
     "winter_goals": 371,
     "winter_assists": 492,
     "defense_points": 215,
-    "offense_points": 322,
-    "total_points": 537,
     "defense_goals": 215,
     "defense_assists": 215,
+    "offense_points": 322,
     "offense_goals": 322,
-    "offense_assists": 322
+    "offense_assists": 322,
+    "total_points": 537
   },
   "5881": {
     "seasons": [
@@ -9383,12 +9459,12 @@
     "winter_goals": 24,
     "winter_assists": 12,
     "defense_points": 16,
-    "offense_points": 17,
-    "total_points": 33,
     "defense_goals": 16,
     "defense_assists": 16,
+    "offense_points": 17,
     "offense_goals": 17,
-    "offense_assists": 17
+    "offense_assists": 17,
+    "total_points": 33
   },
   "25516": {
     "seasons": [
@@ -9422,12 +9498,12 @@
     "winter_goals": 0,
     "winter_assists": 0,
     "defense_points": 2,
-    "offense_points": 3,
-    "total_points": 5,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 3,
     "offense_goals": 3,
-    "offense_assists": 3
+    "offense_assists": 3,
+    "total_points": 5
   },
   "6253": {
     "seasons": [
@@ -9474,12 +9550,12 @@
     "winter_goals": 20,
     "winter_assists": 29,
     "defense_points": 14,
-    "offense_points": 22,
-    "total_points": 36,
     "defense_goals": 14,
     "defense_assists": 13,
+    "offense_points": 22,
     "offense_goals": 22,
-    "offense_assists": 21
+    "offense_assists": 21,
+    "total_points": 36
   },
   "14264": {
     "seasons": [
@@ -9581,12 +9657,12 @@
     "winter_goals": 90,
     "winter_assists": 100,
     "defense_points": 62,
-    "offense_points": 62,
-    "total_points": 124,
     "defense_goals": 62,
     "defense_assists": 62,
+    "offense_points": 62,
     "offense_goals": 62,
-    "offense_assists": 62
+    "offense_assists": 62,
+    "total_points": 124
   },
   "28591": {
     "seasons": [
@@ -9621,12 +9697,12 @@
     "winter_goals": 1,
     "winter_assists": 4,
     "defense_points": 1,
-    "offense_points": 0,
-    "total_points": 1,
     "defense_goals": 1,
     "defense_assists": 1,
+    "offense_points": 0,
     "offense_goals": 0,
-    "offense_assists": 0
+    "offense_assists": 0,
+    "total_points": 1
   },
   "32386": {
     "seasons": [
@@ -9674,12 +9750,12 @@
     "winter_goals": 68,
     "winter_assists": 35,
     "defense_points": 24,
-    "offense_points": 42,
-    "total_points": 66,
     "defense_goals": 24,
     "defense_assists": 24,
+    "offense_points": 42,
     "offense_goals": 42,
-    "offense_assists": 42
+    "offense_assists": 42,
+    "total_points": 66
   },
   "6178": {
     "seasons": [
@@ -9760,12 +9836,12 @@
     "winter_goals": 85,
     "winter_assists": 243,
     "defense_points": 20,
-    "offense_points": 70,
-    "total_points": 90,
     "defense_goals": 20,
     "defense_assists": 19,
+    "offense_points": 70,
     "offense_goals": 70,
-    "offense_assists": 70
+    "offense_assists": 70,
+    "total_points": 90
   },
   "5895": {
     "seasons": [
@@ -9805,12 +9881,12 @@
     "winter_goals": 6,
     "winter_assists": 8,
     "defense_points": 2,
-    "offense_points": 5,
-    "total_points": 7,
     "defense_goals": 2,
     "defense_assists": 2,
+    "offense_points": 5,
     "offense_goals": 5,
-    "offense_assists": 5
+    "offense_assists": 5,
+    "total_points": 7
   },
   "31652": {
     "seasons": [
@@ -9857,12 +9933,12 @@
     "winter_goals": 7,
     "winter_assists": 30,
     "defense_points": 4,
-    "offense_points": 6,
-    "total_points": 10,
     "defense_goals": 4,
     "defense_assists": 4,
+    "offense_points": 6,
     "offense_goals": 6,
-    "offense_assists": 6
+    "offense_assists": 6,
+    "total_points": 10
   },
   "14265": {
     "seasons": [
@@ -9986,12 +10062,12 @@
     "winter_goals": 323,
     "winter_assists": 152,
     "defense_points": 180,
-    "offense_points": 350,
-    "total_points": 530,
     "defense_goals": 180,
     "defense_assists": 179,
+    "offense_points": 350,
     "offense_goals": 350,
-    "offense_assists": 350
+    "offense_assists": 350,
+    "total_points": 530
   },
   "15041": {
     "seasons": [
@@ -10055,11 +10131,11 @@
     "winter_goals": 92,
     "winter_assists": 111,
     "defense_points": 45,
-    "offense_points": 57,
-    "total_points": 102,
     "defense_goals": 45,
     "defense_assists": 45,
+    "offense_points": 57,
     "offense_goals": 57,
-    "offense_assists": 57
+    "offense_assists": 57,
+    "total_points": 102
   }
 }

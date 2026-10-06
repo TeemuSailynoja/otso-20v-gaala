@@ -89,12 +89,17 @@ SHAPE: Dict[str, Any] = {
         summer_games=INT, summer_goals=INT, summer_assists=INT,
         winter_games=INT, winter_goals=INT, winter_assists=INT,
         defense_points=INT, offense_points=INT, total_points=INT,
-        # Absent — not zero, not null — for a player with no Otso point row in
-        # the scrape: 19 of 171. The distinction matters: absent means "we never
-        # saw this person score in an Otso game", zero would mean they scored
-        # nothing in games we did see.
-        defense_goals=opt(INT), defense_assists=opt(INT),
-        offense_goals=opt(INT), offense_assists=opt(INT),
+        # Required, not optional. Every credited point increments exactly one
+        # bucket and exactly one goal, so defense_goals + offense_goals ==
+        # total_points by construction: a row that publishes total_points 0 has
+        # already said the four fields below are zero. 19 of 171 rows are in that
+        # state. For 16 of them the season card says 0/0 too, so "never scored"
+        # is corroborated by both sources; for the rest the zero means the point
+        # table never saw them, and data_quality.json -> point_table_coverage
+        # names them. That is where the zero-vs-unknown caveat lives, not in an
+        # absent field the page would have to guess about.
+        defense_goals=INT, defense_assists=INT,
+        offense_goals=INT, offense_assists=INT,
     )),
     "pass_network.json": obj(received=map_(map_(INT)), given=map_(map_(INT))),
     "cooccurrence.json": map_(map_(INT)),
@@ -155,6 +160,13 @@ SHAPE: Dict[str, Any] = {
                         max_ids_for_one_person=INT,
                         largest=lst(obj(site_key=STR, ids=INT, person_key=STR))),
         aliases_asserted=map_(STR),
+        point_table_coverage=obj(
+            total_points_zero=INT,
+            goals_the_point_table_never_saw=lst(obj(site_key=STR, games=INT,
+                                                     goals=INT, assists=INT)),
+            assists_note=STR,
+            note=STR,
+        ),
         points=obj(total=INT, no_scorer_named=INT, possession_unknown=INT,
                    possession_note=STR),
         non_person_markers=lst(obj(value=STR, scorer=INT, passer=INT, note=STR)),

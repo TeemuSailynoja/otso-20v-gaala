@@ -42,13 +42,16 @@ site_data/          — generated JSON the SPA fetches, keyed by player id
   trophies.json     — season-level gold/silver/bronze record (15 KB)
   data_quality.json — what the numbers do not know: how keys were minted, id clusters,
                       points with no scorer, points of unknown possession, seasons where the
-                      season card and the play-by-play disagree (11 KB)
+                      season card and the play-by-play disagree, and which rows' zeros are a
+                      coverage gap rather than a fact (12 KB)
   years_otso.json   — year-by-year for the flagship squad; `_summer` / `_winter` variants, and
                       `years_all_bears*` for every squad of the club
 
-Nothing else lives in `site_data/`: the build deletes any file it did not write, which removed
-four orphans (`years.json`, `players.csv`, `player_names.txt`, `season_mapping.json`) that were
-still being served and cached although no code read them.
+Nothing else is written by the build, and anything sitting in `site_data/` that the build did
+not write is **reported on every run, not deleted** — four such files (`years.json`,
+`players.csv`, `player_names.txt`, `season_mapping.json`) are still served and still in git,
+because while the site is being restructured an unwritten file may be one the next phase wants
+back. `python build_site_data.py --prune` deletes them once that is decided.
 data/
   raw/              — season parses (tracked) + archived game HTML (gitignored)
   cache/            — per-URL HTTP cache with a freshness policy (excluded from git)
@@ -123,8 +126,20 @@ long-career player holds 69 of them. So:
 `site_data/names.json` maps every site key to the name to print; the build refuses to write a file
 whose keys it cannot name. `site_data/data_quality.json` is the honesty report: how keys were
 minted, how big the id clusters are, which points name no scorer (73), which have unknown opening
-possession (287), which names join no roster at all, and which seasons' goals come from the season
-card rather than the point table.
+possession (287), which names join no roster at all, which seasons' goals come from the season
+card rather than the point table, and — in `point_table_coverage` — which rows' defense zeros
+are a coverage gap instead of a fact.
+
+**Every player row answers all seven defense questions.** `defense_goals + offense_goals ==
+`total_points` by construction, because each credited point increments exactly one bucket and
+exactly one goal, so a row that publishes `total_points: 0` has already said the other four are
+zero; they used to be absent for 19 of 171 rows, which read as unknown and forced the schema to
+call them optional. 16 of those 19 are corroborated by the season card too — 0 goals in every Otso
+squad-season they appear in, and the point table never names them as scorer or passer on an Otso
+side — so "never scored" is a fact for them. The other 3 have published goals that come from the
+card alone, and `point_table_coverage` names them. Note also that `defense_assists` counts the
+assists that arrived on *this player's own goals*, not assists they made: the passer side lives
+in `pass_network.json`.
 
 **The data contract.** `site_data/manifest.json` and `site_data/schema.json` are written by
 `site_contract.py`, and they replace guessing. The manifest lists every published file with its
@@ -220,7 +235,7 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 260 tests, offline; network-marked tests are deselected by default
+uv run pytest            # 265 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
 ```
 
