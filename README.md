@@ -21,10 +21,18 @@ Interactive visualization for the 20th anniversary of Otso Ultimate Frisbee club
 ```
 index.html          — SPA frontend (47 KB)
 build_site_data.py  — turns the corpus into the JSON the page reads
+site_contract.py    — what site_data/ must contain: the shape of every file, the manifest, the
+                      version. Checked at build time, and again by the page on load
 teams.yaml          — which club this site is about: squad names, which is the flagship,
                       how each is printed. The library has no club baked in.
+js/                 — ES modules the page imports, no build step:
+  data.js           — fetches through the manifest, validates against the schema, hands the page DATA
+  contract.js       — the browser half of the shape check (pure; also runnable under node)
+  check_load.mjs    — the same loader under node, with fetch() reading the files on disk
 src/ultiorg/        — the library: fetch, cache, parse, repair, analyse, query Ultiorganizer data
 site_data/          — generated JSON the SPA fetches, keyed by player id
+  manifest.json     — what the build published, at which version, and which files the page reads
+  schema.json       — the shape of every file above; checked at build time and on page load
   names.json        — every key used below -> the name to print. The only decoder.
   players.json      — per-player stats (168 KB)
   pass_network.json — directed pass connections (84 KB); `given[X][Y]` = X assisted Y,
@@ -37,9 +45,10 @@ site_data/          — generated JSON the SPA fetches, keyed by player id
                       season card and the play-by-play disagree (11 KB)
   years_otso.json   — year-by-year for the flagship squad; `_summer` / `_winter` variants, and
                       `years_all_bears*` for every squad of the club
-  years.json, players.csv, player_names.txt, season_mapping.json — orphans: the page fetches
-                      none of them and the build no longer writes `years.json`. Phase 11 deletes
-                      the lot (see `plans/pelikone-library-refactor.md`).
+
+Nothing else lives in `site_data/`: the build deletes any file it did not write, which removed
+four orphans (`years.json`, `players.csv`, `player_names.txt`, `season_mapping.json`) that were
+still being served and cached although no code read them.
 data/
   raw/              — season parses (tracked) + archived game HTML (gitignored)
   cache/            — per-URL HTTP cache with a freshness policy (excluded from git)
@@ -117,9 +126,20 @@ minted, how big the id clusters are, which points name no scorer (73), which hav
 possession (287), which names join no roster at all, and which seasons' goals come from the season
 card rather than the point table.
 
-The page still looks players up by display name. `loadData()` in `index.html` re-expands the
-id-keyed maps with `names.json` before rendering — a labelled stopgap that Phase 11 removes when
-the SPA itself moves to id lookups.
+**The data contract.** `site_data/manifest.json` and `site_data/schema.json` are written by
+`site_contract.py`, and they replace guessing. The manifest lists every published file with its
+size and whether the page reads it, plus a `version` — a hash of the data and the schema together,
+which is what the page puts in `?v=` for cache busting. There is no longer a `DATA_VERSION`
+stamped into a comment in `index.html`. `schema.json` describes the shape of every file, and both
+halves check it: the build refuses to write a file that does not fit (and a JSON file with no
+declared shape is itself a failure), and `js/data.js` validates on load, so a field that moved
+fails with a banner naming the file and the field instead of rendering an empty grid. The shape
+language is deliberately tiny and implemented twice — `site_contract.py` and `js/contract.js` —
+and `tests/test_contract.py` runs both over the built files so they cannot drift.
+
+The page still looks players up by display name. `js/data.js` re-expands the id-keyed maps with
+`names.json` before rendering — a labelled stopgap that Phase 11 removes when the SPA itself moves
+to id lookups.
 
 ## Repairs
 
@@ -200,7 +220,7 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 242 tests, offline; network-marked tests are deselected by default
+uv run pytest            # 260 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
 ```
 

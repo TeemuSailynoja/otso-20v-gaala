@@ -32,13 +32,14 @@ write a birthday, a birth year, or a per-player age into site_data/.
 """
 
 import csv
-import hashlib
 import json
 import re
 import unicodedata
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
+
+import site_contract as contract
 
 from ultiorg import (
     PersonIds,
@@ -596,42 +597,37 @@ def main() -> None:
     }
 
     SITE_DATA_DIR.mkdir(exist_ok=True)
-    for filename, data in files.items():
-        path = SITE_DATA_DIR / filename
-        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"  Written {filename} ({path.stat().st_size / 1024:.1f} KB)")
+    payload = {name: json.dumps(data, ensure_ascii=False, indent=2).encode("utf-8")
+               for name, data in files.items()}
 
-    stamp_build_version(files)
+    # The contract is checked before anything lands on disk: a file the page
+    # would reject never gets published, and a file with no declared shape is
+    # itself a failure. site_contract.SHAPE is the same document js/contract.js
+    # validates against in the browser.
+    contract.check(files)
+    for name, blob in payload.items():
+        (SITE_DATA_DIR / name).write_bytes(blob)
+        print(f"  Written {name} ({len(blob) / 1024:.1f} KB)")
+
+    version = contract.write(SITE_DATA_DIR, payload)
+    manifest = contract.read_manifest(SITE_DATA_DIR)
+    unread = [entry["name"] for entry in manifest["files"] if not entry["fetched_by_page"]]
+    print(f"  manifest version {version}: {len(manifest['files'])} files, "
+          f"{len(contract.PAGE_FILES)} fetched by the page")
+    if unread:
+        print(f"  published but not read by the page: {', '.join(sorted(unread))}")
+
+    # Anything in site_data/ that this build did not write is stale: it is still
+    # served, still cached by the CDN, and invisible to the manifest. Four such
+    # files had accumulated (players.csv, player_names.txt, season_mapping.json,
+    # years.json) — nothing fetched them, and the code that wrote them is gone.
+    published = {entry["name"] for entry in manifest["files"]} | {"manifest.json", "schema.json"}
+    for stale in sorted(SITE_DATA_DIR.iterdir()):
+        if stale.is_file() and stale.name not in published:
+            stale.unlink()
+            print(f"  Removed stale {stale.name} (not written by this build)")
+
     print("\nDone! Site data ready in site_data/")
-
-
-def stamp_build_version(files: dict) -> None:
-    """Stamp a content hash of the site data into index.html as DATA_VERSION.
-
-    index.html appends ?v=<hash> to every JSON fetch. Without it, browsers and
-    the GitHub Pages CDN serve stale data after a rebuild — the old frenemies
-    team bug stayed visible long after the fix shipped. Phase 10 replaces this
-    with site_data/manifest.json.
-    """
-    digest = hashlib.sha256()
-    for filename in sorted(files):
-        digest.update(filename.encode("utf-8"))
-        digest.update((SITE_DATA_DIR / filename).read_bytes())
-    version = digest.hexdigest()[:12]
-
-    index = BASE_DIR / "index.html"
-    text = index.read_text(encoding="utf-8")
-    new, n = re.subn(
-        r"(// BUILD_VERSION_START\s*\n\s*const DATA_VERSION = ')[^']*(';)",
-        lambda m: m.group(1) + version + m.group(2),
-        text,
-        count=1,
-    )
-    if n == 0:
-        print("  WARNING: BUILD_VERSION markers not found in index.html; not stamped")
-        return
-    index.write_text(new, encoding="utf-8")
-    print(f"  Stamped DATA_VERSION={version} into index.html")
 
 
 if __name__ == "__main__":

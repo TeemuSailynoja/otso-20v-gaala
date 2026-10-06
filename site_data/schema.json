@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "files": {
+    "players.json": {
+      "map": {
+        "obj": {
+          "seasons": {
+            "list": "str"
+          },
+          "season_count": "int",
+          "years": {
+            "list": "int"
+          },
+          "year_count": "int",
+          "first_year": {
+            "any": [
+              "int",
+              "null"
+            ]
+          },
+          "last_year": {
+            "any": [
+              "int",
+              "null"
+            ]
+          },
+          "games": "int",
+          "goals": "int",
+          "assists": "int",
+          "total": "int",
+          "teams": {
+            "list": "str"
+          },
+          "season_types": {
+            "obj": {
+              "summer": {
+                "list": "int"
+              },
+              "winter": {
+                "list": "int"
+              },
+              "other": {
+                "list": "int"
+              }
+            }
+          },
+          "summer_games": "int",
+          "summer_goals": "int",
+          "summer_assists": "int",
+          "winter_games": "int",
+          "winter_goals": "int",
+          "winter_assists": "int",
+          "defense_points": "int",
+          "offense_points": "int",
+          "total_points": "int",
+          "defense_goals": {
+            "optional": "int"
+          },
+          "defense_assists": {
+            "optional": "int"
+          },
+          "offense_goals": {
+            "optional": "int"
+          },
+          "offense_assists": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "pass_network.json": {
+      "obj": {
+        "received": {
+          "map": {
+            "map": "int"
+          }
+        },
+        "given": {
+          "map": {
+            "map": "int"
+          }
+        }
+      }
+    },
+    "cooccurrence.json": {
+      "map": {
+        "map": "int"
+      }
+    },
+    "names.json": {
+      "map": "str"
+    },
+    "frenemies.json": {
+      "list": {
+        "obj": {
+          "id": "str",
+          "name": "str",
+          "games": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals": "int",
+          "assists": "int",
+          "total": "int",
+          "ppg": "number",
+          "teams": {
+            "list": "str"
+          },
+          "rank": "int"
+        }
+      }
+    },
+    "summary.json": {
+      "obj": {
+        "total_matches": "int",
+        "total_players": "int",
+        "total_wins": "int",
+        "total_losses": "int",
+        "total_goals_for": "int",
+        "total_goals_against": "int",
+        "win_percentage": "int",
+        "top_scorers": {
+          "list": {
+            "obj": {
+              "id": "str",
+              "name": "str",
+              "games": "int",
+              "goals": "int",
+              "assists": "int",
+              "total": "int"
+            }
+          }
+        },
+        "top_assists": {
+          "list": {
+            "obj": {
+              "id": "str",
+              "name": "str",
+              "games": "int",
+              "goals": "int",
+              "assists": "int",
+              "total": "int"
+            }
+          }
+        },
+        "longest_careers": {
+          "list": {
+            "obj": {
+              "id": "str",
+              "name": "str",
+              "games": "int",
+              "seasons": "int",
+              "years": "str"
+            }
+          }
+        },
+        "most_connected": {
+          "list": {
+            "obj": {
+              "id": "str",
+              "name": "str",
+              "connections": "int"
+            }
+          }
+        },
+        "most_teammates": {
+          "list": {
+            "obj": {
+              "id": "str",
+              "name": "str",
+              "teammates": "int"
+            }
+          }
+        },
+        "goals_per_match": {
+          "list": {
+            "obj": {
+              "id": "str",
+              "name": "str",
+              "games": "int",
+              "goals_per_match": "number",
+              "total": "int"
+            }
+          }
+        },
+        "years_count": "int",
+        "first_year": "int",
+        "current_year": "int"
+      }
+    },
+    "trophies.json": {
+      "obj": {
+        "seasons": {
+          "list": {
+            "obj": {
+              "year": "int",
+              "season": "str",
+              "event": "str",
+              "played": "bool",
+              "medal": {
+                "any": [
+                  "str",
+                  "null"
+                ]
+              },
+              "team": {
+                "any": [
+                  "str",
+                  "null"
+                ]
+              },
+              "placement": {
+                "any": [
+                  "str",
+                  "null"
+                ]
+              },
+              "entries": {
+                "list": {
+                  "obj": {
+                    "team": "str",
+                    "placement": "str",
+                    "medal": {
+                      "any": [
+                        "str",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "totals": {
+          "obj": {
+            "summer": {
+              "obj": {
+                "gold": "int",
+                "silver": "int",
+                "bronze": "int",
+                "podiums": "int",
+                "contested": "int"
+              }
+            },
+            "winter": {
+              "obj": {
+                "gold": "int",
+                "silver": "int",
+                "bronze": "int",
+                "podiums": "int",
+                "contested": "int"
+              }
+            },
+            "all": {
+              "obj": {
+                "gold": "int",
+                "silver": "int",
+                "bronze": "int",
+                "podiums": "int",
+                "contested": "int"
+              }
+            }
+          }
+        }
+      }
+    },
+    "years_otso.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "years_otso_summer.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "years_otso_winter.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "years_all_bears.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "years_all_bears_summer.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "years_all_bears_winter.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "years.json": {
+      "map": {
+        "obj": {
+          "matches": "int",
+          "wins": "int",
+          "losses": "int",
+          "goals_for": "int",
+          "goals_against": "int",
+          "roster_players": "int",
+          "roster": {
+            "list": "str"
+          },
+          "avg_age": {
+            "optional": "number"
+          },
+          "avg_age_known": {
+            "optional": "int"
+          }
+        }
+      }
+    },
+    "season_mapping.json": {
+      "map": {
+        "obj": {
+          "type": "str",
+          "name": "str"
+        }
+      }
+    },
+    "data_quality.json": {
+      "obj": {
+        "career_sources": {
+          "obj": {
+            "rule": "str",
+            "note": "str",
+            "pairs": {
+              "obj": {
+                "both": "int",
+                "agree": "int",
+                "card_higher": "int",
+                "play_higher": "int",
+                "card_only": "int",
+                "play_only": "int"
+              }
+            },
+            "published": {
+              "obj": {
+                "goals": "int",
+                "assists": "int"
+              }
+            },
+            "card_only": {
+              "obj": {
+                "goals": "int",
+                "assists": "int",
+                "note": "str"
+              }
+            },
+            "play_only": {
+              "obj": {
+                "goals": "int",
+                "assists": "int",
+                "note": "str"
+              }
+            },
+            "seasons": {
+              "list": {
+                "obj": {
+                  "season": "str",
+                  "name": "str",
+                  "people": "int",
+                  "card_goals": "int",
+                  "card_assists": "int",
+                  "play_goals": "int",
+                  "play_assists": "int",
+                  "published_goals": "int",
+                  "published_assists": "int",
+                  "gap": "int"
+                }
+              }
+            }
+          }
+        },
+        "keys": {
+          "obj": {
+            "explained": "str",
+            "keys_used_in_site_data": "int",
+            "named": "int",
+            "in_the_player_table": "int",
+            "pseudo_keyed": "int"
+          }
+        },
+        "id_clusters": {
+          "obj": {
+            "persons_seen_in_rosters": "int",
+            "persons_with_multiple_ids": "int",
+            "max_ids_for_one_person": "int",
+            "largest": {
+              "list": {
+                "obj": {
+                  "site_key": "str",
+                  "ids": "int",
+                  "person_key": "str"
+                }
+              }
+            }
+          }
+        },
+        "aliases_asserted": {
+          "map": "str"
+        },
+        "points": {
+          "obj": {
+            "total": "int",
+            "no_scorer_named": "int",
+            "possession_unknown": "int",
+            "possession_note": "str"
+          }
+        },
+        "non_person_markers": {
+          "list": {
+            "obj": {
+              "value": "str",
+              "scorer": "int",
+              "passer": "int",
+              "note": "str"
+            }
+          }
+        },
+        "unresolved_names": {
+          "list": {
+            "obj": {
+              "person_key": "str",
+              "site_key": "str",
+              "scorer": "int",
+              "passer": "int"
+            }
+          }
+        },
+        "unresolved_note": "str",
+        "keys_outside_the_player_table": {
+          "obj": {
+            "count": "int",
+            "note": "str"
+          }
+        }
+      }
+    }
+  }
+}

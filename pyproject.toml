@@ -29,6 +29,9 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# site_contract.py sits at the repo root beside build_site_data.py, which is what
+# writes the files it describes. The tests import it directly.
+pythonpath = ["."]
 markers = [
     "network: hits the live Ultiorganizer instance (deselected by default)",
 ]

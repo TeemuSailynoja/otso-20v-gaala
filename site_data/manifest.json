@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "version": "135bbf1c13c9",
+  "files": [
+    {
+      "name": "cooccurrence.json",
+      "bytes": 124609,
+      "fetched_by_page": true
+    },
+    {
+      "name": "data_quality.json",
+      "bytes": 11454,
+      "fetched_by_page": false
+    },
+    {
+      "name": "frenemies.json",
+      "bytes": 6683,
+      "fetched_by_page": true
+    },
+    {
+      "name": "names.json",
+      "bytes": 5345,
+      "fetched_by_page": true
+    },
+    {
+      "name": "pass_network.json",
+      "bytes": 90190,
+      "fetched_by_page": true
+    },
+    {
+      "name": "players.json",
+      "bytes": 172520,
+      "fetched_by_page": true
+    },
+    {
+      "name": "summary.json",
+      "bytes": 9196,
+      "fetched_by_page": true
+    },
+    {
+      "name": "trophies.json",
+      "bytes": 15675,
+      "fetched_by_page": true
+    },
+    {
+      "name": "years_all_bears.json",
+      "bytes": 14863,
+      "fetched_by_page": false
+    },
+    {
+      "name": "years_all_bears_summer.json",
+      "bytes": 12829,
+      "fetched_by_page": false
+    },
+    {
+      "name": "years_all_bears_winter.json",
+      "bytes": 11116,
+      "fetched_by_page": false
+    },
+    {
+      "name": "years_otso.json",
+      "bytes": 12662,
+      "fetched_by_page": true
+    },
+    {
+      "name": "years_otso_summer.json",
+      "bytes": 11801,
+      "fetched_by_page": true
+    },
+    {
+      "name": "years_otso_winter.json",
+      "bytes": 7291,
+      "fetched_by_page": true
+    }
+  ]
+}

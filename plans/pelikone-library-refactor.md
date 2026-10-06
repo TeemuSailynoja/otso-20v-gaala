@@ -422,7 +422,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
       `names.json` and `data_quality.json`. Gate: totals unchanged from the name-keyed build
       (171 players, 795 games, 23 gold — the post-Phase-5 numbers, not the 163/483 written when
       this plan was drafted) and every unresolved name is listed, not dropped.
-- [ ] **Phase 10 — contract.** `manifest.json` + `schema.json`; validate in Python (build) and JS
+- [x] **Phase 10 — contract.** `manifest.json` + `schema.json`; validate in Python (build) and JS
       (load); remove the `BUILD_VERSION` comment stamp.
 - [ ] **Phase 11 — split the page.** `index.html` → shell + `css/` + `js/` ES modules, one page per
       module, hand-rolled canvas behind `js/charts/`, ID-keyed lookups, name → id redirect.

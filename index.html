@@ -623,6 +623,23 @@
         }
         .qr-hint { font-size: 0.74rem; color: #5b6b7a; }
         .qr-warn { font-size: 0.74rem; color: #6a1e32; font-weight: 600; text-align: center; }
+
+        /* The data contract failed: say so, in the page, rather than rendering
+           empty sections that read as a quiet nothing. */
+        .data-error {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 0.9rem 1.2rem;
+            background: #6a1e32;
+            color: #fff;
+            font-size: 0.85rem;
+            line-height: 1.45;
+        }
+        .data-error strong { display: block; margin-bottom: 0.25rem; }
+        .data-error p { margin: 0; opacity: 0.86; word-break: break-word; }
         @media (max-width: 760px) {
             .qr-badge { display: none; }   /* a corner code is for a big screen, not a phone */
         }
@@ -1368,63 +1385,14 @@
         years: {}, yearsOtso: {}, yearsOtsoSummer: {}, yearsOtsoWinter: {},
     };
 
-    // DATA_VERSION is stamped by build_site_data.py with a hash of site_data/,
-    // so browsers get fresh JSON whenever the data changes but can still cache
-    // aggressively between rebuilds. Do not edit by hand.
-    // BUILD_VERSION_START
-    const DATA_VERSION = '135bbf1c13c9';
-    // BUILD_VERSION_END
-
+    // The data contract lives in site_data/: manifest.json says what was
+    // published and at which version, schema.json says what each file looks
+    // like. js/data.js fetches through both and validates what it gets, so a
+    // shape change fails with a message naming the field instead of rendering an
+    // empty grid. Nothing stamps a version into this file any more.
     async function loadData() {
-        const files = ['players', 'pass_network', 'cooccurrence', 'summary', 'frenemies', 'trophies', 'names'];
-        const results = await Promise.all(files.map(f =>
-            fetch(`site_data/${f}.json?v=${DATA_VERSION}`).then(r => r.json())
-        ));
-        DATA.players = results[0];
-        DATA.passNetwork = results[1];
-        DATA.cooccurrence = results[2];
-        DATA.summary = results[3];
-        DATA.frenemies = results[4];
-        DATA.trophies = results[5];
-        DATA.names = results[6];
-
-        // TEMPORARY (Phase 9): site_data is keyed by player id, because a name is
-        // not a stable key — pelikone mints a new id per registration, and one
-        // person can be spelled two ways. names.json maps every key back to a
-        // printable name. The page still looks players up by display name, so the
-        // id-keyed maps are re-expanded here and nothing else changes. Phase 11
-        // moves the lookups to ids and deletes this block.
-        const names = DATA.names;
-        const named = (key) => names[key] || key;
-        const renameOuter = (map) => Object.fromEntries(
-            Object.entries(map).map(([k, v]) => [named(k), v]));
-        const renameBoth = (map) => Object.fromEntries(
-            Object.entries(map).map(([k, v]) => [named(k), renameOuter(v)]));
-        DATA.players = renameOuter(DATA.players);
-        DATA.passNetwork = {
-            received: renameBoth(DATA.passNetwork.received),
-            given: renameBoth(DATA.passNetwork.given),
-        };
-        DATA.cooccurrence = renameBoth(DATA.cooccurrence);
-        
-        // Otso year datasets: the stream reads the full year, the HUD split line
-        // reads the summer/winter breakdown. The all-bears variants had a single
-        // consumer (the removed toggle) and are no longer fetched.
-        const [yearsOtso, yearsOtsoSummer, yearsOtsoWinter] = await Promise.all([
-            fetch(`site_data/years_otso.json?v=${DATA_VERSION}`).then(r => r.json()),
-            fetch(`site_data/years_otso_summer.json?v=${DATA_VERSION}`).then(r => r.json()),
-            fetch(`site_data/years_otso_winter.json?v=${DATA_VERSION}`).then(r => r.json()),
-        ]);
-        DATA.yearsOtso = yearsOtso;
-        DATA.yearsOtsoSummer = yearsOtsoSummer;
-        DATA.yearsOtsoWinter = yearsOtsoWinter;
-        DATA.years = yearsOtso; // Default to Otso full year
-        // Same stopgap: the year rosters are id lists; the page wants names.
-        for (const years of [DATA.yearsOtso, DATA.yearsOtsoSummer, DATA.yearsOtsoWinter]) {
-            for (const row of Object.values(years)) {
-                if (row.roster) row.roster_names = row.roster.map(named);
-            }
-        }
+        const { loadSiteData } = await import('./js/data.js');
+        DATA = await loadSiteData();
     }
 
     // ==================== ROUTING ====================
@@ -3162,13 +3130,34 @@
 
 
     async function init() {
-        await loadData();
+        try {
+            await loadData();
+        } catch (err) {
+            // A contract failure is shown, not swallowed. A blank grid tells the
+            // reader nothing and tells us nothing; this names the file and the
+            // field.
+            showDataError(err);
+            return;
+        }
         initParticles();
         navigate();
         if (new URLSearchParams(location.search).has('qr')) {
             // `?qr` = corner code on the hero, `?qr=full` = the takeover version.
             (new URLSearchParams(location.search).get('qr') === 'full' ? showQrOverlay : showQrBadge)();
         }
+    }
+
+    function showDataError(err) {
+        console.error(err);
+        const banner = document.createElement('div');
+        banner.className = 'data-error';
+        banner.setAttribute('role', 'alert');
+        const title = document.createElement('strong');
+        title.textContent = 'The data did not load';
+        const detail = document.createElement('p');
+        detail.textContent = String((err && err.message) || err);
+        banner.append(title, detail);
+        document.body.prepend(banner);
     }
 
     init();
