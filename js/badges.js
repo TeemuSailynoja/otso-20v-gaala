@@ -2,7 +2,12 @@
 
 // ==================== TIMELINE YEAR STREAM ====================
 // Hand-authored season notes. 20.5 seasons is small enough to write down
-// rather than generate; every line below is a fact from site_data, not lore.
+// rather than generate. They are prose, and prose goes stale: when the career
+// numbers were corrected, six of these lines became false next to the very
+// card that contradicted them. So every number and every superlative below is
+// measured against site_data by tests/js/season_stories.test.mjs — write a note
+// in the checked shape ("25–2", "27 matches", "35 names", "jumps 7 to", "+179")
+// and it cannot quietly become a story.
 export const SEASON_STORY = {
     '2006': ["Otso's first competitive year: two seasons, 21 matches, 11–10, and 21 names on the books."],
     '2007': ["23 matches off just 18 names — the thinnest roster in the record — finishing 6th in summer and 4th in winter."],
@@ -11,15 +16,15 @@ export const SEASON_STORY = {
     '2010': ["A step forward: 11–5 (69%) and outscoring opponents by 45."],
     '2011': ["First year with a podium in both seasons — winter gold, summer bronze."],
     '2012': ["Undefeated. 23 matches, 23 wins, and gold in both seasons."],
-    '2013': ["26–2 again, double gold, and the first 170+ goal difference."],
-    '2014': ["The roster jumps by 9 to 30 — the biggest single-year intake in the record."],
-    '2015': ["A third straight 26–2 season and another double gold."],
-    '2016': ["24–2 with both season titles — the fifth straight season above 90%."],
+    '2013': ["25–2, double gold, and the roster jumps 7 to 35 names — the biggest single-year intake in the record."],
+    '2014': ["25–2 again, and the first 170+ goal difference at +179 — winter silver ends the run of double gold."],
+    '2015': ["26–2, and double gold back after a winter silver — the first of three straight titles in both seasons."],
+    '2016': ["25–2 with both season titles — the fifth straight season above 90%."],
     '2017': ["The busiest season so far — 29 matches — and 26 wins anyway."],
     '2018': ["Winter gold and summer silver, with a then-record +211 goal difference."],
-    '2019': ["Still the busiest year: 38 matches and 31 names, the largest roster on record. Winter gold; Otso Grizzly took the summer bronze."],
+    '2019': ["Still the busiest year: 38 matches and 7 losses, the most in a season since 2009. Winter gold; Otso Grizzly took the summer bronze."],
     '2020': ["A short season — only 13 matches — and the winter season has no recorded placement."],
-    '2021': ["The roster drops 11 to 19, and the team still goes 16–2 with double gold."],
+    '2021': ["The roster drops 8 to 23 names — the steepest fall in the record — and the team still goes 16–2 with double gold."],
     '2022': ["25–1, 96% — and +216, the largest goal difference in the record."],
     '2023': ["Winter gold, but a 4th-place summer — the first summer outside the podium since 2010."],
     '2024': ["23–2 and the quiet return of double gold."],

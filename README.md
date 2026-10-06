@@ -276,7 +276,7 @@ fetched, the address is printed in text instead.
 ```bash
 uv run pytest            # 267 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
-node --test tests/js/*.test.mjs   # the page's own 45 tests, on their own
+node --test tests/js/*.test.mjs   # the page's own 49 tests, on their own
 ```
 
 The parser tests are characterization tests against archived pages (`tests/fixtures/`,
@@ -292,6 +292,12 @@ be tested in cases the real record never produces. The math had to be pulled out
 first: `js/categories.js` and `js/badges.js` are pure functions that take their data as an argument,
 which is what makes them testable at all. `tests/test_js.py` asserts the pass count, because a JS
 suite that silently collected nothing would otherwise report success.
+
+`tests/js/season_stories.test.mjs` is the odd one out: it reads the real corpus,
+because it exists to keep the hand-written season notes in `js/badges.js` honest.
+Six of them contradicted the corrected numbers rendered beside them — a "biggest
+single-year intake" under a year whose roster had dropped — so every number and
+every superlative in a note is now measured against `site_data/`.
 
 ## Known Limitations
 

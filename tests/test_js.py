@@ -22,7 +22,7 @@ pytestmark = pytest.mark.skipif(node is None, reason="node not installed")
 
 # The suite is this large on purpose: a runner that reports "0 failures" over 0
 # tests is the failure mode this wrapper exists to catch.
-EXPECTED_FILES = {"badges", "categories", "format", "people"}
+EXPECTED_FILES = {"badges", "categories", "format", "people", "season_stories"}
 MIN_TESTS = 40
 
 
