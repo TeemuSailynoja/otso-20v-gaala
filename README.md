@@ -33,7 +33,8 @@ site_data/          — generated JSON the SPA fetches, keyed by player id
   summary.json      — aggregate stats (9.0 KB)
   trophies.json     — season-level gold/silver/bronze record (15 KB)
   data_quality.json — what the numbers do not know: how keys were minted, id clusters,
-                      points with no scorer, points of unknown possession (2.6 KB)
+                      points with no scorer, points of unknown possession, seasons where the
+                      season card and the play-by-play disagree (11 KB)
   years_otso.json   — year-by-year for the flagship squad; `_summer` / `_winter` variants, and
                       `years_all_bears*` for every squad of the club
   years.json, players.csv, player_names.txt, season_mapping.json — orphans: the page fetches
@@ -113,7 +114,8 @@ long-career player holds 69 of them. So:
 `site_data/names.json` maps every site key to the name to print; the build refuses to write a file
 whose keys it cannot name. `site_data/data_quality.json` is the honesty report: how keys were
 minted, how big the id clusters are, which points name no scorer (73), which have unknown opening
-possession (287), and which names join no roster at all.
+possession (287), which names join no roster at all, and which seasons' goals come from the season
+card rather than the point table.
 
 The page still looks players up by display name. `loadData()` in `index.html` re-expands the
 id-keyed maps with `names.json` before rendering — a labelled stopgap that Phase 11 removes when
@@ -198,7 +200,7 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 239 tests, offline; network-marked tests are deselected by default
+uv run pytest            # 242 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
 ```
 
@@ -217,8 +219,14 @@ the numbers the site publishes.
   spellings on its own: merges are asserted by a human in `config/aliases.json`, and everything it
   cannot attribute is reported, not dropped. One proposed merge (Touko Väänänen, 115 defense points)
   is still open.
-- Season-card totals and point-by-play totals are separate scrapes and do not fully agree. For
-  82 players the play-by-play holds more goals or assists than their season card (651 points
-  site-wide, 3% of all points), concentrated in tour sub-seasons the card scrape missed. The
-  header stat block follows the card; the assist bars follow the play-by-play.
+- **Season-card totals and play-by-play totals are separate scrapes and do not fully agree.**
+  The career table takes the **larger** of the two for each person-season, never the sum: of the
+  1,302 person-seasons that carry both, 1,123 agree exactly, the card is higher on 173 (games the
+  scrape never got) and the play-by-play on 6. Summing them — what the site did until this refactor
+  — doubled most careers: 21,799 published goals against the 10,414 scored in the games
+  `summary.json` counts. `data_quality.json → career_sources` lists every season where the two
+  disagree, biggest gap first, so a season whose numbers rest on the card alone is visible rather
+  than mistaken for a complete season. The pass network is play-by-play only, which is why
+  `sum(received[player])` equals a player's published goals for 113 of 171 players and falls short
+  (never overshoots) for the rest.
 - Finnish translation deferred (stretch goal).

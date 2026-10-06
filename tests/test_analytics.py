@@ -18,6 +18,7 @@ from ultiorg.analytics import (
     build_pass_network,
     build_trophies,
     build_years,
+    career_source_report,
 )
 from ultiorg.teams import FocusTeam
 
@@ -139,12 +140,82 @@ def test_career_games_take_the_larger_source_never_the_sum():
     assert stats["hotari roni"]["games"] == 4  # card 4 beats 2 roster appearances
 
 
-def test_career_goals_come_from_the_card_plus_the_point_table():
+def test_career_points_take_the_larger_source_never_the_sum():
+    """The card and the point table measure the same goals, so one of them wins.
+
+    Aki's 2024.1 card says 9 goals / 3 assists and the two scraped games of that
+    season show 1 goal: the rule keeps 9, then adds the 2 goals the point table
+    has for the winter season, which has no card row. Adding both sources — what
+    this builder used to do — published 12.
+
+    In the real corpus the two sources agreed *exactly* for 1,123 of the 1,302
+    person-seasons that carry both, so summing was doubling careers rather than
+    topping up a thin card: 21,799 published goals against the 10,414 scored in
+    the games `summary.json` counts.
+    """
     stats = build_career_stats(SEASONS, GAMES, FOCUS, season_names=SEASON_NAMES)
     aki, roni = stats["aki vehtari"], stats["hotari roni"]
-    assert (aki["goals"], aki["assists"]) == (12, 3)     # card 9+3, +3 scored
-    assert (roni["goals"], roni["assists"]) == (8, 12)   # card 7+11, +1 scored +1 passed
+    assert (aki["goals"], aki["assists"]) == (11, 3)   # 2024.1 card 9/3, 2023.2 point table 2/0
+    assert (roni["goals"], roni["assists"]) == (7, 11)  # card beats 1 scored + 1 passed
+    assert aki["summer_goals"] == 9 and aki["winter_goals"] == 2
     assert aki["total"] == aki["goals"] + aki["assists"]
+
+
+def test_the_point_table_wins_where_it_saw_more_than_the_card():
+    """The rule is the larger source, not the card.
+
+    A card row of 1 goal sits under a game whose point table credits Aki with 3:
+    the card is a partial record of a season the scrape only partly got, while
+    the point table is the complete record of the games it does have. Roni's card
+    says 1 assist where the point table shows 3.
+    """
+    seasons = [{"id": "2024.1", "name": "Kesä 2024", "teams": [{"name": "Otso", "players": [
+        {"name": "Aki Vehtari", "games": 3, "goals": 1, "assists": 0},
+        {"name": "Roni Hotari", "games": 3, "goals": 0, "assists": 1},
+    ]}]}]
+    game = _game("9", "2024.1", "Otso", "UFO", 3, 0,
+                 ["Aki Vehtari", "Roni Hotari"], ["Ufo Uno"],
+                 [_point("1-0", "Aki Vehtari", "Roni Hotari"),
+                  _point("2-0", "Aki Vehtari", "Roni Hotari"),
+                  _point("3-0", "Aki Vehtari", "Roni Hotari")])
+    stats = build_career_stats(seasons, [game], FOCUS, season_names=SEASON_NAMES)
+    assert stats["aki vehtari"]["goals"] == 3
+    assert stats["hotari roni"]["assists"] == 3
+
+    # The pass network is play-by-play only, so where the point table decided the
+    # number, the two views must agree exactly. They did not before this rule:
+    # the graph summed to exactly half the table for 74 of 171 players.
+    net = build_pass_network([game], FOCUS, stats.keys())
+    assert sum(net["received"]["aki vehtari"].values()) == stats["aki vehtari"]["goals"]
+    assert sum(net["given"]["hotari roni"].values()) == stats["hotari roni"]["assists"]
+
+
+def test_the_pass_network_never_credits_more_than_the_career_table():
+    """A gap is allowed — the card may record points the scrape never got — an
+    overshoot is not: it would mean the two views count different events."""
+    stats = build_career_stats(SEASONS, GAMES, FOCUS, season_names=SEASON_NAMES)
+    net = build_pass_network(GAMES, FOCUS, stats.keys())
+    for person, row in stats.items():
+        assert sum(net["received"].get(person, {}).values()) <= row["goals"], person
+        assert sum(net["given"].get(person, {}).values()) <= row["assists"], person
+
+
+def test_the_source_report_says_which_source_decided_each_season():
+    """`career_source_report` reads the same pass as the table and publishes the gap.
+
+    2024.1 has both sources and the card wins; 2023.2 has only the point table.
+    The report is what makes a card-only season visible next to the totals it
+    produced, instead of looking like a complete season.
+    """
+    report = career_source_report(SEASONS, GAMES, FOCUS, season_names=SEASON_NAMES)
+    assert report["published"] == {"goals": 18, "assists": 14}
+    assert report["pairs"] == {"both": 2, "agree": 0, "card_higher": 2,
+                               "play_higher": 0, "card_only": 0, "play_only": 1}
+    assert [(row["season"], row["gap"]) for row in report["seasons"]] == [
+        ("2024.1", 27), ("2023.2", 2),
+    ]
+    assert report["card_only"]["goals"] == 18 - 4   # 4 goals in the point table
+    assert report["play_only"]["goals"] == 18 - 16  # 16 goals on the cards
 
 
 def test_career_covers_only_the_focus_club():

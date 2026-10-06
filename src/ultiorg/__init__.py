@@ -44,6 +44,7 @@ from .analytics import (
     build_pass_network,
     build_trophies,
     build_years,
+    career_source_report,
 )
 from .corpus import CorpusStats, build_corpus, gameplay_source, write_corpus
 from .query import AmbiguousPlayer, Player, Store, UnknownPlayer
@@ -129,6 +130,7 @@ __all__ = [
     # Analytics views
     "CHAMPIONSHIP_EVENTS",
     "build_career_stats",
+    "career_source_report",
     "build_cooccurrence",
     "build_defense_stats",
     "build_frenemies",

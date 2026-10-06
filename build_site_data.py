@@ -51,6 +51,7 @@ from ultiorg import (
     build_trophies,
     build_years,
     canon,
+    career_source_report,
     collect_id_clusters,
     is_person,
     load_focus_team,
@@ -319,7 +320,8 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
 
 # --- what the data cannot say ----------------------------------------------
 def build_quality_report(games: list[dict], ids: PersonIds, persons: PersonKeys,
-                         player_ids: set, names: dict, used_keys: set) -> dict:
+                         player_ids: set, names: dict, used_keys: set,
+                         sources: dict) -> dict:
     """`data_quality.json` — the gaps, written down instead of quietly averaged away.
 
     The site's totals are only as good as the name→person matching, and that
@@ -364,6 +366,22 @@ def build_quality_report(games: list[dict], ids: PersonIds, persons: PersonKeys,
 
     clusters = sorted(((len(v), k) for k, v in ids.clusters.items()), reverse=True)
     return {
+        "career_sources": {
+            "rule": sources["rule"],
+            "pairs": sources["pairs"],
+            "published": sources["published"],
+            "card_only": sources["card_only"],
+            "play_only": sources["play_only"],
+            "seasons": sources["seasons"],
+            "note": (
+                "The career table takes the larger of the season card and the "
+                "play-by-play for each person-season. Adding them counted most "
+                "careers twice. `seasons` lists every season where the two sources "
+                "disagree, biggest gap first: there the published figure comes from "
+                "whichever source saw more, and a season with no play-by-play at all "
+                "means the scrape never got that season's games."
+            ),
+        },
         "keys": {
             "explained": (
                 "A site key is the lowest pelikone player id in a person's id cluster, "
@@ -435,6 +453,7 @@ def main() -> None:
     print("Building career stats...")
     career = build_career_stats(seasons, games, focus, persons, season_names)
     print(f"  {len(career)} players")
+    career_sources = career_source_report(seasons, games, focus, persons, season_names)
 
     print("Building defense stats...")
     defense = build_defense_stats(games, focus, persons)
@@ -554,11 +573,15 @@ def main() -> None:
             f"e.g. {unnamed[:5]} — a view was not re-keyed"
         )
 
-    quality = build_quality_report(games, ids, persons, set(players), names, used)
+    quality = build_quality_report(games, ids, persons, set(players), names, used,
+                                   career_sources)
     print(f"Quality: {len(used)} keys in site_data, "
           f"{quality['points']['no_scorer_named']} points with no scorer, "
           f"{len(quality['unresolved_names'])} unresolved names, "
           f"{quality['points']['possession_unknown']} points of unknown possession")
+    print(f"  career sources: {career_sources['published']['goals']} goals, "
+          f"{career_sources['card_only']['goals']} of them beyond the point table, "
+          f"{len(career_sources['seasons'])} seasons where the sources disagree")
 
     files = {
         "players.json": players,

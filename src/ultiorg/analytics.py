@@ -56,33 +56,21 @@ def _season_names(seasons: Iterable[Dict]) -> Dict[str, str]:
 
 
 # --- career table -----------------------------------------------------------
-def build_career_stats(
+def _career_sources(
     seasons: Iterable[Dict],
     games: Iterable[Dict],
     focus: FocusTeam,
     persons: PersonKeys | None = None,
     season_names: Mapping[str, str] | None = None,
-) -> Dict[str, Dict]:
-    """Per-player career stats for the focus club, keyed by person key.
+) -> tuple:
+    """Collect the three career sources per person; decide nothing.
 
-    Three sources, deliberately not summed:
-
-    1. the season **card** (a player's games/goals/assists for that season's team),
-    2. **gameplay rosters** (who actually appeared in a scraped game),
-    3. **play-by-play points** (goals and assists from the point table).
-
-    Games are taken per season as `max(card, rosters)`, never the sum: a player
-    on a roster is also on that season's card, and adding both counted most
-    careers twice (16,424 site-wide against 9,061 card games).
-
-    Goals and assists do NOT yet follow that rule: the card totals and the
-    play-by-play totals are added, and for the 60 seasons that have both they
-    measure the same goals — 1,101 of the 1,280 (person, season) pairs that carry
-    stats from both sources are identical in goals *and* assists. The published
-    table therefore reads about twice high (20,913 goals against 10,014 scored in
-    the games themselves, which `summary.json` reports correctly). The fix is the
-    same `max` rule per (person, season); it is an open decision because it halves
-    every headline number. See the revisions log and `build_pass_network`.
+    Returns `(players, season_names)`. Each player row carries
+    `card_games_by_season`, `gp_games_by_season`, `card_stats_by_season` and
+    `pbp_by_season` — the sources side by side, so the caller can both combine
+    them (`build_career_stats`) and report where they disagree
+    (`career_source_report`). One pass, one set of filters: the report and the
+    table cannot drift apart.
     """
     key = _keyer(persons)
     seasons = list(seasons)
@@ -98,15 +86,11 @@ def build_career_stats(
             "season_types": {"summer": set(), "winter": set(), "other": set()},
             "first_year": year,
             "last_year": year,
-            "goals": 0,
-            "assists": 0,
             "teams": set(),
-            "summer_goals": 0,
-            "summer_assists": 0,
-            "winter_goals": 0,
-            "winter_assists": 0,
             "card_games_by_season": {},
             "gp_games_by_season": {},
+            "card_stats_by_season": {},
+            "pbp_by_season": {},
             "_season_seen": set(),
         }
 
@@ -150,17 +134,14 @@ def build_career_stats(
                 p = players.setdefault(person, new_player(year))
                 note_season(p, season_id, year, stype)
                 p["teams"].add(team_label)
-                p["goals"] += goals
-                p["assists"] += assists
                 p["card_games_by_season"][season_id] = (
                     p["card_games_by_season"].get(season_id, 0) + games_n
                 )
-                if stype == "summer":
-                    p["summer_goals"] += goals
-                    p["summer_assists"] += assists
-                elif stype == "winter":
-                    p["winter_goals"] += goals
-                    p["winter_assists"] += assists
+                card = p["card_stats_by_season"].setdefault(
+                    season_id, {"goals": 0, "assists": 0}
+                )
+                card["goals"] += goals
+                card["assists"] += assists
 
     # 2 — gameplay rosters. Akatemia counts here: an Akatemia game is still an
     # appearance, and the roster is the only record of it.
@@ -238,32 +219,82 @@ def build_career_stats(
         if p is None:
             continue
         for season_id, stats in by_season.items():
-            stype = season_type(season_id, names.get(season_id, ""))
-            p["goals"] += stats["goals"]
-            p["assists"] += stats["assists"]
-            if stype == "summer":
-                p["summer_goals"] += stats["goals"]
-                p["summer_assists"] += stats["assists"]
-            elif stype == "winter":
-                p["winter_goals"] += stats["goals"]
-                p["winter_assists"] += stats["assists"]
+            dst = p["pbp_by_season"].setdefault(season_id, {"goals": 0, "assists": 0})
+            dst["goals"] += stats["goals"]
+            dst["assists"] += stats["assists"]
 
-    # Finalise: games per season = max(card, rosters), then split by season type.
+    return players, names
+
+
+def build_career_stats(
+    seasons: Iterable[Dict],
+    games: Iterable[Dict],
+    focus: FocusTeam,
+    persons: PersonKeys | None = None,
+    season_names: Mapping[str, str] | None = None,
+) -> Dict[str, Dict]:
+    """Per-player career stats for the focus club, keyed by person key.
+
+    Three sources, deliberately not summed:
+
+    1. the season **card** (a player's games/goals/assists for that season's team),
+    2. **gameplay rosters** (who actually appeared in a scraped game),
+    3. **play-by-play points** (goals and assists from the point table).
+
+    Games are taken per season as `max(card, rosters)`, never the sum: a player
+    on a roster is also on that season's card, and adding both counted most
+    careers twice (16,424 site-wide against 9,061 card games).
+
+    Goals and assists follow the same rule, `max(card, play-by-play)` per
+    (person, season). The two sources measure the same goals: of the 1,302
+    (person, season) pairs that carry stats from both, **1,123 agree exactly** in
+    goals and assists, the card is higher on 173 (games the scrape never got — 9
+    seasons are short of full coverage) and the play-by-play is higher on 6.
+    Adding them counted most careers twice: 21,799 published goals against 10,414
+    scored in the games themselves, which `summary.json` reports correctly at
+    game level. The larger source wins rather than the play-by-play always
+    winning, because the card is a complete season total while the play-by-play
+    is complete only where every game was scraped — 351 pairs are card-only (6
+    single-game seasons have no scraped games at all) and 51 are play-by-play
+    only; those pass through untouched.
+
+    Measured consequence of the rule: goals 21,799 -> 11,177, assists 21,613 ->
+    11,081. Taking the max per field and picking one whole source per
+    (person, season) were measured to agree on all 1,302 pairs — where the two
+    sources differ the higher one is higher in both fields — so the simpler
+    per-field rule is used. `career_source_report` publishes the per-season
+    comparison so the table's thin spots are visible next to the numbers.
+    """
+    players, names = _career_sources(seasons, games, focus, persons, season_names)
+
+    # Finalise: per season, games and points each take the larger source.
     result: Dict[str, Dict] = {}
     for person, p in sorted(players.items()):
-        games_by_season = {}
-        for sid in set(p["card_games_by_season"]) | set(p["gp_games_by_season"]):
-            games_by_season[sid] = max(
-                p["card_games_by_season"].get(sid, 0),
-                p["gp_games_by_season"].get(sid, 0),
-            )
-        summer_games = winter_games = 0
-        for sid, count in games_by_season.items():
+        card_games, play_games = p["card_games_by_season"], p["gp_games_by_season"]
+        card_stats, play_stats = p["card_stats_by_season"], p["pbp_by_season"]
+        total_games = summer_games = winter_games = 0
+        goals = assists = 0
+        summer_goals = winter_goals = summer_assists = winter_assists = 0
+        season_ids = (set(card_games) | set(play_games)
+                      | set(card_stats) | set(play_stats))
+        for sid in season_ids:
+            count = max(card_games.get(sid, 0), play_games.get(sid, 0))
+            total_games += count
+            card = card_stats.get(sid, {"goals": 0, "assists": 0})
+            play = play_stats.get(sid, {"goals": 0, "assists": 0})
+            season_goals = max(card["goals"], play["goals"])
+            season_assists = max(card["assists"], play["assists"])
+            goals += season_goals
+            assists += season_assists
             stype = season_type(sid, names.get(sid, ""))
             if stype == "summer":
                 summer_games += count
+                summer_goals += season_goals
+                summer_assists += season_assists
             elif stype == "winter":
                 winter_games += count
+                winter_goals += season_goals
+                winter_assists += season_assists
         result[person] = {
             "seasons": sorted(p["seasons"]),
             "season_count": len(p["season_types"]["summer"]) + len(p["season_types"]["winter"]),
@@ -271,10 +302,10 @@ def build_career_stats(
             "year_count": len(p["years"]),
             "first_year": p["first_year"],
             "last_year": p["last_year"],
-            "games": sum(games_by_season.values()),
-            "goals": p["goals"],
-            "assists": p["assists"],
-            "total": p["goals"] + p["assists"],
+            "games": total_games,
+            "goals": goals,
+            "assists": assists,
+            "total": goals + assists,
             "teams": sorted(p["teams"]),
             "season_types": {
                 "summer": sorted(p["season_types"]["summer"]),
@@ -282,17 +313,100 @@ def build_career_stats(
                 "other": sorted(p["season_types"]["other"]),
             },
             "summer_games": summer_games,
-            "summer_goals": p["summer_goals"],
-            "summer_assists": p["summer_assists"],
+            "summer_goals": summer_goals,
+            "summer_assists": summer_assists,
             "winter_games": winter_games,
-            "winter_goals": p["winter_goals"],
-            "winter_assists": p["winter_assists"],
+            "winter_goals": winter_goals,
+            "winter_assists": winter_assists,
             # Defense is a separate view; the caller merges it in.
             "defense_points": 0,
             "offense_points": 0,
             "total_points": 0,
         }
     return result
+
+
+def career_source_report(
+    seasons: Iterable[Dict],
+    games: Iterable[Dict],
+    focus: FocusTeam,
+    persons: PersonKeys | None = None,
+    season_names: Mapping[str, str] | None = None,
+) -> Dict:
+    """Where the season card and the play-by-play disagree, season by season.
+
+    `build_career_stats` takes the larger source per (person, season); this says
+    which source won and by how much, so a season whose numbers rest on the card
+    alone — because no game was ever scraped — is visible next to the totals it
+    produced. It reads the same collection pass as the table, so the two cannot
+    drift apart.
+
+    `card_only_*` is what the published table has that the point table does not:
+    goals from games the scrape never got. `play_only_*` is the mirror image.
+    Both are residuals of an incomplete archive, not of the rule.
+    """
+    players, names = _career_sources(seasons, games, focus, persons, season_names)
+    per_season: Dict[str, Dict[str, int]] = {}
+    pairs = {"both": 0, "agree": 0, "card_higher": 0, "play_higher": 0,
+             "card_only": 0, "play_only": 0}
+    published_goals = published_assists = 0
+    card_only_goals = card_only_assists = play_only_goals = play_only_assists = 0
+    for person, p in players.items():
+        card_by, play_by = p["card_stats_by_season"], p["pbp_by_season"]
+        for sid in set(card_by) | set(play_by):
+            card = card_by.get(sid, {"goals": 0, "assists": 0})
+            play = play_by.get(sid, {"goals": 0, "assists": 0})
+            goals = max(card["goals"], play["goals"])
+            assists = max(card["assists"], play["assists"])
+            published_goals += goals
+            published_assists += assists
+            card_only_goals += goals - play["goals"]
+            card_only_assists += assists - play["assists"]
+            play_only_goals += goals - card["goals"]
+            play_only_assists += assists - card["assists"]
+            if sid in card_by and sid in play_by:
+                pairs["both"] += 1
+                if card == play:
+                    pairs["agree"] += 1
+                elif (card["goals"] + card["assists"]) > (play["goals"] + play["assists"]):
+                    pairs["card_higher"] += 1
+                else:
+                    pairs["play_higher"] += 1
+            elif sid in card_by:
+                pairs["card_only"] += 1
+            else:
+                pairs["play_only"] += 1
+            row = per_season.setdefault(sid, {
+                "card_goals": 0, "card_assists": 0, "play_goals": 0,
+                "play_assists": 0, "published_goals": 0, "published_assists": 0,
+                "people": 0,
+            })
+            row["card_goals"] += card["goals"]
+            row["card_assists"] += card["assists"]
+            row["play_goals"] += play["goals"]
+            row["play_assists"] += play["assists"]
+            row["published_goals"] += goals
+            row["published_assists"] += assists
+            row["people"] += 1
+    seasons_out = []
+    for sid, row in per_season.items():
+        gap = abs(row["card_goals"] - row["play_goals"]) + abs(row["card_assists"] - row["play_assists"])
+        if not gap:
+            continue
+        seasons_out.append({"season": sid, "name": names.get(sid, ""), **row, "gap": gap})
+    seasons_out.sort(key=lambda r: (-r["gap"], r["season"]))
+    return {
+        "rule": "goals and assists per person-season take max(season card, "
+                "play-by-play); never the sum",
+        "pairs": pairs,
+        "published": {"goals": published_goals, "assists": published_assists},
+        "card_only": {"goals": card_only_goals, "assists": card_only_assists,
+                      "note": "in the table but not in the point table: games the "
+                              "scrape never got, or a scorer whose name joined no roster"},
+        "play_only": {"goals": play_only_goals, "assists": play_only_assists,
+                      "note": "in the point table but not on the card"},
+        "seasons": seasons_out,
+    }
 
 
 # --- defense ----------------------------------------------------------------
@@ -404,16 +518,18 @@ def build_pass_network(
     passer is on that team's roster — the same *attribution* rule as the career
     table's play-by-play pass.
 
-    Two invariants should hold against `build_career_stats`, and today they do
-    not, because the career table adds the season card on top of the play-by-play
-    for the same season (an open decision, see the revisions log):
+    Two invariants tie this graph to `build_career_stats`:
 
       sum(received[p].values()) == the player's goals
       sum(given[p].values())    == the player's assists
 
-    Measured on the published build: equal for 26/171 and 35/171 players,
-    exactly half for 74 and 77, less-but-not-half for the rest, never more.
-    The graph is play-by-play only, so it is the career table that is too high.
+    They hold exactly for **113 of 171** and **127 of 171** players, and never
+    overshoot. Where they fall short (58 and 44 players) the season card recorded
+    points the point table does not have — games the scrape never got, or a
+    scorer whose name joined no roster — and this graph is play-by-play only.
+    Before the career table stopped adding the card to the play-by-play, the same
+    check read equal for 26 and 35 players and *exactly half* for 74 and 77: that
+    halving was the double count, and it is why this check is worth running.
     `given` can never exceed the play-by-play assists: an edge is dropped when
     the *scorer* is not in the table, while the career pass credits the passer
     whoever scored.
