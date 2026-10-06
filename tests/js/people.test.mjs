@@ -21,7 +21,7 @@ test('canonicalKey folds case, spacing and token order — and treats a non-brea
 });
 
 test('canonicalKey does not fold accents: it is a lookup, not an identity rule', () => {
-    // Identity is the build's job — canon() in src/ultiorg/persons.py plus the
+    // Identity is the build's job — canon() in the ultiorg package (names.py) plus the
     // human-asserted merges in config/aliases.json. The page only forgives
     // typing, so "Ojanperä" and "Ojanpera" stay two different strings.
     assert.equal(canonicalKey('Ari Ojanperä'), 'ari ojanperä');

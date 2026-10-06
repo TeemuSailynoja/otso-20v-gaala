@@ -24,7 +24,8 @@ the aggregate age from the private birthdays file, and writes `site_data/`.
 A **site key** is one key per person: the lowest pelikone player id in that
 person's id cluster, or `name:<canon>` when pelikone never registered them. It is
 not a pelikone id as such, because pelikone mints a new id per registration — the
-longest career on record holds 69 of them. See `src/ultiorg/persons.py`.
+longest career on record holds 69 of them. See the `ultiorg` package's
+`persons.py` (a sibling checkout of ../ultiorg; see README).
 
 Personal data: birthdays live in a gitignored file (see extract_birthdays.py) and
 only ever leave here as an aggregate — the mean age of a year's roster. Never

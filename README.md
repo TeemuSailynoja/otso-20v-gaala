@@ -45,7 +45,6 @@ js/                 — ES modules the page imports, no build step:
   qr.js             — the `?qr` badge and overlay
   pages/            — home, players, player detail, frenemies
   timeline/         — the year stream, the sticky year HUD, the team cloud
-src/ultiorg/        — the library: fetch, cache, parse, repair, analyse, query Ultiorganizer data
 site_data/          — generated JSON the SPA fetches, keyed by player id
   manifest.json     — what the build published, at which version, and which files the page reads
   schema.json       — the shape of every file above; checked at build time and on page load
@@ -78,13 +77,29 @@ data/
 
 ## Generating data
 
-The library is installed with [uv](https://docs.astral.sh/uv/): `uv sync`, then `uv run ultiorg …`.
+The fetching, parsing, repairing and analysing live in a **separate repository,
+[`ultiorg`](../ultiorg)** — it is the reusable half, and it does not know that Otso exists. This
+repo is the club: `teams.yaml` (which squads count, and at what scope), `config/aliases.json` (the
+name merges a human asserted), `build_site_data.py`, `site_contract.py` and the page. Clone the two
+side by side:
+
+```
+repos/
+  ultiorg/          — the library: client, cache, parsers, corpus, fact store, analytics, CLI
+  otso-20v-gaala/   — this repo: the club config, the build, the site
+```
+
+`pyproject.toml` depends on it by path (`[tool.uv.sources] ultiorg = { path = "../ultiorg" }`), so
+`uv sync` installs it from the sibling checkout and an edit there is live here immediately — which
+is what the site restructure needs while both halves move. Once the library has a remote, the git
+form is the one to ship: `ultiorg = { git = "…", tag = "v0.1.0" }`.
 
 ```bash
-ultiorg fetch all-seasons --gameplay   # crawl every season, archive every game page
-ultiorg merge                          # everything on disk -> data/processed/match_results.json
-ultiorg store                          # corpus -> data/store.sqlite
-python build_site_data.py              # corpus -> site_data/
+uv sync                                    # installs ultiorg from ../ultiorg
+ultiorg fetch all-seasons --gameplay       # crawl every season, archive every game page
+ultiorg merge                              # everything on disk -> data/processed/match_results.json
+ultiorg store                              # corpus -> data/store.sqlite
+python build_site_data.py                  # corpus -> site_data/
 ```
 
 `merge` is idempotent and deterministic: it recomposes the corpus from the union of the corpus
@@ -93,8 +108,8 @@ its archived HTML when that HTML is present, and carrying the stored rows when i
 it on a fresh clone reproduces the committed corpus byte for byte — that is a test
 (`tests/test_corpus.py`).
 
-**A fresh clone can rebuild the site.** `git clone` → `uv sync` → `ultiorg merge` →
-`python build_site_data.py` reproduces every file in `site_data/` byte for byte, with one
+**A fresh clone can rebuild the site.** Clone both repos side by side → `uv sync` → `ultiorg merge`
+→ `python build_site_data.py` reproduces every file in `site_data/` byte for byte, with one
 exception: `avg_age` / `avg_age_known` in `years*.json`, which come from the gitignored
 `data/private/birthdays.csv`. That is deliberate — the site publishes an aggregate of personal
 data, never the data itself, so a clone without that file simply omits the two fields. To refresh
@@ -274,15 +289,25 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 267 tests, offline; network-marked tests are deselected by default
-uv run pytest -m network # the two live smoke tests against ultimate.fi
-node --test tests/js/*.test.mjs   # the page's own 49 tests, on their own
+uv run pytest                    # 33 tests here, offline
+node --test tests/js/*.test.mjs  # the page's own 49 tests, on their own
+cd ../ultiorg && uv run pytest   # the library's 224 (233 with ULTIORG_CORPUS pointed at data/)
 ```
 
-The parser tests are characterization tests against archived pages (`tests/fixtures/`,
-`tests/golden/`): they pin what the scrapers produce today, including the places where the site is
-inconsistent, so a parser change has to be a decision rather than an accident. The corpus tests pin
-the numbers the site publishes.
+What is tested **here** is what this repo publishes. `tests/test_contract.py` checks every file in
+`site_data/` against the shape in `site_contract.py` and `schema.json` — in both directions, so a
+file the build stopped writing fails too — and runs the page's own JS validator over the same bytes
+so the two validators cannot drift. `tests/test_site_data.py` checks the keys are ids and that
+`names.json` decodes every one of them. `tests/test_published_numbers.py` recomputes the defense
+figures from the corpus with the club's own config and alias file and compares them to the JSON the
+site serves: the numbers on a player page are the library's numbers, and that is now measured rather
+than assumed. `tests/test_js.py` wraps the page's suite.
+
+The parser and corpus tests live with the library (`../ultiorg/tests/`): characterization tests
+against archived pages (`fixtures/`, `golden/`) pin what the scrapers produce today, including the
+places where the site is inconsistent, so a parser change has to be a decision rather than an
+accident; the corpus gates pin the numbers the site publishes. They read a caller's archive through
+`ULTIORG_CORPUS`, which is why pointing them at this repo's `data/` keeps them alive.
 
 `tests/js/` is the page's own suite, run by `node --test` and wrapped by `tests/test_js.py` so one
 command covers both halves. It tests the rules the page asserts about the club — that a "rate" needs

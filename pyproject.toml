@@ -1,38 +1,34 @@
-[build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
+# The gala site: a build and a static page, not a published package.
+#
+# The library lives in ../ultiorg (see README: it is the client, parsers, corpus,
+# fact store and analytics; this repo is the club config, the display names, the
+# published JSON and the page). It is depended on by path so the two repos can be
+# edited together while the site is being restructured; the git form is documented
+# in the README and is what a deploy would use once the library has a remote.
 
 [project]
-name = "ultiorg"
-version = "0.1.0"
-description = "Cached client for Ultiorganizer (pelikone): players, matches, and point-by-point gameplay for any Finnish ultimate team"
+name = "otso-20v-gaala"
+version = "0.0.0"
+description = "Otso's 20-year gala site: the build that turns Ultiorganizer data into site_data/, and the zero-build page that renders it"
 requires-python = ">=3.11"
 dependencies = [
-    "requests>=2.31.0",
-    "beautifulsoup4>=4.12.0",
-    "pyyaml>=6.0.3",
+    "ultiorg",
 ]
-
-[project.scripts]
-ultiorg = "ultiorg.cli:main"
-
-[tool.setuptools.packages.find]
-where = ["src"]
-
-[tool.setuptools.package-dir]
-"" = "src"
 
 [dependency-groups]
 dev = [
     "pytest>=8.0",
 ]
 
+[tool.uv]
+# This repo is not a package: nothing here is built or installed, only run.
+package = false
+
+[tool.uv.sources]
+ultiorg = { path = "../ultiorg", editable = true }
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 # site_contract.py sits at the repo root beside build_site_data.py, which is what
 # writes the files it describes. The tests import it directly.
 pythonpath = ["."]
-markers = [
-    "network: hits the live Ultiorganizer instance (deselected by default)",
-]
-addopts = "-m 'not network'"

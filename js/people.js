@@ -6,8 +6,8 @@
 //
 // Why keys and not names: pelikone mints a new player id for every
 // registration, so one person arrives under many ids and sometimes under two
-// spellings. The build collapses that into one person and one site key
-// (src/ultiorg/persons.py). A name cannot be the key of a fact table; it can
+// spellings. The build collapses that into one person and one site key (the
+// ultiorg package's persons.py). A name cannot be the key of a fact table; it can
 // only be the label on one.
 
 import { DATA } from './state.js';
@@ -15,7 +15,7 @@ import { DATA } from './state.js';
 // Folded name form: lower case, single spaces, tokens sorted, so "Roni Hotari",
 // "roni  hotari" and "Hotari Roni" all fold to "hotari roni". This is the page's
 // forgiving lookup for a name typed into a URL or carried in a QR code — it does
-// not decide identity. The build's canon() (src/ultiorg/persons.py) and the
+// not decide identity. The build's canon() (ultiorg/names.py) and the
 // human-asserted merges in config/aliases.json do that.
 export const canonicalKey = name =>
     name.split(/\s+/).filter(Boolean).map(p => p.toLowerCase()).sort().join(' ');
