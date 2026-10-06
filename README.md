@@ -39,7 +39,9 @@ js/                 — ES modules the page imports, no build step:
   people.js         — the decoder: key -> name, and a name in a URL -> key
   check_load.mjs    — the same loader under node, with fetch() reading the files on disk
   format.js         — era colours, stat bars, medals, season words, the seeded RNG
-  badges.js         — highlight badges and the season stories they quote
+  categories.js     — the math behind the home page's category slides (pure: takes DATA, returns rows)
+  badges.js         — the year badges the timeline shows (pure: takes the seasons, returns the badges)
+                      and the season stories they quote
   qr.js             — the `?qr` badge and overlay
   pages/            — home, players, player detail, frenemies
   timeline/         — the year stream, the sticky year HUD, the team cloud
@@ -272,14 +274,24 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 265 tests, offline; network-marked tests are deselected by default
+uv run pytest            # 267 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
+node --test tests/js/*.test.mjs   # the page's own 45 tests, on their own
 ```
 
 The parser tests are characterization tests against archived pages (`tests/fixtures/`,
 `tests/golden/`): they pin what the scrapers produce today, including the places where the site is
 inconsistent, so a parser change has to be a decision rather than an accident. The corpus tests pin
 the numbers the site publishes.
+
+`tests/js/` is the page's own suite, run by `node --test` and wrapped by `tests/test_js.py` so one
+command covers both halves. It tests the rules the page asserts about the club — that a "rate" needs
+100 games to mean anything, that a trio needs all three edges, that a founder's ★ needs 2006 *and*
+2023, that a name in an old QR code still finds its player — against made-up squads, so a rule can
+be tested in cases the real record never produces. The math had to be pulled out of the renderers
+first: `js/categories.js` and `js/badges.js` are pure functions that take their data as an argument,
+which is what makes them testable at all. `tests/test_js.py` asserts the pass count, because a JS
+suite that silently collected nothing would otherwise report success.
 
 ## Known Limitations
 

@@ -1,6 +1,4 @@
-// Highlight badges and the season stories they quote. Pure over DATA.
-
-import { DATA } from './state.js';
+// Highlight badges and the season stories they quote.
 
 // ==================== TIMELINE YEAR STREAM ====================
 // Hand-authored season notes. 20.5 seasons is small enough to write down
@@ -31,14 +29,17 @@ export const SEASON_STORY = {
 
 
 // Superlatives are computed, never typed: if the data changes, the badge moves.
-export function computeHighlightBadges() {
-    const years = Object.keys(DATA.years).sort((a, b) => a - b);
+//
+// The data is a parameter, not an import, so the rules can be tested against a
+// made-up set of seasons — including the ones the real record never produces.
+export function computeHighlightBadges(years, trophies) {
+    const yearList = Object.keys(years).sort((a, b) => a - b);
     const badges = {};
     const add = (y, text) => { (badges[y] = badges[y] || []).push(text); };
     let bestWr = null, worstWr = null, mostM = null, bestGd = null, biggestR = null, smallestR = null, biggestIn = null;
     let prevRoster = null;
-    for (const y of years) {
-        const d = DATA.years[y];
+    for (const y of yearList) {
+        const d = years[y];
         const played = d.wins + d.losses;
         const wr = played > 0 ? d.wins / played : 0;
         const gd = d.goals_for - d.goals_against;
@@ -64,15 +65,15 @@ export function computeHighlightBadges() {
     if (smallestR) add(smallestR.y, 'Skeleton crew');
     if (biggestIn && biggestIn.v > 0) add(biggestIn.y, `+${biggestIn.v} players`);
 
-    const seasons = (DATA.trophies && DATA.trophies.seasons) || [];
-    for (const y of years) {
+    const seasons = (trophies && trophies.seasons) || [];
+    for (const y of yearList) {
         const rows = seasons.filter(s => String(s.year) === y);
         if (rows.filter(s => s.medal === 'gold').length === 2) add(y, 'Kulta molemmissa');
     }
     const firstMedal = seasons.filter(s => s.medal).sort((a, b) => a.year - b.year)[0];
     if (firstMedal) add(String(firstMedal.year), 'First medal');
-    const undefeated = years.filter(y => {
-        const d = DATA.years[y];
+    const undefeated = yearList.filter(y => {
+        const d = years[y];
         return d.losses === 0 && d.wins >= 15;
     });
     undefeated.forEach(y => add(y, 'Undefeated'));

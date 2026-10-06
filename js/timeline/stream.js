@@ -59,7 +59,7 @@ export function renderTimelineStream() {
     const host = document.getElementById('timeline-stream');
     if (!host) return;
     const years = hudYearList();
-    const badges = computeHighlightBadges();
+    const badges = computeHighlightBadges(DATA.years, DATA.trophies);
     host.innerHTML = years.map(y => {
         const d = DATA.years[y];
         const played = d.wins + d.losses;

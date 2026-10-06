@@ -20,9 +20,29 @@ import { DATA } from './state.js';
 export const canonicalKey = name =>
     name.split(/\s+/).filter(Boolean).map(p => p.toLowerCase()).sort().join(' ');
 
-export function nameFor(key) {
-    return (DATA.names && DATA.names[key]) || key;
+// Two names, not one function with an optional argument. `nameFor(key)` is what
+// the page calls, and it is safe to hand to .map() — a second parameter here
+// would be filled by the array index, which is a silent way to make every name
+// fall back to its key. A caller holding its own data object (js/categories.js)
+// says so explicitly with nameIn().
+export function nameIn(names, key) {
+    return (names && names[key]) || key;
 }
+
+export function nameFor(key) {
+    return nameIn(DATA.names, key);
+}
+
+// Display helpers for the prose slots on the category slides: both take a site
+// key and speak in names, so a caller never has to remember which of the two it
+// is holding.
+export function firstName(key) { return nameFor(key).split(' ')[0]; }
+export function initials(key) {
+    const name = nameFor(key);
+    const parts = name.split(' ');
+    return parts.length > 1 ? parts[0].charAt(0) + '. ' + parts.slice(1).join(' ') : name;
+}
+
 
 // Built lazily and rebuilt if the player count changes, because the router can
 // be entered before the data has loaded (that is the "data did not load" path)
