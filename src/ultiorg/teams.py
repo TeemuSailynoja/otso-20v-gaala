@@ -9,12 +9,14 @@ Nothing in the library knows that Otso exists. Every analytics view takes a
       exclude: [akatemia]
 
 Three predicates, because the site needs three different scopes and using one
-for all three is how a development squad ends up in the career table:
+for all three is how a development squad ends up in the wrong table:
 
-- `matches()`   — any squad of the club (Otso, Otso 2, Grizzly, Hukka, …).
+- `matches()`   — any squad of the club, its development squad included: Otso,
+  Otso 2, Grizzly, Hukka, Otso Akatemia. Membership is the club substring, which
+  is why "Otso Akatemia" is ours and "UFO Akatemia" is somebody else's.
 - `is_main()`   — the flagship squad(s) only; what the year-by-year view counts.
-- `is_akatemia()` — the club's development squad, which is the club but is not
-  counted with the main squads. "UFO Akatemia" is somebody else's team.
+- `is_akatemia()` — the club's development squad, and only that club's. Still
+  needed to label it and to hold it out of the flagship scope.
 
 `canonical_name()` folds scraped variants onto one label: the same squad shows
 up as "OTSO 2", "Otso2" and — a scrape artifact — "Terror - Otso 2".
@@ -50,7 +52,13 @@ class FocusTeam:
 
     # --- predicates -------------------------------------------------------
     def matches(self, team_name: str) -> bool:
-        """Any squad of the club. Akatemia is excluded — it is its own squad."""
+        """Any squad of the club, its development squad included.
+
+        Membership is decided by the club substring alone: "Otso Akatemia" is
+        ours, "UFO Akatemia" is not, because it names no squad of ours. Do not
+        put "akatemia" in `exclude` to keep another club's team out — that only
+        ever removes our own development squad from the stats.
+        """
         low = (team_name or "").lower()
         if any(x in low for x in self.exclude):
             return False
@@ -66,7 +74,10 @@ class FocusTeam:
         return "akatemia" in low and any(c in low for c in self.akatemia)
 
     def is_family(self, team_name: str) -> bool:
-        """A squad of the club including its development squad."""
+        """A squad of the club. Kept distinct from `matches()` for consumers
+        whose `include` is broad enough to catch another club's development
+        squad; for the gala's config the two agree.
+        """
         return self.matches(team_name) or self.is_akatemia(team_name)
 
     def is_main(self, team_name: str) -> bool:

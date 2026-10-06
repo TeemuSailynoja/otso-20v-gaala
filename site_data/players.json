@@ -13,12 +13,13 @@
     "first_year": 2023,
     "last_year": 2024,
     "games": 11,
-    "goals": 2,
-    "assists": 0,
-    "total": 2,
+    "goals": 10,
+    "assists": 2,
+    "total": 12,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -33,8 +34,8 @@
     "summer_goals": 2,
     "summer_assists": 0,
     "winter_games": 6,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 8,
+    "winter_assists": 2,
     "defense_points": 1,
     "offense_points": 3,
     "total_points": 4,
@@ -57,12 +58,13 @@
     "first_year": 2023,
     "last_year": 2024,
     "games": 13,
-    "goals": 8,
-    "assists": 4,
-    "total": 12,
+    "goals": 12,
+    "assists": 10,
+    "total": 22,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -77,8 +79,8 @@
     "summer_goals": 8,
     "summer_assists": 4,
     "winter_games": 8,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 4,
+    "winter_assists": 6,
     "defense_points": 2,
     "offense_points": 3,
     "total_points": 5,
@@ -586,7 +588,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -688,7 +691,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -1057,15 +1061,16 @@
     "first_year": 2011,
     "last_year": 2026,
     "games": 269,
-    "goals": 347,
-    "assists": 420,
-    "total": 767,
+    "goals": 355,
+    "assists": 460,
+    "total": 815,
     "teams": [
       "Karhuvaarit",
       "Otso",
       "Otso 1",
       "Otso 2",
       "Otso 3",
+      "Otso Akatemia",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -1103,8 +1108,8 @@
     "summer_goals": 141,
     "summer_assists": 132,
     "winter_games": 144,
-    "winter_goals": 206,
-    "winter_assists": 288,
+    "winter_goals": 214,
+    "winter_assists": 328,
     "defense_points": 83,
     "offense_points": 89,
     "total_points": 172,
@@ -1501,7 +1506,8 @@
     "total": 57,
     "teams": [
       "Otso",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -1592,13 +1598,14 @@
     "first_year": 2023,
     "last_year": 2025,
     "games": 56,
-    "goals": 16,
-    "assists": 4,
-    "total": 20,
+    "goals": 112,
+    "assists": 54,
+    "total": 166,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -1616,8 +1623,8 @@
     "summer_goals": 10,
     "summer_assists": 0,
     "winter_games": 46,
-    "winter_goals": 6,
-    "winter_assists": 4,
+    "winter_goals": 102,
+    "winter_assists": 54,
     "defense_points": 19,
     "offense_points": 36,
     "total_points": 55,
@@ -1688,13 +1695,13 @@
     "first_year": 2023,
     "last_year": 2025,
     "games": 40,
-    "goals": 14,
-    "assists": 0,
-    "total": 14,
+    "goals": 206,
+    "assists": 46,
+    "total": 252,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -1711,8 +1718,8 @@
     "summer_goals": 14,
     "summer_assists": 0,
     "winter_games": 36,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 192,
+    "winter_assists": 46,
     "defense_points": 36,
     "offense_points": 62,
     "total_points": 98,
@@ -2891,13 +2898,14 @@
     "first_year": 2023,
     "last_year": 2025,
     "games": 27,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
+    "goals": 26,
+    "assists": 42,
+    "total": 68,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [],
@@ -2912,8 +2920,8 @@
     "summer_goals": 0,
     "summer_assists": 0,
     "winter_games": 27,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 26,
+    "winter_assists": 42,
     "defense_points": 6,
     "offense_points": 5,
     "total_points": 11,
@@ -3039,12 +3047,12 @@
     "first_year": 2025,
     "last_year": 2026,
     "games": 14,
-    "goals": 6,
+    "goals": 14,
     "assists": 0,
-    "total": 6,
+    "total": 14,
     "teams": [
       "Otso",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -3059,7 +3067,7 @@
     "summer_goals": 6,
     "summer_assists": 0,
     "winter_games": 9,
-    "winter_goals": 0,
+    "winter_goals": 8,
     "winter_assists": 0,
     "defense_points": 4,
     "offense_points": 6,
@@ -3174,7 +3182,8 @@
     "assists": 10,
     "total": 16,
     "teams": [
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [],
@@ -3460,7 +3469,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -4427,11 +4437,12 @@
     "first_year": 2025,
     "last_year": 2025,
     "games": 10,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
+    "goals": 6,
+    "assists": 14,
+    "total": 20,
     "teams": [
-      "Otso"
+      "Otso",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [],
@@ -4444,8 +4455,8 @@
     "summer_goals": 0,
     "summer_assists": 0,
     "winter_games": 10,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 6,
+    "winter_assists": 14,
     "defense_points": 1,
     "offense_points": 2,
     "total_points": 3,
@@ -4685,6 +4696,7 @@
       "Otso 1",
       "Otso 2",
       "Otso 3",
+      "Otso Akatemia",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -5502,14 +5514,15 @@
     "first_year": 2012,
     "last_year": 2025,
     "games": 235,
-    "goals": 541,
-    "assists": 335,
-    "total": 876,
+    "goals": 587,
+    "assists": 455,
+    "total": 1042,
     "teams": [
       "Otso",
       "Otso 1",
       "Otso 2",
       "Otso 3",
+      "Otso Akatemia",
       "Otso Grizzly",
       "Otso Polar"
     ],
@@ -5549,8 +5562,8 @@
     "summer_goals": 257,
     "summer_assists": 131,
     "winter_games": 126,
-    "winter_goals": 284,
-    "winter_assists": 204,
+    "winter_goals": 330,
+    "winter_assists": 324,
     "defense_points": 173,
     "offense_points": 104,
     "total_points": 277,
@@ -6279,13 +6292,13 @@
     "first_year": 2021,
     "last_year": 2025,
     "games": 78,
-    "goals": 108,
-    "assists": 22,
-    "total": 130,
+    "goals": 176,
+    "assists": 154,
+    "total": 330,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -6304,8 +6317,8 @@
     "summer_goals": 0,
     "summer_assists": 0,
     "winter_games": 78,
-    "winter_goals": 108,
-    "winter_assists": 22,
+    "winter_goals": 176,
+    "winter_assists": 154,
     "defense_points": 28,
     "offense_points": 60,
     "total_points": 88,
@@ -6739,13 +6752,14 @@
     "first_year": 2023,
     "last_year": 2025,
     "games": 40,
-    "goals": 68,
-    "assists": 52,
-    "total": 120,
+    "goals": 104,
+    "assists": 134,
+    "total": 238,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -6763,8 +6777,8 @@
     "summer_goals": 48,
     "summer_assists": 42,
     "winter_games": 20,
-    "winter_goals": 20,
-    "winter_assists": 10,
+    "winter_goals": 56,
+    "winter_assists": 92,
     "defense_points": 19,
     "offense_points": 27,
     "total_points": 46,
@@ -7343,11 +7357,12 @@
     "first_year": 2025,
     "last_year": 2025,
     "games": 9,
-    "goals": 0,
-    "assists": 0,
-    "total": 0,
+    "goals": 20,
+    "assists": 6,
+    "total": 26,
     "teams": [
-      "Otso"
+      "Otso",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [],
@@ -7360,8 +7375,8 @@
     "summer_goals": 0,
     "summer_assists": 0,
     "winter_games": 9,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 20,
+    "winter_assists": 6,
     "defense_points": 2,
     "offense_points": 8,
     "total_points": 10,
@@ -7742,13 +7757,13 @@
     "first_year": 2023,
     "last_year": 2026,
     "games": 67,
-    "goals": 63,
-    "assists": 38,
-    "total": 101,
+    "goals": 175,
+    "assists": 136,
+    "total": 311,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -7768,8 +7783,8 @@
     "summer_goals": 11,
     "summer_assists": 10,
     "winter_games": 51,
-    "winter_goals": 52,
-    "winter_assists": 28,
+    "winter_goals": 164,
+    "winter_assists": 126,
     "defense_points": 26,
     "offense_points": 61,
     "total_points": 87,
@@ -8021,7 +8036,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -8127,12 +8143,12 @@
     "first_year": 2025,
     "last_year": 2026,
     "games": 21,
-    "goals": 39,
-    "assists": 9,
-    "total": 48,
+    "goals": 45,
+    "assists": 11,
+    "total": 56,
     "teams": [
       "Otso",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -8147,8 +8163,8 @@
     "summer_goals": 9,
     "summer_assists": 3,
     "winter_games": 15,
-    "winter_goals": 30,
-    "winter_assists": 6,
+    "winter_goals": 36,
+    "winter_assists": 8,
     "defense_points": 17,
     "offense_points": 10,
     "total_points": 27,
@@ -8735,7 +8751,8 @@
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -8784,13 +8801,13 @@
     "first_year": 2021,
     "last_year": 2025,
     "games": 70,
-    "goals": 42,
-    "assists": 22,
-    "total": 64,
+    "goals": 112,
+    "assists": 90,
+    "total": 202,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -8811,8 +8828,8 @@
     "summer_goals": 16,
     "summer_assists": 6,
     "winter_games": 47,
-    "winter_goals": 26,
-    "winter_assists": 16,
+    "winter_goals": 96,
+    "winter_assists": 84,
     "defense_points": 27,
     "offense_points": 29,
     "total_points": 56,
@@ -8935,13 +8952,14 @@
     "first_year": 2022,
     "last_year": 2026,
     "games": 113,
-    "goals": 256,
-    "assists": 157,
-    "total": 413,
+    "goals": 304,
+    "assists": 205,
+    "total": 509,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso 3",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -8962,8 +8980,8 @@
     "summer_goals": 74,
     "summer_assists": 37,
     "winter_games": 79,
-    "winter_goals": 182,
-    "winter_assists": 120,
+    "winter_goals": 230,
+    "winter_assists": 168,
     "defense_points": 60,
     "offense_points": 89,
     "total_points": 149,
@@ -9629,12 +9647,13 @@
     "first_year": 2023,
     "last_year": 2026,
     "games": 55,
-    "goals": 26,
-    "assists": 4,
-    "total": 30,
+    "goals": 144,
+    "assists": 72,
+    "total": 216,
     "teams": [
       "Otso",
-      "Otso 2"
+      "Otso 2",
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -9652,8 +9671,8 @@
     "summer_goals": 8,
     "summer_assists": 2,
     "winter_games": 47,
-    "winter_goals": 18,
-    "winter_assists": 2,
+    "winter_goals": 136,
+    "winter_assists": 70,
     "defense_points": 24,
     "offense_points": 42,
     "total_points": 66,
@@ -9811,13 +9830,13 @@
     "first_year": 2023,
     "last_year": 2025,
     "games": 31,
-    "goals": 8,
-    "assists": 0,
-    "total": 8,
+    "goals": 22,
+    "assists": 60,
+    "total": 82,
     "teams": [
       "Otso",
       "Otso 2",
-      "Otso 3"
+      "Otso Akatemia"
     ],
     "season_types": {
       "summer": [
@@ -9835,8 +9854,8 @@
     "summer_goals": 8,
     "summer_assists": 0,
     "winter_games": 22,
-    "winter_goals": 0,
-    "winter_assists": 0,
+    "winter_goals": 14,
+    "winter_assists": 60,
     "defense_points": 4,
     "offense_points": 6,
     "total_points": 10,

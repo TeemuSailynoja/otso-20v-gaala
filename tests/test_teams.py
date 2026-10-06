@@ -31,13 +31,27 @@ def test_the_gala_config_names_every_squad_it_always_counted(focus):
         assert focus.matches(name), name
 
 
-def test_development_squad_is_the_club_but_not_the_career_table(focus):
+def test_the_development_squad_counts_as_the_club(focus):
+    """Otso Akatemia is an Otso squad. UFO Akatemia is not ours.
+
+    The club substring decides membership, so no exclusion rule is needed to
+    keep another club's development squad out. `exclude: [akatemia]` used to
+    remove *our* development squad instead, and it did so unevenly: the career
+    table, the pass network, the co-occurrence matrix and the win/loss record
+    dropped 38 games and 866 points, while the defense view — a different
+    predicate — counted them. It also dropped 37 season-card rows carrying 443
+    goals, 442 assists and 369 player-games, and left three players who only
+    ever turned out for Akatemia out of the site entirely.
+    """
+    assert focus.matches("Otso Akatemia")
     assert focus.is_akatemia("Otso Akatemia")
     assert focus.is_family("Otso Akatemia")
-    assert not focus.matches("Otso Akatemia"), "Akatemia is excluded from `matches`"
     # somebody else's development squad is not ours at all
+    assert not focus.matches("UFO Akatemia")
     assert not focus.is_akatemia("UFO Akatemia")
     assert not focus.is_family("UFO Akatemia")
+    # counting it does not make it the flagship: `years_otso.json` stays flagship
+    assert not focus.is_main("Otso Akatemia")
 
 
 @pytest.mark.parametrize("name", ["Otso", "OTSO", "Otso 1", "Otso-1", "Otso1",
@@ -63,6 +77,8 @@ def test_canonical_name_folds_scraped_variants(focus):
     assert focus.canonical_name("otsogrizzly") == "Otso Grizzly"
     # substring fallback catches a squad with no exact key
     assert focus.canonical_name("Otso Polar B") == "Otso Polar"
+    # the development squad keeps its own label rather than folding onto Otso
+    assert focus.canonical_name("Otso Akatemia") == "Otso Akatemia"
     # an opponent is returned unchanged: this is not a name normaliser
     assert focus.canonical_name("Tallinn Thunder") == "Tallinn Thunder"
 

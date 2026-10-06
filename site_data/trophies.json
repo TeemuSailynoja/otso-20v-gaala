@@ -657,6 +657,11 @@
           "team": "Otso2",
           "placement": "8.",
           "medal": null
+        },
+        {
+          "team": "Otso Akatemia",
+          "placement": "17.",
+          "medal": null
         }
       ]
     },
@@ -699,6 +704,11 @@
           "team": "OTSO 2",
           "placement": "8.",
           "medal": null
+        },
+        {
+          "team": "Otso Akatemia",
+          "placement": "13.",
+          "medal": null
         }
       ]
     },
@@ -740,6 +750,11 @@
         {
           "team": "OTSO 2",
           "placement": "5.",
+          "medal": null
+        },
+        {
+          "team": "Otso Akatemia",
+          "placement": "8.",
           "medal": null
         },
         {

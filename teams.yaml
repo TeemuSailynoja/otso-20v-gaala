@@ -19,11 +19,15 @@ focus:
     - hukka
     - karhuvaarit
 
-  # …unless it contains one of these. Akatemia is a separate development squad:
-  # its players are not counted in the main career stats, but its games are
-  # still Otso games (see `akatemia` below).
-  exclude:
-    - akatemia
+  # …unless it contains one of these. Deliberately empty.
+  #
+  # Otso Akatemia is an Otso squad: its games, its points and its season card
+  # belong in the stats, and a player who only ever turned out for it is still
+  # an Otso player. Another club's development squad is never matched in the
+  # first place — "UFO Akatemia" contains no substring from `include` above, so
+  # it stays out without an exclusion rule. (Measured over the whole corpus:
+  # emptying this list newly accepts exactly one team name, "Otso Akatemia".)
+  exclude: []
 
   # The Akatemia squad of *this* club. "UFO Akatemia" is another club's team and
   # must not match, so the club's own name has to appear too.

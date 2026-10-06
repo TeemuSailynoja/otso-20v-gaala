@@ -1,11 +1,11 @@
 {
   "total_matches": 795,
   "total_players": 171,
-  "total_wins": 522,
-  "total_losses": 235,
-  "total_goals_for": 10014,
-  "total_goals_against": 7804,
-  "win_percentage": 69,
+  "total_wins": 538,
+  "total_losses": 257,
+  "total_goals_for": 10414,
+  "total_goals_against": 8270,
+  "win_percentage": 68,
   "top_scorers": [
     {
       "id": "6890",
@@ -88,6 +88,14 @@
       "games": 161
     },
     {
+      "id": "14625",
+      "name": "Jesse Saastamoinen",
+      "total": 1042,
+      "goals": 587,
+      "assists": 455,
+      "games": 235
+    },
+    {
       "id": "5884",
       "name": "Ilkka Rämö",
       "total": 1031,
@@ -104,14 +112,6 @@
       "games": 211
     },
     {
-      "id": "14625",
-      "name": "Jesse Saastamoinen",
-      "total": 876,
-      "goals": 541,
-      "assists": 335,
-      "games": 235
-    },
-    {
       "id": "8204",
       "name": "Patrick Potrykus",
       "total": 866,
@@ -120,12 +120,12 @@
       "games": 163
     },
     {
-      "id": "5897",
-      "name": "Pasi Tamminen",
-      "total": 809,
-      "goals": 329,
-      "assists": 480,
-      "games": 110
+      "id": "8938",
+      "name": "Antti Järvi",
+      "total": 815,
+      "goals": 355,
+      "assists": 460,
+      "games": 269
     }
   ],
   "top_assists": [
@@ -234,20 +234,20 @@
       "games": 259
     },
     {
-      "id": "5893",
-      "name": "Ismo Sutela",
-      "assists": 452,
-      "goals": 228,
-      "total": 680,
-      "games": 132
+      "id": "8938",
+      "name": "Antti Järvi",
+      "assists": 460,
+      "goals": 355,
+      "total": 815,
+      "games": 269
     },
     {
-      "id": "6884",
-      "name": "Aki Vehtari",
-      "assists": 445,
-      "goals": 176,
-      "total": 621,
-      "games": 264
+      "id": "14625",
+      "name": "Jesse Saastamoinen",
+      "assists": 455,
+      "goals": 587,
+      "total": 1042,
+      "games": 235
     }
   ],
   "longest_careers": [
@@ -339,9 +339,14 @@
       "connections": 53
     },
     {
+      "id": "14625",
+      "name": "Jesse Saastamoinen",
+      "connections": 53
+    },
+    {
       "id": "8938",
       "name": "Antti Järvi",
-      "connections": 48
+      "connections": 50
     },
     {
       "id": "14265",
@@ -359,11 +364,6 @@
       "connections": 44
     },
     {
-      "id": "14625",
-      "name": "Jesse Saastamoinen",
-      "connections": 44
-    },
-    {
       "id": "6195",
       "name": "Juuso Parkkinen",
       "connections": 44
@@ -378,7 +378,7 @@
     {
       "id": "6799",
       "name": "Ilkka Vaahtoranta",
-      "teammates": 137
+      "teammates": 139
     },
     {
       "id": "7180",
@@ -388,7 +388,7 @@
     {
       "id": "6890",
       "name": "Roni Hotari",
-      "teammates": 127
+      "teammates": 130
     },
     {
       "id": "6884",
@@ -398,6 +398,11 @@
     {
       "id": "5894",
       "name": "Erkka Niini",
+      "teammates": 117
+    },
+    {
+      "id": "14625",
+      "name": "Jesse Saastamoinen",
       "teammates": 114
     },
     {
@@ -409,11 +414,6 @@
       "id": "6096",
       "name": "Tomi Sandberg",
       "teammates": 114
-    },
-    {
-      "id": "14625",
-      "name": "Jesse Saastamoinen",
-      "teammates": 110
     },
     {
       "id": "14265",

@@ -183,7 +183,13 @@ fetched, the address is printed in text instead.
   picks it up.
 - **104 season files**: 2006–2026 (including SM, XSM, Beach, Hallitour, Kesa, Talvi)
 - **795 games**: With full point-by-point gameplay data (18,681 points)
-- **171 unique players**: Across 20 years (main Otso teams only, excludes Akatemia)
+- **171 unique players**: Across 20 years — every squad of the club, **including Otso Akatemia**,
+  its development squad. Another club's development squad (`UFO Akatemia`) is not an Otso team and
+  never counts; the club substring in `teams.yaml` is what decides it.
+- **Which squad scope decides what**: `matches()` (every squad, Akatemia included) drives the career
+  table, the pass network, the co-occurrence matrix, the win/loss record and the trophy entries.
+  `is_main()` (the flagship squad only) is what keeps Akatemia out of `years_otso.json`; the
+  `years_all_bears*` files show every squad.
 - **Trophy record**: derived from the `placements` tables (Kulta/Hopea/Pronssi) of the season-deciding
   event of each year, Avoin division only — 23 gold, 3 silver, 4 bronze across the 40 seasons Otso
   contested (21 summer 2006–2026, 19 winter). Tour stops are regular-season events and are not counted.
@@ -192,7 +198,7 @@ fetched, the address is printed in text instead.
 ## Tests
 
 ```bash
-uv run pytest            # 219 tests, offline; network-marked tests are deselected by default
+uv run pytest            # 239 tests, offline; network-marked tests are deselected by default
 uv run pytest -m network # the two live smoke tests against ultimate.fi
 ```
 

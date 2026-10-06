@@ -73,9 +73,16 @@ def build_career_stats(
 
     Games are taken per season as `max(card, rosters)`, never the sum: a player
     on a roster is also on that season's card, and adding both counted most
-    careers twice (16,424 site-wide against 9,061 card games). Goals and assists
-    come from play-by-play for every season, because the card scrape covers only
-    ~11 seasons and has no per-pair breakdown for the pass network to agree with.
+    careers twice (16,424 site-wide against 9,061 card games).
+
+    Goals and assists do NOT yet follow that rule: the card totals and the
+    play-by-play totals are added, and for the 60 seasons that have both they
+    measure the same goals — 1,101 of the 1,280 (person, season) pairs that carry
+    stats from both sources are identical in goals *and* assists. The published
+    table therefore reads about twice high (20,913 goals against 10,014 scored in
+    the games themselves, which `summary.json` reports correctly). The fix is the
+    same `max` rule per (person, season); it is an open decision because it halves
+    every headline number. See the revisions log and `build_pass_network`.
     """
     key = _keyer(persons)
     seasons = list(seasons)
@@ -116,8 +123,10 @@ def build_career_stats(
             p["last_year"] = year
         p["season_types"].setdefault(stype if stype in ("summer", "winter") else "other", set()).add(year)
 
-    # 1 — season cards. Akatemia is excluded here: its card rows are a different
-    # squad's totals, and mixing them inflates the main career table.
+    # 1 — season cards, every squad of the club including its development
+    # squad. A player who turned out for two squads played two sets of games,
+    # and both belong in his career. Other clubs' cards are not in the corpus at
+    # all: the scrape only walked our own team pages.
     for season in seasons:
         season_id = season.get("id", "")
         year = season_year(season_id, names.get(season_id, ""))
@@ -166,9 +175,9 @@ def build_career_stats(
         away_is = focus.is_family(gp.get("away_team", ""))
         if not home_is and not away_is:
             continue
-        # The squad label comes from the main-squad predicate, not the family
-        # one: an Akatemia appearance is still an appearance, but it does not put
-        # "Otso Akatemia" in the player's team list.
+        # The label is the canonical name of the squad that played, so an
+        # Akatemia appearance puts "Otso Akatemia" in the player's team list
+        # rather than folding it onto the flagship squad.
         label = ""
         if focus.matches(gp.get("home_team", "")):
             label = focus.canonical_name(gp.get("home_team", ""))
@@ -392,9 +401,22 @@ def build_pass_network(
 
     A point's `passer` is the pelikone column *Syöttäjä* and `scorer` is *Maali*.
     Assists are counted for games involving a focus-team squad, credited when the
-    passer is on that team's roster — the same rule as the career table, so the
-    two views agree on a player's assist total instead of disagreeing by the
-    card-vs-play-by-play gap.
+    passer is on that team's roster — the same *attribution* rule as the career
+    table's play-by-play pass.
+
+    Two invariants should hold against `build_career_stats`, and today they do
+    not, because the career table adds the season card on top of the play-by-play
+    for the same season (an open decision, see the revisions log):
+
+      sum(received[p].values()) == the player's goals
+      sum(given[p].values())    == the player's assists
+
+    Measured on the published build: equal for 26/171 and 35/171 players,
+    exactly half for 74 and 77, less-but-not-half for the rest, never more.
+    The graph is play-by-play only, so it is the career table that is too high.
+    `given` can never exceed the play-by-play assists: an edge is dropped when
+    the *scorer* is not in the table, while the career pass credits the passer
+    whoever scored.
 
     Keys are **person keys**, not display names: the library never prints a name,
     it identifies a person, and the caller decides how to render them (the site

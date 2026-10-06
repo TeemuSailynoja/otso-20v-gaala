@@ -61,16 +61,17 @@ def test_season_list_is_the_season_universe():
 
 
 def test_teams_pages_are_parsed_and_focus_filtered():
-    """Both fixtures use tables.teams-table; 2025.3 has three Otso teams.
+    """Both fixtures use tables.teams-table; 2025.3 has four Otso teams.
 
     Name case differs between seasons (`Otso` vs `OTSO`), so the predicate must
     stay case-insensitive. Filtering is the caller's decision: the library has no
-    default club, so `focus=None` returns the whole season.
+    default club, so `focus=None` returns the whole season. Otso Akatemia is in
+    the filtered set — it is an Otso squad; UFO Akatemia is not, and never was.
     """
     current = parsers.parse_teams_page(read_fixture("teams_KESA2026.html"), "KESA2026", FOCUS)
     multi = parsers.parse_teams_page(read_fixture("teams_2025.3.html"), "2025.3", FOCUS)
     assert [r["name"] for r in current] == ["Otso"]
-    assert [r["name"] for r in multi] == ["OTSO", "OTSO 2", "OTSO 3"]
+    assert [r["name"] for r in multi] == ["OTSO", "OTSO 2", "OTSO 3", "Otso Akatemia"]
     for row in current + multi:
         assert row["id"], row
         assert row["season_id"]

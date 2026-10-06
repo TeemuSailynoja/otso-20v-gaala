@@ -24,10 +24,10 @@ from ultiorg.teams import FocusTeam
 FOCUS = FocusTeam(
     name="Otso",
     include=("otso",),
-    exclude=("akatemia",),
+    exclude=(),
     akatemia=("otso",),
     main=frozenset({"otso"}),
-    canonical={"otso": "Otso", "otso2": "Otso 2"},
+    canonical={"otso": "Otso", "otso2": "Otso 2", "otsoakatemia": "Otso Akatemia"},
 )
 
 SEASON_NAMES = {"2024.1": "Kesä 2024", "2023.2": "Talvi 2023", "2024.F": "Finaalit"}
@@ -168,20 +168,27 @@ def test_career_lists_every_season_an_appearance_was_recorded():
     assert aki["winter_games"] == 1 and aki["summer_games"] == 5
 
 
-def test_a_development_appearance_is_an_appearance_but_not_a_squad_label():
-    """Akatemia is the club, so its games count; its label does not join `teams`.
+def test_the_development_squad_is_counted_like_any_other_squad():
+    """An Akatemia game is an Otso game: its points count, its label is its own.
 
-    `is_family` decides who is on the field, `matches` decides what the squad is
-    called. Using one predicate for both put "Otso Akatemia" in main-squad
-    careers.
+    `exclude: [akatemia]` made the views disagree about which games were Otso
+    games at all — the career table, the pass network and the win/loss record
+    dropped 38 corpus games and 866 points that the defense view, which used
+    `is_family`, counted. What keeps Akatemia out of the flagship year view is
+    `is_main`, not an exclusion on membership.
     """
-    game = _game("8", "2024.1", "Otso Akatemia", "Terror", 4, 1,
-                 ["Aki Vehtari"], ["Tim Terror"],
-                 [_point("1-0", "Aki Vehtari", possession="guest")])
+    game = _game("8", "2024.1", "Otso Akatemia", "UFO Akatemia", 4, 1,
+                 ["Aki Vehtari", "Roni Hotari"], ["Ufo Uno"],
+                 [_point("1-0", "Aki Vehtari", "Roni Hotari", possession="guest"),
+                  _point("2-0", "Ufo Uno", possession="guest")])
     stats = build_career_stats(SEASONS, [game], FOCUS, season_names=SEASON_NAMES)
     aki = stats["aki vehtari"]
     assert aki["games"] == 5, "the card season still decides the count"
-    assert aki["teams"] == ["Otso"]
+    assert aki["teams"] == ["Otso", "Otso Akatemia"]
+    assert "uno ufo" not in stats, "another club's development squad is not ours"
+    net = build_pass_network([game], FOCUS)
+    assert net["received"]["aki vehtari"] == {"hotari roni": 1}
+    assert net["given"]["hotari roni"] == {"aki vehtari": 1}
 
 # --- defense ----------------------------------------------------------------
 def test_defense_is_a_fact_about_the_point_not_the_team():

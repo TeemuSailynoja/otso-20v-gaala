@@ -161,7 +161,8 @@ def test_focus_predicate_covers_every_squad_name():
     """
     for name in ("Otso", "Otso 2", "Otso Grizzly", "Otso Polar", "Otso Hukka", "Karhuvaarit"):
         assert FOCUS.matches(name), name
-    assert not FOCUS.matches("Otso Akatemia")
+    # the club's own development squad is a squad of the club; another club's is not
+    assert FOCUS.matches("Otso Akatemia")
     assert not FOCUS.matches("UFO Akatemia")
     assert FOCUS.is_akatemia("Otso Akatemia")
     assert not FOCUS.is_akatemia("UFO Akatemia")
