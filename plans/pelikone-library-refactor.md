@@ -424,10 +424,10 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
       this plan was drafted) and every unresolved name is listed, not dropped.
 - [x] **Phase 10 — contract.** `manifest.json` + `schema.json`; validate in Python (build) and JS
       (load); remove the `BUILD_VERSION` comment stamp.
-- [ ] **Phase 11 — split the page.** `index.html` → shell + `css/` + `js/` ES modules, one page per
+- [x] **Phase 11 — split the page.** `index.html` → shell + `css/` + `js/` ES modules, one page per
       module, hand-rolled canvas behind `js/charts/`, ID-keyed lookups, name → id redirect.
       **No visual redesign.** Gate: rendered site diffed against the deployed version, page by page.
-- [ ] **Phase 12 — frontend tests.** `node --test` on the pure modules (`identity`, `format`,
+- [x] **Phase 12 — frontend tests.** `node --test` on the pure modules (`identity`, `format`,
       category math, highlight badges) + a Python test that every `site_data` file satisfies
       `schema.json`.
 - [ ] **Phase 13 — split (later).** `git filter-repo` the package into `~/repos/ultiorg`, gala
