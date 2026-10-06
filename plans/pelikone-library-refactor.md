@@ -430,7 +430,7 @@ load for 2 charts (the other visuals are already hand-rolled canvas).
 - [x] **Phase 12 — frontend tests.** `node --test` on the pure modules (`identity`, `format`,
       category math, highlight badges) + a Python test that every `site_data` file satisfies
       `schema.json`.
-- [ ] **Phase 13 — split (later).** `git filter-repo` the package into `~/repos/ultiorg`, gala
+- [x] **Phase 13 — split (later).** `git filter-repo` the package into `~/repos/ultiorg`, gala
       depends on it by path/git.
 
 ## Verification
