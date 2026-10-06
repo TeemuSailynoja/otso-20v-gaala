@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "36b4dd1b1625",
+  "version": "275276d151cc",
   "files": [
     {
       "name": "cooccurrence.json",
@@ -34,7 +34,7 @@
     },
     {
       "name": "summary.json",
-      "bytes": 9196,
+      "bytes": 9246,
       "fetched_by_page": true
     },
     {

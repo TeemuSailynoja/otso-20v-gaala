@@ -1,23 +1,30 @@
 // One player: career, defense, the pass network, the teammates.
+//
+// The route param is a site key. Every name printed here comes from
+// nameFor(); every lookup into players / pass_network / cooccurrence uses the
+// key, because those maps are keyed by person, not by spelling.
 
-import { canonicalKey, getEraInfo, statBars } from '../format.js';
+import { getEraInfo, statBars } from '../format.js';
+import { nameFor } from '../people.js';
 import { DATA } from '../state.js';
 
 // ==================== PLAYER DETAIL ====================
-export function renderPlayerDetail(name) {
-    const p = DATA.players[name];
+export function renderPlayerDetail(key) {
+    const p = DATA.players[key];
     if (!p) {
         document.getElementById('player-detail').innerHTML = '<p>Player not found.</p>';
         return;
     }
 
+    const name = nameFor(key);
     const era = getEraInfo(p.first_year);
     const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2);
-    const passReceived = DATA.passNetwork.received?.[name] || {};
-    const passGiven = DATA.passNetwork.given?.[name] || {};
-    const cooc = DATA.cooccurrence[name] || {};
+    const passReceived = DATA.passNetwork.received?.[key] || {};
+    const passGiven = DATA.passNetwork.given?.[key] || {};
+    const cooc = DATA.cooccurrence[key] || {};
 
     // Top 3 only — three bars make a claim ("these are the people"), ten is a dump.
+    // The rows stay keyed by person; statBars prints the names and links by key.
     const topReceived = Object.entries(passReceived).sort((a, b) => b[1] - a[1]).slice(0, 3);
     // Top assists given to
     const topGiven = Object.entries(passGiven).sort((a, b) => b[1] - a[1]).slice(0, 3);
@@ -72,13 +79,13 @@ export function renderPlayerDetail(name) {
             <div class="charts-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                 ${topReceived.length > 0 ? `
                 <div class="chart-card">
-                    <h3>Assists Received From</h3>
+                    <h3>Assists From</h3>
                     ${statBars(topReceived, cc.received, cc.receivedBorder)}
                 </div>
                 ` : ''}
                 ${topGiven.length > 0 ? `
                 <div class="chart-card">
-                    <h3>Assists Given To</h3>
+                    <h3>Assists To</h3>
                     ${statBars(topGiven, cc.given, cc.givenBorder)}
                 </div>
                 ` : ''}
@@ -98,15 +105,4 @@ export function renderPlayerDetail(name) {
 document.getElementById('player-back').addEventListener('click', () => {
     location.hash = '#/players';
 });
-
-
-let _playerByCanon = null;
-
-export function playerByCanon() {
-    if (!_playerByCanon) {
-        _playerByCanon = {};
-        for (const name in DATA.players) _playerByCanon[canonicalKey(name)] = name;
-    }
-    return _playerByCanon;
-}
 

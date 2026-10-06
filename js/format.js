@@ -1,6 +1,7 @@
 // Formatting with no DOM and no data: era colours, stat bars, medals,
-// season words, the canonical name key, the seeded RNG.
+// season words, the seeded RNG.
 
+import { nameFor } from './people.js';
 import { DATA } from './state.js';
 
 // ==================== ERA THEMING ====================
@@ -123,13 +124,18 @@ export function getEraInfo(firstYear) {
 
 // Bars are plain DOM: the full name sits under its own bar, which an axis
 // label can never promise. Width is relative to the leader of the set.
+//
+// `who` is a site key. The link needs the key (that is what the route takes)
+// and the label needs the name, so the translation happens here rather than in
+// the caller — a caller that pre-named its rows would silently lose the link.
 export function statBars(rows, fill, border) {
     const max = rows.length ? rows[0][1] : 0;
     return `<div class="stat-bars">${rows.map(([who, count]) => {
             const pct = max > 0 ? Math.max(6, Math.round(count / max * 100)) : 0;
+            const label = nameFor(who);
             const name = DATA.players[who]
-                ? `<a class="stat-bar-name" href="#/player/${encodeURIComponent(who)}">${who}</a>`
-                : `<span class="stat-bar-name">${who}</span>`;
+                ? `<a class="stat-bar-name" href="#/player/${encodeURIComponent(who)}">${label}</a>`
+                : `<span class="stat-bar-name">${label}</span>`;
             return `<div class="stat-bar-row">
                     <div class="stat-bar-track">
                         <div class="stat-bar-fill" style="width: ${pct}%; background: ${fill}; border-color: ${border};"></div>
@@ -142,7 +148,6 @@ export function statBars(rows, fill, border) {
 
 
 export const MEDAL_EMOJI = { gold: '🥇', silver: '🥈', bronze: '🥉' };
-
 export const SEASON_LABEL = { summer: 'Kesä', winter: 'Talvi' };
 
 
@@ -159,10 +164,4 @@ export function mulberry32(seed) {
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
 }
-
-
-// roster_names are canonicalized in the build (sorted lowercase parts, e.g.
-// "hotari roni"), so resolve them back to the display keys of players.json.
-export const canonicalKey = name =>
-    name.split(/\s+/).filter(Boolean).map(p => p.toLowerCase()).sort().join(' ');
 

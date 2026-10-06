@@ -5,6 +5,7 @@ import { renderHome } from './pages/home.js';
 import { renderPlayerDetail } from './pages/player.js';
 import { renderPlayers } from './pages/players.js';
 import { renderTimeline } from './timeline.js';
+import { resolvePlayerKey } from './people.js';
 import { hudCloud } from './timeline/cloud.js';
 import { resetHudYear } from './timeline/hud.js';
 
@@ -33,9 +34,19 @@ export function navigate() {
         document.getElementById('page-players').classList.add('active');
         renderPlayers();
     } else if (page === 'player') {
-        const playerName = decodeURIComponent(parts.slice(2).join('/'));
+        const param = decodeURIComponent(parts.slice(2).join('/'));
+        const key = resolvePlayerKey(param);
+        if (key && key !== param) {
+            // An old bookmark, a printed QR code, a typed name: the address
+            // carries a name where a key belongs. Rewrite it once and let the
+            // hashchange re-enter with the key, so the URL, the QR code and the
+            // back button all end up saying the same thing. Guarded by
+            // key !== param, so this cannot loop.
+            location.hash = `#/player/${encodeURIComponent(key)}`;
+            return;
+        }
         document.getElementById('page-player').classList.add('active');
-        renderPlayerDetail(playerName);
+        renderPlayerDetail(key || param);
     } else if (page === 'frenemies') {
         document.getElementById('page-frenemies').classList.add('active');
         renderFrenemies();

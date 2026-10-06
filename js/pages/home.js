@@ -1,5 +1,11 @@
 // The home page: the summary numbers and every category board.
+//
+// Every player reference on this page is a site key: it indexes players.json,
+// pass_network.json and cooccurrence.json, and it goes into data-player so the
+// click can route by key. A name appears only where a human reads one, and it
+// comes from nameFor().
 
+import { nameFor } from '../people.js';
 import { DATA } from '../state.js';
 
 // ==================== HOME PAGE ====================
@@ -32,12 +38,6 @@ function renderCategories() {
     console.log('given:', Object.keys(given).length, 'received:', Object.keys(received).length);
     if (!document.getElementById('categories-scroll')) return;
 
-    // Helper: normalize name
-    function normalize(name) {
-        if (!name || !(name in players)) return name;
-        return name;
-    }
-
     // Helper: get rank class
     function rankClass(i) {
         return i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze';
@@ -45,25 +45,23 @@ function renderCategories() {
 
     // Helper: render a player row
     function playerRow(rank, name, stat, highlight) {
-        const n = normalize(name);
-        const click = n in players ? `data-player="${n}"` : '';
+        const click = name in players ? `data-player="${name}"` : '';
         return `<div class="category-player" ${click}>
                 <span class="category-rank ${rankClass(rank)}">${rank + 1}</span>
-                <span class="category-player-name">${n}</span>
+                <span class="category-player-name">${nameFor(name)}</span>
                 <span class="category-player-stat ${highlight ? 'highlight' : ''}">${stat}</span>
             </div>`;
     }
 
     // Helper: render a pair row
     function pairRow(rank, name1, name2, stat1, stat2) {
-        const n1 = normalize(name1), n2 = normalize(name2);
-        const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
+        const click = (name1 in players && name2 in players) ? `data-player1="${name1}" data-player2="${name2}"` : '';
         return `<div class="category-player" ${click}>
                 <span class="category-rank ${rankClass(rank)}">${rank + 1}</span>
                 <span class="category-pair">
-                    <span class="category-player-name">${n1}</span>
+                    <span class="category-player-name">${nameFor(name1)}</span>
                     <span class="category-pair-arrow">↔</span>
-                    <span class="category-player-name">${n2}</span>
+                    <span class="category-player-name">${nameFor(name2)}</span>
                 </span>
                 <span class="category-player-stat highlight">${stat1} + ${stat2}%</span>
             </div>`;
@@ -74,11 +72,10 @@ function renderCategories() {
     function categoryTableHtml(cat) {
         const head = cat.columns.map(c => `<th>${c}</th>`).join('');
         const body = cat.rows.map((r, i) => {
-            const n = normalize(r.name);
-            const click = n in players ? `data-player="${n}"` : '';
+            const click = r.name in players ? `data-player="${r.name}"` : '';
             const mark = r.mark ? `<span class="cat-mark">${r.mark}</span>` : '';
             return `<tr class="category-tr" ${click}>
-                    <td class="cat-td-name"><span class="category-rank ${rankClass(i)}">${i + 1}</span>${r.label || n}${mark}</td>
+                    <td class="cat-td-name"><span class="category-rank ${rankClass(i)}">${i + 1}</span>${r.label || nameFor(r.name)}${mark}</td>
                     ${r.cells.map(c => `<td class="cat-td-num">${c}</td>`).join('')}
                 </tr>`;
         }).join('');
@@ -113,10 +110,9 @@ function renderCategories() {
         const lo = 2006, hi = 2026;
         const pct = (y) => (y - lo) / (hi - lo) * 100;
         return `<div class="gap-list">${cat.data.map(p => {
-                const n = normalize(p.name);
-                const click = n in players ? `data-player="${n}"` : '';
+                const click = p.name in players ? `data-player="${p.name}"` : '';
                 return `<div class="gap-row" ${click}>
-                    <div class="gap-name">${n}</div>
+                    <div class="gap-name">${nameFor(p.name)}</div>
                     <div class="gap-track">
                         <span class="gap-span" style="left:${pct(p.before).toFixed(2)}%;width:${(pct(p.after) - pct(p.before)).toFixed(2)}%"></span>
                         <span class="gap-dot before" style="left:${pct(p.before).toFixed(2)}%"></span>
@@ -149,10 +145,13 @@ function renderCategories() {
     function runsThrough(target) {
         return Object.keys(given).filter(p => topTarget(p) === target);
     }
-    function firstName(n) { return String(n).split(' ')[0]; }
-    function initials(n) {
-        const parts = String(n).split(' ');
-        return parts.length > 1 ? parts[0].charAt(0) + '. ' + parts.slice(1).join(' ') : n;
+    // Both take a site key and speak in names: every prose slot on these slides
+    // is a person, and the key is only ever a lookup.
+    function firstName(key) { return nameFor(key).split(' ')[0]; }
+    function initials(key) {
+        const name = nameFor(key);
+        const parts = name.split(' ');
+        return parts.length > 1 ? parts[0].charAt(0) + '. ' + parts.slice(1).join(' ') : name;
     }
 
     // ===== THE TRIANGLE renderer. Three nodes, edge stroke width proportional to the
@@ -175,7 +174,7 @@ function renderCategories() {
             const click = n in players ? `data-player="${n}"` : '';
             const ly = i === 0 ? p[1] - 18 : p[1] + 26;
             return `<g class="trio-node" ${click}><circle cx="${p[0]}" cy="${p[1]}" r="7"></circle>` +
-                `<text class="trio-name" x="${p[0]}" y="${ly}" text-anchor="middle">${n}</text></g>`;
+                `<text class="trio-name" x="${p[0]}" y="${ly}" text-anchor="middle">${nameFor(n)}</text></g>`;
         }).join('');
         const spans = t.edges.map(e => {
             const s = pairSpan(e.a, e.b);
@@ -183,7 +182,7 @@ function renderCategories() {
             return `${initials(e.a)}–${initials(e.b)} ${e.w} (${range})`;
         });
         const runner = cat.runnerUp;
-        return `<svg class="trio-svg" viewBox="0 0 300 210" role="img" aria-label="${t.names.join(', ')}">${edges}${nodes}</svg>
+        return `<svg class="trio-svg" viewBox="0 0 300 210" role="img" aria-label="${t.names.map(nameFor).join(', ')}">${edges}${nodes}</svg>
                 <div class="trio-caption">Edge weight = games on the same roster.<br>${spans.join(' · ')}<br>` +
             `Next trio: ${runner ? runner.names.map(initials).join(', ') + ' — ' + runner.score : '—'}.</div>`;
     }
@@ -205,7 +204,7 @@ function renderCategories() {
             const ticks = years.map(y => `<span class="duo-tick" style="left:${pct(y).toFixed(2)}%"></span>`).join('');
             const click = name in players ? `data-player="${name}"` : '';
             return `<div class="duo-lane" ${click}>
-                    <div class="duo-lane-name">${name}</div>
+                    <div class="duo-lane-name">${nameFor(name)}</div>
                     <div class="duo-track">${shade}${ticks}</div>
                 </div>`;
         };
@@ -219,20 +218,20 @@ function renderCategories() {
         ].map(s => `<div class="duo-stat"><div class="duo-stat-value">${s.v}</div><div class="duo-stat-label">${s.l}</div></div>`).join('');
         const ch = cat.chain;
         const chainLine = ch
-            ? `${ch.from} → ${ch.mid} → ${ch.end} (${ch.w1} + ${ch.w2}) is the heaviest chain of #1 targets in the data. `
+            ? `${nameFor(ch.from)} → ${nameFor(ch.mid)} → ${nameFor(ch.end)} (${ch.w1} + ${ch.w2}) is the heaviest chain of #1 targets in the data. `
             : '';
         const spokeTxt = cat.spokeFeeds.length === 0
-            ? `nobody's #1 target is ${cat.spoke} — he is the source of this link, not its hub`
+            ? `nobody's #1 target is ${nameFor(cat.spoke)} — he is the source of this link, not its hub`
             : cat.spokeFeeds.length === 1
-                ? `the only player whose #1 target is ${cat.spoke} is ${cat.spokeFeeds[0]}`
-                : `${cat.spokeFeeds.length} players — ${cat.spokeFeeds.map(firstName).join(', ')} — have ${cat.spoke} as theirs`;
-        const traffic = `${cat.hubFeeds.length} players run their offense through ${cat.hub}; ${spokeTxt}.`;
+                ? `the only player whose #1 target is ${nameFor(cat.spoke)} is ${nameFor(cat.spokeFeeds[0])}`
+                : `${cat.spokeFeeds.length} players — ${cat.spokeFeeds.map(firstName).join(', ')} — have ${nameFor(cat.spoke)} as theirs`;
+        const traffic = `${cat.hubFeeds.length} players run their offense through ${nameFor(cat.hub)}; ${spokeTxt}.`;
         const others = (cat.others || []).map(p =>
-            `${p.name1} → ${p.name2} · ${p.weight} assists, ${p.games} games`);
+            `${nameFor(p.name1)} → ${nameFor(p.name2)} · ${p.weight} assists, ${p.games} games`);
         const othersLine = (cat.others || []).length
             ? `<div class="duo-foot">True of ${cat.totalLinks} links in all; the next ${cat.others.length}: ${others.join(' · ')}.</div>`
             : '';
-        return `<div class="duo-names"><span class="duo-name" ${c1}>${d.name1}</span><span class="duo-vs">→</span><span class="duo-name" ${c2}>${d.name2}</span></div>
+        return `<div class="duo-names"><span class="duo-name" ${c1}>${nameFor(d.name1)}</span><span class="duo-vs">→</span><span class="duo-name" ${c2}>${nameFor(d.name2)}</span></div>
                 <div class="duo-stats">${stats}</div>
                 <div class="duo-lanes">${lane(d.name1)}${lane(d.name2)}
                     <div class="duo-axis"><span>${lo}</span><span>${hi}</span></div>
@@ -300,7 +299,15 @@ function renderCategories() {
                 ];
                 if (edges.some(e => !e.w)) continue;
                 triangles.push({
-                    names: [a, b, c].sort(),
+                    // Two different sorts, on purpose. The dedup key above sorts
+                    // keys and does not care what they are. This one decides
+                    // which name sits at the top vertex of the triangle, so it
+                    // sorts the names a reader sees — sorting the keys here was
+                    // alphabetical only while the keys happened to be names.
+                    names: [a, b, c].sort((x, y) => {
+                        const nx = nameFor(x), ny = nameFor(y);
+                        return nx < ny ? -1 : nx > ny ? 1 : 0;
+                    }),
                     edges,
                     score: edges.reduce((s, e) => s + e.w, 0),
                 });
@@ -530,14 +537,13 @@ function renderCategories() {
     scrollContainer.innerHTML = categories.map((cat, idx) => {
         const rows = (cat.type === 'chart' || cat.type === 'table' || cat.type === 'gaps' || cat.type === 'split' || cat.type === 'trio' || cat.type === 'duo') ? '' : cat.data.map((p, rowIdx) => {
             if (cat.type === 'pair') {
-                const n1 = normalize(p.name1), n2 = normalize(p.name2);
-                const click = (n1 in players && n2 in players) ? `data-player1="${n1}" data-player2="${n2}"` : '';
+                const click = (p.name1 in players && p.name2 in players) ? `data-player1="${p.name1}" data-player2="${p.name2}"` : '';
                 return `<div class="category-row" ${click}>
                         <span class="category-rank ${rowIdx === 0 ? 'gold' : rowIdx === 1 ? 'silver' : 'bronze'}">${rowIdx + 1}</span>
                         <span class="category-pair">
-                            <span class="category-player-name">${n1}</span>
+                            <span class="category-player-name">${nameFor(p.name1)}</span>
                             <span class="category-pair-arrow">↔</span>
-                            <span class="category-player-name">${n2}</span>
+                            <span class="category-player-name">${nameFor(p.name2)}</span>
                         </span>
                         <span class="category-player-stat highlight">${p.pct1}% + ${p.pct2}%</span>
                     </div>`;

@@ -273,7 +273,7 @@ def build_summary(players: dict, pass_network: dict, cooccurrence: dict,
     ]
     longest_careers = [
         {"id": n, "name": named(n), "seasons": p["season_count"],
-         "years": f"{p['first_year']}-{p['last_year']}", "games": p["games"]}
+         "year_range": f"{p['first_year']}-{p['last_year']}", "games": p["games"]}
         for n, p in sorted(players.items(), key=lambda x: x[1]["season_count"], reverse=True)[:10]
     ]
     most_connected = [

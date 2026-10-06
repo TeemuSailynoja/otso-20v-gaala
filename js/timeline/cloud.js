@@ -3,7 +3,6 @@
 // depends on that.
 
 import { getEraInfo, mulberry32 } from '../format.js';
-import { playerByCanon } from '../pages/player.js';
 import { DATA } from '../state.js';
 import { hudChart, renderTimelineHud } from './hud.js';
 
@@ -94,8 +93,8 @@ function createTeamCloud(canvas) {
         separate(live, band, new Set(live));
     }
 
-    function colorFor(display) {
-        const p = DATA.players[display];
+    function colorFor(key) {
+        const p = DATA.players[key];
         // Era colours are jersey-dark (Founders #a04a5a); on the navy background
         // they vanish, so lift them toward white before plotting.
         const base = p && p.first_year ? getEraInfo(p.first_year).statColors.goals : '#8a9bae';
@@ -156,8 +155,12 @@ function createTeamCloud(canvas) {
         const band = activeBand();
         if (band.width <= 0 || band.height <= 0) return;
 
-        const idx = playerByCanon();
-        const roster = ((DATA.years[key] && DATA.years[key].roster_names) || []);
+        // The roster is a list of site keys, which is what players.json is keyed
+        // by — no name round trip. Note that a dot's slot and radius are hashed
+        // from this key, so re-keying the data reshuffles which dot sits where;
+        // the rule (deterministic per year, arrivals stagger, incumbents keep
+        // their slot) is unchanged.
+        const roster = ((DATA.years[key] && DATA.years[key].roster) || []);
         const inRoster = new Set(roster);
 
         for (const p of particles) {
@@ -170,13 +173,12 @@ function createTeamCloud(canvas) {
         const rng = mulberry32(parseInt(key, 10) || 1);
         const present = new Set(live.map(p => p.key));
         const fresh = new Set();
-        for (const name of roster) {
-            if (present.has(name)) continue;
-            const display = idx[name] || name;
+        for (const playerKey of roster) {
+            if (present.has(playerKey)) continue;
             const p = {
-                key: name,
-                color: colorFor(display),
-                r: radiusFor(name),
+                key: playerKey,
+                color: colorFor(playerKey),
+                r: radiusFor(playerKey),
                 x: w + 10,
                 y: 0,
                 tx: 0, ty: 0,

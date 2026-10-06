@@ -141,7 +141,7 @@
               "name": "str",
               "games": "int",
               "seasons": "int",
-              "years": "str"
+              "year_range": "str"
             }
           }
         },

@@ -14,7 +14,8 @@ Interactive visualization for the 20th anniversary of Otso Ultimate Frisbee club
 - **Static site**: `index.html` is a shell — markup, the route containers, one module script.
   The rendering lives in `js/` as ES modules the browser loads directly: no bundler, no build
   step, so GitHub Pages serves exactly the files in this repo (client-side hash routing:
-  `#/`, `#/players`, `#/player/Name`, `#/timeline`, `#/frenemies`)
+  `#/`, `#/players`, `#/player/<player-id>`, `#/timeline`, `#/frenemies`; a `#/player/Name`
+  URL from an old bookmark or QR code resolves to the id and the address is rewritten)
 - **Charts**: Chart.js 4 (loaded from CDN)
 - **Styling**: CSS Grid/Flexbox, CSS custom properties, dark theme
 - **Data processing**: Python 3.12+ (`build_site_data.py`)
@@ -35,8 +36,9 @@ js/                 — ES modules the page imports, no build step:
   router.js         — which page is active, and what renders for it
   data.js           — fetches through the manifest, validates against the schema, hands the page DATA
   contract.js       — the browser half of the shape check (pure; also runnable under node)
+  people.js         — the decoder: key -> name, and a name in a URL -> key
   check_load.mjs    — the same loader under node, with fetch() reading the files on disk
-  format.js         — era colours, stat bars, medals, season words, the canonical name key
+  format.js         — era colours, stat bars, medals, season words, the seeded RNG
   badges.js         — highlight badges and the season stories they quote
   qr.js             — the `?qr` badge and overlay
   pages/            — home, players, player detail, frenemies
@@ -164,9 +166,12 @@ fails with a banner naming the file and the field instead of rendering an empty 
 language is deliberately tiny and implemented twice — `site_contract.py` and `js/contract.js` —
 and `tests/test_contract.py` runs both over the built files so they cannot drift.
 
-The page still looks players up by display name. `js/data.js` re-expands the id-keyed maps with
-`names.json` before rendering — a labelled stopgap that Phase 11 removes when the SPA itself moves
-to id lookups.
+Everything the page knows about a person is keyed by that person's site key, not by their name —
+pelikone mints a new id per registration, so a name is not a stable key and one person arrives
+under many of them. `js/people.js` is the only module that reads `names.json`: `nameFor(key)` for
+the two places a name gets printed, `resolvePlayerKey(param)` for the one place a name arrives
+from a URL. A route param that is not a key is rewritten to its key once, so an old bookmark or a
+printed QR code lands on the same page and leaves a canonical address behind.
 
 ## Repairs
 
@@ -199,11 +204,16 @@ cd .. && python -m http.server 8000
 # Visit http://localhost:8000/otso-20v-gaala/
 ```
 
-`tools/render_gate.sh <outdir>` does that for you and dumps the rendered DOM of seven routes with
+`tools/render_gate.sh <outdir>` does that for you and dumps the rendered DOM of eight routes with
 headless Chromium; `tools/dump_diff.py A B` compares two dumps with the `<style>`/`<script>`
 elements reduced to their attributes. That pair is the Phase 11 gate: a refactor of the frontend
 is only proven not to have changed the page if the rendered DOM is byte-identical, because the
 page is built at runtime and no Python test can see it.
+
+The eight routes are not seven pages: `#/player/Roni%20Hotari` and `#/player/6890` are the same
+person reached two ways — a name from an old QR code, which the router rewrites to the key, and
+the key every link now writes. Their dumps are byte-identical, which is the redirect proved from
+outside the code.
 
 ## GitHub Pages Deployment
 
@@ -220,8 +230,11 @@ few metres away:
 
 ```
 https://<username>.github.io/otso-20v-gaala/?qr
-https://<username>.github.io/otso-20v-gaala/?qr#/player/Roni%20Hotari
+https://<username>.github.io/otso-20v-gaala/?qr#/player/6890
 ```
+
+The id form is what the page links to now; `#/player/Roni%20Hotari` still works and redirects to
+the id, which is how the codes printed for the 2024 gaala keep working.
 
 The code is a corner card, so the page and its carousel stay usable; clicking it opens the
 full-size version (`?qr=full` opens that directly). It is hidden below 760px viewport width — a

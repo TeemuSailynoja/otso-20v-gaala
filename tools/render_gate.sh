@@ -38,8 +38,8 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # route -> the page div that must be active in the rendered DOM
 ROUTES=('#/' '#/players' '#/player/Roni%20Hotari' '#/player/Simo%20Soini'
-        '#/player/NoSuch%20Person' '#/frenemies' '#/timeline')
-PAGES=(home players player player player frenemies timeline)
+        '#/player/NoSuch%20Person' '#/frenemies' '#/timeline' '#/player/6890')
+PAGES=(home players player player player frenemies timeline player)
 # What each route must contain, and how many times. The active-page check proves the
 # router ran; it does not prove the data arrived — a page can go active and render an
 # empty container, which after the module split is exactly how a failed import or a
@@ -50,12 +50,15 @@ PAGES=(home players player player player frenemies timeline)
 # the player route's floor is 10 and not the 25 the pre-split dumps appeared to have.
 MARKERS=('class="category-slide|10' 'class="player-card|400' 'class="player-|10'
          'class="player-|10' 'Player not found.|1' 'class="frenemy|100'
-         'class="year-block|20')
+         'class="year-block|20' 'class="player-|10')
 
 # Route list note: `#/player/...` covers a long career, a short one, and a name
-# that is not in the table, so the not-found branch is in the gate. After the id
-# re-key a bare id route joins it, and the name routes keep their place because
-# old QR codes and bookmarks use them.
+# that is not in the table, so the not-found branch is in the gate. The id route
+# (6890 = Roni Hotari) is the canonical form every link on the page now writes;
+# the name routes stay because old QR codes and bookmarks use them, and the gate
+# compares route08 against route03 — a name URL that redirects and a key URL
+# that does not must end up rendering the same DOM, which is the redirect proved
+# from the outside.
 mkdir -p "$OUT"
 cd "$HERE"
 

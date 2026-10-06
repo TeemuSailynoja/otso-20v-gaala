@@ -284,11 +284,17 @@ def test_the_page_actually_loads():
     """js/data.js, end to end, with fetch() reading the files on disk.
 
     This is the part a schema check cannot prove: that the manifest, the schema
-    and the loader agree on names, and that the id-keyed views still come back
-    with printable names attached.
+    and the loader agree on names, and that every key the page can reach comes
+    back with a printable name attached. The check_load script itself fails if a
+    key is unnameable or the decoder cannot resolve a name, so the return code is
+    the assertion; the lines below pin that the id-keyed world is what loaded.
     """
     out = subprocess.run([node, "js/check_load.mjs"], cwd=ROOT,
                          capture_output=True, text=True)
     assert out.returncode == 0, out.stderr
-    assert "roster_names present: true" in out.stdout
+    assert "rosters are key lists: true" in out.stdout
+    # js/people.js is the page's only decoder: a name in a URL becomes a key, the
+    # folded spelling resolves to the same key, and the key prints a name.
+    assert '"6890" -> Roni Hotari' in out.stdout
+    assert 'folded: "6890"' in out.stdout
     assert "Error" not in out.stdout

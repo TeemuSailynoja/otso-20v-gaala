@@ -114,11 +114,12 @@ SHAPE: Dict[str, Any] = {
         top_scorers=lst(_PLAYER_BRIEF), top_assists=lst(_PLAYER_BRIEF),
         longest_careers=lst(obj(id=STR, name=STR, games=INT, seasons=INT,
                                 # A display range — "2007-2026" — not a year list.
-                                # `players.json.years` is a list of ints and this
-                                # is a string: the same word meaning two things in
-                                # one directory. Left as-is because the page reads
-                                # it; Phase 11 renames it to `year_range`.
-                                years=STR)),
+                                # It used to be called `years`, the same word
+                                # `players.json` uses for a list of ints: two
+                                # meanings in one directory. Renamed in Phase 11;
+                                # nothing in the page read the old name, which is
+                                # how the contract found it worth naming.
+                                year_range=STR)),
         most_connected=lst(obj(id=STR, name=STR, connections=INT)),
         most_teammates=lst(obj(id=STR, name=STR, teammates=INT)),
         goals_per_match=lst(obj(id=STR, name=STR, games=INT,

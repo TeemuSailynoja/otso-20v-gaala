@@ -73,30 +73,11 @@ export async function loadSiteData() {
     };
     DATA.years = DATA.yearsOtso; // Default to Otso full year
 
-    // TEMPORARY (Phase 9): site_data is keyed by player id, because a name is
-    // not a stable key — pelikone mints a new id per registration, and one
-    // person can be spelled two ways. names.json maps every key back to a
-    // printable name. The page still looks players up by display name, so the
-    // id-keyed maps are re-expanded here and nothing else changes. Phase 11
-    // moves the lookups to ids and deletes this block.
-    const names = DATA.names;
-    const named = (key) => names[key] || key;
-    const renameOuter = (map) => Object.fromEntries(
-        Object.entries(map).map(([k, v]) => [named(k), v]));
-    const renameBoth = (map) => Object.fromEntries(
-        Object.entries(map).map(([k, v]) => [named(k), renameOuter(v)]));
-    DATA.players = renameOuter(DATA.players);
-    DATA.passNetwork = {
-        received: renameBoth(DATA.passNetwork.received),
-        given: renameBoth(DATA.passNetwork.given),
-    };
-    DATA.cooccurrence = renameBoth(DATA.cooccurrence);
-    // Same stopgap: the year rosters are id lists; the page wants names.
-    for (const years of [DATA.yearsOtso, DATA.yearsOtsoSummer, DATA.yearsOtsoWinter]) {
-        for (const row of Object.values(years)) {
-            if (row.roster) row.roster_names = row.roster.map(named);
-        }
-    }
-
+    // No name re-expansion here. site_data/ is keyed by person id, and the page
+    // looks players up by id: js/people.js is the only thing that turns a key
+    // back into a name, and the router resolves a name in the URL into a key.
+    // The Phase 9 stopgap that rebuilt name-keyed maps here is gone — it kept
+    // the page's lookups on a key that is not stable across seasons, which is
+    // the thing the re-keying was for.
     return DATA;
 }
