@@ -91,8 +91,10 @@ repos/
 
 `pyproject.toml` depends on it by path (`[tool.uv.sources] ultiorg = { path = "../ultiorg" }`), so
 `uv sync` installs it from the sibling checkout and an edit there is live here immediately — which
-is what the site restructure needs while both halves move. Once the library has a remote, the git
-form is the one to ship: `ultiorg = { git = "…", tag = "v0.1.0" }`.
+is what the site restructure needs while both halves move. The library also has a remote, so the git
+form can be pinned instead: `ultiorg = { git = "git@github.com:TeemuSailynoja/ultiorg.git", tag = "v0.1.0" }`.
+That repo is **private** today, so the git form needs your SSH key and cannot be used by a public CI
+job; the path source stays the default either way.
 
 ```bash
 uv sync                                    # installs ultiorg from ../ultiorg
